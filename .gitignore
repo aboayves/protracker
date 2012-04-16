@@ -22,3 +22,4 @@ __init__.tsv
 __init__.html
 *.pyc
 custom/modules/*/workflow
+upload/*
