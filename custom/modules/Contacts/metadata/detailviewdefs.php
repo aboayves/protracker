@@ -208,6 +208,22 @@ array (
           ),
         ),
       ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'aux_email',
+            'label' => 'LBL_AUX_EMAIL',
+          ),
+          1 => 
+          array (
+            'name' => 'aux_mail',
+            'label' => 'LBL_AUX_MAIL',
+          ),
+        ),
+      ),
       'LBL_PANEL_ASSIGNMENT' => 
       array (
         0 => 

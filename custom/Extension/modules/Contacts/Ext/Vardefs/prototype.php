@@ -58,4 +58,34 @@ $dictionary["Contact"]["fields"]["other_address_country"] = array (
     'calculated' => false,
     );
 
+$dictionary["Contact"]["fields"]["aux_mail"] = array (
+    'name' => 'aux_mail',
+    'type' => 'bool',
+    'required' => false,
+    'vname' => 'LBL_AUX_MAIL',
+    'audited' => true,
+    'reportable' => true,
+    'help' => '',
+    'comments' => '',
+    'default' => NULL,
+    'importable' => 'true',
+    'duplicate_merge' => 'disabled',
+    'duplicate_merge_dom_value' => '0',
+    );
+
+$dictionary["Contact"]["fields"]["aux_email"] = array (
+    'name' => 'aux_email',
+    'type' => 'bool',
+    'required' => false,
+    'vname' => 'LBL_AUX_EMAIL',
+    'audited' => true,
+    'reportable' => true,
+    'help' => '',
+    'comments' => '',
+    'default' => NULL,
+    'importable' => 'true',
+    'duplicate_merge' => 'disabled',
+    'duplicate_merge_dom_value' => '0',
+    );
+
 ?>
