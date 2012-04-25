@@ -1,5 +1,5 @@
 <?php
-// created: 2012-04-24 01:25:03
+// created: 2012-04-24 01:53:39
 $mod_strings = array (
   'LBL_OTHER_ADDRESS_STREET' => 'Other Address Street',
   'LBL_OTHER_ADDRESS_CITY' => 'Other Address City',
@@ -26,4 +26,6 @@ $mod_strings = array (
   'LBL_OTHER_STREET' => 'Other Street',
   'LBL_ALTERNATE_ADDRESS' => 'Work Street:',
   'LBL_ALT_STREET' => 'Work Steet',
+  'LBL_ACCOUNT_NAME' => 'Account Name:',
+  'LBL_ACCOUNT_ID' => 'Account ID:',
 );
