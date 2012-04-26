@@ -45,6 +45,7 @@ array (
             'name' => 'name',
             'label' => 'LBL_SUBJECT',
           ),
+          1 => 'team_name',
         ),
         2 => 
         array (
@@ -65,18 +66,8 @@ array (
           array (
             'name' => 'description',
             'label' => 'LBL_NOTE_STATUS',
-            'customCode' => '{$DESCRIPTION}',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'dssdn_maintenance_activities_notes_name',
-          ),
-          1 => 
-          array (
-            'name' => 'dssdn_maintenance_activities_notes_name',
+            //'customCode' => '{$DESCRIPTION}',
+            'type' => 'html',
           ),
         ),
       ),

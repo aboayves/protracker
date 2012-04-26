@@ -68,11 +68,7 @@ function deleteAttachmentCallBack(text)
               'size' => 60,
             ),
           ),
-          1 => '',
-        ),
-        2 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'filename',
             'customCode' => '<span id=\'new_attachment\' style=\'display:{if !empty($fields.filename.value)}none{/if}\'>
@@ -84,7 +80,10 @@ function deleteAttachmentCallBack(text)
 											 <input type=\'button\' class=\'button\' value=\'{$APP.LBL_REMOVE}\' onclick=\'ajaxStatus.showStatus(SUGAR.language.get("Notes", "LBL_REMOVING_ATTACHMENT"));this.form.deleteAttachment.value=1;this.form.action.value="EditView";SUGAR.dashlets.postForm(this.form, deleteAttachmentCallBack);this.form.deleteAttachment.value=0;this.form.action.value="";\' >       
 											 </span>',
           ),
-          1 => 
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'portal_flag',
             'displayParams' => 
@@ -101,6 +100,10 @@ function deleteAttachmentCallBack(text)
 											  <input type="hidden" name="{$fields.portal_flag.name}" value="0"> 
 											  <input type="checkbox" name="{$fields.portal_flag.name}" value="1" tabindex="1" {$checked}>
 					        		          {/if}',
+          ),
+          1 => 
+          array (
+            'name' => 'team_name',
           ),
         ),
         3 => 
@@ -122,17 +125,6 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 </script>
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
             'label' => 'LBL_NOTE_STATUS',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'dssdn_maintenance_activities_notes_name',
-          ),
-          1 => 
-          array (
-            'name' => 'dssdn_maintenance_activities_notes_name',
           ),
         ),
       ),
