@@ -21,3 +21,9 @@ $GLOBALS['app_list_strings']['relationship_type_list']=array (
   'employee' => 'Employee',
   'personal' => 'Personal',
 );
+
+$GLOBALS['app_list_strings']['dependent_dropdown_list']=array (
+  'val1' => 'Checkbox',
+  'val2' => 'Text Field',
+  '' => '',
+);
