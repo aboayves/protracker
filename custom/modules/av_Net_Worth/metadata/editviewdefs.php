@@ -1,5 +1,5 @@
 <?php
-$module_name = 'av_Accounts';
+$module_name = 'av_Net_Worth';
 $viewdefs [$module_name] = 
 array (
   'EditView' => 
@@ -36,46 +36,22 @@ array (
         array (
           0 => 
           array (
-            'name' => 'dependent_dropdown',
-            'label' => 'LBL_DEPENDENT_DROPDOWN',
-          ),
-          1 => 
-          array (
-            'name' => 'value',
-            'label' => 'LBL_VALUE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'dependent_bool',
-            'label' => 'LBL_DEPENDENT_BOOL',
-          ),
-          1 => 
-          array (
-            'name' => 'dependent_varchar',
-            'label' => 'LBL_DEPENDENT_VARCHAR',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
             'name' => 'team_name',
             'displayParams' => 
             array (
               'display' => true,
             ),
           ),
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'av_net_worth_av_accounts_name',
+            'name' => 'grand_total',
+            'label' => 'LBL_GRAND_TOTAL',
           ),
+        ),
+        2 => 
+        array (
+          0 => 'description',
+          1 => '',
         ),
       ),
     ),
