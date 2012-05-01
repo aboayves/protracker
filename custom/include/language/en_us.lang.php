@@ -29,3 +29,15 @@ $GLOBALS['app_list_strings']['dependent_dropdown_list']=array (
   'val1' => 'Checkbox',
   'val2' => 'Text Field',
 );
+$GLOBALS['app_list_strings']['dd1_list']=array (
+  'sample1' => 'Open',
+  'sample2' => 'Pending',
+  'sample3' => 'Date Closed',
+  'sample4' => 'Sample4',
+);
+$GLOBALS['app_list_strings']['dd2_list']=array (
+  'sample5' => 'Ready to Start',
+  'sample6' => '[Pending]',
+  'sample7' => 'Date Closed',
+  'sample8' => 'Sample8',
+);

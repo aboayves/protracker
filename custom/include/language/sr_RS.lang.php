@@ -27,3 +27,15 @@ $GLOBALS['app_list_strings']['dependent_dropdown_list']=array (
   'val2' => 'Text Field',
   '' => '',
 );
+$GLOBALS['app_list_strings']['dd1_list']=array (
+  'sample1' => 'Sample1',
+  'sample2' => 'Sample2',
+  'sample3' => 'Sample3',
+  'sample4' => 'Sample4',
+);
+$GLOBALS['app_list_strings']['dd2_list']=array (
+  'sample5' => 'Sample5',
+  'sample6' => 'Sample6',
+  'sample7' => 'Sample7',
+  'sample8' => 'Sample8',
+);
