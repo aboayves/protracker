@@ -70,16 +70,20 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_accounts_av_account_histories_name',
-          ),
+          0 => '',
           1 => 'description',
         ),
         4 => 
         array (
           0 => 'team_name',
           1 => '',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_accounts_av_account_histories_name',
+          ),
         ),
       ),
     ),

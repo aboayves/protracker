@@ -39,3 +39,10 @@ $GLOBALS['app_list_strings']['dd2_list']=array (
   'sample7' => 'Sample7',
   'sample8' => 'Sample8',
 );
+$GLOBALS['app_list_strings']['document_category_dom']=array (
+  '' => '- üres -',
+  'Estate_Planning' => 'Estate Planning',
+  'Retirement' => 'Retirement',
+  'Insurance' => 'Insurance',
+  'Investements' => 'Investments',
+);

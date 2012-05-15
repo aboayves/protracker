@@ -41,3 +41,10 @@ $GLOBALS['app_list_strings']['dd2_list']=array (
   'sample7' => 'Date Closed',
   'sample8' => 'Sample8',
 );
+$GLOBALS['app_list_strings']['document_category_dom']=array (
+  '' => '',
+  'Estate_Planning' => 'Estate Planning',
+  'Retirement' => 'Retirement',
+  'Insurance' => 'Insurance',
+  'Investements' => 'Investments',
+);
