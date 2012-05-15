@@ -1,5 +1,4 @@
 <?php
-// created: 2012-04-16 10:23:10
 $modules_sources = array (
   'Accounts' => 
   array (
@@ -29,4 +28,5 @@ $modules_sources = array (
   array (
     'ext_rest_insideview' => 'ext_rest_insideview',
   ),
+$modules_sources = array (
 );
