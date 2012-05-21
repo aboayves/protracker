@@ -1,25 +1,25 @@
 <?php
-// created: 2012-04-25 23:02:45
-$dictionary["av_accounts_av_net_worth"] = array (
+// created: 2012-05-21 22:08:25
+$dictionary["av_net_worth_av_accounts"] = array (
   'true_relationship_type' => 'one-to-many',
   'from_studio' => false,
   'relationships' => 
   array (
-    'av_accounts_av_net_worth' => 
+    'av_net_worth_av_accounts' => 
     array (
-      'lhs_module' => 'av_Accounts',
-      'lhs_table' => 'av_accounts',
+      'lhs_module' => 'av_Net_Worth',
+      'lhs_table' => 'av_net_worth',
       'lhs_key' => 'id',
-      'rhs_module' => 'av_Net_Worth',
-      'rhs_table' => 'av_net_worth',
+      'rhs_module' => 'av_Accounts',
+      'rhs_table' => 'av_accounts',
       'rhs_key' => 'id',
-      'relationship_type' => 'one-to-many',
-      'join_table' => 'av_accounts_av_net_worth',
-      'join_key_lhs' => 'av_accounts_av_net_worth_av_accounts_ida',
-      'join_key_rhs' => 'av_accounts_av_net_worth_av_net_worth_idb',
+      'relationship_type' => 'many-to-many',
+      'join_table' => 'av_net_worth_av_accounts_c',
+      'join_key_lhs' => 'av_net_worth_av_accountsav_net_worth_ida',
+      'join_key_rhs' => 'av_net_worth_av_accountsav_accounts_idb',
     ),
   ),
-  'table' => 'av_accounts_av_net_worth',
+  'table' => 'av_net_worth_av_accounts_c',
   'fields' => 
   array (
     0 => 
@@ -43,13 +43,13 @@ $dictionary["av_accounts_av_net_worth"] = array (
     ),
     3 => 
     array (
-      'name' => 'av_accounts_av_net_worth_av_accounts_ida',
+      'name' => 'av_net_worth_av_accountsav_net_worth_ida',
       'type' => 'varchar',
       'len' => 36,
     ),
     4 => 
     array (
-      'name' => 'av_accounts_av_net_worth_av_net_worth_idb',
+      'name' => 'av_net_worth_av_accountsav_accounts_idb',
       'type' => 'varchar',
       'len' => 36,
     ),
@@ -71,7 +71,7 @@ $dictionary["av_accounts_av_net_worth"] = array (
       'type' => 'index',
       'fields' => 
       array (
-        0 => 'av_accounts_av_net_worth_av_accounts_ida',
+        0 => 'av_net_worth_av_accountsav_net_worth_ida',
       ),
     ),
     2 => 
@@ -80,7 +80,7 @@ $dictionary["av_accounts_av_net_worth"] = array (
       'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'av_accounts_av_net_worth_av_net_worth_idb',
+        0 => 'av_net_worth_av_accountsav_accounts_idb',
       ),
     ),
   ),
