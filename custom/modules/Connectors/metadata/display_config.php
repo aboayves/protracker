@@ -28,5 +28,6 @@ $modules_sources = array (
   array (
     'ext_rest_insideview' => 'ext_rest_insideview',
   ),
+);
 $modules_sources = array (
 );

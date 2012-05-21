@@ -3,7 +3,7 @@
 $layout_defs["Contacts"]["subpanel_setup"]['av_groups_contacts'] = array (
   'order' => 100,
   'module' => 'av_Groups',
-  'subpanel_name' => 'default',
+  'subpanel_name' => 'forContacts',
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_AV_GROUPS_CONTACTS_FROM_AV_GROUPS_TITLE',

@@ -3,7 +3,7 @@
 $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_accounts'] = array (
   'order' => 100,
   'module' => 'Accounts',
-  'subpanel_name' => 'default',
+  'subpanel_name' => 'forGroups',
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_AV_GROUPS_ACCOUNTS_FROM_ACCOUNTS_TITLE',

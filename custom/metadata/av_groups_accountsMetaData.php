@@ -53,6 +53,22 @@ $dictionary["av_groups_accounts"] = array (
       'type' => 'varchar',
       'len' => 36,
     ),
+    5 => 
+    array (
+      'name' => 'mail',
+      'type' => 'bool',
+      'len' => '1',
+      'default' => '0',
+      'required' => true,
+    ),
+    6 => 
+    array (
+      'name' => 'email',
+      'type' => 'bool',
+      'len' => '1',
+      'default' => '0',
+      'required' => true,
+    ),
   ),
   'indices' => 
   array (

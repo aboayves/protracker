@@ -1,4 +1,5 @@
 <?php
+// created: 2012-05-21 12:56:38
 $connectors = array (
   'ext_rest_linkedin' => 
   array (

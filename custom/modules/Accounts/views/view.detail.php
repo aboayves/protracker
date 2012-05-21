@@ -16,11 +16,12 @@ class AccountsViewDetail extends ViewDetail
                                                 2 => 'DELETE',
                                                 3 => 'FIND_DUPLICATES',
                                                 4 => 'CONNECTOR',
-                                                5 => array (
-//                                                  'customCode' => '<input title="Export to CSV" accesskey="x" class="button" onclick="javascript:window.open('."'".'export_lead.php?record='.$_GET['record']."'".');" name="exportcsv" value="Export to CSV" type="button">'),
-                                                  //'customCode' => '<input title="Export" class="button" onclick="this.form.return_module.value=\'Accounts\'; this.form.return_action.value=\'DetailView\';this.form.return_id.value=\'{$fields.id.value}\'; this.form.action.value=\'CsvExport\'; this.form.module.value=\'Accounts\'; this.form.module_tab.value=\'Accounts\';" type="submit" name="Export" value="Export">')
-                                                  //'customCode' => '<input title="Export" class="button" onclick="this.form.action.value=\'CsvExport\'; " type="submit" name="Export" value="Export">')
-                                                  'customCode' => '<td class="buttons" align="left" nowrap=""></form><form action="index.php" method="POST" name="CSV Export" id="csv_export"><input type="hidden" name="action" value="CsvExport" /><input type="hidden" name="module" value="Accounts" /><input type="hidden" name="record" value="{$fields.id.value}" /><input type="hidden" name="query" value="pt"/><input type="hidden" name="to_pdf" value="true" /><button type="submit" name="csv_export" value="Export to CSV">Export to CSV</button></form></td>'),
+												5 => array(
+													'customCode' => "
+<input type='hidden' value='pt' name='query'>
+<input type='hidden' value='false' name='to_pdf'>
+<input onclick=\"this.form.to_pdf.value='true';this.form.action.value='CsvExport';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value='false';\" type='button' name='csv_export' value='Export to CSV' />",
+												),
                                                   ); 
                                                         parent::display(); 
                                                             } 
