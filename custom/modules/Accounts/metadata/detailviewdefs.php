@@ -13,11 +13,11 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-          4 => 'CONNECTOR',
-          5 => array (
+          5 => 
+          array (
             'customCode' => '<form action="export_lead.php" method="post">
             <input name="Send Certificate" type="submit" value="Export to CSV"/>
-            </form>'
+            </form>',
           ),
         ),
       ),
@@ -58,20 +58,65 @@ array (
             'label' => 'LBL_NAME',
             'displayParams' => 
             array (
-              'enableConnectors' => true,
-              'module' => 'Accounts',
-              'connectors' => 
-              array (
-                0 => 'ext_rest_linkedin',
-                1 => 'ext_rest_twitter',
-              ),
             ),
           ),
           1 => 
           array (
+            'name' => 'preferred_comm_c',
+            'studio' => 'visible',
+            'label' => 'LBL_PREFERRED_COMM',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'account_type',
+            'comment' => 'The Company is of this type',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'priority_c',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIORITY',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'status_c',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+        ),
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
             'name' => 'phone_office',
             'comment' => 'The office phone number',
             'label' => 'LBL_PHONE_OFFICE',
+          ),
+          1 => 
+          array (
+            'name' => 'email1',
+            'studio' => 'false',
+            'label' => 'LBL_EMAIL',
           ),
         ),
         1 => 
@@ -93,7 +138,10 @@ array (
             'label' => 'LBL_FAX',
           ),
         ),
-        2 => 
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
@@ -116,104 +164,47 @@ array (
             ),
           ),
         ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'comment' => 'Full text of the note',
-            'label' => 'LBL_DESCRIPTION',
-          ),
-          1 => 
-          array (
-            'name' => 'email1',
-            'studio' => 'false',
-            'label' => 'LBL_EMAIL',
-          ),
-        ),
       ),
-      'LBL_PANEL_ADVANCED' => 
+      'lbl_editview_panel3' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            'name' => 'account_type',
-            'comment' => 'The Company is of this type',
-            'label' => 'LBL_TYPE',
+            'name' => 'net_worth_c',
+            'label' => 'LBL_NET_WORTH',
           ),
           1 => 
           array (
-            'name' => 'industry',
-            'comment' => 'The company belongs in this industry',
-            'label' => 'LBL_INDUSTRY',
+            'name' => 'client_id_c',
+            'label' => 'LBL_CLIENT_ID',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'annual_revenue',
-            'comment' => 'Annual revenue for this company',
-            'label' => 'LBL_ANNUAL_REVENUE',
+            'name' => 'client_since_c',
+            'label' => 'LBL_CLIENT_SINCE',
           ),
           1 => 
           array (
-            'name' => 'employees',
-            'comment' => 'Number of employees, varchar to accomodate for both number (100) or range (50-100)',
-            'label' => 'LBL_EMPLOYEES',
+            'name' => 'accounting_id_c',
+            'label' => 'LBL_ACCOUNTING_ID',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'sic_code',
-            'comment' => 'SIC code of the account',
-            'label' => 'LBL_SIC_CODE',
+            'name' => 'married_c',
+            'label' => 'LBL_MARRIED',
           ),
           1 => 
           array (
-            'name' => 'ticker_symbol',
-            'comment' => 'The stock trading (ticker) symbol for the company',
-            'label' => 'LBL_TICKER_SYMBOL',
+            'name' => 'last_rebal_c',
+            'label' => 'LBL_LAST_REBAL',
           ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'parent_name',
-            'label' => 'LBL_MEMBER_OF',
-          ),
-          1 => 
-          array (
-            'name' => 'ownership',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 'campaign_name',
-          1 => 
-          array (
-            'name' => 'rating',
-            'comment' => 'An arbitrary rating for this company for use in comparisons with others',
-            'label' => 'LBL_RATING',
-          ),
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-          1 => 'team_name',
         ),
       ),
     ),

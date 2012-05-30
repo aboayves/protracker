@@ -54,8 +54,54 @@ array (
           ),
           1 => 
           array (
+            'name' => 'preferred_comm_c',
+            'studio' => 'visible',
+            'label' => 'LBL_PREFERRED_COMM',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 'account_type',
+          1 => 
+          array (
+            'name' => 'priority_c',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIORITY',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'status_c',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+        ),
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
             'name' => 'phone_office',
             'label' => 'LBL_PHONE_OFFICE',
+          ),
+          1 => 
+          array (
+            'name' => 'email1',
+            'studio' => 'false',
+            'label' => 'LBL_EMAIL',
           ),
         ),
         1 => 
@@ -72,7 +118,10 @@ array (
             'label' => 'LBL_FAX',
           ),
         ),
-        2 => 
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
@@ -102,65 +151,46 @@ array (
             ),
           ),
         ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
-          ),
-          1 => 
-          array (
-            'name' => 'email1',
-            'studio' => 'false',
-            'label' => 'LBL_EMAIL',
-          ),
-        ),
       ),
-      'LBL_PANEL_ADVANCED' => 
+      'lbl_editview_panel3' => 
       array (
         0 => 
         array (
-          0 => 'account_type',
-          1 => 'industry',
+          0 => 
+          array (
+            'name' => 'net_worth_c',
+            'label' => 'LBL_NET_WORTH',
+          ),
+          1 => 
+          array (
+            'name' => 'client_id_c',
+            'label' => 'LBL_CLIENT_ID',
+          ),
         ),
         1 => 
         array (
-          0 => 'annual_revenue',
-          1 => 'employees',
-        ),
-        2 => 
-        array (
-          0 => 'sic_code',
-          1 => 'ticker_symbol',
-        ),
-        3 => 
-        array (
-          0 => 'parent_name',
-          1 => 'ownership',
-        ),
-        4 => 
-        array (
-          0 => 'campaign_name',
-          1 => 'rating',
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
-        array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'client_since_c',
+            'label' => 'LBL_CLIENT_SINCE',
           ),
           1 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
+            'name' => 'accounting_id_c',
+            'label' => 'LBL_ACCOUNTING_ID',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'married_c',
+            'label' => 'LBL_MARRIED',
+          ),
+          1 => 
+          array (
+            'name' => 'last_rebal_c',
+            'label' => 'LBL_LAST_REBAL',
           ),
         ),
       ),

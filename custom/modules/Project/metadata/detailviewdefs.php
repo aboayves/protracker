@@ -75,6 +75,40 @@ array (
         ),
         2 => 
         array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'estimated_end_date',
+            'label' => 'LBL_DATE_END',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'project_manager_c',
+            'studio' => 'visible',
+            'label' => 'LBL_PROJECT_MANAGER',
+          ),
+          1 => 
+          array (
+            'name' => 'billing_type_c',
+            'studio' => 'visible',
+            'label' => 'LBL_BILLING_TYPE',
+          ),
+        ),
+        4 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'service_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SERVICE',
+          ),
+        ),
+        5 => 
+        array (
           0 => 
           array (
             'name' => 'owner_test',
@@ -86,27 +120,6 @@ array (
             'comment' => 'Should be checked if the project is a template',
             'label' => 'LBL_IS_TEMPLATE',
           ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'estimated_end_date',
-            'label' => 'LBL_DATE_END',
-          ),
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-          1 => 'team_name',
         ),
       ),
     ),

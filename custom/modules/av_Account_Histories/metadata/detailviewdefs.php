@@ -57,28 +57,10 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'dependent_bool',
-            'label' => 'LBL_DEPENDENT_BOOL',
-          ),
-          1 => 
-          array (
-            'name' => 'dependent_varchar',
-            'label' => 'LBL_DEPENDENT_VARCHAR',
-          ),
-        ),
-        3 => 
-        array (
           0 => '',
           1 => 'description',
         ),
-        4 => 
-        array (
-          0 => 'team_name',
-          1 => '',
-        ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (

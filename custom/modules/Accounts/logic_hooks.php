@@ -5,9 +5,9 @@
 $hook_array = Array(); 
 // position, file, function 
 $hook_array['after_ui_frame'] = Array(); 
-$hook_array['after_ui_frame'][] = Array(1, 'Accounts InsideView frame', 'modules/Connectors/connectors/sources/ext/rest/insideview/InsideViewLogicHook.php','InsideViewLogicHook', 'showFrame'); 
 $hook_array['process_record'] = Array(); 
 $hook_array['process_record'][] = Array(1, 'make html for relationship fields', 'custom/modules/Accounts/theHook4Accounts.php','theHook4Accounts', 'makeHTML4RelateFields'); 
+
 
 
 ?>

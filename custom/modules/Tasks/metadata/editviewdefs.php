@@ -75,8 +75,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'parent_name',
-            'label' => 'LBL_LIST_RELATED_TO',
+            'name' => 'priority',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
           ),
         ),
         2 => 
@@ -93,63 +96,36 @@ array (
           ),
           1 => 
           array (
-            'name' => 'contact_name',
-            'label' => 'LBL_CONTACT_NAME',
+            'name' => 'tasks_tasks_name',
           ),
         ),
         3 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
-            'name' => 'priority',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
+            'name' => 'parent_name',
+            'label' => 'LBL_LIST_RELATED_TO',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'dd1',
-            'label' => 'LBL_DD1',
+            'name' => 'closed_status',
+            'label' => 'LBL_CLOSED_STATUS',
           ),
           1 => 
           array (
-            'name' => 'dd2',
-            'label' => 'LBL_DD2',
+            'name' => 'contact_name',
+            'label' => 'LBL_CONTACT_NAME',
           ),
         ),
         5 => 
         array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'closed_status',
-            'label' => 'LBL_CLOSED_STATUS',
-          ),
-        ),
-        6 => 
-        array (
           0 => 
           array (
             'name' => 'description',
-          ),
-          1 => 
-          array (
-            'name' => 'tasks_tasks_name',
-          ),
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
-        array (
-          0 => 'assigned_user_name',
-          1 => 
-          array (
-            'name' => 'team_name',
           ),
         ),
       ),

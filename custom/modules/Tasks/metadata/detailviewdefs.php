@@ -55,66 +55,41 @@ array (
         1 => 
         array (
           0 => 'date_start',
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
-          ),
+          1 => 'priority',
         ),
         2 => 
         array (
           0 => 'date_due',
           1 => 
           array (
-            'name' => 'contact_name',
-            'label' => 'LBL_CONTACT',
+            'name' => 'tasks_tasks_name',
           ),
         ),
         3 => 
         array (
-          0 => 'priority',
+          0 => '',
+          1 => 
+          array (
+            'name' => 'parent_name',
+            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+          ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'dd1',
-            'label' => 'LBL_DD1',
+            'name' => 'closed_status',
+            'label' => 'LBL_CLOSED_STATUS',
           ),
           1 => 
           array (
-            'name' => 'dd2',
-            'label' => 'LBL_DD2',
+            'name' => 'contact_name',
+            'label' => 'LBL_CONTACT',
           ),
         ),
         5 => 
         array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'closed_status',
-            'label' => 'LBL_CLOSED_STATUS',
-          ),
-        ),
-        6 => 
-        array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'tasks_tasks_name',
-          ),
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-          1 => 'team_name',
         ),
       ),
     ),
