@@ -1,6 +1,5 @@
 <?php
- // created: 2012-04-25 00:06:05
-$layout_defs["Accounts"]["subpanel_setup"]['accounts_users'] = array (
+$layout_defs["Accounts"]["subpanel_setup_disabled"]['accounts_users'] = array (
   'order' => 100,
   'module' => 'Users',
   'subpanel_name' => 'default',
