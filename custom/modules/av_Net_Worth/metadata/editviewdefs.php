@@ -7,6 +7,11 @@ array (
     'templateMeta' => 
     array (
       'maxColumns' => '2',
+	  'form' => array(
+	  	'hidden' => array(
+		  '<input type="hidden" id="name" name="name" value="Net Worth">'
+		),
+	  ),
       'widths' => 
       array (
         0 => 
@@ -29,7 +34,7 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => '',
           1 => 'assigned_user_name',
         ),
         1 => 

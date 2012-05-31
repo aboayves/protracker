@@ -28,7 +28,12 @@
 
 $module_name = 'av_Net_Worth';
 $viewdefs[$module_name]['QuickCreate'] = array(
-    'templateMeta' => array('maxColumns' => '2', 
+    'templateMeta' => array('maxColumns' => '2',
+							'form' => array(
+							  'hidden' => array(
+								'<input type="hidden" id="name" name="name" value="Net Worth">'
+								),
+							), 
                             'widths' => array(
                                             array('label' => '10', 'field' => '30'), 
                                             array('label' => '10', 'field' => '30')
@@ -41,7 +46,7 @@ $viewdefs[$module_name]['QuickCreate'] = array(
   array (
     
     array (
-      'name',
+      '',
       'assigned_user_name',
     ),
     array (
