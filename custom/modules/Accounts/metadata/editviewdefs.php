@@ -34,6 +34,10 @@ array (
         array (
           'file' => 'modules/Accounts/Account.js',
         ),
+        1 => 
+        array (
+          'file' => 'include/javascript/tiny_mce/tiny_mce.js',
+        ),
       ),
       'syncDetailEditViews' => true,
     ),
