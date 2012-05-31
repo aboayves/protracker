@@ -1,4 +1,4 @@
--restore   
+﻿-restore   
 gitadd
 *.tar
 *.tgz
@@ -6,7 +6,6 @@ gitadd
 .htaccess
 config.php
 ini_setup.php
-config_override.php
 *.ext.php
 *.log
 cache/*
