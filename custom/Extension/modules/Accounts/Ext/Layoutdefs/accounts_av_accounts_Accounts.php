@@ -1,9 +1,8 @@
 <?php
- // created: 2012-05-21 17:10:30
-$layout_defs["Accounts"]["subpanel_setup"]['accounts_av_accounts'] = array (
+$layout_defs["Accounts"]["subpanel_setup_disabled"]['accounts_av_accounts'] = array (
   'order' => 100,
   'module' => 'av_Accounts',
-  'subpanel_name' => 'default',
+  'subpanel_name' => 'Account_subpanel_accounts_av_accounts',
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE',
