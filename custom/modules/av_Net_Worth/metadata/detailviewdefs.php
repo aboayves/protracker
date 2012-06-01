@@ -54,7 +54,11 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => '',
+          1 => 
+          array (
+            'name' => 'managed_assets',
+            'label' => 'LBL_MANAGED_ASSETS',
+          ),
         ),
         3 => 
         array (

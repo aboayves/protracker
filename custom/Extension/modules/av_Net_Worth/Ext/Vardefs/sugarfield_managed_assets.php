@@ -1,9 +1,8 @@
 <?php
-
-$dictionary["av_Net_Worth"]["fields"]["grand_total"] = array (
+$dictionary['av_Net_Worth']['fields']['managed_assets'] = array(
     'required' => false,
-    'name' => 'grand_total',
-    'vname' => 'LBL_GRAND_TOTAL',
+    'name' => 'managed_assets',
+    'vname' => 'LBL_MANAGED_ASSETS',
     'type' => 'currency',
     'massupdate' => 0,
     'comments' => '',
@@ -15,6 +14,6 @@ $dictionary["av_Net_Worth"]["fields"]["grand_total"] = array (
     'reportable' => true,
     'len' => 26,
     'size' => '20',
-    );
+);
 
-?>
+ ?>

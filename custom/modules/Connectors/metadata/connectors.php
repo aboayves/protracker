@@ -1,5 +1,5 @@
 <?php
-// created: 2012-05-22 00:23:27
+// created: 2012-06-01 19:38:08
 $connectors = array (
   'ext_rest_linkedin' => 
   array (
