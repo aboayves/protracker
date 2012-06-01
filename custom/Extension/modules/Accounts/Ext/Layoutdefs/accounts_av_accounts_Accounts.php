@@ -1,5 +1,5 @@
 <?php
-$layout_defs["Accounts"]["subpanel_setup_disabled"]['accounts_av_accounts'] = array (
+$layout_defs["Accounts"]["subpanel_setup"]['accounts_av_accounts'] = array (
   'order' => 100,
   'module' => 'av_Accounts',
   'subpanel_name' => 'Account_subpanel_accounts_av_accounts',
