@@ -13,11 +13,12 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-          5 => 
+          4 => 
           array (
-            'customCode' => '<form action="export_lead.php" method="post">
-            <input name="Send Certificate" type="submit" value="Export to CSV"/>
-            </form>',
+            'customCode' => '
+<input type=\'hidden\' value=\'pt\' name=\'query\'>
+<input type=\'hidden\' value=\'false\' name=\'to_pdf\'>
+<input onclick="this.form.to_pdf.value=\'true\';this.form.action.value=\'CsvExport\';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value=\'false\';" type=\'button\' name=\'csv_export\' value=\'Export to CSV\' />',
           ),
         ),
       ),
@@ -103,6 +104,21 @@ array (
             'name' => 'description',
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'current_net_worth',
+            'label' => 'LBL_CURRENT_NET_WORTH',
+          ),
+          1 => 
+          array (
+            'name' => 'managed_assets',
+            'comment' => 'Gets the managed assets.',
+            'studio' => 'visible',
+            'label' => 'LBL_MANAGED_ASSETS',
           ),
         ),
       ),

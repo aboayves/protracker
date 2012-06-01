@@ -10,19 +10,14 @@ class AccountsViewDetail extends ViewDetail
 	}
 	function display() 
 	{
-		$this->dv->defs['templateMeta']['form']['buttons'] = array (
-		  0 => 'EDIT',
-		  1 => 'DUPLICATE',
-		  2 => 'DELETE',
-		  3 => 'FIND_DUPLICATES',
-		  4 => 'CONNECTOR',
-		  5 => array(
+		//this button is now defined in the detailviewdefs now where it should be..
+/*		$this->dv->defs['templateMeta']['form']['buttons'][] = array (
 			'customCode' => "
 <input type='hidden' value='pt' name='query'>
 <input type='hidden' value='false' name='to_pdf'>
 <input onclick=\"this.form.to_pdf.value='true';this.form.action.value='CsvExport';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value='false';\" type='button' name='csv_export' value='Export to CSV' />",
-		  ),
 		);
+*/
 		$sql = "
 SELECT YEAR(av_net_worth.date_entered) AS year, SUM(av_accounts.value) AS worth
 FROM `accounts`
@@ -65,7 +60,7 @@ GROUP BY YEAR(av_net_worth.date_entered)
 			$graph_data[$graph_data_row['year']] = $graph_data_row['worth'];
 		}
 		$theData = '<pre>'.print_r($graph_data, true).'</pre>';
-		$theData = "<div style='margin:5px;padding:5px;'><div id='divForGraph'></div></div>";
+		$theData = "<div style='height:50px;width:100%;'></div><div id='divForGraph'></div>";
 		$this->dv->ss->assign('theGraph', $theData);
 		
 		$this->dv->defs['panels']['LBL_GRAPH'] = array(
@@ -90,12 +85,22 @@ GROUP BY YEAR(av_net_worth.date_entered)
 			$year = empty($year)? 0 : $year;
 			$worth = empty($year)? 0 : $worth;
 			echo $jsRow."\r\n";
-			$jsRow = "[{$worth},'{$year}','#666666'],";
+			$jsRow = "[[{$worth}, ".($worth/2)."],'{$year}'],";
 		}
 		echo rtrim($jsRow, ',');
 		echo "
 		);
-		$('#divForGraph').jqBarGraph({ data: arrayOfData });
+		Accounts_detailview_tabs.selectTab(4);	//just to show off my graph's animation effects.. We go back to out first tab in 3.5 seconds.
+		$('#divForGraph').jqBarGraph({ 
+										data: arrayOfData,
+										colors: ['#437346', '#97D95C'],
+										animate: true,
+										legends: ['Net Worth', 'Managed'],
+										legend: true,
+										width: 250,
+										type: 'multi'
+									});
+		setTimeout('Accounts_detailview_tabs.selectTab(0);',3500);	//going back to the first tab after 3.5 seconds.
 		</script>";
 		
 	}

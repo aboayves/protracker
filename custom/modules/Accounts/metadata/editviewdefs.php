@@ -91,6 +91,22 @@ array (
             'label' => 'LBL_DESCRIPTION',
           ),
         ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'current_net_worth',
+            'label' => 'LBL_CURRENT_NET_WORTH',
+          ),
+          1 => 
+          array (
+            'name' => 'managed_assets',
+            'comment' => 'Gets the managed assets.',
+            'studio' => 'visible',
+            'label' => 'LBL_MANAGED_ASSETS',
+			'type' => 'readonly',
+          ),
+        ),
       ),
       'lbl_editview_panel2' => 
       array (
