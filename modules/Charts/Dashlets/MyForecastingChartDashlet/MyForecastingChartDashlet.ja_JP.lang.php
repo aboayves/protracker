@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,12 +29,14 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+	
 
 $dashletStrings = array (
   'MyForecastingChartDashlet' => 
   array (
-    'LBL_TITLE' => '予測グラフ',
-    'LBL_DESCRIPTION' => '見積もり対コミット対実績',
+    'LBL_TITLE' => '私の予測グラフ',
+    'LBL_DESCRIPTION' => 'ノルマ額 対 確定 対 実績',
     'LBL_REFRESH' => 'グラフを更新',
   ),
 );
+

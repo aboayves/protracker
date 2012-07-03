@@ -513,7 +513,7 @@ $mod_strings = array (
 	After selecting any number of fields from the module selected in the <b>Related Modules</b> pane, you can choose a different module from which you can select any number of fields to use as filters.<br/><br/>
 	3) Choose <b>AND</b> or <b>OR</b> to designate whether all filters or any filters, respectively, are used to find results for the report.<br/><br/>
 	4) [Optional] Click on <b>Add Filter Group</b> to create groups of filters. You can have any number of filter groups and any number of filters in a group to create nested filters.<br/><br/>
-	5) [Optional] Select the Run-time option for a Filter to allow users to use the filter to further customize the results of the reports while viewing the report.",
+	5) [Optional] Select the Run-time option for a Filter to allow users to use the filter to further customise the results of the reports while viewing the report.",
 	'LBL_GROUP_BY_HELP_DESC'=>"<b>Steps to Define Group By:</b><br></br>1) Click on a Module in the <b>Related Modules</b> pane that you would like to use to group records in your report. By default, the primary module (top node in the tree view) is selected. <br/><br/>
 	You can select a related module (child node in the tree view) by clicking on the module. Expand the node to view additional modules related to the related module. The module that you select determines which reportable fields appear in the <b>Available Fields</b> pane.<br/><br/>
 	2) Click on the Field in the <b>Available Fields</b> pane to group records by the field in your report. You can also search for the field by typing in the text box in the pane.<br/><br/>

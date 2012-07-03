@@ -32,6 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'ERR_REPORT_INVALID_SUBJECT' => 'Érvénytelen riport',
+  'ERR_REPORT_INVALID' => 'A(z) "{0}" riport definíciója érvénytelen mezőket tartalmaz: {1}',
   'LBL_EXPORT' => 'Export',
   'LBL_RUN_REPORT_BUTTON_KEY' => 'R',
   'LBL_MAX' => 'MAX',

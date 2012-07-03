@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,25 +29,10 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 
 $mod_strings = array (
+  'LBL_WELCOME_INSTRUCTIONS' => '点击一个上面的标签来通过门户网站访问信息。',
   'LBL_WELCOME_TEXT' => '欢迎光临顾客门户。',
-  'LBL_WELCOME_INSTRUCTIONS' => '点击一个上面的标签通过门户网站访问信息。',
 );
 

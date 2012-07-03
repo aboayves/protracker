@@ -280,6 +280,10 @@ $app_list_strings = array (
     'Net 30' => 'Net 30',
   ),
   'sales_stage_default_key' => 'Prospecting',
+  'fts_type' => array (
+      '' => '',
+      'Elastic' => 'elasticsearch'
+  ),
   'sales_stage_dom' =>
   array (
     'Prospecting' => 'Prospecting',
@@ -334,13 +338,17 @@ $app_list_strings = array (
         'Prof.' => 'Prof.',
       ),
   //time is in seconds; the greater the time the longer it takes;
-  'reminder_max_time'=>3600,
+  'reminder_max_time' => 90000,
   'reminder_time_options' => array( 60=> '1 minute prior',
                                   300=> '5 minutes prior',
                                   600=> '10 minutes prior',
                                   900=> '15 minutes prior',
                                   1800=> '30 minutes prior',
                                   3600=> '1 hour prior',
+                                  7200 => '2 hours prior',
+                                  10800 => '3 hours prior',
+                                  18000 => '5 hours prior',
+                                  86400 => '1 day prior',
                                  ),
 
   'task_priority_default' => 'Medium',
@@ -1170,6 +1178,37 @@ $app_list_strings = array (
                                     '30'=>'30',
                                     '45'=>'45'),
 
+    'repeat_type_dom' => array(
+    	'' => 'None',
+    	'Daily'	=> 'Daily',
+	'Weekly' => 'Weekly',
+	'Monthly' => 'Monthly',
+	'Yearly' => 'Yearly',
+    ),
+
+    'repeat_intervals' => array(
+        '' => '',
+        'Daily' => 'day(s)',
+        'Weekly' => 'week(s)',
+        'Monthly' => 'month(s)',
+        'Yearly' => 'year(s)',
+    ),
+
+    'duration_dom' => array(
+    	'' => 'None',
+    	'900' => '15 minutes',
+	'1800' => '30 minutes',
+	'2700' => '45 minutes',
+	'3600' => '1 hour',
+	'5400' => '1.5 hours',
+	'7200' => '2 hours',
+	'10800' => '3 hours',
+	'21600' => '6 hours',
+	'86400' => '1 day',
+	'172800' => '2 days',
+	'259200' => '3 days',
+	'604800' => '1 week',
+    ),
 
 // deferred
 /*// QUEUES MODULE DOMs
@@ -1236,6 +1275,13 @@ $app_list_strings = array (
     'false'=>'No',
     'required'=>'Required',
   ),
+
+    'Elastic_boost_options' => array (
+        '0' =>'Disabled',
+        '1'=>'Low Boost',
+        '2'=>'Medium Boost',
+        '3'=>'High Boost',
+    ),
 
   'custom_fields_merge_dup_dom'=> array (
         0=>'Disabled',
@@ -1430,6 +1476,9 @@ $app_strings = array (
   'LBL_ADD' => 'Add' /*for 508 compliance fix*/,
   'LBL_COMPANY_LOGO' => 'Company logo' /*for 508 compliance fix*/,
   'LBL_JS_CALENDAR' => 'Calendar' /*for 508 compliance fix*/,
+    'LBL_ADVANCED' => 'Advanced',
+    'LBL_BASIC' => 'Basic',
+    'LBL_MODULE_FILTER' => 'Filter By',
     'LBL_CONNECTORS_POPUPS'=>'Connectors Popups',
     'LBL_CLOSEINLINE'=>'Close',
     'LBL_MOREDETAIL'=>'More Detail',
@@ -1892,6 +1941,7 @@ $app_strings = array (
     'LBL_LINK_RECORDS'=> 'Records',
     'LBL_LINK_SELECT'=> 'Select',
     'LBL_LINK_ACTIONS'=> 'Actions',
+    'LBL_LINK_MORE'=> 'More',
     'LBL_CLOSE_ACTIVITY_HEADER' => "Confirm",
     'LBL_CLOSE_ACTIVITY_CONFIRM' => "Do you want to close this #module#?",
     'LBL_CLOSE_ACTIVITY_REMEMBER' => "Do not display this message in the future: &nbsp;",
@@ -1903,6 +1953,7 @@ $app_strings = array (
     'LBL_TEAM_SET_ID' => 'Team Set ID',
     'LBL_EXPORT_TEAM_SET_ID' => 'Teams',
     'LBL_TEAM_SET'=>'Team Set',
+    'LBL_SEARCH_UNAVAILABLE' => 'Search unavailable, please try again later.',
     'ERR_NO_PRIMARY_TEAM_SPECIFIED' => 'No Primary Team specified',
     'LBL_REMOVE_PRIMARY_TEAM_ERROR' => 'Error attempting to remove primary team id [{0}] for [{1}] module with id [{2}]',
 
@@ -1981,6 +2032,7 @@ $app_strings = array (
     'LBL_BILL_TO_ACCOUNT'=>'Bill to Account',
     'LBL_BILL_TO_CONTACT'=>'Bill to Contact',
     'LBL_BILLING_ADDRESS'=>'Billing Address',
+    'LBL_QUICK_CREATE_TITLE' => 'Quick Create',
     'LBL_BROWSER_TITLE' => 'SugarCRM - Commercial Open Source CRM',
     'LBL_BUGS'=>'Bugs',
     'LBL_BY' => 'by',
@@ -2043,6 +2095,8 @@ $app_strings = array (
     'LBL_DST_NEEDS_FIXIN' => 'The application requires a Daylight Saving Time fix to be applied.  Please go to the <a href="index.php?module=Administration&action=DstFix">Repair</a> link in the Admin console and apply the Daylight Saving Time fix.',
     'LBL_EDIT_AS_NEW_BUTTON_LABEL' => 'Edit As New',
     'LBL_EDIT_AS_NEW_BUTTON_TITLE' => 'Edit As New',
+    'LBL_FAVORITES' => 'Favorites',
+    'LBL_FILTER_MENU_BY' => 'Filter Menu By',
     'LBL_VCARD' => 'vCard',
     'LBL_EMPTY_VCARD' => 'Please select a vCard file',
     'LBL_IMPORT_VCARD' => 'Import vCard:',
@@ -2069,7 +2123,9 @@ $app_strings = array (
     'LBL_IMPORT' => 'Import',
     'LBL_IMPORT_STARTED' => 'Import Started: ',
     'LBL_MISSING_CUSTOM_DELIMITER' => 'Must specify a custom delimiter.',
-    'LBL_LAST_VIEWED' => 'Last Viewed',
+    'LBL_LAST_VIEWED' => 'Recently Viewed',
+    'LBL_SHOW_LESS' => 'Show Less',
+    'LBL_SHOW_MORE' => 'Show More',
     'LBL_TODAYS_ACTIVITIES' => 'Today\'s Activities',
     'LBL_LEADS'=>'Leads',
     'LBL_LESS' => 'less',
@@ -2112,6 +2168,7 @@ $app_strings = array (
     'LBL_LOCALE_NAME_EXAMPLE_TITLE' => 'Code Monkey Extraordinaire',
     'LBL_LOGIN_TO_ACCESS' => 'Please sign in to access this area.',
     'LBL_LOGOUT' => 'Log Out',
+    'LBL_PROFILE' => 'Profile',
     'LBL_MAILMERGE_KEY' => 'M',
     'LBL_MAILMERGE' => 'Mail Merge',
     'LBL_MASS_UPDATE' => 'Mass Update',
@@ -2126,7 +2183,7 @@ $app_strings = array (
     'LBL_MODIFIED' => 'Modified by',
     'LBL_MODIFIED_NAME'=>'Modified By Name',
     'LBL_MODIFIED_ID'=>'Modified By Id',
-    'LBL_MORE' => 'more',
+    'LBL_MORE' => 'More',
     'LBL_MY_ACCOUNT' => 'My Settings',
     'LBL_NAME' => 'Name',
     'LBL_NEW_BUTTON_KEY' => 'N',
@@ -2161,7 +2218,7 @@ $app_strings = array (
     'LBL_PRIMARY_ADDRESS_STREET_3' => 'Primary Address Street 3:',
     'LBL_PRIMARY_ADDRESS_STREET' => 'Primary Address Street:',
     'LBL_PRIMARY_ADDRESS' => 'Primary Address:',
-	
+
 	'LBL_BILLING_STREET'=> 'Street:',
 	'LBL_SHIPPING_STREET'=> 'Street:',
 
@@ -2340,10 +2397,13 @@ $app_strings = array (
     'LNK_ABOUT' => 'About',
     'LNK_ADVANCED_SEARCH' => 'Advanced Search',
     'LNK_BASIC_SEARCH' => 'Basic Search',
+    'LNK_SEARCH_FTS_VIEW_ALL' => 'View all results',
+    'LNK_SEARCH_NONFTS_VIEW_ALL' => 'Show All',
+    'LNK_CLOSE' => 'close',
     'LBL_MODIFY_CURRENT_SEARCH'=> 'Modify current search',
     'LNK_SAVED_VIEWS' => 'Layout Options',
     'LNK_DELETE_ALL' => 'del all',
-    'LNK_DELETE' => 'del',
+    'LNK_DELETE' => 'delete',
     'LNK_EDIT' => 'edit',
     'LNK_GET_LATEST'=>'Get latest',
     'LNK_GET_LATEST_TOOLTIP'=>'Replace with latest version',
@@ -2358,7 +2418,7 @@ $app_strings = array (
     'LNK_LOAD_SIGNED_TOOLTIP'=>'Replace with signed document',
     'LNK_PRINT' => 'Print',
     'LNK_BACKTOTOP' => 'Back to top',
-    'LNK_REMOVE' => 'rem',
+    'LNK_REMOVE' => 'remove',
     'LNK_RESUME' => 'Resume',
     'LNK_VIEW_CHANGE_LOG' => 'View Change Log',
 
@@ -2434,7 +2494,14 @@ $app_strings = array (
     'MSG_JS_ALERT_MTG_REMINDER_LOC' => 'Location: ',
     'MSG_JS_ALERT_MTG_REMINDER_DESC' => 'Description: ',
     'MSG_JS_ALERT_MTG_REMINDER_CALL_MSG' => "\nClick OK to view this call or click Cancel to dismiss this message.",
-  'MSG_JS_ALERT_MTG_REMINDER_MEETING_MSG' => "\nClick OK to view this meeting or click Cancel to dismiss this message.",
+  	'MSG_JS_ALERT_MTG_REMINDER_MEETING_MSG' => "\nClick OK to view this meeting or click Cancel to dismiss this message.",
+ 	'MSG_LIST_VIEW_NO_RESULTS_BASIC' => "No results found.",
+	'MSG_LIST_VIEW_NO_RESULTS' => "No results found for <item1>",
+ 	'MSG_LIST_VIEW_NO_RESULTS_SUBMSG' => "Create <item1> as a new <item2>",
+	'MSG_EMPTY_LIST_VIEW_NO_RESULTS' => "You currently have no records saved. <item2> or <item3> one now.",
+	'MSG_EMPTY_LIST_VIEW_NO_RESULTS_SUBMSG' =>	"<item4> to learn more about the <item1> module. In order to access more information, use the user menu drop down located on the main navigation bar to access Help.",
+
+    'LBL_CLICK_HERE' => "Click here",
     // contextMenu strings
     'LBL_ADD_TO_FAVORITES' => 'Add to My Favorites',
     'LBL_MARK_AS_FAVORITES' => 'Mark as Favorite',
@@ -2515,7 +2582,8 @@ $app_strings = array (
     'LBL_SEARCH_TOOLS' => 'Tools',
     'LBL_SEARCH_HELP_TITLE' => 'Search Tips',
     'LBL_SEARCH_HELP_CLOSE_TOOLTIP' => 'Close',
-
+    'LBL_SEARCH_RESULTS_FOUND' => 'Search Results Found',
+    'LBL_SEARCH_RESULTS_TIME' => 'ms.',
     'ERR_BLANK_PAGE_NAME' => 'Please enter a page name.',
     /* End MySugar Framework strings */
 
@@ -2527,7 +2595,7 @@ $app_strings = array (
     'LBL_COPY_ADDRESS_FROM_LEFT' => 'Copy address from left:',
     'LBL_SAVE_AND_CONTINUE' => 'Save and Continue',
 
-    'LBL_SEARCH_HELP_TEXT' => '<p><br /><strong>Multiselect controls</strong></p><ul><li>Click on the values to select an attribute.</li><li>Ctrl-click&nbsp;to&nbsp;select multiple. Mac users use CMD-click.</li><li>To select all values between two attributes,&nbsp; click first value&nbsp;and then shift-click last value.</li></ul><p><strong>Advanced Search & Layout Options</strong><br><br>Using the <b>Saved Search & Layout</b> option, you can save a set of search parameters and/or a custom List View layout in order to quickly obtain the desired search results in the future. You can save an unlimited number of custom searches and layouts. All saved searches appear by name in the Saved Searches list, with the last loaded saved search appearing at the top of the list.<br><br>To customize the List View layout, use the Hide Columns and Display Columns boxes to select which fields to display in the search results. For example, you can view or hide details such as the record name, and assigned user, and assigned team in the search results. To add a column to List View, select the field from the Hide Columns list and use the left arrow to move it to the Display Columns list. To remove a column from List View, select it from the Display Columns list and use the right arrow to move it to the Hide Columns list.<br><br>If you save layout settings, you will be able to load them at any time to view the search results in the custom layout.<br><br>To save and update a search and/or layout:<ol><li>Enter a name for the search results in the <b>Save this search as</b> field and click <b>Save</b>.The name now displays in the Saved Searches list adjacent to the <b>Clear</b> button.</li><li>To view a saved search, select it from the Saved Searches list. The search results are displayed in the List View.</li><li>To update the properties of a saved search, select the saved search from the list, enter the new search criteria and/or layout options in the Advanced Search area, and click <b>Update</b> next to <b>Modify Current Search</b>.</li><li>To delete a saved search, select it in the Saved Searches list, click <b>Delete</b> next to <b>Modify Current Search</b>, and then click <b>OK</b> to confirm the deletion.</li></ol><p><strong>Tips</strong><br><br>By using the % as a wildcard operator you can make your search more broad.  For example insead of just searching for results that equal "Apples" you could change your search to "Apples%" which would match all results that start with the word Apples but could contain other characters as well.</p>' ,
+    'LBL_SEARCH_HELP_TEXT' => '<p><br /><strong>Multiselect controls</strong></p><ul><li>Click on the values to select an attribute.</li><li>Ctrl-click&nbsp;to&nbsp;select multiple. Mac users use CMD-click.</li><li>To select all values between two attributes,&nbsp; click first value&nbsp;and then shift-click last value.</li></ul><p><strong>Advanced Search & Layout Options</strong><br><br>Using the <b>Saved Search & Layout</b> option, you can save a set of search parameters and/or a custom List View layout in order to quickly obtain the desired search results in the future. You can save an unlimited number of custom searches and layouts. All saved searches appear by name in the Saved Searches list, with the last loaded saved search appearing at the top of the list.<br><br>To customize the List View layout, use the Hide Columns and Display Columns boxes to select which fields to display in the search results. For example, you can view or hide details such as the record name, and assigned user, and assigned team in the search results. To add a column to List View, select the field from the Hide Columns list and use the left arrow to move it to the Display Columns list. To remove a column from List View, select it from the Display Columns list and use the right arrow to move it to the Hide Columns list.<br><br>If you save layout settings, you will be able to load them at any time to view the search results in the custom layout.<br><br>To save and update a search and/or layout:<ol><li>Enter a name for the search results in the <b>Save this search as</b> field and click <b>Save</b>.The name now displays in the Saved Searches list adjacent to the <b>Clear</b> button.</li><li>To view a saved search, select it from the Saved Searches list. The search results are displayed in the List View.</li><li>To update the properties of a saved search, select the saved search from the list, enter the new search criteria and/or layout options in the Advanced Search area, and click <b>Update</b> next to <b>Modify Current Search</b>.</li><li>To delete a saved search, select it in the Saved Searches list, click <b>Delete</b> next to <b>Modify Current Search</b>, and then click <b>OK</b> to confirm the deletion.</li></ol><p><strong>Tips</strong><br><br>By using the % as a wildcard operator you can make your search more broad.  For example instead of just searching for results that equal "Apples" you could change your search to "Apples%" which would match all results that start with the word Apples but could contain other characters as well.</p>' ,
 
     //resource management
     'ERR_QUERY_LIMIT' => 'Error: Query limit of $limit reached for $module module.',
@@ -2672,6 +2740,13 @@ $app_strings = array (
     'LBL_MERIDIEM' => 'Meridiem',
     'LBL_DATE' => 'Date',
     'LBL_DASHLET_CONFIGURE_AUTOREFRESH' => 'Auto-Refresh',
+
+    'LBL_DURATION_DAY' => 'day',
+    'LBL_DURATION_HOUR' => 'hour',
+    'LBL_DURATION_MINUTE' => 'minute',
+    'LBL_DURATION_DAYS' => 'days',
+    'LBL_DURATION_HOURS' => 'hours',
+    'LBL_DURATION_MINUTES' => 'minutes',
 
     //Calendar widget labels
     'LBL_CHOOSE_MONTH' => 'Choose Month',
@@ -3548,4 +3623,21 @@ $app_list_strings['eapm_list_documents']= array(
         3 => 'Invalid',
     );
 
+$app_list_strings ['emailTemplates_type_list'] = array (
+    '' => '' ,
+    'campaign' => 'Campaign' ,
+    'email' => 'Email',
+    'workflow' => 'Workflow',
+  );
+
+$app_list_strings ['emailTemplates_type_list_campaigns'] = array (
+    '' => '' ,
+    'campaign' => 'Campaign' ,
+  );
+
+$app_list_strings ['emailTemplates_type_list_no_workflow'] = array (
+    '' => '' ,
+    'campaign' => 'Campaign' ,
+    'email' => 'Email',
+  );
 ?>

@@ -32,7 +32,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_PDF_ITEM_SELECT_DISCOUNT' => '',
   'LBL_CONTRACTS' => 'Kontakty',
   'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Kontrakty',
   'ERR_DELETE_RECORD' => 'Číslo zánamu musí být uvedeno pro smazání kvóty.',
@@ -83,7 +82,7 @@ $mod_strings = array (
   'LBL_HISOTRY_SUBPANEL_TITLE' => 'Historie',
   'LBL_INVITEE' => 'Kontakty',
   'LBL_INVOICE' => 'Faktura',
-  'LBL_LEAD_SOURCE' => 'Zdroj zájemců:',
+  'LBL_LEAD_SOURCE' => 'Zdroj příležitosti:',
   'LBL_LINE_ITEM_INFORMATION' => 'Řádkové položky',
   'LBL_LIST_ACCOUNT_NAME' => 'Jméno společnosti',
   'LBL_LIST_AMOUNT' => 'hodnota nabídky',

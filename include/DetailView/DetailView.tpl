@@ -107,7 +107,6 @@ class="yui-navset detailview_tabs"
                    {{elseif isset($fields[$colData.field.name].popupHelp)}}
                      {capture name="popupText" assign="popupText"}{sugar_translate label="{{$fields[$colData.field.name].popupHelp}}" module='{{$module}}'}{/capture}
                    {{/if}}
-                   {overlib_includes}
                    {sugar_help text=$popupText WIDTH=400}
                 {{/if}}
                 {{if !empty($colData.field.name)}}
@@ -121,6 +120,7 @@ class="yui-navset detailview_tabs"
 			    {{if !empty($colData.field.name)}}
 			    {if !$fields.{{$colData.field.name}}.hidden}
 			    {{/if}}
+				{{$colData.field.prefix}}
 				{{if ($colData.field.customCode && !$colData.field.customCodeRenderField) || $colData.field.assign}}
 					{counter name="panelFieldCount"}
 					<span id="{{$colData.field.name}}" class="sugar_field">{{sugar_evalcolumn var=$colData.field colData=$colData}}</span>
@@ -142,6 +142,7 @@ class="yui-navset detailview_tabs"
 				    {counter name="panelFieldCount"}
 				    <span id="{{$colData.field.name}}" class="sugar_field">{{sugar_evalcolumn var=$colData.field colData=$colData}}</span>
                 {{/if}}
+				{{$colData.field.suffix}}
 				{{if !empty($colData.field.name)}}
 				{/if}
 				{{/if}}
@@ -168,7 +169,7 @@ class="yui-navset detailview_tabs"
 	</table>
 {{/if}}
 </div>
-{if $panelFieldCount == 0 && !$useTabs}}
+{if $panelFieldCount == 0 && !$useTabs}
 
 <script>document.getElementById("{{$label}}").style.display='none';</script>
 {/if}

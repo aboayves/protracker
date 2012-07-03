@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,31 +29,22 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
+  'LBL_ID' => 'ID',
+  'LBL_CREATED_ID' => '作成者ID',
+  'LBL_MODIFIED_ID' => '更新者ID',
   'LBL_MODULE_NAME' => '製造元',
   'LBL_MODULE_TITLE' => '製造元: ホーム',
   'LBL_SEARCH_FORM_TITLE' => '製造元検索',
   'LBL_LIST_FORM_TITLE' => '製造元一覧',
-  'LBL_NEW_FORM_TITLE' => '製造元: ',
-  'LBL_MANUFACTURER' => '製造元',
+  'LBL_NEW_FORM_TITLE' => '製造元作成',
+  'LBL_MANUFACTURER' => '製造元:',
   'LBL_LIST_NAME' => '製造元',
-  'LBL_NAME' => '製造元',
+  'LBL_NAME' => '製造元:',
+  'LBL_MODIFIED_BY' => '更新者',
+  'LBL_CREATED_BY' => '作成者',
   'LBL_LIST_LIST_ORDER' => '順番',
   'LBL_LIST_ORDER' => '順番:',
   'LBL_LIST_STATUS' => 'ステータス',
@@ -62,14 +55,16 @@ $mod_strings = array (
   'LNK_NEW_SHIPPER' => '運送会社',
   'LNK_NEW_PRODUCT_CATEGORY' => '商品カテゴリ',
   'LNK_NEW_PRODUCT_TYPE' => '商品タイプ',
-  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除して良いですか？',
-  'ERR_DELETE_RECORD' => '製造元を削除する場合はレコード番号を指定してください。',
+  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除してよいですか？',
+  'ERR_DELETE_RECORD' => '製造元を削除するにはレコード番号を指定してください。',
   'NTC_STATUS' => '製造元ドロップダウンリストからこの製造元を削除するにはステータスを非アクティブにしてください。',
   'NTC_LIST_ORDER' => 'この製造元の順序の変更は、製造元ドロップダウンリストに反映されます。',
+  'LNK_IMPORT_MANUFACTURERS' => '製造元のインポート',
+  'LBL_EDITLAYOUT' => 'レイアウト編集',
   'manufacturer_status_dom' => 
   array (
     'Active' => 'アクティブ',
     'Inactive' => '非アクティブ',
   ),
-  'LNK_IMPORT_MANUFACTURERS'=>'製造元のインポート',
 );
+

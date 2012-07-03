@@ -32,9 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDIT_LAYOUT' => 'Редактиране на подредби',
-  'LBL_SELECT' => 'Избери',
-  'LBL_ID_FF_CLEAR' => 'Изчисти',
+  'LBL_TYPE' => 'Тип',
   'LBL_COLON' => ':',
   'LBL_ADD_ANOTHER_FILE' => 'Прикачване на файл',
   'LBL_ADD_DOCUMENT' => 'Добавяне на Sugar документ',
@@ -42,7 +40,6 @@ $mod_strings = array (
   'LBL_ATTACHMENTS' => 'Приложения',
   'LBL_BODY' => 'Съдържание:',
   'LBL_CLOSE' => 'Затвори:',
-  'LBL_CONTACT_AND_OTHERS' => 'Контакт/потенциален клиент/целеви клиент',
   'LBL_DESCRIPTION' => 'Описание:',
   'LBL_EDIT_ALT_TEXT' => 'Редактиране на Plain текст',
   'LBL_EMAIL_ATTACHMENT' => 'Приложения',
@@ -102,5 +99,8 @@ $mod_strings = array (
   'LBL_ACTIVITIES_REPORTS' => 'Справка за потребителска активност',
   'LNK_VIEW_MY_INBOX' => 'Преглед на входящи съобщения',
   'LBL_ASSIGNED_TO_ID' => 'Отговорник',
+  'LBL_EDIT_LAYOUT' => 'Редактиране на подредби',
+  'LBL_SELECT' => 'Избери',
+  'LBL_ID_FF_CLEAR' => 'Изчисти',
 );
 

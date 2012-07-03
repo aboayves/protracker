@@ -469,6 +469,12 @@ function validate_user($user_name, $password){
 			}
 
 			$filterFields = $this->filter_fields($value, $fields);
+
+            //now check field level acl's if this bean implements them
+            if($value->bean_implements('ACL') && !empty($GLOBALS['current_user'])){
+                $filterFields = $this->returnFieldsWithAccess($value, $filterFields);
+            }
+
 			foreach($filterFields as $field){
 				$var = $value->field_defs[$field];
 				if(isset($value->$var['name'])){
@@ -575,19 +581,30 @@ function validate_user($user_name, $password){
 
 	function getRelationshipResults($bean, $link_field_name, $link_module_fields, $optional_where = '') {
 		$GLOBALS['log']->info('Begin: SoapHelperWebServices->getRelationshipResults');
-		require_once('include/TimeDate.php');
 		global $current_user, $disable_date_format,  $timedate;
 
 		$bean->load_relationship($link_field_name);
 		if (isset($bean->$link_field_name)) {
+            $params = array();
+            if (!empty($optional_where))
+            {
+                $params['where'] = $optional_where;
+            }
 			//First get all the related beans
-            $related_beans = $bean->$link_field_name->getBeans();
-			$filterFields = $this->filter_fields($submodule, $link_module_fields);
-            //Create a list of field/value rows based on $link_module_fields
+            $related_beans = $bean->$link_field_name->getBeans($params);
+            if(isset($related_beans[0])) {
+                // use first bean to filter fields since all records have same module
+                // and  $this->filter_fields doesn't use ACLs
+                $filterFields = $this->filter_fields($related_beans[0], $link_module_fields);
+            } else {
+                $filterFields = $this->filter_fields(null, $link_module_fields);
+            }
 			$list = array();
             foreach($related_beans as $id => $bean)
             {
                 $row = array();
+                //Create a list of field/value rows based on $link_module_fields
+
                 foreach ($filterFields as $field) {
                     if (isset($bean->$field))
                     {
@@ -831,6 +848,9 @@ function validate_user($user_name, $password){
                         }
                     }
 					$seed->save();
+                    if($seed->deleted == 1){
+                            $seed->mark_deleted($seed->id);
+                    }
 					$ids[] = $seed->id;
 				}//fi
 			}
@@ -1171,6 +1191,44 @@ function validate_user($user_name, $password){
 		}
 		return false;
 	} // fn
+
+
+    /**
+     * returnFieldsWithAccess
+     *
+     * @param object $seed an instance of the bean we are checking acl's on
+     * @param array $select_fields array of fields being explicitly checked for access, empty array means check all
+     * @return array Array of the fields for this bean that passed the acl filter test
+     */
+    function returnFieldsWithAccess($seed,$select_fields=array()){
+        //can't do anything if there is no bean
+        if(empty($seed)){
+            return $select_fields;
+        }
+        //if the select fields array is empty, then use all the fields for this bean
+        if(empty($select_fields)){
+            $fields = $seed->field_name_map;
+            $select_fields = array_keys($fields);
+        }
+        //check to see if bean implements acl and this is not an admin so we can remove any restricted fields
+        if($seed->bean_implements('ACL') && !empty($GLOBALS['current_user']) && !$GLOBALS['current_user']->is_admin){
+            //lets load up any acl fields for this uer
+             ACLField::loadUserFields($seed->module_dir,$seed->object_name, $GLOBALS['current_user']->id);
+
+            //iterate through the select fields array and remove any restricted acl fields (less than 0)
+            foreach($select_fields as $fieldnum=>$fieldname){
+                if(isset($_SESSION['ACL'][$GLOBALS['current_user']->id][$seed->module_dir]['fields'][$fieldname])
+                    && $_SESSION['ACL'][$GLOBALS['current_user']->id][$seed->module_dir]['fields'][$fieldname] < 0
+                ){
+                    //this field has an acl restricting the user from accessing it, unset it
+                    unset($select_fields[$fieldnum]);
+                }
+            }
+        }
+        return $select_fields;
+    }
+
+
 } // clazz
 
 ?>

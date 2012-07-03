@@ -52,6 +52,7 @@
  						'home'=>'home',
                         'visibilityeditor' => 'visibilityeditor',
  						'exportcustomizations'=>'exportcustomizations',
+                        'depdropdown' => 'depdropdown',
 
  					);
     // add those we need from the global action_view_map

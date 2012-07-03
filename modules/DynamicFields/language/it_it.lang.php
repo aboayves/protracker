@@ -32,7 +32,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDIT_VIS' => 'Modifica visibilità',
+  'COLUMN_TITLE_FTS' => 'Ricercabile Full Text',
+  'LBL_HAS_PARENT' => 'Ha un elemento padre',
+  'LBL_PARENT_DROPDOWN' => 'Dropdown elementi padri',
   'COLUMN_TITLE_EXT1' => 'Extra Meta Field 1',
   'COLUMN_TITLE_EXT2' => 'Extra Meta Field 2',
   'COLUMN_TITLE_EXT3' => 'Extra Meta Field 3',
@@ -113,5 +115,7 @@ $mod_strings = array (
   'LBL_VISIBLE_IF' => 'Visibile se',
   'LBL_ENFORCED' => 'Impostato',
   'LBL_HELP' => 'Aiuto',
+  'LBL_EDIT_VIS' => 'Modifica visibilità',
 );
+
 

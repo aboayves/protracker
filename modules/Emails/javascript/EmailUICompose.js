@@ -734,7 +734,7 @@ SE.autoComplete = {
     },
 
     /**
-     * Redisplays the textareas after an address is commited
+     * Redisplays the textareas after an address is committed.
      */
     toggleTextareaShow : function(sType, aArgs) {
         var textBoxId = aArgs[0]._oTextbox.id; // "addressTo0"
@@ -1334,9 +1334,8 @@ SE.composeLayout = {
     },
 
 
-    /*/////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
     ///    EMAIL TEMPLATE CODE
-     */
     applyEmailTemplate : function (idx, id) {
 
         //bug #20680
@@ -1391,6 +1390,8 @@ SE.composeLayout = {
 		} else {
        	    tiny.setContent('');
 		}
+        //now that content is set, call method to set signature
+        setTimeout("SUGAR.email2.composeLayout.setSignature("+idx+");",500);
     },
 
 	processResult : function(idx , id){
@@ -1445,6 +1446,8 @@ SE.composeLayout = {
 		} else {
         	tiny.setContent(text);
 		}
+		//now that content is set, call method to set signature
+        setTimeout("SUGAR.email2.composeLayout.setSignature("+idx+");",500);
     },
 
     /**
@@ -2082,7 +2085,7 @@ SE.composeLayout = {
                 setTimeout("SE.composeLayout.setContentOnThisTiny(true);", 3000);
                 return;
             }
-            
+
             //bug 48179
             //check tinyHTML for closing tags
             var body = tinyHTML.lastIndexOf('</body>');
@@ -2605,4 +2608,4 @@ SE.util = {
 ///////////////////////////////////////////////////////////////////////////////
 
 
-})();//End namespace
+})();

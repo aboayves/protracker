@@ -58,6 +58,8 @@ $job_strings = array (
     6 => 'processWorkflow',
 	7 => 'processQueue',
     9 => 'updateTrackerSessions',
+    12 => 'sendEmailReminders',
+    13 => 'performFullFTSIndex',
 
 );
 
@@ -480,6 +482,25 @@ function updateTrackerSessions() {
 	$db->query($query);
 	return true;
 }
+
+/**
+ * Job 12
+ */
+function sendEmailReminders(){
+	$GLOBALS['log']->info('----->Scheduler fired job of type sendEmailReminders()');
+	require_once("modules/Activities/EmailReminder.php");
+	$reminder = new EmailReminder();
+	return $reminder->process();
+}
+function performFullFTSIndex()
+{
+    require_once('include/SugarSearchEngine/SugarSearchEngineFullIndexer.php');
+    $indexer = new SugarSearchEngineFullIndexer();
+    $indexer->initiateFTSIndexer();
+    $GLOBALS['log']->info("FTS Indexer initiated.");
+    return true;
+}
+
 
 
 if (file_exists('custom/modules/Schedulers/_AddJobsHere.php')) {

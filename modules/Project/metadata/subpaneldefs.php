@@ -76,8 +76,8 @@ $layout_defs['Project'] = array(
 
        'projecttask' => array(
 			'order' => 20,
-			'sort_order' => 'desc',
-			'sort_by' => 'id',
+			'sort_order' => 'asc',
+			'sort_by' => 'project_task_id',
 			'module' => 'ProjectTask',
 			'top_buttons' => array(
 				array('widget_class' => 'SubPanelEditProjectTasksButton', ),
@@ -275,7 +275,7 @@ $layout_defs['Project'] = array(
 );
 global $current_user, $app;
 // check if $app present - if in Studio/MB then loading a subpanel definition through the SubpanelDefinitions class 'requires' this file without an $app
-if (isset($app))
+if (isset($app) && isset($app->controller))
 {
 $projectId = $app->controller->record;
 $focus = new Project();

@@ -32,7 +32,15 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_CHECKSYS_UPLOAD' => 'Répertoire de téléchargement accéssible en écriture',
+  'ERR_CHECKSYS_CONFIG_OVERRIDE_NOT_WRITABLE' => 'Le fichier config_override.php existe mais n&#39;est pas accessible en écriture. Veuillez effectuer les modifications de droits nécessaire sur ce fichier afin de le rendre accessible en écriture par le serveur web. En fonction de votre système d&#39;exploitation, vous pouvez changer les droits en exécutant la commande chmod 766, or en effectuant un clic droit sur le fichier puis en déchant l&#39;option lecture seule.',
+  'LBL_CHECKSYS_CONFIG_OVERRIDE' => 'Fichier de configuration SugarCRM accessible en écriture (config_override.php)',
+  'LBL_OOTB_SEND_EMAIL_REMINDERS' => 'Exécuter les rappels par email',
+  'LBL_FTS_TABLE_TITLE' => 'Parmètres de la recherche Full-Text',
+  'LBL_FTS_HOST' => 'Hôte',
+  'LBL_FTS_PORT' => 'Port',
+  'LBL_FTS_TYPE' => 'Type de moteur de recherche',
+  'LBL_FTS_HELP' => 'Pour activer la recherche full-text, sélectionnez le type de moteur de recherche puis saisissez les paramètres d&#39;accès à celui-ci. Par défaut le moteur de recherche Elastic Search est inclus dans SugarCRM',
+  'LBL_FTS_ERROR' => 'Impossible de se connecter au serveur hébergeant le moteur de recherche full-text, merci de vérifier les paramètres saisis.',
   'DEFAULT_CHARSET' => 'UTF-8',
   'LBL_CHECKSYS_IMAP' => 'IMAP Module',
   'LBL_CHECKSYS_FASTCGI' => 'FastCGI',
@@ -227,6 +235,7 @@ $mod_strings = array (
   'LBL_CHECKSYS_ZIP' => 'Module de gestion ZIP',
   'LBL_CHECKSYS_FIX_FILES' => 'Veuillez corriger les fichiers ou répertoires suivants avant de poursuivre :',
   'LBL_CHECKSYS_FIX_MODULE_FILES' => 'Veuillez corriger les fichiers ou répertoires de module suivants avant de poursuivre :',
+  'LBL_CHECKSYS_UPLOAD' => 'Répertoire de téléchargement accéssible en écriture',
   'LBL_CLOSE' => 'Fermer',
   'LBL_CONFIRM_BE_CREATED' => 'être créé',
   'LBL_CONFIRM_DB_TYPE' => 'Type base de données',

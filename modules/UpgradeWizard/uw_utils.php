@@ -946,10 +946,14 @@ function getModuleLanguagePack($lang, $module) {
 		$langPack = clean_path(getcwd().'/'.$module.'/language/'.$lang.'.lang.php');
 		$langPackEn = clean_path(getcwd().'/'.$module.'/language/en_us.lang.php');
 
-		if(file_exists($langPack))
-			include_once($langPack);
-		elseif(file_exists($langPackEn))
-			include_once($langPackEn);
+        if (file_exists($langPack))
+        {
+            include($langPack);
+        }
+        elseif (file_exists($langPackEn))
+        {
+            include($langPackEn);
+        }
 	}
 
 	return $mod_strings;
@@ -990,20 +994,19 @@ function checkSystemCompliance() {
 	}
 
 	// database and connect
-    $v = $db->version();
-	if($db->dbType == 'mysql')
+    $canInstall = $db->canInstall();
+    if ($canInstall !== true)
     {
-        if(version_compare($v, '4.1.2') < 0) {
-	        	$ret['error_found'] = true;
-	        	$ret['mysqlVersion'] = "<b><span class=stop>".$mod_strings['ERR_UW_MYSQL_VERSION'].$v."</span></b>";
-	    }
-	} elseif($db->dbType == 'oci8') {
-	    if(!preg_match("/Oracle9i|Oracle Database 10g|11/i", $v)) {
-	        	$ret['error_found'] = true;
-	        	$ret['ociVersion'] = "<b><span class=stop>".$mod_strings['ERR_UW_OCI8_VERSION'].$v."</span></b>";
-	    }
-	}
-
+        $ret['error_found'] = true;
+        if (count($canInstall) == 1)
+        {
+            $ret['dbVersion'] = "<b><span class=stop>" . $installer_mod_strings[$canInstall[0]] . "</span></b>";
+        }
+        else
+        {
+            $ret['dbVersion'] = "<b><span class=stop>" . sprintf($installer_mod_strings[$canInstall[0]], $canInstall[1]) . "</span></b>";
+        }
+    }
 
 	// XML Parsing
 	if(function_exists('xml_parser_create')) {
@@ -1785,6 +1788,7 @@ function prepSystemForUpgrade() {
 	global $sugar_config;
 	global $sugar_flavor;
 	global $mod_strings;
+    global $current_language;
 	global $subdirs;
 	global $base_upgrade_dir;
 	global $base_tmp_upgrade_dir;
@@ -1845,8 +1849,8 @@ function prepSystemForUpgrade() {
 
 	if($upload_max_filesize_bytes < constant('SUGARCRM_MIN_UPLOAD_MAX_FILESIZE_BYTES')) {
 		$GLOBALS['log']->debug("detected upload_max_filesize: $upload_max_filesize");
-
-		echo '<p class="error">'.$mod_strings['MSG_INCREASE_UPLOAD_MAX_FILESIZE'].' '.get_cfg_var('cfg_file_path')."</p>\n";
+        $admin_strings = return_module_language($current_language, 'Administration');
+		echo '<p class="error">'.$admin_strings['MSG_INCREASE_UPLOAD_MAX_FILESIZE'].' '.get_cfg_var('cfg_file_path')."</p>\n";
 	}
 }
 

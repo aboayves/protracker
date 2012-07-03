@@ -257,6 +257,7 @@ class EmailMan extends SugarBean{
 		global $timedate;
 
 		$this->send_attempts++;
+		$this->id = (int)$this->id;
 		if($delete || $this->send_attempts > 5){
 
 			//create new campaign log record.
@@ -282,7 +283,7 @@ class EmailMan extends SugarBean{
 			$this->db->query($query);
 		}else{
 			//try to send the email again a day later.
-			$query = 'UPDATE ' . $this->table_name . " SET in_queue='1', send_attempts='$this->send_attempts', in_queue_date=". $this->db->now() ." WHERE id = '$this->id'";
+			$query = 'UPDATE ' . $this->table_name . " SET in_queue='1', send_attempts='$this->send_attempts', in_queue_date=". $this->db->now() ." WHERE id = $this->id";
 			$this->db->query($query);
 		}
 	}
@@ -801,7 +802,7 @@ class EmailMan extends SugarBean{
 
                 //do not add the default remove me link if the campaign has a trackerurl of the opotout link
                 if ($this->has_optout_links==false) {
-                    $mail->Body .= "<br /><span style='font-size:0.8em'>{$mod_strings['TXT_REMOVE_ME']}<a href='". $this->tracking_url . "index.php?entryPoint=removeme&identifier={$this->target_tracker_key}'>{$mod_strings['TXT_REMOVE_ME_CLICK']}</a></span>";
+                    $mail->Body .= "<br /><span style='font-size:0.8em'>{$mod_strings['TXT_REMOVE_ME']} <a href='". $this->tracking_url . "index.php?entryPoint=removeme&identifier={$this->target_tracker_key}'>{$mod_strings['TXT_REMOVE_ME_CLICK']}</a></span>";
                 }
                 // cn: bug 11979 - adding single quote to comform with HTML email RFC
                 $mail->Body .= "<br /><img alt='' height='1' width='1' src='{$this->tracking_url}index.php?entryPoint=image&identifier={$this->target_tracker_key}' />";
@@ -952,5 +953,13 @@ class EmailMan extends SugarBean{
 
         return $query;
     }
+
+    /**
+     * Actuall deletes the emailman record
+     * @param int $id
+     */
+    public function mark_deleted($id)
+	{
+	    $this->db->query("DELETE FROM {$this->table_name} WHERE id=".intval($id));
+	}
 }
-?>

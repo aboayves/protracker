@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,23 +29,10 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
+  'LBL_EDITLAYOUT' => 'Úprava rozvržení',
   'LBL_MODULE_NAME' => 'Verze',
   'LBL_MODULE_TITLE' => 'Verze: Domů',
   'LBL_SEARCH_FORM_TITLE' => 'Vyhledat verzi',

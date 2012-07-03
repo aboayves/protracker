@@ -32,7 +32,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_BLANK' => '',
   'LBL_HOURS_ABBREV' => 'h',
   'LBL_MINSS_ABBREV' => 'm',
   'LBL_COLON' => ':',
@@ -96,7 +95,7 @@ $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Přidat účet',
   'LNK_NEW_OPPORTUNITY' => 'Nový obchod',
   'LBL_DEL' => 'Smazat',
-  'LBL_LEADS_SUBPANEL_TITLE' => 'Zájemci',
+  'LBL_LEADS_SUBPANEL_TITLE' => 'Přiležitosti',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakty',
   'LBL_USERS_SUBPANEL_TITLE' => 'Uživatelé',
   'LBL_OUTLOOK_ID' => 'ID Outlooku',

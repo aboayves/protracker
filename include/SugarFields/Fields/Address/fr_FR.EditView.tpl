@@ -39,7 +39,7 @@
 <table border="0" cellspacing="1" cellpadding="0" class="edit" width="100%">
 <tr>
 <td valign="top" id="{{$street}}_label" width='25%' scope='row' >
-<label for="{{$street}}">{sugar_translate label='LBL_STREET' module='{{$module}}'}:</label>
+<label for="{{$street}}">{sugar_translate label='LBL_{{$key}}_STREET' module='{{$module}}'}:</label>
 {if $fields.{{$street}}.required || {{if $street|lower|in_array:$displayParams.required}}true{{else}}false{{/if}}}
 <span class="required">{$APP.LBL_REQUIRED_SYMBOL}</span>
 {/if}
@@ -112,7 +112,7 @@
 {sugar_translate label='LBL_COPY_ADDRESS_FROM_LEFT' module=''}:
 </td>
 <td>
-<input id="{{$displayParams.key}}_checkbox" name="{{$displayParams.key}}_checkbox" type="checkbox" onclick="{{$displayParams.key}}_address.syncFields();"; CHECKED>
+<input id="{{$displayParams.key}}_checkbox" name="{{$displayParams.key}}_checkbox" type="checkbox" onclick="{{$displayParams.key}}_address.syncFields();";>
 </td>
 </tr>
 {{else}}

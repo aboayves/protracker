@@ -274,14 +274,49 @@ class SugarController{
 	/**
 	 * This method is called from SugarApplication->execute and it will bootstrap the entire controller process
 	 */
-	final public function execute(){
-		$this->process();
-		if(!empty($this->view)){
-			$this->processView();
-		}elseif(!empty($this->redirect_url)){
-			$this->redirect();
-		}
+	final public function execute()
+    {
+
+        try
+        {
+            $this->process();
+            if(!empty($this->view))
+            {
+                $this->processView();
+            }
+            elseif(!empty($this->redirect_url))
+            {
+            			$this->redirect();
+            }
+        }
+        catch (Exception $e)
+        {
+            $this->handleException($e);
+        }
+
+
+
 	}
+
+    /**
+      * Handle exception
+      * @param Exception $e
+      */
+    protected function handleException(Exception $e)
+    {
+        $GLOBALS['log']->fatal('Exception in Controller: ' . $e->getMessage());
+        $logicHook = new LogicHook();
+
+        if (isset($this->bean))
+        {
+            $logicHook->setBean($this->bean);
+            $logicHook->call_custom_logic($this->bean->module_dir, "handle_exception", $e);
+        }
+        else
+        {
+            $logicHook->call_custom_logic('', "handle_exception", $e);
+        }
+    }
 
 	/**
 	 * Display the appropriate view.
@@ -503,6 +538,23 @@ class SugarController{
 		$this->bean->save(!empty($this->bean->notify_on_save));
 	}
 
+
+    public function action_spot()
+    {
+        require_once('include/SugarSearchEngine/SugarSearchEngineFactory.php');
+        $searchEngine = SugarSearchEngineFactory::getInstance();
+        //Default db search will be handled by the spot view, everything else by fts.
+        if($searchEngine instanceOf SugarSearchEngine)
+        {
+            $this->view = 'spot';
+        }
+        else
+        {
+            $this->view = 'fts';
+        }
+    }
+
+
 	/**
 	 * Specify what happens after the save has occurred.
 	 */
@@ -531,6 +583,9 @@ class SugarController{
 				sugar_cleanup(true);
 			}
 			$this->bean->mark_deleted($_REQUEST['record']);
+            require_once('include/SugarSearchEngine/SugarSearchEngineFactory.php');
+            $searchEngine = SugarSearchEngineFactory::getInstance();
+            $searchEngine->delete($this->bean);
 		}else{
 			sugar_die("A record number must be specified to delete");
 		}
@@ -585,7 +640,7 @@ class SugarController{
             $temp_req = array('current_query_by_page' => $_REQUEST['current_query_by_page'], 'return_module' => $_REQUEST['return_module'], 'return_action' => $_REQUEST['return_action']);
             if($_REQUEST['return_module'] == 'Emails') {
                 if(!empty($_REQUEST['type']) && !empty($_REQUEST['ie_assigned_user_id'])) {
-                    $this->req_for_email = array('type' => $_REQUEST['type'], 'ie_assigned_user_id' => $_REQUEST['ie_assigned_user_id']); //specificly for My Achieves
+                    $this->req_for_email = array('type' => $_REQUEST['type'], 'ie_assigned_user_id' => $_REQUEST['ie_assigned_user_id']); // Specifically for My Achieves
                 }
             }
             $_REQUEST = array();

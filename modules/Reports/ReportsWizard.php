@@ -60,10 +60,12 @@ require_once("modules/MySettings/TabController.php");
 $controller = new TabController();
 $tabs = $controller->get_user_tabs($current_user, $type='display');
 //$ACLAllowedModulesAdded = array();
-$help_img = SugarThemeRegistry::current()->getImage('helpInline','border="0" onmouseout="return nd();" onmouseover="return overlib(\''.$mod_strings['LBL_OPTIONAL_HELP'].'\', FGCLASS, \'olFgClass\', CGCLASS, \'olCgClass\', BGCLASS, \'olBgClass\', TEXTFONTCLASS, \'olFontClass\', CAPTIONFONTCLASS, \'olCapFontClass\', CLOSEFONTCLASS, \'olCloseFontClass\');"',null,null,'.gif',$mod_strings['LBL_HELP']);
-$chart_data_help = SugarThemeRegistry::current()->getImage('helpInline','border="0" onmouseout="return nd();" onmouseover="return overlib(\''.$mod_strings['LBL_CHART_DATA_HELP'].'\', FGCLASS, \'olFgClass\', CGCLASS, \'olCgClass\', BGCLASS, \'olBgClass\', TEXTFONTCLASS, \'olFontClass\', CAPTIONFONTCLASS, \'olCapFontClass\', CLOSEFONTCLASS, \'olCloseFontClass\');"',null,null,'.gif',$mod_strings['LBL_HELP']);
-$do_round_help = SugarThemeRegistry::current()->getImage('helpInline','border="0" onmouseout="return nd();" onmouseover="return overlib(\''.$mod_strings['LBL_DO_ROUND_HELP'].'\', FGCLASS, \'olFgClass\', CGCLASS, \'olCgClass\', BGCLASS, \'olBgClass\', TEXTFONTCLASS, \'olFontClass\', CAPTIONFONTCLASS, \'olCapFontClass\', CLOSEFONTCLASS, \'olCloseFontClass\');"'
-,null,null,'.gif',$mod_strings['LBL_HELP']);
+require_once('include/Smarty/plugins/function.sugar_help.php');
+$sugar_smarty = new Sugar_Smarty();
+
+$help_img = smarty_function_sugar_help(array("text"=>$mod_strings['LBL_OPTIONAL_HELP']),$sugar_smarty);
+$chart_data_help = smarty_function_sugar_help(array("text"=>$mod_strings['LBL_CHART_DATA_HELP']),$sugar_smarty);
+$do_round_help = smarty_function_sugar_help(array("text"=>$mod_strings['LBL_DO_ROUND_HELP']),$sugar_smarty);
 
 // Add the modules in the order of the user-defined tabs.
 /*
@@ -95,12 +97,13 @@ foreach ($ACLAllowedModules as $module=>$singular) {
 
 $user_array = get_user_array(FALSE);
 
-$sugar_smarty = new Sugar_Smarty();
+
 $sugar_smarty->assign("MOD", $mod_strings);
 $sugar_smarty->assign("APP", $app_strings);
 $sugar_smarty->assign("LANG", $current_language);
 $sugar_smarty->assign("ACLAllowedModules", $ACLAllowedModules);
 $sugar_smarty->assign("USER_ID_MD5", md5($current_user->id));
+$sugar_smarty->assign("ENTROPY", mt_rand());
 $sugar_smarty->assign("BUTTONS", $buttons);
 $sugar_smarty->assign("IS_ADMIN", $current_user->is_admin);
 $sugar_smarty->assign("users_array", $user_array);

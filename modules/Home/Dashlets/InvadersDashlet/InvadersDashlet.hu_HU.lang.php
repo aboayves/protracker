@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,30 +29,16 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $dashletStrings = array (
   'InvadersDashlet' => 
   array (
-    'LBL_TITLE' => 'Támadók!',
+    'LBL_DBLCLICK_HELP' => 'Használja az A és D billentyűket a mozgatáshoz, az S betűt pedig a tüzeléshez.',
     'LBL_DESCRIPTION' => 'Lehetőség egy kis időtöltésre',
-    'LBL_DBLCLICK_HELP' => 'A és D a mozgáshoz, S tüzelés',
-    'LBL_START' => 'Kattints az indításhoz',
-    'LBL_GAME_OVER' => 'Játék vége ( Kattints az újabb játékhoz)',
+    'LBL_GAME_OVER' => 'Játék vége (Kattintson az újabb játékhoz)',
+    'LBL_START' => 'Kattintson az indításhoz',
+    'LBL_TITLE' => 'Támadók!',
   ),
 );
 

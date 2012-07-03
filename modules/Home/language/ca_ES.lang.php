@@ -32,8 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_SOURCE_PHPSQL' => 'PHP SQL Parser',
-  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - Una compatible amb els estàndards HTML filtrat de la biblioteca.',
+  'LBL_SOURCE_JSHRINK' => 'JShrink - Un Minifier Javascript escrit en PHP',
   'LBL_WEB' => 'Web',
   'LBL_DASHLET_CONFIGURE_GENERAL' => 'General',
   'LBL_BUILD' => 'Build',
@@ -41,6 +40,7 @@ $mod_strings = array (
   'LBL_SUGAR_PROFESSIONAL' => 'Sugar Professional',
   'LBL_SUGAR_ENTERPRISE' => 'Sugar Enterprise',
   'LBL_WIKI' => 'Wiki',
+  'LBL_SOURCE_PHPSQL' => 'PHP SQL Parser',
   'dashlet_categories_dom' => 
   array (
     'Portal' => 'Portal',
@@ -199,6 +199,7 @@ $mod_strings = array (
   'LBL_SOURCE_ZEND' => 'Zend Framework - Una font oberta, orientat a objectes framework d&#39;aplicacions web en PHP5.',
   'LBL_SOURCE_PARSECSV' => 'parseCSV - CSV de dades de l&#39;analitzador de PHP',
   'LBL_SOURCE_PHPJS' => 'php.js - Utilitzar les funcions de PHP en JavaScript',
+  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - Una compatible amb els estàndards HTML filtrat de la biblioteca.',
   'LBL_DASHLET_TITLE' => 'Els meus llocs',
   'LBL_DASHLET_OPT_TITLE' => 'Títol',
   'LBL_DASHLET_OPT_URL' => 'Adreça de Lloc Web',

@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,27 +29,13 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
   'LBL_MODULE_NAME' => '税率',
   'LBL_MODULE_TITLE' => '税率: ホーム',
   'LBL_SEARCH_FORM_TITLE' => '税率検索',
-  'LBL_LIST_FORM_TITLE' => '税率',
+  'LBL_LIST_FORM_TITLE' => '税率一覧',
   'LBL_NEW_FORM_TITLE' => '税率作成',
   'LBL_TAXRATE' => '税率:',
   'LBL_LIST_NAME' => '税率名',
@@ -58,16 +46,22 @@ $mod_strings = array (
   'LBL_STATUS' => 'ステータス:',
   'LBL_LIST_VALUE' => 'パーセンテージ',
   'LBL_VALUE' => 'パーセンテージ（%）:',
-  'LNK_NEW_SHIPPER' => '運送会社',
-  'LNK_NEW_TAXRATE' => '税率',
-  'LNK_IMPORT_TAXRATES' => '税率をインポート',
-  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除して良いですか？',
+  'LNK_NEW_SHIPPER' => '運送会社一覧',
+  'LNK_NEW_TAXRATE' => '税率一覧',
+  'LNK_IMPORT_TAXRATES' => '税率のインポート',
+  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除してよいですか？',
   'ERR_DELETE_RECORD' => '税率を削除するにはレコード番号を指定してください。',
   'NTC_STATUS' => '税率ドロップダウンリストからこの税率を削除するにはステータスを非アクティブにしてください。',
   'NTC_LIST_ORDER' => 'この税率が税率ドロップダウンで表示される順番を指定してください。',
+  'LBL_EDITLAYOUT' => 'レイアウト編集',
+  'LBL_CREATED_ID' => '作成者ID',
+  'LBL_MODIFIED_ID' => '更新者ID',
+  'LBL_EXPORT_MODIFIED_USER_ID' => '更新者ID',
+  'LBL_EXPORT_CREATED_BY' => '作成者ID',
   'taxrate_status_dom' => 
   array (
     'Active' => 'アクティブ',
     'Inactive' => '非アクティブ',
   ),
 );
+

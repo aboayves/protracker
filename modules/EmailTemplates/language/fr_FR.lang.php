@@ -32,9 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDIT_LAYOUT' => 'Editer la mise en page',
-  'LBL_SELECT' => 'Sélectionner',
-  'LBL_ID_FF_CLEAR' => 'Vider',
+  'LBL_TYPE' => 'Type',
   'LBL_COLON' => ':',
   'LBL_DESCRIPTION' => 'Description:',
   'LBL_LIST_DESCRIPTION' => 'Description',
@@ -102,5 +100,8 @@ $mod_strings = array (
   'LBL_ACTIVITIES_REPORTS' => 'Rapport d&#39;activités',
   'LNK_VIEW_MY_INBOX' => 'Mes Emails',
   'LBL_ASSIGNED_TO_ID' => 'Assigné à',
+  'LBL_EDIT_LAYOUT' => 'Editer la mise en page',
+  'LBL_SELECT' => 'Sélectionner',
+  'LBL_ID_FF_CLEAR' => 'Vider',
 );
 

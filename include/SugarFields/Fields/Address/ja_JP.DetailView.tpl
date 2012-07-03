@@ -1,4 +1,3 @@
-
 {*
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -32,8 +31,7 @@
 <tr>
 <td width='99%' >
 〒 {$fields.{{$displayParams.key}}_address_postalcode.value|escape:'htmlentitydecode'|strip_tags|url2html|nl2br}<br>
-{$fields.{{$displayParams.key}}_address_state.value|escape:'htmlentitydecode'|strip_tags|url2html|nl2br}&nbsp;&nbsp;
-{$fields.{{$displayParams.key}}_address_city.value|escape:'htmlentitydecode'|strip_tags|url2html|nl2br}
+{$fields.{{$displayParams.key}}_address_state.value|escape:'htmlentitydecode'|strip_tags|url2html|nl2br}{$fields.{{$displayParams.key}}_address_city.value|escape:'htmlentitydecode'|strip_tags|url2html|nl2br}<br>
 {$fields.{{$displayParams.key}}_address_street.value|escape:'htmlentitydecode'|strip_tags|url2html|nl2br}<br>
 {$fields.{{$displayParams.key}}_address_country.value|escape:'htmlentitydecode'|strip_tags|url2html|nl2br}
 </td>

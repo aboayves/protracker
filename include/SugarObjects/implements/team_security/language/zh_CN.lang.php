@@ -1,5 +1,4 @@
 <?php
-
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -28,26 +27,8 @@
  ********************************************************************************/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $mod_strings = array(
 'LBL_TEAM'=>'团队',
-'LBL_LIST_TEAM' => '团队', 
-'LBL_TEAMS' =>'团队',
+'LBL_TEAMS'=>'团队',
 'LBL_TEAM_ID'=>'团队编号',
 );
-

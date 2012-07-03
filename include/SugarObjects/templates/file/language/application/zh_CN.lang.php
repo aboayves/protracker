@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,51 +29,32 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
- 
+$object_name = strtolower($object_name);
 $app_list_strings = array (
-strtolower($object_name).'_category_dom' =>
-    array (
+  $object_name.'_category_dom' => 
+  array (
     '' => '',
-    'Marketing' => '市场',
     'Knowledege Base' => '知识库',
+    'Marketing' => '市场',
     'Sales' => '销售',
   ),
-
-    strtolower($object_name).'_subcategory_dom' =>
-    array (
+  $object_name.'_status_dom' => 
+  array (
+    'Active' => '启用',
+    'Draft' => '草稿',
+    'Expired' => '过期',
+    'FAQ' => 'FAQ',
+    'Pending' => '待定',
+    'Under Review' => '审核中',
+  ),
+  $object_name.'_subcategory_dom' => 
+  array (
     '' => '',
-    'Marketing Collateral' => '市场营销',
+    'FAQ' => 'FAQ',
+    'Marketing Collateral' => '营销资料',
     'Product Brochures' => '产品手册',
-    'FAQ' => 'FAQ',
   ),
+);
 
-    strtolower($object_name).'_status_dom' =>
-    array (
-    'Active' => '活动',
-    'Draft' => '拟订',
-    'FAQ' => 'FAQ',
-    'Expired' => '到期',
-    'Under Review' => '检查中',
-    'Pending' => '未决定',
-  ),
-  );
-?>

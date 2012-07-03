@@ -328,7 +328,7 @@ class SugarWidgetFieldDateTime extends SugarWidgetReportField
 	function queryFilterTP_this_month($layout_def)
 	{
 		global $timedate;
-		return $this->queryMonth($layout_def, $this->now()->get_day_by_index_this_month(1));
+		return $this->queryMonth($layout_def, $this->now()->get_day_by_index_this_month(0));
 	}
 
 	function queryFilterTP_next_month($layout_def)
@@ -431,7 +431,7 @@ class SugarWidgetFieldDateTime extends SugarWidgetReportField
                 $td = $timedate->to_display_date_time($content);
                 return $td;
             }else{// if date only field
-                $td = $timedate->to_display_date($content, false); // avoid php notice of returing by reference
+                $td = $timedate->to_display_date($content, false); // Avoid PHP notice of returning by reference.
                 return $td;
             }
         }
@@ -473,17 +473,7 @@ class SugarWidgetFieldDateTime extends SugarWidgetReportField
 		return parent :: querySelect($layout_def)." \n";
 	}
 	function & displayListday(& $layout_def) {
-        global $timedate;
-        $field_name = strtoupper($this->_get_column_alias($layout_def));
-        $tmp_field_name = str_replace('_DAY_', '_DAYREAL_', $field_name);
-        if($tmp_field_name != $field_name && isset($layout_def['fields'][$tmp_field_name]))
-        {
-            return $timedate->to_display_date($layout_def['fields'][$tmp_field_name], true);
-        }
-        else
-        {
-		    return parent:: displayListPlain($layout_def);
-        }
+		return parent:: displayListPlain($layout_def);
 	}
 
 	function & displayListyear(& $layout_def) {
@@ -513,17 +503,6 @@ class SugarWidgetFieldDateTime extends SugarWidgetReportField
 	{
         return $this->reporter->db->convert($this->_get_column_select($layout_def), "date_format", array('%Y-%m'))."\n";
 	}
-
-    /**
-     * Select addon datetime field for "day" field in reports
-     *
-     * @param $layout_def array definition of new field
-     * @return string piece for creation "select" query
-     */
-    function querySelectdayreal($layout_def)
-    {
-        return $this->reporter->db->convert($this->_get_column_select($layout_def), "date_format", array('%Y-%m-%d %H:%i:%s'))." ".$this->_get_column_alias($layout_def)."\n";
-    }
 
 	function querySelectday($layout_def)
 	{

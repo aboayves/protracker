@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDITLAYOUT' => 'Editar Diseño',
+  'NTC_DELETE_CONFIRMATION' => '¿Está seguro de que desea eliminar este registro?',
   'LBL_REASSIGN_TEAM_BUTTON_KEY' => 'R',
   'ERR_ADD_RECORD' => 'Debe especificar un número de registro para agregar a este usuario al equipo.',
   'ERR_DUP_NAME' => 'El Nombre de Equipo ya existe, por favor elija otro distinto.',
@@ -73,5 +73,6 @@ $mod_strings = array (
   'LNK_LIST_TEAMNOTICE' => 'Noticias de Equipo',
   'LNK_NEW_TEAM' => 'Nuevo Equipo',
   'NTC_REMOVE_TEAM_MEMBER_CONFIRMATION' => '¿Está seguro de que desea quitar a este usuario del equipo?',
+  'LBL_EDITLAYOUT' => 'Editar Diseño',
 );
 

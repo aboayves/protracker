@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,28 +29,11 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-$mod_strings = array(
-'LBL_MODULE_NAME'=> '编辑标签',
-'LBL_KEY'=> '索引:',
-'LBL_VALUE'=> '值:',
+$mod_strings = array (
+  'LBL_KEY' => 'Key:',
+  'LBL_MODULE_NAME' => '编辑标签器',
+  'LBL_VALUE' => '值:',
 );
 
-?>

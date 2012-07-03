@@ -32,7 +32,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - Uma biblioteca de filtragem compatível com padrões de HTML.',
   'LBL_WEB' => 'Web',
   'LBL_HOME_PAGE_4_NAME' => 'Tracker',
   'LBL_SUGAR_COMMUNITY_EDITION' => 'Sugar Community Edition',
@@ -149,7 +148,7 @@ $mod_strings = array (
   'LBL_MY_SAVED_REPORT_CHARTS' => 'Os Meus Gráficos de Relatório Gravados',
   'LBL_DASHLET_SEARCH' => 'Pesquisa de Dashlets',
   'LBL_VERSION' => 'Versão',
-  'LBL_BUILD' => 'Construir',
+  'LBL_BUILD' => 'Build',
   'LBL_AND' => 'e',
   'LBL_ARE' => 'são',
   'LBL_TRADEMARKS' => 'marcas registadas',
@@ -181,9 +180,9 @@ $mod_strings = array (
   'LBL_SOURCE_HTTP_WEBDAV_SERVER' => 'HTTP_WebDAV_Server - Uma Implementação de Servidor WebDAV em PHP.',
   'LBL_SOURCE_PCLZIP' => 'PclZip - biblioteca oferece funções de compressão e extracção para arquivos formatados em Zip por Vincent Blavet',
   'LBL_SOURCE_SMARTY' => 'Smarty - Um aplicativo de modelos para PHP.',
-  'LBL_SOURCE_OVERLIBMWS' => 'Overlibmws - biblioteca JavaScript para windowing do lado do cliente.',
   'LBL_SOURCE_YAHOO_UI_LIB' => 'Yahoo! User Interface Library - As UI Library Utilities facilitam a implementação de funcionalidades ricas do lado do cliente.',
   'LBL_SOURCE_PHPMAILER' => 'PHPMailer - Uma classe de transferência de e-mail totalmente completa para PHP',
+  'LBL_SOURCE_JSHRINK' => 'JShrink - Um minificador de Javascript escrito em PHP',
   'LBL_SOURCE_CRYPT_BLOWFISH' => 'Crypt_Blowfish - Permite uma rápida encriptação bilateral blowfish sem necessitar da extensão MCrypt PHP.',
   'LBL_SOURCE_XML_HTMLSAX3' => 'XML_HTMLSax3 - Um parser SAX para HTML e outros documentos XML erradamente criados',
   'LBL_SOURCE_YAHOO_UI_LIB_EXT' => 'Yahoo! UI Extensions Library - Extensões para Yahoo! User Interface Library por Jack Slocum',
@@ -201,6 +200,7 @@ $mod_strings = array (
   'LBL_SOURCE_PARSECSV' => 'parseCSV - Interpretador de dados CSV para PHP',
   'LBL_SOURCE_PHPJS' => 'php.js - Use funções PHP em JavaScript',
   'LBL_SOURCE_PHPSQL' => 'Parser PHP SQL',
+  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - Uma biblioteca de filtragem compatível com padrões de HTML.',
   'LBL_DASHLET_TITLE' => 'Os Meus Sites',
   'LBL_DASHLET_OPT_TITLE' => 'Título',
   'LBL_DASHLET_OPT_URL' => 'Localização do website',

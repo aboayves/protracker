@@ -32,7 +32,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'ERR_TIMEOUT' => 'Fallimento forzato su timeout',
+  'ERR_JOB_FAILED_VERBOSE' => 'Job %1$s (%2$s) failed in CRON run',
+  'ERR_PHP' => '%s [%d]: %s in %s on line %d',
   'LBL_NAME' => 'Funzione',
+  'LBL_EXECUTE_TIME' => 'Tempo Esecuzione',
   'LBL_SCHEDULER_ID' => 'Schedulatore',
   'LBL_STATUS' => 'Stato',
   'LBL_RESOLUTION' => 'Risultato',
@@ -42,7 +46,14 @@ $mod_strings = array (
   'LBL_RETRY_COUNT' => 'Numero massimo di tentativi',
   'LBL_FAIL_COUNT' => 'Errori',
   'LBL_INTERVAL' => 'Intervallo minimo tra tentativi',
+  'LBL_CLIENT' => 'Cliente proprietario',
   'LBL_PERCENT' => 'Percentuale completata',
-  'LBL_EXECUTE_TIME' => 'Tempo Esecuzione',
+  'ERR_CALL' => 'Impossibile eseguire la funzione: %s',
+  'ERR_CURL' => 'Nessun CURL - impossibile  eseguire URL jobs',
+  'ERR_FAILED' => 'Interruzione imprevista, si pregs di controllare i log PHP e sugarcrm.log',
+  'ERR_NOUSER' => 'Nessun ID utente specificato per il job',
+  'ERR_NOSUCHUSER' => 'Impossibile trovare User ID %',
+  'ERR_JOBTYPE' => 'Tipo job non specificato: %',
 );
+
 

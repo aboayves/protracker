@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,27 +29,13 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $dashletStrings = array (
   'PipelineBySalesStageDashlet' => 
   array (
-    'LBL_TITLE' => 'セールス段階別　パイプライン',
-    'LBL_DESCRIPTION' => 'セールス段階パイプライン　棒グラフ',
+    'LBL_TITLE' => '商談ステージ別パイプライン',
+    'LBL_DESCRIPTION' => '商談ステージ別パイプラインの棒グラフ',
     'LBL_REFRESH' => 'チャートを更新',
   ),
 );

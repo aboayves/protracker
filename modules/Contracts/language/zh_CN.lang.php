@@ -44,6 +44,7 @@
 
 
 
+
 $mod_strings = array (
   'LBL_CONTRACT_INFORMATION' => '合同概述',
   'LBL_MODULE_NAME' => '合同',
@@ -103,5 +104,6 @@ $mod_strings = array (
   'LBL_MODIFIED_USER' => '修改人',
   'LBL_DOCUMENTS' => '文档',
   'LBL_CONTRACT_DOCUMENTS_SUBPANEL_TITLE' => '文档',
+    'LBL_CONTRACT_INFORMATION' => '预览',
 );
 

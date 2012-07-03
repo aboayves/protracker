@@ -460,18 +460,19 @@ $app_list_strings = array (
   ),
   'dom_cal_month_long' => 
   array (
-    11 => 'November',
-    12 => 'December',
-    1 => 'Január',
-    2 => 'Február',
-    3 => 'Március',
-    4 => 'Április',
-    5 => 'Május',
-    6 => 'Június',
-    7 => 'Július',
-    8 => 'Augusztus',
-    9 => 'Szeptember',
-    10 => 'Október',
+    '0' => '',
+    '1' => 'Január',
+    '2' => 'Február',
+    '3' => 'Március',
+    '4' => 'Április',
+    '5' => 'Május',
+    '6' => 'Június',
+    '7' => 'Július',
+    '8' => 'Augusztus',
+    '9' => 'Szeptember',
+    '10' => 'Október',
+    '11' => 'November',
+    '12' => 'December',
   ),
   'dom_email_server_type' => 
   array (
@@ -555,6 +556,7 @@ $app_list_strings = array (
   ),
   'duration_intervals' => 
   array (
+    0 => '00',
     15 => '15',
     30 => '30',
     45 => '45',
@@ -1540,18 +1542,19 @@ $app_list_strings = array (
   ),
   'dom_cal_month_short' => 
   array (
-    1 => 'Jan.',
-    2 => 'Febr.',
-    3 => 'Márc.',
-    4 => 'Ápr.',
-    5 => 'Máj.',
-    6 => 'Jún.',
-    7 => 'Júl.',
-    8 => 'Aug.',
-    9 => 'Szept.',
-    10 => 'Okt.',
-    11 => 'Nov.',
-    12 => 'Dec.',
+    '0' => '',
+    '1' => 'Jan.',
+    '2' => 'Febr.',
+    '3' => 'Márc.',
+    '4' => 'Ápr.',
+    '5' => 'Máj.',
+    '6' => 'Jún.',
+    '7' => 'Júl.',
+    '8' => 'Aug.',
+    '9' => 'Szept.',
+    '10' => 'Okt.',
+    '11' => 'Nov.',
+    '12' => 'Dec.',
   ),
   'dom_cal_day_long' => 
   array (
@@ -1565,13 +1568,14 @@ $app_list_strings = array (
   ),
   'dom_cal_day_short' => 
   array (
-    1 => 'V.',
-    2 => 'H.',
-    3 => 'K.',
-    4 => 'Sze.',
-    5 => 'Cs.',
-    6 => 'P.',
-    7 => 'Szo.',
+    '0' => '',
+    '1' => 'V.',
+    '2' => 'H.',
+    '3' => 'K.',
+    '4' => 'Sze.',
+    '5' => 'Cs.',
+    '6' => 'P.',
+    '7' => 'Szo.',
   ),
   'dom_meridiem_lowercase' => 
   array (
@@ -1895,6 +1899,7 @@ $app_list_strings = array (
   ),
   'tselect_type_dom' => 
   array (
+    0     => '0 hours',
     14440 => '4 óra',
     28800 => '8 óra',
     43200 => '12 óra',

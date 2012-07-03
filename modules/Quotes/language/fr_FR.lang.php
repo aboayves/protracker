@@ -32,11 +32,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_PDF_ITEM_SELECT_DISCOUNT' => ' ',
   'LBL_BILLING_CONTACT' => 'Contact:',
   'LBL_DESCRIPTION' => 'Description:',
   'LBL_INVITEE' => 'Contacts',
   'LBL_LIST_AMOUNT_USDOLLAR' => 'Total Amount',
-  'LBL_PDF_ITEM_SELECT_DISCOUNT' => '',
   'LBL_PDF_TOTAL' => 'Total:',
   'LBL_TAXABLE' => 'Taxable',
   'LBL_NON_TAXABLE' => 'Non-Taxable',

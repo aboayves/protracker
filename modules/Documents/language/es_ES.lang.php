@@ -32,8 +32,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_DOC_TYPE_POPUP' => 'Seleccione un origen para que este documento sea cargado <br> y del cual estará disponible.',
-  'LBL_EXTERNAL_DOCUMENT_NOTE' => 'Los primeros 20 archivos modificados más recientemente se muestran en orden descendente en la lista a continuación. Use la búsqueda para encontrar otros archivos.',
+  'ERR_MISSING_FILE' => 'Este documento no se encuentra un archivo, es muy probable que el error se haya generado durante la carga. Por favor vuelva a intentar cargar el archivo o póngase en contacto con su administrador.',
+  'ERR_INVALID_EXTERNAL_API_ACCESS' => 'El usuario ha intentado acceder a una API externa no válida ({0})',
+  'ERR_INVALID_EXTERNAL_API_LOGIN' => 'La comprobación de inicio de sesión ha sido errónea para la API externa ({0})',
   'LBL_MODULE_NAME' => 'Documentos',
   'LBL_MODULE_TITLE' => 'Documentos: Inicio',
   'LNK_NEW_DOCUMENT' => 'Crear Documento',
@@ -144,8 +145,10 @@ $mod_strings = array (
   'LBL_DOC_ID' => 'ID del documento',
   'LBL_DOC_TYPE' => 'Fuente',
   'LBL_LIST_DOC_TYPE' => 'Fuente',
+  'LBL_DOC_TYPE_POPUP' => 'Seleccione un origen para que este documento sea cargado <br> y del cual estará disponible.',
   'LBL_DOC_URL' => 'URL del documento',
   'LBL_SEARCH_EXTERNAL_DOCUMENT' => 'Nombre de archivo',
+  'LBL_EXTERNAL_DOCUMENT_NOTE' => 'Los primeros 20 archivos modificados más recientemente se muestran en orden descendente en la lista a continuación. Use la búsqueda para encontrar otros archivos.',
   'LBL_LIST_EXT_DOCUMENT_NAME' => 'Nombre de archivo',
   'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Cuentas',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contactos',

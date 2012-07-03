@@ -175,7 +175,7 @@ $mod_strings = array(
 	'LBL_UW_OVERWRITE_FILES_CHOICE2'			=> 'Manual Merge - Preserve All',
 	'LBL_UW_OVERWRITE_FILES'					=> 'Merge Method',
 	'LBL_UW_PATCH_READY'						=> 'The patch is ready to proceed. Click the "Commit" button below to complete the upgrade process.',
-	'LBL_UW_PATCH_READY2'						=> '<h2>Notice: Customized Layouts Found</h2><br />The following file(s) have new fields or modified screen layouts applied via the Studio. The patch you are about to install also contains changes to the file(s). For <u>each file</u> you may:<br><ul><li>[<b>Default</b>] Retain your version by leaving the checkbox blank. The patch modifications will be ignored.</li>or<li>Accept the updated files by selecting the checkbox. Your layouts will need to be re-applied via Studio.</li></ul>',
+	'LBL_UW_PATCH_READY2'						=> '<h2>Notice: Customised Layouts Found</h2><br />The following file(s) have new fields or modified screen layouts applied via the Studio. The patch you are about to install also contains changes to the file(s). For <u>each file</u> you may:<br><ul><li>[<b>Default</b>] Retain your version by leaving the checkbox blank. The patch modifications will be ignored.</li>or<li>Accept the updated files by selecting the checkbox. Your layouts will need to be re-applied via Studio.</li></ul>',
 
 	'LBL_UW_PREFLIGHT_ADD_TASK'					=> 'Create Task Item for Manual Merge?',
 	'LBL_UW_PREFLIGHT_COMPLETE'					=> 'Preflight Check',
@@ -228,9 +228,9 @@ $mod_strings = array(
 	//500 upgrade labels
 	'LBL_UW_ACCEPT_THE_LICENSE' 				=> 'Accept Licence',
 	'LBL_UW_CONVERT_THE_LICENSE' 				=> 'Convert Licence',
-	'LBL_UW_CUSTOMIZED_OR_UPGRADED_MODULES'     => 'Upgraded/Customized Modules',
-	'LBL_UW_FOLLOWING_MODULES_CUSTOMIZED'       => 'The following modules are detected as customized and preserved',
-	'LBL_UW_FOLLOWING_MODULES_UPGRADED'         => 'The following modules are detected as Studio-customized and have been upgraded',
+	'LBL_UW_CUSTOMIZED_OR_UPGRADED_MODULES'     => 'Upgraded/Customised Modules',
+	'LBL_UW_FOLLOWING_MODULES_CUSTOMIZED'       => 'The following modules are detected as customised and preserved',
+	'LBL_UW_FOLLOWING_MODULES_UPGRADED'         => 'The following modules are detected as Studio-customised and have been upgraded',
 
 	'LBL_START_UPGRADE_IN_PROGRESS'             => 'Start in progress',
 	'LBL_SYSTEM_CHECKS_IN_PROGRESS'             => 'System Check in Progress',

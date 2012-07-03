@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,27 +29,13 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $dashletStrings = array (
   'OutcomeByMonthDashlet' => 
   array (
-    'LBL_TITLE' => '月別　結果',
-    'LBL_DESCRIPTION' => '月別　結果表',
+    'LBL_TITLE' => '月別の結果',
+    'LBL_DESCRIPTION' => '月別の結果表',
     'LBL_REFRESH' => 'チャート更新',
   ),
 );

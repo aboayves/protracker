@@ -68,6 +68,7 @@ $mod_strings = array (
 	'COLUMN_TITLE_HTML_CONTENT' =>'HTML',
 	'COLUMN_TITLE_URL'=>'Default URL',
 	'COLUMN_TITLE_AUDIT' =>'Audit',
+        'COLUMN_TITLE_FTS' =>'Full Text Searchable',
 	'COLUMN_TITLE_REPORTABLE' => 'Reportable',
 	'COLUMN_TITLE_MIN_VALUE' => 'Min Value',
 	'COLUMN_TITLE_MAX_VALUE' => 'Max Value',
@@ -118,6 +119,9 @@ $mod_strings = array (
 	'LBL_ENFORCED'=>'Enforced',
 	'LBL_HELP' => 'Help' /*for 508 compliance fix*/,
 	'COLUMN_TITLE_GLOBAL_SEARCH'=>'Global Search',
+    'LBL_HAS_PARENT' => 'Has Parent',
+    'LBL_PARENT_DROPDOWN' => 'Parent Dropdown',
+    'LBL_EDIT_VIS' => 'Edit Visibility',
 );
 
 

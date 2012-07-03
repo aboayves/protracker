@@ -32,10 +32,13 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_NAME' => 'Nom du Job',
-  'LBL_SCHEDULER_ID' => 'Planificateur',
-  'LBL_RESOLUTION' => 'Résultat',
+  'LBL_CLIENT' => 'Client propriétaire',
   'LBL_MESSAGE' => 'Messages',
+  'LBL_NAME' => 'Nom du Job',
+  'LBL_EXECUTE_TIME' => 'Date d&#39;execution',
+  'LBL_SCHEDULER_ID' => 'Planificateur',
+  'LBL_STATUS' => 'Statut',
+  'LBL_RESOLUTION' => 'Résultat',
   'LBL_DATA' => 'Données du job',
   'LBL_REQUEUE' => 'Réessayer suite échec',
   'LBL_RETRY_COUNT' => 'Tentatives max.',
@@ -51,7 +54,5 @@ $mod_strings = array (
   'ERR_JOBTYPE' => 'Type de job inconnu : %s',
   'ERR_TIMEOUT' => 'Forcé l&#39;échec sur timeout',
   'ERR_JOB_FAILED_VERBOSE' => 'Job %1$s (%2$s) en échec au lancement du CRON',
-  'LBL_EXECUTE_TIME' => 'Date d&#39;execution',
-  'LBL_STATUS' => 'Statut',
 );
 

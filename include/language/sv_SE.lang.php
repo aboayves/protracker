@@ -1077,6 +1077,8 @@ $app_strings = array (
   'LBL_HOURS' => 'Timmar',
   'LBL_MINUTES' => 'Minuter',
   'LBL_DATE' => 'Datum',
+  'LBL_CHOOSE_MONTH' => 'Välj månad',
+  'LBL_ENTER_YEAR' => 'Fyll i år',
   'LBL_CREATE_KB_DOCUMENT' => 'Skapa artikel',
   'LBL_EMAIL_CHECK_INTERVAL_DOM' => 
   array (
@@ -1967,33 +1969,35 @@ $app_list_strings = array (
   ),
   'dom_cal_month_long' => 
   array (
-    4 => 'April',
-    9 => 'September',
-    11 => 'November',
-    12 => 'December',
-    1 => 'Januari',
-    2 => 'Februari',
-    3 => 'Mars',
-    5 => 'Maj',
-    6 => 'Juni',
-    7 => 'Juli',
-    8 => 'Augusti',
-    10 => 'Oktober',
+    '0' => '',
+    '1' => 'Januari',
+    '2' => 'Februari',
+    '3' => 'Mars',
+    '4' => 'April',
+    '5' => 'Maj',
+    '6' => 'Juni',
+    '7' => 'Juli',
+    '8' => 'Augusti',
+    '9' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'December',
   ),
   'dom_cal_month_short' => 
   array (
-    1 => 'Jan',
-    2 => 'Feb',
-    3 => 'Mar',
-    4 => 'Apr',
-    6 => 'Jun',
-    7 => 'Jul',
-    8 => 'Aug',
-    9 => 'Sep',
-    11 => 'Nov',
-    12 => 'Dec',
-    5 => 'Maj',
-    10 => 'Okt',
+    '0' => '',
+    '1' => 'Jan',
+    '2' => 'Feb',
+    '3' => 'Mar',
+    '4' => 'Apr',
+    '5' => 'Maj',
+    '6' => 'Jun',
+    '7' => 'Jul',
+    '8' => 'Aug',
+    '9' => 'Sep',
+    '10' => 'Okt',
+    '11' => 'Nov',
+    '12' => 'Dec',
   ),
   'dom_meridiem_lowercase' => 
   array (
@@ -2197,6 +2201,7 @@ $app_list_strings = array (
   ),
   'duration_intervals' => 
   array (
+    0 => '00',
     15 => '15',
     30 => '30',
     45 => '45',
@@ -2788,13 +2793,14 @@ $app_list_strings = array (
   ),
   'dom_cal_day_short' => 
   array (
-    1 => 'Sön',
-    2 => 'Mån',
-    3 => 'Tis',
-    4 => 'Ons',
-    5 => 'Tor',
-    6 => 'Fre',
-    7 => 'Lör',
+    '0' => '',
+    '1' => 'Sön',
+    '2' => 'Mån',
+    '3' => 'Tis',
+    '4' => 'Ons',
+    '5' => 'Tor',
+    '6' => 'Fre',
+    '7' => 'Lör',
   ),
   'dom_report_types' => 
   array (
@@ -3020,6 +3026,7 @@ $app_list_strings = array (
   ),
   'tselect_type_dom' => 
   array (
+    0     => '0 hours',
     14440 => '4 timmar',
     28800 => '8 timmar',
     43200 => '12 timmar',

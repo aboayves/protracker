@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,22 +29,8 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
   'LBL_MODULE_NAME' => '取引先',
   'LBL_MODULE_TITLE' => '取引先: ホーム',
@@ -55,8 +43,9 @@ $mod_strings = array (
   'LNK_NEW_CASE' => 'ケース作成',
   'LNK_NEW_NOTE' => 'メモ作成',
   'LNK_NEW_CALL' => '電話作成',
-  'LNK_NEW_EMAIL' => '電子メール作成・保存',
+  'LNK_NEW_EMAIL' => 'アーカイブ電子メール作成',
   'LNK_NEW_MEETING' => '会議作成',
   'LNK_NEW_TASK' => 'タスク作成',
   'ERR_DELETE_RECORD' => '取引先を削除するにはレコード番号を指定する必要があります。',
 );
+

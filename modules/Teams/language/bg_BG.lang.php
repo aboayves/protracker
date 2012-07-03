@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDITLAYOUT' => 'Редактиране на подредби',
+  'NTC_DELETE_CONFIRMATION' => 'Сигурни ли сте, че желаете да изтриете този запис?',
   'LBL_REASSIGN_TEAM_BUTTON_KEY' => 'R',
   'ERR_ADD_RECORD' => 'Трябва да определите номер на записа, за да добавите потребител към този екип.',
   'ERR_DUP_NAME' => 'Екипът вече съществува, моля изберете друго име.',
@@ -73,5 +73,6 @@ $mod_strings = array (
   'LNK_LIST_TEAMNOTICE' => 'Членове на екипите',
   'LNK_NEW_TEAM' => 'Създаване на екип',
   'NTC_REMOVE_TEAM_MEMBER_CONFIRMATION' => 'Сигурни ли сте, че искате да изтриете тази връзка?',
+  'LBL_EDITLAYOUT' => 'Редактиране на подредби',
 );
 

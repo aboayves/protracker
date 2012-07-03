@@ -27,6 +27,8 @@ if(!defined('sugarEntry'))define('sugarEntry', true);
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+
+include ('include/MVC/preDispatch.php');
 $startTime = microtime(true);
 require_once('include/entryPoint.php');
 ob_start();

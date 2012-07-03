@@ -112,7 +112,7 @@ if(typeof(SimpleList) == 'undefined'){
         if(drop_value.value == ""){
             html += "[" + SUGAR.language.get('ModuleBuilder', 'LBL_BLANK') + "]";
         }else{
-            html += "["+drop_value.value+"]";
+            html += "["+YAHOO.lang.escapeHTML(drop_value.value)+"]";
         }
         html += "</span>";
         html += "<span class='fieldValue' id='span_edit_"+liObj.id+"' style='display:none'>";
@@ -197,7 +197,7 @@ if(typeof(SimpleList) == 'undefined'){
             var out = [];
             for (i=0;i<items.length;i=i+1) {
                 var name = items[i].id;
-                var value = document.getElementById('input_'+name).value;
+                var value = document.getElementById('value_'+name).value;
                 out[i] = [ name , unescape(value) ];
             }
             return YAHOO.lang.JSON.stringify(out);

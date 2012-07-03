@@ -34,16 +34,10 @@ require_once('include/utils/encryption_utils.php');
 
 function getSystemInfo($send_usage_info=true){
 	global $sugar_config;
-	global $db, $authLevel, $administration, $timedate;
+	global $db, $administration, $timedate;
 	$info=array();
 	$info = getBaseSystemInfo($send_usage_info);
     if($send_usage_info){
-		if($authLevel > 0){
-			if(isset($_SERVER['SERVER_ADDR']))
-				$info['ip_address'] = $_SERVER['SERVER_ADDR'];
-			else
-				$info['ip_address'] = '127.0.0.1';
-		}
 		$info['application_key']=$sugar_config['unique_key'];
 		$info['php_version']=phpversion();
 		if(isset($_SERVER['SERVER_SOFTWARE'])) {
@@ -70,9 +64,6 @@ function getSystemInfo($send_usage_info=true){
 			$info['admin_users'] = $result;
 		}
 
-		if(empty($authLevel)){
-			$authLevel = 0;
-		}
 
 		$result=$db->getOne("select count(*) count from users", false, 'fetching all users count');
 		if($result !== false) {
@@ -114,7 +105,6 @@ function getSystemInfo($send_usage_info=true){
 		include('distro.php');
 		if(!empty($distro_name))$info['distro_name'] = $distro_name;
 	}
-	$info['auth_level'] = $authLevel;
 	$result = $db->getOne("SELECT count(*) as record_count FROM session_history WHERE is_violation =1 AND date_entered >= $lastMonth");
 	if($result){
 		$info['license_portal_ex'] = $result;
@@ -136,7 +126,6 @@ function getSystemInfo($send_usage_info=true){
 }
 
 function getBaseSystemInfo($send_usage_info=true){
-    global $authLevel;
     include('sugar_version.php');
     $info=array();
 
@@ -145,7 +134,7 @@ function getBaseSystemInfo($send_usage_info=true){
     }
     $info['sugar_version']=$sugar_version;
     $info['sugar_flavor']=$sugar_flavor;
-    $info['auth_level'] = $authLevel;
+    $info['auth_level'] = 0;
 
 
     global $license;
@@ -329,32 +318,7 @@ function check_now($send_usage_info=true, $get_request_data=false, $response_dat
  */
 function compareVersions($ver1, $ver2)
 {
-    if(!preg_match_all("/[0-9]/", $ver1, $matches1))
-    {
-        return false;
-    }
-
-    if(!preg_match_all("/[0-9]/", $ver2, $matches2))
-    {
-        return true;
-    }
-
-    //Now recreate string with only numbers
-    $ver1 = implode('', $matches1[0]);
-    $ver2 = implode('', $matches2[0]);
-
-    $len1 = strlen($ver1);
-    $len2 = strlen($ver2);
-
-    //Now apply padding
-    if($len1 > $len2) {
-        $ver2 = str_pad($ver2, $len1, '0');
-    } else if($len2 > $len1) {
-        $ver1 = str_pad($ver1, $len2, '0');
-    }
-
-    //Return result
-    return (int)$ver1 > (int)$ver2;
+    return (version_compare($ver1, $ver2) === 1);
 }
 function set_CheckUpdates_config_setting($value) {
 
@@ -733,7 +697,7 @@ function loadLicense($firstLogin=false){
 }
 
 function loginLicense(){
-	global $current_user, $license, $authLevel;
+	global $current_user, $license;
 	loadLicense(true);
 
 	if((isset($_SESSION['EXCEEDS_MAX_USERS']) && $_SESSION['EXCEEDS_MAX_USERS'] == 1 ) || empty($license->settings['license_key']) || (!empty($license->settings['license_last_validation']) && $license->settings['license_last_validation'] == 'failed' &&  !empty($license->settings['license_last_validation_fail']) && (empty($license->settings['license_last_validation_success']) || $license->settings['license_last_validation_fail'] > $license->settings['license_last_validation_success']))){
@@ -751,7 +715,6 @@ function loginLicense(){
 
 	}
 
-	$authLevel = 0;
 
 	if (shouldCheckSugar()) {
 

@@ -45,7 +45,8 @@
 	
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'ラベル編集',
-  'LBL_KEY' => 'キー：',
-  'LBL_VALUE' => '値：',
+  'LBL_KEY' => 'キー:',
+  'LBL_VALUE' => '値:',
 );
+
 

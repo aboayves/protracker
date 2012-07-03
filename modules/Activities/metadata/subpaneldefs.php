@@ -52,13 +52,6 @@ $layout_defs['Activities'] = array( // the key to the layout_defs must be the na
 			 		 	'width' => '2%',
 					),
 					array(
-			 		 	'name' => 'nothing',
-						'widget_class' => 'SubPanelCloseButton',
-			 		 	'module' => 'Meetings',
-			 		 	'vname' => 'LBL_LIST_CLOSE',
-			 		 	'width' => '6%',
-					),
-					array(
 			 		 	'name' => 'name',
 			 		 	'vname' => 'LBL_LIST_SUBJECT',
 						'widget_class' => 'SubPanelDetailViewLink',
@@ -90,6 +83,13 @@ $layout_defs['Activities'] = array( // the key to the layout_defs must be the na
 			 		 	//'db_alias_to' => 'the_date',
 			 		 	'vname' => 'LBL_LIST_DUE_DATE',
 			 		 	'width' => '10%',
+					),
+					array(
+			 		 	'name' => 'nothing',
+						'widget_class' => 'SubPanelCloseButton',
+			 		 	'module' => 'Meetings',
+			 		 	'vname' => 'LBL_LIST_CLOSE',
+			 		 	'width' => '6%',
 					),
 					array(
 			 		 	'name' => 'nothing',

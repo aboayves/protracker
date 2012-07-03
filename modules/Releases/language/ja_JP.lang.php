@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,22 +29,8 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
   'LBL_MODULE_NAME' => 'リリース',
   'LBL_MODULE_TITLE' => 'リリース: ホーム',
@@ -57,15 +45,15 @@ $mod_strings = array (
   'LBL_LIST_STATUS' => 'ステータス',
   'LBL_STATUS' => 'ステータス:',
   'LNK_NEW_RELEASE' => 'リリース',
-  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除して良いですか？',
+  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除してよいですか？',
   'ERR_DELETE_RECORD' => 'リリースを削除するためにはレコード番号を指定してください。',
-  'NTC_STATUS' => 'リリースドロップダウンリストからこのリリースを削除するにはステータスを非アクティブにしてください。',
+  'NTC_STATUS' => 'リリースドロップダウンリストからこのリリースをはずすにはステータスを非アクティブにしてください。',
   'NTC_LIST_ORDER' => 'この順番はリリースドロップダウンリストの表示順に反映されます。',
-  'release_status_dom' =>
+  'LBL_EDITLAYOUT' => 'レイアウト編集',
+  'release_status_dom' => 
   array (
     'Active' => 'アクティブ',
     'Inactive' => '非アクティブ',
   ),
 );
-
 

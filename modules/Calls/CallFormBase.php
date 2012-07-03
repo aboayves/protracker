@@ -213,6 +213,17 @@ function handleSave($prefix,$redirect=true,$useRequired=false) {
 		$_POST[$prefix.'reminder_time'] = $current_user->getPreference('reminder_time');
 	}
 
+	if(!isset($_POST['email_reminder_checked']) || (isset($_POST['email_reminder_checked']) && $_POST['email_reminder_checked'] == '0')) {
+		$_POST['email_reminder_time'] = -1;
+	}
+	if(!isset($_POST['email_reminder_time'])){
+		$_POST['email_reminder_time'] = $current_user->getPreference('email_reminder_time');
+		$_POST['email_reminder_checked'] = 1;
+	}
+
+	// don't allow to set recurring_source from a form
+	unset($_POST['recurring_source']);
+
 	$time_format = $timedate->get_user_time_format();
     $time_separator = ":";
     if(preg_match('/\d+([^\d])\d+([^\d]*)/s', $time_format, $match)) {
@@ -252,11 +263,11 @@ function handleSave($prefix,$redirect=true,$useRequired=false) {
 	  	$_POST['user_invitees'] .= ','.$_POST['assigned_user_id'].', ';
 
 	  	//add current user if the assigned to user is different than current user.
-	  	if($current_user->id != $_POST['assigned_user_id']){
+	  	if($current_user->id != $_POST['assigned_user_id'] && $_REQUEST['module'] != "Calendar"){
 	  		$_POST['user_invitees'] .= ','.$current_user->id.', ';
 	  	}
 
-	  	//remove any double comma's introduced during appending
+	  	//remove any double commas introduced during appending
 	    $_POST['user_invitees'] = str_replace(',,', ',', $_POST['user_invitees']);
   	}
 
@@ -391,6 +402,7 @@ function handleSave($prefix,$redirect=true,$useRequired=false) {
 	    	}
 	    	// Call the Call module's save function to handle saving other fields besides
 	    	// the users and contacts relationships
+            $focus->update_vcal = false;    // Bug #49195 : don't update vcal b/s related users aren't saved yet, create vcal cache below
 	    	$focus->save(true);
 	    	$return_id = $focus->id;
 
@@ -462,6 +474,9 @@ function handleSave($prefix,$redirect=true,$useRequired=false) {
 	    		}
 	    	}
 
+            // Bug #49195 : update vcal
+            vCal::cache_sugar_vcal($current_user);
+            
 	    	// CCL - Comment out call to set $current_user as invitee
 	    	//set organizer to auto-accept
 	    	//$focus->set_accept_status($current_user, 'accept');

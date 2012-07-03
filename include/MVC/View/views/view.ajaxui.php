@@ -49,6 +49,12 @@ class ViewAjaxUI extends SugarView
 
     public function display()
  	{
+ 		$user = $GLOBALS["current_user"];
+ 		$etag = $user->id . $user->getETagSeed("mainMenuETag");
+         //Include fts engine name in etag so we don't cache searchbar.
+        $etag .= SugarSearchEngineFactory::getFTSEngineNameFromConfig();
+        $etag = md5($etag);
+ 		generateEtagHeader($etag);
         //Prevent double footers
         $GLOBALS['app']->headerDisplayed = false;
  	}

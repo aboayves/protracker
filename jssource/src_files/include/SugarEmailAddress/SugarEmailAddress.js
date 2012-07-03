@@ -255,7 +255,10 @@
 		    removeButton.setAttribute("name", this.numberEmailAddresses);
 			removeButton.eaw = this;
             removeButton.setAttribute("tabindex", tabIndexCount);
-		    removeButton.onclick = function(){this.eaw.removeEmailAddress(this.name);};
+		    removeButton.onclick = function(){
+		    	this.eaw.removeEmailAddress(this.name);
+		    	return false;
+		    };
             removeButton.appendChild(removeButtonImg);
 		    
 		    // set primary flag
@@ -322,7 +325,7 @@
 		    newContentInvalidFlag.setAttribute("enabled", "true");
 			newContentInvalidFlag.eaw = this;
             newContentInvalidFlag.setAttribute("tabindex", tabIndexCount);
-		    newContentInvalidFlag['onClick']= function(){this.eaw.toggleCheckbox(this)};
+		    newContentInvalidFlag['onClick']= function(){this.eaw.toggleCheckbox(this);};
 		    
 		    // set the verified flag and verified email value
 		    newContentVerifiedFlag.setAttribute("type", "hidden");
@@ -438,10 +441,13 @@
 
 		removeEmailAddress : function(index) {
 			removeFromValidate(this.emailView, this.id + 'emailAddress' + index);
-            var oNodeToRemove = Dom.get(this.id +  'emailAddressRow' + index);
-            var form = Dom.getAncestorByTagName(oNodeToRemove, "form");
-            oNodeToRemove.parentNode.removeChild(oNodeToRemove);
-
+			var oNodeToRemove = $("#" + this.id +  'emailAddressRow' + index);
+            var form = oNodeToRemove.parents("form")[0];
+            oNodeToRemove.find("input").each(function(index, node){
+            	$(node).remove();
+            });
+            oNodeToRemove.css("display", "none");
+            
             var removedIndex = parseInt(index);
             //If we are not deleting the last email address, we need to shift the numbering to fill the gap
             if(this.numberEmailAddresses != removedIndex) {

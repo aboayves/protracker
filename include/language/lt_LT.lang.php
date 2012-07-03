@@ -533,6 +533,7 @@ $app_list_strings = array (
   ),
   'duration_intervals' => 
   array (
+    0 => '00',
     15 => '15',
     30 => '30',
     45 => '45',
@@ -576,8 +577,9 @@ $app_list_strings = array (
   ),
   'email_settings_for_ssl' => 
   array (
-    1 => 'SSL',
-    2 => 'TLS',
+      '0' => '',
+      '1' => 'SSL',
+      '2' => 'TLS',
   ),
   'import_delimeter_options' => 
   array (
@@ -1591,33 +1593,35 @@ $app_list_strings = array (
   ),
   'dom_cal_month_long' => 
   array (
-    1 => 'Sausis',
-    2 => 'Vasaris',
-    3 => 'Kovas',
-    4 => 'Balandis',
-    5 => 'Gegužė',
-    6 => 'Birželis',
-    7 => 'Liepa',
-    8 => 'Rugpjūtis',
-    9 => 'Rugsėjis',
-    10 => 'Spalis',
-    11 => 'Lapkritis',
-    12 => 'Gruodis',
+	'0' => '',
+    '1' => 'Sausis',
+    '2' => 'Vasaris',
+    '3' => 'Kovas',
+    '4' => 'Balandis',
+    '5' => 'Gegužė',
+    '6' => 'Birželis',
+    '7' => 'Liepa',
+    '8' => 'Rugpjūtis',
+    '9' => 'Rugsėjis',
+    '10' => 'Spalis',
+    '11' => 'Lapkritis',
+    '12' => 'Gruodis',
   ),
   'dom_cal_month_short' => 
   array (
-    1 => 'Sau',
-    2 => 'Vas',
-    3 => 'Kov',
-    4 => 'Bal',
-    5 => 'Geg',
-    6 => 'Bir',
-    7 => 'Lie',
-    8 => 'Rugp',
-    9 => 'Rugs',
-    10 => 'Spa',
-    11 => 'Lap',
-    12 => 'Gru',
+    '0' => '',
+    '1' => 'Sau',
+    '2' => 'Vas',
+    '3' => 'Kov',
+    '4' => 'Bal',
+    '5' => 'Geg',
+    '6' => 'Bir',
+    '7' => 'Lie',
+    '8' => 'Rugp',
+    '9' => 'Rugs',
+    '10' => 'Spa',
+    '11' => 'Lap',
+    '12' => 'Gru',
   ),
   'dom_cal_day_long' => 
   array (
@@ -1631,13 +1635,14 @@ $app_list_strings = array (
   ),
   'dom_cal_day_short' => 
   array (
-    1 => 'Sek',
-    2 => 'Pir',
-    3 => 'Ant',
-    4 => 'Tre',
-    5 => 'Ket',
-    6 => 'Pen',
-    7 => 'Šeš',
+    '0' => '',
+    '1' => 'Sek',
+    '2' => 'Pir',
+    '3' => 'Ant',
+    '4' => 'Tre',
+    '5' => 'Ket',
+    '6' => 'Pen',
+    '7' => 'Šeš',
   ),
   'dom_report_types' => 
   array (
@@ -1942,6 +1947,7 @@ $app_list_strings = array (
   ),
   'tselect_type_dom' => 
   array (
+    0     => '0 hours',
     14440 => '4 valandos',
     28800 => '8 valandos',
     43200 => '12 valandų',

@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - Eine Standard-Kompliant HTML Filter Bibliothek.',
+  'LBL_SOURCE_JSHRINK' => 'JShrink - A Javascript minifier written in PHP',
   'LBL_MODULE_NAME' => 'Home',
   'LBL_SEARCH_RESULTS_IN' => 'in',
   'LBL_WEB' => 'Web',
@@ -201,6 +201,7 @@ $mod_strings = array (
   'LBL_SOURCE_ZEND' => 'Zend Framework - Einen Open Source Web Framework für PHP5',
   'LBL_SOURCE_PARSECSV' => 'parseCSV - CSV Deten Analyser für PHP',
   'LBL_SOURCE_PHPJS' => 'php.js - PHP Funktionen in JavaScript verwenden',
+  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - Eine Standard-Kompliant HTML Filter Bibliothek.',
   'LBL_DASHLET_TITLE' => 'Meine Seiten',
   'LBL_DASHLET_OPT_TITLE' => 'Titel',
   'LBL_DASHLET_OPT_URL' => 'Website Lage',

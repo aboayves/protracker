@@ -32,8 +32,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'COLUMN_TITLE_GLOBAL_SEARCH' => 'Глобално търсене',
-  'LBL_HELP' => 'Помощ',
+  'COLUMN_TITLE_FTS' => 'Full Text Searchable',
+  'LBL_HAS_PARENT' => 'Has Parent',
+  'LBL_PARENT_DROPDOWN' => 'Parent Dropdown',
+  'LBL_EDIT_VIS' => 'Edit Visibility',
   'COLUMN_TITLE_EXT1' => 'Extra Meta Field 1',
   'COLUMN_TITLE_EXT2' => 'Extra Meta Field 2',
   'COLUMN_TITLE_EXT3' => 'Extra Meta Field 3',
@@ -75,6 +77,7 @@ $mod_strings = array (
   'COLUMN_TITLE_AUTOINC_NEXT' => 'Автоматично нарастване на следващата стойност',
   'COLUMN_DISABLE_NUMBER_FORMAT' => 'Забранен формат',
   'COLUMN_TITLE_ENABLE_RANGE_SEARCH' => 'Търсене за период',
+  'COLUMN_TITLE_GLOBAL_SEARCH' => 'Глобално търсене',
   'LBL_DROP_DOWN_LIST' => 'Списък с падащи менюта',
   'LBL_RADIO_FIELDS' => 'Radio бутон',
   'LBL_MULTI_SELECT_LIST' => 'Падащо меню "MultiSelect"',
@@ -112,5 +115,6 @@ $mod_strings = array (
   'COLUMN_TITLE_VALIDATE_US_FORMAT' => 'U.S. формат',
   'LBL_DEPENDENT' => 'Визуализира се по формула',
   'LBL_VISIBLE_IF' => 'Показва се при условие',
+  'LBL_HELP' => 'Помощ',
 );
 

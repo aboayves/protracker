@@ -41,10 +41,7 @@ SUGAR.ajaxUI = {
         try{
             var r = YAHOO.lang.JSON.parse(o.responseText);
             cont = r.content;
-            if (r.moduleList)
-            {
-                SUGAR.themes.setModuleTabs(r.moduleList);
-            }
+
             if (r.title)
             {
                 document.title = html_entity_decode(r.title);
@@ -62,6 +59,20 @@ SUGAR.ajaxUI = {
             c.innerHTML = cont;
             SUGAR.util.evalScript(cont);
 
+            if ( r.moduleList)
+            {
+                SUGAR.themes.setModuleTabs(r.moduleList);
+            }
+
+            if (r.menu)
+            {
+				if(Get_Cookie("sugar_theme_menu_load") == 'true') {
+					SUGAR.themes.setModuleTabs(r.moduleList);
+					Set_Cookie('sugar_theme_menu_load','false',30,'/','','');
+				} else {
+	               SUGAR.themes.setCurrentTab(r.menu);
+				}
+            }
             if (r.record)
             {
                 DCMenu.record = r.record;
@@ -73,14 +84,18 @@ SUGAR.ajaxUI = {
                 // Fix the help link
                 // Bug50676 - This can only be run when we have the module around
                 var hl = document.getElementById("help_link");
-                hl.href = hl.href.replace(new RegExp("help_action=([^\&]*?)"), 'help_action=' + action_sugar_grp1).replace(new RegExp("help_module=([^\&]*?)"), 'help_module=' + r.menu.module);
+                if(hl)
+                    hl.href = hl.href.replace(new RegExp("help_action=([^\&]*?)"), 'help_action=' + action_sugar_grp1).replace(new RegExp("help_module=([^\&]*?)"), 'help_module=' + r.menu.module);
             }
 
             // set response time from ajax response
             if(typeof(r.responseTime) != 'undefined'){
-                var rt = document.getElementById('responseTime');
-                if(rt != null){
-                    rt.innerHTML = r.responseTime;
+                var rt = $("#responseTime");
+                if(rt.length > 0){
+                    rt.html(rt.html().replace(/[\d]+\.[\d]+/, r.responseTime));
+                }
+                else if(typeof(logoStats) != "undefined"){
+                	$("#logo").attr("title", logoStats.replace(/[\d]+\.[\d]+/, r.responseTime)).tipTip({maxWidth: "auto", edgeOffset: 10});
                 }
             }
         } catch (e){

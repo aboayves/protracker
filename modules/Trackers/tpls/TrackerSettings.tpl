@@ -30,7 +30,6 @@
 
 
 *}
-<script type='text/javascript' src="{sugar_getjspath file='include/javascript/overlibmws.js'}"></script>
 <form name="TrackerSettings" method="POST">
 <input type="hidden" name="action" value="TrackerSettings">
 <input type="hidden" name="module" value="Trackers">
