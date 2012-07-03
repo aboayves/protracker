@@ -203,3 +203,4 @@ $GLOBALS['app_list_strings']['project_service_list']=array (
 );
 $app_list_strings['moduleList']['av_Net_Worth']='Net Worth History';
 $app_list_strings['moduleListSingular']['av_Net_Worth']='Net Worth History';
+unset($app_list_strings['parent_type_display']['Tasks']);
