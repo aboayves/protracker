@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,25 +29,30 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
+	
 
 $mod_strings = array (
-   'LBL_EXECUTE_TIME' => 'Изпълнена на' );
-?>
+  'LBL_NAME' => 'Име на задачата',
+  'LBL_SCHEDULER_ID' => 'Автоматизирани задачи',
+  'LBL_STATUS' => 'Статус на задачата',
+  'LBL_RESOLUTION' => 'Резултат',
+  'LBL_MESSAGE' => 'Съобщения',
+  'LBL_DATA' => 'Данни за задачата',
+  'LBL_REQUEUE' => 'Повторно изпълнение при възникване на грешка',
+  'LBL_RETRY_COUNT' => 'Брой повторни изпълнения',
+  'LBL_FAIL_COUNT' => 'Грешки',
+  'LBL_INTERVAL' => 'Интервал от време преди повторно изпълнение',
+  'LBL_CLIENT' => 'Owning client',
+  'LBL_PERCENT' => 'Процент на изпълнение',
+  'ERR_CALL' => 'Не може да бъде извикана функцията: %s',
+  'ERR_CURL' => 'No CURL - cannot run URL jobs',
+  'ERR_FAILED' => 'Грешка при изпълнението. Моля проверете логовете на PHP и файла sugarcrm.log',
+  'ERR_PHP' => '%s [%d]: %s в %s на линия %d',
+  'ERR_NOUSER' => 'No User ID specified for the job',
+  'ERR_NOSUCHUSER' => 'User ID %s not found',
+  'ERR_JOBTYPE' => 'Unknown job type: %s',
+  'ERR_TIMEOUT' => 'Forced failure on timeout',
+  'ERR_JOB_FAILED_VERBOSE' => 'Job %1$s (%2$s) failed in CRON run',
+  'LBL_EXECUTE_TIME' => 'Изпълнена на',
+);
+

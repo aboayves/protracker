@@ -421,31 +421,35 @@ EOQ;
 	function get_buttons($thisPanel,$panel_query=null)
 	{
 		$subpanel_def = $thisPanel->get_buttons();
-		$layout_manager = $this->getLayoutManager();
-		$widget_contents = '<span><table cellpadding="0" cellspacing="0"><tr>';
+        $layout_manager = $this->getLayoutManager();
+
+        //for action button at the top of each subpanel
+        // bug#51275: smarty widget to help provide the action menu functionality as it is currently sprinkled throughout the app with html
+        $buttons = array();
 		foreach($subpanel_def as $widget_data)
 		{
-			$widget_data['query']=urlencode($panel_query);
-			$widget_data['action'] = $_REQUEST['action'];
-			$widget_data['module'] =  $thisPanel->get_inst_prop_value('module');
-			$widget_data['focus'] = $this->focus;
-			$widget_data['subpanel_definition'] = $thisPanel;
-			$widget_contents .= '<td class="buttons">' . "\n";
+            $widget_data['query']=urlencode($panel_query);
+            $widget_data['action'] = $_REQUEST['action'];
+            $widget_data['module'] = $thisPanel->get_inst_prop_value('module');
+            $widget_data['focus'] = $this->focus;
+            $widget_data['subpanel_definition'] = $thisPanel;
 
 			if(empty($widget_data['widget_class']))
 			{
-				$widget_contents .= "widget_class not defined for top subpanel buttons";
+				$buttons[] = "widget_class not defined for top subpanel buttons";
 			}
 			else
 			{
-				$widget_contents .= $layout_manager->widgetDisplay($widget_data);
+				$buttons[] = $layout_manager->widgetDisplay($widget_data);
 			}
 
-			$widget_contents .= '</td>';
-		}
-
-		$widget_contents .= '</tr></table></span>';
-		return $widget_contents;
+        }
+        require_once('include/Smarty/plugins/function.sugar_action_menu.php');
+        $widget_contents = smarty_function_sugar_action_menu(array(
+            'buttons' => $buttons,
+            'class' => 'clickMenu fancymenu',
+        ), $this->xTemplate);
+        return $widget_contents;
 	}
 }
 ?>

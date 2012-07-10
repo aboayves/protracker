@@ -57,8 +57,8 @@ $this->bean = $focus->merge_bean;
 
 $params = array();
 $params[] = "<a href='index.php?module={$focus->merge_bean->module_dir}&action=index'>{$GLOBALS['app_list_strings']['moduleList'][$focus->merge_bean->module_dir]}</a>";
-$params[] = "<a href='index.php?module={$focus->merge_bean->module_dir}&action=DetailView&record={$focus->merge_bean->id}'>{$focus->merge_bean->name}</a>";
 $params[] = $mod_strings['LBL_STEP2_FORM_TITLE'];
+$params[] = $focus->merge_bean->name;
 echo getClassicModuleTitle($focus->merge_bean->module_dir, $params, true);
 
        $order_by_name = $focus->merge_module.'2_'.strtoupper($focus->merge_bean->object_name).'_ORDER_BY' ; 
@@ -85,7 +85,6 @@ $ListView = new ListViewSmarty();
 $ListView->should_process = true;
 $ListView->mergeduplicates = false;
 $ListView->export = false;
-$ListView->select = false;
 $ListView->delete = false;
 $module = $_REQUEST['merge_module'];
 $metadataFile = null;
@@ -165,7 +164,7 @@ $form_top = <<<EOQ
         <script>
            function verify_selection(theElement) {
                 theElement.form.action.value='Step3';
-                var selcount=document.getElementById('selectCount');
+                var selcount=document.getElementById('selectCountTop');
                 if (parseInt(selcount.value) >0 ) {
                     return true;
                 } else {

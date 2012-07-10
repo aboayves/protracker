@@ -32,6 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_SETTINGS_DISPLAY_TIMESLOTS' => 'Afficher les créneaux horaires dans les vues Jour et Semaine:',
+  'LBL_DATE_END_ERROR' => 'La date de fin est avant la date de début',
   'LBL_AM' => 'AM',
   'LBL_PM' => 'PM',
   'LBL_HOURS_ABBREV' => 'h',
@@ -108,7 +110,6 @@ $mod_strings = array (
   'LBL_STATUS' => 'Statut',
   'LBL_DATE_TIME' => 'Date et Heure',
   'LBL_SETTINGS_TITLE' => 'Paramètres',
-  'LBL_SETTINGS_CALENDAR_STYLE' => 'Style du Calendrier :',
   'LBL_SETTINGS_TIME_STARTS' => 'Heure début :',
   'LBL_SETTINGS_TIME_ENDS' => 'Heure fin :',
   'LBL_SETTINGS_CALLS_SHOW' => 'Voir les appels :',
@@ -134,7 +135,6 @@ $mod_strings = array (
   'LBL_EDIT_ALL_RECURRENCES' => 'Editer toutes les occurrences',
   'LBL_REMOVE_ALL_RECURRENCES' => 'Supprimer toutes les occurrences',
 );
-
 
 $mod_list_strings = array(
 'dom_cal_weekdays'=>array(

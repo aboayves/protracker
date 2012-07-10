@@ -74,7 +74,7 @@
  			$offset = 0;
  		}
  		//this check if require in cases when you visit the edit view before visiting that modules list view.
- 		//you can do this easily either from home or activies or sitemap.
+ 		//you can do this easily either from home, activities or sitemap.
  		$stored_vcr_query=SugarVCR::retrieve($module);
  		if(!empty($_REQUEST['record']) and !empty($stored_vcr_query) and isset($_REQUEST['offset']) and (empty($_REQUEST['isDuplicate']) or $_REQUEST['isDuplicate'] == 'false')){ // bug 15893 - only show VCR if called as an element in a set of records
  			//syncing with display offset;
@@ -133,7 +133,7 @@
 	 		}else{
 	 			$count = $offset;
 	 		}
-	 		$html_text .= "<td nowrap align='right' >".$list_link."&nbsp;&nbsp;&nbsp;&nbsp;<span class='pagination'>".$previous_link."&nbsp;&nbsp;(".$count.")&nbsp;&nbsp;".$next_link."</span>&nbsp;&nbsp;</td>";
+	 		$html_text .= "<td nowrap class='paginationWrapper' >".$list_link."&nbsp;&nbsp;&nbsp;&nbsp;<span class='pagination'>".$previous_link."&nbsp;&nbsp;(".$count.")&nbsp;&nbsp;".$next_link."</span>&nbsp;&nbsp;</td>";
 
 
 

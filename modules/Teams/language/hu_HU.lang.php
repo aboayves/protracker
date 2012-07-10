@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDITLAYOUT' => 'Elrendezés szerkesztése',
+  'NTC_DELETE_CONFIRMATION' => 'Biztosan törölni akarja ezt a rekordot?',
   'LBL_REASSIGN_TEAM_BUTTON_KEY' => 'R',
   'ERR_ADD_RECORD' => 'Adjon meg egy azonosítót a felhasználó felvételéhez.',
   'ERR_DUP_NAME' => 'Létező csoportnév, válasszon másikat.',
@@ -73,5 +73,6 @@ $mod_strings = array (
   'LNK_LIST_TEAMNOTICE' => 'Csoport közlemények',
   'LNK_NEW_TEAM' => 'Csoport létrehozása',
   'NTC_REMOVE_TEAM_MEMBER_CONFIRMATION' => 'Biztosan meg akarja szüntetni a munkatárs csoporttagságát?',
+  'LBL_EDITLAYOUT' => 'Elrendezés szerkesztése',
 );
 

@@ -7,11 +7,13 @@ array (
     'templateMeta' => 
     array (
       'maxColumns' => '2',
-	  'form' => array(
-	  	'hidden' => array(
-		  '<input type="hidden" id="name" name="name" value="Net Worth">'
-		),
-	  ),
+      'form' => 
+      array (
+        'hidden' => 
+        array (
+          0 => '<input type="hidden" id="name" name="name" value="Net Worth">',
+        ),
+      ),
       'widths' => 
       array (
         0 => 
@@ -56,7 +58,11 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => '',
+          1 => 
+          array (
+            'name' => 'managed_assets',
+            'label' => 'LBL_MANAGED_ASSETS',
+          ),
         ),
         3 => 
         array (

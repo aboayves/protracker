@@ -1,5 +1,5 @@
 <?php
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -28,30 +28,24 @@
  ********************************************************************************/
 
 
+/*********************************************************************************
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
+* Description:  Defines the English language pack for the base application.
+* Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+* All Rights Reserved.
+* Contributor(s): ______________________________________..
+********************************************************************************/
 
 $connector_strings = array (
-        'LBL_LICENSING_INFO' => '', 
+    //licensing information shown in config screen
+    'LBL_LICENSING_INFO' => '<table border="0" cellspacing="1"><tr><td valign="top" width="35%" class="dataLabel">从LinkedIn&#169获取一对API和机密密钥; 注册您的Sugar实例为一个新程序.<br/><br>注册实例的步骤:<br/><br/><ol><li>到LinkedIn&#169; 开发者站点: <a href=\'https://www.linkedin.com/secure/developer\' target=\'_blank\'>https://www.linkedin.com/secure/developer</a>.</li><li>使用LinkedIn&#169登陆;您想为之创建程序的账户.</li><li>点击增加新程序链接.</li><li>完成增加新程序表格.</li><li>选择同意复选框并点击新增程序.</li><li>在程序详情页面找到Linkedin&#169的API和机密密钥; 连接器 (管理 – 连接器 - Linkedin&#169;) 并输入以下密钥.</li><li>点击保存.</li></ol></td></tr></table>',
+
     'LBL_NAME' => '公司名称',
 
-		'company_url' => 'URL',
+	//Configuration labels
+	'company_url' => 'URL',
+    'oauth_consumer_key' => 'API 密钥',
+    'oauth_consumer_secret' => '机密密钥'
 );
 
 ?>

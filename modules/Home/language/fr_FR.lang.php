@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - Un librairie de filtrage respectant les standards HTML.',
+  'LBL_SOURCE_JSHRINK' => 'JShrink - Un "minifier" Javascript écrit en PHP',
   'LBL_OPTIONS' => 'Options',
   'LBL_MODULES' => 'Modules',
   'LBL_WEB' => 'Web',
@@ -49,7 +49,7 @@ $mod_strings = array (
   'LBL_MODULES_TO_SEARCH' => 'Modules utilisés pour la recherche',
   'LBL_NEW_FORM_TITLE' => 'Nouveau Contact',
   'LBL_FIRST_NAME' => 'Prénom:',
-  'LBL_LAST_NAME' => 'Nom de Famille:',
+  'LBL_LAST_NAME' => 'Nom de famille:',
   'LBL_LIST_LAST_NAME' => 'Nom',
   'LBL_PHONE' => 'Téléphone:',
   'LBL_EMAIL_ADDRESS' => 'Email:',
@@ -79,7 +79,7 @@ $mod_strings = array (
   'LBL_NO_ACCESS' => 'Vous n&#39;avez pas accès à cet espace. Veuillez contacter votre administrateur pour en connaître la raison.',
   'LBL_NO_RESULTS_IN_MODULE' => '-- Pas de résultats --',
   'LBL_NO_RESULTS' => '<h2>Aucun résultat trouvé. Veuillez effectuer une nouvelle recherche.</h2><br>',
-  'LBL_NO_RESULTS_TIPS' => '<h3>Petits rappels:</h3><ul><li>Assurez vous d&#39;avoir sélectionnées les catégories appropriées ci-dessus.</li><li>Élargissez vos critères de recherche.</li><li>Si vous ne trouvez aucun résultat, essayez la recherche avancée du module.</li></ul>',
+  'LBL_NO_RESULTS_TIPS' => '<h3>Aide à la recherche:</h3><ul><li>Assurez vous d&#39;avoir sélectionnées les catégories appropriées ci-dessus.</li><li>Élargissez vos critères de recherche.</li><li>Si vous ne trouvez aucun résultat, essayez la recherche avancée du module.</li></ul>',
   'LBL_RELOAD_PAGE' => 'Merci de <a href="javascript: window.location.reload()">réactualiser la fenêtre</a> pour utiliser ce Dashlet.',
   'LBL_ADD_DASHLETS' => 'Ajout de Dashlets',
   'LBL_ADD_PAGE' => 'Ajouter une page',
@@ -87,7 +87,7 @@ $mod_strings = array (
   'LBL_WEBSITE_TITLE' => 'Site web',
   'LBL_RSS_TITLE' => 'News RSS',
   'LBL_DELETE_PAGE' => 'Supprimer une page',
-  'LBL_CHANGE_LAYOUT' => 'Changer le Layout',
+  'LBL_CHANGE_LAYOUT' => 'Changer la disposition',
   'LBL_RENAME_PAGE' => 'Renommer une page',
   'LBL_CLOSE_DASHLETS' => 'Fermer',
   'LBL_CLOSE_SITEMAP' => 'Fermer',
@@ -192,6 +192,7 @@ $mod_strings = array (
   'LBL_SOURCE_PARSECSV' => 'parseCSV - Parseur de données CSV pour PHP',
   'LBL_SOURCE_PHPJS' => 'php.js - Fonctions PHP portées en JavaScript',
   'LBL_SOURCE_PHPSQL' => 'Parseur SQL en PHP',
+  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - Un librairie de filtrage respectant les standards HTML.',
   'LBL_DASHLET_TITLE' => 'Mes sites',
   'LBL_DASHLET_OPT_TITLE' => 'Titre',
   'LBL_DASHLET_OPT_URL' => 'URL',
@@ -210,4 +211,5 @@ $mod_strings = array (
     'Miscellaneous' => 'Divers',
   ),
 );
+
 

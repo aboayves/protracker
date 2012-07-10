@@ -32,15 +32,13 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LNK_NEW_CONTRACTTYPE' => 'Crear tipus de contracte',
   'LBL_ID' => 'Id',
-  'LBL_DOCUMENTS' => 'Documents',
-  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Documents',
   'LBL_DATE_ENTERED' => 'Data d´Alta',
   'LBL_DATE_MODIFIED' => 'Data de Modificació',
   'LBL_MODIFIED_USER_ID' => 'Modificat per l´Usuari',
   'LBL_CREATED_BY' => 'Creat per',
   'LBL_DELETED' => 'Eliminat',
+  'LBL_DOCUMENTS' => 'Documents',
   'LBL_TYPE_NAME' => 'Nom del Tipus',
   'LBL_MODULE_NAME' => 'Tipus de Contracte',
   'LBL_MODULE_TITLE' => 'Tipus de Contracte',
@@ -48,10 +46,12 @@ $mod_strings = array (
   'LBL_CONTRACT_TYPE' => 'Tipus de Contracte',
   'LBL_LIST_ORDER' => 'Ordre de Llistat:',
   'LNK_CONTRACTTYPE_LIST' => 'Tipus de Contracte',
+  'LNK_NEW_CONTRACTTYPE' => 'Crear tipus de contracte',
   'LBL_LIST_NAME' => 'Nom',
   'LBL_LIST_LIST_ORDER' => 'Ordre de Llistat',
   'LBL_NAME' => 'Nom:',
   'NTC_DELETE_CONFIRMATION' => 'Esborrar Tipus de Contracte?',
+  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Documentss',
   'LBL_SEARCH_FORM_TITLE' => 'Recerca per Tipus de Contracte',
 );
 

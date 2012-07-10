@@ -27,8 +27,6 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-    $langHeader = get_language_header();
-    print( "<html {$langHeader}>" );
+    print( "<html><body>" );
     print( "Down for maintenance." );
-    print( "</html>" );
-?>
+    print( "</body></html>" );

@@ -33,7 +33,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $mod_strings = array (
   'LBL_ID' => 'ID',
-  'LBL_CAMPAIGN_STATUS' => 'Status:',
   'LBL_LIST_ID' => 'Id Skupiny adresátů',
   'LBL_TARGET_TRACKER_KEY' => 'Cílový Tracker klíč',
   'LBL_TARGET_ID' => 'Cílové ID',
@@ -64,6 +63,7 @@ $mod_strings = array (
   'LBL_ASSIGNED_TO' => 'Přidělena:',
   'LBL_CAMPAIGN_START_DATE' => 'Zahájeno:',
   'LBL_CAMPAIGN_END_DATE' => 'Ukončeno:',
+  'LBL_CAMPAIGN_STATUS' => 'Status:',
   'LBL_CAMPAIGN_BUDGET' => 'Rozpočet:',
   'LBL_CAMPAIGN_EXPECTED_COST' => 'Předpokádaná cena:',
   'LBL_CAMPAIGN_ACTUAL_COST' => 'Skutečná cena:',
@@ -71,7 +71,7 @@ $mod_strings = array (
   'LBL_CAMPAIGN_TYPE' => 'Typ:',
   'LBL_CAMPAIGN_OBJECTIVE' => 'Cíl',
   'LBL_CAMPAIGN_CONTENT' => 'Popis:',
-  'LBL_CREATED_LEAD' => 'Vytvořit zájemce',
+  'LBL_CREATED_LEAD' => 'Vytvořit příležitost',
   'LBL_CREATED_CONTACT' => 'Vytvořit kontakt',
   'LBL_LIST_FORM_TITLE' => 'Cílové kampaně',
   'LBL_LIST_ACTIVITY_DATE' => 'Datum aktivity',

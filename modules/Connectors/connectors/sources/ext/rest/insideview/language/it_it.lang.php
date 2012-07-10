@@ -32,19 +32,13 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $connector_strings = array (
-  'LBL_TAGLINK' => 'InsideView:',
-  'LBL_TAGLINE' => 'Sales Intelligence in tempo reale.',
+  'LBL_OPP' => 'Trova Opportunità',
+  'LBL_OPP_SUB' => 'per raggiungere i clienti',
+  'LBL_ENGAGE' => 'Entra in contatto con i clienti',
   'LBL_GET_STARTED' => 'Inizia!',
   'LBL_TOS0' => 'Accetto InsideView',
   'LBL_TOS1' => 'termini di utilizzo',
-  'LBL_TOS2' => 'e',
   'LBL_TOS3' => 'Informativa sulla privacy',
-  'LBL_VID0' => 'InsideView in',
-  'LBL_VID1' => '30 secondi.',
-  'iv_description0' => 'Ottenere informazioni rilevanti su azienda, contatti, news e approfondimenti dei social media.',
-  'iv_description1' => 'InsideView è un',
-  'iv_description2' => 'GRATIS',
-  'iv_description3' => 'servizio che visualizza automaticamente la chiave di sales intelligence',
-  'iv_description4' => 'direttamente nei tuoi Leads, Aziende, Contatti e Opportunità di Sugar.',
+  'iv_description0' => 'Cliccando su "Inizia" consenti l&#39;uso di InsideView',
 );
 

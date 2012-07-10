@@ -32,6 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_TS' => 'Дата и время',
   'LBL_ID' => 'ID',
   'LBL_ASSIGNED_TO_NAME' => 'Пользователь',
   'LBL_STATUS' => 'Статус',

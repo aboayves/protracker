@@ -28,6 +28,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  ********************************************************************************/
 
 $dictionary['OAuthKey'] = array('table' => 'oauth_consumer',
+    'favorites'=>false,
 	'comment' => 'OAuth consumer keys',
 	'audited'=>false,
 	'fields' => array (

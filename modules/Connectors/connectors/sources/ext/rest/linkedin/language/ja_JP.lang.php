@@ -32,8 +32,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $connector_strings = array (
-  'LBL_LICENSING_INFO' => '',
   'company_url' => 'URL',
+  'LBL_LICENSING_INFO' => '<table border="0" cellspacing="1"><tr><td valign="top" width="35%" class="dataLabel">LinkedIn&#169;でSugarインスタンスを新しいアプリケーションとして登録し、APIとシークレットキーのペアを取得します。<br/><br>登録方法は下記の通りです。<br/><br/><ol><li>LinkedIn&#169;ディベロッパーサイト（<a href=&#39;https://www.linkedin.com/secure/developer&#39; target=&#39;_blank&#39;>https://www.linkedin.com/secure/developer</a>）を訪問します。</li><li>アプリケーションを登録するLinkedIn&#169;アカウントでサインインします。</li><li>新規アプリケーションを追加するためのリンクをクリックします。</li><li>新規アプリケーション追加フォームに入力します。</li><li>同意するチェックボックスを選択してアプリケーションを追加します。</li><li>アプリケーション詳細ページでLinkedin&#169;コネクタ (Admin – Connector - Linkedin&#169;) のAPIとシークレットキーを探して以下のキーを入力します。</li><li>保存をクリックします。</li></ol></td></tr></table>',
   'LBL_NAME' => '会社名',
+  'oauth_consumer_key' => 'APIキー',
+  'oauth_consumer_secret' => 'シークレットキー',
 );
 

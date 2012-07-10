@@ -32,6 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_MORE_DETAIL' => 'Více informací',
   'LBL_URL' => 'URL',
   'LBL_MODULE_NAME' => 'Týmové zprávy',
   'LBL_MODULE_TITLE' => 'Týmo zprávy: Domů',

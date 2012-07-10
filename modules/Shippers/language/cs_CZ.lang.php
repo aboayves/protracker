@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,16 +29,10 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-  'LBL_LIST_STATUS' => 'Stav',
-  'LBL_STATUS' => 'Sta:',
+  'LBL_EDITLAYOUT' => 'Úprava rozvržení',
   'LBL_MODULE_NAME' => 'Doručovatelé',
   'LBL_MODULE_TITLE' => 'Doručovatelé: Hlavní stránka',
   'LBL_SEARCH_FORM_TITLE' => 'Vyhledat doručovatele',
@@ -47,6 +43,8 @@ $mod_strings = array (
   'LBL_NAME' => 'Doručovatel:',
   'LBL_LIST_LIST_ORDER' => 'Objednávka',
   'LBL_LIST_ORDER' => 'Objednávka:',
+  'LBL_LIST_STATUS' => 'Stav',
+  'LBL_STATUS' => 'Sta:',
   'LNK_NEW_SHIPPER' => 'List doručovatelů',
   'LNK_NEW_TAXRATE' => 'List daňových sazeb',
   'NTC_DELETE_CONFIRMATION' => 'Jste si jist, že chcete odstranit tento záznam?',

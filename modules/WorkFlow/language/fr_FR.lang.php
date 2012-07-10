@@ -32,9 +32,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_UP' => 'Haut',
-  'LBL_DOWN' => 'Bas',
-  'LBL_EDITLAYOUT' => 'Editer la mise en page',
+  'LBL_EMAILTEMPLATES_TYPE' => 'Type',
+  'LBL_EMAILTEMPLATES_TYPE_LIST_WORKFLOW' => 
+  array (
+    'workflow' => 'WorkFlow',
+  ),
   'LBL_MODULE_ID' => 'WorkFlow',
   'LBL_DESCRIPTION' => 'Description:',
   'LBL_MODULE_NAME' => 'Définitions du Workflow:',
@@ -97,5 +99,8 @@ $mod_strings = array (
   'LBL_ALERT_ERRORS' => 'Remarque : au moins une des alertes suivantes contient des erreurs.',
   'LBL_TRIGGER_ERROR' => 'Remarque : ce déclencheur contient des données invalides et ne sera pas déclenché.',
   'LBL_TRIGGER_ERRORS' => 'Remarque : au moins un des déclencheurs suivants contient des erreurs.',
+  'LBL_UP' => 'Haut',
+  'LBL_DOWN' => 'Bas',
+  'LBL_EDITLAYOUT' => 'Editer la mise en page',
 );
 

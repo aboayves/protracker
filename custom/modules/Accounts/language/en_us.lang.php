@@ -1,5 +1,5 @@
 <?php
-// created: 2012-05-29 16:08:31
+// created: 2012-06-01 17:49:27
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Account',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -12,7 +12,7 @@ $mod_strings = array (
   'LBL_MEMBER_OF' => 'Member of:',
   'LBL_MEMBER_ORG_SUBPANEL_TITLE' => 'Member Organizations',
   'LBL_HOMEPAGE_TITLE' => 'My Clients',
-  'LBL_ACCOUNTS_AV_NET_WORTH_FROM_AV_NET_WORTH_TITLE' => 'Net Worth',
+  'LBL_ACCOUNTS_AV_NET_WORTH_FROM_AV_NET_WORTH_TITLE' => 'Net Worth History History',
   'LBL_PRIORITY' => 'Priority',
   'LBL_STATUS' => 'Status',
   'LBL_EDITVIEW_PANEL1' => 'Addresses',

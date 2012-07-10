@@ -135,7 +135,7 @@ SE.accounts = {
 	        YAHOO.widget.DataTable.Formatter.showBoolean = this.showBoolean;
 
 	        var typeHoverHelp = '&nbsp;<div id="rollover"><a href="#" class="rollover">'+
-	                            '<img border="0" src="themes/default/images/helpInline.gif">' +
+	                            '<img border="0" src="index.php?entryPoint=getImage&amp;imageName=helpInline.png">' +
 	                            '<div style="text-align:left"><span>' + mod_strings.LBL_EMAIL_INBOUND_TYPE_HELP + '</span></div></a></div>';
 
 
@@ -430,10 +430,10 @@ SE.accounts = {
 		document.getElementById("smtp_auth1").style.display = smtpauth_req.checked ? "" : "none";
 		document.getElementById("smtp_auth2").style.display = smtpauth_req.checked ? "" : "none";
 	},
-	
+
 	smtp_setDefaultSMTPPort : function() {
 		useSSLPort = !document.getElementById("mail_smtpssl").options[0].selected;
-    
+
         if ( useSSLPort && document.getElementById("mail_smtpport").value == '25' ) {
             document.getElementById("mail_smtpport").value = '465';
         }
@@ -1305,7 +1305,7 @@ SE.contextMenus = {
             uids[i] = SE.grid.getRecord(rows[i]).getData().uid;
         }
         var ser = YAHOO.lang.JSON.stringify(uids);
-        
+
         AjaxObject.startRequest(callbackRelateEmail, urlStandard + '&emailUIAction=getRelateForm&uid=' + ser + "&ieId=" + ieId + "&mbox=" + folder);
     },
 
@@ -3459,7 +3459,7 @@ SE.settings = {
     },
 
     lazyLoadRules : function() {
-        if(false/*!SE.settings.rules*/) {
+        if(false) {
             AjaxObject.startRequest(callbackLoadRules, urlStandard + "&emailUIAction=loadRulesForSettings");
         }
 

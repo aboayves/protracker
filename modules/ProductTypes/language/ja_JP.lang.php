@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,22 +29,8 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
   'LBL_MODULE_NAME' => '商品タイプ',
   'LBL_MODULE_TITLE' => '商品タイプ: ホーム',
@@ -61,11 +49,13 @@ $mod_strings = array (
   'LNK_NEW_SHIPPER' => '運送会社',
   'LNK_NEW_PRODUCT_CATEGORY' => '商品カテゴリ',
   'LNK_NEW_PRODUCT_TYPE' => '商品タイプ',
-  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除して良いですか？',
+  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除してよいですか？',
   'ERR_DELETE_RECORD' => '商品タイプを削除するにはレコード番号を指定する必要があります。',
   'NTC_LIST_ORDER' => '商品タイプのドロップダウンに表示される順番を入力してください。',
-  'LNK_IMPORT_PRODUCT_TYPES'=>'商品タイプのインポート',
-  'LBL_CREATED_BY'=>'作成者',
+  'LNK_IMPORT_PRODUCT_TYPES' => '商品タイプのインポート',
+  'LBL_CREATED_BY' => '作成者',
+  'LBL_EDITLAYOUT' => 'レイアウト編集',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'アサイン先ID',
+  'LBL_EXPORT_CREATED_BY' => '作成者ID',
 );
-
 

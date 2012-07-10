@@ -32,8 +32,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_MODULE_NAME' => 'Механизм выражений',
   'LBL_PREVIOUS' => 'Назад',
   'LBL_NEXT' => 'Дальше',
-  'LBL_MODULE_NAME' => 'Механизм выражений',
+  'LBL_EXPAND' => 'Расширить',
 );
 

@@ -32,8 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_SOURCE_PHPSQL' => 'PHP SQL Parser',
-  'LBL_SOURCE_HTMLPURIFIER' => 'Purificador HTML - Una biblioteca compatible con los estándares HTML de filtrado.',
+  'LBL_SOURCE_JSHRINK' => 'JShrink - Un Minifier Javascript escrito en PHP',
   'LBL_WEB' => 'Web',
   'LBL_DASHLET_CONFIGURE_GENERAL' => 'General',
   'LBL_HOME_PAGE_6_NAME' => 'Marketing',
@@ -42,6 +41,7 @@ $mod_strings = array (
   'LBL_SUGAR_PROFESSIONAL' => 'Sugar Professional',
   'LBL_SUGAR_ENTERPRISE' => 'Sugar Enterprise',
   'LBL_WIKI' => 'Wiki',
+  'LBL_SOURCE_PHPSQL' => 'PHP SQL Parser',
   'dashlet_categories_dom' => 
   array (
     'Portal' => 'Portal',
@@ -199,6 +199,7 @@ $mod_strings = array (
   'LBL_SOURCE_ZEND' => 'Zend Framework - Un código fuente abierto, orientado a objetos con un framework de aplicaciones web en PHP5.',
   'LBL_SOURCE_PARSECSV' => 'parseCSV - analizador de datos CSV para PHP',
   'LBL_SOURCE_PHPJS' => 'php.js - Usar funciones PHP en JavaScript',
+  'LBL_SOURCE_HTMLPURIFIER' => 'Purificador HTML - Una biblioteca compatible con los estándares HTML de filtrado.',
   'LBL_DASHLET_TITLE' => 'Mis Sitios',
   'LBL_DASHLET_OPT_TITLE' => 'Título',
   'LBL_DASHLET_OPT_URL' => 'Dirección de Sitio Web',

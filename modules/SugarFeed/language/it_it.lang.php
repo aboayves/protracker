@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_POST_TITLE' => 'Pubblica l&#39;aggiornamento di stato per',
+  'LBL_POST_TITLE' => 'Pubblica l&amp;amp;#39;aggiornamento di stato per',
   'LBL_URL_LINK_TITLE' => 'Link URL da usare',
   'LBL_TEAM' => 'Team',
   'LBL_ID' => 'ID',
@@ -110,7 +110,7 @@ $mod_strings = array (
   'LBL_EXTERNAL_PREFIX' => 'Esterno:',
   'LBL_EXTERNAL_WARNING' => 'Gli elementi marcati "esterno" richiedono un <a href="?module=EAPM">account esterno</a>.',
   'LBL_AUTHENTICATE' => 'Autentica',
-  'LBL_AUTHENTICATION_PENDING' => 'Non tutti gli account esterni che hai selezionato sono stati autenticati. Clicca "Annulla" per tornare alle Opzioni e autenticare gli account esterni, oppure clicca "Ok" per procedere senza autenticazione.',
+  'LBL_AUTHENTICATION_PENDING' => 'Non tutti gli account esterni che hai selezionato sono stati autenticati. Clicca \'Annulla\' per tornare alle Opzioni e autenticare gli account esterni, oppure clicca \'Ok\' per procedere senza autenticazione.',
   'LBL_ADVANCED_SEARCH' => 'Ricerca Avanzata',
   'LBL_BASICSEARCH' => 'Ricerca di Base',
   'LBL_SHOW_MORE_OPTIONS' => 'Mostra più opzioni',
@@ -118,4 +118,6 @@ $mod_strings = array (
   'LBL_VIEW' => 'Visualizza',
   'LBL_TEAM_VISIBILITY_TITLE' => 'team che possono vedere questo post',
 );
+
+
 

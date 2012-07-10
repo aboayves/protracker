@@ -32,14 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDIT_LAYOUT' => 'Editar Layout',
-  'LBL_INVALID' => 'Inválido',
-  'LBL_VALID' => 'Válida',
-  'LBL_ALERT' => 'Alerta',
-  'LBL_EDIT_INLINE' => 'Editar',
-  'LBL_DELETE_INLINE' => 'Eliminar',
-  'LBL_DELETE' => 'Remover',
-  'LBL_VIEW_INLINE' => 'Ver',
+  'NTC_DELETE_CONFIRMATION' => 'Tem a certeza que deseja eliminar este registo?',
+  'LBL_LEADS_DELETED_SINCE_CREATED' => '{0} leads que foram criadas através desta campanha foram apagadas desde a sua criação.',
   'LBL_TRACK_BUTTON_KEY' => 'T',
   'LBL_QUEUE_BUTTON_KEY' => 'u',
   'LBL_TEST_BUTTON_KEY' => 'e',
@@ -399,5 +393,13 @@ $mod_strings = array (
   'LBL_MONTH' => 'Mês',
   'LBL_YEAR' => 'Ano',
   'LBL_DAY' => 'Dia',
+  'LBL_EDIT_LAYOUT' => 'Editar Layout',
+  'LBL_INVALID' => 'Inválido',
+  'LBL_VALID' => 'Válida',
+  'LBL_ALERT' => 'Alerta',
+  'LBL_EDIT_INLINE' => 'Editar',
+  'LBL_DELETE_INLINE' => 'Eliminar',
+  'LBL_DELETE' => 'Remover',
+  'LBL_VIEW_INLINE' => 'Ver',
 );
 

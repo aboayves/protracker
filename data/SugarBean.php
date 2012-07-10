@@ -598,7 +598,11 @@ class SugarBean
     }
     public function isFavoritesEnabled()
     {
-        return !empty($GLOBALS['dictionary'][$this->getObjectName()]['favorites']);
+    	if(isset($GLOBALS['dictionary'][$this->getObjectName()]['favorites']))
+    	{
+    		return $GLOBALS['dictionary'][$this->getObjectName()]['favorites'];
+    	}
+        return false;
     }
     /**
      * Returns the value for the requested field.
@@ -1013,7 +1017,14 @@ class SugarBean
                 return array_values($this->$field_name->getBeans(new $bean_name(), $sort_array, $begin_index, $end_index, $deleted, $optional_where));
             } else {
                 // Link2 style
-                return array_values($this->$field_name->getBeans());
+                if ($end_index != -1 || !empty($deleted) || !empty($optional_where))
+                    return array_values($this->$field_name->getBeans(array(
+                        'where' => $optional_where,
+                        'deleted' => $deleted,
+                        'limit' => ($end_index - $begin_index)
+                    )));
+                else
+                    return array_values($this->$field_name->getBeans());
             }
         }
         else
@@ -1261,21 +1272,14 @@ class SugarBean
             if(isset($def['dbType']))
                 $type .= $def['dbType'];
 
-            if((strpos($type, 'char') !== false ||
+            if($def['type'] == 'html') {
+                $this->$key = SugarCleaner::cleanHtml($this->$key, true);
+            } elseif((strpos($type, 'char') !== false ||
                 strpos($type, 'text') !== false ||
                 $type == 'enum') &&
                 !empty($this->$key)
             ) {
-                $str = from_html($this->$key);
-                // Julian's XSS cleaner
-                $potentials = clean_xss($str, false);
-
-                if(is_array($potentials) && !empty($potentials)) {
-                    foreach($potentials as $bad) {
-                        $str = str_replace($bad, "", $str);
-                    }
-                    $this->$key = to_html($str);
-                }
+                $this->$key = SugarCleaner::cleanHtml($this->$key);
             }
         }
     }
@@ -1384,7 +1388,7 @@ class SugarBean
             $this->custom_fields->save($isUpdate);
         }
         //rrs new functionality to check if the team_id is set and the team_set_id is not set,
-        //then see what we can do about savign to team_set_id. It is important for this code block to be below
+        //then see what we can do about saving to team_set_id. It is important for this code block to be below
         //the 'before_save' custom logic hook as that is where workflow is called.
         if (isset($this->field_defs['team_id'])){
             if(empty($this->teams)){
@@ -1484,8 +1488,8 @@ class SugarBean
      */
     function updateDependentField()
     {
-        // this is ignored when coming via a webservice as it's only needed for display and not just raw data
-        // it's a huge performance gain when pulling multiple records vai webservices by not running this
+        // This is ignored when coming via a webservice as it's only needed for display and not just raw data.
+        // It results in a huge performance gain when pulling multiple records via webservices.
         if(!isset($GLOBALS['service_object'])) {
             require_once("include/Expressions/DependencyManager.php");
             $deps = DependencyManager::getDependentFieldDependencies($this->field_defs);
@@ -1678,7 +1682,7 @@ class SugarBean
                 $notify_mail->From = $admin->settings['notify_fromaddress'];
                 $notify_mail->FromName = (empty($admin->settings['notify_fromname'])) ? "" : $admin->settings['notify_fromname'];
             } else {
-                // Send notifications from the current user's e-mail (ifset)
+                // Send notifications from the current user's e-mail (if set)
                 $fromAddress = $current_user->emailAddress->getReplyToAddress($current_user);
                 $fromAddress = !empty($fromAddress) ? $fromAddress : $admin->settings['notify_fromaddress'];
                 $notify_mail->From = $fromAddress;
@@ -1867,6 +1871,11 @@ function save_relationship_changes($is_update, $exclude=array())
 
                 if(!empty($this->$id))
                 {
+                    // Bug #44930 We do not need to update main related field if it is changed from sub-panel.
+                    if ($rel_name == $new_rel_link && $this->$id != $new_rel_id)
+                    {
+                        $new_rel_id = '';
+                    }
                     $GLOBALS['log']->debug('save_relationship_changes(): From relationship_field array - adding a relationship record: '.$rel_name . ' = ' . $this->$id);
                     //already related the new relationship id so let's set it to false so we don't add it again using the _REQUEST['relate_i'] mechanism in a later block
                     if($this->$id == $new_rel_id){
@@ -2300,8 +2309,8 @@ function save_relationship_changes($is_update, $exclude=array())
 
         $this->fill_in_additional_detail_fields();
         $this->fill_in_relationship_fields();
-        //make a copy of fields in the relatiosnhip_fields array. these field values will be used to
-        //clear relatioship.
+        //make a copy of fields in the relationship_fields array. These field values will be used to
+        //clear relationship.
         foreach ( $this->field_defs as $key => $def )
         {
             if ($def [ 'type' ] == 'relate' && isset ( $def [ 'id_name'] ) && isset ( $def [ 'link'] ) && isset ( $def[ 'save' ])) {
@@ -2421,7 +2430,7 @@ function save_relationship_changes($is_update, $exclude=array())
         //sub-selects.
         if (strstr($query," UNION ALL ") !== false) {
 
-            //seperate out all the queries.
+            //separate out all the queries.
             $union_qs=explode(" UNION ALL ", $query);
             foreach ($union_qs as $key=>$union_query) {
                 $star = '*';
@@ -3039,7 +3048,7 @@ function save_relationship_changes($is_update, $exclude=array())
         $ret_array['secondary_from'] = $ret_array['from'] ;
         $ret_array['where'] = '';
         $ret_array['order_by'] = '';
-        //secondary selects are selects that need to be run after the primarty query to retrieve additional info on main
+        //secondary selects are selects that need to be run after the primary query to retrieve additional info on main
         if($singleSelect)
         {
             $ret_array['secondary_select']=& $ret_array['select'];
@@ -3135,7 +3144,7 @@ function save_relationship_changes($is_update, $exclude=array())
                     if ( isset($filter[$field]['force_default']) )
                         $ret_array['select'] .= ", {$filter[$field]['force_default']} $field ";
                     else
-                    //spaces are a fix for length issue problem with unions.  The union only returns the maximum number of characters from the first select statemtn.
+                    //spaces are a fix for length issue problem with unions.  The union only returns the maximum number of characters from the first select statement.
                         $ret_array['select'] .= ", '                                                                                                                                                                                                                                                              ' $field ";
                 }
                 continue;
@@ -3167,6 +3176,9 @@ function save_relationship_changes($is_update, $exclude=array())
             if(  (!isset($data['source']) || $data['source'] == 'db') && (!empty($alias) || !empty($filter) ))
             {
                 $ret_array['select'] .= ", $this->table_name.$field $alias";
+                $selectedFields["$this->table_name.$field"] = true;
+            } else if(  (!isset($data['source']) || $data['source'] == 'custom_fields') && (!empty($alias) || !empty($filter) )) {
+                $ret_array['select'] .= ", $this->table_name"."_cstm".".$field $alias";
                 $selectedFields["$this->table_name.$field"] = true;
             }
 
@@ -3260,7 +3272,7 @@ function save_relationship_changes($is_update, $exclude=array())
                     $rel_module = $this->$data['link']->getRelatedModuleName();
                     $table_joined = !empty($joined_tables[$params['join_table_alias']]) || (!empty($joined_tables[$params['join_table_link_alias']]) && isset($data['link_type']) && $data['link_type'] == 'relationship_info');
 
-					//if rnanme is set to 'name', and bean files exist, then check if field should be a concatenated name
+					//if rname is set to 'name', and bean files exist, then check if field should be a concatenated name
 					global $beanFiles, $beanList;
 					if($data['rname'] && !empty($beanFiles[$beanList[$rel_module]])) {
 
@@ -3518,7 +3530,7 @@ function save_relationship_changes($is_update, $exclude=array())
                 {
                     if(empty($templates[$child_info['parent_type']]))
                     {
-                        //Test emails will have an invalid parent_type, don't try to load the non-existant parent bean
+                        //Test emails will have an invalid parent_type, don't try to load the non-existent parent bean
                         if ($child_info['parent_type'] == 'test') {
                             continue;
                         }
@@ -4314,8 +4326,10 @@ function save_relationship_changes($is_update, $exclude=array())
         global $fill_in_rel_depth;
         if(empty($fill_in_rel_depth) || $fill_in_rel_depth < 0)
             $fill_in_rel_depth = 0;
+
         if($fill_in_rel_depth > 1)
             return;
+
         $fill_in_rel_depth++;
 
         foreach($this->field_defs as $field)
@@ -4328,7 +4342,9 @@ function save_relationship_changes($is_update, $exclude=array())
                     // set the value of this relate field in this bean ($this->$field['name']) to the value of the 'name' field in the related module for the record identified by the value of $this->$field['id_name']
                     $related_module = $field['module'];
                     $id_name = $field['id_name'];
-                    if (empty($this->$id_name)){
+
+                    if (empty($this->$id_name))
+                    {
                        $this->fill_in_link_field($id_name, $field);
                     }
                     if(!empty($this->$id_name) && ( $this->object_name != $related_module || ( $this->object_name == $related_module && $this->$id_name != $this->id ))){
@@ -4595,7 +4611,7 @@ function save_relationship_changes($is_update, $exclude=array())
   }
 
     /**
-     * Constructs an comma seperated list of ids from passed query results.
+     * Constructs an comma separated list of ids from passed query results.
      *
      * @param string @query query to be executed.
      *
@@ -4796,7 +4812,7 @@ function save_relationship_changes($is_update, $exclude=array())
         }
         $query .= " $where_clause";
         $GLOBALS['log']->debug("Retrieve $this->object_name: ".$query);
-        //requireSingleResult has beeen deprecated.
+        //requireSingleResult has been deprecated.
         //$result = $this->db->requireSingleResult($query, true, "Retrieving record $where_clause:");
         $result = $this->db->limitQuery($query,0,1,true, "Retrieving record $where_clause:");
 
@@ -4910,6 +4926,7 @@ function save_relationship_changes($is_update, $exclude=array())
         // We need to confirm that the user is a member of the team of the item.
 
         global $current_user;
+
         // The user either has to be an admin, or be assigned to the team that owns the data
         $team_table_alias = 'team_memberships';
 
@@ -4922,7 +4939,7 @@ function save_relationship_changes($is_update, $exclude=array())
             $table_alias = $this->table_name;
         }
 
-        if ( ( (!$current_user->isAdminForModule($this->module_dir)) || $force_admin ) &&
+        if ( ( (!empty($current_user) && !$current_user->isAdminForModule($this->module_dir)) || $force_admin ) &&
         !$this->disable_row_level_security	&& ($this->module_dir != 'WorkFlow')){
 
             $query .= $join_type . " JOIN (select tst.team_set_id from team_sets_teams tst ";
@@ -5256,7 +5273,7 @@ function save_relationship_changes($is_update, $exclude=array())
             $is_owner = $this->isOwner($current_user->id);
         }
 
-        //if we don't implent acls return true
+        // If we don't implement ACLs, return true.
         if(!$this->bean_implements('ACL'))
         return true;
         $view = strtolower($view);
@@ -5295,6 +5312,27 @@ function save_relationship_changes($is_update, $exclude=array())
         //if it is not one of the above views then it should be implemented on the page level
         return true;
     }
+
+    /**
+    * Get owner field
+    *
+    * @return STRING
+    */
+    function getOwnerField($returnFieldName = false)
+    {
+        if (isset($this->field_defs['assigned_user_id']))
+        {
+            return $returnFieldName? 'assigned_user_id': $this->assigned_user_id;
+        }
+
+        if (isset($this->field_defs['created_by']))
+        {
+            return $returnFieldName? 'created_by': $this->created_by;
+        }
+
+        return '';
+    }
+
     /**
     * Returns true of false if the user_id passed is the owner
     *
@@ -5675,7 +5713,7 @@ function save_relationship_changes($is_update, $exclude=array())
 
     /**
      * This function is designed to cache references to field arrays that were previously stored in the
-     * bean files and have since been moved to seperate files. Was previously in include/CacheHandler.php
+     * bean files and have since been moved to separate files. Was previously in include/CacheHandler.php
      *
      * @deprecated
      * @param $module_dir string the module directory

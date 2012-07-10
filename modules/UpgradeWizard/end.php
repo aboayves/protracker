@@ -42,6 +42,30 @@ if($unzip_dir == null ) {
 	$unzip_dir = $_SESSION['unzip_dir'];
 }
 
+// creating full text search logic hooks
+// this will be merged into application/Ext/LogicHooks/logichooks.ext.php
+// when rebuild_extensions is called
+logThis(' Writing FTS hooks');
+if (!function_exists('createFTSLogicHook')) {
+    $customFileLoc = create_custom_directory('Extension/application/Ext/LogicHooks/SugarFTSHooks.php');
+    $fp = sugar_fopen($customFileLoc, 'wb');
+    $contents = <<<CIA
+<?php
+if (!isset(\$hook_array) || !is_array(\$hook_array)) {
+    \$hook_array = array();
+}
+if (!isset(\$hook_array['after_save']) || !is_array(\$hook_array['after_save'])) {
+    \$hook_array['after_save'] = array();
+}
+\$hook_array['after_save'][] = array(1, 'fts', 'include/SugarSearchEngine/SugarSearchEngineQueueManager.php', 'SugarSearchEngineQueueManager', 'populateIndexQueue');
+CIA;
+
+    fwrite($fp,$contents);
+    fclose($fp);
+} else {
+    createFTSLogicHook('Extension/application/Ext/LogicHooks/SugarFTSHooks.php');
+}
+
 //First repair the databse to ensure it is up to date with the new vardefs/tabledefs
 logThis('About to repair the database.', $path);
 //Use Repair and rebuild to update the database.
@@ -152,7 +176,7 @@ if(!isset($sugar_config['logger'])){
 		      'dateFormat' => '%c',
 		      'maxSize' => '10MB',
 		      'maxLogs' => 10,
-		      'suffix' => '%m_%Y',
+		      'suffix' => '', // bug51583, change default suffix to blank for backwards comptability
 	  	  ),
 	);
 }
@@ -381,6 +405,10 @@ else{
 }
 $path			= $parsedSiteUrl['path'];
 $cleanUrl		= "{$parsedSiteUrl['scheme']}://{$host}{$port}{$path}/index.php";
+
+ob_start();
+check_now(get_sugarbeat());
+ob_end_clean();
 
 $uwMain =<<<eoq
 <table cellpadding="3" cellspacing="0" border="0">

@@ -71,7 +71,8 @@ array (
           0 => 'date_due',
           1 => 
           array (
-            'name' => 'tasks_tasks_name',
+            'name' => 'parent_tasks_name',
+            'label' => 'LBL_PARENT_TASKS',
           ),
         ),
         4 => 

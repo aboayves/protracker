@@ -32,9 +32,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_DOC_ID' => 'ID origen document',
-  'LBL_DOC_TYPE_POPUP' => 'Seleccioneu una font perquè es aquest document carregat <br> i de la qual estarà disponible.',
-  'LBL_EXTERNAL_DOCUMENT_NOTE' => 'Els primers 20 arxius modificats més recentment es mostren en ordre descendent en la llista de baix. Utilitzeu la cerca per trobar altres arxius.',
+  'ERR_MISSING_FILE' => 'Aquest document no troba un arxiu, molt probablement a causa d&#39;un error durant la càrrega. Si us plau torni a intentar carregar l&#39;arxiu o poseu-vos en contacte amb l&#39;administrador.',
+  'ERR_INVALID_EXTERNAL_API_ACCESS' => 'L&#39;usuari ha intentat accedir a una API externa invàlida ({0})',
+  'ERR_INVALID_EXTERNAL_API_LOGIN' => 'La comprovació d&#39;inici de sessió fallit per l&#39;API externa ({0})',
   'LBL_MODULE_NAME' => 'Documents',
   'LBL_LIST_DOCUMENT' => 'Document',
   'LBL_TREE_TITLE' => 'Documents',
@@ -142,10 +142,13 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'Usuari Creat',
   'LBL_THEREVISIONS_SUBPANEL_TITLE' => 'Versions',
   'LBL_DOCUMENT_INFORMATION' => 'Visió General',
+  'LBL_DOC_ID' => 'ID origen document',
   'LBL_DOC_TYPE' => 'Font',
   'LBL_LIST_DOC_TYPE' => 'Font',
+  'LBL_DOC_TYPE_POPUP' => 'Seleccioneu una font perquè es aquest document carregat <br> i de la qual estarà disponible.',
   'LBL_DOC_URL' => 'URL del document',
   'LBL_SEARCH_EXTERNAL_DOCUMENT' => 'Nom d´arxiu',
+  'LBL_EXTERNAL_DOCUMENT_NOTE' => 'Els primers 20 arxius modificats més recentment es mostren en ordre descendent en la llista de baix. Utilitzeu la cerca per trobar altres arxius.',
   'LBL_LIST_EXT_DOCUMENT_NAME' => 'Nom d´arxiu',
   'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Comptes',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contactes',

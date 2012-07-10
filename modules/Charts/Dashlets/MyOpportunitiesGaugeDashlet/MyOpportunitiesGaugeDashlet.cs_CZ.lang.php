@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,18 +29,13 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
 	
+
 $dashletStrings = array (
   'MyOpportunitiesGaugeDashlet' => 
   array (
     'LBL_TITLE' => 'Moje uzavřené "vyhrané"obchody',
-    'LBL_DESCRIPTION' => 'Měřítko grafu příležitostí',
+    'LBL_DESCRIPTION' => 'Měřítko grafu obchodů',
     'LBL_REFRESH' => 'Obnovit graf',
   ),
 );

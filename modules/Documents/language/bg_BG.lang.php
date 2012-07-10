@@ -32,11 +32,13 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_FILE_UPLOAD' => 'Файл:',
+  'ERR_MISSING_FILE' => 'This document is missing a file, most likely due to  an error during upload.  Please retry uploading the file or contact your administrator.',
+  'ERR_INVALID_EXTERNAL_API_ACCESS' => 'The user attempted to access an invalid external API ({0})',
+  'ERR_INVALID_EXTERNAL_API_LOGIN' => 'The login check failed for external API ({0})',
   'LBL_LAST_REV_MIME_TYPE' => 'Last revision MIME type',
-  'LBL_LASTEST_REVISION_NAME' => 'Lastest revision name:',
+  'LBL_LASTEST_REVISION_NAME' => 'Име на последна ревизия:',
   'LBL_SELECTED_REVISION_NAME' => 'Selected revision name:',
-  'LBL_CONTRACT_STATUS' => 'Contract status:',
+  'LBL_CONTRACT_STATUS' => 'Статус на договрора:',
   'LBL_LINKED_ID' => 'Linked id',
   'LBL_SELECTED_REVISION_ID' => 'Selected revision id',
   'LBL_LATEST_REVISION_ID' => 'Latest revision id',
@@ -87,6 +89,7 @@ $mod_strings = array (
   'LBL_FILENAME' => 'Име на файла:',
   'LBL_LIST_FILENAME' => 'Име на файла',
   'LBL_DOC_VERSION' => 'Версия:',
+  'LBL_FILE_UPLOAD' => 'Файл:',
   'LBL_CATEGORY_VALUE' => 'Категория:',
   'LBL_LIST_CATEGORY' => 'Категория',
   'LBL_SUBCATEGORY_VALUE' => 'Подкатегория:',

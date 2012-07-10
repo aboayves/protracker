@@ -32,17 +32,12 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'ERR_UW_OCI8_VERSION' => 'La versione di Oracle usata non è supportata da Sugar. E&#39; necessario installare una versione che sia compatibile con Sugar. Si prega di consultare la Matrice di Compatibilità nelle Note di rilascio per conoscere le versioni di Oracle supportate. Versione attuale:',
-  'LBL_LANGPACKS' => 'Pacchetti Lingua',
-  'LBL_MODULELOADER' => 'Carica Moduli',
-  'LBL_PATCHUPGRADES' => 'Patch Aggiornamento',
-  'LBL_THEMES' => 'Temi',
-  'LBL_WORKFLOW' => 'WorkFlow',
-  'LBL_UPGRADE' => 'Aggiornamento',
-  'LBL_PROCESSING' => 'Elaborazione',
+  'LBL_UW_COMPLIANCE_DB' => 'Versione Database Minima',
+  'LBL_UW_COMPLIANCE_ZIPARCHIVE' => 'Supporto Zip',
+  'ERROR_VERSION_INCOMPATIBLE' => 'Il file caricato non è compatibile con questa versione di Sugar:',
   'LBL_UW_BACKUP' => 'File BACKUP',
   'LBL_UW_COMPLIANCE_MBSTRING_FUNC_OVERLOAD' => 'MBStrings mbstring.func_overload Parameter',
-  'LBL_UW_COMPLIANCE_MSSQL_MAGIC_QUOTES' => 'MS SQL Server & PHP Magic Quotes GPC',
+  'LBL_UW_COMPLIANCE_MSSQL_MAGIC_QUOTES' => 'MS SQL Server &amp; PHP Magic Quotes GPC',
   'LBL_UW_COMPLIANCE_XML' => 'XML Parsing',
   'LBL_UW_END_LOGOUT2' => 'Logout',
   'LBL_UW_SYSTEM_CHECK_FILES' => 'Files',
@@ -65,6 +60,7 @@ $mod_strings = array (
   'ERR_UW_LOG_FILE_UNWRITABLE' => './upgradeWizard.log non può essere creato o reso scrivible. Si prega di sistemare i permessi della directory SugarCRM.',
   'ERR_UW_MBSTRING_FUNC_OVERLOAD' => 'mbstring.func_overload impostato ad un valore maggiore di 1.  Si prega di cambiare il parametro in php.ini e riavviare il web server.',
   'ERR_UW_MYSQL_VERSION' => 'Il software richiede MySQL versione 4.1.2 o superiori. Versione attuale:',
+  'ERR_UW_OCI8_VERSION' => 'La versione di Oracle usata non è supportata da Sugar. E&amp;#39; necessario installare una versione che sia compatibile con Sugar. Si prega di consultare la Matrice di Compatibilità nelle Note di rilascio per conoscere le versioni di Oracle supportate. Versione attuale:',
   'ERR_UW_NO_FILE_UPLOADED' => 'Si prega di specificare un file e riprovare!',
   'ERR_UW_NO_FILES' => 'Si è verificato un errore, nessun file da controllare.',
   'ERR_UW_NO_MANIFEST' => 'Impossibile procedere, nel file zip manca il documento manifest.php',
@@ -74,7 +70,7 @@ $mod_strings = array (
   'ERR_UW_NO_CREATE_TMP_DIR' => 'Impossibile creare la cartella temporanea. Controlla i permessi sul file.',
   'ERR_UW_ONLY_PATCHES' => 'In questa pagina puoi caricare solo patches.',
   'ERR_UW_PREFLIGHT_ERRORS' => 'Errori trovati durante il controllo di completezza',
-  'ERR_UW_UPLOAD_ERR' => 'Si è verificato un errore durante il caricamento del file, si prega di riprovare!<br>\\n',
+  'ERR_UW_UPLOAD_ERR' => 'Si è verificato un errore durante il caricamento del file, si prega di riprovare!<br>\n',
   'ERR_UW_VERSION' => 'Versione di SugarCRM :',
   'ERR_UW_WRONG_TYPE' => 'Questa pagina non è eseguibile.',
   'LBL_BUTTON_BACK' => '< Indietro',
@@ -137,7 +133,7 @@ $mod_strings = array (
   'LBL_UW_END_LOGOUT_PRE' => 'L´aggiornamento è completato.',
   'LBL_UW_END_LOGOUT_PRE2' => 'Clicca Fatto per uscire dall´aggiornamento guidato.',
   'LBL_UW_END_LOGOUT' => 'Se si prevede di applicare un altro pacchetto di aggiornamento tramite l´Aggiornamento guidato, prima di farlo disconnettersi e accedere di nuovo.',
-  'LBL_UW_REPAIR_INDEX' => 'Per aumentare le prestazioni del database, esegui lo script <a href=\\"index.php?module=Administration&action=RepairIndex\\" target=\\"_blank\\">Riparazione Indici</a>.',
+  'LBL_UW_REPAIR_INDEX' => 'Per aumentare le prestazioni del database, esegui lo script <a href="index.php?module=Administration&amp;action=RepairIndex" target="_blank">Riparazione Indici</a>.',
   'LBL_UW_FILE_DELETED' => 'è stato rimosso.',
   'LBL_UW_FILE_GROUP' => 'Gruppo',
   'LBL_UW_FILE_ISSUES_PERMS' => 'Permessi File',
@@ -168,7 +164,7 @@ $mod_strings = array (
   'LBL_UW_OVERWRITE_FILES_CHOICE2' => 'Unione Manuale - Mantieni Tutto',
   'LBL_UW_OVERWRITE_FILES' => 'Metodo Unione',
   'LBL_UW_PATCH_READY' => 'La patch è pronta per essere eseguita. Clicca il pulsante "Esegui" per completare l´aggiornamento.',
-  'LBL_UW_PATCH_READY2' => '<h2>Nota: Trovati Aspetti Personalizzati</h2><br />I seguenti files contengono nuovi campi o aspetti modificati attraverso lo Studio. Acnhe la correzione (patch) che stai per installare contiene modifiche a questi files. Per <u>ogni file</u> puoi:<br><ul><li>[<b>Default</b>] Mantenere la tua versione lasciando bianca questa casella. Le modifiche della patch verranno ignorate.</li>oppure<li>Accettare l´aggiornamento selezionando questa casella. Le tue modifiche dovranno essere riapplicate attraverso lo Studio.</li></ul>',
+  'LBL_UW_PATCH_READY2' => '<h2>Nota: Trovati Aspetti Personalizzati</h2><br />I seguenti files contengono nuovi campi o aspetti modificati attraverso lo Studio. Anche la correzione (patch) che stai per installare contiene modifiche a questi files. Per <u>ogni file</u> puoi:<br><ul><li>[<b>Default</b>] Mantenere la tua versione lasciando bianca questa casella. Le modifiche della patch verranno ignorate.</li>oppure<li>Accettare l´aggiornamento selezionando questa casella. Le tue modifiche dovranno essere riapplicate attraverso lo Studio.</li></ul>',
   'LBL_UW_PREFLIGHT_ADD_TASK' => 'Creare un Compito per l´Unione Manuale?',
   'LBL_UW_PREFLIGHT_COMPLETE' => 'Controllo di Verifica',
   'LBL_UW_PREFLIGHT_DIFF' => 'Differenziati',
@@ -262,6 +258,13 @@ $mod_strings = array (
   'LBL_UW_CONFIRM_LAYOUT_RESULTS' => 'Conferma Risultati Layout',
   'LBL_UW_CONFIRM_LAYOUT_RESULTS_DESC' => 'I seguenti layouts sono stati uniti con successo:',
   'LBL_SELECT_FILE' => 'Seleziona File:',
+  'LBL_LANGPACKS' => 'Pacchetti Lingua',
+  'LBL_MODULELOADER' => 'Carica Moduli',
+  'LBL_PATCHUPGRADES' => 'Patch Aggiornamento',
+  'LBL_THEMES' => 'Temi',
+  'LBL_WORKFLOW' => 'WorkFlow',
+  'LBL_UPGRADE' => 'Aggiornamento',
+  'LBL_PROCESSING' => 'Elaborazione',
   'ERR_UW_PHP_FILE_ERRORS' => 
   array (
     1 => 'Il file caricato supera la dimensione massima impostata nel file php.ini',
@@ -274,4 +277,5 @@ $mod_strings = array (
     8 => 'Caricamento file bloccato per l´estensione.',
   ),
 );
+
 

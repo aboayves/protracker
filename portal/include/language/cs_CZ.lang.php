@@ -36,7 +36,6 @@ $app_strings = array (
   'LBL_ADD_BUTTON_KEY' => 'A',
   'LBL_ADD_TO_PROSPECT_LIST_BUTTON_KEY' => 'L',
   'LBL_ADMIN' => 'Admin',
-  'LBL_ALT_HOT_KEY' => 'Alt+',
   'LBL_CANCEL_BUTTON_KEY' => 'X',
   'LBL_CHANGE_BUTTON_KEY' => 'G',
   'LBL_CHARSET' => 'UTF-8',
@@ -115,6 +114,7 @@ $app_strings = array (
   'LBL_ADDITIONAL_DETAILS_CLOSE_TITLE' => 'Klikněte k zavřetí',
   'LBL_ADDITIONAL_DETAILS_CLOSE' => 'Zavřít',
   'LBL_ADDITIONAL_DETAILS' => 'Další podrobnosti',
+  'LBL_ALT_HOT_KEY' => 'Alt+',
   'LBL_ARCHIVE' => 'Archiv',
   'LBL_ASSIGNED_TO_USER' => 'Přiděleno k uživateli',
   'LBL_ASSIGNED_TO' => 'Přideleno k:',
@@ -177,7 +177,7 @@ $app_strings = array (
   'LBL_HIDE' => 'Skrýt',
   'LBL_IMPORT_PROSPECTS' => 'Import Cíle',
   'LBL_LAST_VIEWED' => 'Naposledy Prohlíženo',
-  'LBL_LEADS' => 'Zájemci',
+  'LBL_LEADS' => 'Přiležitosti',
   'LBL_LIST_ACCOUNT_NAME' => 'Název účtu',
   'LBL_LIST_ASSIGNED_USER' => 'Uživatel',
   'LBL_LIST_CONTACT_NAME' => 'Jméno Kontatku',
@@ -322,7 +322,6 @@ $app_strings = array (
 );
 
 $app_list_strings = array (
-  'language_pack_name' => 'Angličtina (US)',
   'moduleList' => 
   array (
     'FAQ' => 'FAQ',
@@ -359,7 +358,6 @@ $app_list_strings = array (
   array (
     '' => '',
     'Finance' => 'Finance',
-    'Media' => 'Média',
     'Apparel' => 'Oblečení',
     'Banking' => 'Bankovnictví',
     'Biotechnology' => 'Biotechnologie',
@@ -379,6 +377,7 @@ $app_list_strings = array (
     'Insurance' => 'Pojištění',
     'Machinery' => 'Stroje',
     'Manufacturing' => 'Produkce',
+    'Media' => 'Média',
     'Not For Profit' => 'Neziskový',
     'Recreation' => 'Rekreace',
     'Retail' => 'Maloobchod',
@@ -393,7 +392,6 @@ $app_list_strings = array (
   array (
     '' => '',
     'Partner' => 'Partner',
-    'Email' => 'E-mail',
     'Cold Call' => 'Volání naslepo',
     'Existing Customer' => 'Existujíci zákazník',
     'Self Generated' => 'Z vlastních zdrojů',
@@ -404,6 +402,7 @@ $app_list_strings = array (
     'Trade Show' => 'Veletrh',
     'Web Site' => 'Webová stránka',
     'Word of mouth' => 'Z doslechu',
+    'Email' => 'E-mail',
     'Other' => 'Jiný',
   ),
   'opportunity_type_dom' => 
@@ -449,14 +448,6 @@ $app_list_strings = array (
     'Closed Won' => '100',
     'Closed Lost' => '',
   ),
-  'activity_dom' => 
-  array (
-    'Email' => 'E-mail',
-    'Call' => 'Hovor',
-    'Meeting' => 'Schůzka',
-    'Task' => 'Úkol',
-    'Note' => 'Poznámka',
-  ),
   'salutation_dom' => 
   array (
     '' => '',
@@ -489,25 +480,6 @@ $app_list_strings = array (
     50 => '50',
     75 => '75',
     100 => '100',
-    0 => 'Žádný',
-  ),
-  'record_type_display_notes' => 
-  array (
-    'ProductTemplates' => 'Produkt',
-    'Emails' => 'E-mail',
-    'Accounts' => 'Společnost',
-    'Contacts' => 'Kontakt',
-    'Opportunities' => 'Obchod',
-    'Cases' => 'Případ',
-    'Leads' => 'Zájemci',
-    'Quotes' => 'Nabídka',
-    'Products' => 'Produkt',
-    'Contracts' => 'Smlouva',
-    'Bugs' => 'Chyba',
-    'Project' => 'Projekt',
-    'ProjectTask' => 'Projetový úkol',
-    'Meetings' => 'Schůzka',
-    'Calls' => 'Hovor',
   ),
   'quote_relationship_type_dom' => 
   array (
@@ -536,8 +508,8 @@ $app_list_strings = array (
     '' => '',
     'Forum' => 'Forum',
     'Web' => 'Web',
-    'InboundEmail' => 'E-mail',
     'Internal' => 'Vnitrný',
+    'InboundEmail' => 'E-mail',
   ),
   'product_category_dom' => 
   array (
@@ -561,7 +533,7 @@ $app_list_strings = array (
     'Forecasts' => 'Prognózy',
     'Help' => 'Nápověda',
     'Home' => 'Domů',
-    'Leads' => 'Zájemci',
+    'Leads' => 'Přiležitosti',
     'Meetings' => 'Schůzky',
     'Notes' => 'Poznámky',
     'Opportunities' => 'Obchody',
@@ -576,8 +548,8 @@ $app_list_strings = array (
   'campaign_status_dom' => 
   array (
     '' => '',
-    'Active' => 'Aktivní',
     'Planning' => 'Plánovaná',
+    'Active' => 'Aktivní',
     'Inactive' => 'Neaktivní',
     'Complete' => 'Kompletní',
     'In Queue' => 'V fronte',
@@ -600,7 +572,6 @@ $app_list_strings = array (
   ),
   'dom_timezones' => 
   array (
-    -12 => '(GMT - 12) Mezinárodní datová čára západ',
     -11 => '(GMT - 11) Midway Island, Samoa',
     -10 => '(GMT - 10) Hawaii',
     -9 => '(GMT - 9) Alaska',
@@ -612,7 +583,6 @@ $app_list_strings = array (
     -3 => '(GMT - 3) Buenos Aires',
     -2 => '(GMT - 2) Mid-Atlantic',
     -1 => '(GMT - 1) Azores',
-    0 => '(GMT)',
     1 => '(GMT + 1) Madrid',
     2 => '(GMT + 2) Athens',
     3 => '(GMT + 3) Moscow',
@@ -625,41 +595,13 @@ $app_list_strings = array (
     10 => '(GMT + 10) Brisbane',
     11 => '(GMT + 11) Solomone Is.',
     12 => '(GMT + 12) Auckland',
-  ),
-  'dom_cal_month_long' => 
-  array (
-    0 => '',
-    1 => 'Leden',
-    2 => 'Únor',
-    3 => 'Březen',
-    4 => 'Duben',
-    5 => 'Květen',
-    6 => 'Červen',
-    7 => 'Červenec',
-    8 => 'Srpen',
-    9 => 'Září',
-    10 => 'Říjen',
-    11 => 'Listopad',
-    12 => 'Prosinec',
+    -12 => '(GMT - 12) Mezinárodní datová čára západ',
   ),
   'dom_email_server_type' => 
   array (
     'imap' => 'IMAP',
     'pop3' => 'POP3',
     '' => '--Žádný--',
-  ),
-  'dom_email_distribution' => 
-  array (
-    '' => '--Zádné--',
-    'direct' => 'Příme přidelení',
-    'roundRobin' => 'Střidave pridelení',
-    'leastBusy' => 'Nejmíň vytížený',
-  ),
-  'dom_email_editor_option' => 
-  array (
-    'html' => 'HTML e-mail',
-    '' => 'Výchozí formát Emailu',
-    'plain' => 'Čistý text Email',
   ),
   'document_category_dom' => 
   array (
@@ -699,35 +641,8 @@ $app_list_strings = array (
     '*' => '(X) Násobeno',
     '/' => '(/) Děleno',
   ),
-  'tselect_type_dom' => 
-  array (
-    604800 => '1 týden',
-    1209600 => '2 týdny',
-    1814400 => '3 týdny',
-    0 => '0 hodin',
-    14440 => '4 hodiny',
-    28800 => '8 hodiny',
-    43200 => '12 hodiny',
-    86400 => '1 den',
-    172800 => '2 dny',
-    259200 => '3 dny',
-    345600 => '4 dny',
-    432000 => '5 dní',
-    2592000 => '30 dní',
-    5184000 => '60 dní',
-    7776000 => '90 dní',
-    10368000 => '120 dní',
-    12960000 => '150 dní',
-    15552000 => '180 dní',
-  ),
-  'wflow_alert_type_dom' => 
-  array (
-    'Email' => 'E-mail',
-    'Invite' => 'Pozvat',
-  ),
   'dom_timezones_extra' => 
   array (
-    -12 => '(GMT-12) Mezinárodní datová čára západ',
     -11 => '(GMT-11) Midway Island, Samoa',
     -10 => '(GMT-10) Hawaii',
     -9 => '(GMT-9) Alaska',
@@ -739,7 +654,6 @@ $app_list_strings = array (
     -3 => '(GMT-3) Buenos Aires',
     -2 => '(GMT-2) Mid-Atlantic',
     -1 => '(GMT-1) Azores',
-    0 => '(GMT)',
     1 => '(GMT+1) Madrid',
     2 => '(GMT+2) Athens',
     3 => '(GMT+3) Moscow',
@@ -752,10 +666,10 @@ $app_list_strings = array (
     10 => '(GMT+10) Brisbane',
     11 => '(GMT+11) Solomone Is.',
     12 => '(GMT+12) Auckland',
+    -12 => '(GMT-12) Mezinárodní datová čára západ',
   ),
   'duration_intervals' => 
   array (
-    0 => '00',
     15 => '15',
     30 => '30',
     45 => '45',
@@ -778,15 +692,16 @@ $app_list_strings = array (
   'campainglog_activity_type_dom' => 
   array (
     '' => '',
-    'link' => 'Click-thru odkaz',
-    'removed' => 'Odhlásit',
     'targeted' => 'Zpráva Odeslána',
     'send error' => 'Vrátená zprava,Jiné',
     'invalid email' => 'Vrátená zprava,Neplatný Email',
+    'link' => 'Click-thru odkaz',
     'viewed' => 'Zobrazena zpráva',
-    'lead' => 'Vytvoření zájemci',
+    'removed' => 'Odhlásit',
+    'lead' => 'Vytvoření příležitosti',
     'contact' => 'Vytvořené kontakty',
   ),
+  'language_pack_name' => 'Angličtina (US)',
   'reminder_max_time' => '3600',
   'product_status_quote_key' => 'Citace',
   'moduleListSingular' => 
@@ -810,6 +725,14 @@ $app_list_strings = array (
     'Negotiation/Review' => 'Jednání/Přezkoumání',
     'Closed Won' => 'Ukončený Získaný',
     'Closed Lost' => 'Ukončený Ztracený',
+  ),
+  'activity_dom' => 
+  array (
+    'Call' => 'Hovor',
+    'Meeting' => 'Schůzka',
+    'Task' => 'Úkol',
+    'Email' => 'E-mail',
+    'Note' => 'Poznámka',
   ),
   'reminder_time_options' => 
   array (
@@ -905,7 +828,7 @@ $app_list_strings = array (
     'Accounts' => 'Špolečnost',
     'Opportunities' => 'Obchod',
     'Cases' => 'Případ',
-    'Leads' => 'Zájemci',
+    'Leads' => 'Přiležitosti',
     'Contacts' => 'Kontakty',
     'ProductTemplates' => 'Produkt',
     'Quotes' => 'Nabídka',
@@ -913,6 +836,24 @@ $app_list_strings = array (
     'Project' => 'Projekt',
     'ProjectTask' => 'Projetový úkol',
     'Tasks' => 'Úkol',
+  ),
+  'record_type_display_notes' => 
+  array (
+    'Accounts' => 'Společnost',
+    'Contacts' => 'Kontakt',
+    'Opportunities' => 'Obchod',
+    'Cases' => 'Případ',
+    'Leads' => 'Přiležitosti',
+    'ProductTemplates' => 'Produkt',
+    'Quotes' => 'Nabídka',
+    'Products' => 'Produkt',
+    'Contracts' => 'Smlouva',
+    'Bugs' => 'Chyba',
+    'Emails' => 'E-mail',
+    'Project' => 'Projekt',
+    'ProjectTask' => 'Projetový úkol',
+    'Meetings' => 'Schůzka',
+    'Calls' => 'Hovor',
   ),
   'product_status_dom' => 
   array (
@@ -994,6 +935,21 @@ $app_list_strings = array (
     'Defect' => 'Chyba',
     'Feature' => 'Vlastnost',
   ),
+  'dom_cal_month_long' => 
+  array (
+    1 => 'Leden',
+    2 => 'Únor',
+    3 => 'Březen',
+    4 => 'Duben',
+    5 => 'Květen',
+    6 => 'Červen',
+    7 => 'Červenec',
+    8 => 'Srpen',
+    9 => 'Září',
+    10 => 'Říjen',
+    11 => 'Listopad',
+    12 => 'Prosinec',
+  ),
   'dom_report_types' => 
   array (
     'tabular' => 'Řádky a sloupce',
@@ -1028,6 +984,13 @@ $app_list_strings = array (
     'task' => 'Vytvořit Úkol',
     'bounce' => 'Přeposílání',
   ),
+  'dom_email_distribution' => 
+  array (
+    '' => '--Zádné--',
+    'direct' => 'Příme přidelení',
+    'roundRobin' => 'Střidave pridelení',
+    'leastBusy' => 'Nejmíň vytížený',
+  ),
   'dom_email_errors' => 
   array (
     1 => 'Vyberte pouze jednoho uživatele když přimo přidelujete objekty.',
@@ -1041,7 +1004,6 @@ $app_list_strings = array (
   'dom_int_bool' => 
   array (
     1 => 'Ano',
-    0 => 'Ne',
   ),
   'dom_switch_bool' => 
   array (
@@ -1054,6 +1016,12 @@ $app_list_strings = array (
     '' => 'Systémovo výchozí poštovní klient',
     'sugar' => 'SugarCRM poštovní klient',
     'mailto' => 'Venkonvní poštovní klient',
+  ),
+  'dom_email_editor_option' => 
+  array (
+    '' => 'Výchozí formát Emailu',
+    'html' => 'HTML e-mail',
+    'plain' => 'Čistý text Email',
   ),
   'schedulers_times_dom' => 
   array (
@@ -1118,10 +1086,35 @@ $app_list_strings = array (
   array (
     'Equals' => 'Se nerovná',
   ),
+  'tselect_type_dom' => 
+  array (
+    14440 => '4 hodiny',
+    28800 => '8 hodiny',
+    43200 => '12 hodiny',
+    86400 => '1 den',
+    172800 => '2 dny',
+    259200 => '3 dny',
+    345600 => '4 dny',
+    432000 => '5 dní',
+    604800 => '1 týden',
+    1209600 => '2 týdny',
+    1814400 => '3 týdny',
+    2592000 => '30 dní',
+    5184000 => '60 dní',
+    7776000 => '90 dní',
+    10368000 => '120 dní',
+    12960000 => '150 dní',
+    15552000 => '180 dní',
+  ),
   'dtselect_type_dom' => 
   array (
     'More Than' => 'bylo více než',
     'Less Than' => 'je méně než',
+  ),
+  'wflow_alert_type_dom' => 
+  array (
+    'Email' => 'E-mail',
+    'Invite' => 'Pozvat',
   ),
   'wflow_source_type_dom' => 
   array (
@@ -1195,8 +1188,8 @@ $app_list_strings = array (
   ),
   'wflow_adv_enum_type_dom' => 
   array (
-    'retreat' => 'Posunout rozbalovací seznam dozadu o ',
-    'advance' => 'Posunout rozbalovací seznam dopředu o ',
+    'retreat' => 'Posunout rozbalovací seznam dozadu o',
+    'advance' => 'Posunout rozbalovací seznam dopředu o',
   ),
   'wflow_record_type_dom' => 
   array (
@@ -1224,7 +1217,7 @@ $app_list_strings = array (
     'Contacts' => 'Kontakty',
     'Users' => 'Uživatelé',
     'Prospects' => 'Prospekty',
-    'Leads' => 'Zájemci',
+    'Leads' => 'Přiležitosti',
   ),
   'contract_status_dom' => 
   array (
@@ -1250,5 +1243,4 @@ $app_list_strings = array (
     31 => '1 měsíc',
   ),
 );
-
 

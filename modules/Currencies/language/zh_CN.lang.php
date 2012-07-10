@@ -1,5 +1,5 @@
 <?php
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -28,36 +28,27 @@
  ********************************************************************************/
 
 
+/*********************************************************************************
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ * Description:  Defines the English language pack for the base application.
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
 
 $mod_strings = array (
-  'LBL_LIST_ISO4217_HELP' => '输入三个字母的ISO 4217货币代码，名称和定义的货币符号。',
-  'LBL_BELOW_MIN' => '汇率必须大于0.',
   'LBL_MODULE_NAME' => '货币',
   'LBL_LIST_FORM_TITLE' => '货币',
   'LBL_CURRENCY' => '货币',
   'LBL_ADD' => '增加',
   'LBL_MERGE' => '合并',
-  'LBL_MERGE_TXT' => '请检查您希望与选择货币对应的货币，这将会删除所有货币信息接着从选择的货币重新指定。',
+  'LBL_MERGE_TXT' => '请检查您希望与选择货币对应的货币，这将会删除所有货币信息，接着从选择的货币重新指定。',
   'LBL_US_DOLLAR' => '美元',
   'LBL_DELETE' => '删除',
   'LBL_LIST_SYMBOL' => '货币符号',
   'LBL_LIST_NAME' => '货币名称',
-  'LBL_LIST_ISO4217' => 'ISO4217编码',
+  'LBL_LIST_ISO4217' => 'ISO 4217 编号',
+  'LBL_LIST_ISO4217_HELP' => '输入三个字母的ISO 4217货币代码，名称和定义的货币符号。',
   'LBL_UPDATE' => '更新',
   'LBL_LIST_RATE' => '汇率',
   'LBL_LIST_RATE_HELP' => '欧元转换汇率0.5表示 10 USD = 5 Euro。',
@@ -72,10 +63,15 @@ $mod_strings = array (
   'LNK_NEW_MEETING' => '新增会议',
   'LNK_NEW_TASK' => '新增任务',
   'NTC_DELETE_CONFIRMATION' => '您确定要删除这条记录?建议您可以先停用这条记录，否则所有的记录在存取时都会转换为美元。',
+  'LBL_BELOW_MIN' => '汇率必须大于0。',
   'currency_status_dom' => 
   array (
     'Active' => '启用',
     'Inactive' => '停用',
   ),
+  'LBL_CREATED_BY' => '创建人',
+	'LBL_EDIT_LAYOUT' => '编辑布局' /*for 508 compliance fix*/,
 );
 
+
+?>

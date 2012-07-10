@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,29 +29,14 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+	
 
+$dashletStrings = array (
+  'MyOpportunitiesGaugeDashlet' => 
+  array (
+    'LBL_DESCRIPTION' => '商业机会范围图表',
+    'LBL_REFRESH' => '刷新图表',
+    'LBL_TITLE' => '我谈成结束的商业机会',
+  ),
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
-
-
-
-$dashletStrings['MyOpportunitiesGaugeDashlet'] = array('LBL_TITLE'       => '我谈成结束的商业机会',
-                                                       'LBL_DESCRIPTION' => '机会范围图表',
-                                                       'LBL_REFRESH'     => '刷新视表');
-?>

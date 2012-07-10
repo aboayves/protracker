@@ -179,7 +179,7 @@ $mod_strings = array (
   'LBL_DIAGNOSTIC_WIZARD'=>   'View Diagnostics',
   'LBL_ALREADY_SUBSCRIBED_HEADER'=>'Newsletters Subscribed To',
   'LBL_UNSUBSCRIBED_HEADER'=>'Available/Newsletters Unsubscribed To',
-  'LBL_UNSUBSCRIBED_HEADER_EXPL'=>'Moving the newsletter to the Available Newsletters/Newsletters Unsubscribed To list will add the contact to the Unsubscription List for this newsletter.  It will not remove the contact from the original Subscription List or Target List.', 
+  'LBL_UNSUBSCRIBED_HEADER_EXPL'=>'Moving the newsletter to the Available Newsletters/Newsletters Unsubscribed To list will add the contact to the Unsubscription List for this newsletter.  It will not remove the contact from the original Subscription List or Target List.',
   'LBL_FILTER_CHART_BY'=>'Filter Chart By:',
   'LBL_MANAGE_SUBSCRIPTIONS_TITLE'=>'Manage Subscriptions',
   'LBL_MARK_AS_SENT' =>'Mark As Sent',
@@ -315,7 +315,7 @@ $mod_strings = array (
   'LBL_MAILBOX_CHECK1_GOOD'   => ' Mail account(s)) with bounce handling detected:',
   'LBL_MAILBOX_CHECK1_BAD'    => 'No mail account(s) with bounce handling detected.',
   'LBL_MAILBOX_CHECK2_GOOD'   => ' E-mail Settings have been configured:',
-  'LBL_MAILBOX_CHECK2_BAD'    => 'Please configure your system email address.  E-mail Settings have not been configured.',
+  'LBL_MAILBOX_CHECK2_BAD'    => 'Please configure your system email address.  E-mail Settings have not been configured or are invalid.',
   'LBL_SCHEDULER_CHECK_GOOD' => 'Schedulers detected',
   'LBL_SCHEDULER_CHECK_BAD' =>   'No Schedulers detected',
   'LBL_SCHEDULER_CHECK1_BAD'  => 'Scheduler has not been set up to process Bounced Campaign Emails.',
@@ -356,6 +356,7 @@ $mod_strings = array (
     'LBL_LEAD_FOOTER' => 'Form Footer:',
     'LBL_CAMPAIGN_NOT_SELECTED' => 'Select and associate a campaign:',
     'NTC_NO_LEGENDS' => 'None',
+    'NTC_DELETE_CONFIRMATION' => 'Are you sure you want to delete this record?',
     'LBL_SELECT_LEAD_FIELDS' => 'Please select from available fields',
     'LBL_DESCRIPTION_LEAD_FORM' => 'Form Description:',
     'LBL_DESCRIPTION_TEXT_LEAD_FORM' => 'Submitting this form will create a lead and link with campaign',
@@ -408,7 +409,7 @@ $mod_strings = array (
     'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
     'LBL_LEADS_SUBPANEL_TITLE' => 'Leads',
     'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
-    
+
     'LBL_IMPORT_PROSPECTS'=>'Import Targets',
     'LBL_LEAD_FORM_WIZARD' => 'Lead Form Wizard',
     'LBL_CAMPAIGN_INFORMATION' => 'Overview',
@@ -424,6 +425,7 @@ $mod_strings = array (
 	'LBL_DELETE_INLINE' => 'Delete' /*for 508 compliance fix*/,
 	'LBL_DELETE' => 'Remove' /*for 508 compliance fix*/,
     'LBL_VIEW_INLINE' => 'View',
+    'LBL_LEADS_DELETED_SINCE_CREATED' => '{0} leads that were created through this campaign have been deleted since creation.',
 );
 
 

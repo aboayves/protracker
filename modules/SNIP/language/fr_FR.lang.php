@@ -1,5 +1,7 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
+
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -30,6 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_SNIP_KEY_DESC' => 'Clé OAuth pour l&#39;archivage d&#39;email. Utilisée pour accéder à cette instance dans le but d&#39;importer des emails.',
   'LBL_SNIP_SUMMARY' => 'Sugar Ease est un service d&#39;import automatique des emails qui permet aux utilisateurs d&#39;importer des emails dans SugarCRM simplement en les envoyant depuis n&#39;importe quel client mail vers un adresse email gérée par SugarCRM. Chaque instance SugarCRM possède une et une seule boite mail Sugar Ease. Pour importer des emails, les utilisateurs doivent envoyer un email à cette adresse email Sugar Ease en utilisant l&#39;un des champs TO, CC ou BCC. Le service Sugar Ease importera automatiquement cet email dans l&#39;instance SugarCRM. Le service importe l&#39;email avec ses pièces jointes, ses images, les évènements de type Calendrier dans SugarCRM en le liant aux enregistrements ayant comme email l&#39;un des destinataire de l&#39;email original.<br /><br /><br /><br />Exemple :  En tant qu&#39;utilisateur, quand je visionne un compte, je vais être capable de voir l&#39;historique de tous les emails qui sont associés a ce compte en se basant sur l&#39;adresse email renseignée dans la fiche compte. Je vais aussi être capable de voir l&#39;historique des emails qui sont associés à des contacts liés a ce compte.<br /><br /><br /><br />Acceptez les termes ci-dessous et cliquez sur Activer pour commencer à utiliser le service. Vous serez en mesure de désactiver le service à tout moment. Une fois le service activé, l&#39;adresse email à utiliser pour le service sera affichée.',
   'LBL_REGISTER_SNIP_FAIL' => 'Echec lors de la tentative d&#39;accès au service Sugar Ease : %s !',
   'LBL_CONFIGURE_SNIP' => 'Sugar Ease',
@@ -79,3 +82,4 @@ $mod_strings = array (
   'LBL_SNIP_MOUSEOVER_SERVICE_URL' => 'Ceci est l&#39;URL du serveur Sugar Ease. Toutes les opérations comme l&#39;activation ou la désactivation du service Sugar Ease utilisent cette URL.',
   'LBL_SNIP_MOUSEOVER_INSTANCE_URL' => 'Ceci est l&#39;URL d&#39;accès aux Web Services de votre instance SugarCRM. Le serveur Sugar Ease communique avec votre serveur au travers de cette URL.',
 );
+

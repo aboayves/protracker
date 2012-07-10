@@ -1,5 +1,5 @@
 <?php
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -28,28 +28,17 @@
  ********************************************************************************/
 
 
+/*********************************************************************************
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
+ * Description:  Defines the English language pack for the base application.
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
 
 $mod_strings = array (
   'LBL_MODULE_NAME' => '客户',
-  'LBL_MODULE_TITLE' => '客户:首页',
+  'LBL_MODULE_TITLE' => '客户: 首页',
   'LBL_SEARCH_FORM_TITLE' => '查找客户',
   'LBL_LIST_FORM_TITLE' => '客户列表',
   'LBL_NEW_FORM_TITLE' => '新增客户',

@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,28 +29,14 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
   'ERR_DELETE_RECORD' => '商品を削除するにはレコード番号を指定する必要があります。',
   'LBL_ACCOUNT_NAME' => '取引先:',
   'LBL_ASSIGNED_TO' => 'アサイン先:',
-  'LBL_ASSIGNED_TO_ID' => 'アサイン先:',
-  'LBL_CATEGORY_NAME'=>'カテゴリ名:',
+  'LBL_ASSIGNED_TO_ID' => 'アサイン先ID:',
+  'LBL_CATEGORY_NAME' => 'カテゴリ名:',
   'LBL_CATEGORY' => 'カテゴリ:',
   'LBL_CONTACT_NAME' => '取引先担当者:',
   'LBL_COST_PRICE' => '原価:',
@@ -64,7 +52,7 @@ $mod_strings = array (
   'LBL_LIST_CATEGORY' => 'カテゴリ:',
   'LBL_LIST_CATEGORY_ID' => 'カテゴリID:',
   'LBL_LIST_COST_PRICE' => '原価:',
-  'LBL_LIST_DISCOUNT_PRICE' => '単価',
+  'LBL_LIST_DISCOUNT_PRICE' => '単価:',
   'LBL_LIST_FORM_TITLE' => 'カタログ商品一覧',
   'LBL_LIST_LBL_MFT_PART_NUM' => '製造元番号',
   'LBL_LIST_LIST_PRICE' => '定価',
@@ -77,11 +65,11 @@ $mod_strings = array (
   'LBL_LIST_TYPE' => 'タイプ:',
   'LBL_LIST_TYPE_ID' => 'タイプID:',
   'LBL_LIST_USDOLLAR' => '表示価格 USD:',
-  'LBL_MANUFACTURER_NAME'=>'製造元名:',
+  'LBL_MANUFACTURER_NAME' => '製造元名:',
   'LBL_MANUFACTURER' => '製造元',
   'LBL_MFT_PART_NUM' => '製造元パートナンバー:',
   'LBL_MODULE_NAME' => '商品カタログ',
-  'LBL_MODULE_ID' => '商品テンプレート',  
+  'LBL_MODULE_ID' => '商品テンプレート',
   'LBL_MODULE_TITLE' => '商品カタログ: ホーム',
   'LBL_NAME' => '商品名:',
   'LBL_NEW_FORM_TITLE' => 'アイテム作成',
@@ -100,19 +88,30 @@ $mod_strings = array (
   'LBL_SUPPORT_NAME' => 'サポート名:',
   'LBL_SUPPORT_TERM' => 'サポート期間:',
   'LBL_TAX_CLASS' => '税区分:',
-  'LBL_TYPE_NAME'=>'タイプ名',
-  'LBL_TYPE' => 'タイプ:',
+  'LBL_TYPE_NAME' => 'タイプ名',
+  'LBL_TYPE' => 'タイプ',
   'LBL_URL' => '商品URL:',
   'LBL_VENDOR_PART_NUM' => '販売元パートナンバー:',
   'LBL_WEIGHT' => '重量:',
-  'LNK_IMPORT_PRODUCTS'=>'商品のインポート',
+  'LNK_IMPORT_PRODUCTS' => '商品のインポート',
   'LNK_NEW_MANUFACTURER' => '製造元',
   'LNK_NEW_PRODUCT_CATEGORY' => '商品カテゴリ',
   'LNK_NEW_PRODUCT_TYPE' => '商品タイプ',
   'LNK_NEW_PRODUCT' => 'カタログ用の商品を作成',
   'LNK_NEW_SHIPPER' => '運送会社',
   'LNK_PRODUCT_LIST' => '商品カタログ',
-  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除して良いですか？',
+  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除してよいですか？',
+  'LBL_EXPORT_ASSIGNED_USER_NAME' => 'アサイン先',
+  'LBL_EXPORT_ASSIGNED_USER_ID' => 'アサイン先ID',
+  'LBL_EXPORT_MODIFIED_USER_ID' => '更新者ID',
+  'LBL_EXPORT_CREATED_BY' => '作成者ID',
+  'LBL_TYPE_ID' => 'タイプID',
+  'LBL_MANUFACTURER_ID' => '製造元ID',
+  'LBL_CATEGORY_ID' => 'カテゴリID',
+  'LBL_WEBSITE' => 'Webサイト',
+  'LBL_QTY_IN_STOCK' => '在庫数量',
+  'LBL_EXPORT_CURRENCY' => '通貨',
+  'LBL_EXPORT_CURRENCY_ID' => '通貨ID',
+  'LBL_EXPORT_COST_PRICE' => '原価',
 );
-
 

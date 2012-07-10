@@ -32,12 +32,20 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_DEPENDANT' => 'Dependant',
+  'LBL_DEPENDENT_DROPDOWN_HELP' => 'Drag options from the list on the left of available options in the dependent dropdown to the lists on the right to make those options available when the parent option is selected. If no items are under a parent option, when the parent option is selected, the dependent dropdown will not be displayed.',
+  'LBL_AVAILABLE_OPTIONS' => 'Опции',
+  'LBL_PARENT_DROPDOWN' => 'Parent Dropdown',
+  'LBL_VISIBILITY_EDITOR' => 'Visibility Editor',
+  'LBL_ROLLUP' => 'Rollup',
+  'LBL_RELATED_FIELD' => 'Свързано поле',
+  'LBL_BTN_INSERT' => 'Вмъкни',
+  'LBL_POPHELP_SEARCHABLE' => 'Select the boost level for this field. <br />Fields with a higher boost level will be given greater weight when the search is performed. <br />When a search is performed, matching records containing fields with a greater weight will be appear higher in the search results.<br /> If you change the boost level for a field from one level to another, perform a system index to apply the change. <br/> Be sure to select to delete the existing data at the time that the system index is performed.',
   'LBL_POWERED_BY_SUGAR' => 'Powered By SugarCRM',
   'LBL_CUSTOM' => 'Custom',
   'LBL_LAYOUT_PREVIEW' => 'Layout Preview',
   'LBL_SUGAR_BIN_STAGE' => 'Sugar Bin (click items to add to staging area)',
   'LBL_DROPDOWN_BLANK_WARNING' => 'Values are required for both the Item Name and the Display Label. To add a blank item, click Add without entering any values for the Item Name and the Display Label.',
+  'LBL_DEPENDANT' => 'Dependant',
   'LBL_RELATIONSHIP_ONLY' => 'No visible elements will be created for this relationship as there is a pre-existing visible relationship between these two modules.',
   'LBL_SECTION_VISIBILITY_EDITOR' => 'Edit Visibility',
   'LBL_BTN_REDO' => 'Redo',
@@ -120,26 +128,24 @@ $mod_strings = array (
     'popupListViewEditor' => 
     array (
       'savebtn' => 'Click <b>Save & Deploy</b> to save changes you made and to make them active within the module.',
-      'historyBtn' => 'Click <b>View History</b> to view and restore a previously saved layout from the history.',
-      'historyDefault' => 'Click <b>Restore Default</b> to restore a view to its original layout.',
       'Hidden' => '<b>Hidden</b> fields not currently available for users to see in ListViews.',
       'Default' => '<b>Default</b> fields appear in ListViews that are not customized by users.',
       'modify' => 'All of the fields that can be displayed in the <b>ListView</b> appear here.<br><br>The <b>Default</b> column contains the fields that are displayed in the ListView by default.<br/><br/>The <b>Hidden</b> column contains fields that can be added to the Default or Available column.',
+      'historyBtn' => 'Click <b>View History</b> to view and restore a previously saved layout from the history.',
+      'historyDefault' => 'Click <b>Restore Default</b> to restore a view to its original layout.',
     ),
     'searchViewEditor' => 
     array (
       'savebtn' => 'Clicking <b>Save & Deploy</b> will save all changes and make them active',
       'Hidden' => '<b>Hidden</b> fields do not appear in the Search.',
-      'historyBtn' => 'Click <b>View History</b> to view and restore a previously saved layout from the history.',
-      'historyDefault' => 'Click <b>Restore Default</b> to restore a view to its original layout.',
       'Default' => '<b>Default</b> fields appear in the Search.',
       'modify' => 'All of the fields that can be displayed in the <b>Search</b> form appear here.<br><br>The <b>Default</b> column contains the fields that will be displayed in the Search form.<br/><br/>The <b>Hidden</b> column contains fields available for you as an admin to add to the Search form.',
+      'historyBtn' => 'Click <b>View History</b> to view and restore a previously saved layout from the history.',
+      'historyDefault' => 'Click <b>Restore Default</b> to restore a view to its original layout.',
     ),
     'layoutEditor' => 
     array (
       'saveBtn' => 'Click <b>Save</b> to preserve the changes you made to the layout since the last time you saved it.<br><br>The changes will not be displayed in the module until you Deploy the saved changes.',
-      'historyBtn' => 'Click <b>View History</b> to view and restore a previously saved layout from the history.',
-      'historyDefault' => 'Click <b>Restore Default</b> to restore a view to its original layout.',
       'publishBtn' => 'Click <b>Save & Deploy</b> to save all changes you made to the layout since the last time you saved it, and to make the changes active in the module.<br><br>The layout will immediately be displayed in the module.',
       'toolbox' => 'The <b>Toolbox</b> contains the <b>Recycle Bin</b>, additional layout elements and the set of available fields to add to the layout.<br/><br/>The layout elements and fields in the Toolbox can be dragged and dropped into the layout, and the layout elements and fields can be dragged and dropped from the layout into the Toolbox.<br><br>The layout elements are <b>Panels</b> and <b>Rows</b>. Adding a new row or a new panel to the layout provides additional locations in the layout for fields.<br/><br/>Drag and drop any of the fields in the Toolbox or layout onto a occupied field position to swap the locations of the two fields.<br/><br/>The <b>Filler</b> field creates blank space in the layout where it is placed.',
       'panels' => 'The <b>Layout</b> area provides a view of how the layout will appear within the module when the changes made to the layout are deployed.<br/><br/>You can reposition fields, rows and panels by dragging and dropping them in the desired location.<br/><br/>Remove elements by dragging and dropping them in the <b>Recycle Bin</b> in the Toolbox, or add new elements and fields by dragging them from the <b>Toolbox</b>s and dropping them in the desired location in the layout.',
@@ -148,6 +154,8 @@ $mod_strings = array (
       'defaultdetailview' => 'The <b>Layout</b> area contains the fields that are currently displayed within the <b>DetailView</b>.<br/><br/>The <b>Toolbox</b> contains the <b>Recycle Bin</b> and the fields and layout elements that can be added to the layout.<br><br>Make changes to the layout by dragging and dropping elements and fields between the <b>Toolbox</b> and the <b>Layout</b> and within the layout itself.<br><br>To remove a field from the layout, drag the field to the <b>Recycle Bin</b>. The field will then be available in the Toolbox to add to the layout.',
       'defaultquickcreate' => 'The <b>Layout</b> area contains the fields that are currently displayed within the <b>QuickCreate</b> form.<br><br>The QuickCreate form appears in the subpanels for the module when the Create button is clicked.<br/><br/>The <b>Toolbox</b> contains the <b>Recycle Bin</b> and the fields and layout elements that can be added to the layout.<br><br>Make changes to the layout by dragging and dropping elements and fields between the <b>Toolbox</b> and the <b>Layout</b> and within the layout itself.<br><br>To remove a field from the layout, drag the field to the <b>Recycle Bin</b>. The field will then be available in the Toolbox to add to the layout.',
       'default' => 'The <b>Layout</b> area contains the fields that are currently displayed within the <b>EditView</b>.<br/><br/>The <b>Toolbox</b> contains the <b>Recycle Bin</b> and the fields and layout elements that can be added to the layout.<br><br>Make changes to the layout by dragging and dropping elements and fields between the <b>Toolbox</b> and the <b>Layout</b> and within the layout itself.<br><br>To remove a field from the layout, drag the field to the <b>Recycle Bin</b>. The field will then be available in the Toolbox to add to the layout.',
+      'historyBtn' => 'Click <b>View History</b> to view and restore a previously saved layout from the history.',
+      'historyDefault' => 'Click <b>Restore Default</b> to restore a view to its original layout.',
     ),
     'fieldsEditor' => 
     array (

@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,22 +29,16 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+	
 
-
-
-$defaultText = "メモ保存のためのダシュレットです。ダブルクリックすると編集できます。";
-$dashletStrings = array (
-  'JotPadDashlet' => 
-  array (
-    'LBL_TITLE' => '簡易メモ',
-    'LBL_DESCRIPTION' => 'メモ保存のためのダシュレット',
-    'LBL_SAVING' => 'メモを保存中・・・',
-    'LBL_SAVED' => '保存完了',
-    'LBL_CONFIGURE_TITLE' => '題名',
-    'LBL_CONFIGURE_HEIGHT' => '高さ（1～300）',
-    'LBL_DBLCLICK_HELP' => 'ダブルクリックすると編集できます。',
-    //OSC oracker# 'LBL_DEFAULT_TEXT' => 'LBL_DEFAULT_TEXT',
-    'LBL_DEFAULT_TEXT' => $defaultText,
-  ),
+$defaultText = "";
+$dashletStrings['JotPadDashlet'] = array('LBL_TITLE'            => '簡易メモ',
+                                         'LBL_DESCRIPTION'      => 'メモを保存するダッシュレット',
+                                         'LBL_SAVING'           => 'メモを保存中...',
+                                         'LBL_SAVED'            => '保存済み',
+                                         'LBL_CONFIGURE_TITLE'  => 'タイトル',
+                                         'LBL_CONFIGURE_HEIGHT' => '高さ（1 - 300）',
+                                         'LBL_DBLCLICK_HELP'    => 'ダブルクリックすると編集できます。',
+                                         'LBL_DEFAULT_TEXT'     => $defaultText,
 );
-
+?>

@@ -32,7 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_REPORT_GRAND_TOTAL' => 'Gesamtbetrag',
+  'ERR_REPORT_INVALID_SUBJECT' => 'Bericht ist nicht gültig',
+  'ERR_REPORT_INVALID' => 'Der Bericht "{0}" enthält ungültige Felder: {1}',
   'LBL_MODULE' => 'Module',
   'LBL_REPORT_ATT_NAME' => 'Name',
   'LBL_AVG' => 'AVG',
@@ -85,7 +86,7 @@ $mod_strings = array (
   'LBL_DO_ROUND' => 'Runde Nummer über 100000',
   'LBL_SAVE_AS' => 'Speichern unter',
   'LBL_FILTERS' => 'Filter',
-  'LBL_NO_CHART_DRAWN_MESSAGE' => 'Das Diagramm kann nicht erstellt werden, da zu wenig Datenelement',
+  'LBL_NO_CHART_DRAWN_MESSAGE' => 'Es kann keine Grafik erzeugt werden, da zu wenige Daten vorliegen.',
   'LBL_RUNTIME_FILTERS' => 'Runtime Filters',
   'LBL_VIEWER_RUNTIME_HELP' => 'Hier werden die definierten Filterwerte angezeigt',
   'LBL_REPORT_RESULTS' => 'Ergebnisse',
@@ -484,6 +485,7 @@ $mod_strings = array (
   'LBL_RIGHT' => 'Rechts',
   'LBL_DOWN' => 'nach unten',
   'LBL_UP' => 'nach oben',
+  'LBL_REPORT_GRAND_TOTAL' => 'Gesamtbetrag',
   'DROPDOWN_SCHEDULE_INTERVALS' => 
   array (
     3600 => 'stündlich',

@@ -1442,18 +1442,19 @@ $app_list_strings = array (
   ),
   'dom_cal_month_short' => 
   array (
-    3 => 'Mar',
-    5 => 'May',
-    1 => 'Oca',
-    2 => 'Şub',
-    4 => 'Nis',
-    6 => 'Haz',
-    7 => 'Tem',
-    8 => 'Ağu',
-    9 => 'Eyl',
-    10 => 'Eki',
-    11 => 'Kas',
-    12 => 'Ara',
+    '0' => '',
+    '1' => 'Oca',
+    '2' => 'Şub',
+    '3' => 'Mar',
+    '4' => 'Nis',
+    '5' => 'May',
+    '6' => 'Haz',
+    '7' => 'Tem',
+    '8' => 'Ağu',
+    '9' => 'Eyl',
+    '10' => 'Eki',
+    '11' => 'Kas',
+    '12' => 'Ara',
   ),
   'dom_email_server_type' => 
   array (
@@ -1590,6 +1591,7 @@ $app_list_strings = array (
   ),
   'duration_intervals' => 
   array (
+    0 => '00',
     15 => '15',
     30 => '30',
     45 => '45',
@@ -2676,18 +2678,19 @@ $app_list_strings = array (
   ),
   'dom_cal_month_long' => 
   array (
-    1 => 'Ocak',
-    2 => 'Şubat',
-    3 => 'Mart',
-    4 => 'Nisan',
-    5 => 'Mayıs',
-    6 => 'Haziran',
-    7 => 'Temmuz',
-    8 => 'Ağustos',
-    9 => 'Eylül',
-    10 => 'Ekim',
-    11 => 'Kasım',
-    12 => 'Aralık',
+    '0' => '',
+    '1' => 'Ocak',
+    '2' => 'Şubat',
+    '3' => 'Mart',
+    '4' => 'Nisan',
+    '5' => 'Mayıs',
+    '6' => 'Haziran',
+    '7' => 'Temmuz',
+    '8' => 'Ağustos',
+    '9' => 'Eylül',
+    '10' => 'Ekim',
+    '11' => 'Kasım',
+    '12' => 'Aralık',
   ),
   'dom_cal_day_long' => 
   array (
@@ -2701,13 +2704,14 @@ $app_list_strings = array (
   ),
   'dom_cal_day_short' => 
   array (
-    1 => 'Paz',
-    2 => 'Pzt',
-    3 => 'Sal',
-    4 => 'Çar',
-    5 => 'Per',
-    6 => 'Cum',
-    7 => 'Cmt',
+    '0' => '',
+    '1' => 'Paz',
+    '2' => 'Pzt',
+    '3' => 'Sal',
+    '4' => 'Çar',
+    '5' => 'Per',
+    '6' => 'Cum',
+    '7' => 'Cmt',
   ),
   'dom_meridiem_lowercase' => 
   array (
@@ -3000,6 +3004,7 @@ $app_list_strings = array (
   ),
   'tselect_type_dom' => 
   array (
+    0     => '0 hours',
     14440 => '4 saat',
     28800 => '8 saat',
     43200 => '12 saat',

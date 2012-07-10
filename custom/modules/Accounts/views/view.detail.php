@@ -19,7 +19,7 @@ class AccountsViewDetail extends ViewDetail
 		);
 */
 		$sql = "
-SELECT YEAR(av_net_worth.date_entered) AS year, SUM(av_accounts.value) AS worth
+SELECT YEAR(av_net_worth.date_entered) AS year, av_net_worth.grand_total AS worth, av_net_worth.managed_assets
 FROM `accounts`
 LEFT JOIN accounts_av_net_worth_c 
 	ON 
@@ -35,31 +35,18 @@ LEFT JOIN av_net_worth
 		AND
 		av_net_worth.id = accounts_av_net_worth_c.accounts_av_net_worthav_net_worth_idb
 	)
-LEFT JOIN av_net_worth_av_accounts_c 
-	ON 
-	(
-		av_net_worth_av_accounts_c.deleted=0 
-		AND 
-		av_net_worth_av_accounts_c.av_net_worth_av_accountsav_net_worth_ida = accounts_av_net_worth_c.accounts_av_net_worthav_net_worth_idb
-	)
-LEFT JOIN av_accounts
-	ON
-	(
-		av_accounts.deleted=0
-		AND
-		av_accounts.id = av_net_worth_av_accounts_c.av_net_worth_av_accountsav_accounts_idb
-	)
 WHERE accounts.deleted=0 AND accounts.id='{$this->bean->id}'
 GROUP BY YEAR(av_net_worth.date_entered)
+ORDER BY av_net_worth.date_entered DESC
 		";
 
 		$sql_result = $this->bean->db->query($sql);
 		$graph_data = array();
 		while($graph_data_row = $this->bean->db->fetchByAssoc($sql_result))
 		{
-			$graph_data[$graph_data_row['year']] = $graph_data_row['worth'];
+			$graph_data[$graph_data_row['year']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
 		}
-		$theData = '<pre>'.print_r($graph_data, true).'</pre>';
+//		$theData = '<pre>'.print_r($graph_data, true).'</pre>';
 		$theData = "<div style='height:50px;width:100%;'></div><div id='divForGraph'></div>";
 		$this->dv->ss->assign('theGraph', $theData);
 		
@@ -80,12 +67,14 @@ GROUP BY YEAR(av_net_worth.date_entered)
 		<script type='text/javascript'>
 		arrayOfData = new Array(
 		";
-		foreach($graph_data as $year=>$worth)
+		unset($graph_data['']);
+		foreach($graph_data as $year=>$data)
 		{
-			$year = empty($year)? 0 : $year;
-			$worth = empty($year)? 0 : $worth;
+			$year = empty($year)? '0' : $year;
+			$worth = empty($data['worth'])? 0 : $data['worth'];
+			$managed_assets = empty($data['managed_assets'])? 0 : $data['managed_assets'];
 			echo $jsRow."\r\n";
-			$jsRow = "[[{$worth}, ".($worth/2)."],'{$year}'],";
+			$jsRow = "[[{$worth}, {$managed_assets}],'{$year}'],";
 		}
 		echo rtrim($jsRow, ',');
 		echo "
@@ -97,7 +86,7 @@ GROUP BY YEAR(av_net_worth.date_entered)
 										animate: true,
 										legends: ['Net Worth', 'Managed'],
 										legend: true,
-										width: 250,
+										width: 400,
 										type: 'multi'
 									});
 		setTimeout('Accounts_detailview_tabs.selectTab(0);',3500);	//going back to the first tab after 3.5 seconds.

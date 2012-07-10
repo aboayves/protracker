@@ -67,7 +67,7 @@ class LanguageManager
 		$templates = array_reverse($templates);
 		foreach($templates as $template){
 			$temp = LanguageManager::addTemplate($module,$lang, $template);
-			$loaded_mod_strings = sugarArrayMerge($loaded_mod_strings, $temp);
+			$loaded_mod_strings = sugarLangArrayMerge($loaded_mod_strings, $temp);
 		}
 		return $loaded_mod_strings;
 	}
@@ -203,7 +203,7 @@ class LanguageManager
 						$loaded_mod_strings = sugarArrayMergeRecursive($loaded_mod_strings, $mod_strings);
 					}
 					else{
-						$loaded_mod_strings = sugarArrayMerge($loaded_mod_strings, $mod_strings);
+						$loaded_mod_strings = sugarLangArrayMerge($loaded_mod_strings, $mod_strings);
 					}
 				}
 			}
@@ -226,7 +226,7 @@ class LanguageManager
 		if(!$refresh)
 		{
 			$return_result = sugar_cache_retrieve($key);
-			if(!empty($return_result)){
+			if(!empty($return_result) && is_array($return_result)){
 				return $return_result;
 			}
 		}

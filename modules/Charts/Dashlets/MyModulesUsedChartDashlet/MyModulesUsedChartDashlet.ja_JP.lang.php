@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,18 +29,14 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
+	
 
 $dashletStrings = array (
   'MyModulesUsedChartDashlet' => 
   array (
-    'LBL_TITLE' => 'モジュール利用履歴(過去1ヶ月)',
-    'LBL_DESCRIPTION' => 'モジュール利用履歴(過去1ヶ月)',
+    'LBL_TITLE' => '私の利用モジュール(過去30日間)',
+    'LBL_DESCRIPTION' => '私の利用モジュール(過去30日間)',
     'LBL_REFRESH' => 'グラフを更新',
   ),
 );
+

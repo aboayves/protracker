@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,19 +29,10 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
+	
 
 $mod_strings = array (
-  'LBL_WELCOME_TEXT' => 'いらっしゃいませ。
-お客様ポータルにようこそ。',
-  'LBL_WELCOME_INSTRUCTIONS' => 'ポータル内にある情報をアクセスするためには、上で該当するタブを押してください。',
+  'LBL_WELCOME_TEXT' => 'カスタマーポータルにようこそ。',
+  'LBL_WELCOME_INSTRUCTIONS' => 'ポータルの情報にアクセスするには該当するタブをクリックしてください。',
 );
+

@@ -204,7 +204,7 @@ dragDropInit();
 setTimeout(resizeDDLists, 100);
 ModuleBuilder.helpRegister('edittabs');
 ModuleBuilder.helpRegisterByID('content', 'div');
-
+studiotabs.view = '{$view}';
 ModuleBuilder.helpSetup('{$helpName}', '{$helpDefault}');
 if('{$from_mb}')
     ModuleBuilder.helpUnregisterByID('savebtn');

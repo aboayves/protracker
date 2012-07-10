@@ -394,7 +394,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
             }
             if ($controller->bean->module_dir == 'Cases') {
 	            if($controller->bean->load_relationship('contacts')) {
-	            	$emailAddressWithName = $ie->email->from_addr_name;
+	            	$emailAddressWithName = $ie->email->from_addr;
 	            	if (!empty($ie->email->reply_to_addr)) {
 	            		$emailAddressWithName = $ie->email->reply_to_addr;
 	            	} // if
@@ -566,7 +566,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
                     if(!empty($ieId)) {
                         $GLOBALS['log']->info("[EMAIL] - Start checking email for GUID [{$ieId}] for user [{$current_user->user_name}]");
                         $ie->disconnectMailserver();
-                        $ie->retrieve($ieId);
+                        // If I-E not exist - skip check
+                        if (is_null($ie->retrieve($ieId))) {
+                            $GLOBALS['log']->info("[EMAIL] - Inbound with GUID [{$ieId}] not exist");
+                            continue;
+                        }
                         $ie->checkEmail(false);
                         $GLOBALS['log']->info("[EMAIL] - Done checking email for GUID [{$ieId}] for user [{$current_user->user_name}]");
                     }
@@ -1226,7 +1230,7 @@ eoq;
         $out = $email->sendEmailTest($_REQUEST['mail_smtpserver'], $_REQUEST['mail_smtpport'], $_REQUEST['mail_smtpssl'],
         							(isset($_REQUEST['mail_smtpauth_req']) ? 1 : 0), $_REQUEST['mail_smtpuser'],
         							$pass, $_REQUEST['outboundtest_from_address'], $_REQUEST['outboundtest_from_address']);
-        							
+
         $out = $json->encode($out);
         echo $out;
         break;

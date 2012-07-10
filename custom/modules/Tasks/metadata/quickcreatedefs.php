@@ -104,8 +104,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'tasks_tasks_name',
-            'label' => 'LBL_TASKS_TASKS_FROM_TASKS_L_TITLE',
+            'name' => 'parent_tasks_name',
+            'label' => 'LBL_PARENT_TASKS',
           ),
         ),
         4 => 

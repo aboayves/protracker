@@ -209,7 +209,8 @@ class EmailTemplate extends SugarBean {
 	function fill_in_additional_detail_fields() {
 	    if (empty($this->body) && !empty($this->body_html))
         {
-            $this->body = strip_tags(html_entity_decode($this->body_html));
+            global $sugar_config;
+            $this->body = strip_tags(html_entity_decode($this->body_html, ENT_COMPAT, $sugar_config['default_charset']));
         }
 		$this->created_by_name = get_assigned_user_name($this->created_by);
 		$this->modified_by_name = get_assigned_user_name($this->modified_user_id);
@@ -234,7 +235,7 @@ class EmailTemplate extends SugarBean {
 	//function all string that match the pattern {.} , also catches the list of found strings.
 	//the cache will get refreshed when the template bean instance changes.
 	//The found url key patterns are replaced with name value pairs provided as function parameter. $tracked_urls.
-	//$url_template is used to construct the url for the email message. the template should have place holder for 1 varaible parameter, represented by %1
+	//$url_template is used to construct the url for the email message. the template should have place holder for 1 variable parameter, represented by %1
 	//$template_text_array is a list of text strings that need to be searched. usually the subject, html body and text body of the email message.
 	//$removeme_url_template, if the url has is_optout property checked then use this template.
 	function parse_tracker_urls($template_text_array,$url_template,$tracked_urls,$removeme_url_template) {
@@ -247,6 +248,9 @@ class EmailTemplate extends SugarBean {
 		foreach ($template_text_array as $key=>$template_text) {
 			if (!empty($template_text)) {
             	if(!isset($this->parsed_urls[$key]) || $this->parsed_urls[$key]['text'] != $template_text) {
+                    // Fix for bug52014.
+                    $template_text = urldecode($template_text);
+
 					$matches=array();
 					$count=preg_match_all($pattern,$template_text,$matches,PREG_OFFSET_CAPTURE);
 					$this->parsed_urls[$key]=array('matches' => $matches, 'text' => $template_text);
@@ -423,17 +427,11 @@ class EmailTemplate extends SugarBean {
 		$repl_arr = array();
 
 		// cn: bug 9277 - create a replace array with empty strings to blank-out invalid vars
-		if(!class_exists('Account'))
-		if(!class_exists('Contact'))
-		if(!class_exists('Leads'))
-		if(!class_exists('Prospects'))
-		
-		require_once('modules/Accounts/Account.php');
 		$acct = new Account();
 		$contact = new Contact();
 		$lead = new Lead();
 		$prospect = new Prospect();
-		
+
 		foreach($lead->field_defs as $field_def) {
 			if(($field_def['type'] == 'relate' && empty($field_def['custom_type'])) || $field_def['type'] == 'assigned_user_name') {
          		continue;
@@ -573,7 +571,7 @@ class EmailTemplate extends SugarBean {
 		    $repl_arr['contact_primary_address_street'] = nl2br($repl_arr['contact_primary_address_street']);
 		}
 		if(isset($repl_arr['contact_alt_address_street'])){
-		    $repl_arr['contact_alt_address_street'] = nl2br($repl_arr['contact_alt_address_street']);	
+		    $repl_arr['contact_alt_address_street'] = nl2br($repl_arr['contact_alt_address_street']);
 		}
 
 		foreach ($repl_arr as $name=>$value) {
@@ -615,6 +613,16 @@ class EmailTemplate extends SugarBean {
 		}
 		return false;
 	}
+
+    static function getTypeOptionsForSearch(){
+        $template = new EmailTemplate();
+        $optionKey = $template->field_defs['type']['options'];
+        $options = $GLOBALS['app_list_strings'][$optionKey];
+        if( ! is_admin($GLOBALS['current_user']) && isset($options['workflow']))
+            unset($options['workflow']);
+
+        return $options;
+    }
 
 	function is_used_by_email_marketing() {
 		$query = "select id from email_marketing where template_id='$this->id' and deleted=0";

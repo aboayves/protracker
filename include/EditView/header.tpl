@@ -27,6 +27,16 @@
  ********************************************************************************/
 
 *}
+
+<script>
+    {literal}
+    $(document).ready(function(){
+	    $("ul.clickMenu").each(function(index, node){
+	        $(node).sugarActionMenu();
+	    });
+    });
+    {/literal}
+</script>
 <div class="clear"></div>
 <form action="index.php" method="POST" name="{$form_name}" id="{$form_id}" {$enctype}>
 <table width="100%" cellpadding="0" cellspacing="0" border="0" class="dcQuickEdit">
@@ -52,6 +62,7 @@
 <input type="hidden" name="relate_id" value="{$smarty.request.return_id}">
 {/if}
 <input type="hidden" name="offset" value="{$offset}">
+{assign var='place' value="_HEADER"} <!-- to be used for id for buttons with custom code in def files-->
 {{if isset($form.hidden)}}
 {{foreach from=$form.hidden item=field}}
 {{$field}}   
@@ -60,16 +71,17 @@
 {{if empty($form.button_location) || $form.button_location == 'top'}}
 {{if !empty($form) && !empty($form.buttons)}}
    {{foreach from=$form.buttons key=val item=button}}
-      {{sugar_button module="$module" id="$button" view="$view"}}
+      {{sugar_button module="$module" id="$button" form_id="$form_id" view="$view" appendTo="header_buttons" location="HEADER"}}
    {{/foreach}}
 {{else}}
-{{sugar_button module="$module" id="SAVE" view="$view" location="HEADER"}}
-{{sugar_button module="$module" id="CANCEL" view="$view" location="HEADER"}}
+{{sugar_button module="$module" id="SAVE" view="$view" form_id="$form_id" location="HEADER" appendTo="header_buttons"}}
+{{sugar_button module="$module" id="CANCEL" view="$view" form_id="$form_id" location="HEADER" appendTo="header_buttons"}}
 {{/if}}
 {{if empty($form.hideAudit) || !$form.hideAudit}}
-{{sugar_button module="$module" id="Audit" view="$view"}}
+{{sugar_button module="$module" id="Audit" view="$view" form_id="$form_id" appendTo="header_buttons"}}
 {{/if}}
 {{/if}}
+{{sugar_action_menu buttons=$header_buttons class="fancymenu" flat=true}}
 </td>
 <td align='right'>{{$ADMIN_EDIT}}
 {{if $panelCount == 0}}

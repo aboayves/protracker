@@ -1,5 +1,4 @@
 <?php
-
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -28,23 +27,12 @@
  ********************************************************************************/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
+ * Created on Aug 14, 2007
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+ */
 $object_name = strtolower($object_name);
  $app_list_strings = array (
 
@@ -57,11 +45,11 @@ $object_name = strtolower($object_name);
    $object_name.'_status_dom' =>
   array (
     'New' => '新建',
-    'Assigned' => '负责人',
-    'Closed' => '关闭',
+    'Assigned' => '已分配',
+    'Closed' => '已关闭',
     'Pending Input' => '等待输入',
-    'Rejected' => '拒绝',
-    'Duplicate' => '复制',
+    'Rejected' => '已拒绝',
+    'Duplicate' => '重复',
   ),
   $object_name.'_priority_dom' =>
   array (
@@ -72,10 +60,10 @@ $object_name = strtolower($object_name);
   $object_name.'_resolution_dom' =>
   array (
   	'' => '',
-  	'Accepted' => '接受',
-    'Duplicate' => '复制',
-    'Closed' => '关闭',
-    'Out of Date' => '超期',
+  	'Accepted' => '已接受',
+    'Duplicate' => '重复',
+    'Closed' => '已关闭',
+    'Out of Date' => '已过期',
     'Invalid' => '无效',
   ),
   );

@@ -32,14 +32,13 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDITLAYOUT' => 'Редактиране на подредби',
   'LBL_NEW_TIME_FORMAT' => '(24:00)',
   'LBL_COLON' => ':',
   'LBL_NONE' => 'None',
   'LBL_ACTIVITIES_REPORTS' => 'Activities Report',
-  'LBL_EXPORT_ASSIGNED_USER_ID' => 'Assigned User ID',
-  'LBL_EXPORT_MODIFIED_USER_ID' => 'Modified By ID',
-  'LBL_EXPORT_CREATED_BY' => 'Created By ID',
+  'LBL_EXPORT_ASSIGNED_USER_ID' => 'Отговорник (ID)',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'Модифицирано от (ID)',
+  'LBL_EXPORT_CREATED_BY' => 'Създадено от (ID)',
   'LBL_MODULE_NAME' => 'Задачи',
   'LBL_TASK' => 'Задачи',
   'LBL_MODULE_TITLE' => 'Задачи',
@@ -97,6 +96,7 @@ $mod_strings = array (
   'LBL_CONTACT_PHONE' => 'Телефон за контакт:',
   'LBL_PARENT_NAME' => 'Родителски тип:',
   'LBL_TASK_INFORMATION' => 'Задача',
+  'LBL_EDITLAYOUT' => 'Редактиране на подредби',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'Бележки',
   'LBL_DATE_DUE' => 'Крайна дата',
   'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Отговорник',

@@ -44,7 +44,14 @@
 
 
 
+
 $mod_strings = array (
   'LBL_MODULE_NAME' => '表达式引擎',
+'func_descriptions' => array (
+
+),
+'LBL_PREVIOUS' => '前一页' /*for 508 compliance fix*/,
+'LBL_NEXT' => '下一页' /*for 508 compliance fix*/,
+'LBL_EXPAND' => '展开' /*for 508 compliance fix*/,
 );
 

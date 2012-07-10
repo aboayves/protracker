@@ -32,8 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_REMINDER_POPUP' => 'Popup',
-  'LBL_REMINDER_EMAIL' => 'Email',
+  'ERR_PASSWORD_CHANGE_FAILED_3' => '. Le nouveau mot de passe est invalide.',
   'LBL_LIST_DESCRIPTION' => 'Description',
   'LBL_DESCRIPTION' => 'Description',
   'LBL_EMAIL_OTHER' => 'Email 2',
@@ -50,6 +49,8 @@ $mod_strings = array (
   'LBL_LOGIN_LOGIN_TIME_SECONDS' => 'sec.',
   'LBL_NEW_USER_BUTTON_KEY' => 'N',
   'LBL_NOTES' => 'Notes',
+  'LBL_REMINDER_POPUP' => 'Popup',
+  'LBL_REMINDER_EMAIL' => 'Email',
   'LBL_SALUTATION' => 'Salutation',
   'LBL_SIGNATURE' => 'Signature',
   'LBL_SIGNATURES' => 'Signatures',
@@ -372,6 +373,8 @@ $mod_strings = array (
   'LBL_USER' => 'Utilisateurs',
   'LBL_WORK_PHONE' => 'Téléphone Bureau',
   'LBL_YOUR_PUBLISH_URL' => 'URL de Publication',
+  'LBL_ICAL_PUB_URL' => 'URL intégration iCal',
+  'LBL_ICAL_PUB_URL_HELP' => 'Utilisez cette URL pour souscrire au calendrier Sugar avec votre logiciel compatible iCal',
   'LBL_YOUR_QUERY_URL' => 'URL de requêtage',
   'LNK_NEW_USER' => 'Créer Utilisateur',
   'LNK_NEW_PORTAL_USER' => 'Créer un Utilisateur de type API Portail',

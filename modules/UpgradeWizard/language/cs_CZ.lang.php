@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,23 +29,21 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
+  'ERR_UW_OCI8_VERSION' => 'Vaše verze Oracle není podporována aplikací SugarCRM. Je třeba nainstalovat verzi, která je kompatibilní s aplikací SugarCRM. Zkontrolujte si prosím kompatibilitu v přehledu podporovaných verzí Oraclu na sugarcrm.com. Aktuální verze:',
+  'LBL_UW_COMPLIANCE_DB' => 'Minimální verze databáze',
+  'LBL_UW_COMPLIANCE_ZIPARCHIVE' => 'Podpora Zip',
+  'ERROR_VERSION_INCOMPATIBLE' => 'Nahraný soubor není kompatibilní s Vaší verzí SugarCRM:',
+  'ERROR_FLAVOR_INCOMPATIBLE' => 'Nahraný soubor není kompatibilní s Vaší verzí SugarCRM (Community Edition, Professional, or Enterprise) :',
+  'LBL_LANGPACKS' => 'Jazykové balíčky',
+  'LBL_MODULELOADER' => 'Nahrávač modulů',
+  'LBL_PATCHUPGRADES' => 'Aktualizace záplat',
+  'LBL_THEMES' => 'Vzhled',
+  'LBL_WORKFLOW' => 'Workflow',
+  'LBL_UPGRADE' => 'Aktualizace',
+  'LBL_PROCESSING' => 'Zpracování',
   'LBL_BUTTON_RESTART' => 'Restart',
   'LBL_UW_COMPLIANCE_MBSTRING_FUNC_OVERLOAD' => 'MBStrings mbstring.func_overload Parameter',
   'LBL_UW_DB_NO_ADD_COLUMN' => 'ALTER TABLE [table] ADD COLUMN [column]',
@@ -60,27 +60,27 @@ $mod_strings = array (
   'ERR_UW_CANNOT_DETERMINE_GROUP' => 'Nelze určit skupinu',
   'ERR_UW_CANNOT_DETERMINE_USER' => 'Nelze určit vlastníka',
   'ERR_UW_CONFIG_WRITE' => 'Chyba při aktualizaci config.php s informacemi o nové verzi',
-  'ERR_UW_CONFIG' => 'Prosím  umožněte zápis do config.php a dejte znovu načíst tuto stránku',
+  'ERR_UW_CONFIG' => 'Prosím  umožněte zápis do config.php a znovu načtěte tuto stránku',
   'ERR_UW_DIR_NOT_WRITABLE' => 'Do adresáře nelze zapisovat',
   'ERR_UW_FILE_NOT_COPIED' => 'Soubor nebyl zkopírován',
   'ERR_UW_FILE_NOT_DELETED' => 'Problem při odstraňování balíčku:',
   'ERR_UW_FILE_NOT_READABLE' => 'Soubor nelze načíst',
-  'ERR_UW_FILE_NOT_WRITABLE' => 'Soubor nelze přesunout, ani do něj nelze zapisovat',
-  'ERR_UW_FLAVOR_2' => 'Upgrade flavor:',
-  'ERR_UW_FLAVOR' => 'SugarCRM system flavor:',
-  'ERR_UW_LOG_FILE_UNWRITABLE' => 'Souboru ./upgradeWizard.log nebylo možné vytvořit, nebo do něj provést zápis. Prosím opravte oprávnění ve vašem SugarCRM adresáři.',
+  'ERR_UW_FILE_NOT_WRITABLE' => 'Soubor nelze přesunout nebo do něj zapsat',
+  'ERR_UW_FLAVOR_2' => 'Aktualizace verze (flavor)',
+  'ERR_UW_FLAVOR' => 'SugarCRM systémová verze:',
+  'ERR_UW_LOG_FILE_UNWRITABLE' => 'Souboru ./upgradeWizard.log nebylo možné vytvořit, nebo do něj provést zápis. Prosím opravte oprávnění ve Vašem SugarCRM adresáři.',
   'ERR_UW_MBSTRING_FUNC_OVERLOAD' => 'Proměnná mbstring.func_overload je nastavena na hodnotu vyšší než 1. Prosím opravte to v souboru php.ini a restartujte webový prohlížeč.',
   'ERR_UW_MYSQL_VERSION' => 'SugarCRM vyžaduje verzi 4.1.2. nebo vyšší. Nalezena:',
-  'ERR_UW_NO_FILE_UPLOADED' => 'Prosím určete soubor a zkuste to znova!',
+  'ERR_UW_NO_FILE_UPLOADED' => 'Prosím vyberte soubor a zkuste to znova!',
   'ERR_UW_NO_FILES' => 'Chyba, nebyly nalezeny žádné soubory ke kontrole.',
   'ERR_UW_NO_MANIFEST' => 'V zip souboru chybí manifest.php. Nelze pokračovat',
   'ERR_UW_NO_VIEW' => 'Bylo zadáno chybné zobrazení.',
   'ERR_UW_NO_VIEW2' => 'Zobrazení nebylo definováno. Prosím jděte do administračního rozhraní a přejděte na tuto stránku.',
   'ERR_UW_NOT_VALID_UPLOAD' => 'Toto není platné nahrání na server.',
   'ERR_UW_NO_CREATE_TMP_DIR' => 'Nebylo možné vytvořit adresář temp. Zkontroluj povolení k zápisu.',
-  'ERR_UW_ONLY_PATCHES' => 'Můžeš nahrávat záplaty na této stránce.',
-  'ERR_UW_PREFLIGHT_ERRORS' => 'Během předletové kontroly byly nalezeny chyby',
-  'ERR_UW_UPLOAD_ERR' => 'Při nahrávání souboru na server došlo k chybě, prosím zkuste to ještě jednou! <br>',
+  'ERR_UW_ONLY_PATCHES' => 'Na této stránce můžete nahrát aktualizace.',
+  'ERR_UW_PREFLIGHT_ERRORS' => 'Byly zjištěny chyby v předvýstupní kontrole',
+  'ERR_UW_UPLOAD_ERR' => 'Při nahrávání souboru na server došlo k chybě, prosím zkuste to ještě jednou! <br />\\n',
   'ERR_UW_VERSION' => 'SugarCRM verze:',
   'ERR_UW_WRONG_TYPE' => 'Tato stránka není určena k provozu',
   'LBL_BUTTON_BACK' => 'Zpět',
@@ -88,16 +88,15 @@ $mod_strings = array (
   'LBL_BUTTON_DELETE' => 'Smazat balíček',
   'LBL_BUTTON_DONE' => 'Dokončeno',
   'LBL_BUTTON_EXIT' => 'Konec',
-  'LBL_BUTTON_INSTALL' => 'Přeletová aktualizace',
+  'LBL_BUTTON_INSTALL' => 'Předvýstupní aktualizace',
   'LBL_BUTTON_NEXT' => 'Další',
-  'LBL_BUTTON_RECHECK' => 'Opakovaná kontrola',
-  'LBL_UPLOAD_UPGRADE' => 'Nahrát upgrade:',
-  'LBL_UPLOAD_FILE_NOT_FOUND' => 'Soubor pro upload nenalezen',
+  'LBL_BUTTON_RECHECK' => 'Opakovat kontrolu',
+  'LBL_UPLOAD_UPGRADE' => 'Nahrát balíček aktulizace:',
+  'LBL_UPLOAD_FILE_NOT_FOUND' => 'Soubor nebyl nalezen',
   'LBL_UW_BACKUP_FILES_EXIST_TITLE' => 'Zálohování souborů',
   'LBL_UW_BACKUP_FILES_EXIST' => 'Zálohované soubory z této aktualizace jsou na této adrese',
   'LBL_UW_BACKUP' => 'ZÁLOHOVÁNÍ souborů',
-  'LBL_UW_CANCEL_DESC' => 'Průvodce aktualizací na novou verzi (upgrade) byl zrušen. Všechny dočasné soubory a nahraný zip sobour byly smazány. <br>
-Stiskněte \\"Další\\" a restartujte Průvodce aktualizací',
+  'LBL_UW_CANCEL_DESC' => 'Průvodce aktualizací na novou verzi (upgrade) byl zrušen. Všechny dočasné soubory a nahraný zip sobour byly smazány. <br><br />Stiskněte \\"Další\\" a restartujte Průvodce aktualizací',
   'LBL_UW_CHARSET_SCHEMA_CHANGE' => 'Změny ve schématu znakové sady [Character Set Schema Changes]',
   'LBL_UW_CHECK_ALL' => 'Zkontrolovat vše',
   'LBL_UW_CHECKLIST' => 'Kroky při aktualizaci',
@@ -114,7 +113,7 @@ Stiskněte \\"Další\\" a restartujte Průvodce aktualizací',
   'LBL_UW_COMPLIANCE_MBSTRING' => 'MBStrings modul',
   'LBL_UW_COMPLIANCE_MEMORY' => 'PHP nastavení: Omezení  paměti [Memory Limit]',
   'LBL_UW_COMPLIANCE_MSSQL_MAGIC_QUOTES' => 'MS SQL Server & PHP magické uvozovky',
-  'LBL_UW_COMPLIANCE_MYSQL' => ' Minimální MySQL verze',
+  'LBL_UW_COMPLIANCE_MYSQL' => 'Minimální MySQL verze',
   'LBL_UW_COMPLIANCE_PHP_INI' => 'Umístění php.ini',
   'LBL_UW_COMPLIANCE_PHP_VERSION' => 'Minimální verze PHP',
   'LBL_UW_COMPLIANCE_SAFEMODE' => 'Nastavení PHP: Safe mode - bezpečný režim',
@@ -169,20 +168,7 @@ Stiskněte \\"Další\\" a restartujte Průvodce aktualizací',
   'LBL_UW_OVERWRITE_FILES_CHOICE2' => 'Ruční sloučení - Zachovat všechny',
   'LBL_UW_OVERWRITE_FILES' => 'Metoda sloučení',
   'LBL_UW_PATCH_READY' => 'Záplata je připravena. Klikněte na \\"Spustit\\" a dokončete instalaci.',
-  'LBL_UW_PATCH_READY2' => '<h2>Upozornění: Byly nalezeny ručně upravená nastavení</h2>
-<br/>
-Následující soubor/y mají nové pole nebo upravené nastavení zobrazení ve Studiu. Záplata, kterou se chystáte nainstalovat zahrnuje změny do těchto souborů. S
-<u>každým souborem</u>
-můžete udělat toto:
-<br/>
-<ul>
-<li>
-[
-<b>Default</b>
-] Zachovat vaši verzi, tím, že necháte zaškrtávací políčko prázdné. Změny ze záplaty budou ignorovány. </li>
-nebo
-<li>Přijmete aktualizované soubory tím že zaškrtnete dané políčko. Budete muset znova aplikovat změněná nastavení vzhledu pomocí Studia.</li>
-</ul>',
+  'LBL_UW_PATCH_READY2' => '<h2>Upozornění: Byly nalezeny ručně upravená nastavení</h2><br /><br/><br />Následující soubor/y mají nové pole nebo upravené nastavení zobrazení ve Studiu. Záplata, kterou se chystáte nainstalovat zahrnuje změny do těchto souborů. S<br /><u>každým souborem</u><br />můžete udělat toto:<br /><br/><br /><ul><br /><li><br />[<br /><b>Default</b><br />] Zachovat vaši verzi, tím, že necháte zaškrtávací políčko prázdné. Změny ze záplaty budou ignorovány. </li><br />nebo<br /><li>Přijmete aktualizované soubory tím že zaškrtnete dané políčko. Budete muset znova aplikovat změněná nastavení vzhledu pomocí Studia.</li><br /></ul>',
   'LBL_UW_PREFLIGHT_ADD_TASK' => 'Vytvořit úkol do Sugaru s ručním sloučením ?',
   'LBL_UW_PREFLIGHT_COMPLETE' => 'Přeletová kontrola',
   'LBL_UW_PREFLIGHT_DIFF' => 'Rozdílné',
@@ -204,7 +190,7 @@ nebo
   'LBL_UW_SHOW_NW_FILES' => 'Ukázat soubor, které mají špatné oprávnění',
   'LBL_UW_SHOW_SCHEMA' => 'Ukázat skript na změnu schéma.',
   'LBL_UW_SHOW_SQL_ERRORS' => 'Ukázat špatné dotazy',
-  'LBL_UW_SHOW' => 'Zobrazit ',
+  'LBL_UW_SHOW' => 'Zobrazit',
   'LBL_UW_SKIPPED_FILES_TITLE' => 'Přeskočené soubory',
   'LBL_UW_SKIPPING_FILE_OVERWRITE' => 'Přeskakuji přepsání souboru - bylo zvoleno manuální sloučení.',
   'LBL_UW_SQL_RUN' => 'Zaškrtněto poté, co jste ručně spustili SQL',
@@ -240,12 +226,12 @@ nebo
   'LBL_UW_COMMIT_DESC' => 'Vyber "Další" pro provedení dodatečných skriptů pro upgrade',
   'LBL_UPGRADE_SCRIPTS_IN_PROGRESS' => 'Skript upgrade probíhá',
   'LBL_UPGRADE_SUMMARY_IN_PROGRESS' => 'Souhrnné upgrady v procesu',
-  'LBL_UPGRADE_IN_PROGRESS' => 'v procesu...    ',
-  'LBL_UPGRADE_TIME_ELAPSED' => 'V procesu: ',
+  'LBL_UPGRADE_IN_PROGRESS' => 'v procesu...',
+  'LBL_UPGRADE_TIME_ELAPSED' => 'V procesu:',
   'LBL_UPGRADE_CANCEL_IN_PROGRESS' => 'Upgrade odvolaných procesů a čistění v procesu',
   'LBL_UPGRADE_TAKES_TIME_HAVE_PATIENCE' => 'Upgrade potrvá několik minut',
   'LBL_UPLOADE_UPGRADE_IN_PROGRESS' => 'kontrola uploadu v procesu',
-  'LBL_UPLOADING_UPGRADE_PACKAGE' => 'Uploaduji balíček upgradu... ',
+  'LBL_UPLOADING_UPGRADE_PACKAGE' => 'Uploaduji balíček upgradu...',
   'LBL_UW_DORP_THE_OLD_SCHMEA' => 'Chcete aby sugar zachoval stare 451 schéma?',
   'LBL_UW_DROP_SCHEMA_UPGRADE_WIZARD' => 'Upgrade wizard zachovává 451 schema',
   'LBL_UW_DROP_SCHEMA_MANUAL' => 'Nastavení manuálního výběru schémat',
@@ -253,7 +239,7 @@ nebo
   'LBL_UW_SHOW_OLD_SCHEMA_TO_DROP' => 'Ukaž staré schéma, které má být vloženo',
   'LBL_UW_SKIPPED_QUERIES_ALREADY_EXIST' => 'Přeskoč forntu',
   'LBL_INCOMPATIBLE_PHP_VERSION' => 'Php verze 5 nebo vyšší je vyžadována.',
-  'ERR_CHECKSYS_PHP_INVALID_VER' => 'Tvoje verze PHP není kompatibilní s SugarCRM. Postupuj prosím dle požadovaných parametrů pro systém. Vaše verze je ',
+  'ERR_CHECKSYS_PHP_INVALID_VER' => 'Tvoje verze PHP není kompatibilní s SugarCRM. Postupuj prosím dle požadovaných parametrů pro systém. Vaše verze je',
   'LBL_BACKWARD_COMPATIBILITY_ON' => 'Php Compatibility mód je zapnut. Nastav zend.ze1_compatibility_mode na vypnutý',
   'LBL_ML_ACTION' => 'Akce',
   'LBL_ML_CANCEL' => 'Zrušit',
@@ -267,15 +253,13 @@ nebo
   'LBL_ML_VERSION' => 'Verze',
   'LBL_ML_INSTALL' => 'Instal',
   'LBL_HOME_PAGE_4_NAME' => 'Traker',
-  'LBL_CURRENT_PHP_VERSION' => '(Tvoje php verze is ',
+  'LBL_CURRENT_PHP_VERSION' => '(Tvoje php verze is',
   'LBL_RECOMMENDED_PHP_VERSION' => '. Doporučujeme php verzi 5.2.1 nebo vyšší)',
   'LBL_MODULE_NAME' => 'Upgrade Wizard',
   'LBL_UPLOAD_SUCCESS' => 'Balíček upgrade byl úspěšně nahrán. Vyber "Další" pro provedení poslední kontroly.',
   'LBL_UW_TITLE_LAYOUTS' => 'Potvrďte rozložení',
   'LBL_LAYOUT_MODULE_TITLE' => 'Rozložení',
-  'LBL_LAYOUT_MERGE_DESC' => 'Nyní jsou k dispozici další nové pole, které byly přidány jako části tohoto upgrade a mohou být automaticke přidány do stávajících rozložení modulů. Pro více informací k novým polím, prosím přečtěte si Release Notes verze na kterou přecházíte.
-
-Pokud si nepřejete přidat nová pole, prosím odškrtněte daný modul a vaše rozložení zůstane nezměněno. Pole budou dostupná po upgrade ve Studiu.',
+  'LBL_LAYOUT_MERGE_DESC' => 'Nyní jsou k dispozici další nové pole, které byly přidány jako části tohoto upgrade a mohou být automaticke přidány do stávajících rozložení modulů. Pro více informací k novým polím, prosím přečtěte si Release Notes verze na kterou přecházíte.<br /><br />Pokud si nepřejete přidat nová pole, prosím odškrtněte daný modul a vaše rozložení zůstane nezměněno. Pole budou dostupná po upgrade ve Studiu.',
   'LBL_LAYOUT_MERGE_TITLE' => 'Vyber "Další" pro potvrzení změn a dokončení upgrade.',
   'LBL_LAYOUT_MERGE_TITLE2' => 'Vyber "Další" pro dokonční upgrade.',
   'LBL_UW_CONFIRM_LAYOUTS' => 'Potvrďte rozložení',

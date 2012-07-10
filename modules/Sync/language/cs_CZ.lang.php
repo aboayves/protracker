@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,26 +29,10 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-  'LBL_PROMPT' => 'Výzva',
-  'LBL_ACCEPT_SERVER' => 'Server vítězí',
-  'LBL_ACCEPT_CLIENT' => 'Klient vítězí',
+  'LBL_POWERED_BY_SUGAR' => 'Vytvořeno společností SugarCRM',
   'LBL_MODULE_NAME' => 'Synchronizace',
   'LBL_MODULE_TITLE' => 'Synchronizace: Hlavní stránka',
   'LBL_GO_ONLINE' => 'Jdi online',
@@ -56,6 +42,9 @@ $mod_strings = array (
   'LBL_SERVER_UNAVAILABLE' => 'Server není dostupný - Zjistěte zda jste připojen(a)',
   'LBL_START_SYNC' => 'Start synchronizace',
   'LBL_SYNC_SETUP' => 'Synchronizace nastavení',
+  'LBL_PROMPT' => 'Výzva',
+  'LBL_ACCEPT_SERVER' => 'Server vítězí',
+  'LBL_ACCEPT_CLIENT' => 'Klient vítězí',
   'LBL_CLEAN_SYNC' => 'Čisté synchronizace:',
   'LBL_CLEAN_ALERT' => 'Provedení čisté synchronizace, smaže data v této stanici',
   'LBL_INITIAL_SYNC_MESSAGE' => 'Právě jste naistaloval offline klienta, pokračujte pro synchronizaci dat.',

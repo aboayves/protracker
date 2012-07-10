@@ -1813,6 +1813,7 @@ $app_list_strings = array (
   ),
   'tselect_type_dom' => 
   array (
+    0     => '0 hours',
     14440 => '4 godziny',
     28800 => '8 godzin',
     43200 => '12 godzin',
@@ -2778,18 +2779,19 @@ $app_list_strings = array (
   ),
   'dom_cal_month_short' => 
   array (
-    3 => 'Mar',
-    1 => 'Sty',
-    2 => 'Lut',
-    4 => 'Kwi',
-    5 => 'Maj',
-    6 => 'Cze',
-    7 => 'Lip',
-    8 => 'Sie',
-    9 => 'Wrz',
-    10 => 'Paź',
-    11 => 'Lis',
-    12 => 'Gru',
+    '0' => '',
+    '1' => 'Sty',
+    '2' => 'Lut',
+    '3' => 'Mar',
+    '4' => 'Kwi',
+    '5' => 'Maj',
+    '6' => 'Cze',
+    '7' => 'Lip',
+    '8' => 'Sie',
+    '9' => 'Wrz',
+    '10' => 'Paź',
+    '11' => 'Lis',
+    '12' => 'Gru',
   ),
   'dom_meridiem_lowercase' => 
   array (
@@ -2812,6 +2814,7 @@ $app_list_strings = array (
   ),
   'duration_intervals' => 
   array (
+    0 => '00',
     15 => '15',
     30 => '30',
     45 => '45',
@@ -3086,18 +3089,19 @@ $app_list_strings = array (
   ),
   'dom_cal_month_long' => 
   array (
-    1 => 'Styczeń',
-    2 => 'Luty',
-    3 => 'Marzec',
-    4 => 'Kwiecień',
-    5 => 'Maj',
-    6 => 'Czerwiec',
-    7 => 'Lipiec',
-    8 => 'Sierpień',
-    9 => 'Wrzesień',
-    10 => 'Październik',
-    11 => 'Listopad',
-    12 => 'Grudzień',
+    '0' => '',
+    '1' => 'Styczeń',
+    '2' => 'Luty',
+    '3' => 'Marzec',
+    '4' => 'Kwiecień',
+    '5' => 'Maj',
+    '6' => 'Czerwiec',
+    '7' => 'Lipiec',
+    '8' => 'Sierpień',
+    '9' => 'Wrzesień',
+    '10' => 'Październik',
+    '11' => 'Listopad',
+    '12' => 'Grudzień',
   ),
   'dom_cal_day_long' => 
   array (
@@ -3111,13 +3115,14 @@ $app_list_strings = array (
   ),
   'dom_cal_day_short' => 
   array (
-    1 => 'Nd',
-    2 => 'Pn',
-    3 => 'Wt',
-    4 => 'Śr',
-    5 => 'Cz',
-    6 => 'Pt',
-    7 => 'Sb',
+    '0' => '',
+    '1' => 'Nd',
+    '2' => 'Pn',
+    '3' => 'Wt',
+    '4' => 'Śr',
+    '5' => 'Cz',
+    '6' => 'Pt',
+    '7' => 'Sb',
   ),
   'dom_report_types' => 
   array (

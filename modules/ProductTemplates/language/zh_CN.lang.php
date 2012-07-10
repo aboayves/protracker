@@ -43,6 +43,7 @@
 
 
 
+
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
@@ -117,6 +118,20 @@ $mod_strings = array (
   'LNK_NEW_SHIPPER' => '运输供应商',
   'LNK_PRODUCT_LIST' => '产品目录',
   'NTC_DELETE_CONFIRMATION' => '您确定要删除这条记录?',
+
+    //For export labels
+  'LBL_EXPORT_ASSIGNED_USER_NAME' => '指派用户名',
+  'LBL_EXPORT_ASSIGNED_USER_ID' => '指派用户名 ID',
+  'LBL_EXPORT_MODIFIED_USER_ID' => '以ID来修改',
+  'LBL_EXPORT_CREATED_BY' => '以ID来创建',
+  'LBL_TYPE_ID'=> 'ID类型',
+  'LBL_MANUFACTURER_ID'=> '制造商 ID',
+  'LBL_CATEGORY_ID'=> '类别 ID',
+  'LBL_WEBSITE'=> '网站',
+  'LBL_QTY_IN_STOCK'=> '存货数量',
+  'LBL_EXPORT_CURRENCY'=> '货币',
+  'LBL_EXPORT_CURRENCY_ID'=> '货币 ID',
+  'LBL_EXPORT_COST_PRICE'=> '成本价格',
 	'LBL_LIST_TEAM' => '团队',
 	'LBL_DATE_ENTERED' => '创建日期:',
 	'LBL_DATE_MODIFIED' => '最后修改:',

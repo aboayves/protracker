@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,23 +29,12 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
+  'LBL_TASK_ID_WIDGET' => 'id',
+  'LBL_TASK_NAME_WIDGET' => 'description',
+  'LBL_DURATION_WIDGET' => 'duration',
   'LBL_START_WIDGET' => 'date_start',
   'LBL_FINISH_WIDGET' => 'date_finish',
   'LBL_PREDECESSORS_WIDGET' => 'predecessors_',
@@ -90,7 +81,7 @@ $mod_strings = array (
   'LBL_PROJECT_TASK_SUBPANEL_TITLE' => 'Úkoly projektů',
   'LBL_CONTACT_SUBPANEL_TITLE' => 'Kontakty',
   'LBL_ACCOUNT_SUBPANEL_TITLE' => 'Společnosti',
-  'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Příležitosti',
+  'LBL_OPPORTUNITY_SUBPANEL_TITLE' => 'Obchody',
   'LBL_QUOTE_SUBPANEL_TITLE' => 'Cenové nabídky',
   'LBL_NEW_FORM_TITLE' => 'Nový projekt',
   'CONTACT_REMOVE_PROJECT_CONFIRM' => 'Opravdu chcete odstranit tento kontakt z projektu?',
@@ -111,7 +102,7 @@ $mod_strings = array (
   'LBL_PROJECT_TASKS_SUBPANEL_TITLE' => 'Úkoly projektů',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakty',
   'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Společnosti',
-  'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Příležitosti',
+  'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Obchody',
   'LBL_CASES_SUBPANEL_TITLE' => 'Případy',
   'LBL_BUGS_SUBPANEL_TITLE' => 'Chyby',
   'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Produkty',
@@ -134,9 +125,6 @@ $mod_strings = array (
   'LBL_CONTACTS_RESOURCE' => 'Zdroj kontaktu',
   'LBL_PROJECT_HOLIDAYS' => 'Dovolená',
   'LBL_LIST_RESOURCE' => 'Zdroj:',
-  'LBL_TASK_ID_WIDGET' => 'id',
-  'LBL_TASK_NAME_WIDGET' => 'description',
-  'LBL_DURATION_WIDGET' => 'duration',
   'LBL_EDIT_PROJECT_TASKS_TITLE' => 'Upravit úkoly projektu',
   'LBL_VIEW_GANTT_TITLE' => 'Zobrazit Gantův',
   'LBL_INSERT_BUTTON' => 'Vložit řádky',
@@ -208,7 +196,7 @@ $mod_strings = array (
   'LBL_EXPORT_TO_MS_PROJECT' => 'Exportovat jako MS Project',
   'LBL_POPUP_DATE_START' => 'Datum zahájení:',
   'LBL_POPUP_DATE_FINISH' => 'Dokončit Datum:',
-  'LBL_POPUP_PERCENT_COMPLETE' => '% Hotovo: ',
+  'LBL_POPUP_PERCENT_COMPLETE' => '% Hotovo:',
   'LBL_POPUP_RESOURCE_NAME' => 'Jméno zdroje:',
   'LBL_MY_PROJECTS_DASHBOARD' => 'Moje projekty',
   'LBL_RESOURCE_REPORT' => 'Report zrdojů',

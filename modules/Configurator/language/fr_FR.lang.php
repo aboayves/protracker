@@ -32,13 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_GMAIL_LOGO' => 'Gmail',
-  'LBL_YAHOO_MAIL' => 'Yahoo Mail',
-  'LBL_EXCHANGE_LOGO' => 'Exchange',
-  'LBL_LOADING' => 'Chargement...',
-  'LBL_DELETE' => 'Supprimer',
-  'LBL_WELCOME' => 'Bienvenue',
-  'LBL_LOGO' => 'Logo',
+  'LBL_DISALBE_CONVERT_LEAD' => 'Désactiver l&#39;action de conversion de Lead pour les Leads convertis',
+  'LBL_DISALBE_CONVERT_LEAD_DESC' => 'Si un Lead a déjà été converti, activer cette option supprimera l&#39;action de conversion de Lead',
   'IMAGES' => 'Logos',
   'LBL_MAIL_SMTPPASS' => 'SMTP Password:',
   'LBL_PROXY_PORT' => 'Port',
@@ -56,6 +51,9 @@ $mod_strings = array (
   'LBL_PDF_PATCH' => 'Patch',
   'LBL_PDF_INSTRUCTIONS' => 'Instructions',
   'LBL_WIZARD_TITLE' => 'Admin Wizard',
+  'LBL_YAHOO_MAIL' => 'Yahoo Mail',
+  'LBL_EXCHANGE_LOGO' => 'Exchange',
+  'LBL_LOGO' => 'Logo',
   'ADVANCED' => 'Avancé',
   'DEFAULT_CURRENCY_ISO4217' => 'Code devise ISO 4217',
   'DEFAULT_CURRENCY_NAME' => 'Nom de la devise',
@@ -340,5 +338,9 @@ $mod_strings = array (
   'LBL_WIZARD_LOCALE_DESC' => 'Précisez comment vous souhaitez afficher vos données dans SugarCRM, basé sur votre situation géographique. Les paramètres que vous fournissez ici seront les paramètres par défaut. Les utilisateurs pourront définir leurs propres préférences dans Mon compte.',
   'LBL_WIZARD_SMTP_DESC' => 'Fournissez le compte de messagerie qui sera utilisé pour envoyer des emails, tels que les notifications d&#39;assignations et les mots de passe des nouveaux utilisateurs. Les utilisateurs recevront les emails de SugarCRM envoyés à partir du compte email spécifié.',
   'LBL_MOBILE_MOD_REPORTS_RESTRICTION' => '* Le module Rapports n&#39;est disponible que pour l&#39;application spécifique aux téléphones portables type iPhone.',
+  'LBL_GMAIL_LOGO' => 'Gmail',
+  'LBL_LOADING' => 'Chargement...',
+  'LBL_DELETE' => 'Supprimer',
+  'LBL_WELCOME' => 'Bienvenue',
 );
 

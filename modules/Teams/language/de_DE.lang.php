@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EDITLAYOUT' => 'Layout bearbeiten',
+  'NTC_DELETE_CONFIRMATION' => 'Sind Sie sicher, dass Sie diesen Eintrag löschen wollen?',
   'LBL_LIST_NAME' => 'Name',
   'LBL_MODULE_NAME' => 'Teams',
   'LBL_MODULE_TITLE' => 'Teams: Home',
@@ -73,5 +73,6 @@ $mod_strings = array (
   'LNK_LIST_TEAMNOTICE' => 'Team Notizen',
   'LNK_NEW_TEAM' => 'Neues Team',
   'NTC_REMOVE_TEAM_MEMBER_CONFIRMATION' => 'Sind Sie sicher, dass Sie die Mitgliedschaft dieses Benutzers beenden wollen?',
+  'LBL_EDITLAYOUT' => 'Layout bearbeiten',
 );
 

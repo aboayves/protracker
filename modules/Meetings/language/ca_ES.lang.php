@@ -32,7 +32,17 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EMPTY_SEARCH_RESULT' => 'Ho sentim, no es van trobar resultats. Creeu un convidat més endavant.',
+  'LBL_DIRECTION' => 'Direcció:',
+  'LBL_EMAIL_REMINDER_SENT' => 'Recordatori per correu electrònic enviat',
+  'LBL_EMAIL_REMINDER' => 'Recordatori per correu electrònic',
+  'LBL_EMAIL_REMINDER_TIME' => 'Temps de recordatori per correu electrònic',
+  'LBL_REPEAT_TYPE' => 'Repetició',
+  'LBL_REPEAT_INTERVAL' => 'Interval de repetició',
+  'LBL_REPEAT_DOW' => 'Repetiu el Dow',
+  'LBL_REPEAT_UNTIL' => 'Repetiu fins que',
+  'LBL_REPEAT_COUNT' => 'Nombre de repeticions',
+  'LBL_REPEAT_PARENT_ID' => 'Repetiu l&#39;ID principal',
+  'LBL_RECURRING_SOURCE' => 'Font periódico',
   'LBL_COLON' => ':',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'Notes',
   'LBL_HOURS_ABBREV' => 'h',
@@ -147,6 +157,7 @@ $mod_strings = array (
   'LBL_CREATE_LEAD' => 'Com client potencial',
   'LBL_CREATE_AND_ADD' => 'Crear i Afegir',
   'LBL_CANCEL_CREATE_INVITEE' => 'Cancel·lar',
+  'LBL_EMPTY_SEARCH_RESULT' => 'Ho sentim, no es van trobar resultats. Creeu un convidat més endavant.',
   'LBL_NO_ACCESS' => 'No té accés per crear $module',
 );
 

@@ -32,6 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'NTC_DELETE_CONFIRMATION' => 'Està segur que desitja eliminar aquest registre?',
+  'LBL_LEADS_DELETED_SINCE_CREATED' => '{0} clients potencials creats a través d&#39;aquesta campanya s&#39;han eliminat des de la seva creació.',
   'LBL_TRACK_BUTTON_KEY' => 'T',
   'LBL_QUEUE_BUTTON_KEY' => 'u',
   'LBL_TEST_BUTTON_KEY' => 'e',

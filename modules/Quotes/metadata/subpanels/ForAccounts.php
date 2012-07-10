@@ -35,7 +35,8 @@ $subpanel_layout = array(
 		array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'Quotes'),
 	),
 
-	'where' => '',
+    // bug51043 - just gets the Bill To relationships in count
+    'where' => '( account_role = \'Bill To\' )',
 	
 	
 

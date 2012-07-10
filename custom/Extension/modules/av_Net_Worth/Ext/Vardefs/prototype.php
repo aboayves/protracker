@@ -15,10 +15,6 @@ $dictionary["av_Net_Worth"]["fields"]["grand_total"] = array (
     'reportable' => true,
     'len' => 26,
     'size' => '20',
-    'calculated' => true,
-    'formula' => 'rollupSum($av_net_worth_av_accounts,"value")',
-    'enforced' => true,
-    'dependency' => '',
     );
 
 ?>

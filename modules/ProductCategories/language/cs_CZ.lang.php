@@ -32,10 +32,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_PARENT_CATEGORY' => 'Mateřská kategorie',
-  'LBL_EXPORT_PARENT_ID' => 'ID mateřské kategorie',
-  'LBL_EXPORT_MODIFIED_USER_ID' => 'ID modifikovaného uživatele',
-  'LBL_EXPORT_CREATED_BY' => 'Vytvořeno od ID:',
+  'LBL_EDITLAYOUT' => 'Úprava rozvržení',
+  'LBL_CREATED_ID' => 'Vytvořeno uživatelem ID',
+  'LBL_MODIFIED_ID' => 'Změněno uživatelem ID',
   'LBL_ID' => 'ID',
   'LBL_MODULE_NAME' => 'Kategorie produktů',
   'LBL_MODULE_TITLE' => 'Kategorie produktů: Domů',
@@ -63,5 +62,9 @@ $mod_strings = array (
   'NTC_DELETE_GRAFT_CONFIRMATION' => 'Jste si jisti, že chcete smazat tuto kategorii? Všechny sub-kategorie a výrobky zůstanou.',
   'LBL_PARENT_NAME' => 'Mateřská Kategorie:',
   'LBL_CATEGORIES' => 'Kategorie',
+  'LBL_PARENT_CATEGORY' => 'Mateřská kategorie',
+  'LBL_EXPORT_PARENT_ID' => 'ID mateřské kategorie',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'ID modifikovaného uživatele',
+  'LBL_EXPORT_CREATED_BY' => 'Vytvořeno od ID:',
 );
 
