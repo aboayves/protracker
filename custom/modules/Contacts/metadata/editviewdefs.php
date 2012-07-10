@@ -51,36 +51,21 @@ array (
         array (
           0 => 
           array (
-            'name' => 'last_name',
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
           ),
           1 => 
           array (
-            'name' => 'account_name',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-              'copy' => 'primary',
-              'billingKey' => 'primary',
-              'additionalFields' => 
-              array (
-                'phone_office' => 'phone_work',
-              ),
-            ),
+            'name' => 'accounts_contacts_1_name',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+            'name' => 'last_name',
           ),
-          1 => 
-          array (
-            'name' => 'phone_work',
-            'comment' => 'Work phone number of the contact',
-            'label' => 'LBL_OFFICE_PHONE',
-          ),
+          1 => '',
         ),
         3 => 
         array (
@@ -156,6 +141,21 @@ array (
           ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_home',
+            'comment' => 'Home phone number of the contact',
+            'label' => 'LBL_HOME_PHONE',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_work',
+            'comment' => 'Work phone number of the contact',
+            'label' => 'LBL_OFFICE_PHONE',
+          ),
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -250,8 +250,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employer_c',
-            'label' => 'LBL_EMPLOYER',
+            'name' => 'account_name',
+            'displayParams' => 
+            array (
+              'key' => 'billing',
+              'copy' => 'primary',
+              'billingKey' => 'primary',
+              'additionalFields' => 
+              array (
+                'phone_office' => 'phone_work',
+              ),
+            ),
           ),
           1 => 
           array (

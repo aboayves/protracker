@@ -84,6 +84,15 @@ array (
         ),
         2 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'assigned_to_client_c',
+            'label' => 'LBL_ASSIGNED_TO_CLIENT',
+          ),
+        ),
+        3 => 
+        array (
           0 => 
           array (
             'name' => 'date_due',
@@ -99,7 +108,7 @@ array (
             'name' => 'tasks_tasks_name',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => '',
           1 => 
@@ -108,7 +117,7 @@ array (
             'label' => 'LBL_LIST_RELATED_TO',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -121,12 +130,13 @@ array (
             'label' => 'LBL_CONTACT_NAME',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
             'name' => 'description',
           ),
+          1 => '',
         ),
       ),
     ),

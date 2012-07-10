@@ -59,13 +59,22 @@ array (
         ),
         2 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'assigned_to_client_c',
+            'label' => 'LBL_ASSIGNED_TO_CLIENT',
+          ),
+        ),
+        3 => 
+        array (
           0 => 'date_due',
           1 => 
           array (
             'name' => 'tasks_tasks_name',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => '',
           1 => 
@@ -74,7 +83,7 @@ array (
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -87,9 +96,10 @@ array (
             'label' => 'LBL_CONTACT',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 'description',
+          1 => '',
         ),
       ),
     ),

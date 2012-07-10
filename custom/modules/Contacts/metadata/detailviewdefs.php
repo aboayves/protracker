@@ -69,32 +69,24 @@ array (
         array (
           0 => 
           array (
-            'name' => 'last_name',
-            'comment' => 'Last name of the contact',
-            'label' => 'LBL_LAST_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'account_name',
-            'label' => 'LBL_ACCOUNT_NAME',
-            'displayParams' => 
-            array (
-            ),
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
             'name' => 'first_name',
             'comment' => 'First name of the contact',
             'label' => 'LBL_FIRST_NAME',
           ),
           1 => 
           array (
-            'name' => 'phone_work',
-            'label' => 'LBL_OFFICE_PHONE',
+            'name' => 'accounts_contacts_1_name',
           ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_name',
+            'comment' => 'Last name of the contact',
+            'label' => 'LBL_LAST_NAME',
+          ),
+          1 => '',
         ),
         3 => 
         array (
@@ -160,6 +152,20 @@ array (
           ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_home',
+            'comment' => 'Home phone number of the contact',
+            'label' => 'LBL_HOME_PHONE',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_work',
+            'label' => 'LBL_OFFICE_PHONE',
+          ),
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -253,8 +259,11 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employer_c',
-            'label' => 'LBL_EMPLOYER',
+            'name' => 'account_name',
+            'label' => 'LBL_ACCOUNT_NAME',
+            'displayParams' => 
+            array (
+            ),
           ),
           1 => 
           array (

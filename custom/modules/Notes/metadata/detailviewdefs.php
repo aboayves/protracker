@@ -67,7 +67,7 @@ array (
             'name' => 'description',
             'label' => 'LBL_NOTE_STATUS',
             //'customCode' => '{$DESCRIPTION}',
-            'type' => 'html',
+            //'type' => 'html',
           ),
         ),
       ),

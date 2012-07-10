@@ -57,22 +57,23 @@ array (
         array (
           0 => 
           array (
-            'name' => 'last_name',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
+            'name' => 'first_name',
           ),
           1 => 
           array (
-            'name' => 'account_name',
+            'name' => 'accounts_contacts_1_name',
+            'label' => 'LBL_ACCOUNTS_CONTACTS_1_FROM_ACCOUNTS_TITLE',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'first_name',
+            'name' => 'last_name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
           ),
           1 => 
           array (
@@ -222,8 +223,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employer_c',
-            'label' => 'LBL_EMPLOYER',
+            'name' => 'account_name',
           ),
           1 => 
           array (
