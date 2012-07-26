@@ -59,7 +59,7 @@ array (
         ),
         2 => 
         array (
-          0 => '',
+          0 => 'private',
           1 => 
           array (
             'name' => 'assigned_to_client_c',
@@ -97,11 +97,19 @@ array (
             'label' => 'LBL_CONTACT',
           ),
         ),
-        6 => 
+		6 => 
+		array (
+		 0 => 'category',
+		 1 => 'date_complete',
+		),
+        7 => 
         array (
           0 => 'description',
-          1 => '',
         ),
+		8 => 
+		array (
+		  1 => 'alow_asigne_to_modify',
+		),
       ),
     ),
   ),
