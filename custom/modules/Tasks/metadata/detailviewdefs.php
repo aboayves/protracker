@@ -45,8 +45,12 @@ array (
         array ( 
           'file' => 'custom/modules/Tasks/delete.js', 
         ),       
+        1 =>  
+        array ( 
+          'file' => 'custom/modules/Tasks/tree.js', 
+        ),       
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
@@ -117,6 +121,15 @@ array (
           0 => 'description',
           1 => 'alow_asigne_to_modify',
         ),
+      ),
+      'LBL_TREE' =>
+      array(
+        array(
+          array(
+            'label' => 'Tree',
+            'customCode' => '<div id="tree_panel3"></div>'  
+          ),
+        ),    
       ),
     ),
   ),
