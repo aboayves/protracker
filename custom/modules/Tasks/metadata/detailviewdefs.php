@@ -11,7 +11,10 @@ array (
         array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
-          2 => 'DELETE',
+          2 => 
+          array(
+            'customCode' => '<input title="Delete"  class="button"  onclick="this.form.action.value=\'Save\'; this.form.return_module.value=\'Tasks\'; this.form.isDuplicate.value=true; this.form.return_action.value=\'EditView\'; this.form.return_id.value=\'{$fields.id.value}\';"  name="button"  value="Delete" onclick="confirmDelete();"  type="button">',
+          ),
           3 => 
           array (
             'customCode' => '{if $fields.status.value != "Completed"} <input type="hidden" name="isSaveAndNew" value="false">  <input type="hidden" name="status" value="">  <input title="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_TITLE}"  class="button"  onclick="this.form.action.value=\'Save\'; this.form.return_module.value=\'Tasks\'; this.form.isDuplicate.value=true; this.form.isSaveAndNew.value=true; this.form.return_action.value=\'EditView\'; this.form.isDuplicate.value=true; this.form.return_id.value=\'{$fields.id.value}\';"  name="button"  value="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_TITLE}"  type="submit">{/if}',
@@ -35,6 +38,13 @@ array (
           'label' => '10',
           'field' => '30',
         ),
+      ),
+      'includes' =>  
+      array ( 
+        0 =>  
+        array ( 
+          'file' => 'custom/modules/Tasks/delete.js', 
+        ),       
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
@@ -77,7 +87,7 @@ array (
         ),
         4 => 
         array (
-          0 => '',
+          0 => 'assigned_user_name',
           1 => 
           array (
             'name' => 'parent_name',
@@ -105,11 +115,8 @@ array (
         7 => 
         array (
           0 => 'description',
+          1 => 'alow_asigne_to_modify',
         ),
-		8 => 
-		array (
-		  1 => 'alow_asigne_to_modify',
-		),
       ),
     ),
   ),
