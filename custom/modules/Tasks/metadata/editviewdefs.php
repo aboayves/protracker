@@ -73,6 +73,7 @@ array (
             'name' => 'status',
             'displayParams' => 
             array (
+			  'javascript' => 'onchange="if(this.value==&quot;Completed&quot;) alert(&quot;Completing this tasks will assign all dependent tasks to specified users.&quot;);"',
               'required' => true,
             ),
           ),
@@ -164,8 +165,11 @@ array (
         ),
 		8 => 
 	  	array (
-		  'name' => 'assigned_user_name',
-		  'label' => 'LBL_ASSIGNED_TO',
+		  array(
+			'name' => 'assigned_user_name',
+			'label' => 'LBL_ASSIGNED_TO',
+		  ),
+		  'notify_child_completion'
 	  	),
       ),
     ),
