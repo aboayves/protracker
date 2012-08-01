@@ -9,4 +9,6 @@ $hook_array['before_save'][] = Array(1, 'workflow', 'include/workflow/WorkFlowHa
 $hook_array['before_save'][] = Array(1, 'tasks_status_change_file', 'custom/modules/Tasks/stamp.php','task_status_change', 'stamp_completion');
 $hook_array['before_save'][] = Array(2, 'tasks_status_change_file', 'custom/modules/Tasks/stamp.php','task_status_change', 'setStatus');
 
+$hook_array['after_retrieve'] = Array(); 
+$hook_array['after_retrieve'][] = Array(1, 'dirty fix for the task-task 1-M relationship for parent_tasks_id.', 'custom/modules/Tasks/taskhooks.php','taskhooks', 'fix_parent_id'); 
 ?>
