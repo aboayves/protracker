@@ -1,9 +1,19 @@
 YAHOO.util.Event.onDOMReady(generateTree);
- 
+var disable_ajax = 1;
+
 function generateTree(){
-    var taskID = document.getElementsByName('record')[0].value;
-    var taskName = document.getElementsByName('task_name')[0].value;
-    loadNodeData(taskID, taskName);
+	if(disable_ajax)
+	{
+		var tree = new YAHOO.widget.TreeView("tree_panel3", tree_data1); 
+		tree.render();
+		return;
+	}
+	else
+	{
+		var taskID = document.getElementsByName('record')[0].value;
+		var taskName = document.getElementsByName('task_name')[0].value;
+		loadNodeData(taskID, taskName);
+	}
 }
 function loadNodeData(taskID, taskName)  {
 
