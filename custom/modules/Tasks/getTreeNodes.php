@@ -3,27 +3,36 @@
 global $db;
 $id = $_REQUEST['id'];
 $name = $_REQUEST['name'];
-$final['type'] = 'text';
-$final['label'] = $name;
-$final['expanded'] = true;
-$final['children'] = getID($id, $name);
+$final = array();
+//$final['type'] = 'text';
+//$final['label'] = $name;
+//$final['expanded'] = true;
+//$final['children'] = getStart($id);
 
-getID($id);
+$final = getStart($id);
 function getStart($id)
 {
-	global $db;
-	$query = "SELECT id, parent_tasks_id FROM tasks WHERE id='{$id}' AND deleted=0";
+	global $db, $final;
+	$final = array();
+	$query = "SELECT id, name, parent_tasks_id FROM tasks WHERE id='{$id}' AND deleted=0";
 	$res = $db->query($query);
 	$res = $db->fetchByAssoc($res);
 	if(!empty($res['parent_tasks_id']))
-		getStart($res['parent_tasks_id']);
-	getID($res['id']);
+		return getStart($res['parent_tasks_id']);
+	else
+	{
+		$final['type'] = 'text';
+		$final['label'] = $res['name'];
+		$final['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
+		$final['expanded'] = true;
+		$final['children'] = getID($res['id']);
+		return $final;
+	}
 }
 function getID($id) {
     global $db;
     $visited_child = '';
     $query = "SELECT id, name FROM tasks WHERE parent_tasks_id = '" . $id . "' AND deleted=0";
-    $ids[$name] = $id;
     $result = $db->query($query);
 
     if ($result->num_rows > 0) {
