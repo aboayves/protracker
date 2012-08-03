@@ -5,6 +5,13 @@ function confirmDelete(){
         del('Confirmation Delete','This task has dependent tasks.', taskID);
 }
 
+function confirmDeleteTree(tID)
+{
+    //var parentID = document.getElementsByName('parent_tasks_id')[0].value;
+    if(tID)
+        del('Confirmation Delete','This task has dependent tasks.', tID);
+}
+
 function del(title, body, taskID){
     mySimpleDialog.setHeader(title);
     mySimpleDialog.setBody(body);
@@ -16,7 +23,7 @@ function del(title, body, taskID){
 //		YAHOO.util.Connect.asyncRequest('POST','index.php',{'success':function(o){mySimpleDialogWait.hide();window.location.reload();},'failure':null},'module=Tasks&action=delete&id='+taskID+'&sugar_body_only=true');
 		this.hide();
 		
-		var _form = document.getElementById('formDetailView'); _form.return_module.value='Tasks'; _form.return_action.value='ListView'; _form.action.value='Delete'; SUGAR.ajaxUI.submitForm(_form);
+		var _form = document.getElementById('formDetailView'); _form.return_module.value='Tasks'; _form.return_action.value='ListView'; _form.action.value='Delete'; _form.record.value=taskID;  SUGAR.ajaxUI.submitForm(_form);
 //		window.location = "index.php?module=Tasks&action=delete&id="+taskID;
 		
     };
