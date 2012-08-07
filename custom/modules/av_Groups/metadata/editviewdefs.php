@@ -29,10 +29,15 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          0 => 'communication_type',
+          1 => 'membership_expiration_days',
         ),
         1 => 
+        array (
+          0 => 'delivery_method',
+          1 => 'assigned_user_name',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -47,7 +52,7 @@ array (
             'label' => 'LBL_CATEGORY',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -57,30 +62,26 @@ array (
           ),
           1 => 
           array (
-            'name' => 'last_checked_c',
-            'label' => 'LBL_LAST_CHECKED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'priority_c',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
-          1 => 
-          array (
-            'name' => 'broadcast_group_c',
-            'label' => 'LBL_BROADCAST_GROUP',
-          ),
+          
         ),
         4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_checked_c',
+            'label' => 'LBL_LAST_CHECKED',
+          ),
+        ),
+        5 => 
         array (
           0 => 'description',
         ),
       ),
-      'lbl_editview_panel1' => 
+      /*'lbl_editview_panel1' => 
       array (
         0 => 
         array (
@@ -97,7 +98,7 @@ array (
             'label' => 'LBL_ALTERNATE_LEADER',
           ),
         ),
-      ),
+      ),*/
     ),
   ),
 );
