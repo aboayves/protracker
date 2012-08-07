@@ -49,46 +49,40 @@ function generateTree(){
 
  function openNode()
  {
-		var id= (oCurrentTextNode.getLabelEl().getAttribute("href")).split("record=");
-			id=id[1].substr(0,36);
-			 window.open("index.php?module=Tasks&action=DetailView&record="+id);
-}
- 
- function editNode()
- {
-		var id= (oCurrentTextNode.getLabelEl().getAttribute("href")).split("record=");
-			id=id[1].substr(0,36);
-			window.open("index.php?module=Tasks&action=editView&record="+id);
-}
- 
- function deleteNode()
- {
-		var id= (oCurrentTextNode.getLabelEl().getAttribute("href")).split("record=");
-			id=id[1].substr(0,36);
-		//	alert(id);
-		confirmDeleteTree(id);
-		return;
 	
-/*		var url="http://localhost/ProTracker/index.php?module=Tasks&action=Delete&record="+id
-	
-	
-	   var callback = {
-		start: function(eventType, args) {
-			// do something when startEvent fires.
-			},
-        success: function(oResponse) {
-				document.location.reload(true);
-        },
-        failure: function(oResponse) {
-            YAHOO.log("Failed to process transaction.", "info", "example");
-            alert(oResponse.responseText);
-        },
-        timeout: 5000
-    };
+		window.open(oCurrentTextNode.getLabelEl().getAttribute("href"));
 		 
-		 YAHOO.util.Connect.asyncRequest('POST', url,callback); */
+		 
 	 	
  }
+  function editNode()
+ {
+		
+		
+		window.open((oCurrentTextNode.getLabelEl().getAttribute("href")).replace(/DetailView/g, "EditView"));
+	
+		 
+		 
+	 	
+ }
+  function deleteNode()
+ { 
+ 
+var id= (oCurrentTextNode.getLabelEl().getAttribute("href")).split("record=");
+			id=id[1].substr(0,36);
+
+ confirmDelete(id);
+
+
+ 
+  }
+
+ 
+	
+		 
+		 
+	 	
+
 
 function loadNodeData(taskID, taskName)  {
 
