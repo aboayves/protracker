@@ -51,7 +51,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'office_c',
+            'name' => 'rt_offices_av_groups_name',
             'studio' => 'visible',
             'label' => 'LBL_OFFICE',
           ),
@@ -76,7 +76,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
-          
         ),
         4 => 
         array (
@@ -91,24 +90,6 @@ array (
           0 => 'description',
         ),
       ),
-      /*'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'leader_c',
-            'studio' => 'visible',
-            'label' => 'LBL_LEADER',
-          ),
-          1 => 
-          array (
-            'name' => 'alternate_leader_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ALTERNATE_LEADER',
-          ),
-        ),
-      ),*/
     ),
   ),
 );

@@ -509,33 +509,6 @@ $GLOBALS['app_list_strings']['office_list']=array (
 );
 
 
-$GLOBALS['app_list_strings']['group_category_list']=array (
-
-
-  '' => '',
-
-
-  'Client' => 'Client',
-
-
-  'Community' => 'Community',
-
-
-  'Employee' => 'Employee',
-
-
-  'Family' => 'Family',
-
-
-  'Professional' => 'Professional',
-
-
-  'Trade' => 'Trade',
-
-
-);
-
-
 $GLOBALS['app_list_strings']['priority_list']=array (
 
 
