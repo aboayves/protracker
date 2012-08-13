@@ -90,6 +90,7 @@ array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
           ),
+		  1 => 'envelope',
         ),
         4 => 
         array (

@@ -105,6 +105,7 @@ array (
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
+		  1 => 'envelope',
         ),
         4 => 
         array (

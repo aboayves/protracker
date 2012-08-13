@@ -24,3 +24,5 @@ $app_list_strings['group_category_list']['Family']= 'Family';
 $app_list_strings['group_category_list']['Professional']= 'Professional';
 $app_list_strings['group_category_list']['Trade']= 'Trade';
 
+$app_list_strings['parent_type_display_list']['Accounts'] = 'Clients';
+$app_list_strings['parent_type_display_list']['Contacts'] = 'Contacts';

@@ -124,6 +124,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_COMMENTS',
           ),
+		  1 => 'envelope',
         ),
       ),
       'lbl_editview_panel5' => 
