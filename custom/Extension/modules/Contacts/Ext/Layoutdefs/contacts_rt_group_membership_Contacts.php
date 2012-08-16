@@ -2,7 +2,7 @@
 $layout_defs["Contacts"]["subpanel_setup"]['contacts_rt_group_membership'] = array (
   'order' => 100,
   'module' => 'rt_Group_Membership',
-  'subpanel_name' => 'forGroup',
+  'subpanel_name' => 'default',
   //'sort_order' => 'asc',
   //'sort_by' => 'id',
   'title_key' => 'LBL_CONTACTS_RT_GROUP_MEMBERSHIP_SUBPANEL_TITLE',

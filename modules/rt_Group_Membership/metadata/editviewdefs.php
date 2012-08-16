@@ -20,6 +20,11 @@ array (
           'field' => '30',
         ),
       ),
+	  'javascript' => '
+	  	<script type="text/javascript">
+			document.getElementById(\'opted_out\').setAttribute(\'onclick\',\'return false\');
+		</script>
+	  ',
     ),
     'panels' => 
     array (
@@ -37,12 +42,19 @@ array (
         ),
         2 => 
         array (
-          0 => 'date_add_to_grp',
+          0 => 
+		  array(
+		  	'name' => 'date_add_to_grp',
+			'customCode' => '{$fields.date_add_to_grp.value}',
+		  ),
           1 => 'delivery_method',
         ),
         3 => 
         array (
-          0 => 'opted_out',
+          0 => 
+		  array(
+		  	'name' => 'opted_out',
+		  ),
           1 => 'expiration_date',
         ),
         4 => 

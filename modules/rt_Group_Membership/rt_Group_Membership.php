@@ -35,6 +35,13 @@ class rt_Group_Membership extends rt_Group_Membership_sugar {
 	function rt_Group_Membership(){	
 		parent::rt_Group_Membership_sugar();
 	}
+	function get_add_to_grp_date($membershipID)
+	{
+		global $db, $timedate;
+		$sql = "SELECT date_modified FROM rt_group_membership_av_groups_c WHERE rt_group_membership_av_groupsrt_group_membership_idb='{$membershipID}' AND deleted=0 LIMIT 1";
+		$result = $db->fetchByAssoc($db->query($sql));
+		return $timedate->to_display_date_time($result['date_modified']);
+	}
 	
 }
 ?>

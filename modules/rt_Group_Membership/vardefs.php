@@ -111,8 +111,15 @@ $dictionary['rt_Group_Membership'] = array(
   array(
     'name' => 'date_add_to_grp',
     'vname' => 'LBL_DATE_ADD_GRP',
-    'type' => 'date',
+//	'type' => 'date',
     'comments' => 'Date Field When the Added to Group',
+	
+	'source'=>'function',
+	'function_name'=>'get_add_to_grp_date',
+	'function_class'=>'rt_Group_Membership',
+	'function_params'=> array('id'),
+	'function_params_source'=>'this', //valid values are 'parent' or 'this' default is parent.
+	'type'=>'function',
   ),
   'delivery_method' => 
   array(

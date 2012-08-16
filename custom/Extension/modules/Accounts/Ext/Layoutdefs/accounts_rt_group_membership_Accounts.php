@@ -2,7 +2,7 @@
 $layout_defs["Accounts"]["subpanel_setup"]['accounts_rt_group_membership'] = array (
   'order' => 100,
   'module' => 'rt_Group_Membership',
-  'subpanel_name' => 'forGroup',
+  'subpanel_name' => 'default',
   //'sort_order' => 'asc',
   //'sort_by' => 'id',
   'title_key' => 'LBL_ACCOUNTS_RT_GROUP_MEMBERSHIP_SUBPANEL_TITLE',
@@ -11,7 +11,7 @@ $layout_defs["Accounts"]["subpanel_setup"]['accounts_rt_group_membership'] = arr
   array (
     0 => 
     array (
-      'widget_class' => 'SubPanelTopButtonQuickCreate',
+      'widget_class' => 'SubPanelTopButtonQuickCreateGroupMembershipFromClients',
     ),
     1 => 
     array (

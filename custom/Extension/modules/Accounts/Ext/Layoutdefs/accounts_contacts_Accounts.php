@@ -6,7 +6,7 @@ $layout_defs["Accounts"]["subpanel_setup"]['accounts_contacts'] = array (
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_CONTACTS_SUBPANEL_TITLE',
-  'get_subpanel_data' => 'accounts_contacts',
+  'get_subpanel_data' => 'contacts',
   'top_buttons' => 
   array (
     0 => 

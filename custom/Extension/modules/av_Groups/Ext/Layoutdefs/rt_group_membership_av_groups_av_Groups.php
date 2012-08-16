@@ -3,7 +3,7 @@
 $layout_defs["av_Groups"]["subpanel_setup"]['rt_group_membership_av_groups'] = array (
   'order' => 100,
   'module' => 'rt_Group_Membership',
-  'subpanel_name' => 'default',
+  'subpanel_name' => 'forGroup',
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_RT_GROUP_MEMBERSHIP_AV_GROUPS_FROM_RT_GROUP_MEMBERSHIP_TITLE',
@@ -13,11 +13,6 @@ $layout_defs["av_Groups"]["subpanel_setup"]['rt_group_membership_av_groups'] = a
     0 => 
     array (
       'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
-    1 => 
-    array (
-      'widget_class' => 'SubPanelTopSelectButton',
-      'mode' => 'MultiSelect',
     ),
   ),
 );

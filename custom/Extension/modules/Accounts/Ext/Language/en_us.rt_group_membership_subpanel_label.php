@@ -1,2 +1,2 @@
 <?php
-$mod_strings['LBL_ACCOUNTS_RT_GROUP_MEMBERSHIP_SUBPANEL_TITLE'] = 'Group';
+$mod_strings['LBL_ACCOUNTS_RT_GROUP_MEMBERSHIP_SUBPANEL_TITLE'] = 'Groups';
