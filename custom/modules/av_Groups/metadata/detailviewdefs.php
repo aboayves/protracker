@@ -14,6 +14,10 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
+		  4 => 
+		  array(
+			'customCode' => '<input class="button" onclick="window.open(\'index.php?module=av_Groups&action=MergetoWord&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge to Word">'
+		  ), 
         ),
       ),
       'maxColumns' => '2',

@@ -42,6 +42,30 @@ class rt_Group_Membership extends rt_Group_Membership_sugar {
 		$result = $db->fetchByAssoc($db->query($sql));
 		return $timedate->to_display_date_time($result['date_modified']);
 	}
+	function get_calc_expiration_date($membershipID, $groupID)
+	{
+		global $db, $timedate;
+		$sql = "SELECT expiration_date FROM rt_group_membership WHERE id='{$membershipID}' AND deleted=0 LIMIT 1";
+		$result = $db->fetchByAssoc($db->query($sql));
+		$theDate = $timedate->to_display_date_time($result['expiration_date']);
+		if(empty($theDate))
+		{
+			$sql = "SELECT date_modified FROM rt_group_membership_av_groups_c WHERE rt_group_membership_av_groupsrt_group_membership_idb='{$membershipID}' AND deleted=0 LIMIT 1";
+			$result = $db->fetchByAssoc($db->query($sql));
+			$date_added = $result['date_modified'];
+			
+			$sql = "SELECT membership_expiration_days FROM av_groups WHERE id = '{$groupID}' AND deleted=0 LIMIT 1";
+			$result = $db->fetchByAssoc($db->query($sql));
+			$xDays = is_numeric($result['membership_expiration_days'])?$result['membership_expiration_days']:0;
+			
+			$theDate = '';
+			if(!empty($date_added))
+			{
+				$theDate = $timedate->to_display_date(date("Y-m-d", strtotime(date("Y-m-d", strtotime($date_added))." +{$xDays} days")));
+			}
+		}
+		return $theDate;
+	}
 	
 }
 ?>

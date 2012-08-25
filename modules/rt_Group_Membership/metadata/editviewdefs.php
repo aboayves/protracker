@@ -60,7 +60,11 @@ array (
         4 => 
         array (
           0 => 'comments',
-          1 => 'envelope',
+          1 => 
+		  array(
+		  	'name' => 'envelope',
+			'type' => 'readOnly',
+		  ),
         ),
       ),
     ),

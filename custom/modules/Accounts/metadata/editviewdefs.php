@@ -81,7 +81,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -90,7 +89,7 @@ array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
           ),
-		  1 => 'envelope',
+          1 => 'envelope',
         ),
         4 => 
         array (
@@ -105,7 +104,14 @@ array (
             'comment' => 'Gets the managed assets.',
             'studio' => 'visible',
             'label' => 'LBL_MANAGED_ASSETS',
-			'type' => 'readonly',
+            'type' => 'readonly',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'rt_offices_accounts_1_name',
           ),
         ),
       ),
