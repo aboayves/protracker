@@ -133,7 +133,7 @@ while($member = $db->fetchByAssoc($members))
 	}
 	elseif($member['parent_type']=="Contacts")
 	{
-		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].", ".$member['primary_address_street'].", ".$member['primary_address_city'].", ".$member['primary_address_state'].", ".$member['primary_address_postalcode'].", ".$member['phone_home'].", ".$member['phone_fax'].", ".$member['type_c'].", ".", ".$member['contact_status'].", ".$member['contact_priority'].", ".$member['office_name']."\n";
+		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].", ".$member['primary_address_street'].", ".$member['primary_address_city'].", ".$member['primary_address_state'].", ".$member['primary_address_postalcode'].", ".$member['phone_home'].", ".$member['phone_fax'].", ".$member['type_c'].", ".$member['contact_status'].", ".$member['contact_priority'].", ".$member['office_name']."\n";
 	}
 }
 
