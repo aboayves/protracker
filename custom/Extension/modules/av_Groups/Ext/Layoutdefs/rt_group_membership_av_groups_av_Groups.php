@@ -14,5 +14,20 @@ $layout_defs["av_Groups"]["subpanel_setup"]['rt_group_membership_av_groups'] = a
     array (
       'widget_class' => 'SubPanelTopButtonQuickCreate',
     ),
+	1 =>
+	array(
+	 'widget_class' => 'SubPanelTopCstmSelectButton',
+	 'mode' => 'MultiSelect',
+	 'override_module' => 'Contacts',
+	 'form_value' => 'Select from Contacts',
+	),
+	2 =>
+	array(
+	 'widget_class' => 'SubPanelTopCstmSelectButton',
+	 'mode' => 'MultiSelect',
+	 'override_module' => 'Accounts',
+	 'form_value' => 'Select from Accounts',
+	),
+
   ),
 );
