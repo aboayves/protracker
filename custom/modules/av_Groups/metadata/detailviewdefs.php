@@ -14,11 +14,13 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-		  4 => 
+		  4 => array('customCode' => '<input class="button" onclick="window.open(\'index.php?module=av_Groups&action=MergetoWord&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge to Word">'),
+		  5 => 
 		  array(
-			'customCode' => '<input class="button" onclick="window.open(\'index.php?module=av_Groups&action=MergetoWord&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge to Word">'
-		  ), 
-        ),
+		  	'customCode' => '{$mail_to_members}',   
+		  ),
+		  6 => array('customCode' => '<input class="button" onclick="window.open(\'index.php?module=av_Groups&action=PrintMembershipList&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Print Memberships">'),
+	    ),
       ),
       'maxColumns' => '2',
       'widths' => 

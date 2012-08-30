@@ -3,7 +3,7 @@ class theHook4rt_Group_Membership
 {
 	function fetchOtherValues(&$bean, $event, $arguments) 
 	{
-		die('die hoe');
+		
 	}
 	function beforeSaveThingsToDo(&$bean, $event, $arguments)
 	{
