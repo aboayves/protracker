@@ -1,5 +1,6 @@
 <?php
  // created: 2012-04-25 15:09:16
+ /*
 $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
   'order' => 100,
   'module' => 'Contacts',
@@ -25,3 +26,5 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
     ),
   ),
 );
+
+*/
