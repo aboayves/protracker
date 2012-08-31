@@ -26,7 +26,7 @@ $layout_defs["av_Groups"]["subpanel_setup"]['rt_group_membership_av_groups'] = a
 	 'widget_class' => 'SubPanelTopCstmSelectButton',
 	 'mode' => 'MultiSelect',
 	 'override_module' => 'Accounts',
-	 'form_value' => 'Select from Accounts',
+	 'form_value' => 'Select from Clients',
 	),
 
   ),
