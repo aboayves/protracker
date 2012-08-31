@@ -14,12 +14,26 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-		  4 => array('customCode' => '<input class="button" onclick="window.open(\'index.php?module=av_Groups&action=MergetoWord&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge to Word">'),
+		  4 => 
+		  array(
+		  	'customCode' => '<input title="Merge to Word" type="button" name="merge2Word" id="merge2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergetoWord&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge to Word">'
+		  ),
 		  5 => 
 		  array(
 		  	'customCode' => '{$mail_to_members}',   
 		  ),
-		  6 => array('customCode' => '<input class="button" onclick="window.open(\'index.php?module=av_Groups&action=PrintMembershipList&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Print Memberships">'),
+		  6 => 
+		  array(
+			'customCode' => '<input title="Print Memberships" type="button" name="printMemberships" id="printMemberships" onclick="window.open(\'index.php?module=av_Groups&action=PrintMembershipList&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Print Memberships">'
+		  ),
+		  7 => 
+		  array (
+             'customCode' => '<input title="Add a document" type="button" name="addAdocument" id="addAdocument" onclick="window.location=\'index.php?module=Documents&action=EditView&attach_to_group_id={$fields.id.value}\'" value="Add a document">'
+		  ),
+		  8 => 
+		  array (
+             'customCode' => '<input title="Schedule Call" type="button" name="scheduleCall" id="scheduleCall" onclick="window.location=\'index.php?module=Calls&action=EditView&attach_to_group_id={$fields.id.value}\'" value="Schedule Call">'
+		  ),
 	    ),
       ),
       'maxColumns' => '2',
