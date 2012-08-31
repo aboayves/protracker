@@ -32,11 +32,15 @@ array (
       'default' => 
       array (
         0 => 
+		array (
+		  0 => 'include',
+		),
+		1 => 
         array (
           0 => 'name',
           1 => 'assigned_user_name',
         ),
-        1 => 
+        2 => 
         array (
           0 => 'description',
           1 => 
@@ -48,7 +52,7 @@ array (
             ),
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -56,9 +60,8 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_FLEX_RELATE',
           ),
-          1 => 'include',
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -79,7 +82,7 @@ array (
           ),
           1 => 'delivery_method',
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
