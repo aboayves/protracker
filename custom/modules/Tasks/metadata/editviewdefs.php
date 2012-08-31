@@ -10,6 +10,7 @@ array (
         'hidden' => 
         array (
           0 => '<input type="hidden" name="isSaveAndNew" value="false">',
+		  1 => '<input type="hidden" name="attach_to_group_id" value="{$fields.attach_to_group_id.value}">',
         ),
         'buttons' => 
         array (
