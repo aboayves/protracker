@@ -36,12 +36,14 @@ SELECT
 	rt_group_membership.parent_type, 
 	rt_offices.name AS office_name
 FROM rt_group_membership_av_groups_c
-LEFT JOIN 
+RIGHT JOIN 
 	rt_group_membership 
 	ON(
 		rt_group_membership.deleted=0 
 		AND 
 		rt_group_membership.id = rt_group_membership_av_groups_c.rt_group_membership_av_groupsrt_group_membership_idb
+		AND 
+		rt_group_membership.include=1
 	)
 LEFT JOIN 
 	accounts 
