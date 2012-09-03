@@ -3,7 +3,7 @@
 $layout_defs["Tasks"]["subpanel_setup"]['parent_tasks'] = array (
   'order' => 100,
   'module' => 'Tasks',
-  'subpanel_name' => 'default',
+  'subpanel_name' => 'ForTasks',
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_CHILD_TASKS',
