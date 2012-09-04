@@ -10,7 +10,7 @@ array (
         'hidden' => 
         array (
           0 => '<input type="hidden" name="isSaveAndNew" value="false">',
-		  1 => '<input type="hidden" name="attach_to_group_id" value="{$fields.attach_to_group_id.value}">',
+          1 => '<input type="hidden" name="attach_to_group_id" value="{$fields.attach_to_group_id.value}">',
         ),
         'buttons' => 
         array (
@@ -36,13 +36,13 @@ array (
           'field' => '30',
         ),
       ),
-	  'includes' =>  
-      array ( 
-        0 =>  
-        array ( 
-          'file' => 'include/javascript/tiny_mce/tiny_mce.js', 
-        ),       
-      ), 
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'include/javascript/tiny_mce/tiny_mce.js',
+        ),
+      ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
     ),
@@ -65,7 +65,7 @@ array (
             'name' => 'status',
             'displayParams' => 
             array (
-			  'javascript' => 'onchange="if(this.value==&quot;Completed&quot;) alert(&quot;Completing this tasks will assign all dependent tasks to specified users.&quot;);"',
+              'javascript' => 'onchange="if(this.value==&quot;Completed&quot;) alert(&quot;Completing this tasks will assign all dependent tasks to specified users.&quot;);"',
               'required' => true,
             ),
           ),
@@ -93,6 +93,15 @@ array (
         ),
         2 => 
         array (
+          0 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
+          1 => 'notify_child_completion',
+        ),
+        3 => 
+        array (
           0 => 'private',
           1 => 
           array (
@@ -100,7 +109,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO_CLIENT',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -118,7 +127,7 @@ array (
             'label' => 'LBL_PARENT_TASKS',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => '',
           1 => 
@@ -127,7 +136,7 @@ array (
             'label' => 'LBL_LIST_RELATED_TO',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -140,20 +149,20 @@ array (
             'label' => 'LBL_CONTACT_NAME',
           ),
         ),
-		6 => 
-		array (
-		 0 => 'category',
-		 1 => 
+        7 => 
+        array (
+          0 => 'category',
+          1 => 
           array (
             'name' => 'alow_asigne_to_modify',
           ),
-		),
-        7 => 
+        ),
+        8 => 
         array (
           0 => 
           array (
             'name' => 'description',
-			          'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
+            'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -168,14 +177,6 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
           ),
         ),
-		8 => 
-	  	array (
-		  array(
-			'name' => 'assigned_user_name',
-			'label' => 'LBL_ASSIGNED_TO',
-		  ),
-		  'notify_child_completion'
-	  	),
       ),
     ),
   ),
