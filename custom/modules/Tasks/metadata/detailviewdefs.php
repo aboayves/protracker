@@ -12,8 +12,8 @@ array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
           2 => 
-          array(
-            'customCode' => '<input title="Delete"  class="button"  onclick="this.form.action.value=\'Save\'; this.form.return_module.value=\'Tasks\'; this.form.isDuplicate.value=true; this.form.return_action.value=\'EditView\'; this.form.return_id.value=\'{$fields.id.value}\';"  name="button"  value="Delete" onclick="confirmDelete(\'{$fields.id.value}\');"  type="button">',
+          array (
+            'customCode' => '<input title="Delete"  class="button"  onclick="this.form.action.value=\'Save\'; this.form.return_module.value=\'Tasks\'; this.form.isDuplicate.value=true; this.form.return_action.value=\'EditView\'; this.form.return_id.value=\'{$fields.id.value}\';"  name="button"  value="Delete" onclick="confirmDelete();"  type="button">',
           ),
           3 => 
           array (
@@ -39,18 +39,18 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' =>  
-      array ( 
-        0 =>  
-        array ( 
-          'file' => 'custom/modules/Tasks/delete.js', 
-        ),       
-        1 =>  
-        array ( 
-          'file' => 'custom/modules/Tasks/tree.js', 
-        ),       
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/Tasks/delete.js',
+        ),
+        1 => 
+        array (
+          'file' => 'custom/modules/Tasks/tree.js',
+        ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
@@ -73,6 +73,15 @@ array (
         ),
         2 => 
         array (
+          0 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'notify_child_completion',
+            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
+          ),
+        ),
+        3 => 
+        array (
           0 => 'private',
           1 => 
           array (
@@ -80,7 +89,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO_CLIENT',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'date_due',
           1 => 
@@ -89,16 +98,16 @@ array (
             'label' => 'LBL_PARENT_TASKS',
           ),
         ),
-        4 => 
+        5 => 
         array (
-          0 => 'assigned_user_name',
+          0 => '',
           1 => 
           array (
             'name' => 'parent_name',
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -111,25 +120,15 @@ array (
             'label' => 'LBL_CONTACT',
           ),
         ),
-		6 => 
-		array (
-		 0 => 'category',
-		 1 => 'date_complete',
-		),
         7 => 
         array (
-          0 => 'description',
+          0 => 'category',
           1 => 'alow_asigne_to_modify',
         ),
-      ),
-      'LBL_TREE' =>
-      array(
-        array(
-          array(
-            'label' => 'Tree',
-            'customCode' => '<div id="tree_panel3"></div>'  
-          ),
-        ),    
+        8 => 
+        array (
+          0 => 'description',
+        ),
       ),
     ),
   ),
