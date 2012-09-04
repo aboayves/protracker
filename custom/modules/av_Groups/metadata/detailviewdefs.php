@@ -34,15 +34,15 @@ array (
 		  array(
              'customCode' => '<input title="Schedule Call" type="button" name="scheduleCall" id="scheduleCall" onclick="window.location=\'index.php?module=Calls&action=EditView&attach_to_group_id={$fields.id.value}\'" value="Schedule Call">'
 		  ),
-		  7 => 
+		  9 => 
 		  array(
 			'customCode' => '<input title="Assign Task to Members" type="button" name="assignTasks" id="assignTasks" onclick="window.location=\'index.php?module=Tasks&action=EditView&attach_to_group_id={$fields.id.value}\';" value="Assign Task to Members">'
 		  ),
-		  8 => 
+		  10 => 
 		  array(
 			'customCode' => '<input title="Purge Expired Members" type="button" name="purgeExpiredMembers" id="purgeExpiredMembers" onclick="window.location=\'index.php?module=av_Groups&action=PurgeExpiredMembers&record={$fields.id.value}&sugar_body_only=true\';" value="Purge Expired Members">'
 		  ),
-		  9 => 
+		  11 => 
 		  array(
 		  	'customCode' => '<input title="Schedule Meeting" type="button" name="scheduleMeeting" id="scheduleMeeting" onclick="window.location=\'index.php?module=Meetings&action=EditView&attach_to_group_id={$fields.id.value}\';" value="Schedule Meeting">'),
 	    ),
