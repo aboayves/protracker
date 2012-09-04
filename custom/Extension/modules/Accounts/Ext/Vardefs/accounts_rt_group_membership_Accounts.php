@@ -1,10 +1,12 @@
 <?php
 
-$dictionary["Account"]["fields"]["accounts_rt_group_membership"] = array(
-    'name' => 'accounts_rt_group_membership',
+$dictionary["Account"]["fields"]["accounts_rt_group_membership_link"] = array(
+    'name' => 'accounts_rt_group_membership_link',
     'type' => 'link',
     'relationship' => 'accounts_rt_group_membership',
     'source' => 'non-db',
+	'module'=>'rt_Group_Membership',
+	'bean_name'=>'rt_Group_Membership',
     'side' => 'left',
     'vname' => 'LBL_ACCOUNTS_RT_GROUP_MEMBERSHIP_TITLE',
 );

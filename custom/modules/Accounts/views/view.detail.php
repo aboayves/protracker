@@ -62,7 +62,6 @@ ORDER BY av_net_worth.date_entered DESC
 		$jsRow = '';
 		//the javascript things for the graphs go here...
 		echo "
-		<script type='text/javascript' src='custom/include/js/jquery/jquery-1.7.2.js'></script>
 		<script type='text/javascript' src='custom/include/js/jquery/jqBarGraph.1.1.js'></script>
 		<script type='text/javascript'>
 		arrayOfData = new Array(

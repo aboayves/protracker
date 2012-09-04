@@ -7,7 +7,7 @@ if($_REQUEST['id'])
     $parent = $db->query($query_select);
     $parent = $db->fetchByAssoc($parent);
     $parentTaskID = $parent['parent_tasks_id'];
-    if(!empty($parentTaskID))
+//    if(!empty($parentTaskID))
 	{
         $query_update = "UPDATE tasks SET parent_tasks_id = '{$parentTaskID}' WHERE parent_tasks_id = '{$_REQUEST['id']}'";
         $db->query($query_update);

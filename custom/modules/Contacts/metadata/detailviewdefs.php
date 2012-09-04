@@ -86,7 +86,6 @@ array (
             'comment' => 'Last name of the contact',
             'label' => 'LBL_LAST_NAME',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -123,6 +122,14 @@ array (
             'name' => 'comments_c',
             'studio' => 'visible',
             'label' => 'LBL_COMMENTS',
+          ),
+          1 => 'envelope',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'rt_offices_contacts_1_name',
           ),
         ),
       ),
@@ -177,7 +184,6 @@ array (
             ),
             'label' => 'LBL_OTHER_ADDRESS_STREET',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
@@ -250,7 +256,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
@@ -314,7 +319,6 @@ array (
         ),
         4 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'gift_applicable_c',

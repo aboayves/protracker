@@ -95,7 +95,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -105,6 +104,7 @@ array (
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
+          1 => 'envelope',
         ),
         4 => 
         array (
@@ -119,6 +119,13 @@ array (
             'comment' => 'Gets the managed assets.',
             'studio' => 'visible',
             'label' => 'LBL_MANAGED_ASSETS',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'rt_offices_accounts_1_name',
           ),
         ),
       ),

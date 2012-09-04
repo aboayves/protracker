@@ -53,7 +53,7 @@ array (
         3 => 
         array (
           0 => 'opted_out',
-          1 => 'expiration_date',
+          1 => 'calc_expiration_date',
         ),
         4 => 
         array (

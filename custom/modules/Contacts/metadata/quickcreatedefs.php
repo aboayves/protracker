@@ -110,6 +110,11 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_COMMENTS',
           ),
+          1 => 
+          array (
+            'name' => 'envelope',
+            'label' => 'LBL_ENVELOPE',
+          ),
         ),
       ),
       'lbl_editview_panel5' => 
