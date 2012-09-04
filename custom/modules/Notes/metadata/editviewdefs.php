@@ -7,6 +7,10 @@ $viewdefs['Notes']['EditView'] = array (
     array (
       'enctype' => 'multipart/form-data',
       'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
+	   'hidden' => 
+        array (
+			0 => '<input type="hidden" name="attach_to_group_id" value="'.$_REQUEST['attach_to_group_id'].'">',//
+        ),
     ),
     'maxColumns' => '2',
     'widths' => 
