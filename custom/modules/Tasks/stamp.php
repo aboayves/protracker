@@ -1,6 +1,8 @@
 <?php
 class task_status_change
 {
+	var $sent = array();
+	
 	function stamp_completion(&$bean, $event, $arguments)
 	{
 		if($bean->fetched_row['status'] != $bean->status)
@@ -46,7 +48,9 @@ class task_status_change
 	}
 	function notify_child($beanID)
 	{
-		$query = "SELECT assigned_user_id FROM tasks WHERE deleted=0 AND parent_tasks_id='{$beanID}'; ";
+		global $db;
+		
+		$query = "SELECT assigned_user_id FROM tasks WHERE deleted=0 AND parent_tasks_id='{$beanID}' AND id NOT IN ('" . implode("','", $this->sent) . "'); ";
 		$child_task = $db->query($query);
 		while($child_task = $db->fetchByAssoc($child_task))
 		{
@@ -55,12 +59,16 @@ class task_status_change
 	}
 	function notify_parent($beanID, $parentID)
 	{
-		$taskBean = new Task();
-		$taskBean->retrieve($parentID);
-		if($taskBean->notify_child_completion)
-			$this->doMail($taskBean->assigned_user_id, 'task completion notification','task completion notification');
-		if(!empty($taskBean->parent_tasks_id))
-			$this->notify_parent($beanID, $taskBean->parent_tasks_id);
+		if(!in_array($parentID, $this->sent)){
+			$this->sent[] = $parentID;
+			
+			$taskBean = new Task();
+			$taskBean->retrieve($parentID);
+			if($taskBean->notify_child_completion)
+				$this->doMail($taskBean->assigned_user_id, 'task completion notification','task completion notification');
+			if(!empty($taskBean->parent_tasks_id))
+				$this->notify_parent($beanID, $taskBean->parent_tasks_id);
+		}
 	}
 	public function doMail($to_userID, $body, $subject)
 	{

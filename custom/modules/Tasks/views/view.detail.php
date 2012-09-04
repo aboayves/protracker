@@ -36,7 +36,7 @@ class TasksViewDetail extends ViewDetail {
      * @see SugarView::display()
      */
     public function display() {
-        if($_GET['error_message']=='show_error'){
+        if(isset($_GET['error_message']) && $_GET['error_message']=='show_error'){
             echo "<script type='text/javascript'>
 					ajaxStatus.flashStatus('You Are Not Authorize to Edit this Record',10000);
 				  </script>

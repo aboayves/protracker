@@ -5,8 +5,9 @@ $id = $_REQUEST['id'];
 $name = $_REQUEST['name'];
 $final = array();
 
-$final = getStart($id);
 $GLOBALS['users'] = getUserList();
+$final = getStart($id);
+
 function getUserList()
 {
 	global $db;
@@ -19,55 +20,60 @@ function getUserList()
 	}
 	return $users;
 }
-function getStart($id)
-{
+
+function getStart($id, $visited_parent=array()){
 	global $db, $final, $users, $timedate;
-	$final = array();
+	
+	$visited_parent[] = $id;
+	
 	$query = "SELECT id, name, parent_tasks_id, assigned_user_id, date_due FROM tasks WHERE id='{$id}' AND deleted=0";
 	$res = $db->query($query);
-	$res = $db->fetchByAssoc($res);
-	if(!empty($res['parent_tasks_id']))
-		return getStart($res['parent_tasks_id']);
-	else
-	{
-		$final['id'] = $res['id'];
-		$final['type'] = 'text';
-		$final['label'] = $res['name'];
-		$final['href'] = "index.php?module=Tasks&action=DetailView&record={$res['id']}";
-		$final['title'] = "Assignee: ".get_assigned_user_name($res['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($res['date_due']);
-		$final['expanded'] = true;
-		$final['children'] = child_parent_recursive($res['id']);
-		return $final;
+	$row = $db->fetchByAssoc($res);
+	if(!empty($row['parent_tasks_id']) && !in_array($row['parent_tasks_id'], $visited_parent)){
+		return getStart($row['parent_tasks_id'], $visited_parent);
+	}else{
+		$tree = array();
+		
+		$tree['id'] = $row['id'];
+		$tree['type'] = 'text';
+		$tree['label'] = $row['name'];
+		$tree['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
+		$tree['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
+		$tree['expanded'] = true;
+		$tree['children'] = build_child_tree($row['id'], array($row['id']));
+		
+		return $tree;
 	}
 }
 
-function child_parent_recursive($id, $visited_child = array()) {
+function build_child_tree($id, $added_nodes = array()) {
     global $db, $users, $timedate;
-    $childs_array = '';
-
-    if (in_array($id, $visited_child)) 
-	{
-        return;
-    }
-    $visited_child[] = $id;
-    $sql = "SELECT id, name, parent_tasks_id, assigned_user_id, date_due FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
+    
+	$sql = "SELECT id, name, parent_tasks_id, assigned_user_id, date_due FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
     $result = $db->query($sql);
-	while ($row = $db->fetchByAssoc($result)) 
-	{
-		$childs = child_parent_recursive($row['id'], $visited_child); 
-		$childs_array [] = array(
-			'id' => $row['id'],
-			'type' => 'text',
-			'expanded' => true,
-			'label' => $row['name'],
-			'record_id' => $row['id'],
-			'href' => "index.php?module=Tasks&action=DetailView&record={$row['id']}",
-			'title' => "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']),
-			'children' => $childs,
-		);
+
+	$childs_array = array();
+	while ($row = $db->fetchByAssoc($result)){
+		if(!in_array($row['id'], $added_nodes)){
+			$added_nodes[] = $row['id'];
+		
+			$node = array();
+			
+			$node['id'] = $row['id'];
+			$node['type'] = 'text';
+			$node['label'] = $row['name'];
+			$node['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
+			$node['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
+			$node['expanded'] = true;
+			$node['children'] = build_child_tree($row);
+			
+			$childs_array[] = $node;
+		}
 	}
+	
     return $childs_array;
 }
+
 if($_REQUEST['included']===true)
 {
 	echo "
