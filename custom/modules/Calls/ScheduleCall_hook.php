@@ -23,8 +23,14 @@ class SaveCall
 			   {
 				   $query="INSERT INTO calls_contacts (id,call_id,contact_id,date_modified)
 						   VALUES ('$newID','{$bean->id}','$parent_id','$date_modified')";
-				   $db->query($query);
 			   }
+			   else
+			   {
+				   $query="INSERT INTO calls_accounts (id,call_id,account_id,date_modified)
+						   VALUES ('$newID','{$bean->id}','$parent_id','$date_modified')";
+			   }
+			    
+			   $db->query($query);
 			}
 		}
 	}

@@ -4,7 +4,7 @@
 $hook_version = 1; 
 $hook_array = Array(); 
 
-$hook_array['before_save'] = Array(); 
-$hook_array['before_save'][] = Array(1, 'attach_to_group_id', 'custom/modules/Meetings/ScheduleMeeting_hook.php','ScheduleMeeting', 'assign_meeting');
+$hook_array['after_save'] = Array(); 
+$hook_array['after_save'][] = Array(1, 'attach_to_group_id', 'custom/modules/Meetings/ScheduleMeeting_hook.php','ScheduleMeeting', 'assign_meeting');
 
 ?>
