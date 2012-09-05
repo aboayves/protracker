@@ -65,7 +65,7 @@ function build_child_tree($id, $added_nodes = array()) {
 			$node['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
 			$node['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
 			$node['expanded'] = true;
-			$node['children'] = build_child_tree($row);
+			$node['children'] = build_child_tree($row['id'], $added_nodes);
 			
 			$childs_array[] = $node;
 		}
