@@ -61,7 +61,15 @@ function getStart($id, $visited_parent=array()){
 function build_child_tree($id, $added_nodes = array()) {
     global $db, $users, $timedate;
     
-	$sql = "SELECT id, name, status, parent_tasks_id, assigned_user_id, date_due, IF(date_due < now() AND status != 'Completed', 1, 0) as over_due FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
+	$where = "";
+	if(isset($_REQUEST['pending_only']) && $_REQUEST['pending_only'] == '1'){
+		$where .= " AND status != 'Completed'";
+	}
+	if(isset($_REQUEST['more_then_90']) && $_REQUEST['more_then_90'] == '1'){
+		$where .= " AND date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY)";
+	}
+	
+	$sql = "SELECT id, name, status, parent_tasks_id, assigned_user_id, date_due, IF(date_due < now() AND status != 'Completed', 1, 0) as over_due FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0" . $where;
     $result = $db->query($sql);
 
 	$childs_array = array();

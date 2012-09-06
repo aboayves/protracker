@@ -85,8 +85,19 @@ var id= (oCurrentTextNode.getLabelEl().getAttribute("href")).split("record=");
 
 
 function loadNodeData(taskID, taskName)  {
-
-    var sUrl = "index.php?module=Tasks&action=getTreeNodes&id="+taskID+"&name="+taskName+"&sugar_body_only=true";
+	var pendingOnly = 0;
+	var moreThen90 = 0;
+	
+	var el = document.getElementById('pending_only');
+	if(el != null && el.checked){
+		pendingOnly = 1;
+	}
+	el = document.getElementById('more_then_90');
+	if(el != null && el.checked){
+		moreThen90 = 1;
+	}
+	
+    var sUrl = "index.php?module=Tasks&action=getTreeNodes&id="+taskID+"&name="+taskName+"&pending_only="+pendingOnly+"&more_then_90="+moreThen90+"&sugar_body_only=true";
 
     var callback = {
 
