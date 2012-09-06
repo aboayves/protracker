@@ -21,9 +21,7 @@ function generateTree(){
 				] 
 			} 
 		); 
-	oContextMenu.subscribe("triggerContextMenu", onTriggerContextMenu);
-
-		return;
+		oContextMenu.subscribe("triggerContextMenu", onTriggerContextMenu);
 	}
 	else
 	{
@@ -33,7 +31,7 @@ function generateTree(){
 	}
 	
 	disable_ajax = 0;
-	setTimeout("generateTree();", 1500);
+	setTimeout("generateTree();", 10000);
 }
 
  function onTriggerContextMenu(p_oEvent) 
