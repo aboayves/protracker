@@ -31,6 +31,9 @@ function generateTree(){
 		var taskName = document.getElementsByName('task_name')[0].value;
 		loadNodeData(taskID, taskName);
 	}
+	
+	disable_ajax = 0;
+	setTimeout("generateTree();", 1500);
 }
 
  function onTriggerContextMenu(p_oEvent) 
