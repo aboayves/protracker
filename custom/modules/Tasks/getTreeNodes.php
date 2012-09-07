@@ -26,7 +26,7 @@ function getStart($id, $visited_parent=array()){
 	
 	$visited_parent[] = $id;
 	
-	$query = "SELECT id, name, parent_tasks_id, assigned_user_id, date_due FROM tasks WHERE id='{$id}' AND deleted=0";
+	$query = "SELECT id, name, status, parent_tasks_id, assigned_user_id, date_due, IF(date_due < now() AND status != 'Completed', 1, 0) as over_due FROM tasks WHERE id='{$id}' AND deleted=0";
 	$res = $db->query($query);
 	$row = $db->fetchByAssoc($res);
 	if(!empty($row['parent_tasks_id']) && !in_array($row['parent_tasks_id'], $visited_parent)){
@@ -34,9 +34,21 @@ function getStart($id, $visited_parent=array()){
 	}else{
 		$tree = array();
 		
+		$tree['labelStyle'] = "ygtvlabel";
+			
+		if($row['status'] == 'Not Started' || $row['status'] == 'In Progress'){
+			$tree['labelStyle'] .= " active_task";
+		}else if($row['status'] == 'Completed'){
+			$tree['labelStyle'] .= " completed_task";
+		}
+		
+		if($row['over_due'] == '1'){
+			$tree['labelStyle'] .= " overdue_task";
+		}
+		
 		$tree['id'] = $row['id'];
-		$tree['type'] = 'text';
 		$tree['label'] = $row['name'];
+		$tree['type'] = 'text';
 		$tree['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
 		$tree['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
 		$tree['expanded'] = true;
@@ -49,7 +61,15 @@ function getStart($id, $visited_parent=array()){
 function build_child_tree($id, $added_nodes = array()) {
     global $db, $users, $timedate;
     
-	$sql = "SELECT id, name, parent_tasks_id, assigned_user_id, date_due FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
+	$where = "";
+	if(isset($_REQUEST['pending_only']) && $_REQUEST['pending_only'] == '1'){
+		$where .= " AND status != 'Completed'";
+	}
+	if(isset($_REQUEST['more_then_90']) && $_REQUEST['more_then_90'] == '1'){
+		$where .= " AND date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY)";
+	}
+	
+	$sql = "SELECT id, name, status, parent_tasks_id, assigned_user_id, date_due, IF(date_due < now() AND status != 'Completed', 1, 0) as over_due FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0" . $where;
     $result = $db->query($sql);
 
 	$childs_array = array();
@@ -59,13 +79,25 @@ function build_child_tree($id, $added_nodes = array()) {
 		
 			$node = array();
 			
+			$node['labelStyle'] = "ygtvlabel";
+			
+			if($row['status'] == 'Not Started' || $row['status'] == 'In Progress'){
+				$node['labelStyle'] .= " active_task";
+			}else if($row['status'] == 'Completed'){
+				$node['labelStyle'] .= " completed_task";
+			}
+			
+			if($row['over_due'] == '1'){
+				$node['labelStyle'] .= " overdue_task";
+			}
+			
 			$node['id'] = $row['id'];
-			$node['type'] = 'text';
 			$node['label'] = $row['name'];
+			$node['type'] = 'text';
 			$node['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
 			$node['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
 			$node['expanded'] = true;
-			$node['children'] = build_child_tree($row);
+			$node['children'] = build_child_tree($row['id'], $added_nodes);
 			
 			$childs_array[] = $node;
 		}

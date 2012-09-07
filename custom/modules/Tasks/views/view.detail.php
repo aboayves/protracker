@@ -45,6 +45,7 @@ class TasksViewDetail extends ViewDetail {
         echo '<link type="text/css" rel="stylesheet" href="include/javascript/yui/build/treeview/assets/skins/sam/treeview.css">
                 <!-- Optional CSS for for date editing with Calendar-->
                 <link type="text/css" rel="stylesheet" href="include/javascript/yui/build/calendar/assets/skins/sam/calendar.css">
+				 <link type="text/css" rel="stylesheet" href="custom/modules/Tasks/treeCSS.css">
 
                 <!-- Dependency source file --> 
                 <script src="include/javascript/yui/build/yahoo-dom-event/yahoo-dom-event.js" ></script>

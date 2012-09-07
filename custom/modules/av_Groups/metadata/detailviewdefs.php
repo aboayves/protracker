@@ -50,6 +50,10 @@ array (
 		  array(
 		  	'customCode' => '<input title="Add Note to Group" type="button" name="addNote2Group" id="addNote2Group" onclick="window.location=\'index.php?module=Notes&action=EditView&attach_to_group_id={$fields.id.value}\';" value="Add Note to Group">'
 		  ),
+		  13 => 
+		  array(
+		  	'customCode' => '<input title="Bulk Mail Export" type="button" name="BulkMailExport" id="BulkMailExport" onclick="window.open(\'index.php?module=av_Groups&action=BulkMailExport&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Bulk Mail Export">'
+		  ),
 	    ),
       ),
       'maxColumns' => '2',

@@ -19,33 +19,24 @@ class task_status_change
 			}
 		}
 	}
+	
 	function setStatus(&$bean, $event, $arguments)
 	{
 		global $db;
-		//this is true and weirdly going to be the parent bean (left) of the 1-M relationship
-		if(is_array($bean->fetched_row) && $_REQUEST['subpanel_id'] == $bean->parent_tasks_id)
-		{
-			
-			$status = '';
-			if($bean->status != 'Completed')
-			{
-				$status = ", status = 'Pending' ";
-			}
-			$query = "UPDATE tasks SET parent_tasks_id ='{$bean->id}' {$status} WHERE id = '{$bean->parent_tasks_id}'";
-			$db->query($query);
-			$bean->parent_tasks_id = $bean->fetched_row['parent_tasks_id'];
-		}
-		else	//create scenario
+		
+		if($bean->status == 'Completed')
 		{
 			$query = "SELECT status FROM tasks WHERE deleted=0 AND id='{$bean->parent_tasks_id}' LIMIT 1";
 			$parent_task = $db->query($query);
-			$parent_task = $db->fetchByAssoc($parent_task);
-			if($parent_task['status']!='Completed')
-			{
-				$bean->status = 'Pending';
+			if($parent_task = $db->fetchByAssoc($parent_task)){
+				if($parent_task['status'] != 'Completed')
+				{
+					$bean->status = 'Pending';
+				}
 			}
 		}
 	}
+	
 	function notify_child($beanID)
 	{
 		global $db;
@@ -57,6 +48,7 @@ class task_status_change
 			$this->doMail($child_task['assigned_user_id'], 'parent task completion notification','parent task completion notification');
 		}
 	}
+	
 	function notify_parent($beanID, $parentID)
 	{
 		if(!in_array($parentID, $this->sent)){
@@ -70,6 +62,7 @@ class task_status_change
 				$this->notify_parent($beanID, $taskBean->parent_tasks_id);
 		}
 	}
+	
 	public function doMail($to_userID, $body, $subject)
 	{
 		$user = new User();
@@ -99,6 +92,5 @@ class task_status_change
 		$email->email2init();
 		$email->email2Send($mailSettings);
 	}
-
 }
 ?>
