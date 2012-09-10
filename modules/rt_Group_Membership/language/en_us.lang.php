@@ -66,4 +66,5 @@ $mod_strings = array (
   'LBL_COMMENTS' => 'Comments',
   'LBL_ENVELOPE' => 'Envelope',
   'LBL_EXPIRATION_DATE' => 'Expiration',
+  'LBL_GROUP' => 'Group',
 );

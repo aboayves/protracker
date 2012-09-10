@@ -65,13 +65,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rt_group_membership_av_groups_name',
+            'name' => 'av_groups_name',
             'displayParams' => 
             array (
               'field_to_name_array' => 
               array (
-                'id' => 'rt_group_membership_av_groupsav_groups_ida',
-                'name' => 'rt_group_membership_av_groups_name',
+                'id' => 'av_groups_id',
+                'name' => 'av_groups_name',
                 'delivery_method' => 'delivery_method',
               ),
               'additionalFields' => 
