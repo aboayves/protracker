@@ -12,6 +12,8 @@ class Customav_GroupsViewDetail extends ViewDetail
 		
 		$bean = BeanFactory::getBean("Contacts");
 		
+//print "<pre>";	print_r($bean->field_defs);die();
+//print "<pre>"; print_r($bean->field_name_map['modified_user_id']['massupdate']);die();
 		  require_once('include/MassUpdate.php');
 		  $mass = new MassUpdate();
 		  
@@ -20,7 +22,7 @@ class Customav_GroupsViewDetail extends ViewDetail
 		$sql = "
 			SELECT DISTINCT parent_id
 			FROM rt_group_membership
-			LEFT JOIN rt_group_membership_av_groups_c
+			RIGHT JOIN rt_group_membership_av_groups_c
 			ON
 			(
 				rt_group_membership_av_groups_c.deleted=0
