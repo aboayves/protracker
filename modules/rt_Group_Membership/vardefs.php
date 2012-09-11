@@ -99,6 +99,27 @@ $dictionary['rt_Group_Membership'] = array(
     'len' => 36,
     'size' => '20',
   ),
+  'av_groups_name' => 
+  array (
+	'name' => 'av_groups_name',
+	'rname' => 'name',
+	'id_name' => 'av_groups_id',
+	'vname' => 'LBL_GROUP',
+	'type' => 'relate',
+	'table' => 'av_groups',
+	'isnull' => 'true',
+	'module' => 'av_Groups',
+	'dbType' => 'varchar',
+	'len' => '255',
+	'source' => 'non-db',
+	'unified_search' => true,
+   ),
+   'av_groups_id' => 
+   array (
+	 'name' => 'av_groups_id',
+	 'vname' => 'LBL_ACCOUNT_ID',
+	 'type' => 'id',
+   ),
   'include' =>
   array(
     'name' => 'include',

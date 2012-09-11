@@ -1,33 +1,50 @@
 <?php
  // created: 2012-08-09 15:46:02
-$layout_defs["av_Groups"]["subpanel_setup"]['rt_group_membership_av_groups'] = array (
+$layout_defs["av_Groups"]["subpanel_setup"]['av_groups_accounts'] = array (
   'order' => 100,
-  'module' => 'rt_Group_Membership',
-  'subpanel_name' => 'forGroup',
+  'module' => 'Accounts',
+  'subpanel_name' => 'forGroups',
   'sort_order' => 'asc',
   'sort_by' => 'id',
-  'title_key' => 'LBL_RT_GROUP_MEMBERSHIP_AV_GROUPS_FROM_RT_GROUP_MEMBERSHIP_TITLE',
-  'get_subpanel_data' => 'rt_group_membership_av_groups',
+  'title_key' => 'LBL_AV_GROUPS_ACCOUNTS_FROM_ACCOUNTS_TITLE',
+  'get_subpanel_data' => 'av_groups_accounts',
   'top_buttons' => 
   array (
     0 => 
     array (
       'widget_class' => 'SubPanelTopButtonQuickCreate',
     ),
-	1 =>
-	array(
-	 'widget_class' => 'SubPanelTopCstmSelectButton',
-	 'mode' => 'MultiSelect',
-	 'override_module' => 'Contacts',
-	 'form_value' => 'Select from Contacts',
-	),
-	2 =>
-	array(
-	 'widget_class' => 'SubPanelTopCstmSelectButton',
-	 'mode' => 'MultiSelect',
-	 'override_module' => 'Accounts',
-	 'form_value' => 'Select from Clients',
-	),
-
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+    2 => array (
+      'widget_class' => 'SubPanelTopSelectFromReportButton',
+    ),
+  ),
+);
+$layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
+  'order' => 110,
+  'module' => 'Contacts',
+  'subpanel_name' => 'forGroups',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_AV_GROUPS_CONTACTS_FROM_CONTACTS_TITLE',
+  'get_subpanel_data' => 'av_groups_contacts',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+    2 => array (
+      'widget_class' => 'SubPanelTopSelectFromReportButton',
+    ),
   ),
 );

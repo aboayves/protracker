@@ -1,5 +1,5 @@
 <?php
-// created: 2012-08-16 20:06:42
+// created: 2012-09-04 14:42:25
 $mod_strings = array (
   'LBL_OTHER_ADDRESS_STREET' => 'Other Address Street',
   'LBL_OTHER_ADDRESS_CITY' => 'Other Address City',
@@ -58,4 +58,5 @@ $mod_strings = array (
   'LBL_ACCOUNTS_CONTACTS_1_FROM_ACCOUNTS_TITLE' => 'Client Name',
   'LBL_SECRELATED' => 'SEC-Related Party',
   'LBL_CONTACTS_RT_GROUP_MEMBERSHIP_SUBPANEL_TITLE' => 'Groups',
+  'LBL_BIRTHDATE' => 'Birthdate:',
 );

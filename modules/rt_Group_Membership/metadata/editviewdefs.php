@@ -37,7 +37,7 @@ array (
         ),
         1 => 
         array (
-          0 => 'rt_group_membership_av_groups_name',
+          0 => 'av_groups_name',
           1 => 'include',
         ),
         2 => 
