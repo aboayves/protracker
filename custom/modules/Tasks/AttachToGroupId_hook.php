@@ -7,10 +7,7 @@ class AttachToGroupId
 		  {
 			global $db, $timedate;
 			
-			$query="SELECT rt_group_membership.parent_id, rt_group_membership.parent_type
-					FROM rt_group_membership_av_groups_c
-					RIGHT JOIN rt_group_membership ON (rt_group_membership.deleted=0 AND rt_group_membership.include=1 AND rt_group_membership.id = rt_group_membership_av_groups_c.rt_group_membership_av_groupsrt_group_membership_idb)
-					WHERE rt_group_membership_av_groups_c.deleted=0 AND rt_group_membership_av_groups_c.rt_group_membership_av_groupsav_groups_ida='{$bean->attach_to_group_id}'";
+			$query="SELECT rt.parent_id, rt.parent_type	FROM rt_group_membership AS rt WHERE rt.deleted=0 AND rt.av_groups_id='{$bean->attach_to_group_id}' AND rt.include=1";
 			
 			$members = $db->query($query);
 			

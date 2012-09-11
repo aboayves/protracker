@@ -51,7 +51,7 @@ $subpanel_layout['list_fields'] = array (
     'width' => '5%',
     'default' => true,
   ),
-  'calc_expiration_date' => 
+  'expiration_date' => 
   array (
     'type' => 'date',
     'vname' => 'LBL_EXPIRATION_DATE',

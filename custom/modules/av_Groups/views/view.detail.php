@@ -12,32 +12,16 @@ class Customav_GroupsViewDetail extends ViewDetail
 		
 		$bean = BeanFactory::getBean("Contacts");
 		
-//print "<pre>";	print_r($bean->field_defs);die();
-//print "<pre>"; print_r($bean->field_name_map['modified_user_id']['massupdate']);die();
 		  require_once('include/MassUpdate.php');
 		  $mass = new MassUpdate();
 		  
 		  echo $mass->getDisplayMassUpdateForm(true,true);
 		 
-		$sql = "
-			SELECT DISTINCT parent_id
-			FROM rt_group_membership
-			RIGHT JOIN rt_group_membership_av_groups_c
-			ON
-			(
-				rt_group_membership_av_groups_c.deleted=0
-				AND
-				rt_group_membership_av_groups_c.rt_group_membership_av_groupsav_groups_ida='{$this->bean->id}'
-				AND
-				rt_group_membership_av_groups_c.rt_group_membership_av_groupsrt_group_membership_idb = rt_group_membership.id
-			)
-			WHERE rt_group_membership.deleted=0 AND rt_group_membership.parent_type='Contacts'
-		";
+		$sql = "SELECT DISTINCT(parent_id) as 'parent_id' FROM rt_group_membership WHERE deleted=0 AND av_groups_id='{$this->bean->id}' AND parent_type='Contacts'";
 		$res = $db->query($sql);
 		$uid='';
 		while($row = $db->fetchByAssoc($res))
 		{
-			//echo $row['parent_id']." <br>";
 			echo "
 			<input type='hidden' value='{$row['parent_id']}' name='mass[]'>
 			";
@@ -80,21 +64,15 @@ class Customav_GroupsViewDetail extends ViewDetail
 			
 			
 		}
-	$bean = BeanFactory::getBean("Contacts");
+		$bean = BeanFactory::getBean("Contacts");
 	   
 		$mem_email=" ";
 		
-
- 
-		$sql="SELECT email_addresses.email_address
-		From rt_group_membership_av_groups_c
-		RIGHT JOIN rt_group_membership 
-			ON (rt_group_membership.deleted=0 AND rt_group_membership.id = rt_group_membership_av_groups_c.rt_group_membership_av_groupsrt_group_membership_idb AND rt_group_membership.include=1)
-		LEFT JOIN email_addr_bean_rel 
-			ON (email_addr_bean_rel.deleted=0 AND email_addr_bean_rel.bean_id=rt_group_membership.parent_id AND rt_group_membership.parent_type=email_addr_bean_rel.bean_module)
-		LEFT JOIN email_addresses 
-			ON (email_addresses.deleted=0 AND email_addresses.invalid_email=0 AND email_addresses.id=email_addr_bean_rel.email_address_id)
-		WHERE rt_group_membership_av_groups_c.deleted=0 AND rt_group_membership_av_groups_c.rt_group_membership_av_groupsav_groups_ida='{$this->bean->id}'";
+		$sql = 	"SELECT ea.email_address FROM rt_group_membership rt ".
+				"INNER JOIN email_addr_bean_rel eabr ON eabr.deleted=0 AND eabr.bean_id=rt.parent_id AND rt.parent_type=eabr.bean_module ".
+				"INNER JOIN email_addresses ea ON ea.deleted=0 AND ea.invalid_email=0 AND ea.id=eabr.email_address_id".
+				"WHERE rt.deleted=0 AND rt.av_groups_id='{$this->bean->id}' AND rt.include=1";
+				
 		$contacts = $db->query($sql);
 		while($contact = $db->fetchByAssoc($contacts))
 		{

@@ -7,11 +7,7 @@ class SaveCall
 		{
 			global $db,$timedate;
 			$date_modified=$timedate->nowDb();
-		    $query="SELECT rt.parent_id, rt.parent_type
-					FROM rt_group_membership_av_groups_c AS ra 
-					RIGHT JOIN rt_group_membership AS rt 
-						ON (rt.deleted=0 AND ra.rt_group_membership_av_groupsrt_group_membership_idb=rt.id AND rt.include=1)
-					WHERE ra.deleted=0 AND ra.rt_group_membership_av_groupsav_groups_ida='{$bean->attach_to_group_id}'";
+		    $query="SELECT rt.parent_id, rt.parent_type	FROM rt_group_membership AS rt WHERE rt.deleted=0 AND rt.av_groups_id='{$bean->attach_to_group_id}' AND rt.include=1";
 			$res = $db->query($query); 
 		
 			while ($row = $db->fetchByAssoc($res)) 

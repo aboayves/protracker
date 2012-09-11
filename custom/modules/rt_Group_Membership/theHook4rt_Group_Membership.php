@@ -1,27 +1,24 @@
 <?php
 class theHook4rt_Group_Membership
 {
-	function fetchOtherValues(&$bean, $event, $arguments) 
-	{
-		
-	}
 	function beforeSaveThingsToDo(&$bean, $event, $arguments)
 	{
+		global $db, $timedate;
 		
-	}
-	function afterSaveThingsToDo(&$bean, $event, $arguments)
-	{
-		global $db;
+		if(empty($bean->date_entered))
+		{
+			$bean->date_entered = $timedate->nowDb();
+		}
+		
+		$bean->date_add_to_grp = $bean->date_entered;
+		
 		if(empty($bean->expiration_date))
 		{
-			$sql = "SELECT date_modified FROM rt_group_membership_av_groups_c WHERE rt_group_membership_av_groupsrt_group_membership_idb='{$bean->id}' AND deleted=0 LIMIT 1";
+			$sql = "SELECT membership_expiration_days FROM av_groups WHERE id = '{$bean->av_groups_id}' AND deleted=0 LIMIT 1";
 			$result = $db->fetchByAssoc($db->query($sql));
-			$date_added = $result['date_modified'];
+			$xDays = is_numeric($result['membership_expiration_days'])?$result['membership_expiration_days']:0;
 			
-			$sql = "SELECT membership_expiration_days FROM av_groups WHERE id = '{$bean->rt_group_membership_av_groupsav_groups_ida}' AND deleted=0 LIMIT 1";
-			$result = $db->query($sql);
-			
-			
+			$bean->expiration_date = date("Y-m-d", strtotime(date("Y-m-d", strtotime($bean->date_entered))." +{$xDays} days"));
 		}
 	}
 }
