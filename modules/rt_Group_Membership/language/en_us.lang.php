@@ -67,4 +67,5 @@ $mod_strings = array (
   'LBL_ENVELOPE' => 'Envelope',
   'LBL_EXPIRATION_DATE' => 'Expiration',
   'LBL_GROUP' => 'Group',
+  'LBL_DESTINATION_ADDRESS' => 'Destination Address',
 );

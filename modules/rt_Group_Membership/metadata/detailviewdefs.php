@@ -75,6 +75,17 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'destination_address',
+            'comment' => 'Destination Address',
+            'label' => 'LBL_DESTINATION_ADDRESS',
+			'type' => 'readOnly',
+          ),
+          1 => '',
+        ),
       ),
     ),
   ),

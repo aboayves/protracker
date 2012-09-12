@@ -66,6 +66,17 @@ array (
 			'type' => 'readOnly',
 		  ),
         ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'destination_address',
+            'comment' => 'Destination Address',
+            'label' => 'LBL_DESTINATION_ADDRESS',
+			'type' => 'readOnly',
+          ),
+          1 => '',
+        ),
       ),
     ),
   ),

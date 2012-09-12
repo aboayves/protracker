@@ -171,6 +171,16 @@ $dictionary['rt_Group_Membership'] = array(
     'type' => 'date',
     'comments' => 'Expiration Date Dependent on Groups Memberships Expiration Days',
   ),
+  'destination_address' => 
+  array(
+	'name' => 'destination_address',
+	'vname' => 'LBL_DESTINATION_ADDRESS',
+	'type' => 'text',
+	'len' => '255',
+	'audited'=>false,
+	'required'=>false,
+	'comment' => 'Destination Address'
+  ),
  ),
 	'relationships'=>array (
 ),
