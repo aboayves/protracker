@@ -14,10 +14,7 @@ $html="
 	</tr>";
 
 $sql="
-SELECT rt_group_membership.name, rt_group_membership.include, rt_group_membership.opted_out, rt_group_membership.expiration_date, rt_group_membership.delivery_method, rt_group_membership.comments
-FROM rt_group_membership_av_groups_c
-RIGHT JOIN rt_group_membership ON (rt_group_membership.deleted=0 AND rt_group_membership.id = rt_group_membership_av_groups_c.rt_group_membership_av_groupsrt_group_membership_idb AND rt_group_membership.include=1)
-WHERE rt_group_membership_av_groups_c.deleted=0 AND rt_group_membership_av_groups_c.rt_group_membership_av_groupsav_groups_ida='{$_REQUEST['record']}'";
+SELECT rt_group_membership.name, rt_group_membership.include, rt_group_membership.opted_out, rt_group_membership.expiration_date, rt_group_membership.delivery_method, rt_group_membership.comments FROM rt_group_membership WHERE rt_group_membership.deleted=0 AND rt_group_membership.av_groups_id='{$_REQUEST['record']}' AND rt_group_membership.include=1";
 
 $members = $db->query($sql);
 

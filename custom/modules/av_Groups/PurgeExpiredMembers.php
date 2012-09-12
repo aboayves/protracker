@@ -1,22 +1,21 @@
 <?php
 global $db, $timedate;
 
-$query="SELECT av_groups.membership_expiration_days,rt_group_membership_av_groups_c.date_modified,rt_group_membership_av_groups_c.id
-	  FROM rt_group_membership_av_groups_c
-	  LEFT JOIN av_groups ON (av_groups.deleted=0 AND av_groups.id = rt_group_membership_av_groups_c.rt_group_membership_av_groupsav_groups_ida)
-	  RIGHT JOIN rt_group_membership ON (rt_group_membership.deleted=0 AND rt_group_membership.id = rt_group_membership_av_groups_c.rt_group_membership_av_groupsrt_group_membership_idb AND rt_group_membership.include=1)
-	  WHERE rt_group_membership_av_groups_c.deleted=0 AND rt_group_membership_av_groups_c.rt_group_membership_av_groupsav_groups_ida='{$_REQUEST['record']}'";
+$query="SELECT av_groups.membership_expiration_days,rt_group_membership.date_entered,rt_group_membership.id
+	  FROM rt_group_membership
+	  LEFT JOIN av_groups ON av_groups.deleted=0 AND av_groups.id = rt_group_membership.av_groups_id
+	  WHERE rt_group_membership.deleted=0 AND rt_group_membership.av_groups_id='{$_REQUEST['record']}' AND rt_group_membership.include=1";
 
-$member = $db->query($query);
-while ($member1 = $db->fetchByAssoc($member))
+$members = $db->query($query);
+while ($member = $db->fetchByAssoc($members))
 {	
 	list($m, $d, $y) = explode("/", $timedate->nowDate());
-	list($y1, $m1, $d1) = explode("-", $timedate->getDatePart($member1['date_modified']));
+	list($y1, $m1, $d1) = explode("-", $timedate->getDatePart($member['date_entered']));
 	$daysstart =(strtotime($y.'-'.$m.'-'.$d) - strtotime($y1.'-'.$m1.'-'.$d1)) / (60 * 60 * 24);
 
-	if($daysstart>$member1['membership_expiration_days'])
+	if($daysstart>$member['membership_expiration_days'])
 	{
-		$querry="UPDATE `rt_group_membership_av_groups_c` SET `deleted`='1' where id='{$member1['id']}'";
+		$querry="UPDATE `rt_group_membership` SET `deleted`='1' where id='{$member['id']}'";
 		$db->query($querry);
 	}
 }
