@@ -68,6 +68,7 @@ $mod_strings = array (
   'LBL_ASSIGNED_TO_CLIENT' => 'Assigned to client',
   'LBL_ASSIGN_TO' => 'Assign To',
   'LBL_DAYS_OUT' => 'Days Out',
-  'LBL_WAITING_FOR' => 'Waiting For',
   'LBL_WORKFLOW' => 'Workflow',
+  'LBL_PARENT_TASKS' => 'Waiting for',
+  'LBL_CHILD_TASKS' => 'Dependent Tasks',
 );

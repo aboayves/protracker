@@ -91,9 +91,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'waiting_for',
+            'name' => 'parent_tasks_name',
             'studio' => 'visible',
-            'label' => 'LBL_WAITING_FOR',
+            'label' => 'LBL_PARENT_TASKS',
           ),
         ),
         6 => 
