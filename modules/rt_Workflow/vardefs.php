@@ -29,45 +29,42 @@
 $dictionary['rt_Workflow'] = array(
 	'table'=>'rt_workflow',
 	'audited'=>true,
-		'duplicate_merge'=>true,
-		'fields'=>array (
-  'category' => 
-  array (
-    'required' => false,
-    'name' => 'category',
-    'vname' => 'LBL_CATEGORY',
-    'type' => 'varchar',
-    'massupdate' => 0,
-    'comments' => '',
-    'help' => '',
-    'importable' => 'true',
-    'duplicate_merge' => 'disabled',
-    'duplicate_merge_dom_value' => '0',
-    'audited' => false,
-    'reportable' => true,
-    'unified_search' => false,
-    'merge_filter' => 'disabled',
-    'calculated' => false,
-    'len' => '255',
-    'size' => '20',
-  ),
-  'rt_workflow_rt_task_template' => 
-  array (
-    'name' => 'rt_workflow_rt_task_template',
-    'type' => 'link',
-    'relationship' => 'rt_workflow_rt_task_template',
-    'module' => 'rt_task_Template',
-    'bean_name' => 'rt_task_Template',
-    'source' => 'non-db',
-    'vname' => 'LBL_RT_TASK_TEMPLATE',
-    ),
-),
+	'duplicate_merge'=>true,
+	'fields'=>array (
+		'category' => 
+		 array (
+			'required' => false,
+			'name' => 'category',
+			'vname' => 'LBL_CATEGORY',
+			'type' => 'varchar',
+			'massupdate' => 0,
+			'comments' => '',
+			'help' => '',
+			'importable' => 'true',
+			'duplicate_merge' => 'disabled',
+			'duplicate_merge_dom_value' => '0',
+			'audited' => false,
+			'reportable' => true,
+			'unified_search' => false,
+			'merge_filter' => 'disabled',
+			'calculated' => false,
+			'len' => '255',
+			'size' => '20',
+		),
+		'tree' => 
+		array (
+			'name' => 'tree',
+			'vname' => 'LBL_TREE',
+			'type' => 'text',
+			'source' => 'non-db'
+		),
+	),
 	'relationships'=>array (
-),
+	),
 	'optimistic_locking'=>true,
-		'unified_search'=>true,
-	);
+	'unified_search'=>true,
+);
 if (!class_exists('VardefManager')){
         require_once('include/SugarObjects/VardefManager.php');
 }
-VardefManager::createVardef('rt_Workflow','rt_Workflow', array('basic','team_security','assignable'));
+VardefManager::createVardef('rt_Workflow','rt_Workflow', array('basic','team_security','assignable'));
