@@ -51,6 +51,16 @@ $dictionary['rt_Workflow'] = array(
     'len' => '255',
     'size' => '20',
   ),
+  'rt_workflow_rt_task_template' => 
+  array (
+    'name' => 'rt_workflow_rt_task_template',
+    'type' => 'link',
+    'relationship' => 'rt_workflow_rt_task_template',
+    'module' => 'rt_task_Template',
+    'bean_name' => 'rt_task_Template',
+    'source' => 'non-db',
+    'vname' => 'LBL_RT_TASK_TEMPLATE',
+    ),
 ),
 	'relationships'=>array (
 ),

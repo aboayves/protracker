@@ -1,4 +1,5 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -26,39 +27,29 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-$mod_strings = array (
-  'LBL_TEAM' => 'Teams',
-  'LBL_TEAMS' => 'Teams',
-  'LBL_TEAM_ID' => 'Team Id',
-  'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
-  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
-  'LBL_ID' => 'ID',
-  'LBL_DATE_ENTERED' => 'Date Created',
-  'LBL_DATE_MODIFIED' => 'Date Modified',
-  'LBL_MODIFIED' => 'Modified By',
-  'LBL_MODIFIED_ID' => 'Modified By Id',
-  'LBL_MODIFIED_NAME' => 'Modified By Name',
-  'LBL_CREATED' => 'Created By',
-  'LBL_CREATED_ID' => 'Created By Id',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_DELETED' => 'Deleted',
-  'LBL_NAME' => 'Name',
-  'LBL_CREATED_USER' => 'Created by User',
-  'LBL_MODIFIED_USER' => 'Modified by User',
-  'LBL_LIST_NAME' => 'Name',
-  'LBL_LIST_FORM_TITLE' => 'Workflow List',
-  'LBL_MODULE_NAME' => 'Workflow',
-  'LBL_MODULE_TITLE' => 'Workflow',
-  'LBL_HOMEPAGE_TITLE' => 'My Workflow',
-  'LNK_NEW_RECORD' => 'Create Workflow',
-  'LNK_LIST' => 'View Workflow',
-  'LNK_IMPORT_RT_WORKFLOW' => 'Import Workflow',
-  'LBL_SEARCH_FORM_TITLE' => 'Search Workflow',
-  'LBL_HISTORY_SUBPANEL_TITLE' => 'View History',
-  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
-  'LBL_RT_WORKFLOW_SUBPANEL_TITLE' => 'Workflow',
-  'LBL_NEW_FORM_TITLE' => 'New Workflow',
-  'LBL_CATEGORY' => 'Category',
-  'LBL_RT_WORKFLOW_RT_TASK_TEMPLATE' => 'Task Templates',
-  'LBL_RT_WORKFLOW_NAME' => 'Workflow',
+$layout_defs['rt_Workflow'] = array(
+	'subpanel_setup' => array(
+        'rt_workflow_rt_task_template' => array(
+	    'order' => 100,
+	    'module' => 'rt_task_Template',
+	    'subpanel_name' => 'default',
+	    'sort_order' => 'asc',
+	    'sort_by' => 'id',
+	    'title_key' => 'LBL_RT_WORKFLOW_RT_TASK_TEMPLATE',
+	    'get_subpanel_data' => 'rt_workflow_rt_task_template',
+	    'top_buttons' => 
+		array (
+		  0 => 
+		  array (
+			'widget_class' => 'SubPanelTopButtonQuickCreate',
+		  ),
+		  1 => 
+		  array (
+			'widget_class' => 'SubPanelTopSelectButton',
+			'mode' => 'MultiSelect',
+		  ),
+		),
+	  ),
+	),
 );
+?>

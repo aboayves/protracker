@@ -100,7 +100,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'workflow',
+            'name' => 'rt_workflow_name',
             'studio' => 'visible',
             'label' => 'LBL_WORKFLOW',
           ),
