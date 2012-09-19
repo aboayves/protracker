@@ -32,6 +32,17 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
+	  'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/rt_Workflow/tree.js',
+        ),
+		1 => 
+        array (
+          'file' => 'modules/rt_Workflow/delete.js',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -56,6 +67,18 @@ array (
           0 => 'description',
         ),
       ),
+	  'lbl_tree' =>
+	  array(
+		0 =>
+		array(
+			0 =>
+			array(
+				'name' => 'tree',
+				'label' => 'LBL_TREE',
+				'customCode' => '<div id="tree_plotting_div"></div>'  
+			),
+		),    
+	  ),
     ),
   ),
 );
