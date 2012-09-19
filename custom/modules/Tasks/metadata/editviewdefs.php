@@ -74,13 +74,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'date_start',
-            'type' => 'datetimecombo',
-            'displayParams' => 
-            array (
-              'showNoneCheckbox' => true,
-              'showFormats' => true,
-            ),
+            'name' => 'parent_tasks_name',
+            'label' => 'LBL_PARENT_TASKS',
           ),
           1 => 
           array (
@@ -113,7 +108,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'date_due',
+            'name' => 'date_start',
             'type' => 'datetimecombo',
             'displayParams' => 
             array (
@@ -123,8 +118,13 @@ array (
           ),
           1 => 
           array (
-            'name' => 'parent_tasks_name',
-            'label' => 'LBL_PARENT_TASKS',
+            'name' => 'date_due',
+            'type' => 'datetimecombo',
+            'displayParams' => 
+            array (
+              'showNoneCheckbox' => true,
+              'showFormats' => true,
+            ),
           ),
         ),
         5 => 
