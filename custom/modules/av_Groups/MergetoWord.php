@@ -18,9 +18,9 @@ SELECT
 	contacts.primary_address_country, 
 	contacts.phone_home, 
 	contacts.phone_fax, 
-	contacts_cstm.type_c, 
-	contacts_cstm.status_c AS contact_status, 
-	contacts_cstm.priority_c AS contact_priority, 
+	contacts.type, 
+	contacts.status AS contact_status, 
+	contacts.priority AS contact_priority, 
 	
 	accounts.name, 
 	accounts.billing_address_street, 
@@ -31,8 +31,8 @@ SELECT
 	accounts.phone_office, 
 	accounts.phone_fax, 
 	accounts.account_type, 
-	accounts_cstm.status_c AS client_status, 
-	accounts_cstm.priority_c AS client_priority,
+	accounts.status AS client_status, 
+	accounts.priority AS client_priority,
 	rt_group_membership.parent_type, 
 	rt_offices.name AS office_name
 FROM rt_group_membership
@@ -44,15 +44,6 @@ LEFT JOIN
 		accounts.id=rt_group_membership.parent_id 
 		AND 
 		rt_group_membership.parent_type='Accounts'
-	)
-LEFT JOIN 
-	accounts_cstm 
-	ON(
-		accounts.id IS NOT NULL 
-		AND 
-		accounts.id!='' 
-		AND 
-		accounts_cstm.id_c=accounts.id
 	)
 LEFT JOIN 
 	rt_offices_accounts_1_c
@@ -69,15 +60,6 @@ LEFT JOIN
 		contacts.id=rt_group_membership.parent_id 
 		AND 
 		rt_group_membership.parent_type='Contacts' 
-	)
-LEFT JOIN 
-	contacts_cstm 
-	ON(
-		contacts.id IS NOT NULL 
-		AND 
-		contacts.id!='' 
-		AND 
-		contacts_cstm.id_c=contacts.id
 	)
 LEFT JOIN 
 	rt_offices_contacts_1_c 
@@ -128,7 +110,7 @@ while($member = $db->fetchByAssoc($members))
 	}
 	elseif($member['parent_type']=="Contacts")
 	{
-		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].", ".$member['primary_address_street'].", ".$member['primary_address_city'].", ".$member['primary_address_state'].", ".$member['primary_address_postalcode'].", ".$member['phone_home'].", ".$member['phone_fax'].", ".$member['type_c'].", ".$member['contact_status'].", ".$member['contact_priority'].", ".$member['office_name']."\n";
+		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].", ".$member['primary_address_street'].", ".$member['primary_address_city'].", ".$member['primary_address_state'].", ".$member['primary_address_postalcode'].", ".$member['phone_home'].", ".$member['phone_fax'].", ".$member['type'].", ".$member['contact_status'].", ".$member['contact_priority'].", ".$member['office_name']."\n";
 	}
 }
 

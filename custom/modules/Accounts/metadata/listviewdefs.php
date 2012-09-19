@@ -14,7 +14,7 @@ array (
     'label' => 'LBL_TYPE',
     'default' => true,
   ),
-  'PRIORITY_C' => 
+  'PRIORITY' => 
   array (
     'type' => 'enum',
     'default' => true,
@@ -22,7 +22,7 @@ array (
     'label' => 'LBL_PRIORITY',
     'width' => '10%',
   ),
-  'STATUS_C' => 
+  'STATUS' => 
   array (
     'type' => 'enum',
     'default' => true,
