@@ -106,7 +106,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'comments_c',
+            'name' => 'comments',
             'studio' => 'visible',
             'label' => 'LBL_COMMENTS',
           ),
@@ -161,7 +161,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'age_c',
+            'name' => 'age',
             'label' => 'LBL_AGE',
           ),
         ),
@@ -169,7 +169,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'ssn_c',
+            'name' => 'ssn',
             'label' => 'LBL_SSN',
           ),
           1 => 
@@ -183,12 +183,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'citizenship_c',
+            'name' => 'citizenship',
             'label' => 'LBL_CITIZENSHIP',
           ),
           1 => 
           array (
-            'name' => 'marital_status_c',
+            'name' => 'marital_status',
             'studio' => 'visible',
             'label' => 'LBL_MARITAL_STATUS',
           ),
@@ -200,13 +200,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'type_c',
+            'name' => 'type',
             'studio' => 'visible',
             'label' => 'LBL_TYPE',
           ),
           1 => 
           array (
-            'name' => 'status_c',
+            'name' => 'status',
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
@@ -215,7 +215,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'priority_c',
+            'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
@@ -232,7 +232,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'business_trust_c',
+            'name' => 'business_trust',
             'label' => 'LBL_BUSINESS_TRUST',
           ),
         ),
@@ -240,13 +240,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'profession_c',
+            'name' => 'profession',
             'studio' => 'visible',
             'label' => 'LBL_PROFESSION',
           ),
           1 => 
           array (
-            'name' => 'sec_related_party_c',
+            'name' => 'sec_related_party',
             'label' => 'LBL_SEC_RELATED_PARTY',
           ),
         ),
@@ -254,13 +254,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'position_c',
+            'name' => 'position',
             'studio' => 'visible',
             'label' => 'LBL_POSITION',
           ),
           1 => 
           array (
-            'name' => 'employee_or_firm_c',
+            'name' => 'employee_or_firm',
             'label' => 'LBL_EMPLOYEE_OR_FIRM',
           ),
         ),
@@ -268,12 +268,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employee_id_c',
+            'name' => 'employee_id',
             'label' => 'LBL_EMPLOYEE_ID',
           ),
           1 => 
           array (
-            'name' => 'contribution_apply_c',
+            'name' => 'contribution_apply',
             'label' => 'LBL_CONTRIBUTION_APPLY',
           ),
         ),
@@ -282,7 +282,7 @@ array (
           0 => '',
           1 => 
           array (
-            'name' => 'gift_applicable_c',
+            'name' => 'gift_applicable',
             'label' => 'LBL_GIFT_APPLICABLE',
           ),
         ),

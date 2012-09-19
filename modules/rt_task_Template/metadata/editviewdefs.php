@@ -22,6 +22,10 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => false,
+      'includes' => 
+	            array( 
+                     array ('file' => 'modules/rt_task_Template/custom_javascript.js')
+                    ), 
     ),
     'panels' => 
     array (
@@ -65,6 +69,10 @@ array (
             'name' => 'assign_to',
             'studio' => 'visible',
             'label' => 'LBL_ASSIGN_TO',
+			 'displayParams' =>  
+            array ( 
+              'javascript' => 'onchange="customHide(this.value);"', 
+            ), 
           ),
           1 => 'assigned_user_name',
         ),
