@@ -1,6 +1,6 @@
 <?php
 $dictionary["rt_Workflow"]["fields"]["related_to"] = array (
-   'required' => false,
+   'required' => true,
     'source' => 'non-db',
     'name' => 'related_to',
     'vname' => 'LBL_RELATED_TO',

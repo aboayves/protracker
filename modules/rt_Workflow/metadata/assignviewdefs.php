@@ -10,7 +10,7 @@ array (
       array (
 	   'buttons' => 
 	   array(
-		0 => array( 'customCode' => '<input type="button" value="Save" onclick=" _form = document.getElementById(\'EditView\');_form.action.value=\'assign\';check_form(\'EditView\');SUGAR.ajaxUI.submitForm(_form);" />'),
+		0 => array( 'customCode' => '<input type="button" value="Save" onclick=" _form = document.getElementById(\'EditView\');_form.action.value=\'assign\';if(check_form(\'EditView\'))SUGAR.ajaxUI.submitForm(_form);return false;" />'),
 		1 => 'CANCEL',
 	   ),
 	   'hideAudit' => false,
