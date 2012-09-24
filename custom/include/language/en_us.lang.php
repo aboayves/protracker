@@ -781,4 +781,4 @@ $GLOBALS['app_list_strings']['task_assign_to_list']=array (
   'User_1' => 'User 1',
   'User_2' => 'User 2',
   'User_3' => 'User 3',
-);
+);$GLOBALS['app_list_strings']['parent_type_display_tasks']=array (    'Accounts' => 'Account',    'Contacts' => 'Contact',    'Opportunities' => 'Opportunity',    'Products' => 'Product',	'av_Groups'=>'Groups',    'Quotes' => 'Quote',    'Bugs' => 'Bug Tracker',    'Cases' => 'Case',    'Leads' => 'Lead',    'ProjectTask' => 'Project Task',    'Prospects' => 'Target',);

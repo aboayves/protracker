@@ -46,12 +46,6 @@ class rt_WorkflowController extends SugarController {
 			}
 			
 			foreach($taskTemplateRecords as $record){
-				$record['id'] = $array_new_ids[$record['id']];
-				
-				if(!empty($record['parent_tasks_id'])){
-					$record['parent_tasks_id'] = $array_new_ids[$record['parent_tasks_id']];
-				}
-				
 				if(empty($record['parent_tasks_id'])){
 					$status='Not Started';
 				}else{
@@ -59,10 +53,19 @@ class rt_WorkflowController extends SugarController {
 				}
 								
 				//Making SQL statement
+				$record['id'] = $array_new_ids[$record['id']];
+				if(!empty($record['parent_tasks_id'])){
+					$record['parent_tasks_id'] = $array_new_ids[$record['parent_tasks_id']];
+				}
+				
 				$record['parent_type'] = $_REQUEST['parent_type'];
 				$record['parent_id'] = $_REQUEST['parent_id'];
 				if(isset($record['days_out'])){
 					unset($record['days_out']);
+				}
+				
+				if(isset($_REQUEST['add_to_project_id']) && !empty($_REQUEST['add_to_project_id'])){
+					$record['project_id'] = $_REQUEST['add_to_project_id'];
 				}
 				
 				$keys = implode(',' , array_keys($record));

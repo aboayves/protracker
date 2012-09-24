@@ -127,6 +127,16 @@ array (
         ),
         8 => 
         array (
+          0 => 
+          array (
+            'name' => 'project',
+            'studio' => 'visible',
+            'label' => 'LBL_PROJECT',
+          ),
+          1 => '',
+        ),
+        9 => 
+        array (
           0 => 'description',
         ),
       ),

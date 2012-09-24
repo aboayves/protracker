@@ -161,6 +161,16 @@ array (
         array (
           0 => 
           array (
+            'name' => 'project',
+            'studio' => 'visible',
+            'label' => 'LBL_PROJECT',
+          ),
+          1 => '',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
             'name' => 'description',
             'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
 
