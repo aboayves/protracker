@@ -36,5 +36,12 @@ class rt_Workflow extends rt_Workflow_sugar {
 		parent::rt_Workflow_sugar();
 	}
 	
+	function is_AuditEnabled(){
+		if($_REQUEST['action'] == 'assign'){
+			return false;
+		}
+		
+		return parent::is_AuditEnabled();
+	}
 }
 ?>

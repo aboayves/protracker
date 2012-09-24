@@ -14,6 +14,10 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
+		  4 => 
+		  array(
+		  	'customCode' => '<input title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" onClick="var _form = document.getElementById(\'formDetailView\');_form.action.value=\'assign\';SUGAR.ajaxUI.submitForm(_form);" value="Assign Workflow">'
+		  ),
         ),
       ),
       'maxColumns' => '2',
