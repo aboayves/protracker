@@ -15,7 +15,7 @@ class rt_WorkflowController extends SugarController {
 		}
 	}
 	
-	function setTaskDates($tasks_templates, &$dates, &$daysOut, $reversed, $startStamp, $top = false){
+	function setTaskDates($tasks_templates, &$dates, &$daysOut, $reversed, $startStamp, $dayKeyword, $top = false){
 		$minStamp = $startStamp;
 		
 		foreach($tasks_templates as $tasks_template){
@@ -27,16 +27,16 @@ class rt_WorkflowController extends SugarController {
 			
 			if(!$reversed){
 				if(!$top){
-					$tmpStamp = strtotime("+" . $daysOut[$tasks_template['id']] . " day", $tmpStamp);
+					$tmpStamp = strtotime("+" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStamp);
 				}
 			}
 			
 			//Calling recursively for childrens
 			if(isset($tasks_template['children']) && !empty($tasks_template['children'])){
-				$tmpStampRev = $this->setTaskDates($tasks_template['children'], $dates, $daysOut, $reversed, $tmpStamp);
+				$tmpStampRev = $this->setTaskDates($tasks_template['children'], $dates, $daysOut, $reversed, $tmpStamp, $dayKeyword);
 				
 				if($reversed){
-					$tmpStamp = strtotime("-" . $daysOut[$tasks_template['id']] . " day", $tmpStampRev);
+					$tmpStamp = strtotime("-" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStampRev);
 				}
 			}
 			
@@ -94,14 +94,14 @@ class rt_WorkflowController extends SugarController {
 			
 			if(isset($tasks_templates['children']) && !empty($tasks_templates['children'])){
 				$reversed = (isset($_REQUEST['workflow_counts_down_to_target_date']) && !empty($_REQUEST['workflow_counts_down_to_target_date']));
+				$dayKeyword = (isset($_REQUEST['skip_weekends_holidays']) && !empty($_REQUEST['skip_weekends_holidays'])) ? "weekdays" : "days";
 				$startStamp = (isset($_REQUEST['start_date']) && !empty($_REQUEST['start_date'])) ? strtotime($_REQUEST['start_date']) : strtotime("now");
-				
 				//if start date is less then today
 				if($startStamp < strtotime("now")){
 					$startStamp = strtotime("now");
 				}
 				
-				$this->setTaskDates($tasks_templates['children'], $dates, $daysOut, $reversed, $startStamp, true);
+				$this->setTaskDates($tasks_templates['children'], $dates, $daysOut, $reversed, $startStamp, $dayKeyword, true);
 			}
 			
 			foreach($taskTemplateRecords as $record){
