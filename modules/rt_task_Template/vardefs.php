@@ -207,10 +207,10 @@ $dictionary['rt_task_Template'] = array(
 		'enable_range_search' => false,
 		'disable_num_format' => '',
 	  ),
-	  'parent_tasks' => array (
-		'name' => 'parent_tasks',
+	  'parent_tasks_template' => array (
+		'name' => 'parent_tasks_template',
 		'type' => 'link',
-		'relationship' => 'parent_tasks',
+		'relationship' => 'parent_tasks_template',
 		'module' => 'rt_task_Template',
 		'bean_name' => 'rt_task_Template',
 		'source' => 'non-db',
@@ -219,7 +219,7 @@ $dictionary['rt_task_Template'] = array(
 	  'dependent_on' =>array (
 		'name' => 'dependent_on',
 		'type' => 'link',
-		'relationship' => 'parent_tasks',
+		'relationship' => 'parent_tasks_template',
 		'module' => 'rt_task_Template',
 		'bean_name' => 'rt_task_Template',
 		'link_type' => 'one',
@@ -288,7 +288,7 @@ $dictionary['rt_task_Template'] = array(
 	  ),
 	),
 	'relationships'=>array (
-		'parent_tasks' => 
+		'parent_tasks_template' => 
 		array (
 		  'lhs_module' => 'rt_task_Template',
 		  'lhs_table' => 'rt_task_template',
