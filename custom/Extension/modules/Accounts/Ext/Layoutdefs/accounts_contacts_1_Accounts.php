@@ -3,7 +3,7 @@
 $layout_defs["Accounts"]["subpanel_setup"]['accounts_contacts_1'] = array (
   'order' => 100,
   'module' => 'Contacts',
-  'subpanel_name' => 'default',
+  'subpanel_name' => 'ForAccounts',
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE',

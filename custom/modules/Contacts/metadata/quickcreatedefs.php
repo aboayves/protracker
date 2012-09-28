@@ -106,6 +106,14 @@ array (
         array (
           0 => 
           array (
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
             'name' => 'comments',
             'studio' => 'visible',
             'label' => 'LBL_COMMENTS',

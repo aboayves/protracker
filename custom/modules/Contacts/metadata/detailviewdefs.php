@@ -105,6 +105,14 @@ array (
         array (
           0 => 
           array (
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
             'name' => 'email1',
             'studio' => 'false',
             'label' => 'LBL_EMAIL_ADDRESS',
@@ -115,7 +123,7 @@ array (
             'label' => 'LBL_FAX_PHONE',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -125,7 +133,7 @@ array (
           ),
           1 => 'envelope',
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -319,7 +327,7 @@ array (
         ),
         4 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'gift_applicable',
             'label' => 'LBL_GIFT_APPLICABLE',
