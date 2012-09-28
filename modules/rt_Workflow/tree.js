@@ -22,9 +22,13 @@ var treeHelper = {
 	
 	buildTree : function(data){
 		treeHelper.tree = new YAHOO.widget.TreeView("tree_plotting_div", data); 
+		treeHelper.tree.setNodesProperty('propagateHighlightUp',true);
+		treeHelper.tree.setNodesProperty('propagateHighlightDown',true);
+		treeHelper.tree.subscribe('clickEvent',treeHelper.tree.onEventToggleHighlight);
+        treeHelper.tree.subscribe("checkClick");	
 		treeHelper.tree.render();
-			
-		if(!treeHelper.loaded){
+ 
+ if(!treeHelper.loaded){
 			treeHelper.loaded = true;
 			var oContextMenu = new YAHOO.widget.ContextMenu( 
 				"mytreecontextmenu", 
@@ -43,7 +47,25 @@ var treeHelper = {
 			oContextMenu.subscribe("triggerContextMenu", treeHelper.onTriggerContextMenu);
 		}
 	},
-	
+	checkClick: function(oArgs) {
+			var node = oArgs.node;
+			var target = YAHOO.util.Event.getTarget(oArgs.event);
+			if (YAHOO.util.Dom.hasClass(target,'ygtvspacer')) {
+			node.logger.log("previous checkstate: " + node.checkState);
+			if (node.checkState === 0) {
+			node.check();
+			} else {
+			node.uncheck();
+			}
+
+			node.onCheckClick(node);
+			this.fireEvent("checkClick", node);
+			return false;
+			}
+	},
+
+
+
 	onTriggerContextMenu : function(p_oEvent) {
 		var oTarget = this.contextEventTarget; 
 		treeHelper.oCurrentTextNode = treeHelper.tree.getNodeByElement(oTarget); 	 
@@ -53,15 +75,15 @@ var treeHelper = {
 	},
 	
 	openNode : function () {
-		window.open(treeHelper.oCurrentTextNode.getLabelEl().getAttribute("href"));
+		window.open(treeHelper.oCurrentTextNode.data.href);
 	},
 
 	editNode : function (){
-		window.open((treeHelper.oCurrentTextNode.getLabelEl().getAttribute("href")).replace(/DetailView/g, "EditView"));
+		window.open((treeHelper.oCurrentTextNode.data.href).replace(/DetailView/g, "EditView"));
 	},
 	
 	createNode : function (){
-		var href = treeHelper.oCurrentTextNode.getLabelEl().getAttribute("href").replace(/DetailView/g, "EditView");
+		var href = treeHelper.oCurrentTextNode.data.href.replace(/DetailView/g, "EditView");
 		
 		if(href.indexOf('rt_Workflow') > 0){
 			href = href.replace(/rt_Workflow/g, "rt_task_Template");
@@ -76,15 +98,41 @@ var treeHelper = {
 	},
 
 	deleteNode : function () {
-		var id= (treeHelper.oCurrentTextNode.getLabelEl().getAttribute("href")).split("record=");
+		var id= (treeHelper.oCurrentTextNode.data.href).split("record=");
 		id = id[1].substr(0,36);
 		confirmDelete(id);
 	}
 }
-
 function generateTree(){
 	var wfID = document.getElementsByName('record')[0].value;
 	treeHelper.loadData(wfID);
 }
-
-YAHOO.util.Event.onDOMReady(generateTree);
+function pageReady()
+{
+	generateTree();
+	_form = document.DetailView;
+	var elem = document.createElement('input');
+	elem.setAttribute('name', 'template_ids');
+	elem.setAttribute('id', 'template_ids');
+	elem.setAttribute('type', 'hidden');
+	document.getElementById('formDetailView').appendChild(elem);
+}
+function setCheckedTemplateIDs(){
+	
+		var array_checked=new Array();
+		var array_semi_checked=new Array();
+		var array=new Array();
+		var checked_template_ids='';
+		array_checked=treeHelper.tree.getNodesByProperty ('highlightState', 1 );
+		array_semi_checked=treeHelper.tree.getNodesByProperty ('highlightState', 2 );
+		if(array_checked !=null){
+			array=array_checked.concat(array_semi_checked);
+		}
+		for(i=0; i<array.length; i++){
+			if(array[i] != null){
+				checked_template_ids+=array[i]['data']['id']+', ';
+				}
+		}
+		document.getElementById('template_ids').value = checked_template_ids;
+		}
+YAHOO.util.Event.onDOMReady(pageReady);

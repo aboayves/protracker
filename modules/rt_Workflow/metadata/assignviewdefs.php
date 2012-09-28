@@ -8,6 +8,10 @@ array (
     array (
 	 'form' =>
       array (
+	  'hidden' =>
+        array (
+          0 => '<input type="hidden" name="template_ids" id="template_ids" value="'.$_REQUEST['template_ids'].'">',
+        ),
 	   'buttons' => 
 	   array(
 		0 => array( 'customCode' => '<input type="button" value="Save" onclick=" _form = document.getElementById(\'EditView\');_form.action.value=\'assign\';if(check_form(\'EditView\'))SUGAR.ajaxUI.submitForm(_form);return false;" />'),
@@ -75,7 +79,6 @@ array (
 		  1 => 
           array (
             'name' => 'workflow_counts_down_to_target_date',
-            'customCode'=>'<input id="workflow_counts_down_to_target_date" name="workflow_counts_down_to_target_date" type="checkbox" onclick="startToTargetDate();">',
              ),
         ),
 	  5 => 

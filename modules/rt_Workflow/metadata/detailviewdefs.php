@@ -16,7 +16,7 @@ array (
           3 => 'FIND_DUPLICATES',
 		  4 => 
 		  array(
-		  	'customCode' => '<input title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" onClick="var _form = document.getElementById(\'formDetailView\');_form.action.value=\'assign\';SUGAR.ajaxUI.submitForm(_form);" value="Assign Workflow">'
+		  	'customCode' => '<input title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" onclick="setCheckedTemplateIDs(); var _form = document.getElementById(\'formDetailView\');_form.action.value=\'assign\';SUGAR.ajaxUI.submitForm(_form);" value="Assign Workflow">'
 		  ),
         ),
       ),
@@ -79,7 +79,7 @@ array (
 			array(
 				'name' => 'tree',
 				'label' => 'LBL_TREE',
-				'customCode' => '<div id="tree_plotting_div"></div>'  
+				'customCode' => '<div id="tree_plotting_div" class="whitebg ygtv-checkbox"></div>'  
 			),
 		),    
 	  ),
