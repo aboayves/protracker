@@ -3,7 +3,11 @@
 		function populateMembersFunc(&$bean, $event, $arguments) {
 			global $db, $timedate;
 			
-			$expiration=date('Y-m-d', strtotime(date("Y-m-d", strtotime($timedate->nowDbDate())) ."+".$bean->membership_expiration_days. "  day"));
+			$expiration = '';
+			$xDays = is_numeric($bean->membership_expiration_days) ? $bean->membership_expiration_days : 0;
+			if(intval($xDays) > 0){
+				$expiration = date('Y-m-d', strtotime(date("Y-m-d", strtotime($timedate->nowDbDate())) ."+".$bean->membership_expiration_days. "  day"));
+			}
 			
 			$destination_address = "";
 			$name = "";
