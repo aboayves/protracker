@@ -67,6 +67,7 @@ $mod_strings = array (
   'LBL_NOTIFY_CHILD_COMPLETION' => 'Notify Child Completion',
   'LBL_ASSIGNED_TO_CLIENT' => 'Assigned to client',
   'LBL_ASSIGN_TO' => 'Assign To',
+  'LBL_RELATE_TO' => 'Relate To',
   'LBL_DAYS_OUT' => 'Days Out',
   'LBL_WORKFLOW' => 'Workflow',
   'LBL_PARENT_TASKS' => 'Waiting for',
