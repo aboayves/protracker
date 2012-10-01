@@ -140,17 +140,20 @@ array (
           0 => 'description',
         ),
       ),
-      'LBL_TREE' =>
-      array(
-        array(
-          array(
+      'LBL_TREE' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'tree',
             'label' => 'Tree',
             'customCode' => '<div> <div>'.
-							'<input type="checkbox" id="pending_only" onclick="disable_ajax=0;generateTree();" /> Pending Only &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
+			                '<input type="checkbox" id="pending_only" onclick="disable_ajax=0;generateTree();" /> Pending Only &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
 							'<input type="checkbox" id="more_then_90" onclick="disable_ajax=0;generateTree();" /> Away for more than 90 days <br /><br /><br />'.
-							'</div><div id="tree_panel3"></div><div>'  
+							'</div><div id="tree_panel3"></div></div>',
           ),
-        ),    
+        ),
       ),
     ),
   ),
