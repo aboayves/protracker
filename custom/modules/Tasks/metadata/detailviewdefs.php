@@ -137,7 +137,11 @@ array (
         ),
         9 => 
         array (
-          0 => 'description',
+          0 => array(
+		  	'name' => 'description',
+			'label' => 'LBL_DESCRIPTION',
+			'customCode' => '<div> {$fields.description.value} <div>',
+		  ),
         ),
       ),
       'LBL_TREE' => 

@@ -63,6 +63,8 @@ class TasksViewDetail extends ViewDetail {
 			$_REQUEST['name'] = $this->bean->name;
 			$_REQUEST['included']=true;
 			@require_once('custom/modules/Tasks/getTreeNodes.php');
+			
+		$this->bean->description = html_entity_decode($this->bean->description);
 
         parent::display();
     }
