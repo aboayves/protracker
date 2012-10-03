@@ -31,7 +31,7 @@ class task_status_change
 			if($parent_task = $db->fetchByAssoc($parent_task)){
 				if($parent_task['status'] != 'Completed')
 				{
-
+					SugarApplication::appendErrorMessage('Unable to Complete the Task becuase parent task has not been completed.');
 					$bean->status = 'Pending';
 				}
 			}
