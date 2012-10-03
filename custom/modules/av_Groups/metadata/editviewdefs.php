@@ -27,17 +27,22 @@ array (
     array (
       'default' => 
       array (
-        0 => 
+	  	0 => 
+		array (
+		  0 => 'name',
+		  1 => '',
+		),
+        1 => 
         array (
           0 => 'communication_type',
           1 => 'membership_expiration_days',
         ),
-        1 => 
+        2 => 
         array (
           0 => 'delivery_method',
           1 => 'assigned_user_name',
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -52,7 +57,7 @@ array (
             'label' => 'LBL_CATEGORY',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -67,7 +72,7 @@ array (
             'label' => 'LBL_PRIORITY',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -75,7 +80,7 @@ array (
             'label' => 'LBL_LAST_CHECKED',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 'description',
         ),
