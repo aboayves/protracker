@@ -32,9 +32,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_CRONTAB_SERVER_TIME_PRE' => 'Les tâches planifiées sont basées sur la timezone du serveur (',
-  'LBL_CRONTAB_SERVER_TIME_POST' => '). Veuillez en tenir compte lorsque vous paramétrez des tâches planifiées.',
-  'LBL_MINUTES' => 'minutes',
+  'LBL_OOTB_SEND_EMAIL_REMINDERS' => 'Exécuter les rappels par email',
+  'LBL_JOB_URL' => 'URL du job',
+  'LBL_PERFORMFULLFTSINDEX' => 'système d&#39;indexation de recherche Full-Text',
+  'LBL_SENDEMAILREMINDERS' => 'Exécuter l&#39;envoi des rappels par email',
   'LBL_MINS' => 'min',
   'LBL_HOURS' => 'hrs',
   'LBL_DAY_OF_MONTH' => 'date',
@@ -73,6 +74,7 @@ $mod_strings = array (
   'LBL_AT' => 'à',
   'LBL_IN' => 'et',
   'LBL_AND' => 'et',
+  'LBL_MINUTES' => 'minutes',
   'LBL_HOUR' => 'heures',
   'LBL_HOUR_SING' => 'heures',
   'LBL_MONTH' => 'mois',
@@ -81,6 +83,8 @@ $mod_strings = array (
   'LBL_MONTHS' => 'mois',
   'LBL_DAY_OF_WEEK' => 'jour',
   'LBL_CRONTAB_EXAMPLES' => 'Les valeurs ci dessus utilisent les notations standard de la crontab.',
+  'LBL_CRONTAB_SERVER_TIME_PRE' => 'Les tâches planifiées sont basées sur la timezone du serveur (',
+  'LBL_CRONTAB_SERVER_TIME_POST' => '). Veuillez en tenir compte lorsque vous paramétrez des tâches planifiées.',
   'LBL_ALWAYS' => '- toujours -',
   'LBL_CATCH_UP' => 'Relancer si manqué',
   'LBL_CATCH_UP_WARNING' => 'Décocher si cette action peut prendre du temps à s&#39;exectuer.',

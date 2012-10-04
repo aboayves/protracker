@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,33 +29,16 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
+	
 
 $mod_strings = array (
-    'LBL_EMAIL_ADDRESS_ID' => '编码',
-    'LBL_EMAIL_ADDRESS' => '电子邮箱地址',
-    'LBL_EMAIL_ADDRESS_CAPS' => '电邮地址帽',
-    'LBL_INVALID_EMAIL' => '无效的电子邮件',
-    'LBL_OPT_OUT' => '选择退出',
-    'LBL_DATE_CREATE' => '创建日期',
-    'LBL_DATE_MODIFIED' => '修改日期',
-    'LBL_DELETED' => '删除',
+  'LBL_DATE_CREATE' => '创建日期',
+  'LBL_DATE_MODIFIED' => '修改日期',
+  'LBL_DELETED' => '删除',
+  'LBL_EMAIL_ADDRESS' => '电子邮件地址',
+  'LBL_EMAIL_ADDRESS_CAPS' => '电子邮件地址',
+  'LBL_EMAIL_ADDRESS_ID' => 'ID',
+  'LBL_INVALID_EMAIL' => '无效的电子邮件',
+  'LBL_OPT_OUT' => '选择退出',
 );
+

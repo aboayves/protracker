@@ -1,5 +1,5 @@
 <?php
-// created: 2012-06-01 19:38:08
+// created: 2012-07-03 15:18:07
 $connectors = array (
   'ext_rest_linkedin' => 
   array (
@@ -13,10 +13,6 @@ $connectors = array (
     ),
     'modules' => 
     array (
-      0 => 'Accounts',
-      1 => 'Contacts',
-      2 => 'Leads',
-      3 => 'Prospects',
     ),
   ),
   'ext_soap_hoovers' => 
@@ -163,10 +159,6 @@ $connectors = array (
     'eapm' => false,
     'modules' => 
     array (
-      0 => 'Accounts',
-      1 => 'Contacts',
-      2 => 'Leads',
-      3 => 'Opportunities',
     ),
   ),
 );

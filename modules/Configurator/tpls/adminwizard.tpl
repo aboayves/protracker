@@ -36,7 +36,6 @@
 {$SUGAR_JS}
 {$SUGAR_CSS}
 {$CSS}
-{overlib_includes}
 </head>
 {literal}
 <script type='text/javascript'>
@@ -123,7 +122,7 @@ function disableReturnSubmission(e) {
             <tr>
                 <td scope="row" width='12%' nowrap>{$MOD.CURRENT_LOGO}&nbsp;{sugar_help text=$MOD.CURRENT_LOGO_HELP}</td>
                 <td width='35%' >
-                    <img id="company_logo_image" alt='{$MOD.LBL_LOGO}' src='{$company_logo}' height="40" width="212" />
+                    <img id="company_logo_image" alt='{$MOD.LBL_LOGO}' src='{$company_logo}' />
                 </td>
             </tr>
             </table>
@@ -313,7 +312,7 @@ function disableReturnSubmission(e) {
                                 <td width="20%" scope="row">
                                     <span id="notify_allow_default_outbound_label">
                                     {$MOD.LBL_ALLOW_DEFAULT_SELECTION}&nbsp;
-                                    <img border="0" onmouseout="return nd();" onmouseover="return overlib('{$MOD.LBL_ALLOW_DEFAULT_SELECTION_HELP}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass', WIDTH, -1, NOFOLLOW, 'ol_nofollow')" src="index.php?entryPoint=getImage&themeName={$THEME}&imageName=helpInline.gif">
+                                   {sugar_help text=$MOD.LBL_ALLOW_DEFAULT_SELECTION_HELP }
                                     </span>
                                 </td>
                                 <td width="30%">
@@ -474,7 +473,8 @@ var SugarWizard = new function()
         case 'system':
             document.getElementById('upload_panel').style.display="inline";
             document.getElementById('upload_panel').style.position="absolute";
-            YAHOO.util.Dom.setXY('upload_panel', YAHOO.util.Dom.getXY('container_upload'));
+            YAHOO.util.Dom.setX('upload_panel', YAHOO.util.Dom.getX('container_upload'));
+            YAHOO.util.Dom.setY('upload_panel', YAHOO.util.Dom.getY('container_upload')-10);
             break;
         case 'smtp':
             if ( !SUGAR.smtpButtonGroup ) {

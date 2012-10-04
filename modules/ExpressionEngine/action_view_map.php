@@ -33,5 +33,6 @@ $action_view_map = array(
     'editDepDropdown' => 'editDepDropdown',
     'relFields' => 'relFields',
     'functionDetail' => 'functionDetail',
+    'selectRelatedField' => 'selectRelatedField',
 );
 ?>

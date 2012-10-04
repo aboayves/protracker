@@ -11,7 +11,10 @@ array (
         array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
-          2 => 'DELETE',
+          2 => 
+          array (
+            'customCode' => '<input title="Delete"  class="button"  onclick="this.form.action.value=\'Save\'; this.form.return_module.value=\'Tasks\'; this.form.isDuplicate.value=true; this.form.return_action.value=\'EditView\'; this.form.return_id.value=\'{$fields.id.value}\';"  name="button"  value="Delete" onclick="confirmDelete(\'{$fields.id.value}\');"  type="button">',
+          ),
           3 => 
           array (
             'customCode' => '{if $fields.status.value != "Completed"} <input type="hidden" name="isSaveAndNew" value="false">  <input type="hidden" name="status" value="">  <input title="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_TITLE}"  class="button"  onclick="this.form.action.value=\'Save\'; this.form.return_module.value=\'Tasks\'; this.form.isDuplicate.value=true; this.form.isSaveAndNew.value=true; this.form.return_action.value=\'EditView\'; this.form.isDuplicate.value=true; this.form.return_id.value=\'{$fields.id.value}\';"  name="button"  value="{$APP.LBL_CLOSE_AND_CREATE_BUTTON_TITLE}"  type="submit">{/if}',
@@ -34,6 +37,17 @@ array (
         array (
           'label' => '10',
           'field' => '30',
+        ),
+      ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/Tasks/delete.js',
+        ),
+        1 => 
+        array (
+          'file' => 'custom/modules/Tasks/tree.js',
         ),
       ),
       'useTabs' => false,
@@ -59,13 +73,32 @@ array (
         ),
         2 => 
         array (
-          0 => 'date_due',
+          0 => 'assigned_user_name',
           1 => 
           array (
-            'name' => 'tasks_tasks_name',
+            'name' => 'notify_child_completion',
+            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
           ),
         ),
         3 => 
+        array (
+          0 => 'private',
+          1 => 
+          array (
+            'name' => 'assigned_to_client',
+            'label' => 'LBL_ASSIGNED_TO_CLIENT',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 'date_due',
+          1 => 
+          array (
+            'name' => 'parent_tasks_name',
+            'label' => 'LBL_PARENT_TASKS',
+          ),
+        ),
+        5 => 
         array (
           0 => '',
           1 => 
@@ -74,7 +107,7 @@ array (
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
         ),
-        4 => 
+        6 => 
         array (
           0 => 
           array (
@@ -87,9 +120,43 @@ array (
             'label' => 'LBL_CONTACT',
           ),
         ),
-        5 => 
+        7 => 
         array (
-          0 => 'description',
+          0 => 'category',
+          1 => 'alow_asigne_to_modify',
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'project',
+            'studio' => 'visible',
+            'label' => 'LBL_PROJECT',
+          ),
+          1 => '',
+        ),
+        9 => 
+        array (
+          0 => array(
+		  	'name' => 'description',
+			'label' => 'LBL_DESCRIPTION',
+			'customCode' => '<div> {$fields.description.value} <div>',
+		  ),
+        ),
+      ),
+      'LBL_TREE' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'tree',
+            'label' => 'Tree',
+            'customCode' => '<div> <div>'.
+			                '<input type="checkbox" id="pending_only" onclick="disable_ajax=0;generateTree();" /> Hide Pending tasks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
+							'<input type="checkbox" id="more_then_90" onclick="disable_ajax=0;generateTree();" /> Hide tasks greater than 90 days out <br /><br /><br />'.
+							'</div><div id="tree_panel3"></div></div>',
+          ),
         ),
       ),
     ),

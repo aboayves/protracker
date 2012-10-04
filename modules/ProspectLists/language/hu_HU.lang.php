@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_MORE_DETAIL' => 'Részletek',
+  'LBL_MARKETING_ID' => 'Marketing azonosító',
   'LBL_MODULE_NAME' => 'Cél listák',
   'LBL_MODULE_ID' => 'Cél listák',
   'LBL_MODULE_TITLE' => 'Cél listák: Főoldal',
@@ -79,5 +79,6 @@ $mod_strings = array (
   'LBL_DOMAIN_NAME' => 'Domain név',
   'LBL_DOMAIN' => 'Nincsenek emailek a domainhez',
   'LBL_LIST_PROSPECTLIST_NAME' => 'Név',
+  'LBL_MORE_DETAIL' => 'Részletek',
 );
 

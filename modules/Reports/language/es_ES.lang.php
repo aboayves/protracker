@@ -32,7 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_REPORT_GRAND_TOTAL' => 'Totales',
+  'ERR_REPORT_INVALID_SUBJECT' => 'El reportes es invalido',
+  'ERR_REPORT_INVALID' => 'La definición del informe "{0}" contiene campos no válidos: {1}',
   'LBL_PDF_TIMESTAMP' => 'Y_m_d_H_i',
   'LBL_CSV_TIMESTAMP' => 'Y_m_d_H_i_s',
   'LBL_TOTAL' => 'Total',
@@ -484,6 +485,7 @@ $mod_strings = array (
   'LBL_DOWN' => 'Abajo',
   'LBL_UP' => 'Arriba',
   'LBL_ALT_INFORMATION' => 'Información',
+  'LBL_REPORT_GRAND_TOTAL' => 'Totales',
   'DROPDOWN_SCHEDULE_INTERVALS' => 
   array (
     3600 => 'Cada hora',

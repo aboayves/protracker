@@ -42,6 +42,7 @@ $action_view_map['vcard']= 'vcard';
 $action_view_map['importvcard']= 'importvcard';
 $action_view_map['importvcardsave']= 'importvcardsave';
 $action_view_map['modulelistmenu']= 'modulelistmenu';
+$action_view_map['favorites']= 'favorites';
 $action_view_map['ajaxui']= 'ajaxui';
 $action_view_map['noaccess']= 'noaccess';
 $action_view_map['quickedit']= 'quickedit';

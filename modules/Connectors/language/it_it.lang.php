@@ -84,7 +84,7 @@ $mod_strings = array (
   'LBL_RECNAME' => 'Nome Azienda',
   'LBL_RESET_TO_DEFAULT' => 'Azzera a Predefinito',
   'LBL_RESET_TO_DEFAULT_CONFIRM' => 'Sei sicuro di voler azzerare la configurazione predefinita?',
-  'LBL_RESET_BUTTON_TITLE' => 'Azzera [Alt+R]',
+  'LBL_RESET_BUTTON_TITLE' => 'Azzera',
   'LBL_RESULT_LIST' => 'Elenco Dati',
   'LBL_SAVE' => 'Salva',
   'LBL_SEARCHING_BUTTON_LABEL' => 'Ricerca in corso...',
@@ -111,4 +111,5 @@ $mod_strings = array (
   'ERROR_NO_FIELDS_MAPPED' => 'Errore: Per ogni voce del modulo deve essere mappato almeno un campo Connettore con il campo con i campi del modulo.',
   'ERROR_NO_DISPLAYABLE_MAPPED_FIELDS' => 'Errore: Non ci sono campi del modulo mappati per la visualizzazione dei risultati. Si prega di contattare l´amministratore del sistema.',
 );
+
 

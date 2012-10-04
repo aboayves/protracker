@@ -51,35 +51,19 @@ array (
         array (
           0 => 
           array (
-            'name' => 'last_name',
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
           ),
           1 => 
           array (
-            'name' => 'account_name',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-              'copy' => 'primary',
-              'billingKey' => 'primary',
-              'additionalFields' => 
-              array (
-                'phone_office' => 'phone_work',
-              ),
-            ),
+            'name' => 'accounts_contacts_1_name',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
-          ),
-          1 => 
-          array (
-            'name' => 'phone_work',
-            'comment' => 'Work phone number of the contact',
-            'label' => 'LBL_OFFICE_PHONE',
+            'name' => 'last_name',
           ),
         ),
         3 => 
@@ -101,6 +85,14 @@ array (
         array (
           0 => 
           array (
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
             'name' => 'email1',
             'studio' => 'false',
             'label' => 'LBL_EMAIL_ADDRESS',
@@ -112,13 +104,21 @@ array (
             'label' => 'LBL_FAX_PHONE',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
-            'name' => 'comments_c',
+            'name' => 'comments',
             'studio' => 'visible',
             'label' => 'LBL_COMMENTS',
+          ),
+          1 => 'envelope',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'rt_offices_contacts_1_name',
           ),
         ),
       ),
@@ -159,6 +159,21 @@ array (
         array (
           0 => 
           array (
+            'name' => 'phone_home',
+            'comment' => 'Home phone number of the contact',
+            'label' => 'LBL_HOME_PHONE',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_work',
+            'comment' => 'Work phone number of the contact',
+            'label' => 'LBL_OFFICE_PHONE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
             'name' => 'other_address_street',
             'comment' => 'Street address for other address',
             'hideLabel' => true,
@@ -168,7 +183,6 @@ array (
             ),
             'label' => 'LBL_OTHER_ADDRESS_STREET',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
@@ -183,7 +197,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'age_c',
+            'name' => 'age',
             'label' => 'LBL_AGE',
           ),
         ),
@@ -191,7 +205,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'ssn_c',
+            'name' => 'ssn',
             'label' => 'LBL_SSN',
           ),
           1 => 
@@ -205,12 +219,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'citizenship_c',
+            'name' => 'citizenship',
             'label' => 'LBL_CITIZENSHIP',
           ),
           1 => 
           array (
-            'name' => 'marital_status_c',
+            'name' => 'marital_status',
             'studio' => 'visible',
             'label' => 'LBL_MARITAL_STATUS',
           ),
@@ -222,13 +236,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'type_c',
+            'name' => 'type',
             'studio' => 'visible',
             'label' => 'LBL_TYPE',
           ),
           1 => 
           array (
-            'name' => 'status_c',
+            'name' => 'status',
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
@@ -237,11 +251,10 @@ array (
         array (
           0 => 
           array (
-            'name' => 'priority_c',
+            'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel4' => 
@@ -250,12 +263,21 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employer_c',
-            'label' => 'LBL_EMPLOYER',
+            'name' => 'account_name',
+            'displayParams' => 
+            array (
+              'key' => 'billing',
+              'copy' => 'primary',
+              'billingKey' => 'primary',
+              'additionalFields' => 
+              array (
+                'phone_office' => 'phone_work',
+              ),
+            ),
           ),
           1 => 
           array (
-            'name' => 'business_trust_c',
+            'name' => 'business_trust',
             'label' => 'LBL_BUSINESS_TRUST',
           ),
         ),
@@ -263,13 +285,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'profession_c',
+            'name' => 'profession',
             'studio' => 'visible',
             'label' => 'LBL_PROFESSION',
           ),
           1 => 
           array (
-            'name' => 'sec_related_party_c',
+            'name' => 'sec_related_party',
             'label' => 'LBL_SEC_RELATED_PARTY',
           ),
         ),
@@ -277,13 +299,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'position_c',
+            'name' => 'position',
             'studio' => 'visible',
             'label' => 'LBL_POSITION',
           ),
           1 => 
           array (
-            'name' => 'employee_or_firm_c',
+            'name' => 'employee_or_firm',
             'label' => 'LBL_EMPLOYEE_OR_FIRM',
           ),
         ),
@@ -291,21 +313,20 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employee_id_c',
+            'name' => 'employee_id',
             'label' => 'LBL_EMPLOYEE_ID',
           ),
           1 => 
           array (
-            'name' => 'contribution_apply_c',
+            'name' => 'contribution_apply',
             'label' => 'LBL_CONTRIBUTION_APPLY',
           ),
         ),
         4 => 
         array (
-          0 => '',
           1 => 
           array (
-            'name' => 'gift_applicable_c',
+            'name' => 'gift_applicable',
             'label' => 'LBL_GIFT_APPLICABLE',
           ),
         ),

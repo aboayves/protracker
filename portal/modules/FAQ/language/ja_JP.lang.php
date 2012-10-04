@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,31 +29,16 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-	//module
-	'LBL_MODULE_NAME' => 'FAQ',
-	'LBL_MODULE_TITLE' => 'FAQ：ホーム',
-	'LBL_BACK_TO_TOP' => 'トップに戻る',
-	'LBL_SUCCESSFUL_QUERY' => '成功',
-	'LBL_ERROR_QUERY' => 'エラー',
-	'ERR_FAQ_LIST_RETRIEVE' => 'エラー：FAQコンテンツを検索できません。',
-	'ERR_FAQ_LIST_RETRIEVE_RETRY' => 'SOAP電話を再試行...',
-	'LBL_FAQ_EMPTY' => 'ナレッジベースにFAQタグが付けられた記事がありません。',
+  'LBL_MODULE_NAME' => 'FAQ',
+  'LBL_MODULE_TITLE' => 'FAQ: ホーム',
+  'LBL_BACK_TO_TOP' => 'トップに戻る',
+  'LBL_SUCCESSFUL_QUERY' => '成功',
+  'LBL_ERROR_QUERY' => 'エラー',
+  'ERR_FAQ_LIST_RETRIEVE' => 'エラー: FAQコンテンツを検索できません。',
+  'ERR_FAQ_LIST_RETRIEVE_RETRY' => 'SOAPを再接続中...',
+  'LBL_FAQ_EMPTY' => 'ナレッジベースにFAQタグが付けられた記事がありません。',
 );
 

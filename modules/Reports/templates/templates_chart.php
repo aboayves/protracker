@@ -316,7 +316,7 @@ function get_cache_file_name($reporter) {
     }
 
     if ( !is_dir(dirname($filename)) ) {
-        create_cache_directory("xml");
+        create_cache_directory("xml/");
     }
 
     return $filename;

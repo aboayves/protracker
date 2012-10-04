@@ -32,7 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $connector_strings = array (
-  'LBL_LICENSING_INFO' => '',
+  'oauth_consumer_key' => 'OAuth API klíč',
+  'oauth_consumer_secret' => 'OAuth kód (Consumer Secret)',
   'company_url' => 'URL',
   'LBL_NAME' => 'Název společnosti',
 );

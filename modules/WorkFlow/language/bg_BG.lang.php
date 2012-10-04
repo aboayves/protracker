@@ -32,10 +32,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_UP' => 'Горе',
-  'LBL_DOWN' => 'Долу',
-  'LBL_EDITLAYOUT' => 'Редактиране на подредби',
-  'LBL__S' => '&#39;s',
+  'LBL_EMAILTEMPLATES_TYPE' => 'Тип',
+  'LBL_EMAILTEMPLATES_TYPE_LIST_WORKFLOW' => 
+  array (
+    'workflow' => 'Workflow',
+  ),
   'LBL_MODULE_NAME' => 'Автоматизирани процеси',
   'LBL_MODULE_ID' => 'Дефинирани процеси',
   'LBL_MODULE_TITLE' => 'Дефинирани процеси:',
@@ -90,6 +91,7 @@ $mod_strings = array (
   'LBL_INVITE_LINK' => 'Препратка към покана за среща/обаждане',
   'LBL_PLEASE_SELECT' => 'Моля, изберете',
   'LBL_BODY' => 'Съдържание:',
+  'LBL__S' => '&#39;s',
   'LBL_ALERT_SUBJECT' => 'Известяване',
   'LBL_ACTION_ERROR' => 'Това действие не може да бъде изпълнено. Редактирайте действието, така че всички полета и стойности на полетата да са валидни.',
   'LBL_ACTION_ERRORS' => 'Забележка: Едно или повече от действията, по-долу съдържат грешки.',
@@ -97,5 +99,8 @@ $mod_strings = array (
   'LBL_ALERT_ERRORS' => 'Забележка: Един или повече сигнала по-долу съдържат грешки.',
   'LBL_TRIGGER_ERROR' => 'Забележка: Този тригер съдържа невалидни стойности.',
   'LBL_TRIGGER_ERRORS' => 'Забележка: Един или повече от тригерите по-долу съдържа грешки.',
+  'LBL_UP' => 'Горе',
+  'LBL_DOWN' => 'Долу',
+  'LBL_EDITLAYOUT' => 'Редактиране на подредби',
 );
 

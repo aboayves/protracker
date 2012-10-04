@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,28 +29,14 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $dashletStrings = array (
   'ChartsDashlet' => 
   array (
-    'LBL_TITLE' => 'Diagramok',
+    'LBL_CONFIGURE_TITLE' => 'Cím',
     'LBL_DESCRIPTION' => 'Dashlet a diagramok megjelenítéséhez',
-    'LBL_CONFIGURE_TITLE' => 'Title (Dshlt)',
+    'LBL_TITLE' => 'Diagramok',
   ),
 );
 

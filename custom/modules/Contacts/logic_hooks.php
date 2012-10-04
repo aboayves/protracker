@@ -6,10 +6,6 @@ $hook_array = Array();
 // position, file, function 
 $hook_array['before_save'] = Array(); 
 $hook_array['before_save'][] = Array(1, 'Contacts push feed', 'modules/Contacts/SugarFeeds/ContactFeed.php','ContactFeed', 'pushFeed'); 
-$hook_array['after_ui_frame'] = Array(); 
-$hook_array['process_record'] = Array(); 
-$hook_array['process_record'][] = Array(1, 'make html for relationship fields', 'custom/modules/Contacts/theHook4Contacts.php','theHook4Contacts', 'makeHTML4RelateFields'); 
 
-
-
+$hook_array['before_save'][] = Array(2, 'Customised Contact Hook', 'custom/modules/Contacts/ContactHook.php','ContactHook', 'beforeSave'); 
 ?>

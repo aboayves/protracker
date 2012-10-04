@@ -32,11 +32,12 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $connector_strings = array (
-  'LBL_LICENSING_INFO' => 'Twitter©でSugarインスタンスを新規アプリケーションとして登録し、Consumer KeyとSecretを取得してください。<br /><br />登録方法は下記の通りです。<br /><br />1. Twitter©ディベロッパーサイト（http://dev.twitter.com/apps/new）を訪問します。<br />2. アプリケーションを登録するアカウントでサインインします。<br />3. 登録フォームにアプリケーション名を入力します。これは、Sugar内部からTwitterを認証する際にユーザが識別する名前になります。<br />4. 備考を入力します。<br />5. アプリケーションのURLを入力します。<br />6. アプリケーションタイプとしてブラウザを選択します。<br />7. コールバックURLを入力します。（Sugarは認証の際にここをバイパスするので、何でも構いません）<br />8. セキュリティワードを入力します。<br />9. アプリケーションの登録をクリックします。<br />10. Twitter APIの利用規約に同意します。<br />11. アプリケーションページでConsumer KeyとConsumer Secretを確認し、以下に入力します。',
+  'company_url' => 'URL',
   'oauth_consumer_key' => 'Consumer Key',
   'oauth_consumer_secret' => 'Consumer Secret',
-  'company_url' => 'URL',
-  'LBL_NAME' => 'ツイッター・ユーザ名',
-  'LBL_ID' => 'ツイッター・ユーザ名',
+  'LBL_LICENSING_INFO' => '<table border="0" cellspacing="1"><tr><td valign="top" width="35%" class="dataLabel">Twitter&amp;#169でSugarインスタンスを新規アプリケーションとして登録し、Consumer KeyとConsumer Secretを取得してください。<br/><br>Steps to register your instance:<br/><br/><ol><li>Twitter&amp;#169;ディベロッパーサイト（<a href=&amp;#39;http://dev.twitter.com/apps/new&amp;#39; target=&amp;#39;_blank&amp;#39;>http://dev.twitter.com/apps/new</a>）を訪問します。</li><li>アプリケーションを登録するツイッターアカウントでサインインします。</li><li>登録フォームにアプリケーション名を入力します。これは、Sugar内部からツイッターを認証する際にユーザが識別する名前になります。</li><li>備考を入力します。</li><li>アプリケーションのURLを入力します。</li><li>アプリケーションタイプとしてブラウザを選択します。</li><li>コールバックURLを入力します（Sugarは認証の際にここをバイパスするので、何でも構いません。例: SugarのルートURL）。</li><li>セキュリティワードを入力します。</li><li>アプリケーションの登録をクリックします。</li><li>ツイッターAPIの利用規約に同意します。</li><li>アプリケーションページでConsumer KeyとConsumer Secretを確認し、以下に入力します。</li></ol></td></tr></table>',
+  'LBL_NAME' => 'ツイッターユーザ名',
+  'LBL_ID' => 'ツイッターユーザ名',
 );
+
 

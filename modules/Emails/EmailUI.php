@@ -1403,7 +1403,7 @@ eoq;
 			$from = (isset($email->from_name) && !empty($email->from_name)) ? $email->from_name : $email->from_addr;
 
 			if(isset($_REQUEST['sugarEmail']) && !empty($_REQUEST['sugarEmail']))
-                $from = (isset($email->from_name) && !empty($email->from_name)) ? $email->from_name : $email->from_addr_name;
+               	$from = (isset($email->to_addrs_names) && !empty($email->to_addrs_names)) ? $email->to_addrs_names : $email->to_addrs;
 
 
 			$name = explode(" ", trim($from));
@@ -1507,7 +1507,7 @@ eoq;
 		require_once("include/EditView/EditView2.php");
         require_once("include/TemplateHandler/TemplateHandler.php");
 		require_once('include/QuickSearchDefaults.php');
-		$qsd = QuickSearchDefaults::getQuickSearchDefaults();
+        $qsd = QuickSearchDefaults::getQuickSearchDefaults();
 		$qsd->setFormName($formName);
 
         global $app_strings;
@@ -2563,7 +2563,21 @@ eoq;
 				$archived->team_set_id = $team_set_id;
 				$archived->save();
 
-			// set flag to show that this was run
+				// Archived Emails
+				$archived = new SugarFolder();
+				$archived->name = $mod_strings['LBL_LIST_TITLE_MY_ARCHIVES'];
+				$archived->has_child = 0;
+				$archived->parent_folder = $folder->id;
+				$archived->created_by = $user->id;
+				$archived->modified_by = $user->id;
+				$archived->is_dynamic = 1;
+				$archived->folder_type = "archived";
+				$archived->dynamic_query = '';
+				$archived->team_id = $privateTeam;
+				$archived->team_set_id = $team_set_id;
+				$archived->save();
+
+				// set flag to show that this was run
 			$user->setPreference("email2Preflight", true, 1, "Emails");
 		}
 	}
@@ -2635,7 +2649,7 @@ eoq;
 
 		if(ACLController::checkAccess('EmailTemplates', 'list', true) && ACLController::checkAccess('EmailTemplates', 'view', true)) {
 			$et = new EmailTemplate();
-			$etResult = $et->db->query($et->create_new_list_query('','',array(),array(),''));
+            $etResult = $et->db->query($et->create_new_list_query('',"(type IS NULL OR type='' OR type='email')",array(),array(),''));
 			$email_templates_arr = array('' => $app_strings['LBL_NONE']);
 			while($etA = $et->db->fetchByAssoc($etResult)) {
 				$email_templates_arr[$etA['id']] = $etA['name'];
@@ -2672,7 +2686,7 @@ eoq;
 			$myAccountString = " - {$app_strings['LBL_MY_ACCOUNT']}";
 		} // if
 
-		//Check to make sure that the user has set the associated inbound email acount -> outbound acount is active.
+		//Check to make sure that the user has set the associated inbound email account -> outbound account is active.
 		$showFolders = unserialize(base64_decode($current_user->getPreference('showFolders', 'Emails')));
         $sf = new SugarFolder();
         $groupSubs = $sf->getSubscriptions($current_user);

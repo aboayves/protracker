@@ -32,6 +32,10 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_OOTB_SEND_EMAIL_REMINDERS' => 'Run Email Reminder Notifications',
+  'LBL_JOB_URL' => 'URL на задачата',
+  'LBL_PERFORMFULLFTSINDEX' => 'Full-text Search Index System',
+  'LBL_SENDEMAILREMINDERS' => 'Run Email Reminders Sending',
   'LBL_OOTB_WORKFLOW' => 'Process Workflow Tasks',
   'LBL_OOTB_REPORTS' => 'Run Report Generation Scheduled Tasks',
   'LBL_OOTB_IE' => 'Check Inbound Mailboxes',

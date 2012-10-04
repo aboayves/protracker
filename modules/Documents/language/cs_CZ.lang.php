@@ -32,11 +32,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_DOC_TYPE_POPUP' => 'Vyberte zdroj do kterého tento dokument bude nahrán a ze kterého má být dostupný.',
-  'LBL_EXTERNAL_DOCUMENT_NOTE' => 'Prvních 20 nejčastěji upravovaných souborů je zde zobrazeno v sestupném pořadí. Využijte nástroj hledání pro nalezení ostatních souborů.',
-  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Společnosti',
-  'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Obchodní příležitosti',
-  'LBL_QUOTES_SUBPANEL_TITLE' => 'Cenové nabídky',
   'LBL_MODULE_NAME' => 'Dokumenty',
   'LBL_MODULE_TITLE' => 'Dokumenty: Domů',
   'LNK_NEW_DOCUMENT' => 'Přidat dokument',
@@ -146,12 +141,17 @@ $mod_strings = array (
   'LBL_DOC_ID' => 'ID zdroje dokumentu',
   'LBL_DOC_TYPE' => 'Zdroj',
   'LBL_LIST_DOC_TYPE' => 'Zdroj',
+  'LBL_DOC_TYPE_POPUP' => 'Vyberte zdroj do kterého tento dokument bude nahrán a ze kterého má být dostupný.',
   'LBL_DOC_URL' => 'URL zdroje dokumentu',
   'LBL_SEARCH_EXTERNAL_DOCUMENT' => 'Název souboru',
+  'LBL_EXTERNAL_DOCUMENT_NOTE' => 'Prvních 20 nejčastěji upravovaných souborů je zde zobrazeno v sestupném pořadí. Využijte nástroj hledání pro nalezení ostatních souborů.',
   'LBL_LIST_EXT_DOCUMENT_NAME' => 'Název souboru',
+  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Společnosti',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakty',
+  'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Obchody',
   'LBL_CASES_SUBPANEL_TITLE' => 'Případy',
   'LBL_BUGS_SUBPANEL_TITLE' => 'Chyby',
+  'LBL_QUOTES_SUBPANEL_TITLE' => 'Cenové nabídky',
   'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Produkty',
 );
 

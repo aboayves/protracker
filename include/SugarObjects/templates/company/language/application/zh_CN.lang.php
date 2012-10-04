@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,41 +29,23 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
- $app_list_strings = array (
-
-  strtolower($object_name).'_type_dom' =>
+$object_name = strtolower($object_name);
+$app_list_strings = array (
+  $object_name.'_type_dom' => 
   array (
     '' => '',
     'Analyst' => '分析人员',
-    'Competitor' => '竞争者',
+    'Competitor' => '竞争对手',
     'Customer' => '客户',
-    'Integrator' => '整合人',
+    'Integrator' => '整合商',
     'Investor' => '投资人',
-    'Partner' => '合作伙伴',
-    'Press' => '出版商',
-    'Prospect' => '希望客户',
-    'Reseller' => '中间商',
     'Other' => '其他',
+    'Partner' => '合作伙伴',
+    'Press' => '媒体',
+    'Prospect' => '潜在客户',
+    'Reseller' => '代理商',
   ),
+);
 
-  );
-?>

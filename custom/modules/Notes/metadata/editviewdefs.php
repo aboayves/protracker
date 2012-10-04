@@ -1,30 +1,32 @@
 <?php
-$viewdefs ['Notes'] = 
-array (
-  'EditView' => 
+// created: 2012-07-03 09:43:36
+$viewdefs['Notes']['EditView'] = array (
+  'templateMeta' => 
   array (
-    'templateMeta' => 
+    'form' => 
     array (
-      'form' => 
-      array (
-        'enctype' => 'multipart/form-data',
-        'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
-      ),
-      'maxColumns' => '2',
-      'widths' => 
-      array (
-        0 => 
+      'enctype' => 'multipart/form-data',
+      'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
+	   'hidden' => 
         array (
-          'label' => '10',
-          'field' => '30',
+			0 => '<input type="hidden" name="attach_to_group_id" value="'.$_REQUEST['attach_to_group_id'].'">',//
         ),
-        1 => 
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
+    ),
+    'maxColumns' => '2',
+    'widths' => 
+    array (
+      0 => 
+      array (
+        'label' => '10',
+        'field' => '30',
       ),
-      'javascript' => '<script type="text/javascript" src="include/javascript/dashlets.js?s={$SUGAR_VERSION}&c={$JS_CUSTOM_VERSION}"></script>
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+    ),
+    'javascript' => '<script type="text/javascript" src="include/javascript/dashlets.js?s={$SUGAR_VERSION}&c={$JS_CUSTOM_VERSION}"></script>
 <script>
 function deleteAttachmentCallBack(text) 
 	{literal} { {/literal} 
@@ -39,59 +41,48 @@ function deleteAttachmentCallBack(text)
 {literal} } {/literal} 
 </script>
 <script>toggle_portal_flag(); function toggle_portal_flag()  {literal} { {/literal} {$TOGGLE_JS} {literal} } {/literal} </script>{$tiny}',
-      'useTabs' => false,
-    ),
-    'panels' => 
+    'useTabs' => false,
+  ),
+  'panels' => 
+  array (
+    'lbl_note_information' => 
     array (
-      'lbl_note_information' => 
+      0 => 
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'contact_name',
-            'label' => 'LBL_CONTACT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'label' => 'LBL_RELATED_TO',
-          ),
+          'name' => 'contact_name',
+          'label' => 'LBL_CONTACT_NAME',
         ),
         1 => 
         array (
-          0 => 
+          'name' => 'parent_name',
+          'label' => 'LBL_RELATED_TO',
+        ),
+      ),
+      1 => 
+      array (
+        0 => 
+        array (
+          'name' => 'name',
+          'displayParams' => 
           array (
-            'name' => 'name',
-            'displayParams' => 
-            array (
-              'size' => 60,
-            ),
-          ),
-          1 => 
-          array (
-            'name' => 'filename',
-            'customCode' => '<span id=\'new_attachment\' style=\'display:{if !empty($fields.filename.value)}none{/if}\'>
-        									 <input name="uploadfile" tabindex="3" type="file" size="60"/>
-        									 </span>
-											 <span id=\'old_attachment\' style=\'display:{if empty($fields.filename.value)}none{/if}\'>
-		 									 <input type=\'hidden\' name=\'deleteAttachment\' value=\'0\'>
-		 									 {$fields.filename.value}<input type=\'hidden\' name=\'old_filename\' value=\'{$fields.filename.value}\'/><input type=\'hidden\' name=\'old_id\' value=\'{$fields.id.value}\'/>
-											 <input type=\'button\' class=\'button\' value=\'{$APP.LBL_REMOVE}\' onclick=\'ajaxStatus.showStatus(SUGAR.language.get("Notes", "LBL_REMOVING_ATTACHMENT"));this.form.deleteAttachment.value=1;this.form.action.value="EditView";SUGAR.dashlets.postForm(this.form, deleteAttachmentCallBack);this.form.deleteAttachment.value=0;this.form.action.value="";\' >       
-											 </span>',
+            'size' => 60,
           ),
         ),
-        2 => 
+        1 => 'filename',
+      ),
+      2 => 
+      array (
+        0 => 
         array (
-          0 => 
+          'name' => 'portal_flag',
+          'displayParams' => 
           array (
-            'name' => 'portal_flag',
-            'displayParams' => 
-            array (
-              'required' => false,
-            ),
-            'customLabel' => '{if ($PORTAL_ENABLED)}{sugar_translate label="LBL_PORTAL_FLAG" module="Notes"}{/if}',
-            'customCode' => ' {if ($PORTAL_ENABLED)}
+            'required' => false,
+          ),
+          'customLabel' => '{if ($PORTAL_ENABLED)}{sugar_translate label="LBL_PORTAL_FLAG" module="Notes"}{/if}',
+          'customCode' => ' {if ($PORTAL_ENABLED)}
 											  {if $fields.portal_flag.value == "1"}
 											  {assign var="checked" value="CHECKED"}
 											  {else}
@@ -100,18 +91,18 @@ function deleteAttachmentCallBack(text)
 											  <input type="hidden" name="{$fields.portal_flag.name}" value="0"> 
 											  <input type="checkbox" name="{$fields.portal_flag.name}" value="1" tabindex="1" {$checked}>
 					        		          {/if}',
-          ),
-          1 => 
-          array (
-            'name' => 'team_name',
-          ),
         ),
-        3 => 
+        1 => 
         array (
-          0 => 
-          array (
-            'name' => 'description',
-            'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
+          'name' => 'team_name',
+        ),
+      ),
+      3 => 
+      array (
+        0 => 
+        array (
+          'name' => 'description',
+          'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -124,11 +115,9 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 -->
 </script>
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
-            'label' => 'LBL_NOTE_STATUS',
-          ),
+          'label' => 'LBL_NOTE_STATUS',
         ),
       ),
     ),
   ),
 );
-?>

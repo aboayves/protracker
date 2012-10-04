@@ -32,8 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_EXPORT_MODIFIED_USER_ID' => 'Přiděleno ID:',
-  'LBL_EXPORT_CREATED_BY' => 'Vytvořeno od ID:',
+  'LBL_EDITLAYOUT' => 'Úprava rozvržení',
   'LBL_MODULE_NAME' => 'Typy produktu',
   'LBL_MODULE_TITLE' => 'Typy produktu: Hlavní stránka',
   'LBL_SEARCH_FORM_TITLE' => 'Vyhledávání typů produktu',
@@ -56,5 +55,7 @@ $mod_strings = array (
   'NTC_LIST_ORDER' => 'Stanovit pořadí, ve kterém se tento typ objeví v "dropdown" seznamu Typu výdobrů',
   'LNK_IMPORT_PRODUCT_TYPES' => 'Importovat typy výrobku',
   'LBL_CREATED_BY' => 'Vytvořeno',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'Přiděleno ID:',
+  'LBL_EXPORT_CREATED_BY' => 'Vytvořeno od ID:',
 );
 

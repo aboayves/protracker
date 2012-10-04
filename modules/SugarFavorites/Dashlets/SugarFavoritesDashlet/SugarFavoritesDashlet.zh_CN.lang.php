@@ -44,11 +44,13 @@
 
 
 
+
 $dashletStrings = array (
   'SugarFavoritesDashlet' => 
   array (
     'LBL_HOMEPAGE_TITLE' => 'Sugar收藏',
     'LBL_TITLE' => '我的收藏记录',
+    'LBL_CONFIGURE_TITLE'  => '抬头',
   ),
 );
 

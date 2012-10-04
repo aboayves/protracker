@@ -220,8 +220,18 @@ function make_sugar_config(&$sugar_config)
 	    'lockoutexpirationlogin' => '',
 		) : $passwordsetting,
 		'use_sprites' => function_exists('imagecreatetruecolor'),
-                'search_wildcard_infront' => false,
-                'search_wildcard_char' => '%',
+    	'search_wildcard_infront' => false,
+        'search_wildcard_char' => '%',
+		'jobs' => array(
+		    'min_retry_interval' => 60, // minimal job retry delay
+		    'max_retries' => 5, // how many times to retry the job
+		    'timeout' => 86400, // how long a job may spend as running before being force-failed
+		),
+		"cron" => array(
+			'max_cron_jobs' => 10, // max jobs per cron schedule run
+		    'max_cron_runtime' => 60, // max runtime for cron jobs
+		    'min_cron_interval' => 30, // minimal interval between cron jobs
+		),
 	);
 }
 
@@ -352,12 +362,13 @@ function get_sugar_config_defaults() {
 	  'show_calls_by_default' => true,
 	  'show_tasks_by_default' => true,
 	  'editview_width' => 990,
-	  'editview_height' => 480,
+	  'editview_height' => 485,
 	  'day_timestep' => 15,
 	  'week_timestep' => 30,
-	  'month_timestep' => 60,
 	  'items_draggable' => true,
-	  'mouseover_expand' => true,
+	  'items_resizable' => true,
+	  'enable_repeat' => true,
+	  'max_repeat_count' => 1000,
 	),
 	'snip_url' => 'http://ease.sugarcrm.com:20010/',
 	'passwordsetting' => array (
@@ -389,12 +400,23 @@ function get_sugar_config_defaults() {
 	    'lockoutexpirationtype' => '1',
 	    'lockoutexpirationlogin' => '',
 		),
-	'use_sprites' => function_exists('imagecreatetruecolor'),
+    	'use_sprites' => function_exists('imagecreatetruecolor'),
 
-	'use_real_names' => true,
-        'search_wildcard_infront' => false,
+		'use_real_names' => true,
+
+		'search_wildcard_infront' => false,
         'search_wildcard_char' => '%',
-	);
+		'jobs' => array(
+		    'min_retry_interval' => 30, // 30 seconds minimal job retry
+		    'max_retries' => 5, // how many times to retry the job
+		    'timeout' => 86400, // how long a job may spend as running before being force-failed
+		),
+		"cron" => array(
+			'max_cron_jobs' => 10, // max jobs per cron schedule run
+		    'max_cron_runtime' => 30, // max runtime for cron jobs
+		    'min_cron_interval' => 30, // minimal interval between cron jobs
+		),
+    );
 
 	if(!is_object($locale)) {
 		$locale = new Localization();
@@ -725,6 +747,7 @@ function get_user_array($add_blank=true, $status="Active", $user_id='', $use_rea
 		}
 
 		if (!empty($user_name_filter)) {
+		    $user_name_filter = $db->quote($user_name_filter);
 			$query .= " AND user_name LIKE '$user_name_filter%' ";
 		}
 		if (!empty($user_id)) {
@@ -766,6 +789,7 @@ function get_user_array($add_blank=true, $status="Active", $user_id='', $use_rea
 
 /**
  * uses a different query to return a list of users than get_user_array()
+ * Used from QuickSearch.php
  * @param args string where clause entry
  * @return array Array of Users' details that match passed criteria
  */
@@ -773,23 +797,32 @@ function getUserArrayFromFullName($args, $hide_portal_users = false) {
 	global $locale;
 	$db = DBManagerFactory::getInstance();
 
-	$argArray = array();
-	if(strpos($args, " ")) {
-		$argArray = explode(" ", $args);
-	} else {
-		$argArray[] = $args;
-	}
+	// jmorais@dri - Bug #51411
+	//
+    // Refactor the code responsible for parsing supplied $args, this way we
+    // ensure that if $args has at least one space (after trim), the $inClause
+    // will be composed by several clauses ($inClauses) inside parenthesis.
+    //
+    // Ensuring that operator precedence is respected, and avoiding
+    // inactive/deleted users to be retrieved.
+    //
+    $args = trim($args);
+    if (strpos($args, ' ')) {
+        $inClauses = array();
 
-	$inClause = '';
-	foreach($argArray as $arg) {
-		if(!empty($inClause)) {
-			$inClause .= ' OR ';
-		}
-		if(empty($arg))
-		continue;
+        $argArray = explode(' ', $args);
+        foreach ($argArray as $arg) {
+            $arg = $db->quote($arg);
+            $inClauses[] = "(first_name LIKE '{$arg}%' OR last_name LIKE '{$arg}%')";
+        }
 
-		$inClause .= "(first_name LIKE '{$arg}%' OR last_name LIKE '{$arg}%')";
-	}
+        $inClause = '(' . implode('OR ', $inClauses) . ')';
+
+    } else {
+        $args = $db->quote($args);
+        $inClause = "(first_name LIKE '{$args}%' OR last_name LIKE '{$args}%')";
+    }
+    // ~jmorais@dri
 
 	$query  = "SELECT id, first_name, last_name, user_name FROM users WHERE status='Active' AND deleted=0 AND ";
 	if ( $hide_portal_users ) {
@@ -917,7 +950,7 @@ function return_app_list_strings_language($language)
 
     $app_list_strings = array();
     foreach ( $app_list_strings_array as $app_list_strings_item ) {
-        $app_list_strings = sugarArrayMerge($app_list_strings, $app_list_strings_item);
+        $app_list_strings = sugarLangArrayMerge($app_list_strings, $app_list_strings_item);
     }
 
     foreach ( $langs as $lang ) {
@@ -1042,7 +1075,7 @@ function return_application_language($language)
 
 	$app_strings = array();
     foreach ( $app_strings_array as $app_strings_item ) {
-        $app_strings = sugarArrayMerge($app_strings, $app_strings_item);
+        $app_strings = sugarLangArrayMerge($app_strings, $app_strings_item);
     }
 
 	if(!isset($app_strings)) {
@@ -1099,7 +1132,7 @@ function return_module_language($language, $module, $refresh=false)
         $cache_key = LanguageManager::getLanguageCacheKey($module, $language);
         // Check for cached value
         $cache_entry = sugar_cache_retrieve($cache_key);
-        if(!empty($cache_entry))
+        if(!empty($cache_entry) && is_array($cache_entry))
         {
             return $cache_entry;
         }
@@ -1126,14 +1159,14 @@ function return_module_language($language, $module, $refresh=false)
 
 	// cn: bug 6048 - merge en_us with requested language
 	if($language != $sugar_config['default_language'])
-        $loaded_mod_strings = sugarArrayMerge(
+        $loaded_mod_strings = sugarLangArrayMerge(
             LanguageManager::loadModuleLanguage($module, $sugar_config['default_language'],$refresh),
                 $loaded_mod_strings
             );
 
     // Load in en_us strings by default
     if($language != 'en_us' && $sugar_config['default_language'] != 'en_us')
-        $loaded_mod_strings = sugarArrayMerge(
+        $loaded_mod_strings = sugarLangArrayMerge(
             LanguageManager::loadModuleLanguage($module, 'en_us', $refresh),
                 $loaded_mod_strings
             );
@@ -1206,7 +1239,7 @@ function return_mod_list_strings_language($language,$module) {
 	}
 
 	// cn: bug 6048 - merge en_us with requested language
-	$mod_list_strings = sugarArrayMerge($en_mod_list_strings, $mod_list_strings);
+	$mod_list_strings = sugarLangArrayMerge($en_mod_list_strings, $mod_list_strings);
 
 	// if we still don't have a language pack, then log an error
 	if(!isset($mod_list_strings)) {
@@ -1710,7 +1743,7 @@ function get_set_focus_js () {
 	//TODO Clint 5/20 - Make this function more generic so that it can take in the target form and field names as variables
 	$the_script = <<<EOQ
 <script type="text/javascript" language="JavaScript">
-<!-- Begin
+<!--
 function set_focus() {
 	if (document.forms.length > 0) {
 		for (i = 0; i < document.forms.length; i++) {
@@ -1728,7 +1761,7 @@ function set_focus() {
       	}
    	}
 }
-//  End -->
+-->
 </script>
 EOQ;
 
@@ -1797,6 +1830,8 @@ function translate($string, $mod='', $selectedValue=''){
 		    $current_language = ($_REQUEST['login_language'] == $current_language)? $current_language : $_REQUEST['login_language'];
 		}
 		$mod_strings = return_module_language($current_language, $mod);
+        if ($mod == "")
+        echo "Language is <pre>" . $mod_strings . "</pre>";
 
 	}else{
 		global $mod_strings;
@@ -1805,14 +1840,14 @@ function translate($string, $mod='', $selectedValue=''){
 	$returnValue = '';
 	global $app_strings, $app_list_strings;
 
-	if(isset($mod_strings[$string]))
-	$returnValue = $mod_strings[$string];
-	else if(isset($app_strings[$string]))
-	$returnValue = $app_strings[$string];
-	else if(isset($app_list_strings[$string]))
-	$returnValue = $app_list_strings[$string];
-	else if(isset($app_list_strings['moduleList']) && isset($app_list_strings['moduleList'][$string]))
-	$returnValue = $app_list_strings['moduleList'][$string];
+    if (isset($mod_strings[$string]))
+        $returnValue = $mod_strings[$string];
+    else if (isset($app_strings[$string]))
+        $returnValue = $app_strings[$string];
+    else if (isset($app_list_strings[$string]))
+        $returnValue = $app_list_strings[$string];
+    else if (isset($app_list_strings['moduleList']) && isset($app_list_strings['moduleList'][$string]))
+        $returnValue = $app_list_strings['moduleList'][$string];
 
 
 	//$test_end = microtime();
@@ -1836,7 +1871,9 @@ function translate($string, $mod='', $selectedValue=''){
 		return $string;
 	}
 
-	if(is_array($returnValue) && ! empty($selectedValue) && isset($returnValue[$selectedValue]) ){
+    // Bug 48996 - Custom enums with '0' value were not returning because of empty check
+    // Added a numeric 0 checker to the conditional to allow 0 value indexed to pass
+	if(is_array($returnValue) && (!empty($selectedValue) || (is_numeric($selectedValue) && $selectedValue == 0))  && isset($returnValue[$selectedValue]) ){
 		return $returnValue[$selectedValue];
 	}
 
@@ -1905,22 +1942,17 @@ function getDefaultXssTags() {
 /**
  * Remove potential xss vectors from strings
  * @param string str String to search for XSS attack vectors
- * @param bool cleanImg Flag to allow <img> tags to survive - only used by InboundEmail for inline images.
+ * @deprecated
  * @return string
  */
-function remove_xss($str, $cleanImg=true)
+function remove_xss($str)
 {
-    $potentials = clean_xss($str, $cleanImg);
-    if(is_array($potentials) && !empty($potentials)) {
-        foreach($potentials as $bad) {
-            $str = str_replace($bad, "", $str);
-        }
-    }
-    return $str;
+    return SugarCleaner::cleanHtml($str, false);
 }
 
 /**
  * Detects typical XSS attack patterns
+ * @deprecated
  * @param string str String to search for XSS attack vectors
  * @param bool cleanImg Flag to allow <img> tags to survive - only used by InboundEmail for inline images.
  * @return array Array of matches, empty on clean string
@@ -2124,8 +2156,15 @@ function clean_incoming_data() {
 	foreach($get  as $k => $v) { $_GET[$k] = $v; }
 	foreach($req  as $k => $v) {
 		 $_REQUEST[$k] = $v;
-		 //ensure the keys are safe as well
-		 securexsskey($k);
+
+	    //ensure the keys are safe as well.  If mbstring encoding translation is on, the post keys don't
+        //get translated, so scrub the data but don't die
+	    if(ini_get('mbstring.encoding_translation')==='1'){
+            securexsskey($k,false);
+        }else{
+		    securexsskey($k,true);
+        }
+
 	}
 	// Any additional variables that need to be cleaned should be added here
 	if (isset($_REQUEST['login_theme'])) clean_string($_REQUEST['login_theme']);
@@ -2491,6 +2530,58 @@ function get_unlinked_email_query($type, $bean) {
 	return $return_array['select'] . $return_array['from'] . $return_array['where'] . $return_array['join'] ;
 } // fn
 
+function get_emails_by_assign_or_link($params)
+{
+    $relation = $params['link'];
+	$bean = $GLOBALS['app']->controller->bean;
+    if(empty($bean->$relation)) {
+        $bean->load_relationship($relation);
+    }
+    if(empty($bean->$relation)) {
+        $GLOBALS['log']->error("Bad relation '$relation' for bean '{$bean->object_name}' id '{$bean->id}'");
+        return array();
+    }
+    $rel_module = $bean->$relation->getRelatedModuleName();
+    $rel_join = $bean->$relation->getJoin(array(
+    	'join_table_alias' => 'link_bean',
+    	'join_table_link_alias' => 'linkt',
+    ));
+    $rel_join = str_replace("{$bean->table_name}.id", "'{$bean->id}'", $rel_join);
+    $return_array['select']='SELECT emails.id ';
+    $return_array['from'] = "FROM emails ";
+    $return_array['join'] = " INNER JOIN (".
+        // directly assigned emails
+        	"select eb.email_id, 'direct' source FROM emails_beans eb where eb.bean_module = '{$bean->module_dir}' AND eb.bean_id = '{$bean->id}' AND eb.deleted=0 ".
+            " UNION ".
+        // Assigned to contacts
+        	"select DISTINCT eb.email_id, 'contact' source FROM emails_beans eb
+                $rel_join AND link_bean.id = eb.bean_id
+        		where eb.bean_module = '$rel_module' AND eb.deleted=0".
+        	" UNION ".
+        // Related by directly by email
+            "select DISTINCT eear.email_id, 'relate' source  from emails_email_addr_rel eear INNER JOIN email_addr_bean_rel eabr
+            	ON eabr.bean_id ='{$bean->id}' AND eabr.bean_module = '{$bean->module_dir}' AND
+    			eabr.email_address_id = eear.email_address_id and eabr.deleted=0 where eear.deleted=0".
+            " UNION ".
+        // Related by email to linked contact
+            "select DISTINCT eear.email_id, 'relate_contact' source FROM emails_email_addr_rel eear INNER JOIN email_addr_bean_rel eabr
+            	ON eabr.email_address_id=eear.email_address_id AND eabr.bean_module = '$rel_module' AND eabr.deleted=0
+            	$rel_join AND link_bean.id = eabr.bean_id
+            	where eear.deleted=0".
+            ") email_ids ON emails.id=email_ids.email_id ";
+        $return_array['where']=" WHERE emails.deleted=0 ";
+
+    	//$return_array['join'] = '';
+        $return_array['join_tables'][0] = '';
+
+        if($bean->object_name == "Case" && !empty($bean->case_number)) {
+            $where = str_replace("%1", $bean->case_number, 	$bean->getEmailSubjectMacro());
+    	    $return_array["where"] .= "\n AND (email_ids.source = 'direct' OR emails.name LIKE '%$where%')";
+        }
+
+        return $return_array;
+}
+
 /**
  * Check to see if the number is empty or non-zero
  * @param $value
@@ -2607,7 +2698,7 @@ function display_notice($msg = false){
 	}
 }
 
-/* checks if it is a number that atleast has the plus at the beggining
+/* checks if it is a number that at least has the plus at the beginning.
  */
 function skype_formatted($number){
 	//kbrill - BUG #15375
@@ -2956,10 +3047,12 @@ function sugar_cleanup($exit = false) {
 	}
 	Tracker::logPage();
 	// Now write the cached tracker_queries
-    $trackerManager = TrackerManager::getInstance();
-    if($monitor = $trackerManager->getMonitor('tracker_queries')){
-    	$trackerManager->saveMonitor($monitor, true);
-	}
+    if(class_exists("TrackerManager")) {
+        $trackerManager = TrackerManager::getInstance();
+        if($monitor = $trackerManager->getMonitor('tracker_queries')){
+        	$trackerManager->saveMonitor($monitor, true);
+    	}
+    }
 	if(!empty($GLOBALS['savePreferencesToDB']) && $GLOBALS['savePreferencesToDB']) {
 	    if ( isset($GLOBALS['current_user']) && $GLOBALS['current_user'] instanceOf User )
 	        $GLOBALS['current_user']->savePreferencesToDB();
@@ -2969,6 +3062,7 @@ function sugar_cleanup($exit = false) {
 	if(
 		(isset($_SESSION['USER_PREFRENCE_ERRORS']) && $_SESSION['USER_PREFRENCE_ERRORS'])
 		&& ($_REQUEST['action']!='modulelistmenu' && $_REQUEST['action']!='DynamicAction')
+		&& ($_REQUEST['action']!='favorites' && $_REQUEST['action']!='DynamicAction')
 		&& (empty($_REQUEST['to_pdf']) || !$_REQUEST['to_pdf'] )
 		&& (empty($_REQUEST['sugar_body_only']) || !$_REQUEST['sugar_body_only'] )
 
@@ -3708,6 +3802,53 @@ function setPhpIniSettings() {
 	}
 }
 
+/**
+ * Identical to sugarArrayMerge but with some speed improvements and used specifically to merge
+ * language files.  Language file merges do not need to account for null values so we can get some
+ * performance increases by using this specialized function. Note this merge function does not properly
+ * handle null values.
+ *
+ * @param $gimp
+ * @param $dom
+ * @return array
+ */
+function sugarLangArrayMerge($gimp, $dom)
+{
+	if(is_array($gimp) && is_array($dom))
+    {
+		foreach($dom as $domKey => $domVal)
+        {
+			if(isset($gimp[$domKey]))
+            {
+				if(is_array($domVal))
+                {
+					$tempArr = array();
+                    foreach ( $domVal as $domArrKey => $domArrVal )
+                        $tempArr[$domArrKey] = $domArrVal;
+                    foreach ( $gimp[$domKey] as $gimpArrKey => $gimpArrVal )
+                        if ( !isset($tempArr[$gimpArrKey]) )
+                            $tempArr[$gimpArrKey] = $gimpArrVal;
+                    $gimp[$domKey] = $tempArr;
+				}
+                else
+                {
+					$gimp[$domKey] = $domVal;
+				}
+			}
+            else
+            {
+				$gimp[$domKey] = $domVal;
+			}
+		}
+	}
+    // if the passed value for gimp isn't an array, then return the $dom
+    elseif(is_array($dom))
+    {
+        return $dom;
+    }
+
+	return $gimp;
+}
 /**
  * like array_merge() but will handle array elements that are themselves arrays;
  * PHP's version just overwrites the element with the new one.
@@ -4638,13 +4779,18 @@ function verify_image_file($path, $jpeg = false)
         }
 	} else {
 	    // check image manually
-	    $fp = fopen($path, "r");
-	    if(!$fp) return false;
-	    $data = fread($fp, 4096);
+        $fp = fopen($path, "rb");
+        if(!$fp) return false;
+        $data = '';
+        // read the whole file in chunks
+        while(!feof($fp)) {
+            $data .= fread($fp,8192);
+        }
+
 	    fclose($fp);
-	    if(preg_match("/<(html|!doctype|script|body|head|plaintext|table|img |pre(>| )|frameset|iframe|object|link|base|style|font|applet|meta|center|form|isindex)/i",
+	    if(preg_match("/<(\?php|html|!doctype|script|body|head|plaintext|table|img |pre(>| )|frameset|iframe|object|link|base|style|font|applet|meta|center|form|isindex)/i",
 	         $data, $m)) {
-	        $GLOBALS['log']->info("Found {$m[0]} in $path, not allowing upload");
+	        $GLOBALS['log']->fatal("Found {$m[0]} in $path, not allowing upload");
 	        return false;
 	    }
 	    return true;
@@ -4715,10 +4861,7 @@ function order_beans($beans, $field_name)
  * @param string $like_char  Database like character, usually '%'
  * @return string Returns a string to be searched in db query
  */
-function sql_like_string($str, $like_char) {
-
-    // default behaviour
-    $wildcard = '%';
+function sql_like_string($str, $like_char, $wildcard = '%', $appendWildcard = true) {
 
     // override default wildcard character
     if (isset($GLOBALS['sugar_config']['search_wildcard_char']) &&
@@ -4734,8 +4877,10 @@ function sql_like_string($str, $like_char) {
     }
 
     // add wildcard at the end of search string (default)
-    if(substr($str,-1) <> $wildcard) {
-        $str .= $wildcard;
+    if ($appendWildcard) {
+        if(substr($str,-1) <> $wildcard) {
+            $str .= $wildcard;
+        }
     }
 
     return str_replace($wildcard, $like_char, $str);
@@ -4762,6 +4907,32 @@ function sanitize($input, $quotes = ENT_QUOTES, $charset = 'UTF-8', $remove = fa
     return htmlentities($input, $quotes, $charset);
 }
 
+/**
+ * @return string - the full text search engine name
+ */
+function getFTSEngineType()
+{
+    if (isset($GLOBALS['sugar_config']['full_text_engine']) && is_array($GLOBALS['sugar_config']['full_text_engine'])) {
+        foreach ($GLOBALS['sugar_config']['full_text_engine'] as $name => $defs) {
+            return $name;
+        }
+    }
+    return '';
+}
+
+/**
+ * @param string $optionName - name of the option to be retrieved from app_list_strings
+ * @return array - the array to be used in option element
+ */
+function getFTSBoostOptions($optionName)
+{
+    if (isset($GLOBALS['app_list_strings'][$optionName])) {
+        return $GLOBALS['app_list_strings'][$optionName];
+    }
+    else {
+        return array();
+    }
+}
 
 /**
  * utf8_recursive_encode
@@ -4850,4 +5021,27 @@ function get_help_url($send_edition = '', $send_version = '', $send_lang = '', $
         }
     }
     return $sendUrl;
+}
+
+/**
+ * generateETagHeader
+ *
+ * This function generates the necessary cache headers for using ETags with dynamic content. You
+ * simply have to generate the ETag, pass it in, and the function handles the rest.
+ *
+ * @param string $etag ETag to use for this content.
+ */
+function generateETagHeader($etag){
+	header("cache-control:");
+	header('Expires: ');
+	header("ETag: " . $etag);
+	header("Pragma:");
+	if(isset($_SERVER["HTTP_IF_NONE_MATCH"])){
+		if($etag == $_SERVER["HTTP_IF_NONE_MATCH"]){
+			ob_clean();
+			header("Status: 304 Not Modified");
+			header("HTTP/1.0 304 Not Modified");
+			die();
+		}
+	}
 }

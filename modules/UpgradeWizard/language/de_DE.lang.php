@@ -32,6 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_UW_COMPLIANCE_DB' => 'Mindest Datenbank Version',
+  'LBL_UW_COMPLIANCE_ZIPARCHIVE' => 'Zip Unterstützung',
   'LBL_UW_COMPLIANCE_MBSTRING_FUNC_OVERLOAD' => 'MBStrings mbstring.func_overload Parameter',
   'LBL_UW_COMPLIANCE_MSSQL_MAGIC_QUOTES' => 'MS SQL Server & PHP Magic Quotes GPC',
   'LBL_UW_COMPLIANCE_XML' => 'XML Parsing',

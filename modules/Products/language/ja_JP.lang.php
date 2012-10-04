@@ -32,7 +32,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'ドキュメント',
   'LBL_MODULE_NAME' => '商品',
   'LBL_MODULE_TITLE' => '商品: ホーム',
   'LBL_SEARCH_FORM_TITLE' => '商品検索',
@@ -88,9 +87,9 @@ $mod_strings = array (
   'LBL_ACCOUNT_NAME' => '取引先:',
   'LNK_PRODUCT_LIST' => '商品',
   'LNK_NEW_PRODUCT' => '商品作成',
-  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除して良いですか？',
-  'NTC_REMOVE_CONFIRMATION' => '本当にこの商品の関連づけを削除して良いですか？',
-  'ERR_DELETE_RECORD' => 'プロダクトを削除するにはレコード番号を指定する必要があります。',
+  'NTC_DELETE_CONFIRMATION' => '本当にこのレコードを削除してよいですか？',
+  'NTC_REMOVE_CONFIRMATION' => '本当にこの商品の関連付けをはずしてよいですか？',
+  'ERR_DELETE_RECORD' => '商品を削除するにはレコード番号を指定する必要があります。',
   'LBL_CURRENCY' => '通貨:',
   'LBL_ASSET_NUMBER' => 'アセットナンバー:',
   'LBL_SERIAL_NUMBER' => 'シリアルナンバー:',
@@ -110,6 +109,7 @@ $mod_strings = array (
   'LBL_NOTES_SUBPANEL_TITLE' => 'メモ',
   'LBL_MEMBER_OF' => '親会社:',
   'LBL_PROJECTS_SUBPANEL_TITLE' => 'プロジェクト',
+  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'ドキュメント',
   'LBL_CONTRACTS_SUBPANEL_TITLE' => '契約',
   'LBL_CONTRACTS' => '契約',
   'LBL_PRODUCT_CATEGORIES' => '商品カテゴリ',
@@ -125,5 +125,7 @@ $mod_strings = array (
   'LBL_CURRENCY_SYMBOL_NAME' => '通貨シンボル名',
   'LBL_PRODUCTS_SUBPANEL_TITLE' => '商品',
   'LNK_IMPORT_PRODUCTS' => '商品のインポート',
+  'LBL_EDITLAYOUT' => 'レイアウト編集',
+  'LBL_EXPORT_CURRENCY_ID' => '通貨ID',
 );
 

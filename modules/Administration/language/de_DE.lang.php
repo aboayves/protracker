@@ -32,8 +32,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_FTS_HOST_HELP' => 'Der Hostname wo der Volltext Suchengine ist',
-  'LBL_FTS_PORT_HELP' => 'Der Portname wo der Volltext Suchengine ist',
+  'LBL_DELETE_FTS_DATA' => 'Existierende Daten löschen wenn die Indexierung ausgeführt wird. Nur Daten in den ausgewählten Modulen werden indexiert.',
+  'LBL_CONNECT_STATUS' => 'Verbindungsstatus',
+  'LBL_FTS_NO_MODULES_FOR_SCHED' => 'Mindestens ein Modul für den Zeitplaner auswählen',
+  'LBL_FTS_PAGE_DESC' => 'Um die Volltextsuche zu aktivieren, bitte eine Suchmaschine auswählen und den Host- und Portdefinitionen für die Suchmaschne eintragen. Stelle eine Verbindung zu der Suchmaschine her und dann eine Volle Systemindexierung durchführen.',
+  'LBL_FTS_CONNECTION_INVALID' => 'Die eingegebenen Volltextsuch Einstellungen sind ungültig und können die Geschwindigkeit des Systems beeinträchtigen. BItte die Einstellungen ändern oder leeren.',
   'ERR_INVALID_LOCALE_NAME_FORMAT_UPGRADE' => 'The "Name Format" that was set before the upgrade is no longer supported.  The format has been automatically set to the default.  Please select a new format and click "Save" to remove this message.',
   'LBL_ADMIN_WIZARD_TITLE' => 'Admin Wizard',
   'LBL_ADMINISTRATION_HOME_TITLE' => 'System',
@@ -1069,6 +1072,7 @@ $mod_strings = array (
   'LBL_GLOBAL_SEARCH_SETTINGS_TITLE' => 'Module auswählen, die die User über die Globale Suchfunktion verwenden können.',
   'LBL_SELECT_MODULES' => 'Erweitert',
   'LBL_SELECT_MODULES_TITLE' => 'Modul über Drag und Drop schieben, um die Anzeige Reihenfolge zu verändern.',
+  'LBL_SELECT_FTS_MODULES_TITLE' => 'Drag und Drop die gewünschten Module die in der Globale Suche einbezogen werden sollen. Danach Speichern',
   'LBL_EAPM_SETTINGS' => 'Externe Konten',
   'LBL_EAPM_SETTINGS_DESC' => 'Externe Anwendungen auswählen, wo der User seine Kontodaten eingeben kann, um auf die Anwendung in Sugar zuzugreifen.',
   'LBL_LANGUAGE_PACKS' => 'Sprachpaket',
@@ -1090,14 +1094,18 @@ $mod_strings = array (
   'LBL_SPRITES_EXCLUDING_FILE' => 'Datei wird ausgeschlossen',
   'LBL_FTS_TYPE' => 'Systemtyp',
   'LBL_FTS_TYPE_HELP' => 'Volltext Suche Engine Varianten',
+  'LBL_FTS_HOST_HELP' => 'Der Hostname wo der Volltext Suchengine ist',
+  'LBL_FTS_PORT_HELP' => 'Der Portname wo der Volltext Suchengine ist',
+  'LBL_AVAILABLE_FTS_MODULES' => 'Bitte die Module für die Indexierung auswählen.',
+  'LBL_FTS_INDEX_BUTTON' => 'Indexierung',
   'LBL_FTS_SETTINGS_TITLE' => 'Volltext Suche Einstellungen',
   'LBL_SAVE_SCHED_BUTTON' => 'Vollsystem Indexierung geplant',
   'LBL_SAVE_SCHED_WARNING' => 'Sind Sie sicher?',
-  'LBL_FTS_SCHED_ENABLED' => 'Ein Vollsystem Indexierung ist geplant. Weitere Details hier <a href="index.php?module=Schedulers&action=DetailView&record={0}">schedulers</a> page',
   'LBL_FTS_NO_MODULES' => 'Bitte mindestens ein Modul für die Suche auswählen',
   'LBL_FTS_ADVANCED_LINK' => 'Module aktivieren',
   'LBL_FTS_ADVANCED_LINK_HELP' => 'Bitte die Mpdule auswählen, wo die Benutzer die Volltext Suchfunktion verwenden darf.',
   'LBL_FTS_CONN_SUCCESS' => 'Die Verbindung war erfolgreich eingestellt, bitte eine Vollsystem Indexierung durchführen. Bitte die Funktion Schedule full system index  auswählen',
   'LBL_FTS_CONN_SUCCESS_SHORT' => 'Eine Vollsystem Index Operation ist beauftragt',
+  'LBL_FTS_CONN_FAILURE_SHORT' => 'Indexierung Operation kann nicht geschedulded werden',
 );
 

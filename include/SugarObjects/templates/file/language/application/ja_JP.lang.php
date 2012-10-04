@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,46 +29,32 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
+$object_name = strtolower($object_name);
 $app_list_strings = array (
-strtolower($object_name).'_category_dom' =>
-    array (
+  $object_name.'_category_dom' => 
+  array (
     '' => '',
     'Marketing' => 'マーケティング',
     'Knowledege Base' => 'ナレッジベース',
     'Sales' => '営業',
   ),
-
-    strtolower($object_name).'_subcategory_dom' =>
-    array (
+  $object_name.'_subcategory_dom' => 
+  array (
     '' => '',
+    'FAQ' => 'FAQ',
     'Marketing Collateral' => 'マーケティング資料',
     'Product Brochures' => '製品パンフレット',
-    'FAQ' => 'FAQ',
   ),
-
-    strtolower($object_name).'_status_dom' =>
-    array (
+  $object_name.'_status_dom' => 
+  array (
+    'FAQ' => 'FAQ',
     'Active' => 'アクティブ',
     'Draft' => 'ドラフト',
-    'FAQ' => 'FAQ',
     'Expired' => '期限切れ',
     'Under Review' => 'レビュー中',
-    'Pending' => '待機',
+    'Pending' => 'ペンディング',
   ),
-  );
+);
+

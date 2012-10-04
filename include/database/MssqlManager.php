@@ -129,7 +129,8 @@ class MssqlManager extends DBManager
             'relate'   => 'varchar',
             'multienum'=> 'text',
             'html'     => 'text',
-            'datetime' => 'datetime',
+			'longhtml' => 'text',
+    		'datetime' => 'datetime',
             'datetimecombo' => 'datetime',
             'time'     => 'datetime',
             'bool'     => 'bit',
@@ -223,7 +224,7 @@ class MssqlManager extends DBManager
         //mssql db maximum number of 5 times at the interval of .2 second. If can not connect
         //it will throw an Unable to select database message.
 
-        if(!@mssql_select_db($configOptions['db_name'], $this->database)){
+        if(!empty($configOptions['db_name']) && !@mssql_select_db($configOptions['db_name'], $this->database)){
 			$connected = false;
 			for($i=0;$i<5;$i++){
 				usleep(200000);
@@ -356,7 +357,7 @@ class MssqlManager extends DBManager
 
         //process if there are elements
         if ($unionOrderByCount){
-            //we really want the last ordery by, so reconstruct string
+            //we really want the last order by, so reconstruct string
             //adding a 1 to count, as we dont wish to process the last element
             $unionsql = '';
             while ($unionOrderByCount>$arr_count+1) {
@@ -390,7 +391,7 @@ class MssqlManager extends DBManager
             $rowNumOrderBy = 'id';
             $unionOrderBy = '';
         }
-        //Unions need the column name being sorted on to match acroos all queries in Union statement
+        //Unions need the column name being sorted on to match across all queries in Union statement
         //so we do not want to strip the alias like in other queries.  Just add the "order by" string and
         //pass column name as is
         if ($unionOrderBy != '') {
@@ -496,7 +497,7 @@ class MssqlManager extends DBManager
                                 $distinctSQLARRAY[1] = substr($distinctSQLARRAY[1],0,$ob_pos);
                             }
 
-                            // strip off last closing parathese from the where clause
+                            // strip off last closing parentheses from the where clause
                             $distinctSQLARRAY[1] = preg_replace('/\)\s$/',' ',$distinctSQLARRAY[1]);
                         }
 
@@ -507,7 +508,7 @@ class MssqlManager extends DBManager
                         foreach ($grpByArr as $gb) {
                             $gb = trim($gb);
 
-                            //clean out the extra stuff added if we are concating first_name and last_name together
+                            //clean out the extra stuff added if we are concatenating first_name and last_name together
                             //this way both fields are added in correctly to the group by
                             $gb = str_replace("isnull(","",$gb);
                             $gb = str_replace("'') + ' ' + ","",$gb);
@@ -699,7 +700,7 @@ class MssqlManager extends DBManager
         $paren_array = $this->removePatternFromSQL($new_sql, "(", ")", "par_");
         $new_sql = array_pop($paren_array);
 
-        //all functions should be removed now, so split the array on comma's
+        //all functions should be removed now, so split the array on commas
         $mstr_sql_array = explode(",", $new_sql);
         foreach($mstr_sql_array as $token ) {
             if (strpos($token, $alias)) {
@@ -897,6 +898,10 @@ class MssqlManager extends DBManager
             $tbl_name = $module_str;
             $sql = strtolower($sql);
 
+            // Bug #45625 : Getting Multi-part identifier (reports.id) could not be bound error when navigating to next page in reprots in mssql
+            // there is cases when sql string is multiline string and it we cannot find " from " string in it
+            $sql = str_replace(array("\n", "\r"), " ", $sql);
+
             //look for the location of the "from" in sql string
             $fromLoc = strpos($sql," from " );
             if ($fromLoc>0){
@@ -1089,7 +1094,7 @@ class MssqlManager extends DBManager
         $GLOBALS['log']->debug('MSSQL about to wakeup FTS');
 
         if($this->getDatabase()) {
-                //create wakup catalog
+                //create wakeup catalog
                 $FTSqry[] = "if not exists(  select * from sys.fulltext_catalogs where name ='wakeup_catalog' )
                 CREATE FULLTEXT CATALOG wakeup_catalog
                 ";
@@ -1237,11 +1242,8 @@ class MssqlManager extends DBManager
     public function isTextType($type)
     {
         $type = strtolower($type);
-        if(!isset($this->type_map[$type]))
-        {
-            return false;
-        }
-        return in_array($this->type_map[$type], array('ntext','text','image','nvarchar(max)'));
+        if(!isset($this->type_map[$type])) return false;
+        return in_array($this->type_map[$type], array('ntext','text','image', 'nvarchar(max)'));
     }
 
     /**
@@ -1383,46 +1385,36 @@ class MssqlManager extends DBManager
         return $result;
     }
 
-   	/**
+    /**
      * @see DBManager::get_indices()
      */
-    public function get_indices($tablename)
+    public function get_indices($tableName)
     {
         //find all unique indexes and primary keys.
         $query = <<<EOSQL
-SELECT LEFT(so.[name], 30) TableName,
-        LEFT(si.[name], 50) 'Key_name',
-        LEFT(sik.[keyno], 30) Sequence,
-        LEFT(sc.[name], 30) Column_name,
-		isunique = CASE
-            WHEN si.status & 2 = 2 AND so.xtype != 'PK' THEN 1
-            ELSE 0
-        END
-    FROM sysindexes si
-        INNER JOIN sysindexkeys sik
-            ON (si.[id] = sik.[id] AND si.indid = sik.indid)
-        INNER JOIN sysobjects so
-            ON si.[id] = so.[id]
-        INNER JOIN syscolumns sc
-            ON (so.[id] = sc.[id] AND sik.colid = sc.colid)
-        INNER JOIN sysfilegroups sfg
-            ON si.groupid = sfg.groupid
-    WHERE so.[name] = '$tablename'
-    ORDER BY Key_name, Sequence, Column_name
+SELECT sys.tables.object_id, sys.tables.name as table_name, sys.columns.name as column_name,
+                sys.indexes.name as index_name, sys.indexes.is_unique, sys.indexes.is_primary_key
+            FROM sys.tables, sys.indexes, sys.index_columns, sys.columns
+            WHERE (sys.tables.object_id = sys.indexes.object_id
+                    AND sys.tables.object_id = sys.index_columns.object_id
+                    AND sys.tables.object_id = sys.columns.object_id
+                    AND sys.indexes.index_id = sys.index_columns.index_id
+                    AND sys.index_columns.column_id = sys.columns.column_id)
+                AND sys.tables.name = '$tableName'
 EOSQL;
         $result = $this->query($query);
 
         $indices = array();
         while (($row=$this->fetchByAssoc($result)) != null) {
             $index_type = 'index';
-            if ($row['Key_name'] == 'PRIMARY')
+            if ($row['is_primary_key'] == '1')
                 $index_type = 'primary';
-            elseif ($row['isunique'] == 1 )
+            elseif ($row['is_unique'] == 1 )
                 $index_type = 'unique';
-            $name = strtolower($row['Key_name']);
+            $name = strtolower($row['index_name']);
             $indices[$name]['name']     = $name;
             $indices[$name]['type']     = $index_type;
-            $indices[$name]['fields'][] = strtolower($row['Column_name']);
+            $indices[$name]['fields'][] = strtolower($row['column_name']);
         }
         return $indices;
     }
@@ -1803,7 +1795,7 @@ EOQ;
 		    or !isset($app_strings['ERR_MSSQL_DB_CONTEXT'])
 			or !isset($app_strings['ERR_MSSQL_WARNING']) ) {
         //ignore the message from sql-server if $app_strings array is empty. This will happen
-        //only if connection if made before languge is set.
+        //only if connection if made before language is set.
 		    return false;
         }
 
@@ -1872,13 +1864,13 @@ EOQ;
         if (strpos($sql, "'") === false)
             return $sql;
 
-        // Flag if there are odd number of single quotes, just continue w/o trying to append N
+        // Flag if there are odd number of single quotes, just continue without trying to append N
         if ((substr_count($sql, "'") & 1)) {
             $GLOBALS['log']->error("SQL statement[" . $sql . "] has odd number of single quotes.");
             return $sql;
         }
 
-        //The only location of three subsequent ' will be at the begning or end of a value.
+        //The only location of three subsequent ' will be at the beginning or end of a value.
         $sql = preg_replace('/(?<!\')(\'{3})(?!\')/', "'<@#@#@PAIR@#@#@>", $sql);
 
         // Remove any remaining '' and do not parse... replace later (hopefully we don't even have any)
@@ -2065,5 +2057,26 @@ EOQ;
                 "setup_db_admin_password" => array("label" => 'LBL_DBCONF_DB_ADMIN_PASSWORD', "type" => "password"),
             )
         );
+    }
+
+    /**
+     * Returns a DB specific FROM clause which can be used to select against functions.
+     * Note that depending on the database that this may also be an empty string.
+     * @return string
+     */
+    public function getFromDummyTable()
+    {
+        return '';
+    }
+
+    /**
+     * Returns a DB specific piece of SQL which will generate GUID (UUID)
+     * This string can be used in dynamic SQL to do multiple inserts with a single query.
+     * I.e. generate a unique Sugar id in a sub select of an insert statement.
+     * @return string
+     */
+        public function getGuidSQL()
+    {
+        return 'NEWID()';
     }
 }

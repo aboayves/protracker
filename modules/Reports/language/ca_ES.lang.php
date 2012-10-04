@@ -32,7 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_REPORT_GRAND_TOTAL' => 'Totals',
+  'ERR_REPORT_INVALID_SUBJECT' => 'L&#39;informe no és vàlid',
+  'ERR_REPORT_INVALID' => 'La definició de l&#39;informe "{0}" conté camps no vàlids: {1}',
   'LBL_PDF_TIMESTAMP' => 'Y_m_d_H_i',
   'LBL_CSV_TIMESTAMP' => 'Y_m_d_H_i_s',
   'LBL_TOTAL' => 'Total',
@@ -484,6 +485,7 @@ $mod_strings = array (
   'LBL_DOWN' => 'Abaix',
   'LBL_UP' => 'Adalt',
   'LBL_ALT_INFORMATION' => 'Informació',
+  'LBL_REPORT_GRAND_TOTAL' => 'Totals',
   'DROPDOWN_SCHEDULE_INTERVALS' => 
   array (
     3600 => 'Cada hora',

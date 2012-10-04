@@ -32,6 +32,13 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $connector_strings = array (
+  'LBL_GET_STARTED' => 'Начать!',
+  'iv_description0' => 'Нажав "Начать!" Вы соглашаетесь с InsideView',
+  'LBL_OPP' => 'Найти сделки',
+  'LBL_OPP_SUB' => 'обратиться к клиентам',
+  'LBL_REFERRAL' => 'Получить клиентов по рекомендации',
+  'LBL_REFERRAL_SUB' => 'к лицам, принимающим ключевые решения',
+  'LBL_ENGAGE' => 'Привлечь клиентов',
   'LBL_TOS0' => 'Я соглашаюсь с InsideView',
   'LBL_TOS1' => 'условиями пользования',
   'LBL_TOS3' => 'политикой приватности',

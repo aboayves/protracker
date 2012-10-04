@@ -40,7 +40,8 @@ class StrToLowerExpression extends StringExpression {
 		$param =$this->getParameters();
 		if (is_array($param))
 			$param = $param[0];
-		return strtolower($param->evaluate());
+    $strtolower = function_exists('mb_strtolower') ? mb_strtolower($param->evaluate(), 'UTF-8') : strtolower($param->evaluate());
+		return $strtolower;
 	}
 
 	/**

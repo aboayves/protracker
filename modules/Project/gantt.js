@@ -23,8 +23,7 @@
  * in the License.  Please refer to the License for the specific language
  * governing these rights and limitations under the License.  Portions created
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-<!--
+ ********************************************************************************/<!--
 SUGAR.gantt=function(){return{daysBetween:function(date1,date2){var DSTAdjust=0;oneMinute=1000*60;var oneDay=oneMinute*60*24;date1.setHours(0);date1.setMinutes(0);date1.setSeconds(0);date2.setHours(0);date2.setMinutes(0);date2.setSeconds(0);if(date2>date1){DSTAdjust=(date2.getTimezoneOffset()-date1.getTimezoneOffset())*oneMinute;}
 else{DSTAdjust=(date1.getTimezoneOffset()-date2.getTimezoneOffset())*oneMinute;}
 var diff=Math.abs(date2.getTime()-date1.getTime())-DSTAdjust;return Math.ceil(diff/oneDay);},compareToToday:function(date){var today=new Date();if((today.getMonth()==date.getMonth())&&(today.getDate()==date.getDate())&&(today.getFullYear()==date.getFullYear())){return true;}
@@ -74,8 +73,7 @@ else if(task_end_date>=calendar_end_date){duration=duration-1;}
 else{duration=duration-SUGAR.gantt.daysBetween(calendar_start_date,task_start_date);}}
 document.getElementById('task_'+task_num+'_id').colSpan=start;var bar=document.getElementById('task_'+task_num+'_bar');if(!emptyRow){var maxMiddleCell=SUGAR.gantt.getNumCols()-document.getElementById('task_'+task_num+'_id').colSpan-1;duration=Math.min(maxMiddleCell,duration);document.getElementById('task_'+task_num+'_bar').colSpan=duration;document.getElementById('task_'+task_num).colSpan=SUGAR.gantt.getNumCols()-document.getElementById('task_'+task_num+'_id').colSpan-document.getElementById('task_'+task_num+'_bar').colSpan;document.getElementById('task_'+task_num+'_bar').innerHTML='<div style="width:0%" class="'+status+'" id="bar_'+task_num+'">\u00a0</div>';if(status!='inprogress'){SUGAR.gantt.animateBar('bar',task_num);}
 else{SUGAR.gantt.setProgress(task_num,progress);}
-bar.onmouseover=function(){SUGAR.gantt.taskOverLib(SUGAR.gantt.popupInfo(task_num),document.getElementById("description_"+task_num).value);}
-bar.onmouseout=function(){nd();}}
+bar.onclick=function(){SUGAR.gantt.taskOverLib(this,SUGAR.gantt.popupInfo(task_num),document.getElementById("description_"+task_num).value);}}
 else{document.getElementById('task_'+task_num+'_bar').colSpan=SUGAR.gantt.getNumCols()-2;document.getElementById('task_'+task_num+'_bar').innerHTML='\u00a0';bar.onmouseover=function(){}
 bar.onmouseout=function(){}}},hideGanttRow:function(row)
 {if(document.getElementById("gantt_row_"+row))
@@ -101,4 +99,4 @@ SUGAR.gantt.createTable('week',document.getElementById('calendar_start').value);
 SUGAR.gantt.createTable('biweek',document.getElementById('calendar_start').value);else if(offsetFromStart==75)
 SUGAR.gantt.createTable('month',document.getElementById('calendar_start').value);document.getElementById("horizBGDiv").title="Horizontal Slider, value = "+offsetFromStart;};},init:function(){SUGAR.gantt.sliderInit();SUGAR.gantt.resizerInit();},popupInfo:function(task_num){var start_date=SUGAR.language.get('Project','LBL_POPUP_DATE_START')+document.getElementById('date_start_'+task_num).value+"<br />";var end_date=SUGAR.language.get('Project','LBL_POPUP_DATE_FINISH')+document.getElementById('date_finish_'+task_num).value+"<br />";var percent_complete=SUGAR.language.get('Project','LBL_POPUP_PERCENT_COMPLETE')+document.getElementById('percent_complete_'+task_num).value+"<br />";if(document.getElementById('resource_full_name_'+task_num)&&document.getElementById('resource_full_name_'+task_num).value!=''){var resource_full_name=SUGAR.language.get('Project','LBL_POPUP_RESOURCE_NAME')+document.getElementById('resource_full_name_'+task_num).value+"<br />";}
 else{var resource_full_name='';}
-return start_date+end_date+percent_complete+resource_full_name;},taskOverLib:function(info,description){return overlib(info,CAPTION,description,CAPTIONSIZE,'2',TEXTSIZE,'2',CGCOLOR,'#DDDDDD',TEXTCOLOR,'#000000',FGCOLOR,'#EEEEEE',CAPCOLOR,'#000000',CAPTIONFONTCLASS,'olCapFontClass',WRAP);},setupCalendar:function(dateformat,bgcolor){calendar_dateformat=dateformat;bg_color=bgcolor;Calendar.setup({inputField:"calendar_start",ifFormat:calendar_dateformat,showsTime:false,button:"calendar_start",singleClick:true,step:1,weekNumbers:false});}};}();
+return start_date+end_date+percent_complete+resource_full_name;},taskOverLib:function(el,info,description){SUGAR.util.getStaticAdditionalDetails(el,info,description);},setupCalendar:function(dateformat,bgcolor){calendar_dateformat=dateformat;bg_color=bgcolor;Calendar.setup({inputField:"calendar_start",ifFormat:calendar_dateformat,showsTime:false,button:"calendar_start",singleClick:true,step:1,weekNumbers:false});}};}();

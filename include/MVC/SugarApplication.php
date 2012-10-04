@@ -61,7 +61,7 @@ class SugarApplication
 		insert_charset_header();
 		$this->setupPrint();
 		$this->controller = ControllerFactory::getController($module);
-        // if the entry point is defined to not need auth, then don't authenicate
+        // If the entry point is defined to not need auth, then don't authenticate.
 		if( empty($_REQUEST['entryPoint'])
                 || $this->controller->checkEntryPointRequiresAuth($_REQUEST['entryPoint']) ){
             $this->loadUser();
@@ -508,7 +508,7 @@ class SugarApplication
      * The list of the actions excepted from referer checks by default
      * @var array
      */
-	protected $whiteListActions = array('index', 'ListView', 'DetailView', 'EditView', 'oauth', 'Authenticate', 'Login', 'SupportPortal');
+	protected $whiteListActions = array('index', 'ListView', 'DetailView', 'EditView', 'oauth', 'authorize', 'Authenticate', 'Login', 'SupportPortal');
 
 	/**
 	 *
@@ -599,7 +599,7 @@ class SugarApplication
         }
 
         $this->trackLogin();
-        
+
         LogicHook::initialize()->call_custom_logic('', 'after_session_start');
 	}
 
@@ -747,7 +747,7 @@ class SugarApplication
 	    $_COOKIE[$name] = $value;
 	}
 
-	protected $redirectVars = array('module', 'action', 'record', 'token');
+	protected $redirectVars = array('module', 'action', 'record', 'token', 'oauth_token', 'mobile');
 
 	/**
 	 * Create string to attach to login URL with vars to preserve post-login
@@ -764,6 +764,9 @@ class SugarApplication
             if(!empty($_REQUEST[$var])) {
                 $ret["login_".$var] = $_REQUEST[$var];
             }
+        }
+        if(isset($_REQUEST['mobile'])) {
+            $ret['mobile'] = $_REQUEST['mobile'];
         }
         if(empty($ret)) return '';
         return "&".http_build_query($ret);
@@ -795,7 +798,14 @@ class SugarApplication
         foreach($this->redirectVars as $var) {
             if(!empty($_REQUEST['login_'.$var])) $vars[$var] = $_REQUEST['login_'.$var];
         }
+        if(isset($_REQUEST['mobile'])) {
+            $vars['mobile'] = $_REQUEST['mobile'];
+        }
 
+        if(isset($_REQUEST['mobile']))
+        {
+         	      $vars['mobile'] = $_REQUEST['mobile'];
+        }
         if(empty($vars)) {
             return "index.php?module=Home&action=index";
         } else {

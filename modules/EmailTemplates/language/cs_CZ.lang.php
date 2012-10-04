@@ -39,7 +39,6 @@ $mod_strings = array (
   'LBL_ATTACHMENTS' => 'Přílohy',
   'LBL_BODY' => 'Tělo zprávy:',
   'LBL_CLOSE' => 'Uzavřen:',
-  'LBL_CONTACT_AND_OTHERS' => 'Kontakt - Zájemce - Adresát',
   'LBL_DESCRIPTION' => 'Popis:',
   'LBL_EDIT_ALT_TEXT' => 'Upravit prostý text',
   'LBL_EMAIL_ATTACHMENT' => 'Příloha emailu',

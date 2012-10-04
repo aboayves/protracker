@@ -32,7 +32,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_ACCOUNTS_SUBPANEL_TITLE' => '取引先',
   'LBL_MODULE_NAME' => 'ターゲットリスト',
   'LBL_MODULE_ID' => 'ターゲットリスト',
   'LBL_MODULE_TITLE' => 'ターゲットリスト: ホーム',
@@ -42,11 +41,12 @@ $mod_strings = array (
   'LBL_NAME' => '名前',
   'LBL_ENTRIES' => '合計数',
   'LBL_LIST_PROSPECT_LIST_NAME' => 'ターゲットリスト',
-  'LBL_LIST_ENTRIES' => 'エントリー',
+  'LBL_LIST_ENTRIES' => 'エントリ',
   'LBL_LIST_DESCRIPTION' => '詳細',
   'LBL_LIST_TYPE_NO' => 'タイプ',
   'LBL_LIST_END_DATE' => '終了日',
   'LBL_DATE_ENTERED' => '入力日',
+  'LBL_MARKETING_ID' => 'マーケティングID',
   'LBL_DATE_MODIFIED' => '更新日',
   'LBL_MODIFIED' => '更新者',
   'LBL_CREATED' => '作成者',
@@ -67,6 +67,7 @@ $mod_strings = array (
   'LBL_CONTACTS_SUBPANEL_TITLE' => '取引先担当者',
   'LBL_LEADS_SUBPANEL_TITLE' => 'リード',
   'LBL_PROSPECTS_SUBPANEL_TITLE' => 'ターゲット',
+  'LBL_ACCOUNTS_SUBPANEL_TITLE' => '取引先',
   'LBL_COPY_PREFIX' => '複製',
   'LBL_USERS_SUBPANEL_TITLE' => 'ユーザ',
   'LBL_TYPE' => 'タイプ',
@@ -78,5 +79,6 @@ $mod_strings = array (
   'LBL_DOMAIN_NAME' => 'ドメイン名',
   'LBL_DOMAIN' => 'メールはありません',
   'LBL_LIST_PROSPECTLIST_NAME' => '名前',
+  'LBL_MORE_DETAIL' => '追加詳細',
 );
 

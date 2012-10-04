@@ -1064,7 +1064,7 @@ $app_strings = array (
   'LBL_CHANGE_BUTTON_TITLE' => 'Cambia [Alt+G]',
   'LBL_CHECKALL' => 'Seleziona tutti',
   'LBL_CLEAR_BUTTON_LABEL' => 'Azzera',
-  'LBL_CLEAR_BUTTON_TITLE' => 'Azzera [Alt+C]',
+  'LBL_CLEAR_BUTTON_TITLE' => 'Azzera',
   'LBL_CLEARALL' => 'Azzera Tutto',
   'LBL_CLOSE_WINDOW' => 'Chiudi Finestra',
   'LBL_CLOSEALL_BUTTON_LABEL' => 'Chiudi tutto',
@@ -1088,7 +1088,7 @@ $app_strings = array (
   'LBL_DIRECT_REPORTS' => 'Reports diretti',
   'LBL_DONE_BUTTON_LABEL' => 'Fatto',
   'LBL_DONE_BUTTON_TITLE' => 'Fatto [Alt+X]',
-  'LBL_DST_NEEDS_FIXIN' => 'L´applicazione necessita di una correzzione dell´ora legale. Vai in <a href=index.php?module=Administration&action=DstFix>Ripara</a> nel pannello amministrativo e correggi l´ora legale.',
+  'LBL_DST_NEEDS_FIXIN' => 'L´applicazione necessita di una correzzione dell´ora legale. Vai in <a href=index.php?module=Administration&amp;action=DstFix>Ripara</a> nel pannello amministrativo e correggi l´ora legale.',
   'LBL_DUPLICATE_BUTTON_LABEL' => 'Duplica',
   'LBL_DUPLICATE_BUTTON_TITLE' => 'Duplica [Alt+U]',
   'LBL_DUPLICATE_BUTTON' => 'Duplica',
@@ -1247,6 +1247,7 @@ $app_strings = array (
   'LBL_CHANGE_PASSWORD' => 'Cambia Password',
   'LBL_LOGIN_TO_ACCESS' => 'Si prega di registrarsi per accedere a quest´area.',
 );
+
 
 
 

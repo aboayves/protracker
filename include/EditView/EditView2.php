@@ -375,6 +375,13 @@ class EditView
 
         //the retrieve already did this work;
         //$this->focus->fill_in_relationship_fields();
+        //Bug#53261: If quickeditview is loaded after editview.tpl is created,
+        //           the th->checkTemplate will return true. So, the following
+        //           code prevent avoid rendering popup editview container.
+        if(!empty($this->formName)) {
+            $formName = $this->formName;
+            $checkFormName = true;
+        }
 
         if (!$this->th->checkTemplate($this->module, $this->view, $checkFormName, $formName))
         {
@@ -423,7 +430,6 @@ class EditView
                 ? Team::getTeamName($this->focus->team_id)
                 : $current_user->default_team_name;
 
-            $this->focus->updateCalculatedFields(); // fire triggers for calculated fields
             foreach ($this->focus->toArray() as $name => $value)
             {
                 $valueFormatted = false;
@@ -467,10 +473,13 @@ class EditView
                   	}
 
 	       	 		if(!empty($this->fieldDefs[$name]['function']['returns']) && $this->fieldDefs[$name]['function']['returns'] == 'html'){
-						$value = $function($this->focus, $name, $value, $this->view);
+						if(!empty($this->fieldDefs[$name]['function']['include'])){
+								require_once($this->fieldDefs[$name]['function']['include']);
+						}
+						$value = call_user_func($function, $this->focus, $name, $value, $this->view);
 						$valueFormatted = true;
 					}else{
-						$this->fieldDefs[$name]['options'] = $function($this->focus, $name, $value, $this->view);
+						$this->fieldDefs[$name]['options'] = call_user_func($function, $this->focus, $name, $value, $this->view);
 					}
 	       	 	}
 

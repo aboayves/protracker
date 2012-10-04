@@ -1,5 +1,6 @@
 <?php
-/*********************************************************************************
+
+/* * *******************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
  * http://www.sugarcrm.com/crm/master-subscription-agreement
@@ -24,20 +25,41 @@
  * in the License.  Please refer to the License for the specific language
  * governing these rights and limitations under the License.  Portions created
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
+ * ****************************************************************************** */
 
 $dictionary['av_Groups'] = array(
-	'table'=>'av_groups',
-	'audited'=>true,
-		'duplicate_merge'=>true,
-		'fields'=>array (
-),
-	'relationships'=>array (
-),
-	'optimistic_locking'=>true,
-		'unified_search'=>true,
-	);
-if (!class_exists('VardefManager')){
-        require_once('include/SugarObjects/VardefManager.php');
+    'table' => 'av_groups',
+    'audited' => true,
+    'duplicate_merge' => true,
+    'fields' => array(
+        'communication_type' => array(
+            'name' => 'communication_type',
+            'vname' => 'LBL_COMMUNICATION_TYPE',
+            'type' => 'enum',
+            'options' => 'grp_comm_type_list',
+            'comments' => 'Groups module communication Type',
+        ),
+        'membership_expiration_days' => array(
+            'name' => 'membership_expiration_days',
+            'vname' => 'LBL_MEMBERSHIP_EXPIRATION_DAYS',
+            'type' => 'int',
+            'default' => 0,
+            'comments' => 'Field for Membership Expiration Days',
+        ),
+        'delivery_method' => array(
+            'name' => 'delivery_method',
+            'vname' => 'LBL_DELIVERY_METHOD',
+            'type' => 'enum',
+            'options' => 'grp_delivery_method_list',
+            'comments' => 'Groups module Default Delivery Methods',
+        ),
+    ),
+    'relationships' => array(
+    ),
+    'optimistic_locking' => true,
+    'unified_search' => true,
+);
+if (!class_exists('VardefManager')) {
+    require_once('include/SugarObjects/VardefManager.php');
 }
-VardefManager::createVardef('av_Groups','av_Groups', array('basic','team_security','assignable'));
+VardefManager::createVardef('av_Groups', 'av_Groups', array('basic', 'team_security', 'assignable'));

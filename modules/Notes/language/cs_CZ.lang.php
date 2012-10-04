@@ -46,7 +46,7 @@ $mod_strings = array (
   'LBL_FILE_MIME_TYPE' => 'MIME typ',
   'LBL_FILE_URL' => 'URL souboru',
   'LBL_FILENAME' => 'Příloha:',
-  'LBL_LEAD_ID' => 'ID zájemce:',
+  'LBL_LEAD_ID' => 'ID příležitosti:',
   'LBL_LIST_CONTACT_NAME' => 'Kontakt',
   'LBL_LIST_DATE_MODIFIED' => 'Poslední úprava',
   'LBL_LIST_FILENAME' => 'Příloha',
@@ -90,9 +90,13 @@ $mod_strings = array (
   'LBL_PANEL_DETAILS' => 'Podrobnosti',
   'LBL_NOTE_INFORMATION' => 'Přehled poznámky',
   'LBL_MY_NOTES_DASHLETNAME' => 'Mé poznámky',
+  'LBL_EDITLAYOUT' => 'Úprava rozvržení',
   'LBL_FIRST_NAME' => 'Jméno:',
   'LBL_LAST_NAME' => 'Příjmení:',
   'LBL_EXPORT_PARENT_TYPE' => 'Týkající se modulu',
   'LBL_EXPORT_PARENT_ID' => 'Týkající se ID',
+  'LBL_DATE_ENTERED' => 'Datum vytvoření',
+  'LBL_DATE_MODIFIED' => 'Datum poslední úpravy',
+  'LBL_DELETED' => 'Odstranit',
 );
 

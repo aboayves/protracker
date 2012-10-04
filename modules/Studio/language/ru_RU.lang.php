@@ -32,17 +32,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_SAVE' => 'Сохранить',
-  'LBL_UNDO' => 'Отмена',
-  'LBL_REDO' => 'Повторное выполнение',
-  'LBL_DELETE' => 'Удалить',
-  'LBL_ADD_FIELD' => 'Добавить поле',
-  'LBL_MAXIMIZE' => 'Увеличить',
-  'LBL_MINIMIZE' => 'Уменьшить',
-  'LBL_PUBLISH' => 'Опубликовать',
-  'LBL_ADDROWS' => 'Добавить строки',
-  'LBL_ADDFIELD' => 'Добавить поле',
-  'LBL_EDIT' => 'Правка',
   'LBL_EDIT_LAYOUT' => 'Правка расположения',
   'LBL_EDIT_ROWS' => 'Правка строк',
   'LBL_EDIT_COLUMNS' => 'Правка столбцов',
@@ -152,5 +141,18 @@ $mod_strings = array (
   'LBL_SP_UPLOADED' => 'Загружено',
   'ERROR_SP_UPLOADED' => 'Пожалуйста, убедитесь, что вы загружаете css-файл.',
   'LBL_SP_PREVIEW' => 'Предварительный просмотр результата  форматирования с применением указанной таблицы стилей.',
+  'LBL_SAVE' => 'Сохранить',
+  'LBL_UNDO' => 'Отмена',
+  'LBL_REDO' => 'Повторное выполнение',
+  'LBL_DELETE' => 'Удалить',
+  'LBL_ADD_FIELD' => 'Добавить поле',
+  'LBL_MAXIMIZE' => 'Увеличить',
+  'LBL_MINIMIZE' => 'Уменьшить',
+  'LBL_PUBLISH' => 'Опубликовать',
+  'LBL_ADDROWS' => 'Добавить строки',
+  'LBL_ADDFIELD' => 'Добавить поле',
+  'LBL_EDIT' => 'Правка',
+  'LBL_LANGUAGE_TOOLTIP' => 'Выберите язык для редактирования.',
+  'LBL_RENAME_MOD_SAVE_HELP' => 'Нажмите "Сохранить", чтобы применить изменения.',
 );
 

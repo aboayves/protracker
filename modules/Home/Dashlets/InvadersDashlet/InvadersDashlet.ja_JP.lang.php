@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,18 +29,16 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
+	
 
 $dashletStrings = array (
   'InvadersDashlet' => 
   array (
     'LBL_TITLE' => 'インベーダー!',
     'LBL_DESCRIPTION' => '休憩中にどうぞ',
-    'LBL_DBLCLICK_HELP' => '移動←：A 移動→：D 弾を打つ：S',
+    'LBL_DBLCLICK_HELP' => '移動（←）: A, 移動（→）: D, 弾を打つ: S',
     'LBL_START' => 'クリックしてスタート',
-    'LBL_GAME_OVER' => 'ゲームオーバー
-（クリックすると再スタートします。）',
+    'LBL_GAME_OVER' => 'ゲームオーバー<br>（クリックすると再スタートします）',
   ),
 );
+

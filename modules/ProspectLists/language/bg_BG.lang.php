@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_MORE_DETAIL' => 'Детайли',
+  'LBL_MARKETING_ID' => 'Послание',
   'LBL_MODULE_NAME' => 'Целеви групи',
   'LBL_MODULE_ID' => 'Целеви групи',
   'LBL_MODULE_TITLE' => 'Целеви групи',
@@ -79,5 +79,6 @@ $mod_strings = array (
   'LBL_DOMAIN_NAME' => 'Име на домейн',
   'LBL_DOMAIN' => 'Блокиран домейн:',
   'LBL_LIST_PROSPECTLIST_NAME' => 'Име',
+  'LBL_MORE_DETAIL' => 'Детайли',
 );
 

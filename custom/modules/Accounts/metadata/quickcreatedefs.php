@@ -52,7 +52,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'preferred_comm_c',
+            'name' => 'preferred_comm',
             'studio' => 'visible',
             'label' => 'LBL_PREFERRED_COMM',
           ),
@@ -65,7 +65,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'priority_c',
+            'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
@@ -74,7 +74,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'status_c',
+            'name' => 'status',
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
@@ -139,12 +139,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'net_worth_c',
+            'name' => 'net_worth',
             'label' => 'LBL_NET_WORTH',
           ),
           1 => 
           array (
-            'name' => 'client_id_c',
+            'name' => 'client_id',
             'label' => 'LBL_CLIENT_ID',
           ),
         ),
@@ -152,12 +152,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'client_since_c',
+            'name' => 'client_since',
             'label' => 'LBL_CLIENT_SINCE',
           ),
           1 => 
           array (
-            'name' => 'accounting_id_c',
+            'name' => 'accounting_id',
             'label' => 'LBL_ACCOUNTING_ID',
           ),
         ),
@@ -165,12 +165,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'married_c',
+            'name' => 'married',
             'label' => 'LBL_MARRIED',
           ),
           1 => 
           array (
-            'name' => 'last_rebal_c',
+            'name' => 'last_rebal',
             'label' => 'LBL_LAST_REBAL',
           ),
         ),

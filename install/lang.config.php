@@ -50,6 +50,6 @@ $config["languages"]=array (
   'zh_CN' => '简体中文',
   'pt_br' => 'pt_br',
   'ca_ES' => 'Català',
-  'en_UK' => 'UK English',
+  'en_UK' => 'English (UK)',
   'sr_RS' => 'Српски',
 );

@@ -210,10 +210,15 @@ class ModuleBuilderController extends SugarController
 
     function action_DeployPackage ()
     {
+    	global $current_user;
+    	
     	if(defined('TEMPLATE_URL')){
     		sugar_cache_reset();
     		SugarTemplateUtilities::disableCache();
     	}
+    	
+    	//increment etag for menu so the new module shows up when the AJAX UI reloads
+    	$current_user->incrementETag("mainMenuETag");
 
         $mb = new ModuleBuilder ( ) ;
         $load = $_REQUEST [ 'package' ] ;
@@ -224,11 +229,11 @@ class ModuleBuilderController extends SugarController
             require_once ('ModuleInstall/PackageManager/PackageManager.php') ;
             $pm = new PackageManager ( ) ;
             $info = $mb->packages [ $load ]->build ( false ) ;
-            $cachedir = sugar_cached('/upload/upgrades/module/');
-            mkdir_recursive ($cachedir) ;
-            rename ( $info [ 'zip' ], $cachedir . $info [ 'name' ] . '.zip' ) ;
-            copy ( $info [ 'manifest' ], $cachedir . $info [ 'name' ] . '-manifest.php' ) ;
-            $_REQUEST [ 'install_file' ] = $cachedir. $info [ 'name' ] . '.zip' ;
+            $uploadDir = $pm->upload_dir.'/upgrades/module/';
+            mkdir_recursive ($uploadDir) ;
+            rename ( $info [ 'zip' ], $uploadDir . $info [ 'name' ] . '.zip' ) ;
+            copy ( $info [ 'manifest' ], $uploadDir . $info [ 'name' ] . '-manifest.php' ) ;
+            $_REQUEST [ 'install_file' ] = $uploadDir. $info [ 'name' ] . '.zip' ;
             $GLOBALS [ 'mi_remove_tables' ] = false ;
             $pm->performUninstall ( $load ) ;
             //#23177 , js cache clear
@@ -245,7 +250,7 @@ class ModuleBuilderController extends SugarController
             UnifiedSearchAdvanced::unlinkUnifiedSearchModulesFile();
 
             //bug 44269 - start
-            global $current_user;
+            
             //clear workflow admin modules cache
             if (isset($_SESSION['get_workflow_admin_modules_for_user'])) unset($_SESSION['get_workflow_admin_modules_for_user']);
 
@@ -635,6 +640,11 @@ class ModuleBuilderController extends SugarController
             {
                 require_once ('modules/DynamicFields/DynamicField.php') ;
                 $moduleName = $_REQUEST [ 'view_module' ] ;
+
+                // bug 51325 make sure we make this switch or delete will not work
+                if( $moduleName == 'Employees' )
+                    $moduleName = 'Users';
+                
                 $class_name = $GLOBALS [ 'beanList' ] [ $moduleName ] ;
                 require_once ($GLOBALS [ 'beanFiles' ] [ $class_name ]) ;
                 $seed = new $class_name ( ) ;

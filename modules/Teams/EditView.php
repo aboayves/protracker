@@ -62,22 +62,25 @@ $xtpl = new XTemplate("modules/Teams/EditView.html");
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
 
+$return_id = isset($_REQUEST['return_id']) ?  $_REQUEST['return_id'] : '';
+$return_module = isset($_REQUEST['return_module']) ?  $_REQUEST['return_module'] : '';
+$return_action= isset($_REQUEST['return_action']) ?  $_REQUEST['return_action'] : '';
+    if (empty($return_id)) {
+        $return_action = 'index';
+    }
 if (isset($_REQUEST['error_string'])) $xtpl->assign("ERROR_STRING", "<span class='error'>Error: ".$_REQUEST['error_string']."</span>");
-if (isset($_REQUEST['return_module'])) $xtpl->assign("RETURN_MODULE", $_REQUEST['return_module']);
-if (isset($_REQUEST['return_action'])) $xtpl->assign("RETURN_ACTION", $_REQUEST['return_action']);
-if (isset($_REQUEST['return_id'])) $xtpl->assign("RETURN_ID", $_REQUEST['return_id']);
-// handle Create $module then Cancel
-if (empty($_REQUEST['return_id'])) {
-	$xtpl->assign("RETURN_ACTION", 'index');
-}if (isset($_REQUEST['isDuplicate'])) $xtpl->assign("IS_DUPLICATE", $_REQUEST['isDuplicate']);
+$xtpl->assign("RETURN_MODULE",$return_module);
+$xtpl->assign("RETURN_ID", $return_id);
+$xtpl->assign("RETURN_ACTION", $return_action);
+
+if (isset($_REQUEST['isDuplicate'])) $xtpl->assign("IS_DUPLICATE", $_REQUEST['isDuplicate']);
 $xtpl->assign("PRINT_URL", "index.php?".$GLOBALS['request_string']);
 $xtpl->assign("ID", $focus->id);
 $xtpl->assign("NAME", Team::getDisplayName($focus->name, $focus->name_2));
 $xtpl->assign("DESCRIPTION", $focus->description);
 
-
 global $current_user;
-if($current_user->isAdminForModule('Users') && $_REQUEST['module'] != 'DynamicLayout' && !empty($_SESSION['editinplace'])){	
+if($current_user->isAdminForModule('Users') && $_REQUEST['module'] != 'DynamicLayout' && !empty($_SESSION['editinplace'])){
 	$record = '';
 	if(!empty($_REQUEST['record'])){
 		$record = 	$_REQUEST['record'];

@@ -44,15 +44,10 @@
 
 
 
-$mod_strings = array (
-  'LBL_ALLOW_OUTBOUND_GROUP_USAGE_DESC' => '当这个选项被选中发件人姓名和电邮地址与本组邮件帐户相关联，对组邮件账户又访问权限的用户在撰写电子邮件时将作为发件人的一个选项显示。',
-  'LBL_ENABLE_AUTO_IMPORT' => '自动导入电子邮件',
-  'LBL_WARNING_CHANGING_AUTO_IMPORT' => '警告：您正在修改您的自动导入设置可能导致数据丢失。',
-  'LBL_WARNING_CHANGING_AUTO_IMPORT_WITH_CREATE_CASE' => '警告：自动创建客户反馈，必须启用自动导入。',
-  'LBL_FIND_OPTIMUM_KEY' => 'f',
-  'LBL_TEST_BUTTON_KEY' => 't',
+
+$mod_strings = array (  
   'LBL_ASSIGN_TEAM' => '指派给团队',
-  'LBL_RE' => '答复:',
+    'LBL_RE' => '答复:',
   'ERR_BAD_LOGIN_PASSWORD' => '用户名或者密码错误',
   'ERR_BODY_TOO_LONG' => '电子邮件正文太长。请调整。',
   'ERR_INI_ZLIB' => '暂时无法关闭Zlib压缩。“测试设置”可能失败。',
@@ -85,6 +80,7 @@ $mod_strings = array (
   'LBL_ASSIGN_TO_GROUP_FOLDER_DESC' => '对组文件夹指派邮件帐号将自动导入邮件.',
   'LBL_POSSIBLE_ACTION_DESC' => '若要创建客户反馈,必须选择组文件夹',
   'LBL_FILTER_DOMAIN' => '没有自动回复的域',
+  'LBL_FIND_OPTIMUM_KEY' => 'f',
   'LBL_FIND_OPTIMUM_MSG' => '<br>寻找最佳连接变量。',
   'LBL_FIND_OPTIMUM_TITLE' => '寻找最佳配置',
   'LBL_FIND_SSL_WARN' => '<br>测试SSL可能会需要一段时间。请耐心等待。<br>',
@@ -93,6 +89,9 @@ $mod_strings = array (
   'LBL_FOUND_MAILBOXES' => '发现下面可使用的文件夹。<br>请选择其中一个:',
   'LBL_FOUND_OPTIMUM_MSG' => '<br>已找到最优设置。请点击下面的按钮以应用这些参数。',
   'LBL_FROM_ADDR' => '“发件人”地址',
+   
+
+    'LBL_FROM_ADDR_DESC'    => "这里提供的电邮地址可能不出现在&报价;来自&报价; 由于邮件服务供应商强加限制，邮件的地址选项被发送.在这些情形下，在定义在发件箱里的电邮地址会被使用.",
   'LBL_FROM_NAME_ADDR' => '回复姓名/电子邮件',
   'LBL_FROM_NAME' => '“发件人”姓名',
   'LBL_GROUP_QUEUE' => '指派给组',
@@ -164,6 +163,7 @@ $mod_strings = array (
   'LBL_SSL' => '使用SSL',
   'LBL_STATUS' => '状态',
   'LBL_SYSTEM_DEFAULT' => '系统默认',
+'LBL_TEST_BUTTON_KEY' => 't',
   'LBL_TEST_BUTTON_TITLE' => '测试[Alt+T]',
   'LBL_TEST_SETTINGS' => '测试设置',
   'LBL_TEST_SUCCESSFUL' => '连接完全成功。',
@@ -182,12 +182,20 @@ $mod_strings = array (
   'LNK_LIST_TEST_IMPORT' => '测试邮件导入',
   'LNK_NEW_QUEUES' => '新增队列',
   'LNK_SEED_QUEUES' => '团队的记录队列',
-  'LBL_IS_PERSONAL' => '个人',
+  'LBL_IS_PERSONAL' => '个人邮箱账号',
   'LBL_GROUPFOLDER_ID' => '组文件夹编号',
   'LBL_ASSIGN_TO_GROUP_FOLDER' => '负责人组文件夹',
   'LBL_ALLOW_OUTBOUND_GROUP_USAGE' => '允许用户使用发送电子邮件的“发件人”的名称和地址作为答复地址',
+  'LBL_ALLOW_OUTBOUND_GROUP_USAGE_DESC' => '当这个选项被选中发件人姓名和电邮地址与本组邮件帐户相关联，对组邮件账户又访问权限的用户在撰写电子邮件时将作为发件人的一个选项显示。',
   'LBL_STATUS_ACTIVE' => '启用',
   'LBL_STATUS_INACTIVE' => '停用',
+  'LBL_IS_PERSONAL' => '个人',
   'LBL_IS_GROUP' => ' 组 ',
+  'LBL_ENABLE_AUTO_IMPORT' => '自动导入电子邮件',
+  'LBL_WARNING_CHANGING_AUTO_IMPORT' => '警告：您正在修改您的自动导入设置可能导致数据丢失。',
+  'LBL_WARNING_CHANGING_AUTO_IMPORT_WITH_CREATE_CASE' => '警告：自动创建客户反馈，必须启用自动导入。',
+  'LBL_EDIT_LAYOUT' => '编辑布局' /*for 508 compliance fix*/,
+
+  
 );
 

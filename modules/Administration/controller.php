@@ -123,6 +123,57 @@ class AdministrationController extends SugarController
         echo "true";
     }
 
+    /**
+     * Save the FTS settings for the system and any modules that may be enabled/disabled
+     * by the administrator.
+     */
+    public function action_ScheduleFTSIndex()
+    {
+        $type = !empty($_REQUEST['type']) ? $_REQUEST['type'] : '';
+        $host = !empty($_REQUEST['host']) ? $_REQUEST['host'] : '';
+        $port = !empty($_REQUEST['port']) ? $_REQUEST['port'] : '';
+        $clearData = !empty($_REQUEST['clearData']) ? $_REQUEST['clearData'] : FALSE;
+        $modules = !empty($_REQUEST['modules']) ? explode(",", $_REQUEST['modules']) : array();
+        $scheduleIndex = !empty($_REQUEST['sched']) ? TRUE : FALSE;
+        
+        $this->cfg = new Configurator();
+        $this->cfg->config['full_text_engine'] = '';
+        $this->cfg->saveConfig();
+        $this->cfg->config['full_text_engine'] = array($type => array('host' => $host, 'port' => $port));
+        $this->cfg->handleOverride();
+        $scheduled = FALSE;
+        if($scheduleIndex)
+        {
+            require_once('include/SugarSearchEngine/SugarSearchEngineFullIndexer.php');
+            $indexer = new SugarSearchEngineFullIndexer();
+            $indexer->initiateFTSIndexer($modules, (int) $clearData);
+            $scheduled = TRUE;
+        }
+        echo json_encode(array('success' => $scheduled));
+    }
+    
+    public function action_checkFTSConnection()
+    {
+        $type = !empty($_REQUEST['type']) ? urldecode($_REQUEST['type']) : '';
+        $host = !empty($_REQUEST['host']) ? urldecode($_REQUEST['host']) : '';
+        $port = !empty($_REQUEST['port']) ? urldecode($_REQUEST['port']) : '';
+
+        if(!empty($type) && !empty($host) && !empty($port))
+        {
+            $config = array('port' => $port, 'host' => $host);
+            require_once('include/SugarSearchEngine/SugarSearchEngineFactory.php');
+            $searchEngine = SugarSearchEngineFactory::getInstance($type, $config);
+            $result = $searchEngine->getServerStatus();
+            if($result['valid'])
+                $result['status'] = $GLOBALS['mod_strings']['LBL_FTS_CONN_SUCCESS'];
+            echo json_encode($result);
+        }
+        else
+        {
+            echo json_encode(array('valid' => FALSE));
+        }
+        sugar_cleanup(TRUE);
+    }
 
     /**
      * action_saveglobalsearchsettings
@@ -141,12 +192,41 @@ class AdministrationController extends SugarController
 		     sugar_die($GLOBALS['app_strings']['ERR_NOT_ADMIN']);
 		 }
 
-    	 try {
+    	 try
+         {
 	    	 require_once('modules/Home/UnifiedSearchAdvanced.php');
 	    	 $unifiedSearchAdvanced = new UnifiedSearchAdvanced();
 	    	 $unifiedSearchAdvanced->saveGlobalSearchSettings();
-	    	 echo "true";
-    	 } catch (Exception $ex) {
+             //Save FTS Settings
+             $type = !empty($_REQUEST['type']) ? $_REQUEST['type'] : '';
+             $host = !empty($_REQUEST['host']) ? $_REQUEST['host'] : '';
+             $port = !empty($_REQUEST['port']) ? $_REQUEST['port'] : '';
+             $this->cfg = new Configurator();
+             $this->cfg->config['full_text_engine'] = '';
+             $this->cfg->saveConfig();
+             $ftsConnectionValid = TRUE;
+
+             if( !empty($type) )
+             {
+                 //Check if the connection is valid on save:
+                 $config = array('port' => $port, 'host' => $host);
+                 require_once('include/SugarSearchEngine/SugarSearchEngineFactory.php');
+                 $searchEngine = SugarSearchEngineFactory::getInstance($type, $config);
+                 $result = $searchEngine->getServerStatus();
+                 if( !$result['valid'] )
+                     $ftsConnectionValid = FALSE;
+             }
+
+             $this->cfg->config['full_text_engine'] = array($type => array('host' => $host, 'port' => $port, 'valid' => $ftsConnectionValid));
+             $this->cfg->handleOverride();
+
+             if(!$ftsConnectionValid)
+                 echo $GLOBALS['mod_strings']['LBL_FTS_CONNECTION_INVALID'];
+             else
+	    	    echo "true";
+    	 }
+         catch (Exception $ex)
+         {
     	 	 echo "false";
     	 }
     }

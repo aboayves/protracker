@@ -32,7 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_MORE_DETAIL' => 'Más Detalles',
+  'LBL_MARKETING_ID' => 'Id de Marketing',
   'LBL_MODULE_NAME' => 'Listas de Público Objetivo',
   'LBL_MODULE_ID' => 'Listas de Público Objetivo',
   'LBL_MODULE_TITLE' => 'Listas de Público Objetivo: Inicio',
@@ -79,5 +79,6 @@ $mod_strings = array (
   'LBL_DOMAIN_NAME' => 'Nombre de Dominio',
   'LBL_DOMAIN' => 'No hay correos para este dominio',
   'LBL_LIST_PROSPECTLIST_NAME' => 'Nombre',
+  'LBL_MORE_DETAIL' => 'Más Detalles',
 );
 

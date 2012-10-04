@@ -35,6 +35,13 @@ array (
           'field' => '30',
         ),
       ),
+      'includes' =>  
+      array ( 
+        0 =>  
+        array ( 
+          'file' => 'include/javascript/tiny_mce/tiny_mce.js', 
+        ),       
+      ),
       'useTabs' => false,
     ),
     'panels' => 
@@ -83,6 +90,15 @@ array (
         ),
         2 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'assigned_to_client',
+            'label' => 'LBL_ASSIGNED_TO_CLIENT',
+          ),
+        ),
+        3 => 
+        array (
           0 => 
           array (
             'name' => 'date_due',
@@ -95,11 +111,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'tasks_tasks_name',
-            'label' => 'LBL_TASKS_TASKS_FROM_TASKS_L_TITLE',
+            'name' => 'parent_tasks_name',
+            'label' => 'LBL_PARENT_TASKS',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => '',
           1 => 
@@ -108,7 +124,7 @@ array (
             'label' => 'LBL_LIST_RELATED_TO',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -121,7 +137,7 @@ array (
             'label' => 'LBL_CONTACT_NAME',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (

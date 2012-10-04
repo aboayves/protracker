@@ -110,10 +110,19 @@ if(isInQuotes)throw("Syntax Error (Unterminated String Literal)");if(level!=0)th
 SUGAR.expressions.ExpressionParser.prototype.toConstant=function(expr){if((/^(\-)?[0-9]+(\.[0-9]+)?$/).exec(expr)!=null){return new SUGAR.ConstantExpression(parseFloat(expr));}
 var fixed=SUGAR.expressions.NumericConstants[expr];if(fixed!=null&&typeof(fixed)!='undefined')
 return new SUGAR.ConstantExpression(parseFloat(fixed));if((/^".*"$/).exec(expr)!=null){expr=expr.substring(1,expr.length-1);return new SUGAR.StringLiteralExpression(expr);}
+if(expr=='')
+{return new SUGAR.StringLiteralExpression(expr);}
 if(expr=="true"){return new SUGAR.TrueExpression();}else if(expr=="false"){return new SUGAR.FalseExpression();}
 if((/^(0[0-9]|1[0-2])\/([0-2][0-9]|3[0-1])\/[0-3][0-9]{3,3}$/).exec(expr)!=null){var day=parseFloat(expr.substring(0,2));var month=parseFloat(expr.substring(3,2));var year=parseFloat(expr.substring(6,4));return new SUGAR.DateExpression([day,month,year]);}
 if((/^([0-1][0-9]|2[0-4]):[0-5][0-9]:[0-5][0-9]$/).exec(expr)!=null){var hour=parseFloat(expr.substring(0,2));var minute=parseFloat(expr.substring(3,2));var second=parseFloat(expr.substring(6,2));return new SUGAR.TimeExpression([hour,minute,second]);}
-return null;};SUGAR.expressions.ExpressionContext=function()
+return null;};SUGAR.expressions.ExpressionParser.prototype.getRelatedFieldsFromFormula=function(expr){var fields=[],relateFunctions=["related","count","rollupSum","rollupMax",'rollupMin',"rollupAve"];var recurseTokens=function(t){if(t.type=="variable"&&t.relate){fields.push({type:"related",link:t.name,relate:t.relate});}else if(t.type=="function"&&relateFunctions.indexOf(t.name)!=-1)
+{switch(t.name){case"related":if(t.args[1].type=="constant")
+fields.push({type:"related",link:t.args[0].name,relate:t.args[1].value});break;case"count":fields.push({type:"count",link:t.args[0].name});break;default:if(t.args[1].type=="constant")
+{fields.push({type:t.name,link:t.args[0].name,relate:t.args[1].value});}}}else if(t.type=="function"){for(var i=0;i<t.args.length;i++){recurseTokens(t.args[i]);}}}
+try{var t=this.tokenize(expr);recurseTokens(t);}
+catch(e){}
+return fields;}
+SUGAR.expressions.ExpressionContext=function()
 {}
 SUGAR.expressions.ExpressionContext.prototype.getValue=function(varname)
 {return"";}

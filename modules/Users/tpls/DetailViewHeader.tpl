@@ -56,11 +56,18 @@ user_detailview_tabs.on('contentReady', function(e){
 {/literal}
 {/if}
 });
+{literal}
+$(document).ready(function(){
+        $("ul.clickMenu").each(function(index, node){
+            $(node).sugarActionMenu();
+        });
+    });
+{/literal}
 </script>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="actionsContainer">
 <tr>
-<td>
+<td width="20%">
 
 <form action="index.php" method="post" name="DetailView" id="form">
     <input type="hidden" name="module" value="Users">
@@ -77,7 +84,11 @@ user_detailview_tabs.on('contentReady', function(e){
     <input type="hidden" name="return_id">
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 
-    <tr><td colspan='2' width="100%" nowrap>{$EDITBUTTONS}{$BUTTONS}</td></tr>
+    <tr><td colspan='2' width="100%" nowrap>
+
+            {sugar_action_menu id="detail_header_action_menu" class="clickMenu fancymenu" buttons=$EDITBUTTONS}
+
+    </td></tr>
 </table>
 </form>
 

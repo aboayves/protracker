@@ -31,7 +31,7 @@ $mod_strings = array (
   'LBL_TEAMS' => 'Teams',
   'LBL_TEAM_ID' => 'Team Id',
   'LBL_ASSIGNED_TO_ID' => 'Assigned User Id',
-  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
+  'LBL_ASSIGNED_TO_NAME' => 'Firm Contact',
   'LBL_ID' => 'ID',
   'LBL_DATE_ENTERED' => 'Date Created',
   'LBL_DATE_MODIFIED' => 'Date Modified',
@@ -58,4 +58,7 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_AV_GROUPS_SUBPANEL_TITLE' => 'Groups',
   'LBL_NEW_FORM_TITLE' => 'New Groups',
+  'LBL_COMMUNICATION_TYPE' => 'Communication Type',
+  'LBL_MEMBERSHIP_EXPIRATION_DAYS' => 'Membership Expiration Days',
+  'LBL_DELIVERY_METHOD' => 'Default Delivery Method',
 );

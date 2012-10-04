@@ -68,7 +68,7 @@ array (
       0 => 'account_id',
     ),
   ),
-  'TYPE_C' => 
+  'TYPE' => 
   array (
     'type' => 'enum',
     'default' => true,
@@ -76,7 +76,7 @@ array (
     'label' => 'LBL_TYPE',
     'width' => '10%',
   ),
-  'STATUS_C' => 
+  'STATUS' => 
   array (
     'type' => 'enum',
     'default' => true,

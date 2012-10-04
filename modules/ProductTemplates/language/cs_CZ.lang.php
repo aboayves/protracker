@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,14 +29,21 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
 	
+
 $mod_strings = array (
+  'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Přiřazený uživatel',
+  'LBL_EXPORT_ASSIGNED_USER_ID' => 'Přiřazený uživatel ID',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'ID modifikátora',
+  'LBL_EXPORT_CREATED_BY' => 'Vytvořeno od ID:',
+  'LBL_TYPE_ID' => 'ID Typu',
+  'LBL_MANUFACTURER_ID' => 'ID výrobce:',
+  'LBL_CATEGORY_ID' => 'ID kategorie:',
+  'LBL_WEBSITE' => 'WWW stránky:',
+  'LBL_QTY_IN_STOCK' => 'Množství skladem',
+  'LBL_EXPORT_CURRENCY' => 'Měna:',
+  'LBL_EXPORT_CURRENCY_ID' => 'ID měny',
+  'LBL_EXPORT_COST_PRICE' => 'Pořizovací cena',
   'ERR_DELETE_RECORD' => 'Jméno záznamu musí být specifikované pro odstranění produktu.',
   'LBL_ACCOUNT_NAME' => 'Jméno společnosti:',
   'LBL_ASSIGNED_TO' => 'Přiděleno:',
@@ -66,6 +75,7 @@ $mod_strings = array (
   'LBL_LIST_QTY_IN_STOCK' => 'Množství',
   'LBL_LIST_STATUS' => 'Dostupnost',
   'LBL_LIST_TYPE' => 'Typ:',
+  'LBL_LIST_TYPE_ID' => 'Type ID:',
   'LBL_LIST_USDOLLAR' => 'Seznam USD:',
   'LBL_MANUFACTURER_NAME' => 'Jméno výrobce:',
   'LBL_MANUFACTURER' => 'Výrobce:',
@@ -91,6 +101,7 @@ $mod_strings = array (
   'LBL_SUPPORT_TERM' => 'Termín podpory:',
   'LBL_TAX_CLASS' => 'Daňová třída:',
   'LBL_TYPE_NAME' => 'Jméno typu',
+  'LBL_TYPE' => 'Type:',
   'LBL_URL' => 'URL produktu:',
   'LBL_VENDOR_PART_NUM' => 'Číslo dílu prodávajícího:',
   'LBL_WEIGHT' => 'Váha:',
@@ -102,7 +113,5 @@ $mod_strings = array (
   'LNK_NEW_SHIPPER' => 'Přepravní poskytovatelé',
   'LNK_PRODUCT_LIST' => 'Zobrazit katalog výrobků',
   'NTC_DELETE_CONFIRMATION' => 'Jste si jisti, že chcete smazat tento záznam?',
-  'LBL_LIST_TYPE_ID' => 'Type ID:',
-  'LBL_TYPE' => 'Type:',
 );
 

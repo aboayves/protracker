@@ -59,7 +59,7 @@ if (!isset($_POST['confirm']) || !$_POST['confirm']) {
 	allowtransparency='true'</iframe>";
 	*/
     $regPhp="<iframe src='https://www.sugarcrm.com/product-registration/registration_php_080428.php?edition={$sugar_flavor}&instance_key=
-    {$ik}' height='515px' width='700px' frameborder='0' scrolling='no'
+    {$ik}' height='595px' width='700px' frameborder='0' style='overflow-x:hidden; overflow-y: scroll;'
     allowtransparency='true'></iframe>";
 
 
@@ -99,7 +99,7 @@ $out =<<<EOQ
 		<img src="{$sugar_md}" alt="SugarCRM" border="0">
 		</p>
 		{$mod_strings['LBL_REG_TITLE']} <span style="font-size: 9px;"> (Optional)</span></th>
-	<th width="200" style="text-align: right;"><a href="http://www.sugarcrm.com" target="_blank"><IMG src="$loginImage" width="145" height="30" alt="SugarCRM" border="0"></a></th>
+	<th width="200" style="text-align: right;"><a href="http://www.sugarcrm.com" target="_blank"><IMG src="$loginImage" alt="SugarCRM" border="0"></a></th>
 </tr>
 <tr>
     <td colspan="2">{$notConfirmed}</td>

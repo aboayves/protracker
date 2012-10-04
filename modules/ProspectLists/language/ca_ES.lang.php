@@ -32,8 +32,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_MARKETING_NAME' => 'Nom de màrqueting',
-  'LBL_MORE_DETAIL' => 'Més detalls',
+  'LBL_MARKETING_ID' => 'Id de Màrqueting',
   'LBL_MODULE_NAME' => 'Llistes de Públic Objectiu',
   'LBL_MODULE_ID' => 'Llistes de Prospectes',
   'LBL_MODULE_TITLE' => 'Llistes de Públic Objectiu: Inici',
@@ -75,9 +74,11 @@ $mod_strings = array (
   'LBL_LIST_TYPE' => 'Tipus',
   'LBL_LIST_TYPE_LIST_NAME' => 'Tipus',
   'LBL_NEW_FORM_TITLE' => 'Nova Llista de Públic Objectiu',
+  'LBL_MARKETING_NAME' => 'Nom de màrqueting',
   'LBL_MARKETING_MESSAGE' => 'Missatge de Màrqueting per Correu',
   'LBL_DOMAIN_NAME' => 'Nom de Domini',
   'LBL_DOMAIN' => 'No hi ha correus per aquest domini',
   'LBL_LIST_PROSPECTLIST_NAME' => 'Nom',
+  'LBL_MORE_DETAIL' => 'Més detalls',
 );
 

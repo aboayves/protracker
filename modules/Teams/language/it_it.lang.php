@@ -32,11 +32,12 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'NTC_DELETE_CONFIRMATION' => 'Sei sicuro di voler eliminare questo record?',
   'LBL_REASSIGN_TEAM_BUTTON_KEY' => 'R',
   'ERR_ADD_RECORD' => 'Per aggiungere un utente a questo team deve essere specificato il numero del record.',
   'ERR_DUP_NAME' => 'Il nome del team esiste già, si prega di sceglierne un altro.',
   'ERR_DELETE_RECORD' => 'Per eliminare il team deve essere specificato il numero del record.',
-  'ERR_INVALID_TEAM_REASSIGNMENT' => 'Errore.  Il team selezionato ({0}) è un team che hai scelto di eliminare. Si prega di selezionare un altro team.',
+  'ERR_INVALID_TEAM_REASSIGNMENT' => 'Errore.  Il team selezionato <b>({0})</b> è un team che hai scelto di eliminare. Si prega di selezionare un altro team.',
   'ERR_CANNOT_REMOVE_PRIVATE_TEAM' => 'Errore. Non è possibile cancellare un utente il cui gruppo privato non sia stato cancellato.',
   'LBL_DESCRIPTION' => 'Descrizione:',
   'LBL_GLOBAL_TEAM_DESC' => 'Visibile Globalmente',
@@ -62,7 +63,7 @@ $mod_strings = array (
   'LBL_TEAM' => 'Team:',
   'LBL_USERS_SUBPANEL_TITLE' => 'Utenti',
   'LBL_USERS' => 'Utenti',
-  'LBL_REASSIGN_TEAM_TITLE' => 'Ci sono dei record assegnati ai seguenti team: {0}<br />Prima di procedere con l´eliminazione del team, è necessario riassegnare questi record ad un nuovo team. Si prega di selezionare il team da usare come sostituto.',
+  'LBL_REASSIGN_TEAM_TITLE' => 'Ci sono dei record assegnati ai seguenti team: <b>{0}</b><br>Prima di procedere con l´eliminazione del team, è necessario riassegnare questi record ad un nuovo team. Si prega di selezionare il team da usare come sostituto.',
   'LBL_REASSIGN_TEAM_BUTTON_LABEL' => 'Riassegnazione',
   'LBL_REASSIGN_TEAM_BUTTON_TITLE' => 'Riassegnazione [Alt+R]',
   'LBL_CONFIRM_REASSIGN_TEAM_LABEL' => 'Procedere con l´aggiornamento del nuovo team per i record selezionati?',
@@ -74,4 +75,5 @@ $mod_strings = array (
   'NTC_REMOVE_TEAM_MEMBER_CONFIRMATION' => 'Sei sicuro di voler eliminare questo utente come membro?',
   'LBL_EDITLAYOUT' => 'Modifica Layout',
 );
+
 

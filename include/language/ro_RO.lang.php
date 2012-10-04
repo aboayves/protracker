@@ -585,33 +585,35 @@ $app_list_strings = array (
   ),
   'dom_cal_month_long' => 
   array (
-    8 => 'August',
-    1 => 'ianuarie',
-    2 => 'Februarie',
-    3 => 'Martie',
-    4 => 'aprilie',
-    5 => 'Mai',
-    6 => 'Iunie',
-    7 => 'Iulie',
-    9 => 'August',
-    10 => 'Octombrie',
-    11 => 'Noiembrie',
-    12 => 'Decembrie',
+    '0' => '',
+    '1' => 'ianuarie',
+    '2' => 'Februarie',
+    '3' => 'Martie',
+    '4' => 'aprilie',
+    '5' => 'Mai',
+    '6' => 'Iunie',
+    '7' => 'Iulie',
+    '8' => 'August',
+    '9' => 'August',
+    '10' => 'Octombrie',
+    '11' => 'Noiembrie',
+    '12' => 'Decembrie',
   ),
   'dom_cal_month_short' => 
   array (
-    2 => 'Feb',
-    3 => 'Mar',
-    4 => 'Apr',
-    8 => 'Aug',
-    9 => 'Sep',
-    10 => 'Oct',
-    11 => 'Nov',
-    12 => 'Dec',
-    1 => 'Ian',
-    5 => 'Mai',
-    6 => 'Iunie',
-    7 => 'Iulie',
+    '0' => '',
+    '1' => 'Ian',
+    '2' => 'Feb',
+    '3' => 'Mar',
+    '4' => 'Apr',
+    '5' => 'Mai',
+    '6' => 'Iunie',
+    '7' => 'Iulie',
+    '8' => 'Aug',
+    '9' => 'Sep',
+    '10' => 'Oct',
+    '11' => 'Nov',
+    '12' => 'Dec',
   ),
   'dom_meridiem_lowercase' => 
   array (
@@ -783,6 +785,7 @@ $app_list_strings = array (
   ),
   'duration_intervals' => 
   array (
+    0 => '00',
     15 => '15',
     30 => '30',
     45 => '45',
@@ -846,8 +849,9 @@ $app_list_strings = array (
   ),
   'email_settings_for_ssl' => 
   array (
-    1 => 'SSL',
-    2 => 'TLS',
+      '0' => '',
+      '1' => 'SSL',
+      '2' => 'TLS',
   ),
   'library_type' => 
   array (
@@ -2021,6 +2025,7 @@ $app_list_strings = array (
   ),
   'tselect_type_dom' => 
   array (
+    0     => '0 hours',
     14440 => '4 ore',
     28800 => '12 ore',
     43200 => '12 ore',

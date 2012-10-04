@@ -51,7 +51,9 @@ class StudioModule
         $this->name = isset ( $moduleNames [ strtolower ( $module ) ] ) ? $moduleNames [ strtolower ( $module ) ] : strtolower ( $module ) ;
         $this->module = $module ;
         $this->seed = BeanFactory::getBean($this->module);
-        $this->fields = $this->seed->field_defs ;
+        if($this->seed) {
+            $this->fields = $this->seed->field_defs;
+        }
         //$GLOBALS['log']->debug ( get_class($this)."->__construct($module): ".print_r($this->fields,true) ) ;
     }
 
@@ -451,6 +453,7 @@ class StudioModule
         $sources = $this->getViewMetadataSources();
         $sources[] = array('type'  => MB_BASICSEARCH);
         $sources[] = array('type'  => MB_ADVANCEDSEARCH);
+        $sources[] = array('type'  => MB_POPUPSEARCH);        
         $sources = array_merge($sources, $this->getWirelessLayouts());
         
         $GLOBALS [ 'log' ]->debug ( print_r( $sources,true) ) ;

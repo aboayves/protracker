@@ -32,11 +32,15 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_FTS_SCHED_ENABLED' => 'Una operació de Sistema d&#39;Índex complet s&#39;ha programat, per veure més detalls si us plau visiteu la pàgina dels <a href="index.php?module=Schedulers&action=DetailView&record={0}"> programadors </a>',
-  'LBL_FTS_ADVANCED_LINK' => 'Habilitar els mòduls',
-  'LBL_FTS_ADVANCED_LINK_HELP' => 'Seleccioneu el mòdul(s) que els usuaris podran realitzar la cerca utilitzant la Cerca de text complet.',
-  'LBL_FTS_CONN_SUCCESS' => 'La connexió s&#39;ha establert satisfactòriament i es recomana la realització d&#39;un índex de tot el sistema. Si us plau, feu clic al calendari complet el botó d&#39;índex del sistema quan estigui llest.',
-  'LBL_FTS_CONN_SUCCESS_SHORT' => 'Una operació de Sistema d&#39;Índex complet ha estat programada.',
+  'LBL_SELECT_FTS_MODULES_TITLE' => 'Arrossegar i deixar anar per seleccionar els mòduls que s&#39;utilitzaran en la recerca global. Feu clic a Desa per aplicar els canvis.',
+  'LBL_AVAILABLE_FTS_MODULES' => 'Seleccioneu el mòdul(s) per a la indexació.',
+  'LBL_FTS_INDEX_BUTTON' => 'Índex',
+  'LBL_DELETE_FTS_DATA' => 'Esborrar les dades existents quan l&#39;índex es porta a terme. Només les dades en els mòduls seleccionats seran indexats.',
+  'LBL_CONNECT_STATUS' => 'Estat de la connexió',
+  'LBL_FTS_NO_MODULES_FOR_SCHED' => 'Seleccioneu com a mínim un mòdul per programar.',
+  'LBL_FTS_CONN_FAILURE_SHORT' => 'No es pot programar una operació d&#39;índex.',
+  'LBL_FTS_PAGE_DESC' => 'Per habilitar la cerca de text complet, seleccioneu el motor de cerca que s&#39;utilitzaran i entrar al host i el port del motor de cerca. Per finalitzar la instal·lació, connectar amb el motor i realitzar un índex de tot el sistema.',
+  'LBL_FTS_CONNECTION_INVALID' => 'Els paràmetres del text complet de la recerca que ha introduït no són vàlids i poden alentir el rendiment del sistema. Si us plau, actualitzeu la configuració.',
   'LBL_SUGARPDF_SETTINGS' => 'PDF',
   'LBL_DIAGNOSTIC_CONFIGPHP' => 'SugarCRM config.php',
   'LBL_DIAGNOSTIC_PHPINFO' => 'phpinfo()',
@@ -1099,5 +1103,9 @@ $mod_strings = array (
   'LBL_SAVE_SCHED_BUTTON' => 'Calendari Índex de tot el sistema',
   'LBL_SAVE_SCHED_WARNING' => 'Estàs segur?',
   'LBL_FTS_NO_MODULES' => 'Seleccioneu com a mínim un mòdul de cerca.',
+  'LBL_FTS_ADVANCED_LINK' => 'Habilitar els mòduls',
+  'LBL_FTS_ADVANCED_LINK_HELP' => 'Seleccioneu el mòdul(s) que els usuaris podran realitzar la cerca utilitzant la Cerca de text complet.',
+  'LBL_FTS_CONN_SUCCESS' => 'La connexió s&#39;ha establert satisfactòriament i es recomana la realització d&#39;un índex de tot el sistema. Si us plau, feu clic al calendari complet el botó d&#39;índex del sistema quan estigui llest.',
+  'LBL_FTS_CONN_SUCCESS_SHORT' => 'Una operació de Sistema d&#39;Índex complet ha estat programada.',
 );
 

@@ -29,7 +29,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 $mod_strings = array(
-	'LBL_DEPENDANT' => 'Dependant' /*for 508 compliance fix*/,
 	'LBL_LOADING' => 'Loading' /*for 508 compliance fix*/,
 	'LBL_HIDEOPTIONS' => 'Hide Options' /*for 508 compliance fix*/,
 	'LBL_DELETE' => 'Delete' /*for 508 compliance fix*/,
@@ -435,6 +434,7 @@ $mod_strings = array(
 'LBL_BTN_ADD_DEPENDENCY'=>'Add Dependency',
 'LBL_BTN_EDIT_FORMULA'=>'Edit Formula',
 'LBL_DEPENDENCY' => 'Dependency',
+'LBL_DEPENDANT' => 'Dependant',
 'LBL_CALCULATED' => 'Calculated Value',
 'LBL_READ_ONLY' => 'Read Only',
 'LBL_FORMULA' => 'Formula',
@@ -447,6 +447,13 @@ $mod_strings = array(
 'LBL_SEARCH_FIELDS' => 'Search Fields...',
 'LBL_FORMULA' => 'Formula',
 'LBL_DYNAMIC_VALUES_CHECKBOX' => 'Dependent',
+'LBL_DEPENDENT_DROPDOWN_HELP' => 'Drag options from the list on the left of available options in the dependent dropdown to the lists on the right to make those options available when the parent option is selected. If no items are under a parent option, when the parent option is selected, the dependent dropdown will not be displayed.',
+'LBL_AVAILABLE_OPTIONS' => 'Available Options',
+'LBL_PARENT_DROPDOWN' => 'Parent Dropdown',
+'LBL_VISIBILITY_EDITOR' => 'Visibility Editor',
+'LBL_ROLLUP' => 'Rollup',
+'LBL_RELATED_FIELD' => 'Related Field',
+
 
 
 //RELATIONSHIPS
@@ -566,6 +573,7 @@ $mod_strings = array(
 'LBL_BTN_VIEW_RELATIONSHIPS'=>'View Relationships',
 'LBL_BTN_ADD_RELATIONSHIP'=>'Add Relationship',
 'LBL_BTN_RENAME_MODULE' => 'Change Module Name',
+'LBL_BTN_INSERT'=>'Insert',
 //TABS
 
 
@@ -711,6 +719,7 @@ $mod_strings = array(
 
 //POPUP HELP
 'LBL_POPHELP_FIELD_DATA_TYPE'=>'Select the appropriate data type based on the type of data that will be entered into the field.',
+'LBL_POPHELP_SEARCHABLE'=>'Select the boost level for this field. <br />Fields with a higher boost level will be given greater weight when the search is performed. <br />When a search is performed, matching records containing fields with a greater weight will be appear higher in the search results.<br /> If you change the boost level for a field from one level to another, perform a system index to apply the change. <br/> Be sure to select to delete the existing data at the time that the system index is performed.',
 'LBL_POPHELP_IMPORTABLE'=>'<b>Yes</b>: The field will be included in an import operation.<br><b>No</b>: The field will not be included in an import.<br><b>Required</b>: A value for the field must be provided in any import.',
 'LBL_POPHELP_IMAGE_WIDTH'=>'Enter a number for Width, as measured in pixels.<br> The uploaded image will be scaled to this Width.',
 'LBL_POPHELP_IMAGE_HEIGHT'=>'Enter a number for the Height, as measured in pixels.<br> The uploaded image will be scaled to this Height.',

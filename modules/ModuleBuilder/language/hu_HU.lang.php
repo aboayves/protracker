@@ -32,6 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_ROLLUP' => 'Felgöngyölít',
+  'LBL_RELATED_FIELD' => 'Kapcsolódó mezők',
   'LBL_POWERED_BY_SUGAR' => 'Powered By SugarCRM',
   'LBL_DASHLET' => 'Sugar Dashlet',
   'LBL_BTN_EXP' => 'Export',
@@ -59,7 +61,6 @@ $mod_strings = array (
     'datetimecombo' => 'Dátum-Idő',
     'decimal' => 'Decimális',
   ),
-  'LBL_DEPENDANT' => 'Függő',
   'LBL_LOADING' => 'Betöltés',
   'LBL_HIDEOPTIONS' => 'Lehetőségek elrejtése',
   'LBL_DELETE' => 'Törlés',
@@ -162,6 +163,7 @@ $mod_strings = array (
   'LBL_BTN_ADD_DEPENDENCY' => 'Függőség hozzáadása',
   'LBL_BTN_EDIT_FORMULA' => 'Szabály módosítása',
   'LBL_DEPENDENCY' => 'Függőség',
+  'LBL_DEPENDANT' => 'Függő',
   'LBL_CALCULATED' => 'Számított érték',
   'LBL_READ_ONLY' => 'Csak olvasható',
   'LBL_FORMULA' => 'Szabály',

@@ -49,7 +49,7 @@ class DocumentsStudioModule extends StudioModule
         $layouts = parent::getLayouts();
         
         //The Documents popup view is not customizable
-        unset($layouts['PopupView']);
+        unset($layouts [ translate('LBL_POPUP') ]);
         
         return $layouts ;
 

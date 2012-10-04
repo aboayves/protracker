@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,33 +29,19 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $dashletStrings = array (
   'JotPadDashlet' => 
   array (
-    'LBL_DEFAULT_TEXT' => '',
-    'LBL_TITLE' => 'Jegyzettömb',
-    'LBL_DESCRIPTION' => 'Egy Dashlet a feljegyzésekhez',
-    'LBL_SAVING' => 'Jegyzettömb mentése...',
-    'LBL_SAVED' => 'Kész',
-    'LBL_CONFIGURE_TITLE' => 'Titulus',
     'LBL_CONFIGURE_HEIGHT' => 'Magasság (1 - 300)',
-    'LBL_DBLCLICK_HELP' => 'Dupla klikk lentebb a módosításhoz.',
+    'LBL_CONFIGURE_TITLE' => 'Cím',
+    'LBL_DBLCLICK_HELP' => 'Kattintson lent duplán a szerkesztéshez!',
+    'LBL_DEFAULT_TEXT' => '',
+    'LBL_DESCRIPTION' => 'Dashlet a feljegyzésekhez',
+    'LBL_SAVED' => 'Mentve',
+    'LBL_SAVING' => 'Jegyzettömb mentése...',
+    'LBL_TITLE' => 'Jegyzettömb',
   ),
 );
 

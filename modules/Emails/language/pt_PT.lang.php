@@ -32,6 +32,9 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_ARCHIVED_EMAILS_CREATE' => 'Criar',
+  'LBL_EMAIL_SELECTOR_SELECT' => 'Seleccionar',
+  'LBL_EMAIL_SELECTOR_CLEAR' => 'Limpar',
   'LBL_FW' => 'FW:',
   'LBL_RE' => 'RE:',
   'LBL_BCC' => 'Bcc:',
@@ -102,7 +105,6 @@ $mod_strings = array (
   'LBL_EDIT_MY_SETTINGS' => 'Editar as Minhas Definições',
   'LBL_EMAIL_ATTACHMENT' => 'Anexo do E-mail',
   'LBL_EMAIL_EDITOR_OPTION' => 'Enviar E-mail em formato HTML',
-  'LBL_EMAIL_SELECTOR' => 'Seleccionar',
   'LBL_EMAIL' => 'E-mail:',
   'LBL_EMAILS_ACCOUNTS_REL' => 'Contas de E-mail',
   'LBL_EMAILS_BUGS_REL' => 'E-mails: Bugs',

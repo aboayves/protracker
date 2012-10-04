@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,32 +29,16 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
-$mod_strings = array ( 
-	'LBL_MODULE_NAME'			=> 'グループ一覧',
-	'LBL_GROUP_NAME'			=> 'グループ名:',
-	'LBL_DESCRIPTION'			=> '詳細:',
-	'LBL_TEAM'					=> 'チーム:',
-	// ListView
-	'LBL_LIST_TITLE'			=> 'グループ一覧',
-	// Links
-	'LNK_ALL_GROUPS'			=> 'すべてのグループ',
-	'LNK_NEW_GROUP'				=> 'グループ作成',
-	'LNK_CONVERT_USER'			=> 'ユーザをグループにコンバート', 
+
+$mod_strings = array (
+  'LBL_MODULE_NAME' => 'グループ',
+  'LBL_GROUP_NAME' => 'グループ名:',
+  'LBL_DESCRIPTION' => '詳細:',
+  'LBL_TEAM' => 'チーム:',
+  'LBL_LIST_TITLE' => 'グループ一覧',
+  'LNK_ALL_GROUPS' => 'すべてのグループ',
+  'LNK_NEW_GROUP' => 'グループ作成',
+  'LNK_CONVERT_USER' => 'ユーザをグループにコンバート',
 );
 

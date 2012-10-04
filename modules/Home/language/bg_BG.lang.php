@@ -32,11 +32,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
-  'LBL_SOURCE_PHPSQL' => 'PHP SQL Parser',
-  'LBL_POWERED_BY_SUGAR' => 'Powered By SugarCRM',
-  'LBL_MORE_DETAIL' => 'Детайли',
-  'LBL_BASIC_SEARCH' => 'Основно търсене',
-  'LBL_ADVANCED_SEARCH' => 'Разширено търсене',
+  'LBL_SOURCE_JSHRINK' => 'JShrink - A Javascript minifier written in PHP',
+  'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - A standards-compliant HTML filtering library.',
   'LBL_RSS_TITLE' => 'News Feed',
   'LBL_BUILD' => 'Build',
   'LBL_SUGAR_COMMUNITY_EDITION' => 'Sugar Community Edition',
@@ -52,8 +49,10 @@ $mod_strings = array (
   'LBL_SOURCE_ZEND' => 'Zend Framework - An open source, object oriented web application framework for PHP5.',
   'LBL_SOURCE_PARSECSV' => 'parseCSV - CSV data parser for PHP',
   'LBL_SOURCE_PHPJS' => 'php.js - Use PHP functions in JavaScript',
+  'LBL_SOURCE_PHPSQL' => 'PHP SQL Parser',
   'LBL_DASHLET_OPT_URL' => 'Website Location',
   'LBL_DASHLET_OPT_HEIGHT' => 'Dashlet Height (in pixels)',
+  'LBL_POWERED_BY_SUGAR' => 'Powered By SugarCRM',
   'LBL_MODULE_NAME' => 'Начало',
   'LBL_MODULES_TO_SEARCH' => 'Търсене на модул',
   'LBL_NEW_FORM_TITLE' => 'Нов контакт',
@@ -184,11 +183,9 @@ $mod_strings = array (
   'LBL_SOURCE_HTTP_WEBDAV_SERVER' => 'HTTP_WebDAV_Server - Изпълнение на WEB DAV сървър в PHP.',
   'LBL_SOURCE_PCLZIP' => 'PclZip - Библиотеката предлага компресия и функции за извличане на Zip архиви, форматирани с Vincent Blavet.',
   'LBL_SOURCE_SMARTY' => 'Smarty - Инструмент шаблон за PHP.',
-  'LBL_SOURCE_OVERLIBMWS' => 'Overlibmws - JavaScript библиотека за графичен интерфейс.',
   'LBL_SOURCE_YAHOO_UI_LIB' => 'Yahoo! User Interface Library - Yahoo библиотека за улесняване прилагането на богати функции от страна на клиента.',
   'LBL_SOURCE_PHPMAILER' => 'PHPMailer - Пълен клас за имейл трансфер на PHP.',
   'LBL_SOURCE_CRYPT_BLOWFISH' => 'Crypt_Blowfish - Дава възможност за бързо двупосочно Blowfish криптиране, без да изисква Mcrypt PHP разширение.',
-  'LBL_SOURCE_HTML_SAFE' => 'HTML_Safe - Анализира, че всички опасности са в съдържанието на HTML-а.',
   'LBL_SOURCE_XML_HTMLSAX3' => 'XML_HTMLSax3 - Анализаторите SAX за HTML и други за формиране на XML документи.',
   'LBL_SOURCE_YAHOO_UI_LIB_EXT' => 'Yahoo! UI Разширена библиотека - Разширение на Yahoo! Потребителски интерфейс библиотека от Jack Slocum',
   'LBL_SOURCE_SWFOBJECT' => 'SWFObject - Javascript Flash Player за откриване и съставяне на скрипт.',
@@ -202,6 +199,9 @@ $mod_strings = array (
   'LBL_DASHLET_OPT_TITLE' => 'Заглавие',
   'LBL_DASHLET_SUGAR_NEWS' => 'SugarCRM Новини',
   'LBL_DASHLET_DISCOVER_SUGAR_PRO' => 'Открийте SugarCRM PROFESSIONAL',
+  'LBL_MORE_DETAIL' => 'Детайли',
+  'LBL_BASIC_SEARCH' => 'Основно търсене',
+  'LBL_ADVANCED_SEARCH' => 'Разширено търсене',
   'dashlet_categories_dom' => 
   array (
     'Module Views' => 'Модули:',

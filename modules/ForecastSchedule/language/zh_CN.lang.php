@@ -43,6 +43,7 @@
 
 
 
+
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
@@ -133,7 +134,8 @@ $mod_strings = array (
   'LBL_FDR_COMMIT'=> '已提交金额',
   'LBL_FDR_DATE_COMMIT'=> '提交日期',
   
-    'LBL_DV_HEADER' => '销售预测:工作单',
+    
+'LBL_DV_HEADER' => '销售预测:工作单',
   'LBL_DV_MY_FORECASTS' => '我的销售预测:',
   'LBL_DV_MY_TEAM' => "我的团队的销售预测" ,
   'LBL_DV_TIMEPERIODS' => '时段:',
@@ -192,7 +194,7 @@ $mod_strings = array (
   'LBL_QC_COMMIT_BEST_CASE'=> '提交金额(最好情形):',
   'LBL_QC_COMMIT_LIKELY_CASE'=> '提交金额(可能情形):',
   'LBL_QC_COMMIT_WORST_CASE'=> '提交金额(最坏情形):',
-
+	'LBL_EDIT_LAYOUT' => '编辑布局' /*for 508 compliance fix*/,
 );
 
 

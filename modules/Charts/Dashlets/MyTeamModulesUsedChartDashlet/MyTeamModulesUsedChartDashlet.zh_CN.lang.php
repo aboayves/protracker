@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,28 +29,14 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+	
 
+$dashletStrings = array (
+  'MyTeamModulesUsedChartDashlet' => 
+  array (
+    'LBL_DESCRIPTION' => '团队成员使用过的模块（最近30天）',
+    'LBL_REFRESH' => '刷新图表',
+    'LBL_TITLE' => '团队成员使用过的模块（最近30天）',
+  ),
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
-
-
-
-$dashletStrings['MyTeamModulesUsedChartDashlet'] = array('LBL_TITLE'       => '团队成员使用过的模块（最近30天）',
-                                                     'LBL_DESCRIPTION' => '团队成员使用过的模块（最近30天）',
-                                                     'LBL_REFRESH'     => '刷新图表');

@@ -1,5 +1,5 @@
 <?php
-
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -28,24 +28,13 @@
  ********************************************************************************/
 
 
+/*********************************************************************************
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
+ * Description:  Defines the English language pack for the base application.
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
 
 $mod_strings = array (
   'LBL_MODULE_NAME' => '产品类型',
@@ -70,7 +59,10 @@ $mod_strings = array (
   'NTC_LIST_ORDER' => '设置产品类型在下拉列表中的顺序。',
   'LNK_IMPORT_PRODUCT_TYPES'=> '导入产品类型',
   'LBL_CREATED_BY'=>'创建人',
-
+  'LBL_EDITLAYOUT' => '' /*for 508 compliance fix*/,
+  //For export labels
+  'LBL_EXPORT_MODIFIED_USER_ID'=> '分配ID',
+  'LBL_EXPORT_CREATED_BY'=>'创建ID',
 );
 
 

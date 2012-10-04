@@ -1,4 +1,6 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
@@ -27,29 +29,15 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
   'LBL_DEFAULT' => 'Nincs beállítva',
-  'LBL_READ_WRITE' => 'Írás / olvasás',
-  'LBL_READ_OWNER_WRITE' => 'Olvasott/Tulajdonos írása',
+  'LBL_READ_WRITE' => 'Írható / olvasható',
+  'LBL_READ_OWNER_WRITE' => 'Olvasható / Tulajdonos számára írható',
   'LBL_READ_ONLY' => 'Csak olvasható',
-  'LBL_OWNER_READ_WRITE' => 'Tulajdonos olvashat / írhat',
-  'LBL_ALLOW_NONE' => 'Nincs',
-  'LBL_FIELDS' => 'Engedélyezési mező',
+  'LBL_OWNER_READ_WRITE' => 'Tulajdonos számára olvasható / Tulajdonos számára írható',
+  'LBL_ALLOW_NONE' => 'Egyik sem',
+  'LBL_FIELDS' => 'Mezőkre vonatkozó engedélyek',
 );
 
