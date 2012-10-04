@@ -78,7 +78,7 @@ ORDER BY av_net_worth.date_entered DESC
 		echo rtrim($jsRow, ',');
 		echo "
 		);
-		Accounts_detailview_tabs.selectTab(4);	//just to show off my graph's animation effects.. We go back to out first tab in 3.5 seconds.
+//		Accounts_detailview_tabs.selectTab(4);	//just to show off my graph's animation effects.. We go back to out first tab in 3.5 seconds.
 		$('#divForGraph').jqBarGraph({ 
 										data: arrayOfData,
 										colors: ['#437346', '#97D95C'],
@@ -88,7 +88,7 @@ ORDER BY av_net_worth.date_entered DESC
 										width: 400,
 										type: 'multi'
 									});
-		setTimeout('Accounts_detailview_tabs.selectTab(0);',3500);	//going back to the first tab after 3.5 seconds.
+//		setTimeout('Accounts_detailview_tabs.selectTab(0);',3500);	//going back to the first tab after 3.5 seconds.
 		</script>";
 		
 	}

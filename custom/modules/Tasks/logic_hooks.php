@@ -9,6 +9,7 @@ $hook_array['before_save'][] = Array(1, 'workflow', 'include/workflow/WorkFlowHa
 $hook_array['before_save'][] = Array(1, 'tasks_status_change_file', 'custom/modules/Tasks/stamp.php','task_status_change', 'stamp_completion');
 $hook_array['before_save'][] = Array(2, 'tasks_status_change_file', 'custom/modules/Tasks/stamp.php','task_status_change', 'setStatus');
 $hook_array['after_save'] = Array(); 
+$hook_array['after_save'][] = Array(2, 'tasks_status_activate_file', 'custom/modules/Tasks/stamp.php','task_status_change', 'activate_child');
 $hook_array['before_save'][] = Array(1, 'attach_to_group_id', 'custom/modules/Tasks/AttachToGroupId_hook.php','AttachToGroupId', 'assign_members');
 
 $hook_array['after_retrieve'] = Array(); 
