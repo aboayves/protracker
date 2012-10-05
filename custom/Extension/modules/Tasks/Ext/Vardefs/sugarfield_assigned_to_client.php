@@ -1,7 +1,7 @@
 <?php
-$dictionary["Task"]["fields"]["assigned_to_client"] = array (
-		'name' => 'assigned_to_client',
-		'vname' => 'LBL_ASSIGNED_TO_CLIENT',
+$dictionary["Task"]["fields"]["on_task_list"] = array (
+		'name' => 'on_task_list',
+		'vname' => 'LBL_ON_TASK_LIST',
 		'type' => 'bool',
 		'len' => '255',
 		'audited'=>false,

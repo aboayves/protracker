@@ -84,7 +84,7 @@ class rt_WorkflowController extends SugarController {
 						"id, name, date_entered, date_modified, assign_to, relate_to, ".
 						"modified_user_id, created_by, description, ".
 						"team_id, team_set_id, assigned_user_id, task_category as 'category', ".
-						"private, notify_child_completion, assigned_to_client, parent_tasks_id, days_out ".
+						"private, notify_child_completion, on_task_list, parent_tasks_id, days_out ".
 					"FROM ".
 						"rt_task_template ".
 					"WHERE ".
