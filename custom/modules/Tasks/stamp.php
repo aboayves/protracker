@@ -31,6 +31,7 @@ class task_status_change
 			if($parent_task = $db->fetchByAssoc($parent_task)){
 				if($parent_task['status'] != 'Completed')
 				{
+					SugarApplication::appendErrorMessage('Unable to Complete the Task becuase parent task has not been completed.');
 					$bean->status = 'Pending';
 				}
 			}
@@ -47,6 +48,18 @@ class task_status_change
 		{
 			$this->doMail($child_task['assigned_user_id'], 'parent task completion notification','parent task completion notification');
 		}
+	}
+	
+	function activate_child(&$bean, $event, $arguments)
+	{
+	   if($bean->status == 'Completed') {
+	   global $db;
+	   
+       $query = "UPDATE tasks
+	             SET status ='Not Started' 
+	             WHERE parent_tasks_id='{$bean->id}' AND status= 'Pending' AND deleted=0" ;
+	   $db->query($query);
+	   }
 	}
 	
 	function notify_parent($beanID, $parentID)
