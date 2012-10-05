@@ -85,8 +85,8 @@ array (
           0 => 'private',
           1 => 
           array (
-            'name' => 'assigned_to_client',
-            'label' => 'LBL_ASSIGNED_TO_CLIENT',
+            'name' => 'on_task_list',
+            'label' => 'LBL_ON_TASK_LIST',
           ),
         ),
         4 => 
