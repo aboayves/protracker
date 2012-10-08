@@ -1340,7 +1340,7 @@ EOHTML;
 			$params = array_reverse($params);
 		}
 		if(count($params) > 1) {
-			array_shift($params);
+			//array_shift($params);
 		}
 		$count = count($params);
         $paramString = '';
@@ -1478,6 +1478,7 @@ EOHTML;
     	else {
 		    if (!empty($iconPath) && !$browserTitle) {
 				//return "<a href='index.php?module={$this->module}&action=index'>$this->module</a>";
+				return $firstParam;
 			} else {
 				return $firstParam;
 			}
