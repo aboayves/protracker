@@ -60,6 +60,7 @@ class TreeData{
 				$node['expanded'] = true;
 				
 		        $childs_array[] = $node;
+				break;
 		}
 	
 	}
