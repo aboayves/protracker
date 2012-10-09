@@ -39,7 +39,7 @@ var treeHelper = {
 						{ text: "Open", onclick: {fn: treeHelper.openNode}},
 						{ text: "Edit", onclick: {fn: treeHelper.editNode}},
 						{ text: "Delete", onclick: {fn: treeHelper.deleteNode}},
-						{ text: "Create Dependednt Task", onclick: {fn: treeHelper.createNode}} 
+						{ text: "Create Dependent Task", onclick: {fn: treeHelper.createNode}} 
 					] 
 				} 
 			);
