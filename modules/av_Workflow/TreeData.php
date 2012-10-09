@@ -7,6 +7,7 @@ class TreeData{
 		$tree['id'] = $wfID;
 		$tree['html'] = $wfName;
 		$tree['type'] = 'HTML';
+		$tree['label'] = $wfName;
 		$tree['href'] = "index.php?module=av_Workflow&action=DetailView&record={$wfID}";
 		$tree['expanded'] = true;
 		$tree['children'] = TreeData::getChilds($wfID, $added_nodes, true);
@@ -30,14 +31,15 @@ class TreeData{
 			
 				$node = array();
 				$node['id'] = $row['id'];
-				$node['html'] ="<table><tr><td title='Name' >{$row['name']}</td>
-				                <td width='250' title='Subject'>{$row['subject']}</td>
-								<td width='250' title='Category'>{$row['task_category']}</td>
-								<td width='250' title='Assign To'>{$app_list_strings['task_assign_to_list'][$row['assign_to']]}</td>
-								<td width='80' title='Days Out'>{$row['days_out']}
+				$node['html'] ="<table><tr><td id='name' title='Name' >{$row['name']}</td>
+				                <td width='250px' title='Subject'>{$row['subject']}</td>
+								<td width='200px' title='Category'>{$row['task_category']}</td>
+								<td width='125px' title='Assign To'>{$app_list_strings['task_assign_to_list'][$row['assign_to']]}</td>
+								<td width='60px' title='Days Out'>{$row['days_out']}
 								<input type='hidden' value={$row['id']}</td>
 								</tr></table>";
 				$node['type'] = 'HTML';
+				$node['label'] = $row['name'];
 				$node['highlightState']='1';
 				$node['href'] = "index.php?module=av_Task_Template&action=DetailView&record={$row['id']}";
 				$node['expanded'] = true;

@@ -93,8 +93,7 @@ var treeHelper = {
 			href = href.replace(/record/g, "parent_tasks_id");
 			href += '&parent_tasks_name=';
 		}
-
-		window.open(href + treeHelper.oCurrentTextNode.label);
+		window.open(href + treeHelper.oCurrentTextNode.data.label);
 	},
 
 	deleteNode : function () {
