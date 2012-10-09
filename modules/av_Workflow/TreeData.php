@@ -14,7 +14,7 @@ class TreeData{
 	}
 	
 	private static function getChilds($id, &$added_nodes = array(), $fromWF = false) {
-		global $db, $users, $timedate;
+		global $db, $users, $timedate, $app_list_strings;
 		
 		$field = 'parent_tasks_id';
 		if($fromWF){
@@ -30,13 +30,13 @@ class TreeData{
 			
 				$node = array();
 				$node['id'] = $row['id'];
-				$node['html'] ='<table><tr><td width="80">Name</td><td>'.$row['name'].
-				                '</td></tr><tr><td>Category</td><td>'.$row['task_category'].
-								'</td></tr><tr><td>Subject</td><td>'.$row['subject'].
-								'</td></tr><tr><td> Assign To</td><td>'.$row['assign_to'].
-								'</td></tr><tr><td>Days Out</td><td>'.$row['days_out'].
-								'<input type="hidden" value="'.$row['id'].'"'.
-								'</td></tr></table>';
+				$node['html'] ="<table><tr><td title='Name' >{$row['name']}</td>
+				                <td width='250' title='Subject'>{$row['subject']}</td>
+								<td width='250' title='Category'>{$row['task_category']}</td>
+								<td width='250' title='Assign To'>{$app_list_strings['task_assign_to_list'][$row['assign_to']]}</td>
+								<td width='80' title='Days Out'>{$row['days_out']}
+								<input type='hidden' value={$row['id']}</td>
+								</tr></table>";
 				$node['type'] = 'HTML';
 				$node['highlightState']='1';
 				$node['href'] = "index.php?module=av_Task_Template&action=DetailView&record={$row['id']}";
