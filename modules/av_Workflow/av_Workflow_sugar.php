@@ -37,7 +37,7 @@ class av_Workflow_sugar extends Basic {
 	var $new_schema = true;
 	var $module_dir = 'av_Workflow';
 	var $object_name = 'av_Workflow';
-	var $table_name = 'av_Workflow';
+	var $table_name = 'av_workflow';
 	var $importable = false;
 		var $id;
 		var $name;

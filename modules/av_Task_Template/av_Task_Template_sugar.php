@@ -37,7 +37,7 @@ class av_Task_Template_sugar extends Basic {
 	var $new_schema = true;
 	var $module_dir = 'av_Task_Template';
 	var $object_name = 'av_Task_Template';
-	var $table_name = 'av_Task_Template';
+	var $table_name = 'av_task_template';
 	var $importable = false;
 		var $id;
 		var $name;
