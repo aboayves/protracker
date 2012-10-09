@@ -140,11 +140,11 @@ $dictionary['av_Task_Template'] = array(
 		'len' => '255',
 		'size' => '20',
 	  ),
-	  'assigned_to_client' => 
+	  'on_task_list' => 
 	  array (
 		'required' => false,
-		'name' => 'assigned_to_client',
-		'vname' => 'LBL_ASSIGNED_TO_CLIENT',
+		'name' => 'on_task_list',
+		'vname' => 'LBL_ON_TASK_LIST',
 		'type' => 'bool',
 		'massupdate' => 0,
 		'default' => '0',

@@ -43,7 +43,6 @@ $dictionary['av_Groups'] = array(
             'name' => 'membership_expiration_days',
             'vname' => 'LBL_MEMBERSHIP_EXPIRATION_DAYS',
             'type' => 'int',
-            'default' => 0,
             'comments' => 'Field for Membership Expiration Days',
         ),
         'delivery_method' => array(

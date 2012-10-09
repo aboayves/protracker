@@ -85,8 +85,8 @@ array (
           0 => 'private',
           1 => 
           array (
-            'name' => 'assigned_to_client',
-            'label' => 'LBL_ASSIGNED_TO_CLIENT',
+            'name' => 'on_task_list',
+            'label' => 'LBL_ON_TASK_LIST',
           ),
         ),
         4 => 
@@ -104,7 +104,7 @@ array (
           1 => 
           array (
             'name' => 'parent_name',
-            'customLabel' => 'Related To {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+            'customLabel' => 'Related to - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
         ),
         6 => 
@@ -153,8 +153,8 @@ array (
             'name' => 'tree',
             'label' => 'Tree',
             'customCode' => '<div> <div>'.
-			                '<input type="checkbox" id="pending_only" onclick="disable_ajax=0;generateTree();" /> Pending Only &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
-							'<input type="checkbox" id="more_then_90" onclick="disable_ajax=0;generateTree();" /> Away for more than 90 days <br /><br /><br />'.
+			                '<input type="checkbox" id="pending_only" onclick="disable_ajax=0;generateTree();" /> Hide Pending tasks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
+							'<input type="checkbox" id="more_then_90" onclick="disable_ajax=0;generateTree();" /> Hide tasks greater than 90 days out <br /><br /><br />'.
 							'</div><div id="tree_panel3"></div></div>',
           ),
         ),
