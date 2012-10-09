@@ -14,7 +14,7 @@ $html="
 	</tr>";
 
 $sql="
-SELECT rt_group_membership.name, rt_group_membership.include, rt_group_membership.opted_out, rt_group_membership.expiration_date, rt_group_membership.delivery_method, rt_group_membership.comments FROM rt_group_membership WHERE rt_group_membership.deleted=0 AND rt_group_membership.av_groups_id='{$_REQUEST['record']}' AND rt_group_membership.include=1";
+SELECT av_group_membership.name, av_group_membership.include, av_group_membership.opted_out, av_group_membership.expiration_date, av_group_membership.delivery_method, av_group_membership.comments FROM av_group_membership WHERE av_group_membership.deleted=0 AND av_group_membership.av_groups_id='{$_REQUEST['record']}' AND av_group_membership.include=1";
 
 $members = $db->query($sql);
 

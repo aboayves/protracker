@@ -27,16 +27,16 @@
  ********************************************************************************/
 
 
-$app_list_strings['rt_offices_type_dom'][''] = '';
-$app_list_strings['rt_offices_type_dom']['Analyst'] = 'Analüütik';
-$app_list_strings['rt_offices_type_dom']['Competitor'] = 'Konkurent';
-$app_list_strings['rt_offices_type_dom']['Customer'] = 'Klient';
-$app_list_strings['rt_offices_type_dom']['Integrator'] = 'Integraator';
-$app_list_strings['rt_offices_type_dom']['Investor'] = 'Investor';
-$app_list_strings['rt_offices_type_dom']['Partner'] = 'Partner';
-$app_list_strings['rt_offices_type_dom']['Press'] = 'Ajakirjandus';
-$app_list_strings['rt_offices_type_dom']['Prospect'] = 'Potentsiaane klient';
-$app_list_strings['rt_offices_type_dom']['Reseller'] = 'Edasimüüja';
-$app_list_strings['rt_offices_type_dom']['Other'] = 'Muu:';
-$app_list_strings['moduleList']['rt_Offices'] = 'Offices';
-$app_list_strings['moduleList']['rt_Group_Membership'] = 'Group Membership';
+$app_list_strings['av_offices_type_dom'][''] = '';
+$app_list_strings['av_offices_type_dom']['Analyst'] = 'Analüütik';
+$app_list_strings['av_offices_type_dom']['Competitor'] = 'Konkurent';
+$app_list_strings['av_offices_type_dom']['Customer'] = 'Klient';
+$app_list_strings['av_offices_type_dom']['Integrator'] = 'Integraator';
+$app_list_strings['av_offices_type_dom']['Investor'] = 'Investor';
+$app_list_strings['av_offices_type_dom']['Partner'] = 'Partner';
+$app_list_strings['av_offices_type_dom']['Press'] = 'Ajakirjandus';
+$app_list_strings['av_offices_type_dom']['Prospect'] = 'Potentsiaane klient';
+$app_list_strings['av_offices_type_dom']['Reseller'] = 'Edasimüüja';
+$app_list_strings['av_offices_type_dom']['Other'] = 'Muu:';
+$app_list_strings['moduleList']['av_Offices'] = 'Offices';
+$app_list_strings['moduleList']['av_Group_Membership'] = 'Group Membership';

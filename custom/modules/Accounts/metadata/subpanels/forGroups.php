@@ -72,7 +72,7 @@ $subpanel_layout = array(
 		array (
 			'vname' => 'LBL_EDIT_BUTTON',
 			'widget_class' => 'SubPanelCstmEditRoleButton',
-		 	'target' => 'rt_Group_Membership',
+		 	'target' => 'av_Group_Membership',
 			'action' => 'EditView',
 			'id_field' => 'membership_id',
 			'width' => '5%',

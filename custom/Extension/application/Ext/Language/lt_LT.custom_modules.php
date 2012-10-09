@@ -27,16 +27,16 @@
  ********************************************************************************/
 
 
-$app_list_strings['rt_offices_type_dom'][''] = '';
-$app_list_strings['rt_offices_type_dom']['Analyst'] = 'Analitikas';
-$app_list_strings['rt_offices_type_dom']['Competitor'] = 'Konkurentas';
-$app_list_strings['rt_offices_type_dom']['Customer'] = 'Pirkėjas';
-$app_list_strings['rt_offices_type_dom']['Integrator'] = 'Integruotojas';
-$app_list_strings['rt_offices_type_dom']['Investor'] = 'Investuotojas';
-$app_list_strings['rt_offices_type_dom']['Partner'] = 'Partneris';
-$app_list_strings['rt_offices_type_dom']['Press'] = 'Spauda';
-$app_list_strings['rt_offices_type_dom']['Prospect'] = 'Kandidatas';
-$app_list_strings['rt_offices_type_dom']['Reseller'] = 'Perpardavėjas';
-$app_list_strings['rt_offices_type_dom']['Other'] = 'Kita';
-$app_list_strings['moduleList']['rt_Offices'] = 'Offices';
-$app_list_strings['moduleList']['rt_Group_Membership'] = 'Group Membership';
+$app_list_strings['av_offices_type_dom'][''] = '';
+$app_list_strings['av_offices_type_dom']['Analyst'] = 'Analitikas';
+$app_list_strings['av_offices_type_dom']['Competitor'] = 'Konkurentas';
+$app_list_strings['av_offices_type_dom']['Customer'] = 'Pirkėjas';
+$app_list_strings['av_offices_type_dom']['Integrator'] = 'Integruotojas';
+$app_list_strings['av_offices_type_dom']['Investor'] = 'Investuotojas';
+$app_list_strings['av_offices_type_dom']['Partner'] = 'Partneris';
+$app_list_strings['av_offices_type_dom']['Press'] = 'Spauda';
+$app_list_strings['av_offices_type_dom']['Prospect'] = 'Kandidatas';
+$app_list_strings['av_offices_type_dom']['Reseller'] = 'Perpardavėjas';
+$app_list_strings['av_offices_type_dom']['Other'] = 'Kita';
+$app_list_strings['moduleList']['av_Offices'] = 'Offices';
+$app_list_strings['moduleList']['av_Group_Membership'] = 'Group Membership';

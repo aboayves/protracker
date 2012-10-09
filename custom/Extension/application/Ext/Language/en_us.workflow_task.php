@@ -27,9 +27,9 @@
  ********************************************************************************/
 
 
-$app_list_strings['moduleList']['rt_Workflow'] = 'Workflow';
+$app_list_strings['moduleList']['av_Workflow'] = 'Workflow';
 $app_list_strings['moduleList']['rt_TaskTemplate'] = 'Task Template';
-$app_list_strings['moduleList']['rt_task_Template'] = 'Task Template';
+$app_list_strings['moduleList']['av_Task_Template'] = 'Task Template';
 $app_list_strings['task_category_list'][''] = '';
 $app_list_strings['task_category_list']['Account'] = 'Account';
 $app_list_strings['task_category_list']['Account Aggregation'] = 'Account Aggregation';

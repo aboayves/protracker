@@ -27,16 +27,16 @@
  ********************************************************************************/
 
 
-$app_list_strings['rt_offices_type_dom'][''] = '';
-$app_list_strings['rt_offices_type_dom']['Analyst'] = 'アナリスト';
-$app_list_strings['rt_offices_type_dom']['Competitor'] = '競合';
-$app_list_strings['rt_offices_type_dom']['Customer'] = '取引先';
-$app_list_strings['rt_offices_type_dom']['Integrator'] = 'インテグレータ';
-$app_list_strings['rt_offices_type_dom']['Investor'] = '投資家';
-$app_list_strings['rt_offices_type_dom']['Partner'] = 'パートナー';
-$app_list_strings['rt_offices_type_dom']['Press'] = 'プレス';
-$app_list_strings['rt_offices_type_dom']['Prospect'] = 'ターゲット';
-$app_list_strings['rt_offices_type_dom']['Reseller'] = '代理店';
-$app_list_strings['rt_offices_type_dom']['Other'] = 'その他';
-$app_list_strings['moduleList']['rt_Offices'] = 'Offices';
-$app_list_strings['moduleList']['rt_Group_Membership'] = 'Group Membership';
+$app_list_strings['av_offices_type_dom'][''] = '';
+$app_list_strings['av_offices_type_dom']['Analyst'] = 'アナリスト';
+$app_list_strings['av_offices_type_dom']['Competitor'] = '競合';
+$app_list_strings['av_offices_type_dom']['Customer'] = '取引先';
+$app_list_strings['av_offices_type_dom']['Integrator'] = 'インテグレータ';
+$app_list_strings['av_offices_type_dom']['Investor'] = '投資家';
+$app_list_strings['av_offices_type_dom']['Partner'] = 'パートナー';
+$app_list_strings['av_offices_type_dom']['Press'] = 'プレス';
+$app_list_strings['av_offices_type_dom']['Prospect'] = 'ターゲット';
+$app_list_strings['av_offices_type_dom']['Reseller'] = '代理店';
+$app_list_strings['av_offices_type_dom']['Other'] = 'その他';
+$app_list_strings['moduleList']['av_Offices'] = 'Offices';
+$app_list_strings['moduleList']['av_Group_Membership'] = 'Group Membership';

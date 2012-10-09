@@ -32,72 +32,72 @@ SELECT
 	accounts.account_type, 
 	accounts.status AS client_status, 
 	accounts.priority AS client_priority,
-	rt_group_membership.parent_type,
-	rt_group_membership.envelope,
-	rt_offices.name AS company_name
-FROM rt_group_membership
+	av_group_membership.parent_type,
+	av_group_membership.envelope,
+	av_offices.name AS company_name
+FROM av_group_membership
 LEFT JOIN 
 	accounts 
 	ON(
 		accounts.deleted=0 
 		AND 
-		accounts.id=rt_group_membership.parent_id 
+		accounts.id=av_group_membership.parent_id 
 		AND 
-		rt_group_membership.parent_type='Accounts'
+		av_group_membership.parent_type='Accounts'
 	)
 LEFT JOIN 
-	rt_offices_accounts_1_c
+	av_offices_accounts_1_c
 	ON(
-		rt_offices_accounts_1_c.deleted=0 
+		av_offices_accounts_1_c.deleted=0 
 		AND 
-		rt_offices_accounts_1_c.rt_offices_accounts_1accounts_idb=accounts.id 
+		av_offices_accounts_1_c.av_offices_accounts_1accounts_idb=accounts.id 
 	)
 LEFT JOIN 
 	contacts 
 	ON(
 		contacts.deleted=0 
 		AND 
-		contacts.id=rt_group_membership.parent_id 
+		contacts.id=av_group_membership.parent_id 
 		AND 
-		rt_group_membership.parent_type='Contacts' 
+		av_group_membership.parent_type='Contacts' 
 	)
 LEFT JOIN 
-	rt_offices_contacts_1_c 
+	av_offices_contacts_1_c 
 	ON(
-		rt_offices_contacts_1_c.deleted=0 
+		av_offices_contacts_1_c.deleted=0 
 		AND 
-		rt_offices_contacts_1_c.rt_offices_contacts_1contacts_idb=contacts.id 
+		av_offices_contacts_1_c.av_offices_contacts_1contacts_idb=contacts.id 
 	)
 	
 LEFT JOIN
-	rt_offices 
+	av_offices 
 	ON(
-		rt_offices.deleted=0 
+		av_offices.deleted=0 
 		AND 
 		(
 			(
-				rt_offices_accounts_1_c.rt_offices_accounts_1rt_offices_ida IS NOT NULL
+				av_offices_accounts_1_c.av_offices_accounts_1av_offices_ida IS NOT NULL
 				AND 
-				rt_offices_accounts_1_c.rt_offices_accounts_1rt_offices_ida!='' 
+				av_offices_accounts_1_c.av_offices_accounts_1av_offices_ida!='' 
 				AND 
-				rt_offices.id=rt_offices_accounts_1_c.rt_offices_accounts_1rt_offices_ida 
+				av_offices.id=av_offices_accounts_1_c.av_offices_accounts_1av_offices_ida 
 			)
 			OR
 			(
-				rt_offices_contacts_1_c.rt_offices_contacts_1rt_offices_ida IS NOT NULL 
+				av_offices_contacts_1_c.av_offices_contacts_1av_offices_ida IS NOT NULL 
 				AND 
-				rt_offices_contacts_1_c.rt_offices_contacts_1rt_offices_ida!='' 
+				av_offices_contacts_1_c.av_offices_contacts_1av_offices_ida!='' 
 				AND 
-				rt_offices.id=rt_offices_contacts_1_c.rt_offices_contacts_1rt_offices_ida 
+				av_offices.id=av_offices_contacts_1_c.av_offices_contacts_1av_offices_ida 
 			)
 		)
 	)
 WHERE 
-	rt_group_membership.deleted=0 
+	av_group_membership.deleted=0 
 	AND 
-	rt_group_membership.av_groups_id='{$_REQUEST['record']}'
+	av_group_membership.av_groups_id='{$_REQUEST['record']}'
 	AND 
-	rt_group_membership.include=1
+	av_group_membership.include=1
 ";
 
 $members = $db->query($sql);

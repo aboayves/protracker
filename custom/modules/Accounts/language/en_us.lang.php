@@ -1,14 +1,14 @@
 <?php
 // created: 2012-06-01 17:49:27
 $mod_strings = array (
-  'LNK_NEW_ACCOUNT' => 'Create Account',
+  'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
-  'LNK_ACCOUNT_REPORTS' => 'View Account Reports',
+  'LNK_ACCOUNT_REPORTS' => 'View Client Reports',
   'LNK_IMPORT_ACCOUNTS' => 'Import Clients',
-  'MSG_SHOW_DUPLICATES' => 'The account record you are about to create might be a duplicate of an account record that already exists. Account records containing similar names are listed below.Click Save to continue creating this new account, or click Cancel to return to the module without creating the account.',
-  'LBL_SAVE_ACCOUNT' => 'Save Account',
-  'LBL_LIST_FORM_TITLE' => 'Account List',
-  'LBL_SEARCH_FORM_TITLE' => 'Account Search',
+  'MSG_SHOW_DUPLICATES' => 'The client record you are about to create might be a duplicate of an client record that already exists. Client records containing similar names are listed below.Click Save to continue creating this new client, or click Cancel to return to the module without creating the client.',
+  'LBL_SAVE_ACCOUNT' => 'Save Client',
+  'LBL_LIST_FORM_TITLE' => 'Client List',
+  'LBL_SEARCH_FORM_TITLE' => 'Client Search',
   'LBL_MEMBER_OF' => 'Member of:',
   'LBL_MEMBER_ORG_SUBPANEL_TITLE' => 'Member Organizations',
   'LBL_HOMEPAGE_TITLE' => 'My Clients',
@@ -26,5 +26,5 @@ $mod_strings = array (
   'LBL_LAST_REBAL' => 'Last Rebal',
   'LBL_MARRIED' => 'Married',
   'LBL_PREFERRED_COMM' => 'Preferred Communication',
-  'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE' => 'Accounts',
+  'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE' => 'Clients',
 );

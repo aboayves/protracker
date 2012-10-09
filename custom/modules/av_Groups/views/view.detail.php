@@ -17,7 +17,7 @@ class Customav_GroupsViewDetail extends ViewDetail
 		  
 		  echo $mass->getDisplayMassUpdateForm(true,true);
 		 
-		$sql = "SELECT DISTINCT(parent_id) as 'parent_id' FROM rt_group_membership WHERE deleted=0 AND av_groups_id='{$this->bean->id}' AND parent_type='Contacts'";
+		$sql = "SELECT DISTINCT(parent_id) as 'parent_id' FROM av_group_membership WHERE deleted=0 AND av_groups_id='{$this->bean->id}' AND parent_type='Contacts'";
 		$res = $db->query($sql);
 		$uid='';
 		while($row = $db->fetchByAssoc($res))
@@ -68,7 +68,7 @@ class Customav_GroupsViewDetail extends ViewDetail
 	   
 		$mem_email=" ";
 		
-		$sql = 	"SELECT ea.email_address FROM rt_group_membership rt ".
+		$sql = 	"SELECT ea.email_address FROM av_group_membership rt ".
 				"INNER JOIN email_addr_bean_rel eabr ON eabr.deleted=0 AND eabr.bean_id=rt.parent_id AND rt.parent_type=eabr.bean_module ".
 				"INNER JOIN email_addresses ea ON ea.deleted=0 AND ea.invalid_email=0 AND ea.id=eabr.email_address_id ".
 				"WHERE rt.deleted=0 AND rt.av_groups_id='{$this->bean->id}' AND rt.include=1";	

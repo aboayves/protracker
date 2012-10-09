@@ -27,16 +27,16 @@
  ********************************************************************************/
 
 
-$app_list_strings['rt_offices_type_dom'][''] = '';
-$app_list_strings['rt_offices_type_dom']['Analyst'] = 'Analyste';
-$app_list_strings['rt_offices_type_dom']['Competitor'] = 'Concurent';
-$app_list_strings['rt_offices_type_dom']['Customer'] = 'Client';
-$app_list_strings['rt_offices_type_dom']['Integrator'] = 'Intégrateur';
-$app_list_strings['rt_offices_type_dom']['Investor'] = 'Investisseur';
-$app_list_strings['rt_offices_type_dom']['Partner'] = 'Partenaire';
-$app_list_strings['rt_offices_type_dom']['Press'] = 'Presse';
-$app_list_strings['rt_offices_type_dom']['Prospect'] = 'Prospect';
-$app_list_strings['rt_offices_type_dom']['Reseller'] = 'Revendeur';
-$app_list_strings['rt_offices_type_dom']['Other'] = 'Autre';
-$app_list_strings['moduleList']['rt_Offices'] = 'Offices';
-$app_list_strings['moduleList']['rt_Group_Membership'] = 'Group Membership';
+$app_list_strings['av_offices_type_dom'][''] = '';
+$app_list_strings['av_offices_type_dom']['Analyst'] = 'Analyste';
+$app_list_strings['av_offices_type_dom']['Competitor'] = 'Concurent';
+$app_list_strings['av_offices_type_dom']['Customer'] = 'Client';
+$app_list_strings['av_offices_type_dom']['Integrator'] = 'Intégrateur';
+$app_list_strings['av_offices_type_dom']['Investor'] = 'Investisseur';
+$app_list_strings['av_offices_type_dom']['Partner'] = 'Partenaire';
+$app_list_strings['av_offices_type_dom']['Press'] = 'Presse';
+$app_list_strings['av_offices_type_dom']['Prospect'] = 'Prospect';
+$app_list_strings['av_offices_type_dom']['Reseller'] = 'Revendeur';
+$app_list_strings['av_offices_type_dom']['Other'] = 'Autre';
+$app_list_strings['moduleList']['av_Offices'] = 'Offices';
+$app_list_strings['moduleList']['av_Group_Membership'] = 'Group Membership';

@@ -1,10 +1,10 @@
 <?php
 global $db, $timedate;
 
-$query="SELECT av_groups.membership_expiration_days,rt_group_membership.date_entered,rt_group_membership.id
-	  FROM rt_group_membership
-	  LEFT JOIN av_groups ON av_groups.deleted=0 AND av_groups.id = rt_group_membership.av_groups_id
-	  WHERE rt_group_membership.deleted=0 AND rt_group_membership.av_groups_id='{$_REQUEST['record']}' AND rt_group_membership.include=1";
+$query="SELECT av_groups.membership_expiration_days,av_group_membership.date_entered,av_group_membership.id
+	  FROM av_group_membership
+	  LEFT JOIN av_groups ON av_groups.deleted=0 AND av_groups.id = av_group_membership.av_groups_id
+	  WHERE av_group_membership.deleted=0 AND av_group_membership.av_groups_id='{$_REQUEST['record']}' AND av_group_membership.include=1";
 
 $members = $db->query($query);
 while ($member = $db->fetchByAssoc($members))
@@ -15,7 +15,7 @@ while ($member = $db->fetchByAssoc($members))
 
 	if($daysstart>$member['membership_expiration_days'])
 	{
-		$querry="UPDATE `rt_group_membership` SET `deleted`='1' where id='{$member['id']}'";
+		$querry="UPDATE `av_group_membership` SET `deleted`='1' where id='{$member['id']}'";
 		$db->query($querry);
 	}
 }

@@ -55,7 +55,7 @@
 				$email_opt_out = $contactBean->email_opt_out;
 			}
 			
-			$query = "UPDATE rt_group_membership ".
+			$query = "UPDATE av_group_membership ".
 					 "SET ".
 					 	"name='{$name}', ".
 						"delivery_method='{$bean->delivery_method}', ".

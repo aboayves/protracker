@@ -95,7 +95,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'rt_offices_av_groups_name',
+            'name' => 'av_offices_av_groups_name',
             'studio' => 'visible',
             'label' => 'LBL_OFFICE',
           ),

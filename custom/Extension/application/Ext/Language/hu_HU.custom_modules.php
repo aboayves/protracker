@@ -27,17 +27,17 @@
  ********************************************************************************/
 
 
-$app_list_strings['rt_offices_type_dom']['Partner'] = 'Partner';
-$app_list_strings['rt_offices_type_dom'][''] = '[-üres-]';
-$app_list_strings['rt_offices_type_dom']['Analyst'] = 'Elemző';
-$app_list_strings['rt_offices_type_dom']['Competitor'] = 'Konkurens';
-$app_list_strings['rt_offices_type_dom']['Customer'] = 'Ügyfél';
-$app_list_strings['rt_offices_type_dom']['Integrator'] = 'Integrátor';
-$app_list_strings['rt_offices_type_dom']['Investor'] = 'Befektető';
-$app_list_strings['rt_offices_type_dom']['Press'] = 'Sajtó';
-$app_list_strings['rt_offices_type_dom']['Prospect'] = 'Lehetséges vevő
+$app_list_strings['av_offices_type_dom']['Partner'] = 'Partner';
+$app_list_strings['av_offices_type_dom'][''] = '[-üres-]';
+$app_list_strings['av_offices_type_dom']['Analyst'] = 'Elemző';
+$app_list_strings['av_offices_type_dom']['Competitor'] = 'Konkurens';
+$app_list_strings['av_offices_type_dom']['Customer'] = 'Ügyfél';
+$app_list_strings['av_offices_type_dom']['Integrator'] = 'Integrátor';
+$app_list_strings['av_offices_type_dom']['Investor'] = 'Befektető';
+$app_list_strings['av_offices_type_dom']['Press'] = 'Sajtó';
+$app_list_strings['av_offices_type_dom']['Prospect'] = 'Lehetséges vevő
 ';
-$app_list_strings['rt_offices_type_dom']['Reseller'] = 'Viszonteladó';
-$app_list_strings['rt_offices_type_dom']['Other'] = 'Egyéb';
-$app_list_strings['moduleList']['rt_Offices'] = 'Offices';
-$app_list_strings['moduleList']['rt_Group_Membership'] = 'Group Membership';
+$app_list_strings['av_offices_type_dom']['Reseller'] = 'Viszonteladó';
+$app_list_strings['av_offices_type_dom']['Other'] = 'Egyéb';
+$app_list_strings['moduleList']['av_Offices'] = 'Offices';
+$app_list_strings['moduleList']['av_Group_Membership'] = 'Group Membership';

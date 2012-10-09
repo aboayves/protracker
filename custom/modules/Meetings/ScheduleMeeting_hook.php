@@ -7,7 +7,7 @@ class ScheduleMeeting
 		  {
 			global $db,$timedate;
 			$date_modified=$timedate->nowDb();
-			$query="SELECT rt.parent_id, rt.parent_type	FROM rt_group_membership AS rt WHERE rt.deleted=0 AND rt.av_groups_id='{$bean->attach_to_group_id}' AND rt.include=1";
+			$query="SELECT rt.parent_id, rt.parent_type	FROM av_group_membership AS rt WHERE rt.deleted=0 AND rt.av_groups_id='{$bean->attach_to_group_id}' AND rt.include=1";
 			
 			$res = $db->query($query);
 			
