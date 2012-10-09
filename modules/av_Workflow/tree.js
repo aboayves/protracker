@@ -13,7 +13,7 @@ var treeHelper = {
 			},
 			failure: function(oResponse) {
 				YAHOO.log("Failed to process XHR transaction.", "info", "example");
-				alert(oResponse.responseText);
+//				alert(oResponse.responseText); <-- ye chawal mari v hay jis nay b likha hay..
 			},
 			timeout: 7000
 		};
