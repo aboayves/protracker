@@ -15,7 +15,7 @@ class AttachToGroupId
 			
 			while ($member1 = $db->fetchByAssoc($member))
 			{
-				$parent_type=$member1['parent_type'];
+				$parent_type=strtolower($member1['parent_type']);
 				$parent_id=$member1['parent_id'];
 				//print_r($member1);die();
 				$newID=create_guid();
