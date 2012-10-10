@@ -8,6 +8,11 @@ $final = array();
 $GLOBALS['users'] = getUserList();
 $final = getStart($id);
 
+if(!isset($_REQUEST['included'])){
+	$_SESSION['pending_only'] = $_REQUEST['pending_only'];
+	$_SESSION['more_then_90'] = $_REQUEST['more_then_90'];
+}
+
 function getUserList()
 {
 	global $db;
@@ -54,8 +59,8 @@ function getStart($id, $visited_parent=array()){
 		$tree['expanded'] = true;
 		$tree['children'] = build_child_tree($row['id'], array($row['id']));
 		
-		$hidePending = isset($_REQUEST['pending_only']) && $_REQUEST['pending_only'] == '1';
-		$hideOld = isset($_REQUEST['more_then_90']) && $_REQUEST['more_then_90'] == '1';
+		$hidePending = isset($_SESSION['pending_only']) && $_SESSION['pending_only'] == '1';
+		$hideOld = isset($_SESSION['more_then_90']) && $_SESSION['more_then_90'] == '1';
 		
 		if($hidePending || $hideOld){
 			if(!empty($tree['children'])){
