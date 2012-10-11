@@ -74,28 +74,24 @@ function getStart($id, $visited_parent=array()){
 
 function hideTasks($hidePending = false, $hideOld = false, &$children = array()){
 	if(!empty($children)){
-		foreach($children as $k => $child){
+		$tmp = $children;
+		$children = array();
+		
+		foreach($tmp as $child){
 			if(!empty($child['children'])){
 				hideTasks($hidePending, $hideOld, $child['children']);
 			}
 			
 			//Hiding if have empty children
-			if(
+			if(!(
 				empty($child['children']) &&
 				(
 					($hidePending && ($child['status'] == 'Pending' || $child['status'] == 'Pending Input')) ||
 					($hideOld && $child['old_task'] == '1')
 				)
-			){
-				unset($children[$k]);
+			)){
+				$children[] = $child;
 			}
-		}
-		
-		//reorganising array
-		$tmp = $children;
-		$children = array();
-		foreach($tmp as $c){
-			$children[] = $c;
 		}
 	}
 }
