@@ -79,7 +79,6 @@ function loadNodeData(taskID, taskName)  {
         },
         failure: function(oResponse) {
             YAHOO.log("Failed to process XHR transaction.", "info", "example");
-            alert(oResponse.responseText);
         },
         timeout: 7000
     };

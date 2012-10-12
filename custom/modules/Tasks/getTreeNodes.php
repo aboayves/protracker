@@ -102,7 +102,7 @@ function build_child_tree($id, $added_nodes = array()) {
 	$sql = "SELECT ".
 				"id, name, status, parent_tasks_id, assigned_user_id, date_due, ".
 				"IF(date_due < now() AND status != 'Completed', 1, 0) as over_due, ".
-				"IF(date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY), 1, 0) as old_task ".
+				"IF(date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY) OR date_due >= DATE_ADD(NOW(), INTERVAL 90 DAY), 1, 0) as old_task ".
 			"FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
     $result = $db->query($sql);
 
