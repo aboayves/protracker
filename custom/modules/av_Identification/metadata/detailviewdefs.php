@@ -24,6 +24,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -48,37 +50,67 @@ array (
         ),
         1 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'issued_by',
+            'comment' => '',
+            'label' => 'LBL_ISSUED_BY',
+          ),
         ),
         2 => 
         array (
-          0 => 'status',
+          0 => 
+          array (
+            'name' => 'id_number',
+            'comment' => '',
+            'label' => 'LBL_ID_NUMBER',
+          ),
+          1 => 
+          array (
+            'name' => 'date_issued',
+            'comment' => '',
+            'label' => 'LBL_DATE_ISSUED',
+          ),
         ),
         3 => 
         array (
-          0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        4 => 
-        array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'is_on_file',
+            'comment' => '',
+            'label' => 'LBL_IS_ON_FILE',
+          ),
           1 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'date_expires',
+            'comment' => '',
+            'label' => 'LBL_DATE_EXPIRES',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
-          1 => 
+        ),
+        5 => 
+        array (
+          0 => 'team_name',
+          1 => 'active_date',
+        ),
+        6 => 
+        array (
+          0 => 
           array (
-            'name' => 'contacts_av_identification_1_name',
+            'name' => 'accounts_av_identification_1_name',
           ),
         ),
       ),

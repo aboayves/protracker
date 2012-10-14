@@ -31,6 +31,7 @@ array (
 	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
 	{sugar_getscript file="modules/Documents/documents.js"}',
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -111,6 +112,13 @@ array (
             ),
           ),
           1 => 'active_date',
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'accounts_av_identification_1_name',
+          ),
         ),
       ),
     ),
