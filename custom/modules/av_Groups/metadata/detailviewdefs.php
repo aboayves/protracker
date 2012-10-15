@@ -83,21 +83,26 @@ array (
       array (
         0 => 
         array (
-          0 => 'communication_type',
+          0 => 'delivery_method_av_group',
           1 => 'membership_expiration_days',
         ),
         1 => 
         array (
-          0 => 'delivery_method',
-          1 => 'assigned_user_name',
+          0 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'av_offices_av_groups_name',
+            'studio' => 'visible',
+            'label' => 'LBL_OFFICE',
+          ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'av_offices_av_groups_name',
+            'name' => 'priority_c',
             'studio' => 'visible',
-            'label' => 'LBL_OFFICE',
+            'label' => 'LBL_PRIORITY',
           ),
           1 => 
           array (
@@ -114,12 +119,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
-          1 => 
-          array (
-            'name' => 'priority_c',
-            'studio' => 'visible',
-            'label' => 'LBL_PRIORITY',
-          ),
+         
         ),
         4 => 
         array (

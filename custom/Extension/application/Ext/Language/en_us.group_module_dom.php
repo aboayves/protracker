@@ -6,13 +6,17 @@ $app_list_strings['grp_comm_type_list']['Home Email'] = 'Home Email';
 $app_list_strings['grp_comm_type_list']['Mailing Address'] = 'Mailing Address';
 
 /* Default Delivery Method List*/
+$app_list_strings['grp_delivery_method_list']['Mailing Address']= 'Mailing Address';
 $app_list_strings['grp_delivery_method_list']['Home Address'] = 'Home Address';
 $app_list_strings['grp_delivery_method_list']['Work Address'] = 'Work Address';
+$app_list_strings['grp_delivery_method_list']['Other Address']= 'Other Address';
 $app_list_strings['grp_delivery_method_list']['Home Phone']= 'Home Phone';
 $app_list_strings['grp_delivery_method_list']['Work Phone']= 'Work Phone';
+$app_list_strings['grp_delivery_method_list']['Mobile']= 'Mobile';
+$app_list_strings['grp_delivery_method_list']['Fax']= 'Fax';
+$app_list_strings['grp_delivery_method_list']['Primary Email']= 'Primary Email';
 $app_list_strings['grp_delivery_method_list']['Home Email']= 'Home Email';
 $app_list_strings['grp_delivery_method_list']['Work Email']= 'Work Email';
-$app_list_strings['grp_delivery_method_list']['Mobile']= 'Mobile';
 
 /* Category Dropdown List*/
 $app_list_strings['group_category_list']['']= '';

@@ -32,21 +32,15 @@ $dictionary['av_Groups'] = array(
     'audited' => true,
     'duplicate_merge' => true,
     'fields' => array(
-        'communication_type' => array(
-            'name' => 'communication_type',
-            'vname' => 'LBL_COMMUNICATION_TYPE',
-            'type' => 'enum',
-            'options' => 'grp_comm_type_list',
-            'comments' => 'Groups module communication Type',
-        ),
+       
         'membership_expiration_days' => array(
             'name' => 'membership_expiration_days',
             'vname' => 'LBL_MEMBERSHIP_EXPIRATION_DAYS',
             'type' => 'int',
             'comments' => 'Field for Membership Expiration Days',
         ),
-        'delivery_method' => array(
-            'name' => 'delivery_method',
+        'delivery_method_av_group' => array(
+            'name' => 'delivery_method_av_group',
             'vname' => 'LBL_DELIVERY_METHOD',
             'type' => 'enum',
             'options' => 'grp_delivery_method_list',

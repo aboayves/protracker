@@ -34,13 +34,12 @@ array (
 		),
         1 => 
         array (
-          0 => 'communication_type',
+          0 => 'delivery_method_av_group',
           1 => 'membership_expiration_days',
         ),
         2 => 
         array (
-          0 => 'delivery_method',
-          1 => 'assigned_user_name',
+          0 => 'assigned_user_name',
         ),
         3 => 
         array (
