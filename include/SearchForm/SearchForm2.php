@@ -1057,11 +1057,11 @@ require_once('include/EditView/EditView2.php');
                                          //when a search is done with a space, we concatenate and search against the full name.
                                          if(count($string)>1){
                                              //add where clause against concatenated fields
-                                             $where .= $this->seed->db->concat($column_name[0],array('first_name','last_name')) . " LIKE ".$this->seed->db->quoted($field_value.'%');
+                                             $where .= $this->seed->db->concat($column_name[0],array('first_name','last_name')) . " LIKE ".$this->seed->db->quoted('%'.$field_value.'%');
                                              $where .= ' OR ' . $this->seed->db->concat($column_name[0],array('last_name','first_name')) . " LIKE ".$this->seed->db->quoted($field_value.'%');
                                          }else{
                                              //no space was found, add normal where clause
-                                             $where .=  $db_field . " like ".$this->seed->db->quoted(sql_like_string($field_value, $like_char));
+                                             $where .=  $db_field . " like ".$this->seed->db->quoted(sql_like_string('%'.$field_value, $like_char));
                                          }
 
                                      }else {
@@ -1087,7 +1087,7 @@ require_once('include/EditView/EditView2.php');
                                          }
 
                                          //field is not last name or this is not from global unified search, so do normal where clause
-                                         $where .=  $db_field . " like ".$this->seed->db->quoted(sql_like_string($field_value, $like_char));
+                                         $where .=  $db_field . " like ".$this->seed->db->quoted(sql_like_string('%'.$field_value, $like_char));
                                      }
                                  }
                                  break;

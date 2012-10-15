@@ -1,5 +1,5 @@
 <?php
-// created: 2012-10-15 16:20:17
+// created: 2012-10-15 18:22:16
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -14,7 +14,6 @@ $mod_strings = array (
   'LBL_HOMEPAGE_TITLE' => 'My Clients',
   'LBL_ACCOUNTS_AV_NET_WORTH_FROM_AV_NET_WORTH_TITLE' => 'Net Worth History History',
   'LBL_PRIORITY' => 'Priority',
-  'LBL_STATUS' => 'Status',
   'LBL_EDITVIEW_PANEL1' => 'Addresses',
   'LBL_EDITVIEW_PANEL2' => 'Communications',
   'LBL_DESCRIPTION' => 'Comments',
@@ -26,7 +25,7 @@ $mod_strings = array (
   'LBL_LAST_REBAL' => 'Last Rebal',
   'LBL_MARRIED' => 'Married',
   'LBL_PREFERRED_COMM' => 'Preferred Communication',
-  'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE' => 'Clients',
+  'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE' => 'Accounts',
   'LBL_ACCOUNTS_AV_SERVICE_TEAM_1_FROM_AV_SERVICE_TEAM_TITLE' => 'Service Team',
   'LBL_ACCOUNTS_AV_SERVICES_1_FROM_AV_SERVICES_TITLE' => 'Services',
   'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_AV_REVIEWS_TITLE' => 'Reviews',

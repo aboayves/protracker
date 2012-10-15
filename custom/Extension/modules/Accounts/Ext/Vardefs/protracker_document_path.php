@@ -2,7 +2,8 @@
 $dictionary["Account"]["fields"]["document_path"] = array (
 	'name' => 'document_path',
 	'vname' => 'LBL_DOCUMENT_PATH',
-	'type' => 'varchar',
+	'type' => 'url',
+	'dbtype' => 'varchar',
 	'len' => '255',
 	'audited' => '0',
 	'required' => '0',
