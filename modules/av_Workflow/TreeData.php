@@ -12,21 +12,21 @@ class TreeData{
 		$tree['label'] = $wfName;
 		$tree['href'] = "index.php?module=av_Workflow&action=DetailView&record={$wfID}";
 		$tree['expanded'] = true;
-		$tree['children'] = TreeData::getChilds($wfID, $added_nodes, true);
+		$tree['children'] = TreeData::getChilds($wfID, $added_nodes, $wfID, $wfName, true);
 		return $tree;
 	}
 	
-	private static function getChilds($id, &$added_nodes = array(), $fromWF = false) {
+	private static function getChilds($id, &$added_nodes = array(), $wfID, $wfName, $fromWF = false) {
 		global $db, $users, $timedate, $app_list_strings;
 		
 		$field = 'parent_tasks_id';
-		$customWhere='';
+		$addWhere = "";
 		if($fromWF){
 			$field = 'av_Workflow_id';
-			$customWhere=' AND parent_tasks_id="" ';
+			$addWhere = " AND (parent_tasks_id IS NULL OR TRIM(parent_tasks_id)='')";
 		}
 		
-		$sql = "SELECT id, name, subject, task_category, assign_to, days_out FROM av_task_template WHERE {$field} = '{$id}' {$customWhere} AND deleted=0";
+		$sql = "SELECT id, name, subject, task_category, assign_to, days_out FROM av_task_template WHERE {$field} = '{$id}' AND deleted=0" . $addWhere;
 		$result = $db->query($sql);
 		$childs_array = array();
 		while ($row = $db->fetchByAssoc($result)){
@@ -45,10 +45,9 @@ class TreeData{
 				$node['type'] = 'HTML';
 				$node['label'] = $row['name'];
 				$node['highlightState']='1';
-				$node['href'] = "index.php?module=av_Task_Template&action=DetailView&record={$row['id']}";
+				$node['href'] = "index.php?module=av_Task_Template&action=DetailView&record={$row['id']}&av_Workflow_id={$wfID}&av_Workflow_name={$wfName}";
 				$node['expanded'] = true;
-				$node['workflowName'] = self::$workflowName;
-				$node['children'] = TreeData::getChilds($row['id'], $added_nodes);
+				$node['children'] = TreeData::getChilds($row['id'], $added_nodes, $wfID, $wfName);
 			
 				$childs_array[] = $node;
 				
@@ -56,7 +55,7 @@ class TreeData{
 		}
 		foreach ($childs_array as $child) {
 			if(empty($child['children']) && !$fromWF) {
-				$node = array();
+		        $node = array();
 				$node['id'] = '';
 				$node['label'] = 'parent';
 				$node['html'] ='<div id="parent" name="parent_blank" style="background-color:#fff"> &nbsp;</div>';
@@ -68,7 +67,9 @@ class TreeData{
 				$childs_array[] = $node;
 				break;
 			}
+	
 		}
+		
 		return $childs_array;
 	}
 }

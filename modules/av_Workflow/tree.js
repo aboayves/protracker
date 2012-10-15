@@ -13,7 +13,6 @@ var treeHelper = {
 			},
 			failure: function(oResponse) {
 				YAHOO.log("Failed to process XHR transaction.", "info", "example");
-//				alert(oResponse.responseText); <-- ye chawal mari v hay jis nay b likha hay..
 			},
 			timeout: 7000
 		};
@@ -28,7 +27,6 @@ var treeHelper = {
         treeHelper.tree.subscribe("checkClick");	
 		treeHelper.tree.render();
  
- if(!treeHelper.loaded){
 			treeHelper.loaded = true;
 			var oContextMenu = new YAHOO.widget.ContextMenu( 
 				"mytreecontextmenu", 
@@ -48,24 +46,15 @@ var treeHelper = {
 		}
 	},
 	checkClick: function(oArgs) {
-			var node = oArgs.node;
-			var target = YAHOO.util.Event.getTarget(oArgs.event);
-			if (YAHOO.util.Dom.hasClass(target,'ygtvspacer')) {
 			node.logger.log("previous checkstate: " + node.checkState);
 			if (node.checkState === 0) {
-			node.check();
 			} else {
-			node.uncheck();
 			}
 
 			node.onCheckClick(node);
 			this.fireEvent("checkClick", node);
 			return false;
-			}
 	},
-
-
-
 	onTriggerContextMenu : function(p_oEvent) {
 		var oTarget = this.contextEventTarget; 
 		treeHelper.oCurrentTextNode = treeHelper.tree.getNodeByElement(oTarget); 	 
@@ -85,8 +74,6 @@ var treeHelper = {
 	createNode : function (){
 		var href = treeHelper.oCurrentTextNode.data.href.replace(/DetailView/g, "EditView");
 		var wfID = document.getElementsByName('record')[0].value;
-		if(href.indexOf('av_Workflow') > 0){
-			href = href.replace(/av_Workflow/g, "av_Task_Template");
 			href = href.replace(/record/g, "av_Workflow_id");
 			href += '&av_Workflow_name=';
 		}else{
@@ -139,5 +126,3 @@ function setCheckedTemplateIDs(){
 				}
 		}
 		document.getElementById('template_ids').value = checked_template_ids;
-}
-YAHOO.util.Event.onDOMReady(pageReady);

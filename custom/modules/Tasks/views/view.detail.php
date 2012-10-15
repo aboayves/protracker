@@ -58,12 +58,15 @@ class TasksViewDetail extends ViewDetail {
 
                 <!-- TreeView source file --> 
                 <script src="include/javascript/yui/build/treeview/treeview-min.js" ></script>';
-			//getting the tree structure
-			$_REQUEST['id'] = $this->bean->id;
-			$_REQUEST['name'] = $this->bean->name;
-			$_REQUEST['included']=true;
-			@require_once('custom/modules/Tasks/getTreeNodes.php');
-			
+		//getting the tree structure
+		$_REQUEST['id'] = $this->bean->id;
+		$_REQUEST['name'] = $this->bean->name;
+		$_REQUEST['included']=true;
+		@require_once('custom/modules/Tasks/getTreeNodes.php');
+		
+		$this->ss->assign("pending_checked", isset($_SESSION['pending_only']) && $_SESSION['pending_only'] == '1' ? 'checked="checked"' : "");
+		$this->ss->assign("90_checked", isset($_SESSION['more_then_90']) && $_SESSION['more_then_90'] == '1' ? 'checked="checked"' : "");
+
 		$this->bean->description = html_entity_decode($this->bean->description);
 
         parent::display();

@@ -8,6 +8,11 @@ $final = array();
 $GLOBALS['users'] = getUserList();
 $final = getStart($id);
 
+if(!isset($_REQUEST['included'])){
+	$_SESSION['pending_only'] = $_REQUEST['pending_only'];
+	$_SESSION['more_then_90'] = $_REQUEST['more_then_90'];
+}
+
 function getUserList()
 {
 	global $db;
@@ -54,8 +59,8 @@ function getStart($id, $visited_parent=array()){
 		$tree['expanded'] = true;
 		$tree['children'] = build_child_tree($row['id'], array($row['id']));
 		
-		$hidePending = isset($_REQUEST['pending_only']) && $_REQUEST['pending_only'] == '1';
-		$hideOld = isset($_REQUEST['more_then_90']) && $_REQUEST['more_then_90'] == '1';
+		$hidePending = isset($_SESSION['pending_only']) && $_SESSION['pending_only'] == '1';
+		$hideOld = isset($_SESSION['more_then_90']) && $_SESSION['more_then_90'] == '1';
 		
 		if($hidePending || $hideOld){
 			if(!empty($tree['children'])){
@@ -69,28 +74,24 @@ function getStart($id, $visited_parent=array()){
 
 function hideTasks($hidePending = false, $hideOld = false, &$children = array()){
 	if(!empty($children)){
-		foreach($children as $k => $child){
+		$tmp = $children;
+		$children = array();
+		
+		foreach($tmp as $child){
 			if(!empty($child['children'])){
 				hideTasks($hidePending, $hideOld, $child['children']);
 			}
 			
 			//Hiding if have empty children
-			if(
+			if(!(
 				empty($child['children']) &&
 				(
 					($hidePending && ($child['status'] == 'Pending' || $child['status'] == 'Pending Input')) ||
 					($hideOld && $child['old_task'] == '1')
 				)
-			){
-				unset($children[$k]);
+			)){
+				$children[] = $child;
 			}
-		}
-		
-		//reorganising array
-		$tmp = $children;
-		$children = array();
-		foreach($tmp as $c){
-			$children[] = $c;
 		}
 	}
 }
@@ -101,7 +102,7 @@ function build_child_tree($id, $added_nodes = array()) {
 	$sql = "SELECT ".
 				"id, name, status, parent_tasks_id, assigned_user_id, date_due, ".
 				"IF(date_due < now() AND status != 'Completed', 1, 0) as over_due, ".
-				"IF(date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY), 1, 0) as old_task ".
+				"IF(date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY) OR date_due >= DATE_ADD(NOW(), INTERVAL 90 DAY), 1, 0) as old_task ".
 			"FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
     $result = $db->query($sql);
 
