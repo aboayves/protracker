@@ -1543,7 +1543,7 @@ $GLOBALS['app_list_strings']['task_status_dom']=array (
 );
 
 $GLOBALS['app_list_strings']['parent_type_display_tasks']=array (
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
     'Contacts' => 'Contact',
     'Opportunities' => 'Opportunity',
     'Products' => 'Product',
