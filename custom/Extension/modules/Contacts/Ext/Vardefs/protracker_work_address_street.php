@@ -2,7 +2,8 @@
 $dictionary["Contact"]["fields"]["work_address_street"] = array (
 	'name' => 'work_address_street',
 	'vname' => 'LBL_WORK_ADDRESS_STREET',
-	'type' => 'varchar',
+	'type' => 'address',
+	'dbtype' => 'varchar',
 	'len' => '255',
 	'audited' => '0',
 	'required' => '0',
@@ -14,6 +15,9 @@ $dictionary["Contact"]["fields"]["work_address_street"] = array (
 	'duplicate_merge' => 'Enabled',
 	'duplicate_merge_dom_value' => '1',
 	'help' => '',
-	'group' => 'Work Address',
+	'group' => 'work_address',
+	'displayParams' => array (
+      'key' => 'work',
+      ),
 );
 ?>

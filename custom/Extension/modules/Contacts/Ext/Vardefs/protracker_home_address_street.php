@@ -2,7 +2,8 @@
 $dictionary["Contact"]["fields"]["home_address_street"] = array (
 	'name' => 'home_address_street',
 	'vname' => 'LBL_HOME_ADDRESS_STREET',
-	'type' => 'varchar',
+	'type' => 'address',
+	'dbtype' => 'varchar',
 	'len' => '255',
 	'audited' => '0',
 	'required' => '0',

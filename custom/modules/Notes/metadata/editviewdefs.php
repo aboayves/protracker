@@ -1,32 +1,34 @@
 <?php
-// created: 2012-07-03 09:43:36
-$viewdefs['Notes']['EditView'] = array (
-  'templateMeta' => 
+$viewdefs ['Notes'] = 
+array (
+  'EditView' => 
   array (
-    'form' => 
+    'templateMeta' => 
     array (
-      'enctype' => 'multipart/form-data',
-      'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
-	   'hidden' => 
+      'form' => 
+      array (
+        'enctype' => 'multipart/form-data',
+        'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
+        'hidden' => 
         array (
-			0 => '<input type="hidden" name="attach_to_group_id" value="'.$_REQUEST['attach_to_group_id'].'">',//
+          0 => '<input type="hidden" name="attach_to_group_id" value="">',
         ),
-    ),
-    'maxColumns' => '2',
-    'widths' => 
-    array (
-      0 => 
-      array (
-        'label' => '10',
-        'field' => '30',
       ),
-      1 => 
+      'maxColumns' => '2',
+      'widths' => 
       array (
-        'label' => '10',
-        'field' => '30',
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
       ),
-    ),
-    'javascript' => '<script type="text/javascript" src="include/javascript/dashlets.js?s={$SUGAR_VERSION}&c={$JS_CUSTOM_VERSION}"></script>
+      'javascript' => '<script type="text/javascript" src="include/javascript/dashlets.js?s={$SUGAR_VERSION}&c={$JS_CUSTOM_VERSION}"></script>
 <script>
 function deleteAttachmentCallBack(text) 
 	{literal} { {/literal} 
@@ -41,48 +43,48 @@ function deleteAttachmentCallBack(text)
 {literal} } {/literal} 
 </script>
 <script>toggle_portal_flag(); function toggle_portal_flag()  {literal} { {/literal} {$TOGGLE_JS} {literal} } {/literal} </script>{$tiny}',
-    'useTabs' => false,
-  ),
-  'panels' => 
-  array (
-    'lbl_note_information' => 
+      'useTabs' => false,
+    ),
+    'panels' => 
     array (
-      0 => 
+      'lbl_note_information' => 
       array (
         0 => 
         array (
-          'name' => 'contact_name',
-          'label' => 'LBL_CONTACT_NAME',
+          0 => 
+          array (
+            'name' => 'contact_name',
+            'label' => 'LBL_CONTACT_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'parent_name',
+            'label' => 'LBL_RELATED_TO',
+          ),
         ),
         1 => 
         array (
-          'name' => 'parent_name',
-          'label' => 'LBL_RELATED_TO',
-        ),
-      ),
-      1 => 
-      array (
-        0 => 
-        array (
-          'name' => 'name',
-          'displayParams' => 
+          0 => 
           array (
-            'size' => 60,
+            'name' => 'name',
+            'displayParams' => 
+            array (
+              'size' => 60,
+            ),
           ),
+          1 => 'filename',
         ),
-        1 => 'filename',
-      ),
-      2 => 
-      array (
-        0 => 
+        2 => 
         array (
-          'name' => 'portal_flag',
-          'displayParams' => 
+          0 => 
           array (
-            'required' => false,
-          ),
-          'customLabel' => '{if ($PORTAL_ENABLED)}{sugar_translate label="LBL_PORTAL_FLAG" module="Notes"}{/if}',
-          'customCode' => ' {if ($PORTAL_ENABLED)}
+            'name' => 'portal_flag',
+            'displayParams' => 
+            array (
+              'required' => false,
+            ),
+            'customLabel' => '{if ($PORTAL_ENABLED)}{sugar_translate label="LBL_PORTAL_FLAG" module="Notes"}{/if}',
+            'customCode' => ' {if ($PORTAL_ENABLED)}
 											  {if $fields.portal_flag.value == "1"}
 											  {assign var="checked" value="CHECKED"}
 											  {else}
@@ -91,18 +93,18 @@ function deleteAttachmentCallBack(text)
 											  <input type="hidden" name="{$fields.portal_flag.name}" value="0"> 
 											  <input type="checkbox" name="{$fields.portal_flag.name}" value="1" tabindex="1" {$checked}>
 					        		          {/if}',
+          ),
+          1 => 
+          array (
+            'name' => 'team_name',
+          ),
         ),
-        1 => 
+        3 => 
         array (
-          'name' => 'team_name',
-        ),
-      ),
-      3 => 
-      array (
-        0 => 
-        array (
-          'name' => 'description',
-          'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
+          0 => 
+          array (
+            'name' => 'description',
+            'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -115,9 +117,11 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 -->
 </script>
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
-          'label' => 'LBL_NOTE_STATUS',
+            'label' => 'LBL_NOTE_STATUS',
+          ),
         ),
       ),
     ),
   ),
 );
+?>

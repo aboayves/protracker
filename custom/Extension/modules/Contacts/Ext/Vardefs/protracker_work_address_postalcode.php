@@ -14,6 +14,6 @@ $dictionary["Contact"]["fields"]["work_address_postalcode"] = array (
 	'duplicate_merge' => 'Enabled',
 	'duplicate_merge_dom_value' => '1',
 	'help' => '',
-	'group' => 'Work Address',
+	'group' => 'work_address',
 );
 ?>

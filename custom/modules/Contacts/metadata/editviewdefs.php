@@ -188,66 +188,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'home_address_city',
-            'comment' => '',
-            'label' => 'LBL_HOME_ADDRESS_CITY',
-          ),
-          1 => 
-          array (
-            'name' => 'work_address_city',
-            'comment' => '',
-            'label' => 'LBL_WORK_ADDRESS_CITY',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'home_address_state',
-            'comment' => '',
-            'label' => 'LBL_HOME_ADDRESS_STATE',
-          ),
-          1 => 
-          array (
-            'name' => 'work_address_state',
-            'comment' => '',
-            'label' => 'LBL_WORK_ADDRESS_STATE',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'home_address_postalcode',
-            'comment' => '',
-            'label' => 'LBL_HOME_ADDRESS_POSTALCODE',
-          ),
-          1 => 
-          array (
-            'name' => 'work_address_postalcode',
-            'comment' => '',
-            'label' => 'LBL_WORK_ADDRESS_POSTALCODE',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'home_address_country',
-            'comment' => '',
-            'label' => 'LBL_HOME_ADDRESS_COUNTRY',
-          ),
-          1 => 
-          array (
-            'name' => 'work_address_country',
-            'comment' => '',
-            'label' => 'LBL_WORK_ADDRESS_COUNTRY',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
             'name' => 'alt_address_descr',
             'comment' => '',
             'label' => 'LBL_ALT_ADDRESS_DESCR',
@@ -259,7 +199,7 @@ array (
             'label' => 'LBL_OTHER_ADDRESS_DESCR',
           ),
         ),
-        7 => 
+        3 => 
         array (
           0 => 
           array (
