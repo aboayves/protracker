@@ -84,16 +84,17 @@ var treeHelper = {
 	
 	createNode : function (){
 		var href = treeHelper.oCurrentTextNode.data.href.replace(/DetailView/g, "EditView");
-		
+		var wfID = document.getElementsByName('record')[0].value;
 		if(href.indexOf('av_Workflow') > 0){
 			href = href.replace(/av_Workflow/g, "av_Task_Template");
 			href = href.replace(/record/g, "av_Workflow_id");
 			href += '&av_Workflow_name=';
 		}else{
 			href = href.replace(/record/g, "parent_tasks_id");
+			href +="&av_Workflow_id=" + wfID + "&av_Workflow_name="+treeHelper.oCurrentTextNode.data.workflowName;
 			href += '&parent_tasks_name=';
 		}
-		window.open(href + treeHelper.oCurrentTextNode.data.label);
+		window.location = href + treeHelper.oCurrentTextNode.data.label+'&return_module=av_Workflow&return_action=DetailView&return_id='+wfID
 	},
 
 	deleteNode : function () {
@@ -115,6 +116,11 @@ function pageReady()
 	elem.setAttribute('id', 'template_ids');
 	elem.setAttribute('type', 'hidden');
 	document.getElementById('formDetailView').appendChild(elem);
+	setTimeout(dropEmptyRows,2000);
+}
+function dropEmptyRows()
+{
+	$("div[name=parent_blank]").each(function (i) {$(this).parent().parent().hide();});
 }
 function setCheckedTemplateIDs(){
 	
@@ -133,5 +139,5 @@ function setCheckedTemplateIDs(){
 				}
 		}
 		document.getElementById('template_ids').value = checked_template_ids;
-		}
+}
 YAHOO.util.Event.onDOMReady(pageReady);

@@ -55,20 +55,23 @@
 				$email_opt_out = $contactBean->email_opt_out;
 			}
 			
-			$query = "UPDATE av_group_membership ".
-					 "SET ".
-					 	"name='{$name}', ".
-						"delivery_method='{$bean->delivery_method}', ".
-						"envelope='{$envelope}', ".
-						"destination_address='{$destination_address}', ".
-						"date_add_to_grp='{$timedate->nowDbDate()}', ".
-						"opted_out='{$email_opt_out}', ".
-						"expiration_date='{$expiration}', ".
-						"date_entered='{$timedate->nowDb()}' ".
-					 "WHERE ".
-					 	"parent_id='{$arguments['related_id']}' ".
-						"AND av_groups_id='{$bean->id}' ".
-						"AND parent_type='{$arguments['related_module']}'";
+			$query = "
+					UPDATE av_group_membership 
+					SET 
+						name = '{$name}', 
+						delivery_method = '{$bean->delivery_method_av_group}', 
+						envelope = '{$envelope}', 
+						destination_address = '{$destination_address}', 
+						date_add_to_grp = '{$timedate->nowDbDate()}', 
+						opted_out = '{$email_opt_out}', 
+						expiration_date = '{$expiration}, 
+						date_entered = '{$timedate->nowDb()}' 
+					WHERE 
+						parent_id = '{$arguments['related_id']}' 
+						AND av_groups_id = '{$bean->id}' 
+						AND parent_type = '{$arguments['related_module']}'
+						AND deleted = 0;
+					";
 			$db->query($query);
 		
 		}

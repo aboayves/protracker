@@ -1,11 +1,13 @@
 <?php
 class TreeData{
+	static $workflowName;
 	public static function getData($wfID, $wfName = '') {
+		self::$workflowName=$wfName;
 		$added_nodes = array($wfID);
 		$tree = array();
 		
 		$tree['id'] = $wfID;
-		$tree['html'] = $wfName;
+		$tree['html'] = '<div style="background-color:#fff">'.$wfName.'</div>';
 		$tree['type'] = 'HTML';
 		$tree['label'] = $wfName;
 		$tree['href'] = "index.php?module=av_Workflow&action=DetailView&record={$wfID}";
@@ -18,11 +20,13 @@ class TreeData{
 		global $db, $users, $timedate, $app_list_strings;
 		
 		$field = 'parent_tasks_id';
+		$customWhere='';
 		if($fromWF){
 			$field = 'av_Workflow_id';
+			$customWhere=' AND parent_tasks_id="" ';
 		}
 		
-		$sql = "SELECT id, name, subject, task_category, assign_to, days_out FROM av_task_template WHERE {$field} = '{$id}' AND deleted=0";
+		$sql = "SELECT id, name, subject, task_category, assign_to, days_out FROM av_task_template WHERE {$field} = '{$id}' {$customWhere} AND deleted=0";
 		$result = $db->query($sql);
 		$childs_array = array();
 		while ($row = $db->fetchByAssoc($result)){
@@ -43,27 +47,28 @@ class TreeData{
 				$node['highlightState']='1';
 				$node['href'] = "index.php?module=av_Task_Template&action=DetailView&record={$row['id']}";
 				$node['expanded'] = true;
+				$node['workflowName'] = self::$workflowName;
 				$node['children'] = TreeData::getChilds($row['id'], $added_nodes);
 			
 				$childs_array[] = $node;
 				
 			}
 		}
-	foreach ($childs_array as $child) {
-		if(empty($child['children']) && !$fromWF) {
-		        $node = array();
+		foreach ($childs_array as $child) {
+			if(empty($child['children']) && !$fromWF) {
+				$node = array();
 				$node['id'] = '';
-				$node['html'] ='Parent Node';
+				$node['label'] = 'parent';
+				$node['html'] ='<div id="parent" name="parent_blank" style="background-color:#fff"> &nbsp;</div>';
 				$node['type'] = 'HTML';
 				$node['highlightState']='1';
 				$node['href'] = "";
 				$node['expanded'] = true;
 				
-		        $childs_array[] = $node;
+				$childs_array[] = $node;
 				break;
+			}
 		}
-	
-	}
 		return $childs_array;
 	}
 }
