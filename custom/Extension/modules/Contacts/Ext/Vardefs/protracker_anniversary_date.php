@@ -2,7 +2,7 @@
 $dictionary["Contact"]["fields"]["anniversary_date"] = array (
 	'name' => 'anniversary_date',
 	'vname' => 'LBL_ANNIVERSARY_DATE',
-	'type' => 'datetime',
+	'type' => 'date',
 	'audited' => '0',
 	'required' => '0',
 	'comment' => '',

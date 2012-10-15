@@ -2,7 +2,7 @@
 $dictionary["Contact"]["fields"]["retirement_date"] = array (
 	'name' => 'retirement_date',
 	'vname' => 'LBL_RETIREMENT_DATE',
-	'type' => 'datetime',
+	'type' => 'date',
 	'audited' => '0',
 	'required' => '0',
 	'comment' => '',

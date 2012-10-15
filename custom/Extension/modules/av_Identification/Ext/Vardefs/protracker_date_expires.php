@@ -2,7 +2,7 @@
 $dictionary["av_Identification"]["fields"]["date_expires"] = array (
 	'name' => 'date_expires',
 	'vname' => 'LBL_DATE_EXPIRES',
-	'type' => 'datetime',
+	'type' => 'date',
 	'audited' => '0',
 	'required' => '0',
 	'comment' => '',

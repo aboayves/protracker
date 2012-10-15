@@ -2,7 +2,7 @@
 $dictionary["Contact"]["fields"]["date_of_death"] = array (
 	'name' => 'date_of_death',
 	'vname' => 'LBL_DATE_OF_DEATH',
-	'type' => 'datetime',
+	'type' => 'date',
 	'audited' => '0',
 	'required' => '0',
 	'comment' => '',
