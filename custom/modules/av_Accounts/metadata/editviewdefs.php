@@ -7,11 +7,13 @@ array (
     'templateMeta' => 
     array (
       'maxColumns' => '2',
-	  'form' => array(
-	  	'hidden' => array(
-		  '<input type="hidden" id="name" name="name" value="Account">'
-		),
-	  ),
+      'form' => 
+      array (
+        'hidden' => 
+        array (
+          0 => '<input type="hidden" id="name" name="name" value="Account">',
+        ),
+      ),
       'widths' => 
       array (
         0 => 
@@ -25,7 +27,7 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
@@ -34,7 +36,7 @@ array (
       array (
         0 => 
         array (
-          0 => '',
+          0 => 'name',
           1 => 
           array (
             'name' => 'value',
@@ -115,7 +117,12 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_INSTITUTION',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'term',
+            'comment' => '',
+            'label' => 'LBL_TERM',
+          ),
         ),
         7 => 
         array (
@@ -138,9 +145,68 @@ array (
           array (
             'name' => 'accounts_av_accounts_name',
           ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
           1 => 
           array (
             'name' => 'av_net_worth_av_accounts_name',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'cash_balance',
+            'comment' => '',
+            'label' => 'LBL_CASH_BALANCE',
+          ),
+          1 => 
+          array (
+            'name' => 'cash_balance_date',
+            'comment' => '',
+            'label' => 'LBL_CASH_BALANCE_DATE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'cash_balance_high',
+            'comment' => '',
+            'label' => 'LBL_CASH_BALANCE_HIGH',
+          ),
+          1 => 
+          array (
+            'name' => 'cash_balance_high_percent',
+            'comment' => '',
+            'label' => 'LBL_CASH_BALANCE_HIGH_PERCENT',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'cash_balance_low',
+            'comment' => '',
+            'label' => 'LBL_CASH_BALANCE_LOW',
+          ),
+          1 => 
+          array (
+            'name' => 'cash_balance_low_percent',
+            'comment' => '',
+            'label' => 'LBL_CASH_BALANCE_LOW_PERCENT',
           ),
         ),
       ),
