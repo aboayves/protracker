@@ -3,7 +3,7 @@ class AttachToGroupId
 {
 	function assign_members($bean, $event, $arguments)
 	{
-		 if(!empty($bean->attach_to_group_id))
+		 if(empty($bean->fetched_row['id']) && !empty($bean->attach_to_group_id))
 		  {
 			global $db, $timedate;
 			
