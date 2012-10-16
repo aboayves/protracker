@@ -158,6 +158,39 @@ array (
           ),
         ),
       ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'target_bonds',
+            'comment' => '',
+            'label' => 'LBL_TARGET_BONDS',
+          ),
+          1 => 
+          array (
+            'name' => 'target_return',
+            'comment' => '',
+            'label' => 'LBL_TARGET_RETURN',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'target_cash',
+            'comment' => '',
+            'label' => 'LBL_TARGET_CASH',
+          ),
+          1 => 
+          array (
+            'name' => 'target_stocks',
+            'comment' => '',
+            'label' => 'LBL_TARGET_STOCKS',
+          ),
+        ),
+      ),
       'lbl_editview_panel1' => 
       array (
         0 => 

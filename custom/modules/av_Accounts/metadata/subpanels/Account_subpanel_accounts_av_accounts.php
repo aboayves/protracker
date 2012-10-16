@@ -1,12 +1,27 @@
 <?php
-// created: 2012-10-15 18:22:16
+// created: 2012-10-15 20:23:15
 $subpanel_layout['list_fields'] = array (
+  'account_number' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'vname' => 'LBL_ACCOUNT_NUMBER',
+    'width' => '10%',
+  ),
   'name' => 
   array (
     'vname' => 'LBL_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
     'width' => '45%',
     'default' => true,
+  ),
+  'account_type_c' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'vname' => 'LBL_ACCOUNT_TYPE',
+    'width' => '10%',
   ),
   'ownership_c' => 
   array (
@@ -38,14 +53,6 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'studio' => 'visible',
     'vname' => 'LBL_ASSET_CATEGORY',
-    'width' => '10%',
-  ),
-  'account_type_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ACCOUNT_TYPE',
     'width' => '10%',
   ),
   'institution_c' => 
