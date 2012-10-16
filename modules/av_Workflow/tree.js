@@ -27,34 +27,35 @@ var treeHelper = {
         treeHelper.tree.subscribe("checkClick");	
 		treeHelper.tree.render();
  
-			treeHelper.loaded = true;
-			var oContextMenu = new YAHOO.widget.ContextMenu( 
-				"mytreecontextmenu", 
-				{ 
-					trigger: "tree_plotting_div", 
-					lazyload: true, 
-					itemdata: [ 
-						{ text: "Open", onclick: {fn: treeHelper.openNode}},
-						{ text: "Edit", onclick: {fn: treeHelper.editNode}},
-						{ text: "Delete", onclick: {fn: treeHelper.deleteNode}},
-						{ text: "Create Dependent Task", onclick: {fn: treeHelper.createNode}} 
-					] 
-				} 
-			);
-			
-			oContextMenu.subscribe("triggerContextMenu", treeHelper.onTriggerContextMenu);
-		}
+		treeHelper.loaded = true;
+		var oContextMenu = new YAHOO.widget.ContextMenu( 
+			"mytreecontextmenu", 
+			{ 
+				trigger: "tree_plotting_div", 
+				lazyload: true, 
+				itemdata: [ 
+					{ text: "Open", onclick: {fn: treeHelper.openNode}},
+					{ text: "Edit", onclick: {fn: treeHelper.editNode}},
+					{ text: "Delete", onclick: {fn: treeHelper.deleteNode}},
+					{ text: "Create Dependent Task", onclick: {fn: treeHelper.createNode}} 
+				] 
+			} 
+		);
+		
+		oContextMenu.subscribe("triggerContextMenu", treeHelper.onTriggerContextMenu);
 	},
+	
 	checkClick: function(oArgs) {
-			node.logger.log("previous checkstate: " + node.checkState);
-			if (node.checkState === 0) {
-			} else {
-			}
+		node.logger.log("previous checkstate: " + node.checkState);
+		if (node.checkState === 0) {
+		} else {
+		}
 
-			node.onCheckClick(node);
-			this.fireEvent("checkClick", node);
-			return false;
+		node.onCheckClick(node);
+		this.fireEvent("checkClick", node);
+		return false;
 	},
+	
 	onTriggerContextMenu : function(p_oEvent) {
 		var oTarget = this.contextEventTarget; 
 		treeHelper.oCurrentTextNode = treeHelper.tree.getNodeByElement(oTarget); 	 
@@ -74,6 +75,8 @@ var treeHelper = {
 	createNode : function (){
 		var href = treeHelper.oCurrentTextNode.data.href.replace(/DetailView/g, "EditView");
 		var wfID = document.getElementsByName('record')[0].value;
+		if(href.indexOf('av_Workflow') > 0){
+			href = href.replace(/av_Workflow/g, "av_Task_Template");
 			href = href.replace(/record/g, "av_Workflow_id");
 			href += '&av_Workflow_name=';
 		}else{
@@ -90,12 +93,13 @@ var treeHelper = {
 		confirmDelete(id);
 	}
 }
+
 function generateTree(){
 	var wfID = document.getElementsByName('record')[0].value;
 	treeHelper.loadData(wfID);
 }
-function pageReady()
-{
+
+function pageReady(){
 	generateTree();
 	_form = document.DetailView;
 	var elem = document.createElement('input');
@@ -105,24 +109,32 @@ function pageReady()
 	document.getElementById('formDetailView').appendChild(elem);
 	setTimeout(dropEmptyRows,2000);
 }
-function dropEmptyRows()
-{
+
+function dropEmptyRows(){
 	$("div[name=parent_blank]").each(function (i) {$(this).parent().parent().hide();});
 }
-function setCheckedTemplateIDs(){
+
+function setCheckedTemplateIDs(){	
+	var array_checked = new Array();
+	var array_semi_checked = new Array();
+	var array = new Array();
+	var checked_template_ids = '';
+	var idsEL = document.getElementById('template_ids');
 	
-		var array_checked=new Array();
-		var array_semi_checked=new Array();
-		var array=new Array();
-		var checked_template_ids='';
-		array_checked=treeHelper.tree.getNodesByProperty ('highlightState', 1 );
-		array_semi_checked=treeHelper.tree.getNodesByProperty ('highlightState', 2 );
-		if(array_checked !=null){
-			array=array_checked.concat(array_semi_checked);
-		}
-		for(i=0; i<array.length; i++){
-			if(array[i] != null){
-				checked_template_ids+=array[i]['data']['id']+', ';
+	if(idsEL != null){
+		if(treeHelper.tree != null){
+			array_checked = treeHelper.tree.getNodesByProperty ('highlightState', 1 );
+			array_semi_checked = treeHelper.tree.getNodesByProperty ('highlightState', 2 );
+			if(array_checked != null){
+				array = array_checked.concat(array_semi_checked);
+			}
+			for(i=0; i<array.length; i++){
+				if(array[i] != null){
+					checked_template_ids += array[i]['data']['id']+', ';
 				}
+			}
 		}
-		document.getElementById('template_ids').value = checked_template_ids;
+		
+		idsEL.value = checked_template_ids;
+	}
+}
