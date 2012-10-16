@@ -468,6 +468,26 @@ class Contact extends Person {
 		$this->email1 = $temp_array['EMAIL1'];
 		$temp_array['EMAIL1_LINK'] = $current_user->getEmailLink('email1', $this, '', '', 'ListView');
 		$temp_array['EMAIL_AND_NAME1'] = "{$this->full_name} &lt;".$temp_array['EMAIL1']."&gt;";
+		
+//Marking dates ----------------------------------------- PROTRACK-152 ---- Abdul
+		if(isset($temp_array['EXPIRATION_DATE']) && !empty($temp_array['EXPIRATION_DATE'])){
+			global $timedate;
+			
+			$today = $timedate->nowDb();
+			$nextday = $timedate->asDbDate($timedate->getNow()->modify("+1 day"));
+	
+			$date_db = $timedate->to_db($temp_array['EXPIRATION_DATE']);
+			
+			if( $date_db < $today){
+				$temp_array['EXPIRATION_DATE']= "<font class='overdueTask'>".$temp_array['EXPIRATION_DATE']."</font>";
+			}else if($date_db < $nextday){
+				$temp_array['EXPIRATION_DATE'] = "<font class='todaysTask'>".$temp_array['EXPIRATION_DATE']."</font>";
+			}else{
+				$temp_array['EXPIRATION_DATE'] = "<font class='futureTask'>".$temp_array['EXPIRATION_DATE']."</font>";
+			}
+		}
+//----------------------------------------------------------------------------------------------------------------
+		
 		return $temp_array;
 	}
 
