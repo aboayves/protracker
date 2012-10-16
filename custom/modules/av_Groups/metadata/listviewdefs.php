@@ -43,13 +43,6 @@ array (
     'link' => true,
     'width' => '10%',
   ),
-  'BROADCAST_GROUP_C' => 
-  array (
-    'type' => 'bool',
-    'default' => true,
-    'label' => 'LBL_BROADCAST_GROUP',
-    'width' => '10%',
-  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '9%',
@@ -74,6 +67,13 @@ array (
     'label' => 'LBL_ALTERNATE_LEADER',
     'id' => 'CONTACT_ID1_C',
     'link' => true,
+    'width' => '10%',
+  ),
+  'BROADCAST_GROUP_C' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_BROADCAST_GROUP',
     'width' => '10%',
   ),
   'TEAM_NAME' => 
