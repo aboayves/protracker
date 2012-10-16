@@ -80,12 +80,6 @@ array (
             'comment' => 'The Company is of this type',
             'label' => 'LBL_TYPE',
           ),
-          1 => 
-          array (
-            'name' => 'priority',
-            'studio' => 'visible',
-            'label' => 'LBL_PRIORITY',
-          ),
         ),
         2 => 
         array (
@@ -95,8 +89,33 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
+          1 => 
+          array (
+            'name' => 'client_number',
+            'comment' => '',
+            'label' => 'LBL_CLIENT_NUMBER',
+          ),
         ),
         3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'priority_c',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIORITY',
+          ),
+          1 => 
+          array (
+            'name' => 'client_since_c',
+            'label' => 'LBL_CLIENT_SINCE',
+          ),
+        ),
+        4 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -106,7 +125,7 @@ array (
           ),
           1 => 'envelope',
         ),
-        4 => 
+        6 => 
         array (
           0 => 
           array (
@@ -121,11 +140,37 @@ array (
             'label' => 'LBL_MANAGED_ASSETS',
           ),
         ),
-        5 => 
+        7 => 
         array (
           0 => 
           array (
             'name' => 'av_offices_accounts_1_name',
+          ),
+          1 => 'team_name',
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'document_path',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_PATH',
+          ),
+          1 => 
+          array (
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
+          ),
+        ),
+        9 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
           ),
         ),
       ),
@@ -232,6 +277,126 @@ array (
             'name' => 'last_rebal',
             'label' => 'LBL_LAST_REBAL',
           ),
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_billable_client',
+            'comment' => '',
+            'label' => 'LBL_IS_BILLABLE_CLIENT',
+          ),
+          1 => 
+          array (
+            'name' => 'accounting_id_c',
+            'label' => 'LBL_ACCOUNTING_ID',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billing_frequency',
+            'comment' => '',
+            'label' => 'LBL_BILLING_FREQUENCY',
+          ),
+          1 => 
+          array (
+            'name' => 'billing_group',
+            'comment' => '',
+            'label' => 'LBL_BILLING_GROUP',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billing_type',
+            'comment' => '',
+            'label' => 'LBL_BILLING_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'billing_rate',
+            'comment' => '',
+            'label' => 'LBL_BILLING_RATE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'rate_schedule',
+            'comment' => '',
+            'label' => 'LBL_RATE_SCHEDULE',
+          ),
+          1 => 
+          array (
+            'name' => 'send_bill_to',
+            'comment' => '',
+            'label' => 'LBL_SEND_BILL_TO',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'when_billed',
+            'comment' => '',
+            'label' => 'LBL_WHEN_BILLED',
+          ),
+          1 => 
+          array (
+            'name' => 'annual_revenue',
+            'comment' => 'Annual revenue for this company',
+            'label' => 'LBL_ANNUAL_REVENUE',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billing_description',
+            'comment' => '',
+            'label' => 'LBL_BILLING_DESCRIPTION',
+          ),
+          1 => 
+          array (
+            'name' => 'billing_exceptions',
+            'comment' => '',
+            'label' => 'LBL_BILLING_EXCEPTIONS',
+          ),
+        ),
+      ),
+      'lbl_editview_panel5' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'termination_date',
+            'comment' => '',
+            'label' => 'LBL_TERMINATION_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'is_terminated',
+            'comment' => '',
+            'label' => 'LBL_IS_TERMINATED',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'termination_reason',
+            'comment' => '',
+            'label' => 'LBL_TERMINATION_REASON',
+          ),
+          1 => '',
         ),
       ),
     ),
