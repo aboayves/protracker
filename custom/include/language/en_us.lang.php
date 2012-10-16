@@ -334,14 +334,14 @@ $app_list_strings['preferred_communication_list'] = array (
 );
 $app_list_strings['level_of_education_list'] = array (
 	'' => '',
+	'Less_than_High_School' => 'Less than High School',
+	'High_School_or_Equivalent' => 'High School or Equivalent',
+	'Some_College' => 'Some College',
 	'Associates_Degree' => 'Associates Degree',
 	'Bachelors_Degree' => 'Bachelor\'s Degree',
-	'Doctorate' => 'Doctorate',
-	'High_School_or_Equivalent' => 'High School or Equivalent',
-	'Less_than_High_School' => 'Less than High School',
 	'Masters_Degree' => 'Master\'s Degree',
 	'Professional_Degree' => 'Professional Degree',
-	'Some_College' => 'Some College',
+	'Doctorate' => 'Doctorate',
 );
 $app_list_strings['level_of_health_list'] = array (
 	'' => '',
@@ -553,5 +553,141 @@ $app_list_strings['ownership_type_list'] = array (
 $app_list_strings['master_account_list'] = array (
 	'' => '',
 );
-
-
+// PROTRACKER - SUITABILITY - ENUMS
+$app_list_strings['annual_income_range_list'] = array (
+	'' => '',
+	'Under_$15,000' => 'Under $15,000',
+	'$15,000___$24,999' => '$15,000 - $24,999',
+	'$25,000___$49,999' => '$25,000 - $49,999',
+	'$50,000___$99,999' => '$50,000 - $99,999',
+	'$100,000___$249,999' => '$100,000 - $249,999',
+	'$250,000_or_More' => '$250,000 or More',
+);
+$app_list_strings['client_acceptance_pattern_list'] = array (
+	'' => '',
+	'Poor' => 'Poor',
+	'Fair' => 'Fair',
+	'Good' => 'Good',
+	'Excellent' => 'Excellent',
+);
+$app_list_strings['client_adverse_commitment_list'] = array (
+	'' => '',
+	'No_Concern' => 'No Concern',
+	'Concerned' => 'Concerned',
+	'Very_Concerned' => 'Very Concerned',
+);
+$app_list_strings['client_communication_level_list'] = array (
+	'' => '',
+	'None' => 'None',
+	'Limited' => 'Limited',
+	'Good' => 'Good',
+	'Frequent' => 'Frequent',
+);
+$app_list_strings['client_investment_input_list'] = array (
+	'' => '',
+	'None' => 'None',
+	'Minimal' => 'Minimal',
+	'Good' => 'Good',
+	'Extensive' => 'Extensive',
+);
+$app_list_strings['investable_assets_range_list'] = array (
+	'' => '',
+);
+$app_list_strings['investment_experience_list'] = array (
+	'' => '',
+	'No_Experience' => 'No Experience',
+	'Limited_Experience' => 'Limited Experience',
+	'Fairly_Experienced' => 'Fairly Experienced',
+	'Very_Experienced' => 'Very Experienced',
+);
+$app_list_strings['investment_objective_list'] = array (
+	'' => '',
+	'Conservative' => 'Conservative',
+	'Balanced' => 'Balanced',
+	'Growth' => 'Growth',
+	'Aggressive_Growth' => 'Aggressive Growth',
+	'Income' => 'Income',
+	'Growth_&_Income' => 'Growth & Income',
+	'Tax_Minimization' => 'Tax Minimization',
+	'Liquidity' => 'Liquidity',
+	'Other' => 'Other',
+);
+$app_list_strings['level_of_education_list'] = array (
+	'' => '',
+	'Less_than_High_School' => 'Less than High School',
+	'High_School_or_Equivalent' => 'High School or Equivalent',
+	'Some_College' => 'Some College',
+	'Associates_Degree' => 'Associates Degree',
+	'Bachelors_Degree' => 'Bachelor\'s Degree',
+	'Masters_Degree' => 'Master\'s Degree',
+	'Professional_Degree' => 'Professional Degree',
+	'Doctorate' => 'Doctorate',
+);
+$app_list_strings['level_of_health_list'] = array (
+	'' => '',
+	'Poor' => 'Poor',
+	'Fair' => 'Fair',
+	'Good' => 'Good',
+	'Excellent' => 'Excellent',
+);
+$app_list_strings['liquid_net_worth_range_list'] = array (
+	'' => '',
+	'Under_$25,000' => 'Under $25,000',
+	'$25,000___$49,999' => '$25,000 - $49,999',
+	'$50,000___$99,999' => '$50,000 - $99,999',
+	'$100,000___$249,999' => '$100,000 - $249,999',
+	'$250,000_or_More' => '$250,000 or More',
+);
+$app_list_strings['net_worth_range_list'] = array (
+	'' => '',
+	'Under_$25,000' => 'Under $25,000',
+	'$25,000___$49,999' => '$25,000 - $49,999',
+	'$50,000___$99,999' => '$50,000 - $99,999',
+	'$100,000___$249,999' => '$100,000 - $249,999',
+	'$250,000___$499,999' => '$250,000 - $499,999',
+	'$500,000___$999,999' => '$500,000 - $999,999',
+	'$1,000,000_or_More' => '$1,000,000 or More',
+);
+$app_list_strings['reason_for_investing_list'] = array (
+	'' => '',
+	'Retirement_Plan' => 'Retirement Plan',
+	'Education' => 'Education',
+	'Emergency_Savings' => 'Emergency Savings',
+	'Charitable_Giving' => 'Charitable Giving',
+	'Other' => 'Other',
+);
+$app_list_strings['risk_tolerance_list'] = array (
+	'' => '',
+	'Conservative' => 'Conservative',
+	'Moderately_Conservative' => 'Moderately Conservative',
+	'Moderate' => 'Moderate',
+	'Moderately_Agressive' => 'Moderately Agressive',
+	'Aggressive' => 'Aggressive',
+	'Other' => 'Other',
+);
+$app_list_strings['tax_bracket_range_list'] = array (
+	'' => '',
+	'Under_20%' => 'Under 20%',
+	'20%___29%' => '20% - 29%',
+	'30%_or_More' => '30% or More',
+);
+$app_list_strings['time_horizon_list'] = array (
+	'' => '',
+	'Short_Term' => 'Short Term',
+	'Medium_Term' => 'Medium Term',
+	'Long_Term' => 'Long Term',
+	'1___4_Years' => '1 - 4 Years',
+	'5___9_Years' => '5 - 9 Years',
+	'10___14_Years' => '10 - 14 Years',
+	'15___19_Years' => '15 - 19 Years',
+	'20+_Years' => '20+ Years',
+);
+$app_list_strings['scoring_range_list'] = array (
+	'' => '',
+	'0' => '0',
+	'1' => '1',
+	'2' => '2',
+	'3' => '3',
+	'4' => '4',
+	'5' => '5',
+);
