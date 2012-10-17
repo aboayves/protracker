@@ -416,6 +416,48 @@ array (
           0 => 'campaign_name',
         ),
       ),
+      'lbl_editview_panel6' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'send_adv_offer',
+            'comment' => '',
+            'label' => 'LBL_SEND_ADV_OFFER',
+          ),
+          1 => 
+          array (
+            'name' => 'alias',
+            'comment' => '',
+            'label' => 'LBL_ALIAS',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'send_privacy_notice',
+            'comment' => '',
+            'label' => 'LBL_SEND_PRIVACY_NOTICE',
+          ),
+          1 => 
+          array (
+            'name' => 'is_sec_related',
+            'comment' => '',
+            'label' => 'LBL_IS_SEC_RELATED',
+          ),
+        ),
+        2 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'sec_related_party_c',
+            'label' => 'LBL_SEC_RELATED_PARTY',
+          ),
+        ),
+      ),
       'lbl_editview_panel1' => 
       array (
         0 => 
@@ -428,9 +470,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'send_adv_offer',
+            'name' => 'send_newsletter_mail',
             'comment' => '',
-            'label' => 'LBL_SEND_ADV_OFFER',
+            'label' => 'LBL_SEND_NEWSLETTER_MAIL',
           ),
         ),
         1 => 
@@ -443,9 +485,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'send_privacy_notice',
+            'name' => 'send_newsletter_email',
             'comment' => '',
-            'label' => 'LBL_SEND_PRIVACY_NOTICE',
+            'label' => 'LBL_SEND_NEWSLETTER_EMAIL',
           ),
         ),
         2 => 
@@ -456,24 +498,9 @@ array (
             'comment' => '',
             'label' => 'LBL_SEND_HOLIDAY_GIFT',
           ),
-          1 => 
-          array (
-            'name' => 'send_newsletter_mail',
-            'comment' => '',
-            'label' => 'LBL_SEND_NEWSLETTER_MAIL',
-          ),
+          1 => '',
         ),
         3 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'send_newsletter_email',
-            'comment' => '',
-            'label' => 'LBL_SEND_NEWSLETTER_EMAIL',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (

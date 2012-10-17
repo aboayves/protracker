@@ -379,12 +379,14 @@ $app_list_strings['review_type_list'] = array (
 	'Financial_Planning' => 'Financial Planning',
 	'Risk_Tolerance' => 'Risk Tolerance',
 	'Suitability' => 'Suitability',
+	'Compliance' => 'Compliance',
 	'Estate_Planning' => 'Estate Planning',
 	'Insurance_Planning' => 'Insurance Planning',
 	'Billing_Review' => 'Billing Review',
 	'Tax_Planning' => 'Tax Planning',
 	'File_Review' => 'File Review',
 	'Retirement_Planning' => 'Retirement Planning',
+	'Client_Score' => 'Client Score',
 	'Other' => 'Other',
 );
 // PROTRACKER - CLIENTS - ENUMS
