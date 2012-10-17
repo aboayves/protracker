@@ -66,8 +66,10 @@ array (
           array (
             'name' => 'description',
             'label' => 'LBL_NOTE_STATUS',
-            //'customCode' => '{$DESCRIPTION}',
-            //'type' => 'html',
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_notes_1_name',
           ),
         ),
       ),

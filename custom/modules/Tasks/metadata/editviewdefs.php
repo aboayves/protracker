@@ -129,7 +129,6 @@ array (
         ),
         5 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'parent_name',
@@ -165,7 +164,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PROJECT',
           ),
-          1 => '',
         ),
         9 => 
         array (
@@ -185,6 +183,10 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 -->
 </script>
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_tasks_1_name',
           ),
         ),
       ),

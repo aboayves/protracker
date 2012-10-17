@@ -100,7 +100,6 @@ array (
         ),
         5 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'parent_name',
@@ -133,15 +132,19 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PROJECT',
           ),
-          1 => '',
         ),
         9 => 
         array (
-          0 => array(
-		  	'name' => 'description',
-			'label' => 'LBL_DESCRIPTION',
-			'customCode' => '<div> {$fields.description.value} <div>',
-		  ),
+          0 => 
+          array (
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
+            'customCode' => '<div> {$fields.description.value} <div>',
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_tasks_1_name',
+          ),
         ),
       ),
       'LBL_TREE' => 
@@ -152,10 +155,7 @@ array (
           array (
             'name' => 'tree',
             'label' => 'Tree',
-            'customCode' => '<div> <div>'.
-			                '<input type="checkbox" id="pending_only" {$pending_checked} onclick="disable_ajax=0;generateTree();" /> Hide Pending tasks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
-							'<input type="checkbox" id="more_then_90" {$90_checked} onclick="disable_ajax=0;generateTree();" /> Hide tasks greater than 90 days out <br /><br /><br />'.
-							'</div><div id="tree_panel3"></div></div>',
+            'customCode' => '<div> <div><input type="checkbox" id="pending_only" {$pending_checked} onclick="disable_ajax=0;generateTree();" /> Hide Pending tasks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="checkbox" id="more_then_90" {$90_checked} onclick="disable_ajax=0;generateTree();" /> Hide tasks greater than 90 days out <br /><br /><br /></div><div id="tree_panel3"></div></div>',
           ),
         ),
       ),

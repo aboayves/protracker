@@ -119,6 +119,10 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
             'label' => 'LBL_NOTE_STATUS',
           ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_notes_1_name',
+          ),
         ),
       ),
     ),
