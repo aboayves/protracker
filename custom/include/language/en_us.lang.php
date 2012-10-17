@@ -411,6 +411,9 @@ $app_list_strings['billing_type_list'] = array (
 	'Comprehensive' => 'Comprehensive',
 	'Retainer' => 'Retainer',
 	'Hourly' => 'Hourly',
+	'Hourly' => '% of Assets',
+	'Hourly' => 'Assets Under Management',
+	'Hourly' => 'Fixed Fee',
 	'Other' => 'Other',
 );
 $app_list_strings['client_priority_list'] = array (
