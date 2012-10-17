@@ -379,6 +379,7 @@ $app_list_strings['review_type_list'] = array (
 	'Financial_Planning' => 'Financial Planning',
 	'Risk_Tolerance' => 'Risk Tolerance',
 	'Suitability' => 'Suitability',
+	'Investment_Policy' => 'Investment Policy',
 	'Compliance' => 'Compliance',
 	'Estate_Planning' => 'Estate Planning',
 	'Insurance_Planning' => 'Insurance Planning',
