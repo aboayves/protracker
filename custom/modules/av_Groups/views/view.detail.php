@@ -66,7 +66,7 @@ class Customav_GroupsViewDetail extends ViewDetail
 		}
 		$bean = BeanFactory::getBean("Contacts");
 	   
-		$mem_email=" ";
+		$mem_email = array();
 		
 		$sql = 	"SELECT ea.email_address FROM av_group_membership rt ".
 				"INNER JOIN email_addr_bean_rel eabr ON eabr.deleted=0 AND eabr.bean_id=rt.parent_id AND rt.parent_type=eabr.bean_module ".
@@ -77,11 +77,11 @@ class Customav_GroupsViewDetail extends ViewDetail
 		{
 			if($contact['email_address']!="" && $contact['email_address']!=NULL)
 			{
-				$mem_email.=$contact['email_address'].",";
+				$mem_email[] = $contact['email_address'];
 			}
 		}
 		
-		$this->dv->ss->assign('mail_to_members', '<input type="button" onclick="javascript: location.href=\'mailto:?bcc='.$mem_email.'\'" value="Mail to Members"/>');
+		$this->dv->ss->assign('mail_to_members', '<input type="button" onclick="javascript: location.href=\'mailto:?bcc=' . implode(';',$mem_email) . '\'" value="Email to Members"/>');
 		parent::display();
 		$this->massupdate();		
     }
