@@ -1,5 +1,5 @@
 <?php
-// created: 2012-05-29 16:47:16
+// created: 2012-10-15 20:38:48
 $mod_strings = array (
   'LBL_DEPENDENT_DROPDOWN' => 'Dependent Dropdown',
   'LBL_DEPENDENT_BOOL' => 'Checkbox',
@@ -19,4 +19,7 @@ $mod_strings = array (
   'LBL_COST_BASIS' => 'Cost Basis',
   'LBL_INSTITUTION' => 'Institution',
   'LBL_MANAGED' => 'Managed',
+  'LBL_EDITVIEW_PANEL1' => 'Cash Balance',
+  'LBL_EDITVIEW_PANEL2' => 'Targets',
+  'LBL_IS_WITHDRAWAL_ASSET' => 'Withdrawal Rate Asset',
 );
