@@ -6,13 +6,17 @@ function confirmDelete(){
     if(taskID)
         del('Confirmation Delete','This task has dependent tasks.', taskID);
 }
-function confirmDelete(taskID){
+function confirmDelete(taskID, hasChild){
    
-    //var parentID = document.getElementsByName('parent_tasks_id')[0].value;
-    if(taskID)
-        del('Confirmation Delete','This task has dependent tasks.', taskID);
+    var parentID = document.getElementsByName('parent_tasks_id')[0].value;
+    if(taskID && hasChild) {
+        del('Confirmation Delete','This task has dependent tasks.', taskID, hasChild);
+	}
+	else {
+		del('Confirmation Delete','Are you sure you want to delete.', taskID, hasChild);
+	}
 }
-function del(title, body, taskID)
+function del(title, body, taskID, hasChild)
 {
     mySimpleDialog.setHeader(title);
     mySimpleDialog.setBody(body);
@@ -25,7 +29,7 @@ function del(title, body, taskID)
 		this.hide();
 	    var _form = document.getElementById('formDetailView');
 		currentRecID = _form.record.value;
-		
+
 		if(currentRecID==taskID)
 		{
 			
@@ -85,20 +89,32 @@ function del(title, body, taskID)
         this.hide();
     };
     var handleCANCEL = function() {this.hide();};
-    
-    var myButtons = [{
-        text:"Delete", 
-        handler: handleDELETE, 
-        isDefault:false
-    },{
-        text:"Attach To Parent", 
-        handler: handleATTACH, 
-        isDefault:false
-    },{
-        text:"Cancel", 
-        handler: handleCANCEL, 
-        isDefault:true
-    }];
+    if(hasChild){
+		var myButtons = [{
+			text:"Delete", 
+			handler: handleDELETE, 
+			isDefault:false
+		},{
+			text:"Attach To Parent", 
+			handler: handleATTACH, 
+			isDefault:false
+		},{
+			text:"Cancel", 
+			handler: handleCANCEL, 
+			isDefault:true
+		}];
+	}
+	else{
+		var myButtons = [{
+			text:"Delete", 
+			handler: handleDELETE, 
+			isDefault:false
+		},{
+			text:"Cancel", 
+			handler: handleCANCEL, 
+			isDefault:true
+		}];
+	}
     mySimpleDialog.cfg.queueProperty("buttons", myButtons);
     mySimpleDialog.render(document.body);
     mySimpleDialog.show();

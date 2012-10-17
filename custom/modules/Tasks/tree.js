@@ -53,7 +53,8 @@ function loadTree(){
  }
 
  function deleteNode(){ 
-	confirmDelete(oCurrentTextNode.data.id); 
+	hasChild=oCurrentTextNode.hasChildren(); 
+	confirmDelete(oCurrentTextNode.data.id, hasChild); 
 }
   
 function loadNodeData(taskID, taskName)  {
