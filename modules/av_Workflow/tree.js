@@ -75,14 +75,13 @@ var treeHelper = {
 	createNode : function (){
 		var href = treeHelper.oCurrentTextNode.data.href.replace(/DetailView/g, "EditView");
 		var wfID = document.getElementsByName('record')[0].value;
-		if(href.indexOf('av_Workflow') > 0){
+		if(href.indexOf('av_Task_Template') > 0){
+			href = href.replace(/record/g, "parent_tasks_id");
+			href += '&parent_tasks_name=';
+		}else{
 			href = href.replace(/av_Workflow/g, "av_Task_Template");
 			href = href.replace(/record/g, "av_Workflow_id");
 			href += '&av_Workflow_name=';
-		}else{
-			href = href.replace(/record/g, "parent_tasks_id");
-			href +="&av_Workflow_id=" + wfID + "&av_Workflow_name="+treeHelper.oCurrentTextNode.data.workflowName;
-			href += '&parent_tasks_name=';
 		}
 		window.location = href + treeHelper.oCurrentTextNode.data.label+'&return_module=av_Workflow&return_action=DetailView&return_id='+wfID
 	},
@@ -138,3 +137,4 @@ function setCheckedTemplateIDs(){
 		idsEL.value = checked_template_ids;
 	}
 }
+YAHOO.util.Event.onDOMReady(pageReady);
