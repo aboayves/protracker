@@ -110,11 +110,6 @@ array (
             'label' => 'LBL_CLIENT_SINCE',
           ),
         ),
-        4 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
         5 => 
         array (
           0 => 
@@ -165,13 +160,15 @@ array (
         ),
         9 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'report_salutation',
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
+        ),
+        10 => 
+        array (
         ),
       ),
       'lbl_editview_panel2' => 
@@ -396,7 +393,6 @@ array (
             'comment' => '',
             'label' => 'LBL_TERMINATION_REASON',
           ),
-          1 => '',
         ),
       ),
     ),
