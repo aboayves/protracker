@@ -722,3 +722,37 @@ $app_list_strings['percent_complete_list'] = array (
 	'95%' => '95%',
 	'100%' => '100%',
 );
+// PROTRACKER - TRUSTEE - ENUMS
+$app_list_strings['trustee_type_list'] = array (
+	'' => '',
+	'Primary' => 'Primary',
+	'Successor' => 'Successor',
+	'2nd_Successor' => '2nd Successor',
+	'Other' => 'Other',
+);
+// PROTRACKER - BENEFICIARIES - ENUMS
+$app_list_strings['beneficiary_type_list'] = array (
+	'' => '',
+	'Primary' => 'Primary',
+	'Secondary' => 'Secondary',
+	'Tertiary' => 'Tertiary',
+	'3rd_Successor' => '3rd Successor',
+	'Other' => 'Other',
+);
+// PROTRACKER - POSITIONS - ENUMS
+$app_list_strings['security_type_list'] = array (
+	'' => '',
+	'Equities' => 'Equities',
+	'Fixed_Income' => 'Fixed Income',
+	'Mutual_Funds' => 'Mutual Funds',
+	'CDs' => 'CDs',
+	'Mortgage_Backed_Securties' => 'Mortgage-Backed Securties',
+	'Unit_Trusts' => 'Unit Trusts',
+	'Options' => 'Options',
+	'Treasury_Bills' => 'Treasury Bills',
+	'Commercial_Paper' => 'Commercial Paper',
+	'Cash_and_Money_Funds' => 'Cash and Money Funds',
+	'Indexes' => 'Indexes',
+	'Alternative_Investments' => 'Alternative Investments',
+	'Other' => 'Other',
+);
