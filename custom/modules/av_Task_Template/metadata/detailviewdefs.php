@@ -8,7 +8,11 @@ array (
     array (
       'form' => 
       array (
-        'buttons' => 
+        'hidden' => 
+		array(
+			0 => '<input type="hidden" name="av_Workflow_id" id="av_Workflow_id" value="{$fields.av_Workflow_id.value}">',
+		),
+		'buttons' => 
         array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
@@ -32,6 +36,17 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
+	  'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/av_Task_Template/tree.js',
+        ),
+		1 => 
+        array (
+          'file' => 'modules/av_Task_Template/delete.js',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -128,6 +143,18 @@ array (
           1 => '',
         ),
       ),
+	  'LBL_TREE_VIEW' =>
+	  array(
+		0 =>
+		array(
+			0 =>
+			array(
+				'name' => 'tree',
+				'label' => 'LBL_TREE',
+				'customCode' => '<div id="tree_plotting_div"></div>'  
+			),
+		),    
+	  ),
     ),
   ),
 );

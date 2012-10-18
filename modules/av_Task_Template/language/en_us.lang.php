@@ -72,4 +72,6 @@ $mod_strings = array (
   'LBL_WORKFLOW' => 'Workflow',
   'LBL_PARENT_TASKS' => 'Waiting for',
   'LBL_CHILD_TASKS' => 'Dependent Tasks',
+  'LBL_TREE' => 'Tree',
+  'LBL_TREE_VIEW' => 'Tree View',
 );

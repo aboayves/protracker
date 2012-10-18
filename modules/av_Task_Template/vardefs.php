@@ -311,6 +311,13 @@ $dictionary['av_Task_Template'] = array(
 		'reportable' => false,
 		'audited' => true,
 	  ),
+	  'tree' => 
+	  array (
+		'name' => 'tree',
+		'vname' => 'LBL_TREE',
+		'type' => 'text',
+		'source' => 'non-db'
+	  ),
 	),
 	'relationships'=>array (
 		'parent_tasks_template' => 
