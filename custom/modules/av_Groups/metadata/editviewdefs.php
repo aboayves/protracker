@@ -27,11 +27,10 @@ array (
     array (
       'default' => 
       array (
-	  	0 => 
-		array (
-		  0 => 'name',
-		  1 => '',
-		),
+        0 => 
+        array (
+          0 => 'name',
+        ),
         1 => 
         array (
           0 => 'communication_type',

@@ -7,11 +7,13 @@ array (
     'templateMeta' => 
     array (
       'maxColumns' => '2',
-	  'form' => array(
-	  	'hidden' => array(
-		  '<input type="hidden" id="name" name="name" value="Account">'
-		),
-	  ),
+      'form' => 
+      array (
+        'hidden' => 
+        array (
+          0 => '<input type="hidden" id="name" name="name" value="Account">',
+        ),
+      ),
       'widths' => 
       array (
         0 => 
@@ -33,7 +35,6 @@ array (
       array (
         0 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'value',
@@ -104,7 +105,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_ACCOUNT_TYPE',
           ),
-          1 => '',
         ),
         6 => 
         array (
@@ -114,7 +114,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_INSTITUTION',
           ),
-          1 => '',
         ),
         7 => 
         array (
@@ -124,12 +123,10 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_ASSET_CLASS',
           ),
-          1 => '',
         ),
         8 => 
         array (
           0 => 'description',
-          1 => '',
         ),
         9 => 
         array (

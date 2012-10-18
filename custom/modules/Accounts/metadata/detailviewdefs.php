@@ -167,9 +167,6 @@ array (
             'label' => 'LBL_REPORT_SALUTATION',
           ),
         ),
-        10 => 
-        array (
-        ),
       ),
       'lbl_editview_panel2' => 
       array (

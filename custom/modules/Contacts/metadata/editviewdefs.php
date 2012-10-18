@@ -98,7 +98,7 @@ array (
         ),
         5 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'phone_mobile',
             'comment' => 'Mobile phone number of the contact',
@@ -452,7 +452,7 @@ array (
         ),
         2 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'sec_related_party_c',
             'label' => 'LBL_SEC_RELATED_PARTY',

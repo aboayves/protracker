@@ -39,7 +39,6 @@ array (
       array (
         0 => 
         array (
-          0 => '',
           1 => 'assigned_user_name',
         ),
         1 => 
@@ -67,7 +66,6 @@ array (
             'name' => 'av_net_worth_av_accounts_name',
             'label' => 'LBL_AV_NET_WORTH_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE',
           ),
-          1 => '',
         ),
         4 => 
         array (

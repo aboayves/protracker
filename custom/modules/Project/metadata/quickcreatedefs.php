@@ -60,7 +60,6 @@ array (
         ),
         4 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'service_c',

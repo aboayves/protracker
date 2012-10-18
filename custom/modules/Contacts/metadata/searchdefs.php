@@ -5,23 +5,26 @@ array (
   array (
     'basic_search' => 
     array (
-      0 => 
+      'search_name' => 
       array (
         'name' => 'search_name',
         'label' => 'LBL_NAME',
         'type' => 'name',
+        'default' => true,
       ),
-      1 => 
+      'current_user_only' => 
       array (
         'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
+        'default' => true,
       ),
-      2 => 
+      'favorites_only' => 
       array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
+        'default' => true,
       ),
     ),
     'advanced_search' => 

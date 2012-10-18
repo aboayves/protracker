@@ -129,7 +129,7 @@ array (
         ),
         5 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'parent_name',
             'label' => 'LBL_LIST_RELATED_TO',

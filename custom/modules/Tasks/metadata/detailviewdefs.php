@@ -100,7 +100,7 @@ array (
         ),
         5 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'parent_name',
             'customLabel' => 'Related to - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',

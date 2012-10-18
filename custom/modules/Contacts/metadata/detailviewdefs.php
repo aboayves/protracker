@@ -118,7 +118,7 @@ array (
         ),
         5 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'phone_mobile',
             'label' => 'LBL_MOBILE_PHONE',
@@ -465,7 +465,7 @@ array (
         ),
         2 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'sec_related_party_c',
             'label' => 'LBL_SEC_RELATED_PARTY',
