@@ -23,6 +23,10 @@ array (
           array (
             'customCode' => '{if $fields.status.value != "Completed"} <input type="hidden" name="isSave" value="false">  <input title="{$APP.LBL_CLOSE_BUTTON_TITLE}"  class="button"  onclick="this.form.status.value=\'Completed\'; this.form.action.value=\'Save\';this.form.return_module.value=\'Tasks\';this.form.isSave.value=true;this.form.return_action.value=\'DetailView\'; this.form.return_id.value=\'{$fields.id.value}\'"  name="button1"  value="{$APP.LBL_CLOSE_BUTTON_TITLE}"  type="submit">{/if}',
           ),
+          5 => 
+          array (
+            'customCode' => '<input title="Create Dependent Task" class="button" onclick="window.location=\'index.php?module=Tasks&action=EditView&parent_tasks_id={$fields.id.value}&parent_tasks_name={$fields.name.value}\'" value="Create Dependent Task" type="button">',
+          ),
         ),
       ),
       'maxColumns' => '2',

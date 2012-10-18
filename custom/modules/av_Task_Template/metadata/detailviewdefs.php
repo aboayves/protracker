@@ -18,6 +18,10 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
+          4 => 
+          array (
+            'customCode' => '<input title="Create Dependent Task" class="button" onclick="window.location=\'index.php?module=av_Task_Template&action=EditView&parent_tasks_id={$fields.id.value}&parent_tasks_name={$fields.name.value}&av_Workflow_id={$fields.av_Workflow_id.value}&av_Workflow_name={$fields.av_Workflow_name.value}\'" value="Create Dependent Task" type="button">',
+          ),
         ),
       ),
       'maxColumns' => '2',

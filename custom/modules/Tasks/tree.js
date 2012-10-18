@@ -12,7 +12,8 @@ var oContextMenu = new YAHOO.widget.ContextMenu(
 		
 			{ text: "Open", onclick: { fn: openNode } } ,
 			{ text: "Edit", onclick: { fn: editNode } } ,
-			{ text: "Delete", onclick: { fn: deleteNode } } 
+			{ text: "Delete", onclick: { fn: deleteNode } } ,
+			{ text: "Create Dependent Task", onclick: { fn: createNode } } 
 		] 
 	} 
 ); 
@@ -55,6 +56,10 @@ function loadTree(){
  function deleteNode(){ 
 	hasChild=oCurrentTextNode.hasChildren(); 
 	confirmDelete(oCurrentTextNode.data.id, hasChild); 
+}
+
+function createNode(){
+	window.location = "index.php?module=Tasks&action=EditView&parent_tasks_id=" + oCurrentTextNode.data.id + '&parent_tasks_name=' + oCurrentTextNode.label;
 }
   
 function loadNodeData(taskID, taskName)  {
