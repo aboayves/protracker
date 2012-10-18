@@ -118,7 +118,6 @@ array (
         ),
         5 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'phone_mobile',
@@ -166,6 +165,10 @@ array (
           array (
             'name' => 'av_offices_contacts_1_name',
           ),
+          1 => 
+          array (
+            'name' => 'av_tax_returns_contacts_1_name',
+          ),
         ),
       ),
       'lbl_editview_panel5' => 
@@ -182,7 +185,6 @@ array (
               'key' => 'primary',
             ),
           ),
-          1 => '',
         ),
         1 => 
         array (
@@ -463,7 +465,6 @@ array (
         ),
         2 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'sec_related_party_c',
@@ -511,7 +512,6 @@ array (
             'comment' => '',
             'label' => 'LBL_SEND_HOLIDAY_GIFT',
           ),
-          1 => '',
         ),
         3 => 
         array (

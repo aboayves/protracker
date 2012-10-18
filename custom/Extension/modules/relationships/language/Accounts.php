@@ -15,3 +15,5 @@ $mod_strings['LBL_AV_SCORING_ACCOUNTS_1_FROM_AV_SCORING_TITLE'] = 'Client Score'
 $mod_strings['LBL_ACCOUNTS_AV_SCORING_1_FROM_AV_SCORING_TITLE'] = 'Client Score';
 $mod_strings['LBL_ACCOUNTS_AV_IPS_1_FROM_AV_IPS_TITLE'] = 'Investment Policy Statement';
 $mod_strings['LBL_ACCOUNTS_AV_OFFICE_GIFTS_1_FROM_AV_OFFICE_GIFTS_TITLE'] = 'Office Gifts';
+$mod_strings['LBL_ACCOUNTS_AV_TAX_RETURNS_1_FROM_AV_TAX_RETURNS_TITLE'] = 'Tax Returns';
+$mod_strings['LBL_ACCOUNTS_AV_TAX_RETURNS_2_FROM_AV_TAX_RETURNS_TITLE'] = 'Tax Returns';

@@ -756,3 +756,33 @@ $app_list_strings['security_type_list'] = array (
 	'Alternative_Investments' => 'Alternative Investments',
 	'Other' => 'Other',
 );
+// PROTRACKER - TAX RETURNS - ENUMS
+$app_list_strings['filing_status_list'] = array (
+	'' => '',
+	'Single' => 'Single',
+	'Head_of_Household' => 'Head of Household',
+	'Married_Filing_Jointly_or_Qualifying_Widow(er)' => 'Married Filing Jointly or Qualifying Widow(er)',
+	'Married_Filing_Separately' => 'Married Filing Separately',
+	'C_Corp' => 'C Corp',
+	'S_Corp' => 'S Corp',
+	'LLC' => 'LLC',
+	'Non_Profit' => 'Non-Profit',
+	'Partnership' => 'Partnership',
+	'Proprietorship' => 'Proprietorship',
+	'Trust' => 'Trust',
+	'Other' => 'Other',
+);
+
+$app_list_strings['residency_type_list'] = array (
+	'' => '',
+	'Resident' => 'Resident',
+	'Non_Resident' => 'Non-Resident',
+	'Other' => 'Other',
+);
+$app_list_strings['return_type_list'] = array (
+	'' => '',
+	'Federal' => 'Federal',
+	'State' => 'State',
+	'Local' => 'Local',
+	'Other' => 'Other',
+);
