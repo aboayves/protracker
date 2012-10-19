@@ -55,6 +55,10 @@ array (
           array (
             'name' => 'contacts_av_trustees_1_name',
           ),
+          1 => 
+          array (
+            'name' => 'av_trusts_av_trustees_1_name',
+          ),
         ),
       ),
     ),
