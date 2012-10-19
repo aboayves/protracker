@@ -162,9 +162,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'report_salutation',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
+            'name' => 'contacts_accounts_1_name',
           ),
         ),
       ),

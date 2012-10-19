@@ -298,7 +298,7 @@ $app_list_strings['contact_type_list'] = array (
 );
 $app_list_strings['employment_status_list'] = array (
 	'' => '',
-	'Employed_Full_time' => 'Employed Full-time',
+	'Employed_Full_time' => 'Employed',
 	'Employed_Part_time' => 'Employed Part-time',
 	'Self_Employed' => 'Self-Employed',
 	'Student' => 'Student',
@@ -785,6 +785,6 @@ $app_list_strings['return_type_list'] = array (
 	'State' => 'State',
 	'Local' => 'Local',
 	'Other' => 'Other',
-);
+);// PROTRACKER - GROUPS - ENUMS$app_list_strings['delivery_method_list'] = array (	'' => '',	'Mailing_Address' => 'Mailing Address',	'Home_Address' => 'Home Address',	'Work_Address' => 'Work Address',	'Home_Phone' => 'Home Phone',	'Work_Phone' => 'Work Phone',	'Mobile' => 'Mobile',	'Primary_Email' => 'Primary Email',	'Home_Email' => 'Home Email',	'Work_Email' => 'Work Email',);$app_list_strings['group_priority_list'] = array (	'' => '',	'High' => 'High',	'Normal' => 'Normal',	'Low' => 'Low',	'Immediate' => 'Immediate',	'Other' => 'Other',);$app_list_strings['group_status_list'] = array (	'' => '',	'Active' => 'Active',	'Inactive' => 'Inactive',	'Deceased' => 'Deceased',	'Terminated' => 'Terminated',	'Other' => 'Other',);
 $app_list_strings['moduleList']['av_Estate_Documents']='Estate Documents';
 $app_list_strings['moduleListSingular']['av_Estate_Documents']='Estate Documents';

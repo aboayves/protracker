@@ -73,10 +73,6 @@ array (
             'comment' => 'First name of the contact',
             'label' => 'LBL_FIRST_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_contacts_1_name',
-          ),
         ),
         2 => 
         array (
