@@ -1,4 +1,5 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -26,35 +27,65 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-$module_name = 'av_Cashflow';
-$viewdefs[$module_name]['EditView'] = array(
-    'templateMeta' => array('maxColumns' => '2', 
+/*********************************************************************************
+
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
+
+ $module_name = 'av_Cashflow';
+
+ $viewdefs[$module_name]['EditView'] = array(
+    'templateMeta' => array('form' => array('enctype'=>'multipart/form-data',
+                                            'hidden'=>array()),
+
+                            'maxColumns' => '2',
                             'widths' => array(
-                                            array('label' => '10', 'field' => '30'), 
+                                            array('label' => '10', 'field' => '30'),
                                             array('label' => '10', 'field' => '30')
-                                            ),                                                                                                                                    
                                             ),
-                                            
-                                            
+'javascript' =>
+	'{sugar_getscript file="include/javascript/popup_parent_helper.js"}
+	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
+	{sugar_getscript file="modules/Documents/documents.js"}',
+),
  'panels' =>array (
-  'default' => 
+  'default' =>
   array (
-    
+
     array (
-      'name',
+      'document_name',
+      array(
+      		'name'=>'uploadfile',
+            'displayParams' => array('onchangeSetFileNameTo' => 'document_name'),
+      ),
+
+	),
+
+    array (
+       'category_id',
+       'subcategory_id',
+    ),
+
+    array (
       'assigned_user_name',
+      array('name'=>'team_name','displayParams'=>array('required'=>true)),
     ),
+
     array (
-      array('name'=>'team_name', 'displayParams'=>array('display'=>true)),
-      ''
+      'active_date',
+      'exp_date',
     ),
-    
+
+	array('status_id'),
     array (
-      'description',
+
+      array('name'=>'description'),
+
     ),
   ),
-                                                    
-),
-                        
+)
 );
+
 ?>

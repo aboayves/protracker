@@ -32,15 +32,15 @@
  * PLACE ANY CUSTOMIZATIONS IN av_Cashflow
  */
 
+require_once('include/SugarObjects/templates/file/File.php');
 
-class av_Cashflow_sugar extends Basic {
+class av_Cashflow_sugar extends File {
 	var $new_schema = true;
 	var $module_dir = 'av_Cashflow';
 	var $object_name = 'av_Cashflow';
 	var $table_name = 'av_cashflow';
 	var $importable = false;
 		var $id;
-		var $name;
 		var $date_entered;
 		var $date_modified;
 		var $modified_user_id;
@@ -61,8 +61,19 @@ class av_Cashflow_sugar extends Basic {
 		var $assigned_user_id;
 		var $assigned_user_name;
 		var $assigned_user_link;
+		var $document_name;
+		var $filename;
+		var $file_ext;
+		var $file_mime_type;
+		var $uploadfile;
+		var $active_date;
+		var $exp_date;
+		var $category_id;
+		var $subcategory_id;
+		var $status_id;
+		var $status;
 			function av_Cashflow_sugar(){	
-		parent::Basic();
+		parent::File();
 	}
 	
 	function bean_implements($interface){

@@ -27,24 +27,57 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+/*********************************************************************************
 
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
+ 
+ $module_name = 'av_Cashflow';
+$OBJECT_NAME = 'AV_CASHFLOW';
+ $listViewDefs[$module_name] = array(
 
-
-$module_name = 'av_Cashflow';
-$listViewDefs[$module_name] = array(
-	'NAME' => array(
-		'width' => '32', 
-		'label' => 'LBL_NAME', 
-		'default' => true,
-        'link' => true),         
-	'TEAM_NAME' => array(
-		'width' => '9', 
-		'label' => 'LBL_TEAM',
+	'DOCUMENT_NAME' => array(
+		'width' => '40',
+		'label' => 'LBL_NAME',
+		'link' => true,
         'default' => true),
-	'ASSIGNED_USER_NAME' => array(
-		'width' => '9', 
-		'label' => 'LBL_ASSIGNED_TO_NAME',
+    'MODIFIED_BY_NAME' => array(
+        'width' => '10',
+        'label' => 'LBL_MODIFIED_USER',
+        'module' => 'Users',
+        'id' => 'USERS_ID',
+        'default' => false,
+        'sortable' => false,
+        'related_fields' => array('modified_user_id')),
+    'CATEGORY_ID' => array(
+        'width' => '40',
+        'label' => 'LBL_LIST_CATEGORY',
         'default' => true),
-	
-);
+    'SUBCATEGORY_ID' => array(
+        'width' => '40',
+        'label' => 'LBL_LIST_SUBCATEGORY',
+        'default' => true),
+    'TEAM_NAME' => array(
+        'width' => '2',
+        'label' => 'LBL_LIST_TEAM',
+        'default' => true,
+        'sortable' => false),
+    'CREATED_BY_NAME' => array(
+        'width' => '2',
+        'label' => 'LBL_LIST_LAST_REV_CREATOR',
+        'default' => true,
+        'sortable' => false),
+
+    'ACTIVE_DATE' => array(
+        'width' => '10',
+        'label' => 'LBL_LIST_ACTIVE_DATE',
+        'default' => true),
+    'EXP_DATE' => array(
+        'width' => '10',
+        'label' => 'LBL_LIST_EXP_DATE',
+        'default' => true),
+        );
 ?>
+

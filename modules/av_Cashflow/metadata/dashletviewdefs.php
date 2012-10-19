@@ -37,8 +37,8 @@ $dashletData['av_CashflowDashlet']['searchFields'] = array('date_entered'     =>
                                                           'team_id'          => array('default' => ''),
                                                           'assigned_user_id' => array('type'    => 'assigned_user_name', 
                                                                                       'default' => $current_user->name));
-$dashletData['av_CashflowDashlet']['columns'] =  array(   'name' => array('width'   => '40', 
-                                                                      'label'   => 'LBL_LIST_NAME',
+$dashletData['av_CashflowDashlet']['columns'] =  array(   'document_name' => array('width'   => '40', 
+                                                                      'label'   => 'LBL_NAME',
                                                                       'link'    => true,
                                                                       'default' => true), 
                                                       'date_entered' => array('width'   => '15', 

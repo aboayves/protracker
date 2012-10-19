@@ -1,5 +1,5 @@
 <?php
- // created: 2012-10-15 00:48:16
+ // created: 2012-10-19 15:10:21
 $layout_defs["Accounts"]["subpanel_setup"]['accounts_av_cashflow_1'] = array (
   'order' => 100,
   'module' => 'av_Cashflow',
