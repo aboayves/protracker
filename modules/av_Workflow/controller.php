@@ -230,15 +230,15 @@ class av_WorkflowController extends SugarController {
 					break;
 					
 					case "User_1":
-						$record['parent_id'] = $_REQUEST['user_1_id'];
+						$record['assigned_user_id'] = $_REQUEST['user_1_id'];
 					break;
 					
 					case "User_2":
-						$record['parent_id'] = $_REQUEST['user_2_id'];
+						$record['assigned_user_id'] = $_REQUEST['user_2_id'];
 					break;
 					
 					case "User_3":
-						$record['parent_id'] = $_REQUEST['user_3_id'];
+						$record['assigned_user_id'] = $_REQUEST['user_3_id'];
 					break;
 					
 					case "Current_User":
