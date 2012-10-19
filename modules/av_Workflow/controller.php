@@ -187,7 +187,7 @@ class av_WorkflowController extends SugarController {
 				
 				//=========================== Adding calculated start date ===============================
 				if(isset($dates[$record['id']]) && !empty($dates[$record['id']])){
-					$record['date_start'] = $dates[$record['id']];
+					$record['date_due'] = $dates[$record['id']];
 				}
 				
 				//=========================== Assigning Parent record ====================================
