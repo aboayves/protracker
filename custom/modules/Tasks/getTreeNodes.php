@@ -31,7 +31,11 @@ function getStart($id, $visited_parent=array()){
 	
 	$visited_parent[] = $id;
 	
-	$query = "SELECT id, name, category, status, parent_tasks_id, assigned_user_id, date_due, IF(date_due < now() AND status != 'Completed', 1, 0) as over_due FROM tasks WHERE id='{$id}' AND deleted=0";
+	$query = "SELECT ".
+					"id, name, status, parent_tasks_id, assigned_user_id, date_due, ".
+					"IF(date_due IS NOT NULL AND TRIM(date_due) != '' AND date_due != '0000-00-00 00:00:00' AND date_due < now() AND status != 'Completed', 1, 0) as over_due ".
+			"FROM tasks ".
+			"WHERE id='{$id}' AND deleted=0";
 	$res = $db->query($query);
 	$row = $db->fetchByAssoc($res);
 	if(!empty($row['parent_tasks_id']) && !in_array($row['parent_tasks_id'], $visited_parent)){
@@ -49,6 +53,14 @@ function getStart($id, $visited_parent=array()){
 		
 		if($row['over_due'] == '1'){
 			$tree['contentStyle'] = " overdue_task";
+		}
+			
+		if(!empty($row['date_due'])){
+			if($row['date_due'] == '0000-00-00 00:00:00'){
+				$row['date_due'] = '';
+			}else{
+				$row['date_due'] = $timedate->to_display_date_time($row['date_due']);
+			}
 		}
 		
 		$tree['id'] = $row['id'];
@@ -109,7 +121,7 @@ function build_child_tree($id, $added_nodes = array()) {
     
 	$sql = "SELECT ".
 				"id, name, status, category, parent_tasks_id, assigned_user_id, date_due, ".
-				"IF(date_due < now() AND status != 'Completed', 1, 0) as over_due, ".
+				"IF(date_due IS NOT NULL AND TRIM(date_due) != '' AND date_due != '0000-00-00 00:00:00' AND date_due < now() AND status != 'Completed', 1, 0) as over_due, ".
 				"IF(date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY) OR date_due >= DATE_ADD(NOW(), INTERVAL 90 DAY), 1, 0) as old_task ".
 			"FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
     $result = $db->query($sql);
@@ -131,6 +143,14 @@ function build_child_tree($id, $added_nodes = array()) {
 			if($row['over_due'] == '1'){
 				$node['contentStyle'] = " overdue_task";
 			}
+			if(!empty($row['date_due'])){
+				if($row['date_due'] == '0000-00-00 00:00:00'){
+					$row['date_due'] = '';
+				}else{
+					$row['date_due'] = $timedate->to_display_date_time($row['date_due']);
+				}
+			}
+			
 			$node['id'] = $row['id'];
 			$node['label'] = $row['name'];
 			$node['html'] = "<table>
@@ -145,7 +165,7 @@ function build_child_tree($id, $added_nodes = array()) {
 			$node['status'] = $row['status'];
 			$node['type'] = 'HTML';
 			$node['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
-			$node['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
+			$node['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: " . $row['date_due'];
 			$node['expanded'] = true;
 			$node['children'] = build_child_tree($row['id'], $added_nodes);
 			

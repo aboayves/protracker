@@ -8,12 +8,20 @@ array (
     array (
       'form' => 
       array (
-        'buttons' => 
+        'hidden' => 
+		array(
+			0 => '<input type="hidden" name="av_Workflow_id" id="av_Workflow_id" value="{$fields.av_Workflow_id.value}">',
+		),
+		'buttons' => 
         array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
+          4 => 
+          array (
+            'customCode' => '<input title="Create Dependent Task" class="button" onclick="window.location=\'index.php?module=av_Task_Template&action=EditView&parent_tasks_id={$fields.id.value}&parent_tasks_name={$fields.name.value}&av_Workflow_id={$fields.av_Workflow_id.value}&av_Workflow_name={$fields.av_Workflow_name.value}\'" value="Create Dependent Task" type="button">',
+          ),
         ),
       ),
       'maxColumns' => '2',
@@ -32,6 +40,17 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
+	  'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/av_Task_Template/tree.js',
+        ),
+		1 => 
+        array (
+          'file' => 'modules/av_Task_Template/delete.js',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -133,6 +152,18 @@ array (
           1 => 'client_task',
         ),
       ),
+	  'LBL_TREE_VIEW' =>
+	  array(
+		0 =>
+		array(
+			0 =>
+			array(
+				'name' => 'tree',
+				'label' => 'LBL_TREE',
+				'customCode' => '<div id="tree_plotting_div"></div>'  
+			),
+		),    
+	  ),
     ),
   ),
 );
