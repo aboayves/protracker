@@ -15,7 +15,7 @@ $layout_defs['av_Task_Template'] = array(
 			array (
 				0 => 
 				array (
-					'widget_class' => 'SubPanelTopButtonQuickCreate',
+					'widget_class' => 'SubPanelTopButtonQuickCreateFromTasksTemplateCstm',
 				),
 				1 => 
 				array (

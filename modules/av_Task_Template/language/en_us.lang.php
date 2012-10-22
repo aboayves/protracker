@@ -66,10 +66,11 @@ $mod_strings = array (
   'LBL_PRIORITY' => 'Priority',
   'LBL_NOTIFY_CHILD_COMPLETION' => 'Notify Child Completion',
   'LBL_ON_TASK_LIST' => 'On Task List',
+  'LBL_CLIENT_TASK' => 'Client Task',
   'LBL_ASSIGN_TO' => 'Assign To',
   'LBL_RELATE_TO' => 'Relate To',
   'LBL_DAYS_OUT' => 'Days Out',
   'LBL_WORKFLOW' => 'Workflow',
   'LBL_PARENT_TASKS' => 'Waiting for',
-  'LBL_CHILD_TASKS' => 'Dependent Tasks',
+  'LBL_CHILD_TASKS' => 'Dependent Task Templates',
 );
