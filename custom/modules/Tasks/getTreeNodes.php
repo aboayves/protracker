@@ -31,7 +31,7 @@ function getStart($id, $visited_parent=array()){
 	
 	$visited_parent[] = $id;
 	
-	$query = "SELECT id, name, status, parent_tasks_id, assigned_user_id, date_due, IF(date_due < now() AND status != 'Completed', 1, 0) as over_due FROM tasks WHERE id='{$id}' AND deleted=0";
+	$query = "SELECT id, name, category, status, parent_tasks_id, assigned_user_id, date_due, IF(date_due < now() AND status != 'Completed', 1, 0) as over_due FROM tasks WHERE id='{$id}' AND deleted=0";
 	$res = $db->query($query);
 	$row = $db->fetchByAssoc($res);
 	if(!empty($row['parent_tasks_id']) && !in_array($row['parent_tasks_id'], $visited_parent)){
@@ -39,21 +39,29 @@ function getStart($id, $visited_parent=array()){
 	}else{
 		$tree = array();
 		
-		$tree['labelStyle'] = "ygtvlabel";
+		$tree['contentStyle'] = "ygtvhtml";
 			
 		if($row['status'] == 'Not Started' || $row['status'] == 'In Progress'){
-			$tree['labelStyle'] .= " active_task";
+			$tree['contentStyle'] = " active_task";
 		}else if($row['status'] == 'Completed'){
-			$tree['labelStyle'] .= " completed_task";
+			$tree['contentStyle'] = " completed_task";
 		}
 		
 		if($row['over_due'] == '1'){
-			$tree['labelStyle'] .= " overdue_task";
+			$tree['contentStyle'] = " overdue_task";
 		}
 		
 		$tree['id'] = $row['id'];
 		$tree['label'] = $row['name'];
-		$tree['type'] = 'text';
+		$tree['html'] = "<table>
+							<tr>
+								<td id='name' title='Name' ><div class={$tree['contentStyle']}>{$row['name']}</div></td>
+								<td width='200px' title='Category'>{$row['category']}</td>
+								<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
+								<td width='135px' title='Due Date'>".$timedate->to_display_date_time($row['date_due'])."</td>
+							</tr>
+						 </table>";
+		$tree['type'] = 'HTML';
 		$tree['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
 		$tree['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
 		$tree['expanded'] = true;
@@ -100,7 +108,7 @@ function build_child_tree($id, $added_nodes = array()) {
     global $db, $users, $timedate;
     
 	$sql = "SELECT ".
-				"id, name, status, parent_tasks_id, assigned_user_id, date_due, ".
+				"id, name, status, category, parent_tasks_id, assigned_user_id, date_due, ".
 				"IF(date_due < now() AND status != 'Completed', 1, 0) as over_due, ".
 				"IF(date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY) OR date_due >= DATE_ADD(NOW(), INTERVAL 90 DAY), 1, 0) as old_task ".
 			"FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
@@ -113,23 +121,29 @@ function build_child_tree($id, $added_nodes = array()) {
 		
 			$node = array();
 			
-			$node['labelStyle'] = "ygtvlabel";
+			$node['contentStyle'] = "ygtvhtml";
 			
 			if($row['status'] == 'Not Started' || $row['status'] == 'In Progress'){
-				$node['labelStyle'] .= " active_task";
+				$node['contentStyle'] = " active_task";
 			}else if($row['status'] == 'Completed'){
-				$node['labelStyle'] .= " completed_task";
+				$node['contentStyle'] = " completed_task";
 			}
-			
 			if($row['over_due'] == '1'){
-				$node['labelStyle'] .= " overdue_task";
+				$node['contentStyle'] = " overdue_task";
 			}
-			
 			$node['id'] = $row['id'];
 			$node['label'] = $row['name'];
+			$node['html'] = "<table>
+								<tr>
+									<td id='name' title='Name' ><div class={$node['contentStyle']}>{$row['name']}</div></td>
+									<td width='200px' title='Category'>{$row['category']}</td>
+									<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
+									<td width='135px' title='Due Date'>".$timedate->to_display_date_time($row['date_due'])."</td>
+								</tr>
+							</table>";
 			$node['old_task'] = $row['old_task'];
 			$node['status'] = $row['status'];
-			$node['type'] = 'text';
+			$node['type'] = 'HTML';
 			$node['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
 			$node['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
 			$node['expanded'] = true;
