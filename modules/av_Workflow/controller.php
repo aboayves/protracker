@@ -84,7 +84,7 @@ class av_WorkflowController extends SugarController {
 						"id, name, date_entered, date_modified, assign_to, relate_to, ".
 						"modified_user_id, created_by, description, ".
 						"team_id, team_set_id, assigned_user_id, task_category as 'category', ".
-						"private, notify_child_completion, on_task_list, parent_tasks_id, days_out ".
+						"private, notify_child_completion, on_task_list, client_task, parent_tasks_id, days_out ".
 					"FROM ".
 						"av_task_template ".
 					"WHERE ".
@@ -168,9 +168,9 @@ class av_WorkflowController extends SugarController {
 			//=============================== Creating records ==========================================
 			foreach($taskTemplateRecords as $record){
 				if(empty($record['parent_tasks_id'])){
-					$status='Not Started';
+					$record['status'] = 'Not Started';
 				}else{
-					$status='Pending';
+					$record['status'] = 'Pending';
 				}
 								
 				//=========================== Making SQL statement =======================================
@@ -265,7 +265,6 @@ class av_WorkflowController extends SugarController {
 				$query = "INSERT INTO tasks (" . $keys . ") VALUES (" . $values . ")";
 				$db->query($query, true);
 			}
-			
 			SugarApplication::redirect('index.php?module=av_Workflow&action=DetailView&record='.$this->bean->id);
 		}
 		
