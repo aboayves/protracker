@@ -21,7 +21,8 @@ var treeHelper = {
 	
 	buildTree : function(data){
 		treeHelper.tree = new YAHOO.widget.TreeView("tree_plotting_div", data); 
-		treeHelper.tree.setNodesProperty('propagateHighlightUp',true);
+		//checkNodes(treeHelper.tree.getRoot());
+		treeHelper.tree.setNodesProperty('propagateHighlightUp',false);
 		treeHelper.tree.setNodesProperty('propagateHighlightDown',true);
 		treeHelper.tree.subscribe('clickEvent',treeHelper.tree.onEventToggleHighlight);
         treeHelper.tree.subscribe("checkClick");	
@@ -106,13 +107,13 @@ function pageReady(){
 	elem.setAttribute('id', 'template_ids');
 	elem.setAttribute('type', 'hidden');
 	document.getElementById('formDetailView').appendChild(elem);
-	setTimeout(dropEmptyRows,2000);
+	//setTimeout(dropEmptyRows,2000);
 }
-
+/*
 function dropEmptyRows(){
 	$("div[name=parent_blank]").each(function (i) {$(this).parent().parent().hide();});
 }
-
+*/
 function setCheckedTemplateIDs(){	
 	var array_checked = new Array();
 	var array_semi_checked = new Array();
@@ -136,5 +137,13 @@ function setCheckedTemplateIDs(){
 		
 		idsEL.value = checked_template_ids;
 	}
-}
+}/*
+function checkNodes(node)
+{
+	for (var i = 0; i < node.children.length; i++)
+	{
+		checkNodes(node.children[i]);
+		node.children[i].highlightState=1;
+	}
+}*/
 YAHOO.util.Event.onDOMReady(pageReady);

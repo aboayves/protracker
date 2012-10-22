@@ -10,3 +10,8 @@
 .overdue_task{
 	color:#FF0000 !important;
 }
+/*changing semi checkboxes to full
+.ygtv-checkbox .ygtv-highlight2 .ygtvcontent {
+	background: url('../../include/javascript/yui/build/treeview/assets/skins/sam/check1.gif') no-repeat scroll 0 0 transparent;
+	padding-left: 1em;
+}*/
