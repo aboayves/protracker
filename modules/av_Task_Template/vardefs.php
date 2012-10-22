@@ -161,6 +161,27 @@ $dictionary['av_Task_Template'] = array(
 		'len' => '255',
 		'size' => '20',
 	  ),
+	  'client_task' => 
+	  array (
+		'required' => false,
+		'name' => 'client_task',
+		'vname' => 'LBL_CLIENT_TASK',
+		'type' => 'bool',
+		'massupdate' => 0,
+		'default' => '0',
+		'comments' => '',
+		'help' => '',
+		'importable' => 'true',
+		'duplicate_merge' => 'disabled',
+		'duplicate_merge_dom_value' => '0',
+		'audited' => false,
+		'reportable' => true,
+		'unified_search' => false,
+		'merge_filter' => 'disabled',
+		'calculated' => false,
+		'len' => '255',
+		'size' => '20',
+	  ),
 	  'assign_to' => 
 	  array (
 		'required' => false,

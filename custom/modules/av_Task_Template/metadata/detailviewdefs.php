@@ -125,7 +125,12 @@ array (
             'name' => 'assigned_to_client',
             'label' => 'LBL_ASSIGNED_TO_CLIENT',
           ),
-          1 => '',
+          1 => 'on_task_list',
+        ),
+		8 => 
+        array (
+		  0 => '',
+          1 => 'client_task',
         ),
       ),
     ),
