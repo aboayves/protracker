@@ -37,10 +37,14 @@ class TreeData{
 				$node['id'] = $row['id'];
 				$node['html'] ="<table><tr><td id='name' title='Name' >{$row['name']}</td>
 				                <td width='250px' title='Subject'>{$row['subject']}</td>
-								<td width='200px' title='Category'>{$row['task_category']}</td>
-								<td width='125px' title='Assign To'>{$app_list_strings['task_assign_to_list'][$row['assign_to']]}</td>
-								<td width='60px' title='Days Out'>{$row['days_out']}
+								<td width='180px' title='Category'>{$row['task_category']}</td>
+								<td width='115px' title='Assign To'>{$app_list_strings['task_assign_to_list'][$row['assign_to']]}</td>
+								<td width='50px' title='Days Out'>{$row['days_out']}
 								<input type='hidden' value={$row['id']}</td>
+								<td width='20px' title='Edit Task Template'><a href='index.php?module=av_Task_Template&action=EditView&record={$row['id']}&return_module=av_Workflow&return_action=DetailView&return_id={$wfID}'><img src='themes/Sugar/images/edit_inline.png'/></a>
+								</td>
+								<td width='20px' title='Add Dependent Task Template'><a href='index.php?module=av_Task_Template&action=EditView&parent_tasks_id={$row['id']}&parent_tasks_name={$row['name']}&av_Workflow_id={$wfID}&av_Workflow_name={$wfName}&return_module=av_Workflow&return_action=DetailView&return_id={$wfID}'><img src='themes/Sugar/images/create-record.png'/></a>
+								</td>
 								</tr></table>";
 				$node['type'] = 'HTML';
 				$node['label'] = $row['name'];
@@ -53,8 +57,9 @@ class TreeData{
 				
 			}
 		}
+		/*
 		foreach ($childs_array as $child) {
-			if(empty($child['children']) && !$fromWF) {
+			if(!$fromWF) {
 		        $node = array();
 				$node['id'] = '';
 				$node['label'] = 'parent';
@@ -65,11 +70,10 @@ class TreeData{
 				$node['expanded'] = true;
 				
 				$childs_array[] = $node;
-				break;
 			}
 	
 		}
-		
+		*/
 		return $childs_array;
 	}
 }
