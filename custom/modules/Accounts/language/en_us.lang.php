@@ -1,5 +1,5 @@
 <?php
-// created: 2012-10-15 18:22:16
+// created: 2012-10-22 20:48:02
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -31,4 +31,16 @@ $mod_strings = array (
   'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_AV_REVIEWS_TITLE' => 'Reviews',
   'LBL_EDITVIEW_PANEL4' => 'Billing',
   'LBL_EDITVIEW_PANEL5' => 'New Panel 5',
+  'LBL_ACCOUNT' => 'Client',
+  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Clients',
+  'LBL_ACCOUNT_NAME' => 'Client Name',
+  'LBL_ACCOUNT_TYPE' => 'Client Type',
+  'LBL_BUG_FORM_TITLE' => 'Clients',
+  'LBL_DEFAULT_SUBPANEL_TITLE' => 'Clients',
+  'LBL_MODULE_ID' => 'Clients',
+  'LBL_MODULE_NAME' => 'Clients',
+  'LBL_MODULE_TITLE' => 'Clients: Home',
+  'LBL_NEW_FORM_TITLE' => 'New Client',
+  'LBL_VIEW_FORM_TITLE' => 'Client View',
+  'MSG_DUPLICATE' => 'The client record you are about to create might be a duplicate of an Client record that already exists. Client records containing similar names are listed below.Click Create Client to continue creating this new Client, or select an existing Client listed below.',
 );

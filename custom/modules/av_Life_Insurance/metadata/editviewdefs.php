@@ -30,9 +30,52 @@ array (
       'javascript' => '{sugar_getscript file="include/javascript/popup_parent_helper.js"}
 	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
 	{sugar_getscript file="modules/Documents/documents.js"}',
+      'useTabs' => false,
     ),
     'panels' => 
     array (
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'agent_name',
+            'comment' => '',
+            'label' => 'LBL_AGENT_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'agent_phone',
+            'comment' => '',
+            'label' => 'LBL_AGENT_PHONE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'agent_email',
+            'comment' => '',
+            'label' => 'LBL_AGENT_EMAIL',
+          ),
+          1 => 
+          array (
+            'name' => 'agent_fax',
+            'comment' => '',
+            'label' => 'LBL_AGENT_FAX',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+          1 => '',
+        ),
+      ),
       'default' => 
       array (
         0 => 
