@@ -27,7 +27,7 @@ function getUserList()
 }
 
 function getStart($id, $visited_parent=array()){
-	global $db, $final, $users, $timedate;
+	global $db, $final, $users, $timedate, $app_list_strings;
 	
 	$visited_parent[] = $id;
 	
@@ -63,6 +63,8 @@ function getStart($id, $visited_parent=array()){
 			}
 		}
 		
+		$row['category'] = $app_list_strings['task_category_list'][$row['category']];
+		
 		$tree['id'] = $row['id'];
 		$tree['label'] = $row['name'];
 		$tree['html'] = "<table>
@@ -70,12 +72,12 @@ function getStart($id, $visited_parent=array()){
 								<td id='name' title='Name' ><div class={$tree['contentStyle']}>{$row['name']}</div></td>
 								<td width='200px' title='Category'>{$row['category']}</td>
 								<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
-								<td width='135px' title='Due Date'>".$timedate->to_display_date_time($row['date_due'])."</td>
+								<td width='135px' title='Due Date'>".$row['date_due']."</td>
 							</tr>
 						 </table>";
 		$tree['type'] = 'HTML';
 		$tree['href'] = "index.php?module=Tasks&action=DetailView&record={$row['id']}";
-		$tree['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$timedate->to_display_date_time($row['date_due']);
+		$tree['title'] = "Assignee: ".get_assigned_user_name($row['assigned_user_id'])." | Due: ".$row['date_due'];
 		$tree['expanded'] = true;
 		$tree['children'] = build_child_tree($row['id'], array($row['id']));
 		
@@ -117,7 +119,7 @@ function hideTasks($hidePending = false, $hideOld = false, &$children = array())
 }
 
 function build_child_tree($id, $added_nodes = array()) {
-    global $db, $users, $timedate;
+    global $db, $users, $timedate, $app_list_strings;
     
 	$sql = "SELECT ".
 				"id, name, status, category, parent_tasks_id, assigned_user_id, date_due, ".
@@ -151,6 +153,8 @@ function build_child_tree($id, $added_nodes = array()) {
 				}
 			}
 			
+			$row['category'] = $app_list_strings['task_category_list'][$row['category']];
+			
 			$node['id'] = $row['id'];
 			$node['label'] = $row['name'];
 			$node['html'] = "<table>
@@ -158,7 +162,7 @@ function build_child_tree($id, $added_nodes = array()) {
 									<td id='name' title='Name' ><div class={$node['contentStyle']}>{$row['name']}</div></td>
 									<td width='200px' title='Category'>{$row['category']}</td>
 									<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
-									<td width='135px' title='Due Date'>".$timedate->to_display_date_time($row['date_due'])."</td>
+									<td width='135px' title='Due Date'>".$row['date_due']."</td>
 								</tr>
 							</table>";
 			$node['old_task'] = $row['old_task'];
