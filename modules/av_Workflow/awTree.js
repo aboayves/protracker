@@ -25,3 +25,8 @@ var treeHelper = {
 		treeHelper.tree.render();
 	},
 }
+function resetUser(){	
+	$("td[name=assign_to]").each(function(i){
+			$(this).text($(this).attr("default_value"));
+	});
+}

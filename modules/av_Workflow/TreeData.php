@@ -32,8 +32,10 @@ class TreeData{
 				"WHERE {$field} = '{$id}' AND avt.deleted=0" . $addWhere;
 		$result = $db->query($sql);
 		$childs_array = array();
+		$assign_to_default_value='';
 		while ($row = $db->fetchByAssoc($result)){
 			if(!empty($users)){
+				$assign_to_default_value=$app_list_strings['task_assign_to_list'][$row['assign_to']];
 				//Load assignto from request
 				switch($row['assign_to']){
 					case "Assigned_User":
@@ -84,8 +86,8 @@ class TreeData{
 									"<tr>".
 										"<td id='name' title='Name' >{$row['name']}</td>".
 										"<td width='250px' title='Subject'>{$row['subject']}</td>".
-										"<td width='180px' title='Category'>{$row['task_category']}</td>".
-										"<td width='115px' title='Assign To'>{$row['assign_to']}</td>".
+										"<td width='170px' title='Category'>{$row['task_category']}</td>".
+										"<td width='135px' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
 										"<td width='50px' title='Days Out'>{$row['days_out']} <input type='hidden' value={$row['id']}</td>";
 				
 				if(empty($users)){
