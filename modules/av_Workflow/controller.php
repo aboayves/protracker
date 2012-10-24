@@ -115,8 +115,8 @@ class av_WorkflowController extends SugarController {
 			
 			if($_REQUEST['parent_type'] == "Accounts" && $clientRec){
 				$sql = "SELECT contacts.id, contacts.assigned_user_id FROM contacts ".
-							"INNER JOIN accounts_contacts ON contacts.id = accounts_contacts.contact_id AND accounts_contacts.account_id = '" . $_REQUEST['parent_id'] . "' ".
-							"WHERE contacts.contact_priority = 'Primary' AND contacts.deleted='0'";
+						"INNER JOIN accounts_contacts_1_c ON contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND accounts_contacts_1_c.deleted = '0' AND accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $_REQUEST['parent_id'] . "' ".
+						"WHERE contacts.contact_priority = 'Primary' AND contacts.deleted='0'";
 				$result = $db->query($sql);
 				if($row = $db->fetchByAssoc($result)){
 					$pri_cont_assigned_type = 'Contacts';
@@ -131,8 +131,8 @@ class av_WorkflowController extends SugarController {
 			
 			if($_REQUEST['parent_type'] == "Accounts" && $coClientRec){
 				$sql = "SELECT contacts.id, contacts.assigned_user_id FROM contacts ".
-							"INNER JOIN accounts_contacts ON contacts.id = accounts_contacts.contact_id AND accounts_contacts.account_id = '" . $_REQUEST['parent_id'] . "' ".
-							"WHERE contacts.contact_priority = 'Secondary' AND contacts.deleted='0'";
+						"INNER JOIN accounts_contacts_1_c ON contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND accounts_contacts_1_c.deleted = '0' AND accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $_REQUEST['parent_id'] . "' ".
+						"WHERE contacts.contact_priority = 'Secondary' AND contacts.deleted='0'";
 				$result = $db->query($sql);
 				if($row = $db->fetchByAssoc($result)){
 					$sec_cont_assigned_type = 'Contacts';
@@ -214,10 +214,12 @@ class av_WorkflowController extends SugarController {
 					case "Assigned_User":
 						$record['assigned_user_id'] = $parent_assigned_user;
 						
-						if($record['relate_to'] == "Client"){
-							$record['assigned_user_id'] = $pri_cont_assigned_user;
-						}else if($record['relate_to'] == "Co_client"){
-							$record['assigned_user_id'] = $sec_cont_assigned_user;
+						if($_REQUEST['parent_type'] == "Accounts"){
+							if($record['relate_to'] == "Client"){
+								$record['assigned_user_id'] = $pri_cont_assigned_user;
+							}else if($record['relate_to'] == "Co_client"){
+								$record['assigned_user_id'] = $sec_cont_assigned_user;
+							}
 						}
 					break;
 					
@@ -247,6 +249,10 @@ class av_WorkflowController extends SugarController {
 					break;
 				}
 				
+				if(empty($record['assigned_user_id'])){
+					$record['assigned_user_id'] = $current_user->id;
+				}
+				
 				unset($record['assign_to']);
 				unset($record['relate_to']);
 				
@@ -269,6 +275,88 @@ class av_WorkflowController extends SugarController {
 		}
 		
 		$this->view = "assign";
+	}
+	
+	function action_gettreedata(){
+		echo json_encode(TreeData::getData($this->bean->id, $this->bean->name));
+		exit();
+	}
+	
+	function action_getwftreedata(){
+		global $current_user, $db;
+		
+		$pri_cont_assigned_user = "";
+		$sec_cont_assigned_user = "";
+		$parent_assigned_user = "";
+		
+		if(isset($_REQUEST['parent_type']) && !empty($_REQUEST['parent_type']) && isset($_REQUEST['parent_id']) && !empty($_REQUEST['parent_id'])){
+			if($_REQUEST['parent_type'] == "Accounts"){
+				$sql = "SELECT users.first_name, users.last_name FROM contacts ".
+						"LEFT JOIN users ON contacts.assigned_user_id=users.id AND users.deleted='0' ".
+						"INNER JOIN accounts_contacts_1_c ON contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND accounts_contacts_1_c.deleted = '0' AND accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $_REQUEST['parent_id'] . "' ".
+						"WHERE contacts.contact_priority = 'Primary' AND contacts.deleted='0'";
+				$result = $db->query($sql);
+				if($row = $db->fetchByAssoc($result)){
+					$pri_cont_assigned_user = trim($row['first_name'] . " " . $row['last_name']);
+				}
+				
+				$sql = "SELECT users.first_name, users.last_name FROM contacts ".
+						"LEFT JOIN users ON contacts.assigned_user_id=users.id AND users.deleted='0' ".
+						"INNER JOIN accounts_contacts_1_c ON contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND accounts_contacts_1_c.deleted = '0' AND accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $_REQUEST['parent_id'] . "' ".
+						"WHERE contacts.contact_priority = 'Secondary' AND contacts.deleted='0'";
+				$result = $db->query($sql);
+				if($row = $db->fetchByAssoc($result)){
+					$sec_cont_assigned_user = trim($row['first_name'] . " " . $row['last_name']);
+				}
+			}
+			
+		
+			$sql = "SELECT users.first_name, users.last_name FROM " . strtolower($_REQUEST['parent_type']) . 
+				   " LEFT JOIN users ON " . strtolower($_REQUEST['parent_type']) .".assigned_user_id=users.id AND users.deleted='0'".
+				   " WHERE " . strtolower($_REQUEST['parent_type']) .".id='" . $_REQUEST['parent_id'] . "'";
+			$result = $db->query($sql);
+			if($row = $db->fetchByAssoc($result)){
+				$parent_assigned_user = trim($row['first_name'] . " " . $row['last_name']);
+			}
+		}
+				
+		$users = array(
+			'parent_assigned_user' => !empty($parent_assigned_user)? $parent_assigned_user : $current_user->name,
+			'pri_cont_assigned_user' => !empty($pri_cont_assigned_user)? $pri_cont_assigned_user : $current_user->name,
+			'sec_cont_assigned_user' => !empty($sec_cont_assigned_user)? $sec_cont_assigned_user : $current_user->name,
+			'project_manager' => (isset($_REQUEST['project_manager']) && !empty($_REQUEST['project_manager'])) ? $_REQUEST['project_manager']: $current_user->name,
+			'user_1' => (isset($_REQUEST['user_1']) && !empty($_REQUEST['user_1'])) ? $_REQUEST['user_1']: $current_user->name,
+			'user_2' => (isset($_REQUEST['user_2']) && !empty($_REQUEST['user_2'])) ? $_REQUEST['user_2']: $current_user->name,
+			'user_3' => (isset($_REQUEST['user_3']) && !empty($_REQUEST['user_3'])) ? $_REQUEST['project_manager']: $current_user->name
+		);
+		
+		$treeData = TreeData::getData($this->bean->id, $this->bean->name, $users);
+		
+		//Unset from Request IDs
+		$allowedIds = trim($_REQUEST['template_ids'],', ');
+		$allowedIds = explode(', ', $allowedIds);
+		
+		if(isset($treeData['children']) && !empty($treeData['children'])){
+			$this->filterTasks($treeData['children'], $allowedIds);
+		}
+		
+		echo json_encode($treeData);
+		exit();
+	}
+	
+	function filterTasks(&$childs, &$ids){
+		$tmp = $childs;
+		$childs = array();
+		foreach($tmp as $child){
+			if(in_array($child['id'], $ids)) {
+				//Calling recursively for childrens
+				if(isset($child['children']) && !empty($child['children'])){
+					$this->filterTasks($child['children'], $ids);
+				}
+				
+				$childs[] = $child;				
+			}
+		}
 	}
 }
 

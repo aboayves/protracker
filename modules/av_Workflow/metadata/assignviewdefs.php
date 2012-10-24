@@ -35,7 +35,14 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => false,
-	  ),
+	  'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/av_Workflow/awTree.js',
+        ),
+      ),
+    ),
     'panels' => 
     array (
       'default' => 
@@ -86,6 +93,19 @@ array (
           0 => 'user_3',
         ),
       ),
+    
+	  'lbl_tree' =>
+	  array(
+		0 =>
+		array(
+			0 =>
+			array(
+				'name' => 'tree',
+				'label' => 'LBL_TREE',
+				'customCode' => '<input type="button" class="button" value="Preview Task Tree" onclick="treeHelper.loadData();" /><div id="tree_plotting_div"></div>'  
+			),
+		),    
+	  ),
     ),
   ),
 );
