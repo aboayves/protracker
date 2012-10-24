@@ -59,7 +59,7 @@ function loadTree(){
 }
 
 function createNode(){
-	window.location = "index.php?module=Tasks&action=EditView&parent_tasks_id=" + oCurrentTextNode.data.id + '&parent_tasks_name=' + oCurrentTextNode.label;
+	window.location = "index.php?module=Tasks&action=EditView&parent_tasks_id=" + oCurrentTextNode.data.id + '&parent_tasks_name=' + oCurrentTextNode.data.label;
 }
   
 function loadNodeData(taskID, taskName)  {
