@@ -359,6 +359,19 @@ array (
             'label' => 'LBL_AUX_MAIL',
           ),
         ),
+		1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'do_not_mail',
+            'label' => 'LBL_DO_NOT_MAIL',
+          ),
+          1 => 
+          array (
+            'name' => 'do_not_email',
+            'label' => 'LBL_DO_NOT_EMAIL',
+          ),
+        ),
       ),
     ),
   ),

@@ -1,6 +1,6 @@
 <?php
 	class PopulateMembers{
-		function populateMembersFunc(&$bean, $event, $arguments) {
+		function populateMembersFunc($bean, $event, $arguments) {
 			global $db, $timedate;
 			
 			$expiration = '';
@@ -12,47 +12,65 @@
 			$destination_address = "";
 			$name = "";
 			$envelope = "";
-			$email_opt_out = "";
-			
+			$opt_out_flag ='0';
+			$include='1';
 			if($arguments['related_module'] == 'Accounts'){
 				$account = BeanFactory::getBean('Accounts', $arguments['related_id']);
 
-				if($bean->delivery_method == 'Home Address'){
+				if($bean->delivery_method_av_group == 'Home Address'){
 					$destination_address = $account->billing_address_street." ".$account->billing_address_city." ".$account->billing_address_country;
-				}elseif($bean->delivery_method == 'Work Address'){
+				}elseif($bean->delivery_method_av_group == 'Work Address'){
 					$destination_address = $account->shipping_address_street." ".$account->shipping_address_city." ".$account->shipping_address_country;
-				}elseif($bean->delivery_method == 'Home Phone'){
+				}elseif($bean->delivery_method_av_group == 'Home Phone'){
 					$destination_address = $account->phone_office;
-				}elseif($bean->delivery_method == 'Work Phone'){
+				}elseif($bean->delivery_method_av_group == 'Work Phone'){
 					$destination_address = $account->phone_fax;
-				}elseif($bean->delivery_method == 'phone_alternate'){
+				}elseif($bean->delivery_method_av_group == 'phone_alternate'){
 					$destination_address = $account->phone_mobile;
 				}
 				
 				$name = $account->name;
 				$envelope = $account->envelope;
-				$email_opt_out = $account->email_opt_out;
+				$opt_out_flag = $account->email_opt_out;
+				
 			}elseif($arguments['related_module'] == 'Contacts'){
 				$contactBean = BeanFactory::getBean('Contacts', $arguments['related_id']);
-					  
-				if($bean->delivery_method == 'Home Address'){
+				if($bean->delivery_method_av_group == 'Home Address'){
+					$opt_out_flag=$contactBean->do_not_mail;
 					$destination_address = $contactBean->primary_address_street." ".$contactBean->primary_address_city." ".$contactBean->primary_address_country;
-				}elseif($bean->delivery_method == 'Work Address'){
+				}elseif($bean->delivery_method_av_group == 'Work Address'){
+					$opt_out_flag=$contactBean->do_not_mail;
 					$destination_address = $contactBean->alt_address_street." ".$contactBean->alt_address_city." ".$contactBean->alt_address_country;
-				}elseif($bean->delivery_method == 'Home Phone'){
+				}elseif($bean->delivery_method_av_group == 'Mailing Address'){
+					$opt_out_flag=$contactBean->do_not_mail;
+				}elseif($bean->delivery_method_av_group == 'Other Address'){
+					$opt_out_flag=$contactBean->do_not_mail;
+				}elseif($bean->delivery_method_av_group == 'Home Phone'){
+					$opt_out_flag=$contactBean->do_not_call;
 					$destination_address = $contactBean->phone_home;
-				}elseif($bean->delivery_method == 'Work Phone'){
+				}elseif($bean->delivery_method_av_group == 'Work Phone'){
+					$opt_out_flag=$contactBean->do_not_call;
 					$destination_address = $contactBean->phone_work;
-				}elseif($bean->delivery_method == 'Home Email'){
-					$destination_address = $contactBean->aux_mail;
-				}elseif($bean->delivery_method == 'Work Email'){
-					$destination_address = $contactBean->aux_email;
-				}elseif($bean->delivery_method == 'Mobile'){
+				}elseif($bean->delivery_method_av_group == 'Mobile'){
+					$opt_out_flag=$contactBean->do_not_call;
 					$destination_address = $contactBean->phone_mobile;
+				}elseif($bean->delivery_method_av_group == 'Fax'){
+					$opt_out_flag = $contactBean->do_not_call;
+				}elseif($bean->delivery_method_av_group == 'Home Email'){
+					$opt_out_flag = $contactBean->do_not_email;
+					$destination_address = $contactBean->aux_mail;
+				}elseif($bean->delivery_method_av_group == 'Work Email'){
+					$opt_out_flag= $contactBean->do_not_email;
+					$destination_address = $contactBean->aux_email;
+				}elseif($bean->delivery_method_av_group == 'Primary Email'){
+					$opt_out_flag=$contactBean->do_not_email;
+					$destination_address = $contactBean->aux_email;
 				}
 				$name = $contactBean->salutation." ".$contactBean->first_name." ".$contactBean->last_name;
 				$envelope = $contactBean->envelope;
-				$email_opt_out = $contactBean->email_opt_out;
+				if($opt_out_flag){
+					$include='0';
+				}
 			}
 			
 			$query = "
@@ -63,9 +81,10 @@
 						envelope = '{$envelope}', 
 						destination_address = '{$destination_address}', 
 						date_add_to_grp = '{$timedate->nowDbDate()}', 
-						opted_out = '{$email_opt_out}', 
-						expiration_date = '{$expiration}, 
-						date_entered = '{$timedate->nowDb()}' 
+						opted_out = '{$opt_out_flag}', 
+						expiration_date = '{$expiration}', 
+						date_entered = '{$timedate->nowDb()}',
+						include = '{$include}'
 					WHERE 
 						parent_id = '{$arguments['related_id']}' 
 						AND av_groups_id = '{$bean->id}' 
