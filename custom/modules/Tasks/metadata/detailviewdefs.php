@@ -155,7 +155,7 @@ array (
           0 => 
           array (
             'name' => 'tree',
-            'label' => 'Tree',
+			'hideLabel' => true,
             'customCode' => '<div> <div>'.
 			                '<input type="checkbox" id="pending_only" {$pending_checked} onclick="disable_ajax=0;generateTree();" /> Hide Pending tasks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
 							'<input type="checkbox" id="more_then_90" {$90_checked} onclick="disable_ajax=0;generateTree();" /> Hide tasks greater than 90 days out <br /><br /><br />'.

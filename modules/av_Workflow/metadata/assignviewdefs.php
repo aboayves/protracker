@@ -101,8 +101,8 @@ array (
 			0 =>
 			array(
 				'name' => 'tree',
-				'label' => 'LBL_TREE',
-				'customCode' => '<input type="button" class="button" value="Preview Task Tree" onclick="treeHelper.loadData();" /><div id="tree_plotting_div"></div>'  
+				'hideLabel' => true,
+				'customCode' => '<div class="detail view  detail508"><input type="button" class="button" value="Preview Task Tree" onclick="treeHelper.loadData();" />&nbsp;&nbsp;<input type="button" id="reset" value="Reset" onclick="resetUser()"/><div id="tree_plotting_div"></div></div>'  
 			),
 		),    
 	  ),

@@ -78,7 +78,7 @@ array (
 			0 =>
 			array(
 				'name' => 'tree',
-				'label' => 'LBL_TREE',
+				'hideLabel' => true,
 				'customCode' => '<div id="tree_plotting_div" class="whitebg ygtv-checkbox"></div>'  
 			),
 		),    
