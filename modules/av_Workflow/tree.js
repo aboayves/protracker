@@ -22,8 +22,8 @@ var treeHelper = {
 	buildTree : function(data){
 		treeHelper.tree = new YAHOO.widget.TreeView("tree_plotting_div", data); 
 		//checkNodes(treeHelper.tree.getRoot());
-		treeHelper.tree.setNodesProperty('propagateHighlightUp',false);
-		treeHelper.tree.setNodesProperty('propagateHighlightDown',true);
+		treeHelper.tree.setNodesProperty('propagateHighlightUp', true);
+		treeHelper.tree.setNodesProperty('propagateHighlightDown', true);
 		treeHelper.tree.subscribe('clickEvent',treeHelper.tree.onEventToggleHighlight);
         treeHelper.tree.subscribe("checkClick");	
 		treeHelper.tree.render();

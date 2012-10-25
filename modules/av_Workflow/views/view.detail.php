@@ -11,7 +11,7 @@ class av_WorkflowViewDetail extends ViewDetail {
 				'<script src="include/javascript/yui/build/animation/animation-min.js" type="text/javascript"></script>'.
 				'<script src="include/javascript/yui/build/calendar/calendar-min.js" ></script>'.
 				'<script src="include/javascript/yui/build/json/json-min.js" ></script>'.
-				'<script src="include/javascript/yui/build/treeview/treeview-min.js" ></script>';
+				'<script src="modules/av_Workflow/treeview-min.js" ></script>';
 
         parent::display();
     }
