@@ -161,8 +161,8 @@ $app_list_strings['moduleListSingular']['av_Net_Worth']='Net Worth History';
 unset($app_list_strings['parent_type_display']['Tasks']);
 $app_list_strings['task_category_list'] = array(
   '' => '',
-  'Account' => 'Account',
-  'Account Aggregation' => 'Account Aggregation',
+  'Account' => 'Client',
+  'Account Aggregation' => 'Client Aggregation',
   'Accounting' => 'Accounting',
   'Admin Item' => 'Admin Item',
   'Appointment, Office' => 'Appointment, Office',
@@ -258,7 +258,7 @@ $GLOBALS['app_list_strings']['task_status_dom']=array (
   'Deferred' => 'Deferred',
 );
 $GLOBALS['app_list_strings']['parent_type_display_tasks']=array (
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
     'Contacts' => 'Contact',
     'Opportunities' => 'Opportunity',
     'Products' => 'Product',

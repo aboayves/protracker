@@ -466,11 +466,11 @@ $app_list_strings = array (
     'project_priority_default' => 'Medium',
   //Note:  do not translate record_type_default_key
 //       it is the key for the default record_type_module value
-  'record_type_default_key' => 'Accounts',
+  'record_type_default_key' => 'Clients',
   'record_type_display' =>
   array (
     '' => '',
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
     'Opportunities' => 'Opportunity',
     'Cases' => 'Case',
     'Leads' => 'Lead',
@@ -493,7 +493,7 @@ $app_list_strings = array (
 
   'record_type_display_notes' =>
   array (
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
     'Contacts' => 'Contact',
     'Opportunities' => 'Opportunity',
     'Tasks' => 'Task',
@@ -516,7 +516,7 @@ $app_list_strings = array (
 
   'parent_type_display' =>
   array (
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
     'Contacts' => 'Contact',
     'Tasks' => 'Task',
     'Opportunities' => 'Opportunity',
@@ -706,7 +706,7 @@ $app_list_strings = array (
   'product_category_dom' =>
   array (
     '' => '',
-    'Accounts' => 'Accounts',
+    'Accounts' => 'Client',
     'Activities' => 'Activities',
     'Bug Tracker' => 'Bug Tracker',
     'Calendar' => 'Calendar',
@@ -1257,7 +1257,7 @@ $app_list_strings = array (
     'Users'=>'Users',
     'Prospects'=>'Targets',
     'Leads'=>'Leads',
-    'Accounts'=>'Accounts',
+    'Accounts'=>'Clients',
   ),
   'merge_operators_dom' => array (
     'like'=>'Contains',
@@ -1869,9 +1869,9 @@ $app_strings = array (
     'ERR_EXISTING_PORTAL_USERNAME'=>'Error: The Portal Name is already assigned to another contact.',
     'ERR_COMPATIBLE_PRECISION_VALUE' => 'Field value is not compatible with precision value',
 
-    'LBL_ACCOUNT'=>'Account',
-    'LBL_OLD_ACCOUNT_LINK'=>'Old Account',
-    'LBL_ACCOUNTS'=>'Accounts',
+    'LBL_ACCOUNT'=>'Client',
+    'LBL_OLD_ACCOUNT_LINK'=>'Old Client',
+    'LBL_ACCOUNTS'=>'Clients',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
     'LBL_ACCUMULATED_HISTORY_BUTTON_KEY' => 'H',
     'LBL_ACCUMULATED_HISTORY_BUTTON_LABEL' => 'View Summary',
@@ -1893,7 +1893,7 @@ $app_strings = array (
     'LBL_ASSIGNED_TO_USER'=>'Assigned to User',
     'LBL_ASSIGNED_TO' => 'Assigned to:',
     'LBL_BACK' => 'Back',
-    'LBL_BILL_TO_ACCOUNT'=>'Bill to Account',
+    'LBL_BILL_TO_ACCOUNT'=>'Bill to Client',
     'LBL_BILL_TO_CONTACT'=>'Bill to Contact',
     'LBL_BILLING_ADDRESS'=>'Billing Address',
     'LBL_BROWSER_TITLE' => 'SugarCRM - Commercial Open Source CRM',
@@ -2008,7 +2008,7 @@ $app_strings = array (
     'LBL_THEME_PICKER_IE6COMPAT_CHECK' => 'Warning: Internet Explorer 6 is not supported for the selected theme. Click OK to select it anyways or Cancel to select a different theme.',
     'LBL_FOUND_IN_RELEASE'=>'Found In Release',
     'LBL_FIXED_IN_RELEASE'=>'Fixed In Release',
-    'LBL_LIST_ACCOUNT_NAME' => 'Account Name',
+    'LBL_LIST_ACCOUNT_NAME' => 'Client Name',
     'LBL_LIST_ASSIGNED_USER' => 'User',
     'LBL_LIST_CONTACT_NAME' => 'Contact Name',
     'LBL_LIST_CONTACT_ROLE' => 'Contact Role',
@@ -2145,7 +2145,7 @@ $app_strings = array (
     'LBL_SERVER_RESPONSE_RESOURCES' => 'Resources used to construct this page (queries, files)',
     'LBL_SERVER_RESPONSE_TIME_SECONDS' => 'seconds.',
     'LBL_SERVER_RESPONSE_TIME' => 'Server response time:',
-    'LBL_SHIP_TO_ACCOUNT'=>'Ship to Account',
+    'LBL_SHIP_TO_ACCOUNT'=>'Ship to Client',
     'LBL_SHIP_TO_CONTACT'=>'Ship to Contact',
     'LBL_SHIPPING_ADDRESS'=>'Shipping Address',
     'LBL_SHORTCUTS' => 'Shortcuts',
