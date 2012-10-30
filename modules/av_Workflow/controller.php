@@ -327,7 +327,7 @@ class av_WorkflowController extends SugarController {
 			'project_manager' => (isset($_REQUEST['project_manager']) && !empty($_REQUEST['project_manager'])) ? $_REQUEST['project_manager']: $current_user->name,
 			'user_1' => (isset($_REQUEST['user_1']) && !empty($_REQUEST['user_1'])) ? $_REQUEST['user_1']: $current_user->name,
 			'user_2' => (isset($_REQUEST['user_2']) && !empty($_REQUEST['user_2'])) ? $_REQUEST['user_2']: $current_user->name,
-			'user_3' => (isset($_REQUEST['user_3']) && !empty($_REQUEST['user_3'])) ? $_REQUEST['project_manager']: $current_user->name
+			'user_3' => (isset($_REQUEST['user_3']) && !empty($_REQUEST['user_3'])) ? $_REQUEST['user_3']: $current_user->name
 		);
 		
 		$treeData = TreeData::getData($this->bean->id, $this->bean->name, $users);
