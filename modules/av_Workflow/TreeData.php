@@ -88,7 +88,14 @@ class TreeData{
 										"<td width='250px' title='Subject'>{$row['subject']}</td>".
 										"<td width='170px' title='Category'>{$row['task_category']}</td>".
 										"<td width='135px' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
-										"<td width='50px' title='Days Out'>{$row['days_out']} <input type='hidden' value={$row['id']}</td>";
+										"<td width='50px' title='Days Out'>";
+				if(empty($users)){
+					$node['html'] .=  		"{$row['days_out']}";
+				}else{
+					$node['html'] .=  		"DAYS_OUT";
+				}
+				
+				$node['html'] .=  "<input type='hidden' value={$row['id']}</td>";
 				
 				if(empty($users)){
 					$node['html'] .= 	"<td width='20px' title='Edit Task Template'>".

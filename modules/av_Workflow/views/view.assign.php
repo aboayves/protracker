@@ -2,6 +2,15 @@
 require_once('include/MVC/View/views/view.edit.php');
 
 class av_WorkflowViewAssign extends ViewEdit {
+	protected function _getModuleTitleParams($browserTitle = false){
+		$arr = parent::_getModuleTitleParams($browserTitle);
+		
+		$arr[] = $this->bean->name;
+		$arr[] = "Assign Workflow";
+		
+		return $arr;
+	}
+	
 	public function preDisplay(){
 		$metadataFile = "modules/av_Workflow/metadata/assignviewdefs.php";
 		$this->ev = $this->getEditView();
@@ -10,6 +19,8 @@ class av_WorkflowViewAssign extends ViewEdit {
 	}
 	
 	public function display(){
+		$this->ev->showVCRControl = false;
+		
 		//Removing tpl file created by editview
 		if(file_exists("cache/modules/" . $this->bean->module_dir . "/EditView.tpl")){
 			unlink("cache/modules/" . $this->bean->module_dir . "/EditView.tpl");

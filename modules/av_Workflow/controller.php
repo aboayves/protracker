@@ -21,6 +21,8 @@ class av_WorkflowController extends SugarController {
 	}
 	
 	function setTaskDates($tasks_templates, &$dates, &$daysOut, $reversed, $startStamp, $dayKeyword, $top = false){
+		global $timedate;
+		
 		$minStamp = $startStamp;
 		
 		foreach($tasks_templates as $tasks_template){
@@ -50,7 +52,10 @@ class av_WorkflowController extends SugarController {
 				$tmpStamp = strtotime("now");
 			}
 			
-			$dates[$tasks_template['id']] = date('Y-m-d H:i:s', $tmpStamp);
+			$time = $timedate->split_date_time($timedate->now());
+			$time = $time[1];
+			
+			$dates[$tasks_template['id']] = date($timedate->get_date_format(), $tmpStamp) . " " . $time;
 			
 			//To send minimum timestamp to parent
 			if($tmpStamp < $minStamp){
@@ -161,10 +166,7 @@ class av_WorkflowController extends SugarController {
 					$_REQUEST['start_date'] = $timedate->nowDate();
 				}
 				
-				$time = $timedate->split_date_time($timedate->now());
-				$time = $time[1];
-				
-				$startStamp = strtotime($timedate->to_db($timedate->merge_date_time($_REQUEST['start_date'], $time)));
+				$startStamp = strtotime($timedate->to_db_date($_REQUEST['start_date'], false));
 				
 				//=========================== if start date is less then today ==========================
 				if($startStamp < strtotime("now")){
@@ -196,7 +198,7 @@ class av_WorkflowController extends SugarController {
 				
 				//=========================== Adding calculated start date ===============================
 				if(isset($dates[$record['id']]) && !empty($dates[$record['id']])){
-					$record['date_due'] = $dates[$record['id']];
+					$record['date_due'] = $timedate->to_db($dates[$record['id']]);
 				}
 				
 				//=========================== Assigning Parent record ====================================
@@ -346,23 +348,71 @@ class av_WorkflowController extends SugarController {
 		$allowedIds = explode(', ', $allowedIds);
 		
 		if(isset($treeData['children']) && !empty($treeData['children'])){
-			$this->filterTasks($treeData['children'], $allowedIds);
+			//------------------------- Handling dates --------------------------------------------
+			global $timedate;
+			
+			$ids = array();
+			$dates = array();
+			$daysOut = array();
+			
+			if(isset($treeData['children']) && !empty($treeData['children'])){
+				$this->setTaskTemplateIds($treeData['children'], $ids);
+			}
+			
+			$sql = "SELECT ".
+						"id, name, date_entered, date_modified, assign_to, relate_to, ".
+						"modified_user_id, created_by, description, ".
+						"team_id, team_set_id, assigned_user_id, task_category as 'category', ".
+						"private, notify_child_completion, on_task_list, client_task, parent_tasks_id, days_out ".
+					"FROM ".
+						"av_task_template ".
+					"WHERE ".
+						"id IN ('" . implode("','", $ids) . "')";
+					
+			$result = $db->query($sql);
+			while($row = $db->fetchByAssoc($result)){
+				if(!isset($daysOut[$row['id']])){
+					$daysOut[$row['id']] = intval($row['days_out']);
+				}
+			}
+			
+			if(!isset($_REQUEST['start_date']) || empty($_REQUEST['start_date'])){
+				$_REQUEST['start_date'] = $timedate->nowDate();
+			}
+				
+			$startStamp = strtotime($timedate->to_db_date($_REQUEST['start_date'], false));
+			
+			//=========================== if start date is less then today ==========================
+			if($startStamp < strtotime("now")){
+				$startStamp = strtotime("now");
+			}
+			
+			$reversed = (isset($_REQUEST['workflow_counts_down_to_target_date']) && !empty($_REQUEST['workflow_counts_down_to_target_date']));
+			$dayKeyword = (isset($_REQUEST['skip_weekends_holidays']) && !empty($_REQUEST['skip_weekends_holidays'])) ? "weekdays" : "days";
+			
+			$this->setTaskDates($treeData['children'], $dates, $daysOut, $reversed, $startStamp, $dayKeyword, true);
+			$this->filterTasks($treeData['children'], $allowedIds, $dates);
 		}
 		
 		echo json_encode($treeData);
 		exit();
 	}
 	
-	function filterTasks(&$childs, &$ids){
+	function filterTasks(&$childs, &$ids, &$dates){
+		global $timedate;
+		
 		$tmp = $childs;
 		$childs = array();
 		foreach($tmp as $child){
 			if(in_array($child['id'], $ids)) {
 				//Calling recursively for childrens
 				if(isset($child['children']) && !empty($child['children'])){
-					$this->filterTasks($child['children'], $ids);
+					$this->filterTasks($child['children'], $ids, $dates);
 				}
 				
+				$date = explode(' ',$dates[$child['id']]);
+				
+				$child['html'] = str_replace('DAYS_OUT', $date[0], $child['html']);	
 				$childs[] = $child;				
 			}
 		}
