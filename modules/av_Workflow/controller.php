@@ -50,7 +50,7 @@ class av_WorkflowController extends SugarController {
 				$tmpStamp = strtotime("now");
 			}
 			
-			$dates[$tasks_template['id']] = date('Y-m-d', $tmpStamp);
+			$dates[$tasks_template['id']] = date('Y-m-d H:i:s', $tmpStamp);
 			
 			//To send minimum timestamp to parent
 			if($tmpStamp < $minStamp){
@@ -62,7 +62,7 @@ class av_WorkflowController extends SugarController {
 	}
 	
 	function action_assign(){
-		global $db, $current_user;
+		global $db, $current_user, $timedate;
 			
 		if(isset($_REQUEST['parent_id']) && !empty($_REQUEST['parent_id'])){
 			$ids = array();
@@ -155,7 +155,16 @@ class av_WorkflowController extends SugarController {
 			if(isset($tasks_templates['children']) && !empty($tasks_templates['children'])){
 				$reversed = (isset($_REQUEST['workflow_counts_down_to_target_date']) && !empty($_REQUEST['workflow_counts_down_to_target_date']));
 				$dayKeyword = (isset($_REQUEST['skip_weekends_holidays']) && !empty($_REQUEST['skip_weekends_holidays'])) ? "weekdays" : "days";
-				$startStamp = (isset($_REQUEST['start_date']) && !empty($_REQUEST['start_date'])) ? strtotime($_REQUEST['start_date']) : strtotime("now");
+				
+				//Handling date_start
+				if(!isset($_REQUEST['start_date']) || empty($_REQUEST['start_date'])){
+					$_REQUEST['start_date'] = $timedate->nowDate();
+				}
+				
+				$time = $timedate->split_date_time($timedate->now());
+				$time = $time[1];
+				
+				$startStamp = strtotime($timedate->to_db($timedate->merge_date_time($_REQUEST['start_date'], $time)));
 				
 				//=========================== if start date is less then today ==========================
 				if($startStamp < strtotime("now")){
