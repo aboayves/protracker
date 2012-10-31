@@ -80,6 +80,7 @@ array (
             'comment' => 'The Company is of this type',
             'label' => 'LBL_TYPE',
           ),
+		  1 => 'assigned_user_name',
         ),
         2 => 
         array (
