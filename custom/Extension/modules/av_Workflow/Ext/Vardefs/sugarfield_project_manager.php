@@ -16,7 +16,7 @@ $dictionary["av_Workflow"]["fields"]["project_manager"] = array (
 		'studio' => 'visible',
 		);
 $dictionary["av_Workflow"]["fields"]["project_manager_id"] = array (
-		'name' => 'project_manager',
+		'name' => 'project_manager_id',
 		'type' => 'id',
 		'required' => false,
 		'reportable' => false,
