@@ -122,9 +122,9 @@ $app_list_strings['task_priority_dom']['High'] = 'High';
 $app_list_strings['task_priority_dom']['Medium'] = 'Medium';
 $app_list_strings['task_priority_dom']['Low'] = 'Low';
 
-$app_list_strings['task_relate_to_list']['Client'] = 'Client';
-$app_list_strings['task_relate_to_list']['Co_client'] = 'Co-client';
-$app_list_strings['task_relate_to_list']['Related_To'] = 'Related To';
+$app_list_strings['task_relate_to_list']['Client'] = 'Primary Contact';
+$app_list_strings['task_relate_to_list']['Co_client'] = 'Secondary Contact';
+$app_list_strings['task_relate_to_list']['Related_To'] = 'Workflow Default';
 
 $app_list_strings['task_assign_to_list']['Current_User'] = 'Current User';
 $app_list_strings['task_assign_to_list']['Project_Manager'] = 'Project Manager';
@@ -132,4 +132,4 @@ $app_list_strings['task_assign_to_list']['Specific_User'] = 'Specific User';
 $app_list_strings['task_assign_to_list']['User_1'] = 'User 1';
 $app_list_strings['task_assign_to_list']['User_2'] = 'User 2';
 $app_list_strings['task_assign_to_list']['User_3'] = 'User 3';
-$app_list_strings['task_assign_to_list']['Assigned_User'] = 'Assigned User of parent record';
+$app_list_strings['task_assign_to_list']['Assigned_User'] = 'Firm Contact';

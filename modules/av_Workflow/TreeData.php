@@ -29,7 +29,7 @@ class TreeData{
 					"TRIM(CONCAT(IFNULL(u.first_name, ''), ' ', IFNULL(u.last_name, ''))) as 'assigned_user' ".
 				"FROM av_task_template avt ".
 				"LEFT JOIN users u ON avt.assigned_user_id=u.id AND u.deleted='0' ".
-				"WHERE {$field} = '{$id}' AND avt.deleted=0" . $addWhere;
+				"WHERE {$field} = '{$id}' AND avt.deleted=0" . $addWhere . " ORDER BY avt.days_out ASC";
 		$result = $db->query($sql);
 		$childs_array = array();
 		$assign_to_default_value='';
@@ -84,11 +84,18 @@ class TreeData{
 				$node['id'] = $row['id'];
 				$node['html'] = "<table>".
 									"<tr>".
-										"<td id='name' title='Name' >{$row['name']}</td>".
+										"<td id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
 										"<td width='250px' title='Subject'>{$row['subject']}</td>".
 										"<td width='170px' title='Category'>{$row['task_category']}</td>".
 										"<td width='135px' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
-										"<td width='50px' title='Days Out'>{$row['days_out']} <input type='hidden' value={$row['id']}</td>";
+										"<td width='50px' title='Days Out'>";
+				if(empty($users)){
+					$node['html'] .=  		"{$row['days_out']}";
+				}else{
+					$node['html'] .=  		"DAYS_OUT";
+				}
+				
+				$node['html'] .=  "<input type='hidden' value={$row['id']}</td>";
 				
 				if(empty($users)){
 					$node['html'] .= 	"<td width='20px' title='Edit Task Template'>".

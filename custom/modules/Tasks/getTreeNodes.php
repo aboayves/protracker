@@ -69,7 +69,7 @@ function getStart($id, $visited_parent=array()){
 		$tree['label'] = $row['name'];
 		$tree['html'] = "<table>
 							<tr>
-								<td id='name' title='Name' ><div class={$tree['contentStyle']}>{$row['name']}</div></td>
+								<td id='name' title='Name' ><div class={$tree['contentStyle']}><a href='index.php?module=Tasks&action=DetailView&record={$row['id']}'>{$row['name']}</a></div></td>
 								<td width='200px' title='Category'>{$row['category']}</td>
 								<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
 								<td width='135px' title='Due Date'>".$row['date_due']."</td>
@@ -159,7 +159,7 @@ function build_child_tree($id, $added_nodes = array()) {
 			$node['label'] = $row['name'];
 			$node['html'] = "<table>
 								<tr>
-									<td id='name' title='Name' ><div class={$node['contentStyle']}>{$row['name']}</div></td>
+									<td id='name' title='Name' ><div class={$node['contentStyle']}><a href='index.php?module=Tasks&action=DetailView&record={$row['id']}'>{$row['name']}</a></div></td>
 									<td width='200px' title='Category'>{$row['category']}</td>
 									<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
 									<td width='135px' title='Due Date'>".$row['date_due']."</td>
