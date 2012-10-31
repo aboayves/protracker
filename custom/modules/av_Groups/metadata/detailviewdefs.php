@@ -14,10 +14,6 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-		  4 => 
-		  array(
-		  	'customCode' => '<input title="Merge to Word" type="button" name="merge2Word" id="merge2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergetoWord&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge to Word">'
-		  ),
 		  5 => 
 		  array(
 		  	'customCode' => '{$mail_to_members}',   
