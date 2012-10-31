@@ -84,7 +84,7 @@ class TreeData{
 				$node['id'] = $row['id'];
 				$node['html'] = "<table>".
 									"<tr>".
-										"<td id='name' title='Name' >{$row['name']}</td>".
+										"<td id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
 										"<td width='250px' title='Subject'>{$row['subject']}</td>".
 										"<td width='170px' title='Category'>{$row['task_category']}</td>".
 										"<td width='135px' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
