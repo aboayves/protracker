@@ -29,7 +29,7 @@ class TreeData{
 					"TRIM(CONCAT(IFNULL(u.first_name, ''), ' ', IFNULL(u.last_name, ''))) as 'assigned_user' ".
 				"FROM av_task_template avt ".
 				"LEFT JOIN users u ON avt.assigned_user_id=u.id AND u.deleted='0' ".
-				"WHERE {$field} = '{$id}' AND avt.deleted=0" . $addWhere;
+				"WHERE {$field} = '{$id}' AND avt.deleted=0" . $addWhere . " ORDER BY avt.days_out ASC";
 		$result = $db->query($sql);
 		$childs_array = array();
 		$assign_to_default_value='';
