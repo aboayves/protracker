@@ -10,7 +10,7 @@ array (
       array (
 	  'hidden' =>
         array (
-          0 => '<input type="hidden" name="template_ids" id="template_ids" value="'.$_REQUEST['template_ids'].'">',
+          0 => '<input type="hidden" name="template_ids" id="template_ids" value="' . (isset($_REQUEST['template_ids']) ? trim($_REQUEST['template_ids'],', ') : "") . '">',
         ),
 	   'buttons' => 
 	   array(
@@ -91,6 +91,7 @@ array (
 	  5 => 
         array (
           0 => 'user_3',
+		  1 => 'workflow',
         ),
       ),
     

@@ -5,11 +5,15 @@ require_once('modules/av_Workflow/TreeData.php');
 class av_WorkflowController extends SugarController {
 		
 	function setTaskTemplateIds($tasks_templates, &$ids){
-		$task_template_checked_ids = trim($_REQUEST['template_ids'],', ');
-		$task_template_checked_ids = explode(', ', $task_template_checked_ids);
+		$task_template_checked_ids = isset($_REQUEST['template_ids']) ? trim($_REQUEST['template_ids'],', ') : "";
+		if($task_template_checked_ids == ""){
+			$task_template_checked_ids = array();
+		}else{
+			$task_template_checked_ids = explode(', ', $task_template_checked_ids);
+		}
 		
 		foreach($tasks_templates as $tasks_template){
-			if(in_array($tasks_template['id'], $task_template_checked_ids)) {
+			if(empty($task_template_checked_ids) || in_array($tasks_template['id'], $task_template_checked_ids)) {
 				$ids[] = $tasks_template['id'];
 				
 				//Calling recursively for childrens
@@ -68,6 +72,14 @@ class av_WorkflowController extends SugarController {
 	
 	function action_assign(){
 		global $db, $current_user, $timedate;
+		
+		if(empty($_REQUEST['record']) && isset($_REQUEST['workflow_id']) && !empty($_REQUEST['workflow_id'])){
+			$this->bean->id = $_REQUEST['record'] = $_REQUEST['workflow_id'];
+			$this->bean->name = $_REQUEST['workflow'];
+		}else{
+			$this->bean->workflow_id = $this->bean->id;
+			$this->bean->workflow = $this->bean->name;
+		}
 			
 		if(isset($_REQUEST['parent_id']) && !empty($_REQUEST['parent_id'])){
 			$ids = array();
@@ -80,7 +92,13 @@ class av_WorkflowController extends SugarController {
 			$assignedToRec = false;
 			
 			//=============================== Geting task templates =====================================
-			$tasks_templates = TreeData::getData($this->bean->id);
+			
+			$tasks_templates = array();
+			
+			if(!empty($this->bean->id)){
+				$tasks_templates = TreeData::getData($this->bean->id);
+			}
+		
 			if(isset($tasks_templates['children']) && !empty($tasks_templates['children'])){
 				$this->setTaskTemplateIds($tasks_templates['children'], $ids);
 			}
@@ -296,6 +314,11 @@ class av_WorkflowController extends SugarController {
 	function action_getwftreedata(){
 		global $current_user, $db;
 		
+		if(empty($_REQUEST['record']) && isset($_REQUEST['workflow_id']) && !empty($_REQUEST['workflow_id'])){
+			$this->bean->id = $_REQUEST['record'] = $_REQUEST['workflow_id'];
+			$this->bean->name = $_REQUEST['workflow'];
+		}
+		
 		$pri_cont_assigned_user = "";
 		$sec_cont_assigned_user = "";
 		$parent_assigned_user = "";
@@ -341,11 +364,18 @@ class av_WorkflowController extends SugarController {
 			'user_3' => (isset($_REQUEST['user_3']) && !empty($_REQUEST['user_3'])) ? $_REQUEST['user_3']: $current_user->name
 		);
 		
-		$treeData = TreeData::getData($this->bean->id, $this->bean->name, $users);
+		$treeData = array();
 		
+		if(!empty($this->bean->id)){
+			$treeData = TreeData::getData($this->bean->id, $this->bean->name, $users);
+		}
 		//Unset from Request IDs
-		$allowedIds = trim($_REQUEST['template_ids'],', ');
-		$allowedIds = explode(', ', $allowedIds);
+		$allowedIds = isset($_REQUEST['template_ids']) ? trim($_REQUEST['template_ids'],', ') : "";
+		if($allowedIds == ""){
+			$allowedIds = array();
+		}else{
+			$allowedIds = explode(', ', $allowedIds);
+		}
 		
 		if(isset($treeData['children']) && !empty($treeData['children'])){
 			//------------------------- Handling dates --------------------------------------------
@@ -404,7 +434,7 @@ class av_WorkflowController extends SugarController {
 		$tmp = $childs;
 		$childs = array();
 		foreach($tmp as $child){
-			if(in_array($child['id'], $ids)) {
+			if(empty($ids) || in_array($child['id'], $ids)) {
 				//Calling recursively for childrens
 				if(isset($child['children']) && !empty($child['children'])){
 					$this->filterTasks($child['children'], $ids, $dates);
