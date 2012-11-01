@@ -30,3 +30,9 @@ $app_list_strings['group_category_list']['Trade']= 'Trade';
 
 $app_list_strings['parent_type_display_list']['Accounts'] = 'Clients';
 $app_list_strings['parent_type_display_list']['Contacts'] = 'Contacts';
+
+$app_list_strings['priority_list'][''] = '';
+$app_list_strings['priority_list']['Very High'] = 'Very High';
+$app_list_strings['priority_list']['High'] = 'High';
+$app_list_strings['priority_list']['Medium'] = 'Medium';
+$app_list_strings['priority_list']['Low'] = 'Low';

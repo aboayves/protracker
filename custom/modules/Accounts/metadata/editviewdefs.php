@@ -66,6 +66,7 @@ array (
         1 => 
         array (
           0 => 'account_type',
+		  1 => 'assigned_user_name',
         ),
         2 => 
         array (

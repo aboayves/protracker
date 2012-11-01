@@ -14,10 +14,6 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-		  4 => 
-		  array(
-		  	'customCode' => '<input title="Merge to Word" type="button" name="merge2Word" id="merge2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergetoWord&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge to Word">'
-		  ),
 		  5 => 
 		  array(
 		  	'customCode' => '{$mail_to_members}',   
@@ -57,6 +53,14 @@ array (
 		  14 => 
 		  array(
 		  	'customCode' => '<input title="Mass Update" type="button" name="MassUpdate" id="MassUpdate" onclick="document.getElementById(\'massupdate_form\').style.display = \'\'; var yLoc = YAHOO.util.Dom.getY(\'massupdate_form\'); scroll(0,yLoc);" value="Mass Update">'
+		  ),
+		  15 => 
+		  array(
+		  	'customCode' => '<input title="Merge Contacts to Word" type="button" name="MergeContacts2Word" id="MergeContacts2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergeContacts2Word&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge Contacts to Word">',
+		  ),
+		  16 => 
+		  array(
+		  	'customCode' => '<input title="Merge Clients to Word" type="button" name="MergeClients2Word" id="MergeClients2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergeClients2Word&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge Clients to Word">',
 		  ),
 		),
       ),

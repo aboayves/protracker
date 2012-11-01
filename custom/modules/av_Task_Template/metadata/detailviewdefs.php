@@ -160,7 +160,8 @@ array (
 			array(
 				'name' => 'tree',
 				'label' => 'LBL_TREE',
-				'customCode' => '<div id="tree_plotting_div"></div>'  
+				'customCode' => '<div id="tree_plotting_div"></div>',
+				'hideLabel' => true,
 			),
 		),    
 	  ),
