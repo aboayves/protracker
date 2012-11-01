@@ -67,6 +67,12 @@ function getStart($id, $visited_parent=array()){
 		$tree['label'] = $row['name'];
 		$tree['html'] = "<table>
 							<tr>
+								<th id='name' title='Name'>Name</th>
+								<th width='200px' title='Category'>Category</th>
+								<th width='180px' title='Assignee'>Assignee</th>
+								<th width='135px' title='Due Date'>Due Date</th>
+							</tr>
+							<tr>
 								<td id='name' title='Name' ><div class={$tree['contentStyle']}><a href='index.php?module=Tasks&action=DetailView&record={$row['id']}'>{$row['name']}</a></div></td>
 								<td width='200px' title='Category'>{$row['category']}</td>
 								<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
