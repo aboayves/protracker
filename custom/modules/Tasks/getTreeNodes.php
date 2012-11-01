@@ -66,7 +66,7 @@ function getStart($id, $visited_parent=array()){
 		$tree['id'] = $row['id'];
 		$tree['label'] = $row['name'];
 		$tree['html'] = "<table>
-							<tr>
+							<tr style='color:#000'>
 								<th id='name' title='Name'>Name</th>
 								<th width='200px' title='Category'>Category</th>
 								<th width='180px' title='Assignee'>Assignee</th>
