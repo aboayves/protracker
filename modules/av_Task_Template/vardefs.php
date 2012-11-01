@@ -229,7 +229,7 @@ $dictionary['av_Task_Template'] = array(
 		'options' => 'task_relate_to_list',
 		'studio' => 'visible',
 		'dependency' => false,
-		'default' => 'Client',
+		'default' => 'Related_To',
 	  ),
 	  'days_out' => 
 	  array (
