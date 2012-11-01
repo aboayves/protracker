@@ -95,5 +95,8 @@ function loadNodeData(taskID, taskName)  {
 
 function make_tree(data1){
    tree = new YAHOO.widget.TreeView("tree_panel3", data1); 
+   tree.subscribe("clickEvent", function(node) {
+	   return false;
+   });
    tree.render();
 }
