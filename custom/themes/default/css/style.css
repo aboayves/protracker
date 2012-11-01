@@ -1,6 +1,6 @@
 .yui-navset {
 	position: relative;
     overflow-y: auto;
-	height: auto !important;
+	height: 85%; !important;
     zoom: 1;
 }
