@@ -1,12 +1,10 @@
 <?php
 
 global $db, $current_user, $timedate;
+
 $id = $_REQUEST['id'];
 $name = $_REQUEST['name'];
 $final = array();
-
-$GLOBALS['users'] = getUserList();
-$final = getStart($id);
 
 if(!isset($_REQUEST['included'])){
 	$_SESSION['pending_only'] = $_REQUEST['pending_only'];
@@ -68,6 +66,12 @@ function getStart($id, $visited_parent=array()){
 		$tree['id'] = $row['id'];
 		$tree['label'] = $row['name'];
 		$tree['html'] = "<table>
+							<tr>
+								<th id='name' title='Name'>Name</th>
+								<th width='200px' title='Category'>Category</th>
+								<th width='180px' title='Assignee'>Assignee</th>
+								<th width='135px' title='Due Date'>Due Date</th>
+							</tr>
 							<tr>
 								<td id='name' title='Name' style='cursor:pointer;' onclick=\"window.location='index.php?module=Tasks&action=DetailView&record={$row['id']}';\" ><div class={$tree['contentStyle']}><a >{$row['name']}</a></div></td>
 								<td width='200px' title='Category'>{$row['category']}</td>
@@ -179,6 +183,9 @@ function build_child_tree($id, $added_nodes = array()) {
 	
     return $childs_array;
 }
+
+$GLOBALS['users'] = getUserList();
+$final = getStart($id);
 
 if($_REQUEST['included']===true)
 {

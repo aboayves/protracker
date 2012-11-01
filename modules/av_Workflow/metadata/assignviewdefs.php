@@ -14,7 +14,7 @@ array (
         ),
 	   'buttons' => 
 	   array(
-		0 => array( 'customCode' => '<input type="button" value="Save" onclick=" _form = document.getElementById(\'EditView\');_form.action.value=\'assign\';if(check_form(\'EditView\'))SUGAR.ajaxUI.submitForm(_form);return false;" />'),
+		0 => array( 'customCode' => '<input type="button" value="Save" onclick=" return assignWorkflow();" />'),
 		1 => 'CANCEL',
 	   ),
 	   'hideAudit' => false,
@@ -55,12 +55,16 @@ array (
           ),
 		  1 => 
           array (
-            'name' => 'start_date',
+            'name' => 'assign_to_members',
           ),
         ),
       1 => 
         array (
           0 => 'add_to_project',
+		  1 => 
+          array (
+            'name' => 'start_date',
+          ),
         ),
 	  2 => 
         array (
