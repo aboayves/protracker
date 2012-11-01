@@ -1,12 +1,10 @@
 <?php
 
 global $db, $current_user, $timedate;
+
 $id = $_REQUEST['id'];
 $name = $_REQUEST['name'];
 $final = array();
-
-$GLOBALS['users'] = getUserList();
-$final = getStart($id);
 
 if(!isset($_REQUEST['included'])){
 	$_SESSION['pending_only'] = $_REQUEST['pending_only'];
@@ -179,6 +177,9 @@ function build_child_tree($id, $added_nodes = array()) {
 	
     return $childs_array;
 }
+
+$GLOBALS['users'] = getUserList();
+$final = getStart($id);
 
 if($_REQUEST['included']===true)
 {
