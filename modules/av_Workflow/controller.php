@@ -291,19 +291,47 @@ class av_WorkflowController extends SugarController {
 					$record['parent_tasks_id'] = $array_new_ids[$record['parent_tasks_id']];
 				}
 				
-				$keys = implode(',' , array_keys($record));
-				$values = implode("','" , array_values($record));
-				if(!empty($values)){
-					$values = "'" . $values . "'";
+				if($_REQUEST['assign_to_members'] == '1' && $record['parent_type'] == "av_Groups"){
+					//Assigning to members
+					$this->assignToMembers($record);
+				}else{
+					//Assigning to record
+					$keys = implode(',' , array_keys($record));
+					$values = implode("','" , array_values($record));
+					if(!empty($values)){
+						$values = "'" . $values . "'";
+					}
+					
+					$query = "INSERT INTO tasks (" . $keys . ") VALUES (" . $values . ")";
+					$db->query($query, true);
 				}
-				
-				$query = "INSERT INTO tasks (" . $keys . ") VALUES (" . $values . ")";
-				$db->query($query, true);
 			}
 			SugarApplication::redirect('index.php?module=av_Workflow&action=DetailView&record='.$this->bean->id);
 		}
 		
 		$this->view = "assign";
+	}
+	
+	function assignToMembers($taskData){
+		global $db;
+		
+		$SQL = "SELECT rt.parent_id, rt.parent_type FROM av_group_membership AS rt WHERE rt.deleted=0 AND rt.av_groups_id='{$taskData['parent_id']}' AND rt.include=1";
+		$res = $db->query($SQL);
+		while ($row = $db->fetchByAssoc($res)){
+			$taskData['parent_type'] = $row['parent_type'];
+			$taskData['parent_id'] = $row['parent_id'];
+			$taskData['id'] = create_guid();
+			
+			
+			$keys = implode(',' , array_keys($taskData));
+			$values = implode("','" , array_values($taskData));
+			if(!empty($values)){
+				$values = "'" . $values . "'";
+			}
+			
+			$query = "INSERT INTO tasks (" . $keys . ") VALUES (" . $values . ")";
+			$db->query($query, true);
+	   }
 	}
 	
 	function action_gettreedata(){

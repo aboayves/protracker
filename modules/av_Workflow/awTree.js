@@ -1,3 +1,28 @@
+function assignWorkflow(){
+	_form = document.getElementById('EditView');
+	_form.action.value='assign';
+	if(check_form('EditView')){
+		askUser = false;
+		
+		parentType = document.getElementById('parent_type');
+		assignMembers = document.getElementById('assign_to_members');
+		
+		if(parentType != null && assignMembers != null){
+			askUser = parentType.options[parentType.selectedIndex].value == "av_Groups" && assignMembers.checked;
+		}
+		
+		if(askUser){
+			if(confirm("Warning: This will duplicate the tasks in the workflow for every client and contact in the group. \nAre you sure?")){
+				SUGAR.ajaxUI.submitForm(_form);
+			}
+		}else{
+			SUGAR.ajaxUI.submitForm(_form);
+		}
+	}
+	
+	return false;
+}
+
 var treeHelper = {
 	tree : null,	
 	loadData: function ()  {		
