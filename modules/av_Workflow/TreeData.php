@@ -84,11 +84,11 @@ class TreeData{
 				$node['id'] = $row['id'];
 				$node['html'] = "<table>".
 									"<tr>".
-										"<td width='30%' id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
-										"<td width='30%' title='Subject'>{$row['subject']}</td>".
-										"<td width='12%' title='Category'>{$row['task_category']}</td>".
-										"<td width='12%' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
-										"<td width='7%' title='Days Out'>";
+										"<td id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
+										"<td width='200px' title='Subject'>{$row['subject']}</td>".
+										"<td width='150px' title='Category'>{$row['task_category']}</td>".
+										"<td width='130px' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
+										"<td width='80px' title='Days Out'>";
 				if(empty($users)){
 					$node['html'] .=  		"{$row['days_out']}";
 				}else{
@@ -98,12 +98,12 @@ class TreeData{
 				$node['html'] .=  "<input type='hidden' value={$row['id']}</td>";
 				
 				if(empty($users)){
-					$node['html'] .= 	"<td width='3%' title='Edit Task Template'>".
+					$node['html'] .= 	"<td width='25px' style='text-align:center;vertical-align:middle' title='Edit Task Template'>".
 											"<a href='index.php?module=av_Task_Template&action=EditView&record={$row['id']}&return_module=av_Workflow&return_action=DetailView&return_id={$wfID}'>".
 												"<img src='themes/Sugar/images/edit_inline.png'/>".
 											"</a>".
 										"</td>".
-										"<td width='3%' title='Add Dependent Task Template'>".
+										"<td width='25px' style='text-align:center;vertical-align:middle' title='Add Dependent Task Template'>".
 											"<a href='index.php?module=av_Task_Template&action=EditView&parent_tasks_id={$row['id']}&parent_tasks_name={$row['name']}&av_Workflow_id={$wfID}&av_Workflow_name={$wfName}&return_module=av_Workflow&return_action=DetailView&return_id={$wfID}'>".
 												"<img src='themes/Sugar/images/create-record.png'/>".
 											"</a>".
