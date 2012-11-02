@@ -35,12 +35,12 @@ array (
           'field' => '30',
         ),
       ),
-      'includes' =>  
-      array ( 
-        0 =>  
-        array ( 
-          'file' => 'include/javascript/tiny_mce/tiny_mce.js', 
-        ),       
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'include/javascript/tiny_mce/tiny_mce.js',
+        ),
       ),
       'useTabs' => false,
     ),
@@ -90,7 +90,6 @@ array (
         ),
         2 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'on_task_list',
@@ -117,7 +116,6 @@ array (
         ),
         4 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'parent_name',

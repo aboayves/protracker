@@ -29,7 +29,6 @@
 $dictionary['av_Cashflow'] = array(
 	'table'=>'av_cashflow',
 	'audited'=>true,
-		'duplicate_merge'=>true,
 		'fields'=>array (
 ),
 	'relationships'=>array (
@@ -40,4 +39,4 @@ $dictionary['av_Cashflow'] = array(
 if (!class_exists('VardefManager')){
         require_once('include/SugarObjects/VardefManager.php');
 }
-VardefManager::createVardef('av_Cashflow','av_Cashflow', array('basic','team_security','assignable'));
+VardefManager::createVardef('av_Cashflow','av_Cashflow', array('basic','team_security','assignable','file'));

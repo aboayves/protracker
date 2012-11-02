@@ -107,7 +107,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_ACCOUNT_TYPE',
           ),
-          1 => '',
         ),
         6 => 
         array (
@@ -132,12 +131,10 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_ASSET_CLASS',
           ),
-          1 => '',
         ),
         8 => 
         array (
           0 => 'description',
-          1 => '',
         ),
         9 => 
         array (

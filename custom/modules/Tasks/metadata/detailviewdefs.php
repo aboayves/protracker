@@ -137,15 +137,19 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PROJECT',
           ),
-          1 => '',
         ),
         9 => 
         array (
-          0 => array(
-		  	'name' => 'description',
-			'label' => 'LBL_DESCRIPTION',
-			'customCode' => '<div> {$fields.description.value} <div>',
-		  ),
+          0 => 
+          array (
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
+            'customCode' => '<div> {$fields.description.value} <div>',
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_tasks_1_name',
+          ),
         ),
       ),
       'LBL_TREE' => 

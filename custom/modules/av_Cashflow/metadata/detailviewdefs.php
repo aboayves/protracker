@@ -1,22 +1,16 @@
 <?php
 $module_name = 'av_Cashflow';
+$_object_name = 'av_cashflow';
 $viewdefs [$module_name] = 
 array (
   'DetailView' => 
   array (
     'templateMeta' => 
     array (
+      'maxColumns' => '2',
       'form' => 
       array (
-        'buttons' => 
-        array (
-          0 => 'EDIT',
-          1 => 'DUPLICATE',
-          2 => 'DELETE',
-          3 => 'FIND_DUPLICATES',
-        ),
       ),
-      'maxColumns' => '2',
       'widths' => 
       array (
         0 => 
@@ -30,8 +24,6 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -39,25 +31,55 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'document_name',
+            'label' => 'LBL_DOC_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'link' => 'uploadfile',
+              'id' => 'id',
+            ),
+          ),
         ),
         1 => 
         array (
-          0 => 'description',
+          0 => 'category_id',
+          1 => 'subcategory_id',
         ),
         2 => 
         array (
-          0 => 'assigned_user_name',
-          1 => 
-          array (
-            'name' => 'year',
-            'comment' => '',
-            'label' => 'LBL_YEAR',
-          ),
+          0 => 'status',
         ),
         3 => 
         array (
+          0 => 'active_date',
+          1 => 'exp_date',
+        ),
+        4 => 
+        array (
           0 => 'team_name',
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'label' => 'LBL_DOC_DESCRIPTION',
+          ),
+          1 => 
+          array (
+            'name' => 'accounts_av_cashflow_1_name',
+          ),
         ),
       ),
     ),

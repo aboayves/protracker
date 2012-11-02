@@ -1,4 +1,5 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -26,31 +27,64 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-$module_name = 'av_Cashflow';
-$viewdefs[$module_name]['QuickCreate'] = array(
-    'templateMeta' => array('maxColumns' => '2', 
+/*********************************************************************************
+
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
+
+ $module_name = 'av_Cashflow';
+
+ $viewdefs[$module_name]['QuickCreate'] = array(
+    'templateMeta' => array('form' => array('enctype'=>'multipart/form-data',
+                                            'hidden'=>array()),
+
+                            'maxColumns' => '2',
                             'widths' => array(
-                                            array('label' => '10', 'field' => '30'), 
+                                            array('label' => '10', 'field' => '30'),
                                             array('label' => '10', 'field' => '30')
-                                            ),                                                                                                                                    
                                             ),
-                                            
-                                            
+'javascript' =>
+	'{sugar_getscript file="include/javascript/popup_parent_helper.js"}
+	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
+	{sugar_getscript file="modules/Documents/documents.js"}',
+),
  'panels' =>array (
-  'default' => 
+  'default' =>
   array (
+	array (
+      'document_name',
+      'assigned_user_name',
+	),
+
+    array (
+      array('name'=>'uploadfile',
+            'customCode' => '{if $fields.id.value!=""}
+            				{assign var="type" value="hidden"}
+            		 		{else}
+            		 		{assign var="type" value="file"}
+            		  		{/if}
+            		  		<input name="uploadfile" type = {$type} size="30" maxlength="" onchange="setvalue(this);" value="{$fields.filename.value}">{$fields.filename.value}',
+            'displayParams'=>array('required'=>true),
+            ),
+      array('name'=>'team_name','displayParams'=>array('required'=>true)),
+	),
+
+    array (
+      'active_date',
+    ),
     
     array (
-      'name',
-      'assigned_user_name',
+       'category_id',
+       'subcategory_id',
     ),
+
     array (
-	  'description',
-      array('name'=>'team_name', 'displayParams'=>array('display'=>true)),
+      array('name'=>'description', 'displayParams'=>array('rows'=>10, 'cols'=>120)),
     ),
   ),
-                                                    
-),
-                        
+)
 );
+
 ?>

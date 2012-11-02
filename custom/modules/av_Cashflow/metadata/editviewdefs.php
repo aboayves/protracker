@@ -6,6 +6,13 @@ array (
   array (
     'templateMeta' => 
     array (
+      'form' => 
+      array (
+        'enctype' => 'multipart/form-data',
+        'hidden' => 
+        array (
+        ),
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -20,8 +27,9 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
-      'syncDetailEditViews' => true,
+      'javascript' => '{sugar_getscript file="include/javascript/popup_parent_helper.js"}
+	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
+	{sugar_getscript file="modules/Documents/documents.js"}',
     ),
     'panels' => 
     array (
@@ -29,31 +37,51 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 'document_name',
+          1 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'onchangeSetFileNameTo' => 'document_name',
+            ),
+          ),
         ),
         1 => 
         array (
-          0 => 'description',
+          0 => 'category_id',
+          1 => 'subcategory_id',
         ),
         2 => 
         array (
           0 => 'assigned_user_name',
           1 => 
           array (
-            'name' => 'year',
-            'comment' => '',
-            'label' => 'LBL_YEAR',
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
           ),
         ),
         3 => 
         array (
+          0 => 'active_date',
+          1 => 'exp_date',
+        ),
+        4 => 
+        array (
+          0 => 'status_id',
+        ),
+        5 => 
+        array (
           0 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
+            'name' => 'description',
+          ),
+          1 => 
+          array (
+            'name' => 'accounts_av_cashflow_1_name',
           ),
         ),
       ),

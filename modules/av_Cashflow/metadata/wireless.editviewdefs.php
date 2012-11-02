@@ -37,8 +37,23 @@ $viewdefs[$module_name]['EditView'] = array(
 
 
 	'panels' => array (
-		array (
-    		'name',
+    	array (
+    		array (
+      			'name' => 'document_name',
+      			'label' => 'LBL_DOC_NAME',
+    		),
+    	),
+     	array (
+     		array (
+      			'name' => 'uploadfile',
+      			'displayParams' => array('link'=>'uploadfile', 'id'=>'id'),
+     		),
+    	),
+      	array (
+      		'active_date'
+      	),
+      	array (
+      		'exp_date',
   		),
   		array (
     		'assigned_user_name',

@@ -35,10 +35,10 @@ $searchdefs[$module_name] = array(
 	),
 	'layout' => array(
 		'basic_search' => array(
-			'name',
+			'document_name',
 		),
 		'advanced_search' => array(
-			'name',
+			'document_name',
 		),
 	),
 );

@@ -1,4 +1,5 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -26,44 +27,67 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+/*********************************************************************************
+
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
+
 $module_name = 'av_Cashflow';
+$_object_name = 'av_cashflow';
 $viewdefs[$module_name]['DetailView'] = array(
-'templateMeta' => array('form' => array('buttons'=>array('EDIT', 'DUPLICATE', 'DELETE', 'FIND_DUPLICATES',
-                                                         )),
-                        'maxColumns' => '2',
+'templateMeta' => array('maxColumns' => '2',
+                        'form' => array(),
                         'widths' => array(
                                         array('label' => '10', 'field' => '30'),
                                         array('label' => '10', 'field' => '30')
                                         ),
                         ),
-
 'panels' =>array (
 
   array (
-    'name',
-    'assigned_user_name',
-  ),
-  array (
 
-    'team_name',''
-  ),
-
-  array (
-	array (
-      'name' => 'date_entered',
-      'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-      'label' => 'LBL_DATE_ENTERED',
-    ),
     array (
-      'name' => 'date_modified',
-      'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-      'label' => 'LBL_DATE_MODIFIED',
+      'name' => 'document_name',
+      'label' => 'LBL_DOC_NAME',
     ),
+     array (
+      'name' => 'uploadfile',
+      'displayParams' => array('link'=>'uploadfile', 'id'=>'id'),
+    ),
+
+
+  ),
+  array (
+      'category_id',
+      'subcategory_id',
   ),
 
   array (
-    'description',
+
+	  'status',
+
   ),
+  array (
+      'active_date',
+      'exp_date',
+  ),
+
+  array (
+	  'team_name',
+    array('name'=>'assigned_user_name', 'label'=>'LBL_ASSIGNED_TO'),
+  ),
+
+  array (
+
+    array (
+      'name' => 'description',
+      'label' => 'LBL_DOC_DESCRIPTION',
+    ),
+  ),
+
 )
 );
+
 ?>

@@ -1,4 +1,5 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -26,19 +27,19 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-/*
- * Created on August 2 2007
- *
- * To change the template for this generated file go to
- * Window - Preferences - PHPeclipse - PHP - Code Templates
- */
+/*********************************************************************************
+
+ * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+ * All Rights Reserved.
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
 $module_name = 'av_Cashflow';
  $metafiles[$module_name] = array(
-	'detailviewdefs'  => 	'modules/' . $module_name . '/metadata/detailviewdefs.php', 	
-	'editviewdefs'    => 	'modules/' . $module_name . '/metadata/editviewdefs.php',
- 	'listviewdefs'    => 	'modules/' . $module_name . '/metadata/listviewdefs.php',
- 	'searchdefs'      =>    'modules/' . $module_name . '/metadata/searchdefs.php',
- 	'popupdefs'	      =>    'modules/' . $module_name . '/metadata/popupdefs.php',
- 	'searchfields'	  =>    'modules/' . $module_name . '/metadata/SearchFields.php',
+	'detailviewdefs'  => 	'modules/'.$module_name.'/metadata/detailviewdefs.php',
+	'editviewdefs'    => 	'modules/'. $module_name. '/metadata/editviewdefs.php',
+ 	'listviewdefs'    => 	'modules/'. $module_name. '/metadata/listviewdefs.php',
+ 	'searchdefs'      =>    'modules/'. $module_name. '/metadata/searchdefs.php',
+ 	'popupdefs'	      =>    'modules/'. $module_name. '/metadata/popupdefs.php',
+ 	'searchfields'	  =>    'modules/'. $module_name. '/metadata/SearchFields.php',
  );
 ?>

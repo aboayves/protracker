@@ -54,10 +54,6 @@ array (
             'name' => 'first_name',
             'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_contacts_1_name',
-          ),
         ),
         2 => 
         array (
@@ -98,8 +94,7 @@ array (
         ),
         5 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'phone_mobile',
             'comment' => 'Mobile phone number of the contact',
@@ -148,6 +143,11 @@ array (
           array (
             'name' => 'av_offices_contacts_1_name',
           ),
+          1 => 
+          array (
+            'name' => 'av_tax_returns_contacts_1_name',
+            'label' => 'LBL_AV_TAX_RETURNS_CONTACTS_1_FROM_AV_TAX_RETURNS_TITLE',
+          ),
         ),
       ),
       'lbl_editview_panel5' => 
@@ -167,7 +167,6 @@ array (
               'maxlength' => 150,
             ),
           ),
-          1 => '',
         ),
         1 => 
         array (
@@ -181,6 +180,10 @@ array (
           array (
             'name' => 'work_address_street',
             'comment' => '',
+            'displayParams' => 
+            array (
+              'key' => 'work',
+            ),
             'label' => 'LBL_WORK_ADDRESS_STREET',
           ),
         ),
@@ -206,6 +209,7 @@ array (
             'name' => 'alt_address_street',
             'hideLabel' => true,
             'type' => 'address',
+            'label' => 'LBL_ALT_ADDRESS',
             'displayParams' => 
             array (
               'key' => 'alt',
@@ -219,6 +223,7 @@ array (
           array (
             'name' => 'other_address_street',
             'comment' => 'Street address for other address',
+            'hideLabel' => true,
             'displayParams' => 
             array (
               'key' => 'other',
@@ -409,11 +414,77 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-          1 => 'team_name',
+          1 => 
+          array (
+            'name' => 'do_not_email',
+            'comment' => '',
+            'label' => 'LBL_DO_NOT_EMAIL',
+          ),
         ),
         3 => 
         array (
+          0 => 'team_name',
+          1 => 
+          array (
+            'name' => 'do_not_mail',
+            'comment' => '',
+            'label' => 'LBL_DO_NOT_MAIL',
+          ),
+        ),
+        4 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        6 => 
+        array (
           0 => 'campaign_name',
+        ),
+      ),
+      'lbl_editview_panel6' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'send_adv_offer',
+            'comment' => '',
+            'label' => 'LBL_SEND_ADV_OFFER',
+          ),
+          1 => 
+          array (
+            'name' => 'alias',
+            'comment' => '',
+            'label' => 'LBL_ALIAS',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'send_privacy_notice',
+            'comment' => '',
+            'label' => 'LBL_SEND_PRIVACY_NOTICE',
+          ),
+          1 => 
+          array (
+            'name' => 'is_sec_related',
+            'comment' => '',
+            'label' => 'LBL_IS_SEC_RELATED',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'sec_related_party_c',
+            'label' => 'LBL_SEC_RELATED_PARTY',
+          ),
         ),
       ),
       'lbl_editview_panel1' => 
@@ -428,9 +499,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'send_adv_offer',
+            'name' => 'send_newsletter_mail',
             'comment' => '',
-            'label' => 'LBL_SEND_ADV_OFFER',
+            'label' => 'LBL_SEND_NEWSLETTER_MAIL',
           ),
         ),
         1 => 
@@ -443,9 +514,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'send_privacy_notice',
+            'name' => 'send_newsletter_email',
             'comment' => '',
-            'label' => 'LBL_SEND_PRIVACY_NOTICE',
+            'label' => 'LBL_SEND_NEWSLETTER_EMAIL',
           ),
         ),
         2 => 
@@ -456,24 +527,8 @@ array (
             'comment' => '',
             'label' => 'LBL_SEND_HOLIDAY_GIFT',
           ),
-          1 => 
-          array (
-            'name' => 'send_newsletter_mail',
-            'comment' => '',
-            'label' => 'LBL_SEND_NEWSLETTER_MAIL',
-          ),
         ),
         3 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'send_newsletter_email',
-            'comment' => '',
-            'label' => 'LBL_SEND_NEWSLETTER_EMAIL',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (

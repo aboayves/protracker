@@ -136,6 +136,17 @@ array (
         5 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'contacts_av_groups_1_name',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contacts_av_groups_2_name',
+          ),
         ),
       ),
     ),
