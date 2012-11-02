@@ -85,6 +85,8 @@ class av_WorkflowController extends SugarController {
 			$ids = array();
 			$dates = array();
 			$daysOut = array();
+			$array_new_ids = array();
+			$members_new_ids = array();
 			
 			//=========================== flags to load additional assign info ==========================
 			$clientRec = false;
@@ -293,7 +295,7 @@ class av_WorkflowController extends SugarController {
 				
 				if($_REQUEST['assign_to_members'] == '1' && $record['parent_type'] == "av_Groups"){
 					//Assigning to members
-					$this->assignToMembers($record);
+					$this->assignToMembers($record, $members_new_ids, $array_new_ids);
 				}else{
 					//Assigning to record
 					$keys = implode(',' , array_keys($record));
@@ -312,16 +314,29 @@ class av_WorkflowController extends SugarController {
 		$this->view = "assign";
 	}
 	
-	function assignToMembers($taskData){
+	function assignToMembers($tempData, &$newIds, &$ids){
 		global $db;
 		
-		$SQL = "SELECT rt.parent_id, rt.parent_type FROM av_group_membership AS rt WHERE rt.deleted=0 AND rt.av_groups_id='{$taskData['parent_id']}' AND rt.include=1";
+		$SQL = "SELECT rt.parent_id, rt.parent_type FROM av_group_membership AS rt WHERE rt.deleted=0 AND rt.av_groups_id='{$tempData['parent_id']}' AND rt.include=1";
 		$res = $db->query($SQL);
 		while ($row = $db->fetchByAssoc($res)){
+			$taskData = $tempData;
+			
+			if(!isset($newIds[$row['parent_id']])){
+				$newIds[$row['parent_id']] = array();
+				
+				foreach($ids as $id){
+					$newIds[$row['parent_id']][$id] = create_guid();
+				}
+			}
+			
+			$taskData['id'] = $newIds[$row['parent_id']][$taskData['id']];
+			if(!empty($taskData['parent_tasks_id'])){
+				$taskData['parent_tasks_id'] = $newIds[$row['parent_id']][$taskData['parent_tasks_id']];
+			}
+		
 			$taskData['parent_type'] = $row['parent_type'];
 			$taskData['parent_id'] = $row['parent_id'];
-			$taskData['id'] = create_guid();
-			
 			
 			$keys = implode(',' , array_keys($taskData));
 			$values = implode("','" , array_values($taskData));
