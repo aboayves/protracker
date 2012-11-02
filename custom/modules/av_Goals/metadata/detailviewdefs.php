@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -42,9 +44,39 @@ array (
         ),
         1 => 
         array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'target_date',
+            'comment' => '',
+            'label' => 'LBL_TARGET_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'amount',
+            'comment' => '',
+            'label' => 'LBL_AMOUNT',
+          ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'progress',
+            'comment' => '',
+            'label' => 'LBL_PROGRESS',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -54,18 +86,28 @@ array (
           ),
           1 => 
           array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
           1 => 
           array (
-            'name' => 'accounts_av_goals_1_name',
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
           ),
+        ),
+        6 => 
+        array (
+          0 => 'team_name',
+          1 => '',
         ),
       ),
     ),

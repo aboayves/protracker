@@ -1,5 +1,5 @@
 <?php
-// created: 2012-10-22 20:48:02
+// created: 2012-11-02 19:51:15
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -43,4 +43,6 @@ $mod_strings = array (
   'LBL_NEW_FORM_TITLE' => 'New Client',
   'LBL_VIEW_FORM_TITLE' => 'Client View',
   'MSG_DUPLICATE' => 'The client record you are about to create might be a duplicate of an Client record that already exists. Client records containing similar names are listed below.Click Create Client to continue creating this new Client, or select an existing Client listed below.',
+  'LBL_ACCOUNTS_AV_GOALS_1_FROM_AV_GOALS_TITLE' => 'Goals',
+  'LBL_ACCOUNTS_AV_GIFTING_1_FROM_AV_GIFTING_TITLE' => 'Gifting',
 );

@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -38,13 +40,61 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'recipient',
+            'comment' => '',
+            'label' => 'LBL_RECIPIENT',
+          ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_of_gift',
+            'comment' => '',
+            'label' => 'LBL_DATE_OF_GIFT',
+          ),
+          1 => 
+          array (
+            'name' => 'value',
+            'comment' => '',
+            'label' => 'LBL_VALUE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_709_required',
+            'comment' => '',
+            'label' => 'LBL_IS_709_REQUIRED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_709_filed',
+            'comment' => '',
+            'label' => 'LBL_DATE_709_FILED',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_crummey_sent',
+            'comment' => '',
+            'label' => 'LBL_DATE_CRUMMEY_SENT',
+          ),
+          1 => '',
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -54,14 +104,27 @@ array (
           ),
           1 => 
           array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
+          1 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
         ),
-        3 => 
+        8 => 
         array (
-          0 => 'description',
+          0 => 'team_name',
           1 => 
           array (
             'name' => 'accounts_av_gifting_1_name',

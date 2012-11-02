@@ -156,7 +156,7 @@ $app_list_strings = array (
     'WorkFlow' => 'Workflow',
     'EAPM' => 'External Account',
     'Users' => 'User',
-  'SugarFavorites'=>'SugarFavorites'
+  'SugarFavorites'=>'Favorites'
 
         ),
 
@@ -381,7 +381,7 @@ $app_list_strings = array (
   'meeting_type_dom' =>
    array (
       'Other' => 'Other',
-      'Sugar' => 'SugarCRM',
+      'Sugar' => 'ProTracker',
    ),
   'call_status_default' => 'Planned',
   'call_status_dom' =>
@@ -919,7 +919,7 @@ $app_list_strings = array (
                                         'off' => 'No',
                                         '' => 'No', ),
 
-    'dom_email_link_type'   => array(   'sugar'     => 'Sugar Email Client',
+    'dom_email_link_type'   => array(   'sugar'     => 'Internal Email Client',
                                         'mailto'    => 'External Email Client'),
 
 
@@ -1485,7 +1485,7 @@ $app_strings = array (
     'LBL_EDITINLINE'=>'Edit',
     'LBL_VIEWINLINE'=>'View',
     'LBL_INFOINLINE'=>'Info',
-    'LBL_POWERED_BY_SUGARCRM' => "Powered by SugarCRM",
+    'LBL_POWERED_BY_SUGARCRM' => "ProTrackerWeb",
     'LBL_PRINT' => "Print",
     'LBL_HELP' => "Help",
     'LBL_ID_FF_SELECT' => "Select",
@@ -1503,7 +1503,7 @@ $app_strings = array (
     'LBL_ROUTING_BUTTON_SAVE'               => 'Save Rule',
 
     'LBL_ROUTING_ACTIONS_COPY_MAIL'         => 'Copy Mail',
-    'LBL_ROUTING_ACTIONS_DELETE_BEAN'       => 'Delete Sugar Object',
+    'LBL_ROUTING_ACTIONS_DELETE_BEAN'       => 'Delete Object',
     'LBL_ROUTING_ACTIONS_DELETE_FILE'       => 'Delete File',
     'LBL_ROUTING_ACTIONS_DELETE_MAIL'       => 'Delete Email',
     'LBL_ROUTING_ACTIONS_FORWARD'           => 'Forward Email',
@@ -1596,12 +1596,12 @@ $app_strings = array (
     'LBL_EMAIL_ADDRESSES'                   => 'Email',
     'LBL_EMAIL_ADDRESS_PRIMARY'             => 'Email Address',
     'LBL_EMAIL_ADDRESSES_TITLE'             => 'Email Addresses',
-    'LBL_EMAIL_ARCHIVE_TO_SUGAR'            => 'Import to Sugar',
+    'LBL_EMAIL_ARCHIVE_TO_SUGAR'            => 'Import to ProTracker',
     'LBL_EMAIL_ASSIGNMENT'                  => 'Assignment',
     'LBL_EMAIL_ATTACH_FILE_TO_EMAIL'        => 'Attach',
     'LBL_EMAIL_ATTACHMENT'                  => 'Attach',
     'LBL_EMAIL_ATTACHMENTS'                 => 'From Local System',
-    'LBL_EMAIL_ATTACHMENTS2'                => 'From Sugar Documents',
+    'LBL_EMAIL_ATTACHMENTS2'                => 'From ProTracker Documents',
     'LBL_EMAIL_ATTACHMENTS3'                => 'Template Attachments',
     'LBL_EMAIL_ATTACHMENTS_FILE'            => 'File',
     'LBL_EMAIL_ATTACHMENTS_DOCUMENT'        => 'Document',
@@ -1667,7 +1667,7 @@ $app_strings = array (
     'LBL_EMAIL_ERROR_CONTACT_NAME'          => 'Please make sure you enter a last name.',
     'LBL_EMAIL_ERROR_DESC'                  => 'Errors were detected: ',
     'LBL_EMAIL_DELETE_ERROR_DESC'           => 'You do not have access to this area. Contact your site administrator to obtain access.',
-    'LBL_EMAIL_ERROR_DUPE_FOLDER_NAME'      => 'Sugar Folder names must be unique.',
+    'LBL_EMAIL_ERROR_DUPE_FOLDER_NAME'      => 'ProTracker Folder names must be unique.',
     'LBL_EMAIL_ERROR_EMPTY'                 => 'Please enter some search criteria.',
     'LBL_EMAIL_ERROR_GENERAL_TITLE'         => 'An error has occured',
     'LBL_EMAIL_ERROR_LIST_NAME'             => 'An email list with that name already exists',
@@ -1722,7 +1722,7 @@ $app_strings = array (
     'LBL_EMAIL_IE_DELETE_SUCCESSFUL'        => 'Deletion successful.',
     'LBL_EMAIL_IE_SAVE'                     => 'Saving Mail Account Information',
     'LBL_EMAIL_IMPORTING_EMAIL'             => 'Importing Email',
-    'LBL_EMAIL_IMPORT_EMAIL'                => 'Import to Sugar',
+    'LBL_EMAIL_IMPORT_EMAIL'                => 'Import to ProTracker',
     'LBL_EMAIL_IMPORT_SETTINGS'                => 'Import Settings',
     'LBL_EMAIL_INVALID'                     => 'Invalid',
     'LBL_EMAIL_LIST_RENAME_TITLE'           => 'Rename Mailing List',
@@ -1749,13 +1749,13 @@ $app_strings = array (
     'LBL_EMAIL_MENU_RENAMING_FOLDER'        => 'Renaming Folder',
     'LBL_EMAIL_MENU_MAKE_SELECTION'         => 'Please make a selection before trying this operation.',
 
-    'LBL_EMAIL_MENU_HELP_ADD_FOLDER'        => 'Create a Folder (remote or in Sugar)',
-    'LBL_EMAIL_MENU_HELP_ARCHIVE'           => 'Archive these email(s) to SugarCRM',
+    'LBL_EMAIL_MENU_HELP_ADD_FOLDER'        => 'Create a Folder (remote or in ProTracker)',
+    'LBL_EMAIL_MENU_HELP_ARCHIVE'           => 'Archive these email(s) to ProTracker',
     'LBL_EMAIL_MENU_HELP_COMPOSE_TO_LIST'   => 'Email selected Mailing Lists',
     'LBL_EMAIL_MENU_HELP_CONTACT_COMPOSE'   => 'Email this Contact',
     'LBL_EMAIL_MENU_HELP_CONTACT_REMOVE'    => 'Remove a Contact',
     'LBL_EMAIL_MENU_HELP_DELETE'            => 'Delete these email(s)',
-    'LBL_EMAIL_MENU_HELP_DELETE_FOLDER'     => 'Delete a Folder (remote or in Sugar)',
+    'LBL_EMAIL_MENU_HELP_DELETE_FOLDER'     => 'Delete a Folder (remote or in ProTracker)',
     'LBL_EMAIL_MENU_HELP_EDIT_CONTACT'      => 'Edit a Contact',
     'LBL_EMAIL_MENU_HELP_EDIT_LIST'         => 'Edit a Mailing List',
     'LBL_EMAIL_MENU_HELP_EMPTY_TRASH'       => 'Empties all Trash folders for your mail accounts',
@@ -1764,7 +1764,7 @@ $app_strings = array (
     'LBL_EMAIL_MENU_HELP_MARK_UNFLAGGED'    => 'Mark these email(s) unflagged',
     'LBL_EMAIL_MENU_HELP_MARK_UNREAD'       => 'Mark these email(s) unread',
     'LBL_EMAIL_MENU_HELP_REMOVE_LIST'       => 'Removes Mailing Lists',
-    'LBL_EMAIL_MENU_HELP_RENAME_FOLDER'     => 'Rename a Folder (remote or in Sugar)',
+    'LBL_EMAIL_MENU_HELP_RENAME_FOLDER'     => 'Rename a Folder (remote or in ProTracker)',
     'LBL_EMAIL_MENU_HELP_REPLY'             => 'Reply to these email(s)',
     'LBL_EMAIL_MENU_HELP_REPLY_ALL'         => 'Reply to all recipients for these email(s)',
 
@@ -1898,11 +1898,11 @@ $app_strings = array (
   'LBL_SMTPTYPE_EXCHANGE'                 => 'Microsoft Exchange',
     'LBL_SMTPTYPE_OTHER'                  => 'Other',
     'LBL_EMAIL_SPACER_MAIL_SERVER'          => '[ Remote Folders ]',
-    'LBL_EMAIL_SPACER_LOCAL_FOLDER'         => '[ Sugar Folders ]',
+    'LBL_EMAIL_SPACER_LOCAL_FOLDER'         => '[ ProTracker Folders ]',
     'LBL_EMAIL_SUBJECT'                     => 'Subject',
     'LBL_EMAIL_TO'                        => 'To',
     'LBL_EMAIL_SUCCESS'                     => 'Success',
-    'LBL_EMAIL_SUGAR_FOLDER'                => 'SugarFolder',
+    'LBL_EMAIL_SUGAR_FOLDER'                => 'ProTrackerFolder',
     'LBL_EMAIL_TEAMS'                       => 'Assign to Teams',
     'LBL_EMAIL_TEMPLATE_EDIT_PLAIN_TEXT'    => 'Email template body is empty',
     'LBL_EMAIL_TEMPLATES'                   => 'Templates',
@@ -1988,7 +1988,7 @@ $app_strings = array (
     'ERR_NOTHING_SELECTED' =>'Please make a selection before proceeding.',
     'ERR_OPPORTUNITY_NAME_DUPE' => 'An opportunity with the name %s already exists.  Please enter another name below.',
     'ERR_OPPORTUNITY_NAME_MISSING' => 'An opportunity name was not entered.  Please enter an opportunity name below.',
-    'ERR_POTENTIAL_SEGFAULT' => 'A potential Apache segmentation fault was detected.  Please notify your system administrator to confirm this problem and have her/him report it to SugarCRM.',
+    'ERR_POTENTIAL_SEGFAULT' => 'A potential Apache segmentation fault was detected.  Please notify your system administrator to confirm this problem and have her/him report it to ProTracker.',
     'ERR_SELF_REPORTING' => 'User cannot report to him or herself.',
     'ERR_SINGLE_QUOTE'  => 'Using the single quote is not supported for this field.  Please change the value.',
     'ERR_SQS_NO_MATCH_FIELD' => 'No match for field: ',
@@ -1998,8 +1998,8 @@ $app_strings = array (
     'ERR_COMPATIBLE_PRECISION_VALUE' => 'Field value is not compatible with precision value',
     'ERR_EXTERNAL_API_SAVE_FAIL' => 'An error occurred when trying to save to the external account.',
     'ERR_EXTERNAL_API_UPLOAD_FAIL' => 'An error occurred while uploading.  Please ensure the file you are uploading is not empty.',
-    'ERR_NO_DB' => 'Could not connect to the database. Please refer to sugarcrm.log for details.',
-    'ERR_DB_FAIL' => 'Database failure. Please refer to sugarcrm.log for details.',
+    'ERR_NO_DB' => 'Could not connect to the database. Please refer to protracker.log for details.',
+    'ERR_DB_FAIL' => 'Database failure. Please refer to protracker.log for details.',
     'ERR_EXTERNAL_API_403' => 'Permission Denied. File type is not supported.',
 
     //Lotus Live specific error messages
@@ -2033,7 +2033,7 @@ $app_strings = array (
     'LBL_BILL_TO_CONTACT'=>'Bill to Contact',
     'LBL_BILLING_ADDRESS'=>'Billing Address',
     'LBL_QUICK_CREATE_TITLE' => 'Quick Create',
-    'LBL_BROWSER_TITLE' => 'SugarCRM - Commercial Open Source CRM',
+    'LBL_BROWSER_TITLE' => 'ProTracker - Client Relationship Management for Financial Practitioners',
     'LBL_BUGS'=>'Bugs',
     'LBL_BY' => 'by',
     'LBL_CALLS'=>'Calls',
@@ -2346,13 +2346,13 @@ $app_strings = array (
 
     /* The following version of LBL_SUGAR_COPYRIGHT is intended for Sugar Open Source only. */
 
-    'LBL_SUGAR_COPYRIGHT' => '&copy; 2004-2012 SugarCRM Inc. The Program is provided AS IS, without warranty.  Licensed under <a href="LICENSE.txt" target="_blank" class="copyRightLink">AGPLv3</a>.<br />SugarCRM is a trademark of SugarCRM, Inc. All other company and product names may be trademarks of the respective companies with which they are associated.',
+    'LBL_SUGAR_COPYRIGHT' => '&copy; 2012-2013 ProTracker Software, Inc. The Program is provided AS IS, without warranty. All other company and product names may be trademarks of the respective companies with which they are associated.',
 
 
 
     // The following version of LBL_SUGAR_COPYRIGHT is for Professional and Enterprise editions.
 
-    'LBL_SUGAR_COPYRIGHT_SUB' => '&copy; 2004-2012 <a href="http://www.sugarcrm.com" target="_blank" class="copyRightLink">SugarCRM Inc.</a> All Rights Reserved.<br />SugarCRM is a trademark of SugarCRM, Inc. All other company and product names may be trademarks of the respective companies with which they are associated.',
+    'LBL_SUGAR_COPYRIGHT_SUB' => '&copy; 2012-2013 <a href="http://www.protracker.com" target="_blank" class="copyRightLink">ProTracker Software, Inc.</a> All Rights Reserved.',
 
 
     'LBL_SYNC' => 'Sync',
@@ -2437,14 +2437,14 @@ $app_strings = array (
     'NTC_NO_ITEMS_DISPLAY' => 'none',
     'NTC_REMOVE_CONFIRMATION' => 'Are you sure you want to remove this relationship? Only the relationship will be removed. The record will not be deleted.',
     'NTC_REQUIRED' => 'Indicates required field',
-    'NTC_SUPPORT_SUGARCRM' => 'Support the SugarCRM open source project with a donation through PayPal - it\'s fast, free and secure!',
+    'NTC_SUPPORT_SUGARCRM' => '',
     'NTC_TIME_FORMAT' => '(24:00)',
     'NTC_WELCOME' => 'Welcome',
     'NTC_YEAR_FORMAT' => '(yyyy)',
-    'LOGIN_LOGO_ERROR'=> 'Please replace the SugarCRM logos.',
-    'ERROR_FULLY_EXPIRED'=> "Your company's license for SugarCRM has expired for more than 7 days and needs to be brought up to date. Only admins may login.",
-    'ERROR_LICENSE_EXPIRED'=> "Your company's license for SugarCRM needs to be updated. Only admins may login",
-    'ERROR_LICENSE_VALIDATION'=> "Your company's license for SugarCRM needs to be validated. Only admins may login",
+    'LOGIN_LOGO_ERROR'=> 'Please replace the ProTracker logos.',
+    'ERROR_FULLY_EXPIRED'=> "Your company's license for ProTracker has expired for more than 7 days and needs to be brought up to date. Only admins may login.",
+    'ERROR_LICENSE_EXPIRED'=> "Your company's license for ProTracker needs to be updated. Only admins may login",
+    'ERROR_LICENSE_VALIDATION'=> "Your company's license for ProTracker needs to be validated. Only admins may login",
   'WARN_LICENSE_SEATS'=>  "Warning: The number of active users is already the maximum number of licenses allowed.",
   'WARN_LICENSE_SEATS_MAXED'=>  "Warning: The number of active users exceeds the maximum number of licenses allowed.",
     'WARN_ONLY_ADMINS'=> "Only admins may log in.",
@@ -2546,16 +2546,16 @@ $app_strings = array (
 
     // MySugar status strings
     'LBL_CREATING_NEW_PAGE' => 'Creating New Page ...',
-    'LBL_NEW_PAGE_FEEDBACK' => 'You have created a new page. You may add new content with the Add Sugar Dashlets menu option.',
+    'LBL_NEW_PAGE_FEEDBACK' => 'You have created a new page. You may add new content with the Add Dashlets menu option.',
     'LBL_DELETE_PAGE_CONFIRM' => 'Are you sure you want to delete this page?',
     'LBL_SAVING_PAGE_TITLE' => 'Saving Page Title ...',
     'LBL_RETRIEVING_PAGE' => 'Retrieving Page ...',
-    'LBL_MAX_DASHLETS_REACHED' => 'You have reached the maximum number of Sugar Dashlets your adminstrator has set. Please remove a Sugar Dashlet to add more.',
-    'LBL_ADDING_DASHLET' => 'Adding Sugar Dashlet ...',
-    'LBL_ADDED_DASHLET' => 'Sugar Dashlet Added',
-    'LBL_REMOVE_DASHLET_CONFIRM' => 'Are you sure you want to remove the Sugar Dashlet?',
-    'LBL_REMOVING_DASHLET' => 'Removing Sugar Dashlet ...',
-    'LBL_REMOVED_DASHLET' => 'Sugar Dashlet Removed',
+    'LBL_MAX_DASHLETS_REACHED' => 'You have reached the maximum number of Dashlets your adminstrator has set. Please remove a Dashlet to add more.',
+    'LBL_ADDING_DASHLET' => 'Adding Dashlet ...',
+    'LBL_ADDED_DASHLET' => 'Dashlet Added',
+    'LBL_REMOVE_DASHLET_CONFIRM' => 'Are you sure you want to remove the Dashlet?',
+    'LBL_REMOVING_DASHLET' => 'Removing Dashlet ...',
+    'LBL_REMOVED_DASHLET' => 'Dashlet Removed',
 
     // MySugar Menu Options
     'LBL_ADD_PAGE' => 'Add Page',
@@ -2565,7 +2565,7 @@ $app_strings = array (
 
     'LBL_LOADING_PAGE' => 'Loading page, please wait...',
 
-    'LBL_RELOAD_PAGE' => 'Please <a href="javascript: window.location.reload()">reload the window</a> to use this Sugar Dashlet.',
+    'LBL_RELOAD_PAGE' => 'Please <a href="javascript: window.location.reload()">reload the window</a> to use this Dashlet.',
     'LBL_ADD_DASHLETS' => 'Add Dashlets',
     'LBL_CLOSE_DASHLETS' => 'Close',
     'LBL_OPTIONS' => 'Options',
@@ -2643,14 +2643,14 @@ $app_strings = array (
     'LBL_TWITTER_DATA_LOADING' => 'Loading Twitter Connector...',
     'LBL_TWITTER_DATA_EMPTY' => 'No data availlable from Twitter',
 
-    'LBL_PLUGIN_OUTLOOK_NAME' => 'Sugar Plug-in for Outlook',
-    'LBL_PLUGIN_OUTLOOK_DESC' => 'Integrate Sugar e-mail and calendar information with Microsoft Outlook.',
-    'LBL_PLUGIN_WORD_NAME' => 'Sugar Plug-in for Word',
-    'LBL_PLUGIN_WORD_DESC' => 'Automatically populate information from SugarCRM into form letters, direct mail and other Microsoft documents.',
-    'LBL_PLUGIN_EXCEL_NAME' => 'Sugar Plug-in for Excel',
-    'LBL_PLUGIN_EXCEL_DESC' => 'Integrate Sugar with spreadsheets for better analysis of key metrics.',
-    'LBL_PLUGINS_TITLE' => 'Sugar Plug-ins for Microsoft Office<sup>TM</sup>',
-    'LBL_PLUGINS_DESC' => 'Read about the plug-in features within the <a href="https://www.sugarcrm.com/crm/support/documentation/SugarPlugIns">Plug-ins Documentation</a>.',
+    'LBL_PLUGIN_OUTLOOK_NAME' => 'ProTracker Plug-in for Outlook',
+    'LBL_PLUGIN_OUTLOOK_DESC' => 'Integrate ProTracker e-mail and calendar information with Microsoft Outlook.',
+    'LBL_PLUGIN_WORD_NAME' => 'ProTracker Plug-in for Word',
+    'LBL_PLUGIN_WORD_DESC' => 'Automatically populate information from ProTracker into form letters, direct mail and other Microsoft documents.',
+    'LBL_PLUGIN_EXCEL_NAME' => 'ProTracker Plug-in for Excel',
+    'LBL_PLUGIN_EXCEL_DESC' => 'Integrate ProTracker with spreadsheets for better analysis of key metrics.',
+    'LBL_PLUGINS_TITLE' => 'ProTracker Plug-ins for Microsoft Office<sup>TM</sup>',
+    'LBL_PLUGINS_DESC' => 'Read about the plug-in features within the <a href="https://www.protrackerweb.com/crm/support/documentation/SugarPlugIns">Plug-ins Documentation</a>.',
 
 
 
@@ -2661,8 +2661,8 @@ $app_strings = array (
   'MSG_SHOULD_BE' => 'should be',
   'MSG_OR_GREATER' => 'or greater',
 
-    'LBL_PORTAL_WELCOME_TITLE' => 'Welcome to Sugar Portal 5.1.0',
-    'LBL_PORTAL_WELCOME_INFO' => 'Sugar Portal is a framework which provides real-time view of cases, bugs & newsletters etc to customers. This is an external facing interface to Sugar that can be deployed within any website.  Stay tuned for more customer self service features like Project Management and Forums in our future releases.',
+    'LBL_PORTAL_WELCOME_TITLE' => 'Welcome to ProTracker Portal 5.1.0',
+    'LBL_PORTAL_WELCOME_INFO' => 'ProTracker Portal is a framework which provides real-time view of cases, bugs & newsletters etc to customers. This is an external facing interface to ProTracker that can be deployed within any website.  Stay tuned for more customer self service features like Project Management and Forums in our future releases.',
     'LBL_LIST' => 'List',
     'LBL_CREATE_CASE' => 'Create Case',
     'LBL_CREATE_BUG' => 'Create Bug',
@@ -3602,7 +3602,7 @@ $app_list_strings['kbdocument_status_dom'] = array (
 
   $app_list_strings['moduleList']['Sugar_Favorites'] = 'Favorites';
   $app_list_strings['eapm_list']= array(
-    'Sugar'=>'Sugar',
+    'Sugar'=>'ProTracker',
     'WebEx'=>'WebEx',
     'GoToMeeting'=>'GoToMeeting',
     'LotusLive'=>'LotusLive',

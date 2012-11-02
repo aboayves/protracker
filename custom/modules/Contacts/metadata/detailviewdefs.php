@@ -416,9 +416,34 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-          1 => 'team_name',
+          1 => 
+          array (
+            'name' => 'do_not_email',
+            'comment' => '',
+            'label' => 'LBL_DO_NOT_EMAIL',
+          ),
         ),
         3 => 
+        array (
+          0 => 'team_name',
+          1 => 
+          array (
+            'name' => 'do_not_mail',
+            'comment' => '',
+            'label' => 'LBL_DO_NOT_MAIL',
+          ),
+        ),
+        4 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        6 => 
         array (
           0 => 
           array (

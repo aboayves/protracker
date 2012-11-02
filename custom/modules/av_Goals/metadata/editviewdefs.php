@@ -20,6 +20,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -34,20 +36,75 @@ array (
         array (
           0 => 
           array (
+            'name' => 'target_date',
+            'comment' => '',
+            'label' => 'LBL_TARGET_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'amount',
+            'comment' => '',
+            'label' => 'LBL_AMOUNT',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'progress',
+            'comment' => '',
+            'label' => 'LBL_PROGRESS',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+          1 => 
+          array (
+            'name' => 'modified_by_name',
+            'label' => 'LBL_MODIFIED_NAME',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
             'name' => 'team_name',
             'displayParams' => 
             array (
               'display' => true,
             ),
           ),
-        ),
-        2 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_goals_1_name',
-          ),
+          1 => '',
         ),
       ),
     ),

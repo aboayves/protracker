@@ -146,6 +146,7 @@ array (
           1 => 
           array (
             'name' => 'av_tax_returns_contacts_1_name',
+            'label' => 'LBL_AV_TAX_RETURNS_CONTACTS_1_FROM_AV_TAX_RETURNS_TITLE',
           ),
         ),
       ),
@@ -179,6 +180,10 @@ array (
           array (
             'name' => 'work_address_street',
             'comment' => '',
+            'displayParams' => 
+            array (
+              'key' => 'work',
+            ),
             'label' => 'LBL_WORK_ADDRESS_STREET',
           ),
         ),
@@ -204,6 +209,7 @@ array (
             'name' => 'alt_address_street',
             'hideLabel' => true,
             'type' => 'address',
+            'label' => 'LBL_ALT_ADDRESS',
             'displayParams' => 
             array (
               'key' => 'alt',
@@ -217,6 +223,7 @@ array (
           array (
             'name' => 'other_address_street',
             'comment' => 'Street address for other address',
+            'hideLabel' => true,
             'displayParams' => 
             array (
               'key' => 'other',
@@ -407,9 +414,34 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-          1 => 'team_name',
+          1 => 
+          array (
+            'name' => 'do_not_email',
+            'comment' => '',
+            'label' => 'LBL_DO_NOT_EMAIL',
+          ),
         ),
         3 => 
+        array (
+          0 => 'team_name',
+          1 => 
+          array (
+            'name' => 'do_not_mail',
+            'comment' => '',
+            'label' => 'LBL_DO_NOT_MAIL',
+          ),
+        ),
+        4 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        6 => 
         array (
           0 => 'campaign_name',
         ),

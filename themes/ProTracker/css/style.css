@@ -38,7 +38,7 @@
 body 
 { 
 	margin: 0px;
-	font-family: Tahoma, Arial, Verdana, Helvetica, sans-serif;
+	font-family: Georgia, Arial, Verdana, Helvetica, sans-serif;
 	
 }
 
@@ -7322,5 +7322,3 @@ div.hoverscroll div.fixed-arrow.bottom {
 	bottom:0px;
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=arrow-down-small.png');
 }
-
-

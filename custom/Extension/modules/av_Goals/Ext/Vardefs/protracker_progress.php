@@ -2,7 +2,7 @@
 $dictionary["av_Goals"]["fields"]["progress"] = array (
 	'name' => 'progress',
 	'vname' => 'LBL_PROGRESS',
-	'type' => 'currency',
+	'type' => 'integer',
 	'len' => '26',
 	'size' => '20',
 	'audited' => '0',
