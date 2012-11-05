@@ -24,7 +24,7 @@ class av_WorkflowController extends SugarController {
 		}
 	}
 	
-	function setTaskDates($tasks_templates, &$dates, &$daysOut, $reversed, $startStamp, $dayKeyword, $top = false){
+	function setTaskDates($tasks_templates, &$dates, &$daysOut, $reversed, $startStamp, $dayKeyword){
 		global $timedate;
 		
 		$minStamp = $startStamp;
@@ -37,9 +37,7 @@ class av_WorkflowController extends SugarController {
 			$tmpStamp = $startStamp;
 			
 			if(!$reversed){
-				if(!$top){
-					$tmpStamp = strtotime("+" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStamp);
-				}
+				$tmpStamp = strtotime("+" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStamp);
 			}
 			
 			//Calling recursively for childrens
@@ -193,7 +191,7 @@ class av_WorkflowController extends SugarController {
 					$startStamp = strtotime("now");
 				}
 				
-				$this->setTaskDates($tasks_templates['children'], $dates, $daysOut, $reversed, $startStamp, $dayKeyword, true);
+				$this->setTaskDates($tasks_templates['children'], $dates, $daysOut, $reversed, $startStamp, $dayKeyword);
 			}
 			
 			//=============================== Creating records ==========================================
@@ -463,7 +461,7 @@ class av_WorkflowController extends SugarController {
 			$reversed = (isset($_REQUEST['workflow_counts_down_to_target_date']) && !empty($_REQUEST['workflow_counts_down_to_target_date']));
 			$dayKeyword = (isset($_REQUEST['skip_weekends_holidays']) && !empty($_REQUEST['skip_weekends_holidays'])) ? "weekdays" : "days";
 			
-			$this->setTaskDates($treeData['children'], $dates, $daysOut, $reversed, $startStamp, $dayKeyword, true);
+			$this->setTaskDates($treeData['children'], $dates, $daysOut, $reversed, $startStamp, $dayKeyword);
 			$this->filterTasks($treeData['children'], $allowedIds, $dates);
 		}
 		
