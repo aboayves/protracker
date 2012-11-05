@@ -107,7 +107,7 @@ array (
 			array(
 				'name' => 'tree',
 				'hideLabel' => true,
-				'customCode' => '<div class="detail view  detail508"><input type="button" class="button" value="Preview Task Tree" onclick="treeHelper.loadData();" />&nbsp;&nbsp;<input type="button" id="reset" value="Reset" onclick="resetUser()"/><div id="tree_plotting_div"></div></div>'  
+				'customCode' => '<div class="detail"><input type="button" class="button" value="Preview Task Tree" onclick="treeHelper.loadData();" />&nbsp;&nbsp;<input type="button" id="reset" value="Reset" onclick="resetUser()"/><div id="tree_plotting_div"></div></div>'  
 			),
 		),    
 	  ),
