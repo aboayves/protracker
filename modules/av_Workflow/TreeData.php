@@ -82,8 +82,28 @@ class TreeData{
 			
 				$node = array();
 				$node['id'] = $row['id'];
-				$node['html'] = "<table>".
-									"<tr>".
+				$node['html'] = "<table>";
+				
+				if(count($added_nodes) == 2){
+					$node['html'] .= "<tr style='color:#000'>".
+										 "<th id='name' title='Name'>Name</th>".
+										 "<th width='200px' title='Subject'>Subject</th>".
+										 "<th width='150px' title='Category'>Category</th>".
+										 "<th width='130px' title='Assign To'>Assign To</th>";
+					if(empty($users)){
+						$node['html'] .= "<th width='80px' title='Days Out'>Days Out</th>";
+					}else{
+						$node['html'] .= "<th width='80px' title='Due Date'>Due Date</th>";
+					}
+				
+					if(empty($users)){
+						$node['html'] .= "<th width='25px' colspan='2'>&nbsp;</th>";
+					}
+				
+					$node['html'] .= "</tr>";
+				}
+				
+				$node['html'] .=	"<tr>".
 										"<td id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
 										"<td width='200px' title='Subject'>{$row['subject']}</td>".
 										"<td width='150px' title='Category'>{$row['task_category']}</td>".
