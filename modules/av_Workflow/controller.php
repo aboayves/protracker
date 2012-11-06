@@ -42,11 +42,11 @@ class av_WorkflowController extends SugarController {
 			
 			//Calling recursively for childrens
 			if(isset($tasks_template['children']) && !empty($tasks_template['children'])){
-				$tmpStampRev = $this->setTaskDates($tasks_template['children'], $dates, $daysOut, $reversed, $tmpStamp, $dayKeyword);
-				
-				if($reversed){
-					$tmpStamp = strtotime("-" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStampRev);
-				}
+				$tmpStamp = $this->setTaskDates($tasks_template['children'], $dates, $daysOut, $reversed, $tmpStamp, $dayKeyword);
+			}
+			
+			if($reversed){
+				$tmpStamp = strtotime("-" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStamp);
 			}
 			
 			//if start date is less then today
