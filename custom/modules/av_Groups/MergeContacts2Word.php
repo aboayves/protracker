@@ -51,10 +51,10 @@ while($member = $db->fetchByAssoc($members))
 					$row.=$field_name_map[$field_name]['vname'];
 				else
 					$row.=$field_name;
-				$row.=', ';
+				$row.=',';
 			}
 		}
-		$rows[] = rtrim($row, ' ,');
+		$rows[] = rtrim($row, ',');
 		$row = '';
 		$put_names=false;
 	}
@@ -63,10 +63,10 @@ while($member = $db->fetchByAssoc($members))
 	{
 		if(!in_array($field_name, $skip_fields))
 		{
-			$row.=$field.', ';
+			$row.=$field.',';
 		}
 	}
-	$rows[] = rtrim($row, ', ');
+	$rows[] = rtrim($row, ',');
 }
 if(count($rows))
 {

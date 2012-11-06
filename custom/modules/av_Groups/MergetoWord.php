@@ -4,7 +4,7 @@ global $db;
 header("Content-type:text/octect-stream");
 header("Content-Disposition:attachment;filename=\"{$_REQUEST['name']}.csv\"");
 
-echo "Name, Street, City, State, Zip, Phone, Fax, Contact Type, Status, Priority, Office\n";
+echo "Name,Street,City,State,Zip,Phone,Fax,Contact Type,Status,Priority,Office\n";
 
 $sql="
 SELECT 
@@ -106,11 +106,11 @@ while($member = $db->fetchByAssoc($members))
 
 	if($member['parent_type']=="Accounts")
 	{
-	echo $member['name'].", ".$member['billing_address_street'].", ".$member['billing_address_city'].", ".$member['billing_address_state'].", ".$member['billing_address_postalcode'].", ".$member['phone_office'].", ".$member['phone_fax'].", ".$member['account_type'].", ".$member['client_status'].", ".$member['client_priority'].", ".$member['office_name']."\n";
+	echo $member['name'].",".$member['billing_address_street'].",".$member['billing_address_city'].",".$member['billing_address_state'].",".$member['billing_address_postalcode'].",".$member['phone_office'].",".$member['phone_fax'].",".$member['account_type'].",".$member['client_status'].",".$member['client_priority'].",".$member['office_name']."\n";
 	}
 	elseif($member['parent_type']=="Contacts")
 	{
-		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].", ".$member['primary_address_street'].", ".$member['primary_address_city'].", ".$member['primary_address_state'].", ".$member['primary_address_postalcode'].", ".$member['phone_home'].", ".$member['phone_fax'].", ".$member['type'].", ".$member['contact_status'].", ".$member['contact_priority'].", ".$member['office_name']."\n";
+		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].",".$member['primary_address_street'].",".$member['primary_address_city'].",".$member['primary_address_state'].",".$member['primary_address_postalcode'].",".$member['phone_home'].",".$member['phone_fax'].",".$member['type'].",".$member['contact_status'].",".$member['contact_priority'].",".$member['office_name']."\n";
 	}
 }
 

@@ -4,7 +4,7 @@ global $db;
 header("Content-type:text/octect-stream");
 header("Content-Disposition:attachment;filename=\"{$_REQUEST['name']}-mailing list.csv\"");
 
-echo "Name, Envelope Name, Street, City, State, Country, Zip, Phone, Fax, Contact Type, Status, Priority, Company\n";
+echo "Name,Envelope Name,Street,City,State,Country,Zip,Phone,Fax,Contact Type,Status,Priority,Company\n";
 
 $sql="
 SELECT 
@@ -105,11 +105,11 @@ while($member = $db->fetchByAssoc($members))
 
 	if($member['parent_type']=="Accounts")
 	{
-	echo $member['name'].", ".$member['envelope'].", ".$member['billing_address_street'].", ".$member['billing_address_city'].", ".$member['billing_address_state'].", ".$member['billing_address_country'].", "."'".$member['billing_address_postalcode'].", ".$member['phone_office'].", ".$member['accounts_fax'].", ".$member['account_type'].", ".$member['client_status'].", ".$member['client_priority'].", ".$member['company_name']."\n";
+	echo $member['name'].",".$member['envelope'].",".$member['billing_address_street'].",".$member['billing_address_city'].",".$member['billing_address_state'].",".$member['billing_address_country'].","."'".$member['billing_address_postalcode'].",".$member['phone_office'].",".$member['accounts_fax'].",".$member['account_type'].",".$member['client_status'].",".$member['client_priority'].",".$member['company_name']."\n";
 	}
 	else
 	{
-		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].", ".$member['envelope'].", ".$member['primary_address_street'].", ".$member['primary_address_city'].", ".$member['primary_address_state'].", ".$member['primary_address_country'].", "."'".$member['primary_address_postalcode'].", ".$member['phone_home'].", ".$member['contacts_fax'].", ".$member['type'].", ".$member['contact_status'].", ".$member['contact_priority'].", ".$member['company_name']."\n";
+		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].",".$member['envelope'].",".$member['primary_address_street'].",".$member['primary_address_city'].",".$member['primary_address_state'].",".$member['primary_address_country'].","."'".$member['primary_address_postalcode'].",".$member['phone_home'].",".$member['contacts_fax'].",".$member['type'].",".$member['contact_status'].",".$member['contact_priority'].",".$member['company_name']."\n";
 	}
 }
 
