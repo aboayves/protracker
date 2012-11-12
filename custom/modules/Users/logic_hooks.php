@@ -6,7 +6,8 @@ $hook_array = Array();
 // position, file, function 
 $hook_array['after_login'] = Array(); 
 $hook_array['after_login'][] = Array(1, 'SugarFeed old feed entry remover', 'modules/SugarFeed/SugarFeedFlush.php','SugarFeedFlush', 'flushStaleEntries'); 
-
-
+$hook_array['after_save'][] = Array(1, 'singleSignOnHook', 'custom/modules/Users/singleSignOnHook.php','singleSignOnHook', 'delete_or_deactivate'); 
+$hook_array['before_save'] = Array();
+$hook_array['before_save'][] = Array(1, 'singleSignOnHook', 'custom/modules/Users/singleSignOnHook.php','singleSignOnHook', 'create_or_activate'); 
 
 ?>
