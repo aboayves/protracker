@@ -31,13 +31,13 @@ class av_WorkflowController extends SugarController {
 		
 		foreach($tasks_templates as $tasks_template){
 			if(!isset($daysOut[$tasks_template['id']]) || empty($daysOut[$tasks_template['id']])){
-				$daysOut[$tasks_template['id']] = 0;
+				$daysOut[$tasks_template['id']] = '0';
 			}
 			
 			$tmpStamp = $startStamp;
 			
-			if(!$reversed){
-				$tmpStamp = strtotime("+" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStamp);
+			if(!$reversed && intval($daysOut[$tasks_template['id']]) > 0){
+				$tmpStamp = strtotime("+" . intval($daysOut[$tasks_template['id']]) . " " . $dayKeyword, $tmpStamp);
 			}
 			
 			//Calling recursively for childrens
@@ -46,13 +46,17 @@ class av_WorkflowController extends SugarController {
 				$tmpStampRev = $this->setTaskDates($tasks_template['children'], $dates, $daysOut, $reversed, $tmpStamp, $dayKeyword);
 			}
 			
-			if($reversed){
-				$tmpStamp = strtotime("-" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStampRev);
+			if($reversed && intval($daysOut[$tasks_template['id']]) > 0){
+				$tmpStamp = strtotime("-" . intval($daysOut[$tasks_template['id']]) . " " . $dayKeyword, $tmpStampRev);
 			}
 			
 			//if start date is less then today
 			if($tmpStamp < strtotime("now")){
 				$tmpStamp = strtotime("now");
+			}
+			
+			if(date('N', $tmpStamp) > 5){
+				$tmpStamp = strtotime("last friday", $tmpStamp);
 			}
 			
 			$time = $timedate->split_date_time($timedate->now());
