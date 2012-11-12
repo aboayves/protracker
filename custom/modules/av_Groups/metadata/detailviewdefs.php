@@ -62,6 +62,10 @@ array (
 		  array(
 		  	'customCode' => '<input title="Merge Clients to Word" type="button" name="MergeClients2Word" id="MergeClients2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergeClients2Word&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge Clients to Word">',
 		  ),
+		  17 => 
+		  array(
+		  	'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=av_Groups&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">'
+		  ),
 		),
       ),
       'maxColumns' => '2',

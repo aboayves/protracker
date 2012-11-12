@@ -83,6 +83,12 @@ class av_WorkflowController extends SugarController {
 			$this->bean->workflow_id = $this->bean->id;
 			$this->bean->workflow = $this->bean->name;
 		}
+		
+		if(isset($_REQUEST['populate_parent']) && $_REQUEST['populate_parent'] == 'true'){
+			$this->bean->parent_type = $_REQUEST['populate_parent_type'];
+			$this->bean->related_to = $_REQUEST['populate_parent_name'];
+			$this->bean->parent_id = $_REQUEST['populate_parent_id'];
+		}
 			
 		if(isset($_REQUEST['parent_id']) && !empty($_REQUEST['parent_id'])){
 			$ids = array();
