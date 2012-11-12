@@ -31,27 +31,32 @@ class av_WorkflowController extends SugarController {
 		
 		foreach($tasks_templates as $tasks_template){
 			if(!isset($daysOut[$tasks_template['id']]) || empty($daysOut[$tasks_template['id']])){
-				$daysOut[$tasks_template['id']] = 0;
+				$daysOut[$tasks_template['id']] = '0';
 			}
 			
 			$tmpStamp = $startStamp;
 			
-			if(!$reversed){
-				$tmpStamp = strtotime("+" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStamp);
+			if(!$reversed && intval($daysOut[$tasks_template['id']]) > 0){
+				$tmpStamp = strtotime("+" . intval($daysOut[$tasks_template['id']]) . " " . $dayKeyword, $tmpStamp);
 			}
 			
 			//Calling recursively for childrens
+			$tmpStampRev = $tmpStamp;
 			if(isset($tasks_template['children']) && !empty($tasks_template['children'])){
 				$tmpStampRev = $this->setTaskDates($tasks_template['children'], $dates, $daysOut, $reversed, $tmpStamp, $dayKeyword);
-				
-				if($reversed){
-					$tmpStamp = strtotime("-" . $daysOut[$tasks_template['id']] . " " . $dayKeyword, $tmpStampRev);
-				}
+			}
+			
+			if($reversed && intval($daysOut[$tasks_template['id']]) > 0){
+				$tmpStamp = strtotime("-" . intval($daysOut[$tasks_template['id']]) . " " . $dayKeyword, $tmpStampRev);
 			}
 			
 			//if start date is less then today
 			if($tmpStamp < strtotime("now")){
 				$tmpStamp = strtotime("now");
+			}
+			
+			if(date('N', $tmpStamp) > 5){
+				$tmpStamp = strtotime("last friday", $tmpStamp);
 			}
 			
 			$time = $timedate->split_date_time($timedate->now());
@@ -77,6 +82,12 @@ class av_WorkflowController extends SugarController {
 		}else{
 			$this->bean->workflow_id = $this->bean->id;
 			$this->bean->workflow = $this->bean->name;
+		}
+		
+		if(isset($_REQUEST['populate_parent']) && $_REQUEST['populate_parent'] == 'true'){
+			$this->bean->parent_type = $_REQUEST['populate_parent_type'];
+			$this->bean->related_to = $_REQUEST['populate_parent_name'];
+			$this->bean->parent_id = $_REQUEST['populate_parent_id'];
 		}
 			
 		if(isset($_REQUEST['parent_id']) && !empty($_REQUEST['parent_id'])){

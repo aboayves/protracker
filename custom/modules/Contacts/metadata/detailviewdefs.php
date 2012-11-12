@@ -21,6 +21,10 @@ array (
           array (
             'customCode' => '<input title="{$MOD.LBL_NAME}" accessKey="{$MOD.LBL_NAME}" class="button" onclick="this.form.return_module.value=\'Contacts\'; this.form.return_action.value=\'DetailView\';this.form.action.value=\'Export\'; this.form.return_id.value=\'{$fields.id.value}\'" type="submit" name="button" value="Export">',
           ),
+		  6 => 
+		  array(
+		  	'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=Contacts&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">'
+		  ),
         ),
       ),
       'maxColumns' => '2',
