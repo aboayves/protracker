@@ -129,7 +129,7 @@ function build_child_tree($id, $added_nodes = array()) {
 				"id, name, status, category, parent_tasks_id, assigned_user_id, date_due, ".
 				"IF(date_due IS NOT NULL AND TRIM(date_due) != '' AND date_due != '0000-00-00 00:00:00' AND date_due < now() AND status != 'Completed', 1, 0) as over_due, ".
 				"IF(date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY) OR date_due >= DATE_ADD(NOW(), INTERVAL 90 DAY), 1, 0) as old_task ".
-			"FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0";
+			"FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0 ORDER BY date_due ASC";
     $result = $db->query($sql);
 
 	$childs_array = array();
