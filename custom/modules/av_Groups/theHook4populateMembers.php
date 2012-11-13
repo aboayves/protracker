@@ -28,10 +28,15 @@
 				}elseif($bean->delivery_method_av_group == 'phone_alternate'){
 					$destination_address = $account->phone_mobile;
 				}
+				elseif($bean->delivery_method_av_group == 'Home Email' || $bean->delivery_method_av_group == 'Work Email' || $bean->delivery_method_av_group == 'Primary Email'){
+					$opt_out_flag = $account->email_opt_out;
+				}
 				
 				$name = $account->name;
 				$envelope = $account->envelope;
-				$opt_out_flag = $account->email_opt_out;
+				if($opt_out_flag){
+					$include='0';
+				}
 				
 			}elseif($arguments['related_module'] == 'Contacts'){
 				$contactBean = BeanFactory::getBean('Contacts', $arguments['related_id']);
@@ -56,14 +61,8 @@
 					$destination_address = $contactBean->phone_mobile;
 				}elseif($bean->delivery_method_av_group == 'Fax'){
 					$opt_out_flag = $contactBean->do_not_call;
-				}elseif($bean->delivery_method_av_group == 'Home Email'){
-					$opt_out_flag = $contactBean->do_not_email;
-					$destination_address = $contactBean->aux_mail;
-				}elseif($bean->delivery_method_av_group == 'Work Email'){
-					$opt_out_flag= $contactBean->do_not_email;
-					$destination_address = $contactBean->aux_email;
-				}elseif($bean->delivery_method_av_group == 'Primary Email'){
-					$opt_out_flag=$contactBean->do_not_email;
+				}elseif($bean->delivery_method_av_group == 'Home Email' || $bean->delivery_method_av_group == 'Work Email' || $bean->delivery_method_av_group == 'Primary Email'){
+					$opt_out_flag = $contactBean->email_opt_out;
 					$destination_address = $contactBean->aux_email;
 				}
 				$name = $contactBean->salutation." ".$contactBean->first_name." ".$contactBean->last_name;

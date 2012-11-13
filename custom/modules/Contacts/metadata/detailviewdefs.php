@@ -420,12 +420,6 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'do_not_email',
-            'comment' => '',
-            'label' => 'LBL_DO_NOT_EMAIL',
-          ),
         ),
         3 => 
         array (
