@@ -7,6 +7,6 @@ $sugar_config['default_theme'] = 'ProTracker';
 $sugar_config['disabled_themes'] = '';
 $sugar_config['developerMode'] = true;
 $sugar_config['instanceKey'] = '5782';
-$sugar_config['restServerURL'] = 'http://localhost/restserver/index.php/users';
+$sugar_config['restServerURL'] = 'http://localhost/restserver/restserver/index.php';
 $sugar_config['passwordsetting']['SystemGeneratedPasswordON'] = '0';
 /***CONFIGURATOR***/

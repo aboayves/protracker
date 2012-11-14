@@ -10,7 +10,7 @@ class singleSignOnHook {
 		);
 		$api = new RestClient();
 		if($_REQUEST['action'] == 'delete' || $bean->status == 'Inactive'){
-			$result = $api->delete($sugar_config['restServerURL']."/".$bean->user_name, $parameters);
+			$result = $api->delete($sugar_config['restServerURL']."/users/".$bean->user_name, $parameters);
 		}
 	}
 	function create_or_activate($bean){
@@ -22,14 +22,14 @@ class singleSignOnHook {
 		);
 		$api = new RestClient();
 		if(empty($bean->id) || ($bean->status!=$bean->fetched_row['status'] && $bean->status=='Active')){
-			$response = $api->get($sugar_config['restServerURL']."/".$bean->user_name);
-			
+			$response = $api->get($sugar_config['restServerURL']."/users/".$bean->user_name);
 			if($api->httpCode == '200'){
 				SugarApplication::appendErrorMessage('The user name already exists');
-				$bean->deleted=0;
+				$bean->deleted=1;
+				SugarApplication::redirect("index.php?module=Users&action=EditView");
 			}
 			else if($api->httpCode == '404'){
-				$result = $api->post($sugar_config['restServerURL'], $parameters);
+				$result = $api->post($sugar_config['restServerURL']."/users", $parameters);
 			}
 		}
 	}
