@@ -20,10 +20,10 @@ array (
 <input type=\'hidden\' value=\'false\' name=\'to_pdf\'>
 <input onclick="this.form.to_pdf.value=\'true\';this.form.action.value=\'CsvExport\';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value=\'false\';" type=\'button\' name=\'csv_export\' value=\'Export to CSV\' />',
           ),
-		  5 => 
-		  array(
-		  	'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=Accounts&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">'
-		  ),
+          5 => 
+          array (
+            'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=Accounts&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">',
+          ),
         ),
       ),
       'maxColumns' => '2',
@@ -84,7 +84,7 @@ array (
             'comment' => 'The Company is of this type',
             'label' => 'LBL_TYPE',
           ),
-		  1 => 'assigned_user_name',
+          1 => 'assigned_user_name',
         ),
         2 => 
         array (
@@ -115,7 +115,7 @@ array (
             'label' => 'LBL_CLIENT_SINCE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -125,7 +125,7 @@ array (
           ),
           1 => 'envelope',
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -140,7 +140,7 @@ array (
             'label' => 'LBL_MANAGED_ASSETS',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -148,7 +148,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -163,7 +163,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
