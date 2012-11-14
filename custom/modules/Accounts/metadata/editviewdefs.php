@@ -58,7 +58,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'preferred_comm',
+            'name' => 'preferred_comm_c',
             'studio' => 'visible',
             'label' => 'LBL_PREFERRED_COMM',
           ),
@@ -66,7 +66,7 @@ array (
         1 => 
         array (
           0 => 'account_type',
-		  1 => 'assigned_user_name',
+          1 => 'assigned_user_name',
         ),
         2 => 
         array (
@@ -97,7 +97,7 @@ array (
             'label' => 'LBL_CLIENT_SINCE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -106,7 +106,7 @@ array (
           ),
           1 => 'envelope',
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -122,7 +122,7 @@ array (
             'type' => 'readonly',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -137,7 +137,7 @@ array (
             ),
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -152,7 +152,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
