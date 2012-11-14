@@ -58,7 +58,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'preferred_comm',
+            'name' => 'preferred_comm_c',
             'studio' => 'visible',
             'label' => 'LBL_PREFERRED_COMM',
           ),
