@@ -1,21 +1,13 @@
 <?php
-// created: 2012-05-21 21:14:37
+// created: 2012-11-07 21:25:08
 $unified_search_modules_display = array (
   'Accounts' => 
   array (
     'visible' => true,
   ),
-  'Bugs' => 
-  array (
-    'visible' => false,
-  ),
   'Calls' => 
   array (
     'visible' => true,
-  ),
-  'Campaigns' => 
-  array (
-    'visible' => false,
   ),
   'Cases' => 
   array (
@@ -25,17 +17,9 @@ $unified_search_modules_display = array (
   array (
     'visible' => true,
   ),
-  'Contracts' => 
-  array (
-    'visible' => false,
-  ),
   'Documents' => 
   array (
     'visible' => true,
-  ),
-  'KBDocuments' => 
-  array (
-    'visible' => false,
   ),
   'Leads' => 
   array (
@@ -52,6 +36,26 @@ $unified_search_modules_display = array (
   'Opportunities' => 
   array (
     'visible' => true,
+  ),
+  'Tasks' => 
+  array (
+    'visible' => true,
+  ),
+  'Bugs' => 
+  array (
+    'visible' => false,
+  ),
+  'Campaigns' => 
+  array (
+    'visible' => false,
+  ),
+  'Contracts' => 
+  array (
+    'visible' => false,
+  ),
+  'KBDocuments' => 
+  array (
+    'visible' => false,
   ),
   'Project' => 
   array (
@@ -70,10 +74,6 @@ $unified_search_modules_display = array (
     'visible' => false,
   ),
   'Quotes' => 
-  array (
-    'visible' => false,
-  ),
-  'Tasks' => 
   array (
     'visible' => false,
   ),

@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -38,13 +40,31 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'accounts_av_office_gifts_1_name',
+          ),
         ),
         1 => 
         array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'gift_date',
+            'comment' => '',
+            'label' => 'LBL_GIFT_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'value',
+            'comment' => '',
+            'label' => 'LBL_VALUE',
+          ),
         ),
         2 => 
+        array (
+          0 => 'description',
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -59,19 +79,11 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'contacts_av_office_gifts_1_name',
-          ),
-        ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'accounts_av_office_gifts_1_name',
+            'name' => 'av_offices_av_office_gifts_1_name',
           ),
         ),
       ),

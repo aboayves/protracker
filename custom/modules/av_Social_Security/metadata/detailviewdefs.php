@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -37,14 +39,123 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'accounts_av_social_security_1_name',
+          ),
+          1 => '',
         ),
         1 => 
         array (
-          0 => 'team_name',
+          0 => 'name',
+          1 => 'assigned_user_name',
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'year_of_estimate',
+            'comment' => '',
+            'label' => 'LBL_YEAR_OF_ESTIMATE',
+          ),
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'retirement_at_age_62',
+            'comment' => '',
+            'label' => 'LBL_RETIREMENT_AT_AGE_62',
+          ),
+          1 => 
+          array (
+            'name' => 'disability',
+            'comment' => '',
+            'label' => 'LBL_DISABILITY',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'retirement_at_age_67',
+            'comment' => '',
+            'label' => 'LBL_RETIREMENT_AT_AGE_67',
+          ),
+          1 => 
+          array (
+            'name' => 'child',
+            'comment' => '',
+            'label' => 'LBL_CHILD',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'retirement_at_age_70',
+            'comment' => '',
+            'label' => 'LBL_RETIREMENT_AT_AGE_70',
+          ),
+          1 => 
+          array (
+            'name' => 'spouse',
+            'comment' => '',
+            'label' => 'LBL_SPOUSE',
+          ),
+        ),
+        7 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'retired_spouse',
+            'comment' => '',
+            'label' => 'LBL_RETIRED_SPOUSE',
+          ),
+          1 => 
+          array (
+            'name' => 'taxed_social_security_earnings',
+            'comment' => '',
+            'label' => 'LBL_TAXED_SOCIAL_SECURITY_EARNINGS',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'family',
+            'comment' => '',
+            'label' => 'LBL_FAMILY',
+          ),
+          1 => 
+          array (
+            'name' => 'taxed_medicare_earnings',
+            'comment' => '',
+            'label' => 'LBL_TAXED_MEDICARE_EARNINGS',
+          ),
+        ),
+        10 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        11 => 
+        array (
+          0 => 'description',
+          1 => '',
+        ),
+        12 => 
         array (
           0 => 
           array (
@@ -57,14 +168,6 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_social_security_1_name',
           ),
         ),
       ),

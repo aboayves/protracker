@@ -29,8 +29,12 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'accounts_av_goals_1_name',
+            'label' => 'LBL_ACCOUNTS_AV_GOALS_1_FROM_ACCOUNTS_TITLE',
+          ),
+          1 => 'name',
         ),
         1 => 
         array (
@@ -76,25 +80,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
             'name' => 'date_modified',
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-          1 => 
-          array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
-          ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -104,7 +95,6 @@ array (
               'display' => true,
             ),
           ),
-          1 => '',
         ),
       ),
     ),

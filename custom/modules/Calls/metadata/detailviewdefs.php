@@ -74,6 +74,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -88,8 +89,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'direction',
-            'customCode' => '{$fields.direction.options[$fields.direction.value]} {$fields.status.options[$fields.status.value]}',
+            'name' => 'status',
+            'comment' => 'The status of the call (Held, Not Held, etc.)',
+            'studio' => 
+            array (
+              'detailview' => false,
+            ),
             'label' => 'LBL_STATUS',
           ),
         ),
@@ -152,15 +157,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'date_modified',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}&nbsp;',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}&nbsp;',
-            'label' => 'LBL_DATE_ENTERED',
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
           ),
         ),
       ),

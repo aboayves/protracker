@@ -1,5 +1,5 @@
 <?php
-// created: 2012-10-15 20:23:15
+// created: 2012-11-15 06:07:10
 $subpanel_layout['list_fields'] = array (
   'account_number' => 
   array (
@@ -14,14 +14,6 @@ $subpanel_layout['list_fields'] = array (
     'widget_class' => 'SubPanelDetailViewLink',
     'width' => '45%',
     'default' => true,
-  ),
-  'account_type_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ACCOUNT_TYPE',
-    'width' => '10%',
   ),
   'ownership_c' => 
   array (
@@ -39,36 +31,12 @@ $subpanel_layout['list_fields'] = array (
     'width' => '10%',
     'default' => true,
   ),
-  'asset_class_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ASSET_CLASS',
-    'width' => '10%',
-  ),
-  'asset_category_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ASSET_CATEGORY',
-    'width' => '10%',
-  ),
   'institution_c' => 
   array (
     'type' => 'enum',
     'default' => true,
     'studio' => 'visible',
     'vname' => 'LBL_INSTITUTION',
-    'width' => '10%',
-  ),
-  'asset_type_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ASSET_TYPE',
     'width' => '10%',
   ),
   'date_modified' => 

@@ -1,5 +1,5 @@
 <?php
-// created: 2012-11-02 20:03:52
+// created: 2012-11-07 15:52:14
 $subpanel_layout['list_fields'] = array (
   'date_of_gift' => 
   array (

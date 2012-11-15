@@ -58,16 +58,34 @@ array (
           ),
           1 => 
           array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
+          ),
+          1 => 
+          array (
             'name' => 'preferred_comm',
             'studio' => 'visible',
             'label' => 'LBL_PREFERRED_COMM',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 'account_type',
+          1 => 
+          array (
+            'name' => 'av_offices_accounts_1_name',
+          ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -82,7 +100,7 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -107,11 +125,16 @@ array (
         ),
         6 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'current_net_worth',
             'label' => 'LBL_CURRENT_NET_WORTH',
           ),
+        ),
+        7 => 
+        array (
+          0 => '',
           1 => 
           array (
             'name' => 'managed_assets',
@@ -121,22 +144,12 @@ array (
             'type' => 'readonly',
           ),
         ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_offices_accounts_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-        ),
         8 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        9 => 
         array (
           0 => 
           array (
@@ -151,7 +164,12 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        9 => 
+        10 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        11 => 
         array (
           0 => 
           array (

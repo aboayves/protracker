@@ -1,5 +1,5 @@
 <?php
-// created: 2012-11-02 19:51:15
+// created: 2012-11-14 17:36:26
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -30,7 +30,7 @@ $mod_strings = array (
   'LBL_ACCOUNTS_AV_SERVICES_1_FROM_AV_SERVICES_TITLE' => 'Services',
   'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_AV_REVIEWS_TITLE' => 'Reviews',
   'LBL_EDITVIEW_PANEL4' => 'Billing',
-  'LBL_EDITVIEW_PANEL5' => 'New Panel 5',
+  'LBL_EDITVIEW_PANEL5' => 'Firm',
   'LBL_ACCOUNT' => 'Client',
   'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Clients',
   'LBL_ACCOUNT_NAME' => 'Client Name',
@@ -45,4 +45,7 @@ $mod_strings = array (
   'MSG_DUPLICATE' => 'The client record you are about to create might be a duplicate of an Client record that already exists. Client records containing similar names are listed below.Click Create Client to continue creating this new Client, or select an existing Client listed below.',
   'LBL_ACCOUNTS_AV_GOALS_1_FROM_AV_GOALS_TITLE' => 'Goals',
   'LBL_ACCOUNTS_AV_GIFTING_1_FROM_AV_GIFTING_TITLE' => 'Gifting',
+  'LBL_ACCOUNTS_AV_SOCIAL_SECURITY_1_FROM_AV_SOCIAL_SECURITY_TITLE' => 'Social Security',
+  'LBL_RT_OFFICES_ACCOUNTS_1_FROM_RT_OFFICES_TITLE' => 'Office',
+  'LBL_LIST_ASSIGNED_USER' => 'Firm Contact',
 );
