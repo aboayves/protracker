@@ -3,7 +3,6 @@ $dictionary["av_Accounts"]["fields"]["type"] = array (
 	'name' => 'type',
 	'vname' => 'LBL_TYPE',
 	'type' => 'enum',
-	'options' => 'asset_type_list',
 	'len' => '100',
 	'audited' => '0',
 	'required' => '0',
@@ -16,5 +15,6 @@ $dictionary["av_Accounts"]["fields"]["type"] = array (
 	'duplicate_merge_dom_value' => '1',
 	'help' => '',
 	'group' => '',
+	'function' => 'get_av_Account_Types_Dropdown',
 );
 ?>

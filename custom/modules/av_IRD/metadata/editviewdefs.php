@@ -20,6 +20,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -46,18 +48,22 @@ array (
           0 => 'description',
           1 => 
           array (
-            'name' => 'contacts_av_ird_1_name',
+            'name' => 'accounts_av_ird_1_name',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'accounts_av_ird_1_name',
+            'name' => 'income_date',
+            'comment' => '',
+            'label' => 'LBL_INCOME_DATE',
           ),
           1 => 
           array (
-            'name' => 'accounts_av_ird_1_name',
+            'name' => 'amount',
+            'comment' => '',
+            'label' => 'LBL_AMOUNT',
           ),
         ),
       ),

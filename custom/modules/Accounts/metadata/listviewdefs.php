@@ -14,14 +14,6 @@ array (
     'label' => 'LBL_TYPE',
     'default' => true,
   ),
-  'PRIORITY' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_PRIORITY',
-    'width' => '10%',
-  ),
   'STATUS' => 
   array (
     'type' => 'enum',
@@ -30,12 +22,28 @@ array (
     'label' => 'LBL_STATUS',
     'width' => '10%',
   ),
+  'PRIORITY' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_PRIORITY',
+    'width' => '10%',
+  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '10%',
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => true,
   ),
   'TEAM_NAME' => 

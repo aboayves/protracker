@@ -170,6 +170,13 @@ array (
             'name' => 'av_tax_returns_contacts_1_name',
           ),
         ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_account_owners_contacts_1_name',
+          ),
+        ),
       ),
       'lbl_editview_panel5' => 
       array (
@@ -433,13 +440,9 @@ array (
         ),
         4 => 
         array (
-          0 => '',
-          1 => '',
         ),
         5 => 
         array (
-          0 => '',
-          1 => '',
         ),
         6 => 
         array (

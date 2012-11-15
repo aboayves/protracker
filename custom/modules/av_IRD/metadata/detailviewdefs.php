@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -46,36 +48,25 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
+          0 => 'description',
           1 => 
           array (
-            'name' => 'date_modified',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'accounts_av_ird_1_name',
           ),
         ),
         3 => 
         array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'contacts_av_ird_1_name',
-          ),
-        ),
-        4 => 
-        array (
           0 => 
           array (
-            'name' => 'accounts_av_ird_1_name',
+            'name' => 'income_date',
+            'comment' => '',
+            'label' => 'LBL_INCOME_DATE',
           ),
           1 => 
           array (
-            'name' => 'accounts_av_ird_1_name',
+            'name' => 'amount',
+            'comment' => '',
+            'label' => 'LBL_AMOUNT',
           ),
         ),
       ),

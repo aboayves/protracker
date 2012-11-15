@@ -12,14 +12,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
       'date_of_gift' => 
       array (
         'type' => 'date',
@@ -35,14 +27,6 @@ array (
         'label' => 'LBL_DATE_709_FILED',
         'width' => '10%',
         'name' => 'date_709_filed',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
       ),
     ),
     'advanced_search' => 

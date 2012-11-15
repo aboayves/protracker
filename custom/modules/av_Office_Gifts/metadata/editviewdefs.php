@@ -21,6 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -29,7 +30,11 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'accounts_av_office_gifts_1_name',
+            'label' => 'LBL_ACCOUNTS_AV_OFFICE_GIFTS_1_FROM_ACCOUNTS_TITLE',
+          ),
         ),
         1 => 
         array (
@@ -48,31 +53,28 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
+          0 => 'description',
         ),
         3 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'accounts_av_office_gifts_1_name',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'contacts_av_office_gifts_1_name',
+            'name' => 'av_offices_av_office_gifts_1_name',
           ),
         ),
       ),

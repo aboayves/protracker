@@ -29,11 +29,15 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'accounts_av_gifting_1_name',
+          ),
         ),
         1 => 
         array (
-          0 => 
+          0 => 'name',
+          1 => 
           array (
             'name' => 'recipient',
             'comment' => '',
@@ -94,25 +98,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
             'name' => 'date_modified',
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-          1 => 
-          array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
-          ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -121,10 +112,6 @@ array (
             array (
               'display' => true,
             ),
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_av_gifting_1_name',
           ),
         ),
       ),

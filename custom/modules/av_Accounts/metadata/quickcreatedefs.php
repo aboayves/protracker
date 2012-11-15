@@ -35,7 +35,7 @@ array (
       array (
         0 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'value',
             'label' => 'LBL_VALUE',
@@ -71,39 +71,13 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'asset_category_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ASSET_CATEGORY',
-          ),
-          1 => 
-          array (
-            'name' => 'account_number_c',
-            'label' => 'LBL_ACCOUNT_NUMBER',
-          ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'asset_type_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ASSET_TYPE',
-          ),
-          1 => 
-          array (
             'name' => 'cost_basis_c',
             'label' => 'LBL_COST_BASIS',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'account_type_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ACCOUNT_TYPE',
           ),
         ),
         6 => 
@@ -113,15 +87,6 @@ array (
             'name' => 'institution_c',
             'studio' => 'visible',
             'label' => 'LBL_INSTITUTION',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'asset_class_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ASSET_CLASS',
           ),
         ),
         8 => 

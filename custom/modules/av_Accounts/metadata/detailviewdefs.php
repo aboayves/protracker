@@ -50,23 +50,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'managed_c',
-            'studio' => 'visible',
-            'label' => 'LBL_MANAGED',
-          ),
-          1 => 
-          array (
-            'name' => 'opened_c',
-            'label' => 'LBL_OPENED',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'ownership_c',
-            'studio' => 'visible',
-            'label' => 'LBL_OWNERSHIP',
+            'name' => 'av_account_types_av_accounts_1_name',
           ),
           1 => 
           array (
@@ -74,65 +58,58 @@ array (
             'label' => 'LBL_AS_OF',
           ),
         ),
+        2 => 
+        array (
+          1 => 
+          array (
+            'name' => 'ownership_c',
+            'studio' => 'visible',
+            'label' => 'LBL_OWNERSHIP',
+          ),
+        ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'asset_category_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ASSET_CATEGORY',
+            'name' => 'av_accounts_av_companies_1_name',
           ),
           1 => 
           array (
-            'name' => 'account_number_c',
-            'label' => 'LBL_ACCOUNT_NUMBER',
+            'name' => 'accounts_av_accounts_name',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'asset_type_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ASSET_TYPE',
-          ),
-          1 => 
-          array (
-            'name' => 'cost_basis_c',
-            'label' => 'LBL_COST_BASIS',
+            'name' => 'opened_c',
+            'label' => 'LBL_OPENED',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'account_type_c',
+            'name' => 'managed_c',
             'studio' => 'visible',
-            'label' => 'LBL_ACCOUNT_TYPE',
+            'label' => 'LBL_MANAGED',
           ),
         ),
         6 => 
         array (
           0 => 
           array (
-            'name' => 'institution_c',
-            'studio' => 'visible',
-            'label' => 'LBL_INSTITUTION',
-          ),
-          1 => 
-          array (
-            'name' => 'term',
-            'comment' => '',
-            'label' => 'LBL_TERM',
+            'name' => 'cost_basis_c',
+            'label' => 'LBL_COST_BASIS',
           ),
         ),
         7 => 
         array (
           0 => 
           array (
-            'name' => 'asset_class_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ASSET_CLASS',
+            'name' => 'term',
+            'comment' => '',
+            'label' => 'LBL_TERM',
           ),
         ),
         8 => 
@@ -140,13 +117,6 @@ array (
           0 => 'description',
         ),
         9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_av_accounts_name',
-          ),
-        ),
-        10 => 
         array (
           0 => 'team_name',
           1 => 

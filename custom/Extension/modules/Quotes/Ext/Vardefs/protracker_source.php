@@ -1,5 +1,5 @@
 <?php
-$dictionary["Quotes"]["fields"]["source"] = array (
+$dictionary["Quote"]["fields"]["source"] = array (
 	'name' => 'source',
 	'vname' => 'LBL_SOURCE',
 	'type' => 'varchar',

@@ -39,11 +39,15 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'accounts_av_gifting_1_name',
+          ),
         ),
         1 => 
         array (
-          0 => 
+          0 => 'name',
+          1 => 
           array (
             'name' => 'recipient',
             'comment' => '',
@@ -104,31 +108,14 @@ array (
           ),
           1 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-          1 => 
-          array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
-          ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 'team_name',
-          1 => 
-          array (
-            'name' => 'accounts_av_gifting_1_name',
-          ),
         ),
       ),
     ),

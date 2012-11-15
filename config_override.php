@@ -9,4 +9,7 @@ $sugar_config['developerMode'] = true;
 $sugar_config['instanceKey'] = '5782';
 $sugar_config['restServerURL'] = 'http://localhost/restserver/restserver/index.php';
 $sugar_config['passwordsetting']['SystemGeneratedPasswordON'] = '0';
+$sugar_config['full_text_engine']['']['host'] = '';
+$sugar_config['full_text_engine']['']['port'] = '';
+$sugar_config['full_text_engine']['']['valid'] = true;
 /***CONFIGURATOR***/
