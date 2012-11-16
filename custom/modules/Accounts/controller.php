@@ -15,71 +15,99 @@
 			$coClient = "Jr. & Mary H. Sample";
 			
 			$data = array(
-				'Liquid Assets' => 
+				'Categories' => 
 				array(
-					'isLiability' => false,
-					'data' => 
+					'Liquid Assets' => 
 					array(
-						0 => 
+						'data' => 
 						array(
-							'Account Type'=>'Bank',
-							'Institution'=>'Bank of America',
-							'Account Name'=>'',
-							'Account #'=>'111-32',
-							'Client'=>'',
-							'Client Trust'=>'',
-							'Co Client'=>'',
-							'Co Client Trust'=>'',
-							'Joint or CP'=>'1,026',
-							'Total'=>'1,026',
+							0 => 
+							array(
+								'Account Type'=>'Bank',
+								'Institution'=>'Bank of America',
+								'Account Name'=>'',
+								'Account #'=>'111-32',
+								'Client'=>'',
+								'Client Trust'=>'',
+								'Co Client'=>'',
+								'Co Client Trust'=>'',
+								'Joint or CP'=>'1,026',
+								'Total'=>'1,026',
+							),
+							1 => 
+							array(
+								'Account Type'=>'Credit Union',
+								'Institution'=>'Bank of America',
+								'Account Name'=>'',
+								'Account #'=>'',
+								'Client'=>'',
+								'Client Trust'=>'',
+								'Co Client'=>'10,000',
+								'Co Client Trust'=>'',
+								'Joint or CP'=>'',
+								'Total'=>'10,000',
+							),
 						),
-						1 => 
+						'Subtotal' =>
 						array(
-							'Account Type'=>'Credit Union',
-							'Institution'=>'Bank of America',
-							'Account Name'=>'',
-							'Account #'=>'',
-							'Client'=>'',
-							'Client Trust'=>'',
+							'Client'=>'56,500',
+							'Client Trust'=>'0',
 							'Co Client'=>'10,000',
-							'Co Client Trust'=>'',
-							'Joint or CP'=>'',
-							'Total'=>'10,000',
+							'Co Client Trust'=>'0',
+							'Joint or CP'=>'1,026',
+							'Total'=>'67,526',
+						),
+					),
+					'Invested Assets' => 
+					array(
+						'data' => 
+						array(
+							0 => 
+							array(
+								'Account Type'=>'Brokerage',
+								'Institution'=>'TD Ameritrade',
+								'Account Name'=>'',
+								'Account #'=>'134-5684566',
+								'Client'=>'',
+								'Client Trust'=>'',
+								'Co Client'=>'',
+								'Co Client Trust'=>'375,000',
+								'Joint or CP'=>'',
+								'Total'=>'375,000',
+							),
+							1 => 
+							array(
+								'Account Type'=>'Brokerage',
+								'Institution'=>'TD Ameritrade',
+								'Account Name'=>'',
+								'Account #'=>'432-433-3434',
+								'Client'=>'',
+								'Client Trust'=>'450,000',
+								'Co Client'=>'',
+								'Co Client Trust'=>'',
+								'Joint or CP'=>'',
+								'Total'=>'450,000',
+							),
+						),
+						'Subtotal' =>
+						array(
+							'Client'=>'0',
+							'Client Trust'=>'495,389',
+							'Co Client'=>'0',
+							'Co Client Trust'=>'375,000',
+							'Joint or CP'=>'104,599',
+							'Total'=>'974,988',
 						),
 					),
 				),
-				'Invested Assets' => 
+				'Net Worth' => 
 				array(
-					'isLiability' => false,
-					'data' => 
-					array(
-						0 => 
-						array(
-							'Account Type'=>'Brokerage',
-							'Institution'=>'TD Ameritrade',
-							'Account Name'=>'',
-							'Account #'=>'134-5684566',
-							'Client'=>'',
-							'Client Trust'=>'',
-							'Co Client'=>'',
-							'Co Client Trust'=>'375,000',
-							'Joint or CP'=>'',
-							'Total'=>'375,000',
-						),
-						1 => 
-						array(
-							'Account Type'=>'Brokerage',
-							'Institution'=>'TD Ameritrade',
-							'Account Name'=>'',
-							'Account #'=>'432-433-3434',
-							'Client'=>'',
-							'Client Trust'=>'450,000',
-							'Co Client'=>'',
-							'Co Client Trust'=>'',
-							'Joint or CP'=>'',
-							'Total'=>'450,000',
-						),
-					),
+					'Client'=>'1,801,388',
+					'Client Trust'=>'495,389',
+					'Co Client'=>'361,237',
+					'Co Client Trust'=>'375,000',
+					'Joint or CP'=>'874,625',
+					'Total'=>'3,907,639',
 				),
 			);
 //=======================================================================================================			
