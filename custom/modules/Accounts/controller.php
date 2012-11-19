@@ -3,7 +3,7 @@
 	
 	class AccountsController extends SugarController{
 		function action_printnetworth(){
-			require_once('custom/modules/Account/PDFGenerator.php');
+			require_once('custom/modules/Accounts/PDFGenerator.php');
 			
 			$data = array();
 			//Make sql query to get data
@@ -112,8 +112,8 @@
 			);
 //=======================================================================================================			
 			
-			$pdf = new PDFGenerator();
-			$pdf->makePDF($data, $client, $coClient, $_REQUEST['net_worth_date']);
+			$pdf = new PDFGenerator($client, $coClient, $_REQUEST['net_worth_date']);
+			$pdf->makePDF($data);
 		}
 	}
 ?>
