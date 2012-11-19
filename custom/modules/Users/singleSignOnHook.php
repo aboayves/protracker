@@ -6,7 +6,7 @@ class singleSignOnHook {
 		$parameters = array( 
 		'user_name' => $bean->user_name, 
 		'site_url' => $sugar_config['site_url'],
-		'instanceKey' => $sugar_config['instanceKey']
+		'instanceKey' => md5($sugar_config['instanceKey'])
 		);
 		$api = new RestClient();
 		if($_REQUEST['action'] == 'delete' || $bean->status == 'Inactive'){
@@ -18,7 +18,7 @@ class singleSignOnHook {
 		$parameters = array( 
 		'user_name' => $bean->user_name, 
 		'site_url' => $sugar_config['site_url'],
-		'instanceKey' => $sugar_config['instanceKey']
+		'instanceKey' => md5($sugar_config['instanceKey'])
 		);
 		$api = new RestClient();
 		if(empty($bean->id) || ($bean->status!=$bean->fetched_row['status'] && $bean->status=='Active')){
