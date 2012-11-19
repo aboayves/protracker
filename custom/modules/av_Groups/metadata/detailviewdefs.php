@@ -99,35 +99,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_OFFICE',
           ),
-          1 => 
-          array (
-            'name' => 'category_c',
-            'studio' => 'visible',
-            'label' => 'LBL_CATEGORY',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'status_c',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'priority_c',
-            'studio' => 'visible',
-            'label' => 'LBL_PRIORITY',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'last_checked_c',
-            'label' => 'LBL_LAST_CHECKED',
-          ),
         ),
         5 => 
         array (

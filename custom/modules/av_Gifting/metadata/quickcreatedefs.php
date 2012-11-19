@@ -53,19 +53,33 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
+          0 => 'description',
           1 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
+            'name' => 'date_crummey_sent',
+            'comment' => '',
+            'label' => 'LBL_DATE_CRUMMEY_SENT',
           ),
         ),
         3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_709_required',
+            'comment' => '',
+            'label' => 'LBL_IS_709_REQUIRED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_709_filed',
+            'comment' => '',
+            'label' => 'LBL_DATE_709_FILED',
+          ),
+        ),
+      ),
+      'lbl_quickcreate_panel1' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
@@ -74,6 +88,22 @@ array (
             array (
               'display' => true,
             ),
+          ),
+          1 => 'assigned_user_name',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

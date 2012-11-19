@@ -74,6 +74,18 @@ array (
         array (
           0 => 
           array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
+          1 => 'assigned_user_name',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
             'name' => 'date_entered',
             'comment' => 'Date record created',
             'label' => 'LBL_DATE_ENTERED',
@@ -83,17 +95,6 @@ array (
             'name' => 'date_modified',
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
           ),
         ),
       ),

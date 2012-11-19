@@ -62,6 +62,14 @@ array (
           ),
           1 => 
           array (
+            'name' => 'parent_name',
+            'label' => 'LBL_LIST_RELATED_TO',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'status',
             'displayParams' => 
             array (
@@ -69,13 +77,19 @@ array (
               'required' => true,
             ),
           ),
+          1 => 
+          array (
+            'name' => 'project',
+            'studio' => 'visible',
+            'label' => 'LBL_PROJECT',
+          ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
-            'name' => 'parent_tasks_name',
-            'label' => 'LBL_PARENT_TASKS',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
           1 => 
           array (
@@ -86,22 +100,16 @@ array (
             ),
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'av_activity_types_tasks_1_name',
           ),
-          1 => 'notify_child_completion',
-        ),
-        3 => 
-        array (
-          0 => 'private',
           1 => 
           array (
-            'name' => 'on_task_list',
-            'label' => 'LBL_ON_TASK_LIST',
+            'name' => 'parent_tasks_name',
+            'label' => 'LBL_PARENT_TASKS',
           ),
         ),
         4 => 
@@ -131,41 +139,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'label' => 'LBL_LIST_RELATED_TO',
+            'name' => 'percent_complete',
+            'comment' => '',
+            'label' => 'LBL_PERCENT_COMPLETE',
           ),
         ),
         6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'closed_status',
-            'label' => 'LBL_CLOSED_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'contact_name',
-            'label' => 'LBL_CONTACT_NAME',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 'category',
-          1 => 
-          array (
-            'name' => 'alow_asigne_to_modify',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'project',
-            'studio' => 'visible',
-            'label' => 'LBL_PROJECT',
-          ),
-        ),
-        9 => 
         array (
           0 => 
           array (
@@ -184,9 +163,95 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 </script>
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
           ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'results',
+            'comment' => '',
+            'label' => 'LBL_RESULTS',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 'category',
           1 => 
           array (
-            'name' => 'av_activity_types_tasks_1_name',
+            'name' => 'team_name',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'closed_status',
+            'label' => 'LBL_CLOSED_STATUS',
+          ),
+          1 => 
+          array (
+            'name' => 'date_complete',
+            'label' => 'LBL_DTE_CMP',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 'private',
+          1 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'alow_asigne_to_modify',
+          ),
+          1 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
+        ),
+        2 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'on_task_list',
+            'label' => 'LBL_ON_TASK_LIST',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'notify_child_completion',
+          1 => 
+          array (
+            'name' => 'on_client_task_list',
+            'comment' => '',
+            'label' => 'LBL_ON_CLIENT_TASK_LIST',
           ),
         ),
       ),

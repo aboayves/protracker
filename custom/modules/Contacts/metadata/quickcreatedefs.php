@@ -179,12 +179,6 @@ array (
             'name' => 'ssn',
             'label' => 'LBL_SSN',
           ),
-          1 => 
-          array (
-            'name' => 'spouse_c',
-            'studio' => 'visible',
-            'label' => 'LBL_SPOUSE',
-          ),
         ),
         2 => 
         array (
@@ -285,7 +279,7 @@ array (
         ),
         4 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'gift_applicable',
             'label' => 'LBL_GIFT_APPLICABLE',

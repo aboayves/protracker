@@ -32,6 +32,8 @@ array (
       'javascript' => '{sugar_getscript file="include/javascript/popup_parent_helper.js"}
 {sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
 {sugar_getscript file="modules/Documents/documents.js"}',
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -39,7 +41,16 @@ array (
       array (
         0 => 
         array (
-          0 => 'doc_type',
+          0 => 
+          array (
+            'name' => 'contract_name',
+            'label' => 'LBL_CONTRACT_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
         ),
         1 => 
         array (
@@ -85,11 +96,11 @@ array (
           array (
             'name' => 'active_date',
           ),
-          1 => 'category_id',
+          1 => 'exp_date',
         ),
         5 => 
         array (
-          0 => 'exp_date',
+          0 => 'category_id',
           1 => 'subcategory_id',
         ),
         6 => 
@@ -116,26 +127,77 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_activity_types_documents_1_name',
+            'name' => 'document_number',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_NUMBER',
+          ),
+          1 => 
+          array (
+            'name' => 'latest_revision_name',
+            'label' => 'LBL_LASTEST_REVISION_NAME',
           ),
         ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
+        9 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'keywords',
+            'comment' => '',
+            'label' => 'LBL_KEYWORDS',
           ),
           1 => 
+          array (
+            'name' => 'document_revision_id',
+            'label' => 'LBL_LATEST_REVISION',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_activity_types_documents_1_name',
+          ),
+          1 => 'doc_type',
+        ),
+        11 => 
+        array (
+          0 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
             array (
               'required' => true,
             ),
+          ),
+          1 => 
+          array (
+            'name' => 'attach_to_group_id',
+            'comment' => 'Used as hidden field',
+            'label' => 'LBL_ATTACH_TO_GROUP_ID',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'selected_revision_name',
+            'label' => 'LBL_SELECTED_REVISION_NAME',
+          ),
+          1 => '',
+        ),
+        13 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

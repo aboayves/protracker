@@ -72,20 +72,25 @@ array (
           ),
           1 => 
           array (
-            'name' => 'preferred_comm',
-            'studio' => 'visible',
-            'label' => 'LBL_PREFERRED_COMM',
+            'name' => 'av_offices_accounts_1_name',
           ),
         ),
         2 => 
         array (
+          0 => 'envelope',
+          1 => '',
+        ),
+        3 => 
+        array (
           0 => 'account_type',
           1 => 
           array (
-            'name' => 'av_offices_accounts_1_name',
+            'name' => 'client_since_date',
+            'comment' => '',
+            'label' => 'LBL_CLIENT_SINCE_DATE',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -100,20 +105,6 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'priority_c',
-            'studio' => 'visible',
-            'label' => 'LBL_PRIORITY',
-          ),
-          1 => 
-          array (
-            'name' => 'client_since_c',
-            'label' => 'LBL_CLIENT_SINCE',
-          ),
-        ),
         5 => 
         array (
           0 => 
@@ -121,20 +112,22 @@ array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
           ),
-          1 => 'envelope',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
         ),
         6 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'current_net_worth',
             'label' => 'LBL_CURRENT_NET_WORTH',
           ),
-        ),
-        7 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'managed_assets',
@@ -144,12 +137,7 @@ array (
             'type' => 'readonly',
           ),
         ),
-        8 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        9 => 
+        7 => 
         array (
           0 => 
           array (
@@ -164,16 +152,19 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        10 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        11 => 
+        8 => 
         array (
           0 => 
           array (
-            'name' => 'contacts_accounts_1_name',
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),
@@ -263,11 +254,7 @@ array (
             'name' => 'client_since',
             'label' => 'LBL_CLIENT_SINCE',
           ),
-          1 => 
-          array (
-            'name' => 'accounting_id',
-            'label' => 'LBL_ACCOUNTING_ID',
-          ),
+          1 => '',
         ),
         2 => 
         array (
@@ -295,7 +282,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'accounting_id_c',
+            'name' => 'accounting_id',
             'label' => 'LBL_ACCOUNTING_ID',
           ),
         ),
@@ -376,6 +363,16 @@ array (
         array (
           0 => 
           array (
+            'name' => 'is_investment_client',
+            'comment' => '',
+            'label' => 'LBL_IS_INVESTMENT_CLIENT',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'termination_date',
             'comment' => '',
             'label' => 'LBL_TERMINATION_DATE',
@@ -387,7 +384,7 @@ array (
             'label' => 'LBL_IS_TERMINATED',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (

@@ -10,4 +10,5 @@ $sugar_config['passwordsetting']['SystemGeneratedPasswordON'] = '0';
 $sugar_config['full_text_engine']['']['host'] = '';
 $sugar_config['full_text_engine']['']['port'] = '';
 $sugar_config['full_text_engine']['']['valid'] = true;
+$sugar_config['disabled_languages'] = 'bg_BG,cs_CZ,et_EE,he_IL,hu_HU,ja_JP,nb_NO,sr_RS,ca_ES,pt_br,zh_CN,tr_TR,nl_NL,sv_SE,ru_RU,pl_PL,ro_RO,pt_PT,lt_LT';
 /***CONFIGURATOR***/

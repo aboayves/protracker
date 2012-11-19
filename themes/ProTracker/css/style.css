@@ -38,7 +38,7 @@
 body 
 { 
 	margin: 0px;
-	font-family: Georgia, Arial, Verdana, Helvetica, sans-serif;
+	font-family: Tahoma, Arial, Verdana, Helvetica, sans-serif;
 	
 }
 
@@ -3665,7 +3665,7 @@ button, input[type=submit], input[type=reset], input[type=button], .button, .but
 	border: 1px solid #aaaaaa;
 	padding: 2px 8px 2px 8px;
 	padding: 2px 8px 1px 8px\9; /* ie hack */
-	font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+	font-family: Tahoma,Verdana,Arial,sans-serif;
 	font-size: 12px;
 }
 
@@ -6465,14 +6465,14 @@ ul.clickMenu {
 	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#dfdfdf');
 	   border: 1px solid #aaaaaa;
 	   display: inline-block;
-	    font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+	    font-family: Tahoma,Verdana,Arial,sans-serif;
     /*hack for IE7*/
     *display:inline;
     *zoom:1;
 }
 ul.clickMenu form, div.action_buttons form {float:left;}
 ul.SugarActionMenuIESub {
-    font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+    font-family: Tahoma,Verdana,Arial,sans-serif;
 }
 
 ul#globalLinksSubnav.SugarActionMenuIESub li a:hover, ul#quickCreateULSubnav.SugarActionMenuIESub li a:hover,
@@ -7124,7 +7124,7 @@ p.submsg, p.submsg a{
 	   
 	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#dfdfdf');
 	border: 1px solid #aaaaaa;
-	font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
+	font-family: Tahoma,Verdana,Arial,sans-serif;
 	font-size: 14px;
     cursor: pointer;
     text-align: center;
