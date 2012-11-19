@@ -31,28 +31,38 @@
 		</td>
 		</tr>
 	  </table>
+    <div id="bottomLinks">
+      {if $AUTHENTICATED}
+      	{$BOTTOMLINKS}
+      {/if}
+    </div>
+		<div class="clear"></div>
+    </div>
+    <div class="globelLinkBar">
+   
+    </div>
+    </td>
+        </tr>
+      </table>
+      
     </div>
     <div class="clear"></div>
 </div>
-<div id="bottomLinks">
-{if $AUTHENTICATED}
-{$BOTTOMLINKS}
-{/if}
-</div>
 
 <div class="clear"></div>
-<div id="arrow" title="Show" class="up"></div>
+<!--<div id="arrow" title="Show" class="up"></div>-->
 <div id="footer">
-    <img src="{$COMPANY_LOGO_URL}" class="logo" id="logo" 
-        title="{$STATISTICS}" border="0"/> <a href="http://www.protracker.com" target="_blank" class="copyright">&#169; 2012-2013 ProTracker Software, Inc.</a>
-    <div id="partner">
+   <!-- <img src="{$COMPANY_LOGO_URL}" class="logo" id="logo" title="{$STATISTICS}" border="0"/>-->
+        
+         <a href="http://www.sugarcrm.com" target="_blank" class="copyright">&#169; 2012 SugarCRM Inc.</a>
+    <!--<div id="partner">
     {foreach from=$DYNAMICDCACTIONS item=action}
         {$action.script} {$action.image} 
     {/foreach}
 
-     </div>
+     </div>-->
 <script>
- 	var logoStats = "&#169; 2012-2013 ProTracker Software, Inc. All Rights Reserved. {$STATISTICS}";
+ 	var logoStats = "&#169; 2004-2012 SugarCRM Inc. All Rights Reserved. {$STATISTICS}";
 </script>       
 {if $smarty.request.module != "Emails" && $smarty.request.module != "Users" && $smarty.request.module != "UpgradeWizard"}
 {literal}
@@ -66,7 +76,7 @@
 $('#zenbox_tab').click(function(){
 
     window.open(
-            'http://protracker.com/support/',
+            'http://support.sugarcrm.com/',
             '_blank' // <- This is what makes it open in a new window.
     );
 
