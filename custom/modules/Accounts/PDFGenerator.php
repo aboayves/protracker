@@ -148,18 +148,17 @@ class PDFGenerator extends TCPDF{
 		}
 			
 		$y_pos += 4;
-		
 		$this->SetFont($this->text_font, 'B', 10, '', true);
 		$this->Text((3 * $this->x_offset) + 10, $y_pos, "Net Worth:");
 		
 		$this->SetFont($this->text_font, '', 8, '', true);
 		$this->addRow($this->data['Net Worth'], $y_pos, (4 * $this->x_offset) + 10);
 		
-		$x_pos = (4 * $this->x_offset) + 10;
 		$y_pos += 2;
+		$this->Line((3 * $this->x_offset) + 5, $y_pos, 270, $y_pos, $this->style_simple_line);
 		
-		$this->Line($x_pos-32, $y_pos, 270, $y_pos, $this->style_simple_line);
-		$this->Line($x_pos-32, floatval($y_pos)+ 0.6, 270, floatval($y_pos)+ 0.6, $this->style_simple_line);
+		$y_pos += 0.6;
+		$this->Line((3 * $this->x_offset) + 5, $y_pos, 270, $y_pos, $this->style_simple_line);
 		
 		$this->Output("Networth Statement ".date("m-d-y"), 'I');
 	}

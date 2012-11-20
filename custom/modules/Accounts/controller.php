@@ -95,7 +95,7 @@
 					"ON ".
 						"acat.av_account296eegories_ida=ac.id AND ac.deleted=0 ".
 					"WHERE ".
-						"aaa.deleted=0 AND aaa.accounts_av_accountsaccounts_ida='" . $this->bean->id . "'".
+						"aaa.deleted=0 AND aaa.accounts_av_accountsaccounts_ida='" . $this->bean->id . "' ".
 					"ORDER BY ".
 						"ac.report_sort ASC, ac.name ASC, at.report_sort ASC, at.name ASC, aa.name ASC";
 			
