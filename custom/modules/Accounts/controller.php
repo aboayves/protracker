@@ -69,7 +69,7 @@
 					"INNER JOIN ".
 						"av_accounts aa ".
 					"ON ".
-						"aaa.accounts_av_accountsav_accounts_idb=aa.id AND aa.deleted=0 ".
+						"aaa.accounts_av_accountsav_accounts_idb=aa.id AND aa.deleted=0 AND aa.is_closed='0' ".
 					"LEFT JOIN ".
 						"av_accounts_av_companies_1_c aaac ".
 					"ON ".
