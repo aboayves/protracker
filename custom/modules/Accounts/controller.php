@@ -135,15 +135,23 @@
 //						Filling Subtotals and Totals
 //----------------------------------------------------------------------------------
 					
-			foreach($data['Categories'] as $catName => $cat){
-				foreach($cat['data'] as $row){
+			foreach($data['Categories'] as $catName => &$cat){
+				foreach($cat['data'] as &$row){
 					//Calculating subtotal
-					$data['Categories'][$catName]['Subtotal']['Client'] += intval($row['Client']);
-					$data['Categories'][$catName]['Subtotal']['Client Trust'] += intval($row['Client Trust']);
-					$data['Categories'][$catName]['Subtotal']['Co Client'] += intval($row['Co Client']);
-					$data['Categories'][$catName]['Subtotal']['Co Client Trust'] += intval($row['Co Client Trust']);
-					$data['Categories'][$catName]['Subtotal']['Joint or CP'] += intval($row['Joint or CP']);
-					$data['Categories'][$catName]['Subtotal']['Total'] += intval($row['Total']);
+					$cat['Subtotal']['Client'] += intval($row['Client']);
+					$cat['Subtotal']['Client Trust'] += intval($row['Client Trust']);
+					$cat['Subtotal']['Co Client'] += intval($row['Co Client']);
+					$cat['Subtotal']['Co Client Trust'] += intval($row['Co Client Trust']);
+					$cat['Subtotal']['Joint or CP'] += intval($row['Joint or CP']);
+					$cat['Subtotal']['Total'] += intval($row['Total']);
+					
+					//Formatting numbers
+					$row['Client'] = number_format($row['Client'], 2, '.', ',');
+					$row['Client Trust'] = number_format($row['Client Trust'], 2, '.', ',');
+					$row['Co Client'] = number_format($row['Co Client'], 2, '.', ',');
+					$row['Co Client Trust'] = number_format($row['Co Client Trust'], 2, '.', ',');
+					$row['Joint or CP'] = number_format($row['Joint or CP'], 2, '.', ',');
+					$row['Total'] = number_format($row['Total'], 2, '.', ',');
 				}
 					
 				//Calculating total
@@ -162,7 +170,23 @@
 					$data['Net Worth']['Joint or CP'] += intval($data['Categories'][$catName]['Subtotal']['Joint or CP']);
 					$data['Net Worth']['Total'] += intval($data['Categories'][$catName]['Subtotal']['Total']);
 				}
+				
+				//Formatting numbers
+				$cat['Subtotal']['Client'] = number_format($cat['Subtotal']['Client'], 2, '.', ',');
+				$cat['Subtotal']['Client Trust'] = number_format($cat['Subtotal']['Client Trust'], 2, '.', ',');
+				$cat['Subtotal']['Co Client'] = number_format($cat['Subtotal']['Co Client'], 2, '.', ',');
+				$cat['Subtotal']['Co Client Trust'] = number_format($cat['Subtotal']['Co Client Trust'], 2, '.', ',');
+				$cat['Subtotal']['Joint or CP'] = number_format($cat['Subtotal']['Joint or CP'], 2, '.', ',');
+				$cat['Subtotal']['Total'] = number_format($cat['Subtotal']['Total'], 2, '.', ',');
 			}
+			
+			//Formatting numbers
+			$data['Net Worth']['Client'] = number_format($data['Net Worth']['Client'], 2, '.', ',');
+			$data['Net Worth']['Client Trust'] = number_format($data['Net Worth']['Client Trust'], 2, '.', ',');
+			$data['Net Worth']['Co Client'] = number_format($data['Net Worth']['Co Client'], 2, '.', ',');
+			$data['Net Worth']['Co Client Trust'] = number_format($data['Net Worth']['Co Client Trust'], 2, '.', ',');
+			$data['Net Worth']['Joint or CP'] = number_format($data['Net Worth']['Joint or CP'], 2, '.', ',');
+			$data['Net Worth']['Total'] = number_format($data['Net Worth']['Total'], 2, '.', ',');
 			
 //----------------------------------------------------------------------------------
 //						Prinitng PDF
