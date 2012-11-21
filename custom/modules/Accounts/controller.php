@@ -44,7 +44,7 @@
 //----------------------------------------------------------------------------------
 //						Populating PDF Data
 //----------------------------------------------------------------------------------
-
+			
 			$data = array(
 				'Categories' => array(),
 				'Net Worth' => 
@@ -58,11 +58,51 @@
 				),
 			);
 			
+//------------ Getting old values from history according to date selected ------------
+			$oldValues = array();
+			$sql = "SELECT ".
+						"aa.id, ".
+						"ah.value ".
+					"FROM ".
+						"accounts_av_accounts_c aaa ".
+					"INNER JOIN ".
+						"av_accounts aa ".
+					"ON ".
+						"aaa.accounts_av_accountsav_accounts_idb=aa.id AND ".
+						"aa.deleted=0 AND ".
+						"aa.is_closed='0' ".
+					"INNER JOIN ".
+						"av_accounts_av_account_histories_c aah ".
+					"ON ".
+						"aa.id=aah.av_accounts_av_account_historiesav_accounts_ida AND ".
+						"aah.deleted='0' ".
+					"INNER JOIN ".
+						"av_account_histories ah ".
+					"ON ".
+						"aah.av_accounts_av_account_historiesav_account_histories_idb=ah.id AND ".
+						"ah.deleted='0' AND ".
+						"ah.value_date <= '" . $netWorthDate . "' ".
+					"WHERE ".
+						"aaa.deleted=0 AND ".
+						"aaa.accounts_av_accountsaccounts_ida='" . $this->bean->id . "' ".
+					"GROUP BY ".
+						"aa.id ".
+					"ORDER BY ".
+						"aa.id ASC, ".
+						"ah.value_date DESC";
+			$res = $db->query($sql);
+			while($row = $db->fetchByAssoc($res)){
+				$oldValues[$row['id']] = $row['value'];
+			}
+			
+//---------------------- Getting actual data from DB ---------------------------------
+			
 			$sql = "SELECT ".
 						"at.name as 'Account Type', ".
 						"comp.name as 'Institution', ".
 						"aa.name as 'Account Name', ".
 						"aa.account_number as 'Account #', ".
+						"aa.id, ".
 						"aa.ownership_type, ".
 						"aa.value, ".
 						"ac.name as 'Category', ".
@@ -119,6 +159,9 @@
 						),
 					);
 				}
+				
+				//Loading appropriate value
+				$row['value'] = isset($oldValues[$row['id']]) && !empty($oldValues[$row['id']]) ? $oldValues[$row['id']] : $row['value'];
 				
 				$data['Categories'][$row['Category']]['data'][] = array(
 					'Account Type' => $row['Account Type'],
