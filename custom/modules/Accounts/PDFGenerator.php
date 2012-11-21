@@ -38,8 +38,6 @@ class PDFGenerator extends TCPDF{
 	}
 		
 	public function Header() {
-		global $timedate;
-	
 		$client_name = $this->client;
 		if($this->hasCoClient){
 			$client_name .= ", " . $this->coClient;
@@ -48,7 +46,7 @@ class PDFGenerator extends TCPDF{
 		$this->SetFont($this->text_font, 'B', 14, '', true);
 		$this->Text(10, 18,"Net Worth Statement For ". $client_name);
 		$this->SetFont($this->text_font, 'B', 10, '', true);
-		$this->Text(10, 23, "As of " . date('l, M d, Y', strtotime($timedate->to_db_date($this->netWorthDate, false))));
+		$this->Text(10, 23, "As of " . $this->netWorthDate, false);
 		$this->Line(10, 26, 270, 26, $this->style_bold_line);
 		
 		$y_pos = 28;

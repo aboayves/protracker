@@ -3,9 +3,12 @@
 	
 	class AccountsController extends SugarController{
 		function action_printnetworth(){
-			global $db;
+			global $db, $timedate;
 			
 			require_once('custom/modules/Accounts/PDFGenerator.php');
+			
+			$netWorthDate = !empty($_REQUEST['net_worth_date']) ? $_REQUEST['net_worth_date'] : $timedate->nowDate();
+			$netWorthDate = $timedate->to_db_date($netWorthDate, false);
 			
 //----------------------------------------------------------------------------------
 //							Getting Client Info
@@ -193,8 +196,8 @@
 //----------------------------------------------------------------------------------
 //						Prinitng PDF
 //----------------------------------------------------------------------------------
-
-			$pdf = new PDFGenerator($data, $client, $coClient, $_REQUEST['net_worth_date']);
+			
+			$pdf = new PDFGenerator($data, $client, $coClient, date('l, M d, Y', strtotime($netWorthDate)));
 			$pdf->makePDF();
 		}
 	}
