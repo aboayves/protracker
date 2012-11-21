@@ -33,7 +33,7 @@
 					"WHERE ".
 						"contacts.contact_priority IN ('Primary','Secondary') AND ".
 						"contacts.deleted='0'";
-			$res = $db->query($sql);
+			$res = $db->query($sql, true);
 			while($row = $db->fetchByAssoc($res)){
 				$name = trim($row['salutation'] . ' ' . $row['first_name'] . ' ' . $row['last_name']);
 				
@@ -90,7 +90,7 @@
 					"ORDER BY ".
 						"aa.id ASC, ".
 						"ah.value_date DESC";
-			$res = $db->query($sql);
+			$res = $db->query($sql, true);
 			while($row = $db->fetchByAssoc($res)){
 				$oldValues[$row['id']] = $row['value'];
 			}
@@ -142,7 +142,7 @@
 					"ORDER BY ".
 						"ac.report_sort ASC, ac.name ASC, at.report_sort ASC, at.name ASC, aa.name ASC";
 			
-			$res = $db->query($sql);
+			$res = $db->query($sql, true);
 			while($row = $db->fetchByAssoc($res)){
 				if(!isset($data['Categories'][$row['Category']])){
 					$data['Categories'][$row['Category']] = array(
