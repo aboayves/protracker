@@ -27,66 +27,20 @@
  ********************************************************************************/
 
 *}
-{include file="_head.tpl" theme_template=true}
-<body class="yui-skin-sam">
-    <a name="top"></a>
-	{include file="_dcmenu.tpl" theme_template=true}
-
-	<div class="clear"></div>
-    <div class="clear"></div>
-
-{literal}
-<iframe id='ajaxUI-history-iframe' src='index.php?entryPoint=getImage&imageName=blank.png'  title='empty'  style='display:none'></iframe>
-<input id='ajaxUI-history-field' type='hidden'>
-<script type='text/javascript'>
-if (SUGAR.ajaxUI && !SUGAR.ajaxUI.hist_loaded)
-{
-	YAHOO.util.History.register('ajaxUILoc', "", SUGAR.ajaxUI.go);
-	{/literal}{if $smarty.request.module != "ModuleBuilder"}{* Module builder will init YUI history on its own *}
-	YAHOO.util.History.initialize("ajaxUI-history-field", "ajaxUI-history-iframe");
-	{/if}{literal}
-}
-
-</script>
-{/literal}
-
-{literal}
-<script type='text/javascript'>
-
-$(document).ready(function() {
-	
-	$(".modulesdrager").click(function(){
-		$(this).toggleClass("hide");
-		$(".moduleListPanel").toggleClass("hide");
-	});
-   
- });
-
-</script>
-
-{/literal}
-<script>
-var max_tabs = {$max_tabs};
-</script>
-
-<div id="main">
-    <div id="content">
-    {if $AUTHENTICATED}
-    <div class="modulesdrager"></div>
-    {/if}
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-          {if $AUTHENTICATED}
-            <td class="moduleListPanel" width="230px">
-            <div class="moduleListPanelData">
-            	{include file="_headerModuleList.tpl" theme_template=true}
-            </div>
-            </td>
-            {/if}
-            <td class="contentPanel">
-            	<div class="contentPanelData">
-              	<table style="width:100%" id="contentTable"><tr><td>
-            
-
+<div id="lastView" class="headerList">
+        <b style="white-space:nowrap;">{$APP.LBL_LAST_VIEWED}:&nbsp;&nbsp;</b>
+    <span>
+    {foreach from=$recentRecords item=item name=lastViewed}
+    <span>
         
-        
+        <a title="{$item.item_summary}"
+            accessKey="{$smarty.foreach.lastViewed.iteration}"
+            href="{sugar_link module=$item.module_name action='DetailView' record=$item.item_id link_only=1}">
+            {$item.image}&nbsp;<span>{$item.item_summary_short}</span>
+        </a>
+    </span>
+    {foreachelse}
+    {$APP.NTC_NO_ITEMS_DISPLAY}
+    {/foreach}
+    </span>
+</div>
