@@ -1413,85 +1413,75 @@ EOHTML;
     /**
      * Returns an array composing of the breadcrumbs to use for the module title
      *
-     * @param bool $browserTitle true if the returned string is being used for the browser title, meaning
-     *                           there should be no HTML in the string
      * @return array
      */
-    protected function _getModuleTitleParams($browserTitle = false)
+    protected function _getModuleTitleParams($bTitle=false)
     {
-        $params = array($this->_getModuleTitleListParam($browserTitle));
-		//$params = array();
-        if (isset($this->action)){
-            switch ($this->action) {
-            case 'EditView':
+    	$params = array($this->_getModuleTitleListParam($bTitle));
+    	
+    	if (isset($this->action)){
+    	    switch ($this->action) {
+    	    case 'EditView':
                 if(!empty($this->bean->id)) {
-                    $params[] = $this->bean->get_summary_text();
-                    //$params[] = $GLOBALS['app_strings']['LBL_EDIT_BUTTON_LABEL'];
+                    $params[] = "<a href='index.php?module={$this->module}&action=DetailView&record={$this->bean->id}'>".$this->bean->get_summary_text()."</a>";
+                    $params[] = $GLOBALS['app_strings']['LBL_EDIT_BUTTON_LABEL'];
                 }
                 else
                     $params[] = $GLOBALS['app_strings']['LBL_CREATE_BUTTON_LABEL'];
                 break;
             case 'DetailView':
                 $beanName = $this->bean->get_summary_text();
-                if($this->bean->isFavoritesEnabled())
-                    $beanName .= '&nbsp;' . SugarFavorites::generateStar(SugarFavorites::isUserFavorite($this->module, $this->bean->id), $this->module, $this->bean->id);
                 $params[] = $beanName;
                 break;
-            }
-        }
-
-        return $params;
+    		}
+    	}
+ 		
+    	return $params;
     }
-
+    
     /**
      * Returns the portion of the array that will represent the listview in the breadcrumb
      *
-     * @param bool $browserTitle true if the returned string is being used for the browser title, meaning
-     *                           there should be no HTML in the string
      * @return string
      */
-    protected function _getModuleTitleListParam( $browserTitle = false )
+    protected function _getModuleTitleListParam($bTitle=false)
     {
     	global $current_user;
     	global $app_strings;
-
+    	
     	if(!empty($GLOBALS['app_list_strings']['moduleList'][$this->module]))
     		$firstParam = $GLOBALS['app_list_strings']['moduleList'][$this->module];
     	else
     		$firstParam = $this->module;
-
+    	
     	$iconPath = $this->getModuleTitleIconPath($this->module);
-    	if($this->action == "ListView" || $this->action == "index") {
-    	    if (!empty($iconPath) && !$browserTitle) {
-    	    	if (SugarThemeRegistry::current()->directionality == "ltr") {
-    	    		return $app_strings['LBL_SEARCH']."&nbsp;"
-    	    			 . "$firstParam";
-
-    	    	} else {
-					return "$firstParam"
-					     . "&nbsp;".$app_strings['LBL_SEARCH'];
-    	    	}
+    	if($this->action == "ListView" || $this->action == "index") 
+    	{
+    	    if (!empty($iconPath) && !$bTitle) {
+				return "<a href='index.php?module={$this->module}&action=index'>" 
+				     . "<img src='{$iconPath}' alt='".$this->module."' title='".$this->module."' align='absmiddle'></a>" 
+				     . "<span class='pointer'>&raquo;</span>".$app_strings['LBL_SEARCH'];
 			} else {
 				return $firstParam;
 			}
-    	}
-    	else {
-		    if (!empty($iconPath) && !$browserTitle) {
-				//return "<a href='index.php?module={$this->module}&action=index'>$this->module</a>";
-				return $firstParam;
+    	} else 
+    	{
+		    if (!empty($iconPath) && !$bTitle) {
+				return "<a href='index.php?module={$this->module}&action=index'>" 
+				     . "<img src='{$iconPath}' alt='".$this->module."' title='".$this->module."' align='absmiddle'></a>";
 			} else {
-				return $firstParam;
+				return "<a href='index.php?module={$this->module}&action=index'>{$firstParam}</a>";
 			}
     	}
     }
-
-    protected function getModuleTitleIconPath($module)
-    {
+    
+    protected function getModuleTitleIconPath($module) {
     	$iconPath = "";
-    	if(is_file(SugarThemeRegistry::current()->getImageURL('icon_'.$module.'_32.png',false))) {
+    	if(is_file(SugarThemeRegistry::current()->getImageURL('icon_'.$module.'_32.png',false)))
+    	{
     		$iconPath = SugarThemeRegistry::current()->getImageURL('icon_'.$module.'_32.png');
-    	}
-    	else if (is_file(SugarThemeRegistry::current()->getImageURL('icon_'.ucfirst($module).'_32.png',false))) {
+    	} else if (is_file(SugarThemeRegistry::current()->getImageURL('icon_'.ucfirst($module).'_32.png',false)))
+    	{
     		$iconPath = SugarThemeRegistry::current()->getImageURL('icon_'.ucfirst($module).'_32.png');
     	}
     	return $iconPath;
