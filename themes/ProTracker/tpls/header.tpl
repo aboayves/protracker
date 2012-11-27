@@ -53,7 +53,7 @@ if (SUGAR.ajaxUI && !SUGAR.ajaxUI.hist_loaded)
 {literal}
 <script type='text/javascript'>
 
-$(document).ready(function() {
+$(document).ready(function(){
 	
 	$(".modulesdrager").click(function(){
 		$(this).toggleClass("hide");

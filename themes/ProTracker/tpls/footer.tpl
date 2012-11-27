@@ -123,12 +123,13 @@ $('#zenbox_tab').ready(function(){
 {/literal}{/if}{/if}
 
 </script>
-{literal}
+
 
 {if $AUTHENTICATED}
     <div class="clear"></div>
 </div>
 {/if}
+{literal}
 <script>
 
 

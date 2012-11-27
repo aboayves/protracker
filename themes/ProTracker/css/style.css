@@ -2385,6 +2385,7 @@ border-radius: 0px 0px 6px 6px;
 {
     padding:0px !important;
     text-align:left;
+		color:#333 !important;
 }
 .login
 {
@@ -3872,7 +3873,7 @@ button.id-ff-remove {
 #moduleList 
 {
 	float: left;
-	width:230px;
+	width:120px;
 	margin-top:0px;
 }
 
@@ -3940,7 +3941,7 @@ ul.megamenu a, ul.moduleTabMore a, ul.sf-sub-modulelist a,
 
 #moduleList .sf-menu li:hover ul, 
 #moduleList .sf-menu li.sfHover ul {
-	left: 231px;
+	left: 120px;
 	top: 0px; /* match top ul list item height */
 	z-index: 99;
 }
@@ -4019,6 +4020,7 @@ ul.megamenu a, ul.moduleTabMore a, ul.sf-sub-modulelist a,
 	text-decoration:none;
 	font-size: 14px;
 	border-right: none;
+	font-weight:bold;
 }
 
 #moduleList .sf-menu li a img{
@@ -4037,7 +4039,6 @@ ul.megamenu a, ul.moduleTabMore a, ul.sf-sub-modulelist a,
 
 #moduleList .sf-menu ul li a, ul.megamenu li a, ul.moduleTabMore li a, ul.sf-sub-modulelist li a {
 	color: #666;
-	
 }
 
 ul.megamenu a,
@@ -7374,7 +7375,8 @@ div#content > table
 }
 
 div#content > table tr td.moduleListPanel{
-	width:230px;	
+	
+	width:120px;	
 	background: rgb(247,247,247); /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2U0ZTRlNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmN2Y3ZjciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
@@ -7525,10 +7527,13 @@ div.login{
 	border:1px solid #000;
 	box-shadow:inset -1px 0px 0px #333;
 	z-index:3;
-	margin:10px 0px 0px 230px;
+	margin:10px 0px 0px 120px;
+
 }
 
 .modulesdrager.hide{
+
+	
 	margin:10px 0px 0px 0px;
 		background: #000000;
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger-close.png');
@@ -7545,7 +7550,7 @@ div.login{
 }
 
 .moduleListPanel.hide{
-	display:none !important;
+display:none !important;
 }
 #forecastsWorksheet{
 	background-color:#fff;
