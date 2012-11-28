@@ -1,5 +1,5 @@
 <?php
-// created: 2012-11-16 18:29:10
+// created: 2012-11-28 02:25:00
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -44,4 +44,6 @@ $mod_strings = array (
   'LBL_ACCOUNTS_RT_NOTES_TITLE' => 'Notes',
   'LBL_PREFERRED_COMM' => 'Preferred Comm',
   'LBL_TYPE' => 'Client Type DO NOT USE',
+  'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'Primary Contact',
+  'ACCOUNTS_CONTACTS_2_NAME' => 'Co Client',
 );

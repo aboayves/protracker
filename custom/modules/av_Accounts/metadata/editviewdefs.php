@@ -79,7 +79,6 @@ array (
             'comment' => '',
             'label' => 'LBL_COST_BASIS',
           ),
-          1 => '',
         ),
         4 => 
         array (
@@ -89,7 +88,6 @@ array (
             'comment' => '',
             'label' => 'LBL_COST_BASIS_DATE',
           ),
-          1 => '',
         ),
         5 => 
         array (
@@ -117,6 +115,28 @@ array (
             array (
               'display' => true,
             ),
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_accounts_contacts_1_name',
           ),
         ),
       ),
@@ -190,6 +210,12 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_BILLED',
           ),
+          1 => 
+          array (
+            'name' => 'reinvest_capital_gains',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
+          ),
         ),
         5 => 
         array (
@@ -207,15 +233,6 @@ array (
           ),
         ),
         6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'reinvest_capital_gains',
-            'comment' => '',
-            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
-          ),
-        ),
-        7 => 
         array (
           0 => 
           array (

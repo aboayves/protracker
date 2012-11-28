@@ -30,6 +30,7 @@ array (
       'javascript' => '{sugar_getscript file="include/javascript/popup_parent_helper.js"}
 	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
 	{sugar_getscript file="modules/Documents/documents.js"}',
+      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -54,30 +55,36 @@ array (
         ),
         2 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'amendment_date',
+            'comment' => '',
+            'label' => 'LBL_AMENDMENT_DATE',
+          ),
           1 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
+            'name' => 'amendment_number',
+            'comment' => '',
+            'label' => 'LBL_AMENDMENT_NUMBER',
           ),
         ),
         3 => 
         array (
-          0 => 'active_date',
-          1 => 'exp_date',
+          0 => 'assigned_user_name',
+          1 => 'status_id',
         ),
         4 => 
         array (
-          0 => 'status_id',
+          0 => 'active_date',
+          1 => 'exp_date',
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'description',
+            'name' => 'provisions',
+            'comment' => '',
+            'label' => 'LBL_PROVISIONS',
           ),
           1 => 
           array (
@@ -93,6 +100,49 @@ array (
           1 => 
           array (
             'name' => 'av_estate_documents_av_estate_amendments_1_name',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'file_ext',
+            'label' => 'LBL_FILE_EXTENSION',
+          ),
+          1 => 
+          array (
+            'name' => 'file_mime_type',
+            'label' => 'LBL_MIME',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+          ),
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

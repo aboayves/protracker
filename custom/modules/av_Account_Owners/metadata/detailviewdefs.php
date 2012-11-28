@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -37,11 +39,21 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'av_account_owners_contacts_1_name',
+          ),
+          1 => '',
         ),
         1 => 
         array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'ownership_percent',
+            'comment' => '',
+            'label' => 'LBL_OWNERSHIP_PERCENT',
+          ),
         ),
         2 => 
         array (
@@ -56,14 +68,6 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'av_account_owners_contacts_1_name',
           ),
         ),
       ),
