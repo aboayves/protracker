@@ -79,7 +79,52 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
         array (
           0 => 
           array (
+            'name' => 'parent_name',
+            'label' => 'LBL_LIST_RELATED_TO',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'name',
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_calls_1_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_CALLS_1_FROM_AV_ACTIVITY_TYPES_TITLE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_start',
+            'displayParams' => 
+            array (
+              'updateCallback' => 'SugarWidgetScheduler.update_time();',
+            ),
+            'label' => 'LBL_DATE_TIME',
+          ),
+          1 => 
+          array (
+            'name' => 'date_end',
+            'comment' => 'Date is which call is scheduled to (or did) end',
+            'label' => 'LBL_DATE_END',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'duration_hours',
+            'label' => 'LBL_DURATION',
+            'customCode' => '{literal}<script type="text/javascript">function isValidDuration() { form = document.getElementById(\'EditView\'); if ( form.duration_hours.value + form.duration_minutes.value <= 0 ) { alert(\'{/literal}{$MOD.NOTICE_DURATION_TIME}{literal}\'); return false; } return true; }</script>{/literal}<input id="duration_hours" name="duration_hours" size="2" maxlength="2" type="text" value="{$fields.duration_hours.value}" onkeyup="SugarWidgetScheduler.update_time();"/>{$fields.duration_minutes.value}&nbsp;<span class="dateFormat">{$MOD.LBL_HOURS_MINUTES}</span>',
           ),
           1 => 
           array (
@@ -97,39 +142,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
             ),
           ),
         ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_start',
-            'displayParams' => 
-            array (
-              'updateCallback' => 'SugarWidgetScheduler.update_time();',
-            ),
-            'label' => 'LBL_DATE_TIME',
-          ),
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'label' => 'LBL_LIST_RELATED_TO',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'duration_hours',
-            'label' => 'LBL_DURATION',
-            'customCode' => '{literal}<script type="text/javascript">function isValidDuration() { form = document.getElementById(\'EditView\'); if ( form.duration_hours.value + form.duration_minutes.value <= 0 ) { alert(\'{/literal}{$MOD.NOTICE_DURATION_TIME}{literal}\'); return false; } return true; }</script>{/literal}<input id="duration_hours" name="duration_hours" size="2" maxlength="2" type="text" value="{$fields.duration_hours.value}" onkeyup="SugarWidgetScheduler.update_time();"/>{$fields.duration_minutes.value}&nbsp;<span class="dateFormat">{$MOD.LBL_HOURS_MINUTES}</span>',
-          ),
-          1 => 
-          array (
-            'name' => 'reminder_time',
-            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-            'label' => 'LBL_REMINDER',
-          ),
-        ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -139,20 +152,14 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
           ),
           1 => 
           array (
-            'name' => 'av_activity_types_calls_1_name',
+            'name' => 'reminder_time',
+            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
+            'label' => 'LBL_REMINDER',
           ),
         ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
+        5 => 
         array (
           0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-          1 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -160,13 +167,21 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
               'display' => true,
             ),
           ),
+          1 => '',
         ),
-        1 => 
+        6 => 
         array (
           0 => 
           array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

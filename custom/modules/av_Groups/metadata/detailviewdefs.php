@@ -83,17 +83,43 @@ array (
       array (
         0 => 
         array (
-          0 => 'communication_type',
-          1 => 'membership_expiration_days',
+          0 => 'name',
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'delivery_method',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'contacts_av_groups_1_name',
+          ),
+          1 => 
+          array (
+            'name' => 'priority',
+            'comment' => '',
+            'label' => 'LBL_PRIORITY',
+          ),
         ),
         2 => 
         array (
           0 => 
+          array (
+            'name' => 'contacts_av_groups_2_name',
+          ),
+          1 => 
+          array (
+            'name' => 'document_path',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_PATH',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
+        array (
+          0 => 'delivery_method',
+          1 => 
           array (
             'name' => 'av_offices_av_groups_name',
             'studio' => 'visible',
@@ -102,17 +128,46 @@ array (
         ),
         5 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'status',
+            'comment' => '',
+            'label' => 'LBL_STATUS',
+          ),
           1 => 
           array (
-            'name' => 'contacts_av_groups_1_name',
+            'name' => 'broadcast_group_c',
+            'label' => 'LBL_BROADCAST_GROUP',
           ),
         ),
         6 => 
         array (
+          0 => 'communication_type',
+          1 => 'membership_expiration_days',
+        ),
+        7 => 
+        array (
           0 => 
           array (
-            'name' => 'contacts_av_groups_2_name',
+            'name' => 'date_checked',
+            'comment' => '',
+            'label' => 'LBL_DATE_CHECKED',
+          ),
+          1 => 'team_name',
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

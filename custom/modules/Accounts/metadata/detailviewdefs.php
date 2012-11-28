@@ -86,10 +86,20 @@ array (
         ),
         2 => 
         array (
-          0 => 'envelope',
-          1 => '',
+          0 => 
+          array (
+            'name' => 'accounts_contacts_1_name',
+          ),
+          1 => 
+          array (
+            'name' => 'accounts_contacts_2_name',
+          ),
         ),
         3 => 
+        array (
+          0 => 'envelope',
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -104,7 +114,7 @@ array (
             'label' => 'LBL_CLIENT_SINCE_DATE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -119,7 +129,7 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -129,7 +139,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -144,7 +154,7 @@ array (
             'label' => 'LBL_MANAGED_ASSETS',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -159,7 +169,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -172,6 +182,11 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
           ),
+        ),
+        10 => 
+        array (
+          0 => '',
+          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
@@ -259,7 +274,6 @@ array (
             'name' => 'client_since',
             'label' => 'LBL_CLIENT_SINCE',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -377,7 +391,6 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_INVESTMENT_CLIENT',
           ),
-          1 => '',
         ),
         1 => 
         array (

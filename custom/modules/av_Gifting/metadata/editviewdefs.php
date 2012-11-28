@@ -90,7 +90,8 @@ array (
         ),
         6 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'team_name',
             'displayParams' => 

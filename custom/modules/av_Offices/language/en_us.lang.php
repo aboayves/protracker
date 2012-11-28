@@ -1,5 +1,5 @@
 <?php
-// created: 2012-10-14 16:43:13
+// created: 2012-11-26 20:43:42
 $mod_strings = array (
   'LBL_ACCOUNT_NAME' => 'Company Name',
   'LBL_ANNUAL_REVENUE' => 'Annual Revenue',
@@ -21,4 +21,10 @@ $mod_strings = array (
   'LBL_TICKER_SYMBOL' => 'Ticker Symbol',
   'LBL_TYPE' => 'Type',
   'LBL_WEBSITE' => 'Website',
+  'LBL_EDITVIEW_PANEL1' => 'New Panel 1',
+  'LBL_DESCRIPTION_INFORMATION' => 'Billing Information',
+  'LBL_EDITVIEW_PANEL2' => 'Primary Address',
+  'LBL_EDITVIEW_PANEL3' => 'Office Communications',
+  'LBL_ADDRESS_INFORMATION' => 'Mailing Address',
+  'LBL_EMAIL_ADDRESSES' => 'Shipping Address',
 );
