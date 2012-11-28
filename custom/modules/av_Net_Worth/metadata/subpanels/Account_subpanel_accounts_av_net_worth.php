@@ -1,5 +1,5 @@
 <?php
-// created: 2012-05-21 19:28:07
+// created: 2012-11-15 19:00:37
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -8,11 +8,24 @@ $subpanel_layout['list_fields'] = array (
     'width' => '45%',
     'default' => true,
   ),
-  'date_modified' => 
+  'accounts_av_net_worth_name' => 
   array (
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '45%',
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_ACCOUNTS_AV_NET_WORTH_FROM_ACCOUNTS_TITLE',
+    'id' => 'ACCOUNTS_AV_NET_WORTHACCOUNTS_IDA',
+    'width' => '10%',
     'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Accounts',
+    'target_record_key' => 'accounts_av_net_worthaccounts_ida',
+  ),
+  'net_worth_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'vname' => 'LBL_NET_WORTH_DATE',
+    'width' => '10%',
   ),
   'grand_total' => 
   array (
@@ -20,6 +33,12 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_GRAND_TOTAL',
     'currency_format' => true,
     'width' => '10%',
+    'default' => true,
+  ),
+  'date_modified' => 
+  array (
+    'vname' => 'LBL_DATE_MODIFIED',
+    'width' => '45%',
     'default' => true,
   ),
   'edit_button' => 

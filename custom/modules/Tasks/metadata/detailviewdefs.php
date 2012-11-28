@@ -68,39 +68,43 @@ array (
             'name' => 'name',
             'label' => 'LBL_SUBJECT',
           ),
-          1 => 'status',
+          1 => 
+          array (
+            'name' => 'parent_name',
+            'customLabel' => 'Related to - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+          ),
         ),
         1 => 
         array (
-          0 => 'date_start',
-          1 => 'priority',
+          0 => 'status',
+          1 => 
+          array (
+            'name' => 'project',
+            'studio' => 'visible',
+            'label' => 'LBL_PROJECT',
+          ),
         ),
         2 => 
         array (
           0 => 'assigned_user_name',
-          1 => 
-          array (
-            'name' => 'notify_child_completion',
-            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
-          ),
+          1 => 'priority',
         ),
         3 => 
         array (
-          0 => 'private',
-          1 => 
+          0 => 
           array (
-            'name' => 'on_task_list',
-            'label' => 'LBL_ON_TASK_LIST',
+            'name' => 'av_activity_types_tasks_1_name',
           ),
-        ),
-        4 => 
-        array (
-          0 => 'date_due',
           1 => 
           array (
             'name' => 'parent_tasks_name',
             'label' => 'LBL_PARENT_TASKS',
           ),
+        ),
+        4 => 
+        array (
+          0 => 'date_start',
+          1 => 'date_due',
         ),
         5 => 
         array (
@@ -115,46 +119,86 @@ array (
         array (
           0 => 
           array (
-            'name' => 'closed_status',
-            'label' => 'LBL_CLOSED_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'contact_name',
-            'label' => 'LBL_CONTACT',
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
+            'customCode' => '<div> {$fields.description.value} <div>',
           ),
         ),
         7 => 
         array (
-          0 => 'category',
-          1 => 'alow_asigne_to_modify',
+          0 => 
+          array (
+            'name' => 'results',
+            'comment' => '',
+            'label' => 'LBL_RESULTS',
+          ),
         ),
         8 => 
         array (
-          0 => 
-          array (
-            'name' => 'project',
-            'studio' => 'visible',
-            'label' => 'LBL_PROJECT',
-          ),
+          0 => 'category',
+          1 => 'team_name',
         ),
         9 => 
         array (
           0 => 
           array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
-            'customCode' => '<div> {$fields.description.value} <div>',
+            'name' => 'closed_status',
+            'label' => 'LBL_CLOSED_STATUS',
           ),
           1 => 
           array (
-            'name' => 'av_activity_types_tasks_1_name',
+            'name' => 'date_complete',
+            'label' => 'LBL_DTE_CMP',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),
-      'LBL_TREE' => 
+      'lbl_editview_panel1' => 
       array (
         0 => 
+        array (
+          0 => 'private',
+          1 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 'alow_asigne_to_modify',
+          1 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
+        ),
+        2 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'on_task_list',
+            'label' => 'LBL_ON_TASK_LIST',
+          ),
+        ),
+        3 => 
         array (
           0 => 
           array (

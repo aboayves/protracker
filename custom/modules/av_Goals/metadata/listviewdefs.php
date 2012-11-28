@@ -18,20 +18,6 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'TEAM_NAME' => 
-  array (
-    'width' => '9%',
-    'label' => 'LBL_TEAM',
-    'default' => true,
-  ),
-  'AMOUNT' => 
-  array (
-    'type' => 'currency',
-    'default' => true,
-    'label' => 'LBL_AMOUNT',
-    'currency_format' => true,
-    'width' => '10%',
-  ),
   'TARGET_DATE' => 
   array (
     'type' => 'date',
@@ -54,6 +40,14 @@ array (
     'label' => 'LBL_TYPE',
     'width' => '10%',
   ),
+  'AMOUNT' => 
+  array (
+    'type' => 'currency',
+    'default' => true,
+    'label' => 'LBL_AMOUNT',
+    'currency_format' => true,
+    'width' => '10%',
+  ),
   'DESCRIPTION' => 
   array (
     'type' => 'text',
@@ -61,6 +55,12 @@ array (
     'sortable' => false,
     'width' => '40%',
     'default' => true,
+  ),
+  'TEAM_NAME' => 
+  array (
+    'width' => '9%',
+    'label' => 'LBL_TEAM',
+    'default' => false,
   ),
 );
 ?>

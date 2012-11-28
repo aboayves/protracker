@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 // created: 2012-11-22 13:46:21
+=======
+// created: 2012-11-28 03:30:47
+>>>>>>> schema-buildout
 $connectors = array (
   'ext_rest_linkedin' => 
   array (

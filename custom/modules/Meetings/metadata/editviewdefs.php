@@ -66,6 +66,7 @@ array (
 <script>toggle_portal_flag();function toggle_portal_flag()  {ldelim} {$TOGGLE_JS} {rdelim} 
 function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.EditView.submit();{rdelim}{rdelim}</script>',
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -75,26 +76,37 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         array (
           0 => 
           array (
+            'name' => 'parent_name',
+            'label' => 'LBL_LIST_RELATED_TO',
+          ),
+          1 => 'type',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_meetings_1_name',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
             'name' => 'name',
           ),
           1 => 
           array (
-            'name' => 'status',
-            'fields' => 
-            array (
-              0 => 
-              array (
-                'name' => 'status',
-              ),
-            ),
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
           ),
         ),
-        1 => 
-        array (
-          0 => 'type',
-          1 => 'password',
-        ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -108,11 +120,17 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           ),
           1 => 
           array (
-            'name' => 'parent_name',
-            'label' => 'LBL_LIST_RELATED_TO',
+            'name' => 'status',
+            'fields' => 
+            array (
+              0 => 
+              array (
+                'name' => 'status',
+              ),
+            ),
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -126,12 +144,12 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           ),
           1 => 
           array (
-            'name' => 'location',
-            'comment' => 'Meeting location',
-            'label' => 'LBL_LOCATION',
+            'name' => 'duration_hours',
+            'comment' => 'Duration (hours)',
+            'label' => 'LBL_DURATION_HOURS',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -152,10 +170,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
                 </script>            
             ',
           ),
-        ),
-        5 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'reminder_time',
             'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
@@ -172,20 +187,44 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           ),
           1 => 
           array (
-            'name' => 'av_activity_types_meetings_1_name',
+            'name' => 'email_reminder_time',
+            'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
+            'label' => 'LBL_EMAIL_REMINDER_TIME',
           ),
         ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
+        7 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        8 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'location',
+            'comment' => 'Meeting location',
+            'label' => 'LBL_LOCATION',
           ),
-          1 => 'team_name',
+          1 => 'password',
+        ),
+        9 => 
+        array (
+          0 => 'team_name',
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),

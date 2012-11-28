@@ -96,9 +96,14 @@ array (
             'comment' => '',
             'label' => 'LBL_DATE_CRUMMEY_SENT',
           ),
-          1 => '',
+          1 => 'assigned_user_name',
         ),
         6 => 
+        array (
+          0 => '',
+          1 => 'team_name',
+        ),
+        7 => 
         array (
           0 => 
           array (
@@ -112,10 +117,6 @@ array (
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-        7 => 
-        array (
-          0 => 'team_name',
         ),
       ),
     ),

@@ -26,12 +26,27 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
       'lbl_document_information' => 
       array (
         0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contract_name',
+            'label' => 'LBL_CONTRACT_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+        ),
+        1 => 
         array (
           0 => 
           array (
@@ -42,9 +57,13 @@ array (
               'id' => 'document_revision_id',
             ),
           ),
-          1 => 'status',
+          1 => 
+          array (
+            'name' => 'status_id',
+            'label' => 'LBL_DOC_STATUS',
+          ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -57,7 +76,7 @@ array (
             'label' => 'LBL_DOC_VERSION',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -70,17 +89,17 @@ array (
             'label' => 'LBL_DET_IS_TEMPLATE',
           ),
         ),
-        3 => 
-        array (
-          0 => 'active_date',
-          1 => 'category_id',
-        ),
         4 => 
         array (
-          0 => 'exp_date',
-          1 => 'subcategory_id',
+          0 => 'active_date',
+          1 => 'exp_date',
         ),
         5 => 
+        array (
+          0 => 'category_id',
+          1 => 'subcategory_id',
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -88,38 +107,96 @@ array (
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 'related_doc_name',
           1 => 'related_doc_rev_number',
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'team_name',
-            'label' => 'LBL_TEAM',
-          ),
         ),
         8 => 
         array (
           0 => 
           array (
-            'name' => 'av_activity_types_documents_1_name',
+            'name' => 'document_number',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_NUMBER',
+          ),
+          1 => 
+          array (
+            'name' => 'latest_revision_name',
+            'label' => 'LBL_LASTEST_REVISION_NAME',
           ),
         ),
-      ),
-      'LBL_REVISIONS_PANEL' => 
-      array (
-        0 => 
+        9 => 
         array (
-          0 => 'last_rev_created_name',
-          1 => 'last_rev_create_date',
+          0 => 
+          array (
+            'name' => 'keywords',
+            'comment' => '',
+            'label' => 'LBL_KEYWORDS',
+          ),
+          1 => 
+          array (
+            'name' => 'document_revision_id',
+            'label' => 'LBL_LATEST_REVISION',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_activity_types_documents_1_name',
+          ),
+          1 => 
+          array (
+            'name' => 'doc_type',
+            'comment' => 'Document type (ex: Google, box.net, LotusLive)',
+            'studio' => 
+            array (
+              'wirelesseditview' => false,
+              'wirelessdetailview' => false,
+              'wirelesslistview' => false,
+              'wireless_basic_search' => false,
+            ),
+            'label' => 'LBL_DOC_TYPE',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'team_name',
+            'label' => 'LBL_TEAM',
+          ),
+          1 => 
+          array (
+            'name' => 'attach_to_group_id',
+            'comment' => 'Used as hidden field',
+            'label' => 'LBL_ATTACH_TO_GROUP_ID',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'selected_revision_name',
+            'label' => 'LBL_SELECTED_REVISION_NAME',
+          ),
+          1 => '',
+        ),
+        13 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),

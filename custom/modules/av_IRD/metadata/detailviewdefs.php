@@ -40,13 +40,13 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'contacts_av_ird_1_name',
+            'label' => 'LBL_CONTACTS_AV_IRD_1_FROM_CONTACTS_TITLE',
+          ),
         ),
         1 => 
-        array (
-          0 => 'team_name',
-        ),
-        2 => 
         array (
           0 => 'description',
           1 => 
@@ -54,7 +54,7 @@ array (
             'name' => 'accounts_av_ird_1_name',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -67,6 +67,26 @@ array (
             'name' => 'amount',
             'comment' => '',
             'label' => 'LBL_AMOUNT',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'team_name',
+          1 => 'assigned_user_name',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

@@ -41,53 +41,8 @@ array (
             'label' => 'LBL_VALUE',
           ),
         ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'managed_c',
-            'studio' => 'visible',
-            'label' => 'LBL_MANAGED',
-          ),
-          1 => 
-          array (
-            'name' => 'opened_c',
-            'label' => 'LBL_OPENED',
-          ),
-        ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'ownership_c',
-            'studio' => 'visible',
-            'label' => 'LBL_OWNERSHIP',
-          ),
-          1 => 
-          array (
-            'name' => 'as_of_c',
-            'label' => 'LBL_AS_OF',
-          ),
-        ),
-        3 => 
-        array (
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'cost_basis_c',
-            'label' => 'LBL_COST_BASIS',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'institution_c',
-            'studio' => 'visible',
-            'label' => 'LBL_INSTITUTION',
-          ),
         ),
         8 => 
         array (

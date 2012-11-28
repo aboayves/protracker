@@ -42,11 +42,26 @@ array (
           0 => 'name',
           1 => 
           array (
+            'name' => 'account_number',
+            'comment' => '',
+            'label' => 'LBL_ACCOUNT_NUMBER',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ownership',
+            'comment' => '',
+            'label' => 'LBL_OWNERSHIP',
+          ),
+          1 => 
+          array (
             'name' => 'value',
             'label' => 'LBL_VALUE',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -54,74 +69,178 @@ array (
           ),
           1 => 
           array (
-            'name' => 'as_of_c',
-            'label' => 'LBL_AS_OF',
-          ),
-        ),
-        2 => 
-        array (
-          1 => 
-          array (
-            'name' => 'ownership_c',
-            'studio' => 'visible',
-            'label' => 'LBL_OWNERSHIP',
+            'name' => 'value_date',
+            'comment' => '',
+            'label' => 'LBL_VALUE_DATE',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'av_accounts_av_companies_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_av_accounts_name',
+            'name' => 'cost_basis',
+            'comment' => '',
+            'label' => 'LBL_COST_BASIS',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'opened_c',
-            'label' => 'LBL_OPENED',
+            'name' => 'cost_basis_date',
+            'comment' => '',
+            'label' => 'LBL_COST_BASIS_DATE',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'managed_c',
-            'studio' => 'visible',
-            'label' => 'LBL_MANAGED',
+            'name' => 'av_accounts_av_companies_1_name',
           ),
         ),
         6 => 
         array (
           0 => 
           array (
-            'name' => 'cost_basis_c',
-            'label' => 'LBL_COST_BASIS',
+            'name' => 'date_closed',
+            'comment' => '',
+            'label' => 'LBL_DATE_CLOSED',
           ),
         ),
         7 => 
         array (
-          0 => 
-          array (
-            'name' => 'term',
-            'comment' => '',
-            'label' => 'LBL_TERM',
-          ),
+          0 => 'description',
+          1 => 'team_name',
         ),
         8 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
         9 => 
         array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'av_accounts_contacts_1_name',
+          ),
+        ),
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_aum',
+            'comment' => '',
+            'label' => 'LBL_IS_AUM',
+          ),
           1 => 
           array (
-            'name' => 'av_net_worth_av_accounts_name',
+            'name' => 'is_rmd',
+            'comment' => '',
+            'label' => 'LBL_IS_RMD',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_discretionary',
+            'comment' => '',
+            'label' => 'LBL_IS_DISCRETIONARY',
+          ),
+          1 => 
+          array (
+            'name' => 'is_withdrawal_asset',
+            'comment' => '',
+            'label' => 'LBL_IS_WITHDRAWAL_ASSET',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_lpoa',
+            'comment' => '',
+            'label' => 'LBL_IS_LPOA',
+          ),
+          1 => 
+          array (
+            'name' => 'is_fpoa',
+            'comment' => '',
+            'label' => 'LBL_IS_FPOA',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'include_on_ips',
+            'comment' => '',
+            'label' => 'LBL_INCLUDE_ON_IPS',
+          ),
+          1 => 
+          array (
+            'name' => 'is_margin',
+            'comment' => '',
+            'label' => 'LBL_IS_MARGIN',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_billed',
+            'comment' => '',
+            'label' => 'LBL_IS_BILLED',
+          ),
+          1 => 
+          array (
+            'name' => 'reinvest_capital_gains',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_eft',
+            'comment' => '',
+            'label' => 'LBL_IS_EFT',
+          ),
+          1 => 
+          array (
+            'name' => 'is_checkwriting',
+            'comment' => '',
+            'label' => 'LBL_IS_CHECKWRITING',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reinvest_dividends',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_DIVIDENDS',
+          ),
+          1 => 
+          array (
+            'name' => 'reinvest_interest',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_INTEREST',
           ),
         ),
       ),
