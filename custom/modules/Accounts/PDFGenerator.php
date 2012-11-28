@@ -98,10 +98,6 @@ class PDFGenerator extends TCPDF{
 			$width = $this->x_offset;
 			
 			$extraStyle = '';
-			if($headers){
-				$extraStyle = 'text-align:center;';
-			}
-			
 			if(
 				$colName == 'Client' || 
 				$colName == 'Client Trust' ||
