@@ -1,5 +1,5 @@
 <?php
-// created: 2012-11-28 02:25:00
+// created: 2012-11-14 17:36:26
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -12,13 +12,20 @@ $mod_strings = array (
   'LBL_MEMBER_OF' => 'Member of:',
   'LBL_MEMBER_ORG_SUBPANEL_TITLE' => 'Member Organizations',
   'LBL_HOMEPAGE_TITLE' => 'My Clients',
-  'LBL_ACCOUNTS_AV_NET_WORTH_FROM_AV_NET_WORTH_TITLE' => 'Net Worth History',
+  'LBL_ACCOUNTS_AV_NET_WORTH_FROM_AV_NET_WORTH_TITLE' => 'Net Worth History History',
+  'LBL_PRIORITY' => 'Priority',
   'LBL_EDITVIEW_PANEL1' => 'Addresses',
   'LBL_EDITVIEW_PANEL2' => 'Communications',
   'LBL_DESCRIPTION' => 'Comments',
   'LBL_NET_WORTH' => 'Net Worth',
   'LBL_EDITVIEW_PANEL3' => 'Financial',
-  'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE' => 'Accounts',
+  'LBL_CLIENT_SINCE' => 'Client Since',
+  'LBL_CLIENT_ID' => 'Client ID',
+  'LBL_ACCOUNTING_ID' => 'Accounting ID',
+  'LBL_LAST_REBAL' => 'Last Rebal',
+  'LBL_MARRIED' => 'Married',
+  'LBL_PREFERRED_COMM' => 'Preferred Communication',
+  'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE' => 'Clients',
   'LBL_ACCOUNTS_AV_SERVICE_TEAM_1_FROM_AV_SERVICE_TEAM_TITLE' => 'Service Team',
   'LBL_ACCOUNTS_AV_SERVICES_1_FROM_AV_SERVICES_TITLE' => 'Services',
   'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_AV_REVIEWS_TITLE' => 'Reviews',
@@ -41,9 +48,4 @@ $mod_strings = array (
   'LBL_ACCOUNTS_AV_SOCIAL_SECURITY_1_FROM_AV_SOCIAL_SECURITY_TITLE' => 'Social Security',
   'LBL_RT_OFFICES_ACCOUNTS_1_FROM_RT_OFFICES_TITLE' => 'Office',
   'LBL_LIST_ASSIGNED_USER' => 'Firm Contact',
-  'LBL_ACCOUNTS_RT_NOTES_TITLE' => 'Notes',
-  'LBL_PREFERRED_COMM' => 'Preferred Comm',
-  'LBL_TYPE' => 'Client Type',
-  'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'Primary Client',
-  'ACCOUNTS_CONTACTS_2_NAME' => 'Co-Client',
 );

@@ -21,7 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
-      'javascript' => '
+	  'javascript' => '
 	  	<script type="text/javascript">
 			document.getElementById(\'opted_out\').setAttribute(\'onclick\',\'return false\');
 		</script>
@@ -32,16 +32,36 @@ array (
       'default' => 
       array (
         0 => 
+		array (
+		  0 => 'include',
+		),
+		1 => 
         array (
           0 => 'name',
+          1 => 'assigned_user_name',
+        ),
+        2 => 
+        array (
+          0 => 'description',
           1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'parent_name',
             'studio' => 'visible',
             'label' => 'LBL_FLEX_RELATE',
           ),
         ),
-        1 => 
+        4 => 
         array (
           0 => 
           array (
@@ -60,92 +80,20 @@ array (
               ),
             ),
           ),
-          1 => 'include',
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_add_to_grp',
-            'label' => 'LBL_DATE_ADD_GRP',
-          ),
           1 => 'delivery_method',
         ),
-        3 => 
+        5 => 
         array (
           0 => 
-          array (
-            'name' => 'opted_out',
-            'displayParams' => 
-            array (
-              'javascript' => 'onchange="return false;"',
-            ),
-          ),
-          1 => 
-          array (
-            'name' => 'expiration_date',
-            'label' => 'LBL_EXPIRATION_DATE',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'comments',
-            'label' => 'LBL_COMMENTS',
-          ),
-          1 => 
           array (
             'name' => 'envelope',
             'label' => 'LBL_ENVELOPE',
           ),
-        ),
-        5 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'destination_address',
-            'comment' => 'Destination Address',
-            'label' => 'LBL_DESTINATION_ADDRESS',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 'assigned_user_name',
-          1 => '',
-        ),
-        7 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        8 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
+          1 =>
+		  array(
+		  	'name' => 'opted_out',
+			'displayParams' => array('javascript' => 'onchange="return false;"' ),
+		  ),
         ),
       ),
     ),

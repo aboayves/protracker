@@ -103,39 +103,7 @@ array (
         ),
         5 => 
         array (
-          0 => 'status_id',
-          1 => 'active_date',
-        ),
-        6 => 
-        array (
           0 => 
-          array (
-            'name' => 'accounts_av_identification_1_name',
-          ),
-          1 => 'category_id',
-        ),
-        7 => 
-        array (
-          0 => 'exp_date',
-          1 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 'subcategory_id',
-          1 => 'assigned_user_name',
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-          1 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -143,20 +111,13 @@ array (
               'required' => true,
             ),
           ),
+          1 => 'active_date',
         ),
-        10 => 
+        6 => 
         array (
           0 => 
           array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'accounts_av_identification_1_name',
           ),
         ),
       ),

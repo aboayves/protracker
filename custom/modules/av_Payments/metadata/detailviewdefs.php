@@ -75,26 +75,17 @@ array (
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
-          1 => 'name',
+          1 => '',
         ),
         3 => 
         array (
-          0 => 
+          0 => 'description',
+          1 => 
           array (
             'name' => 'accounts_av_payments_1_name',
           ),
-          1 => '',
         ),
         4 => 
-        array (
-          0 => 'description',
-        ),
-        5 => 
-        array (
-          0 => 'assigned_user_name',
-          1 => 'team_name',
-        ),
-        6 => 
         array (
           0 => 
           array (

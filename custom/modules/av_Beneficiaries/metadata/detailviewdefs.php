@@ -30,8 +30,6 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -39,51 +37,14 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_accounts_av_beneficiaries_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
+          0 => 'name',
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'contacts_av_beneficiaries_1_name',
-          ),
-          1 => 'name',
+          0 => 'team_name',
         ),
         2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'percent',
-            'comment' => '',
-            'label' => 'LBL_PERCENT',
-          ),
-          1 => 
-          array (
-            'name' => 'per_stirpes',
-            'comment' => '',
-            'label' => 'LBL_PER_STIRPES',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'date_verified',
-            'comment' => '',
-            'label' => 'LBL_DATE_VERIFIED',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (
@@ -96,6 +57,21 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'av_accounts_av_beneficiaries_1_name',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contacts_av_beneficiaries_1_name',
           ),
         ),
       ),

@@ -30,7 +30,6 @@ array (
       'javascript' => '{sugar_getscript file="include/javascript/popup_parent_helper.js"}
 	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
 	{sugar_getscript file="modules/Documents/documents.js"}',
-      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -56,9 +55,25 @@ array (
         2 => 
         array (
           0 => 'assigned_user_name',
-          1 => 'status_id',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
+          ),
         ),
         3 => 
+        array (
+          0 => 'active_date',
+          1 => 'exp_date',
+        ),
+        4 => 
+        array (
+          0 => 'status_id',
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -69,97 +84,11 @@ array (
             'name' => 'contacts_av_estate_documents_1_name',
           ),
         ),
-        4 => 
-        array (
-          0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_av_estate_documents_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'agent',
-            'comment' => '',
-            'label' => 'LBL_AGENT',
-          ),
-        ),
         6 => 
         array (
           0 => 
           array (
-            'name' => 'date_recorded',
-            'comment' => '',
-            'label' => 'LBL_DATE_RECORDED',
-          ),
-          1 => 
-          array (
-            'name' => 'attorney',
-            'comment' => '',
-            'label' => 'LBL_ATTORNEY',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-          1 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'provisions',
-            'comment' => '',
-            'label' => 'LBL_PROVISIONS',
-          ),
-          1 => 
-          array (
-            'name' => 'successor_agent',
-            'comment' => '',
-            'label' => 'LBL_SUCCESSOR_AGENT',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'on_file',
-            'comment' => '',
-            'label' => 'LBL_ON_FILE',
-          ),
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
-          ),
-        ),
-        10 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'accounts_av_estate_documents_1_name',
           ),
         ),
       ),

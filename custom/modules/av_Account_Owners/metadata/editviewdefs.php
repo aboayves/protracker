@@ -20,8 +20,6 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -29,35 +27,26 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_account_owners_contacts_1_name',
-          ),
-          1 => '',
+          0 => 'name',
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'description',
-          1 => 
+          0 => 
           array (
-            'name' => 'ownership_percent',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP_PERCENT',
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
           ),
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
+          0 => 'description',
           1 => 
           array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'av_account_owners_contacts_1_name',
           ),
         ),
       ),

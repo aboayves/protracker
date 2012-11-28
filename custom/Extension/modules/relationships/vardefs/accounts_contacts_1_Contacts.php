@@ -1,5 +1,5 @@
 <?php
-// created: 2012-11-27 22:03:21
+// created: 2012-06-01 13:23:06
 $dictionary["Contact"]["fields"]["accounts_contacts_1"] = array (
   'name' => 'accounts_contacts_1',
   'type' => 'link',
@@ -26,6 +26,6 @@ $dictionary["Contact"]["fields"]["accounts_contacts_1accounts_ida"] = array (
   'relationship' => 'accounts_contacts_1',
   'source' => 'non-db',
   'reportable' => false,
-  'side' => 'left',
-  'vname' => 'LBL_ACCOUNTS_CONTACTS_1_FROM_ACCOUNTS_TITLE',
+  'side' => 'right',
+  'vname' => 'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE',
 );

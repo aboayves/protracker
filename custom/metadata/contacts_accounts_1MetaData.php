@@ -1,25 +1,25 @@
 <?php
-// created: 2012-06-01 13:23:06
-$dictionary["accounts_contacts_1"] = array (
+// created: 2012-10-19 18:23:59
+$dictionary["contacts_accounts_1"] = array (
   'true_relationship_type' => 'one-to-many',
   'from_studio' => true,
   'relationships' => 
   array (
-    'accounts_contacts_1' => 
+    'contacts_accounts_1' => 
     array (
-      'lhs_module' => 'Accounts',
-      'lhs_table' => 'accounts',
+      'lhs_module' => 'Contacts',
+      'lhs_table' => 'contacts',
       'lhs_key' => 'id',
-      'rhs_module' => 'Contacts',
-      'rhs_table' => 'contacts',
+      'rhs_module' => 'Accounts',
+      'rhs_table' => 'accounts',
       'rhs_key' => 'id',
       'relationship_type' => 'many-to-many',
-      'join_table' => 'accounts_contacts_1_c',
-      'join_key_lhs' => 'accounts_contacts_1accounts_ida',
-      'join_key_rhs' => 'accounts_contacts_1contacts_idb',
+      'join_table' => 'contacts_accounts_1_c',
+      'join_key_lhs' => 'contacts_accounts_1contacts_ida',
+      'join_key_rhs' => 'contacts_accounts_1accounts_idb',
     ),
   ),
-  'table' => 'accounts_contacts_1_c',
+  'table' => 'contacts_accounts_1_c',
   'fields' => 
   array (
     0 => 
@@ -43,13 +43,13 @@ $dictionary["accounts_contacts_1"] = array (
     ),
     3 => 
     array (
-      'name' => 'accounts_contacts_1accounts_ida',
+      'name' => 'contacts_accounts_1contacts_ida',
       'type' => 'varchar',
       'len' => 36,
     ),
     4 => 
     array (
-      'name' => 'accounts_contacts_1contacts_idb',
+      'name' => 'contacts_accounts_1accounts_idb',
       'type' => 'varchar',
       'len' => 36,
     ),
@@ -58,7 +58,7 @@ $dictionary["accounts_contacts_1"] = array (
   array (
     0 => 
     array (
-      'name' => 'accounts_contacts_1spk',
+      'name' => 'contacts_accounts_1spk',
       'type' => 'primary',
       'fields' => 
       array (
@@ -67,20 +67,20 @@ $dictionary["accounts_contacts_1"] = array (
     ),
     1 => 
     array (
-      'name' => 'accounts_contacts_1_ida1',
+      'name' => 'contacts_accounts_1_ida1',
       'type' => 'index',
       'fields' => 
       array (
-        0 => 'accounts_contacts_1accounts_ida',
+        0 => 'contacts_accounts_1contacts_ida',
       ),
     ),
     2 => 
     array (
-      'name' => 'accounts_contacts_1_alt',
+      'name' => 'contacts_accounts_1_alt',
       'type' => 'alternate_key',
       'fields' => 
       array (
-        0 => 'accounts_contacts_1contacts_idb',
+        0 => 'contacts_accounts_1accounts_idb',
       ),
     ),
   ),

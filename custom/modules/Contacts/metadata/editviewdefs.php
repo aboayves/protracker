@@ -155,28 +155,6 @@ array (
           array (
             'name' => 'av_account_owners_contacts_1_name',
           ),
-          1 => 
-          array (
-            'name' => 'av_accounts_contacts_1_name',
-          ),
-        ),
-        12 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_contacts_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_contacts_2_name',
-          ),
-        ),
-        13 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_contacts_3_name',
-          ),
         ),
       ),
       'lbl_editview_panel5' => 
@@ -284,6 +262,12 @@ array (
             'name' => 'ssn',
             'label' => 'LBL_SSN',
           ),
+          1 => 
+          array (
+            'name' => 'spouse_c',
+            'studio' => 'visible',
+            'label' => 'LBL_SPOUSE',
+          ),
         ),
         2 => 
         array (
@@ -306,15 +290,24 @@ array (
         array (
           0 => 
           array (
-            'name' => 'priority',
+            'name' => 'type',
             'studio' => 'visible',
-            'label' => 'LBL_PRIORITY',
+            'label' => 'LBL_TYPE',
           ),
           1 => 
           array (
             'name' => 'status',
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'priority',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIORITY',
           ),
         ),
       ),
@@ -428,12 +421,6 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'do_not_email',
-            'comment' => '',
-            'label' => 'LBL_DO_NOT_EMAIL',
-          ),
         ),
         3 => 
         array (
@@ -446,6 +433,12 @@ array (
           ),
         ),
         4 => 
+        array (
+        ),
+        5 => 
+        array (
+        ),
+        6 => 
         array (
           0 => 'campaign_name',
         ),
@@ -480,6 +473,14 @@ array (
             'name' => 'is_sec_related',
             'comment' => '',
             'label' => 'LBL_IS_SEC_RELATED',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'sec_related_party_c',
+            'label' => 'LBL_SEC_RELATED_PARTY',
           ),
         ),
       ),
