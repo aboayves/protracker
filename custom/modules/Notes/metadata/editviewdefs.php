@@ -44,6 +44,7 @@ function deleteAttachmentCallBack(text)
 </script>
 <script>toggle_portal_flag(); function toggle_portal_flag()  {literal} { {/literal} {$TOGGLE_JS} {literal} } {/literal} </script>{$tiny}',
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -53,53 +54,27 @@ function deleteAttachmentCallBack(text)
         array (
           0 => 
           array (
-            'name' => 'contact_name',
-            'label' => 'LBL_CONTACT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'label' => 'LBL_RELATED_TO',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'name',
             'displayParams' => 
             array (
               'size' => 60,
             ),
           ),
-          1 => 'filename',
+          1 => 
+          array (
+            'name' => 'av_activity_types_notes_1_name',
+          ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
-            'name' => 'portal_flag',
-            'displayParams' => 
-            array (
-              'required' => false,
-            ),
-            'customLabel' => '{if ($PORTAL_ENABLED)}{sugar_translate label="LBL_PORTAL_FLAG" module="Notes"}{/if}',
-            'customCode' => ' {if ($PORTAL_ENABLED)}
-											  {if $fields.portal_flag.value == "1"}
-											  {assign var="checked" value="CHECKED"}
-											  {else}
-											  {assign var="checked" value=""}
-											  {/if}
-											  <input type="hidden" name="{$fields.portal_flag.name}" value="0"> 
-											  <input type="checkbox" name="{$fields.portal_flag.name}" value="1" tabindex="1" {$checked}>
-					        		          {/if}',
+            'name' => 'parent_name',
+            'label' => 'LBL_RELATED_TO',
           ),
-          1 => 
-          array (
-            'name' => 'team_name',
-          ),
+          1 => '',
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -119,9 +94,47 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
             'label' => 'LBL_NOTE_STATUS',
           ),
+        ),
+        3 => 
+        array (
+          0 => 'filename',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
           1 => 
           array (
-            'name' => 'av_activity_types_notes_1_name',
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
+        ),
+        5 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'team_name',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

@@ -55,7 +55,7 @@ class av_WorkflowController extends SugarController {
 				$tmpStamp = strtotime("now");
 			}
 			
-			if(date('N', $tmpStamp) > 5){
+			if(date('N', $tmpStamp) > 5 && $dayKeyword == 'weekdays'){
 				$tmpStamp = strtotime("last friday", $tmpStamp);
 			}
 			

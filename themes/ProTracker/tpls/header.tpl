@@ -46,7 +46,24 @@ if (SUGAR.ajaxUI && !SUGAR.ajaxUI.hist_loaded)
 	YAHOO.util.History.initialize("ajaxUI-history-field", "ajaxUI-history-iframe");
 	{/if}{literal}
 }
+
 </script>
+{/literal}
+
+{literal}
+<script type='text/javascript'>
+
+$(document).ready(function(){
+	
+	$(".modulesdrager").click(function(){
+		$(this).toggleClass("hide");
+		$(".moduleListPanel").toggleClass("hide");
+	});
+   
+ });
+
+</script>
+
 {/literal}
 <script>
 var max_tabs = {$max_tabs};
@@ -54,5 +71,22 @@ var max_tabs = {$max_tabs};
 
 <div id="main">
     <div id="content">
-    
-        <table style="width:100%" id="contentTable"><tr><td>
+    {if $AUTHENTICATED}
+    <div class="modulesdrager"></div>
+    {/if}
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+          {if $AUTHENTICATED}
+            <td class="moduleListPanel" width="230px">
+            <div class="moduleListPanelData">
+            	{include file="_headerModuleList.tpl" theme_template=true}
+            </div>
+            </td>
+            {/if}
+            <td class="contentPanel">
+            	<div class="contentPanelData">
+              	<table style="width:100%" id="contentTable"><tr><td>
+            
+
+        
+        

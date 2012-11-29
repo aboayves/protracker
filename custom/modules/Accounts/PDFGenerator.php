@@ -1,71 +1,140 @@
 <?php
 
-require_once('include/tcpdf/config/lang/eng.php');
 require_once('include/tcpdf/tcpdf.php');
-
-class PDFGenerator extends TCPDF{
-	public $client;
-	public $coclient;
-	public $netWorthDate;
 	
-	public function __construct($client, $coclient, $netWorthDate){
+class PDFGenerator extends TCPDF{
+	private $data;
+	private $client;
+	private $coClient;
+	private $netWorthDate;
+	private $text_font;
+	
+	private $hasCoClient = false;
+	private $x_offset = 100;
+	
+	private $style_bold_line = array('width' => 0.5, 'color' => array(0, 0, 0));
+	private $style_simple_line = array('width' => 0.25, 'color' => array(0, 0, 0));
+	
+	private $columnHeaders = array('Account Type', 'Institution', 'Account Name', 'Account #', 'Client', 'Client Trust', 'Co Client', 'Co Client Trust', 'Joint or CP', 'Total');
+	
+	function __construct($data, $client, $coClient, $net_worth_date) {
+		$this->data = $data;
 		$this->client = $client;
-		$this->coclient = $coclient;
-		$this->netWorthDate = $netWorthDate;
+		$this->coClient = $coClient;
+		$this->netWorthDate = $net_worth_date;
+		$this->text_font= 'helvetica';
+		$this->hasCoClient = !(
+								  empty($coClient) &&
+								  $data['Net Worth']['Co Client'] == 0 &&
+								  $data['Net Worth']['Co Client Trust'] == 0 &&
+								  $data['Net Worth']['Joint or CP'] == 0
+							 );
+		
+		if($this->hasCoClient){
+			$this->x_offset = 73;
+		};
 		
 		parent::__construct('L', PDF_UNIT,  'letter', true, 'UTF-8', false);
 	}
-	
+		
 	public function Header() {
-		global $timedate;
+		$client_name = $this->client;
+		if($this->hasCoClient){
+			$client_name .= ", " . $this->coClient;
+		}
 		
-		$client_name = $this->client . ", " . $this->coclient;
-		$generate_date = date('l, M d, Y', strtotime($timedate->to_db_date($this->netWorthDate, false))); //"Thursday, May 28, 2009";
+		$this->SetFont($this->text_font, 'B', 14, '', true);
+		$this->Text(10, 18,"Net Worth Statement For ". $client_name);
+		$this->SetFont($this->text_font, 'B', 10, '', true);
+		$this->Text(10, 23, "As of " . $this->netWorthDate, false);
+		$this->Line(10, 26, 270, 26, $this->style_bold_line);
 		
-		$style_bold_line = array('width' => 0.5, 'color' => array(0, 0, 0));
-		$this->SetFont('helvetica', 'B', 14, '', true);
-		$this->Text(10, 18,"Net Worth Statement For {$client_name} ");
-		$this->SetFont('helvetica', 'B', 7, '', true);
-		$this->Text(10, 23, "As of {$generate_date} ");
+		$y_pos = 28;
+		$tmp = array();
+		foreach($this->columnHeaders as $header){
+			$tmp[$header] = $header;
+		}
 		
-		$this->Line(10, 26, 270, 26, $style_bold_line);
-		$this->SetFont('helvetica', 'B', 5, '', true);
+		$this->SetFont($this->text_font, 'B', 8, '', true);
+		$this->addRow($tmp, $y_pos, true);
 		
-		$this->Text(10, 31, "Account Type");
-		$this->Text(38, 31, "Institution");
-		$this->Text(66, 31, "Account Name");
-		$this->Text(94, 31, "Account #");
-		$this->Text(122, 31, "Client");
-		$this->Text(150, 31, "Client Trust");
-		$this->Text(178, 31, "Co Client");
-		$this->Text(206, 31, "Co Client Trust");
-		$this->Text(234, 31, "Joint or CP");
-		$this->Text(262, 31, "Total");
-		
-		$this->Line(10, 32, 270, 32, $style_bold_line);
+		$y_pos += 1;
+		$this->Line(10, $y_pos, 270, 32, $this->style_bold_line);
 	}
 
 	public function Footer() {
 		$this->SetY(-15);
 		$this->SetX(253);
-		$this->SetFont('helvetica', '', 8);
+		$this->SetFont($this->text_font, '', 8);
 		$this->Cell(0, 10, 'Page '.$this->getAliasNumPage().' of '.$this->getAliasNbPages(), 0, false, '', 0, '', 0, false, 'T', 'M');
 		
 		$this->SetY(-15);
 		$this->SetX(7);
-		$this->SetFont('helvetica', '', 8);
+		$this->SetFont($this->text_font, '', 8);
 		$this->Cell(0, 10, date("m/d/y"), 0, false, '', 0, '', 0, false, 'T', 'M');
 	}
-
-	function makePDF($data){
-		$style_bold_line = array('width' => 0.5, 'color' => array(0, 0, 0));
-		$style_simple_line = array('width' => 0.25, 'color' => array(0, 0, 0));
+	
+	function addCategoryHeading($catName, &$y_pos){
+		$y_pos += 6;
+		$this->SetFont($this->text_font, 'B', 12, '', true);
+		$this->Text(10, $y_pos, empty($catName) ? "--Blank--" : $catName);
 		
+		$y_pos += 2;
+		$this->Line(10, $y_pos, 270, $y_pos, $this->style_simple_line);
+		
+		$this->SetFont($this->text_font, '', 8, '', true);
+	}
+	
+	function addRow($data, &$y_pos, $headers=false){
+		$this->y = $y_pos;
+		$this->x = 10;
+		
+		$html = "<table><tr>";
+		foreach($data as $colName => $value)	{	
+			if(!$this->hasCoClient  && ($colName == 'Co Client' || $colName == 'Co Client Trust' || $colName == 'Joint or CP')){
+				continue;
+			}
+			
+			$width = $this->x_offset;
+			
+			$extraStyle = '';
+			if(
+				$colName == 'Client' || 
+				$colName == 'Client Trust' ||
+				$colName == 'Co Client' || 
+				$colName == 'Co Client Trust' ||  
+				$colName == 'Joint or CP' || 
+				$colName == 'Total' || 
+				$colName == 'subtotal'
+			){
+				$extraStyle = 'text-align:right;';
+				
+				$width -= 10;
+			}else if($colName == 'Institution'){
+				$width += 20;
+			}else if($colName == 'Account Name'){
+				$width += 40;
+			}
+			
+			if($colName == 'subtotal'){
+				$width = (4 * $this->x_offset) + 60;
+				$extraStyle .= 'font-weight:bold;';
+			}
+			
+			$html .= '<td style="width:' . $width . 'px;' . $extraStyle . '">' . $value  . '</td>';
+		}
+		
+	 	$html .= "</tr></table>";
+		$this->writeHTML($html, false, false, false, true, '');
+		
+		$y_pos = $this->y;
+	}
+
+	function makePDF(){
 		$this->SetCreator("NetWoth Statement");
 		$this->SetAuthor('ProTraker');
 		$this->SetTitle('Net Worth Statement');
 		$this->SetSubject('Net Worth Statement');
-		$this->SetKeywords('TCPDF, PDF, example, test, guide');
 		
 		$this->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
 		$this->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -74,80 +143,53 @@ class PDFGenerator extends TCPDF{
 		$this->SetHeaderMargin(PDF_MARGIN_HEADER);
 		$this->SetFooterMargin(PDF_MARGIN_FOOTER);
 		
-		$this->SetFont('helvetica', '', 4, '', true);
 		$this->AddPage();
 		
-		$line_space = 32;
-		$left_start = 10;
-		$Categories = $data['Categories'];
-		foreach($Categories as $asset_type => $asset){		
-			$line_space += 6;
-			$this->SetFont('helvetica', 'B', 14, '', true);
-			$this->Text($left_start, $line_space, $asset_type);
+		$y_pos = 32;		
+		foreach($this->data['Categories'] as $catName => $catData)	{		
+			$this->addCategoryHeading($catName, $y_pos);
 			
-			$this->SetFont('helvetica', '', 7, '', true);
-			$line_space += 5;
-			
-			foreach ($asset['data'] as $value){	
-				$this->Line($left_start, $line_space, 270, $line_space, $style_simple_line);		
-				$line_space += 4;
-				$space = 10;
-				
-				foreach ($value as $value1){
-					if($line_space > 270){
-						$this->AddPage();
-						$line_space = 32;
-						$left_start = 10;
-						$this->SetFont('helvetica', 'B', 14, '', true);
-						$this->Text($left_start, $line_space, $asset_type);
-						$this->SetFont('helvetica', '', 5, '', true);
-						$line_space += 5;
-						$this->Line($left_start, $line_space, 270, $line_space, $style_simple_line);		
-						$line_space += 4;
-					}
+			$lineWidth = 0;
+			foreach ($catData['data'] as $row){
+				if(ceil($y_pos + $lineWidth) >= 185){
+					$y_pos = 32;					
 					
-					$this->Text($space, $line_space, $value1);
-					$space += 28;
+					$this->AddPage();
+					$this->addCategoryHeading($catName, $y_pos);
 				}
-				$line_space += 4;
+				
+				$lineWidth = $y_pos += 2;
+				$this->addRow($row, $y_pos);
+				$lineWidth = $y_pos - $lineWidth;
+				
+				$y_pos += 2;
+				$this->Line(10, $y_pos, 270, $y_pos, $this->style_simple_line);
 			}
+		
+			$y_pos += 1;
+			$this->SetFont($this->text_font, '', 8, '', true);
+			$this->addRow(array_merge(array('subtotal'=> "{$catName} Subtotals:"), $catData['Subtotal']), $y_pos);
 			
-			$Subtotal = $asset['Subtotal'];
-			$this->Line($left_start, $line_space, 270, $line_space++, $style_simple_line);	
-			$line_space += 2;
-			$this->SetFont('helvetica', 'B', 5, '', true);
-			$this->Text(94, $line_space, "{$asset_type} Subtotals:");
-			$this->SetFont('helvetica', '', 5, '', true);
+			$y_pos += 1;
+			$this->Line(10, $y_pos , 270, $y_pos, $this->style_bold_line);
+		}
 			
-			$this->Text(122, $line_space, $Subtotal['Client']);
-			$this->Text(150, $line_space, $Subtotal['Client Trust']);
-			$this->Text(178, $line_space, $Subtotal['Co Client']);
-			$this->Text(206, $line_space, $Subtotal['Co Client Trust']);
-			$this->Text(234, $line_space, $Subtotal['Joint or CP']);
-			$this->Text(262, $line_space, $Subtotal['Total']);
-			
-			$line_space += 3;
-			$this->Line($left_start, $line_space , 270, $line_space, $style_bold_line);
+		$y_pos += 3;
+		$this->SetFont($this->text_font, '', 8, '', true);
+		$this->addRow(array_merge(array('subtotal'=> "Net Worth:"), $this->data['Net Worth']), $y_pos);
+		
+		$line_offset = 157;
+		if($this->hasCoClient){
+			$line_offset = 117;
 		}
 		
-		$Net_worth = $data['Net Worth'];
-		$this->SetFont('helvetica', 'B', 5, '', true);
-		$line_space += 4;
+		$y_pos += 1;
+		$this->Line($line_offset, $y_pos, 270, $y_pos, $this->style_simple_line);
 		
-		$this->Text(94, $line_space, "Net Worth:");
-		$this->SetFont('helvetica', '', 5, '', true);
-		$this->Text(122, $line_space, $Net_worth['Client']);
-		$this->Text(150, $line_space,  $Net_worth['Client Trust']);
-		$this->Text(178, $line_space, $Net_worth['Co Client']);
-		$this->Text(206, $line_space, $Net_worth['Co Client Trust']);
-		$this->Text(234, $line_space, $Net_worth['Joint or CP']);
-		$this->Text(262, $line_space, $Net_worth['Total']);
+		$y_pos += 0.6;
+		$this->Line($line_offset, $y_pos, 270, $y_pos, $this->style_simple_line);
 		
-		$line_space += 2;
-		$this->Line(90, $line_space, 270, $line_space, $style_simple_line);
-		$this->Line(90, floatval($line_space)+ 0.6, 270, floatval($line_space)+ 0.6, $style_simple_line);	
-		
-		$this->Output("Networth Statement ".date("m-d-y"), 'D');
+		$this->Output("Networth Statement ".date("m-d-y"), 'I');
 	}
 }
 ?>

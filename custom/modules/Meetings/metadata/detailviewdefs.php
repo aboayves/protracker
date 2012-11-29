@@ -74,6 +74,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -83,67 +84,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
-            'label' => 'LBL_SUBJECT',
-          ),
-          1 => 'status',
-        ),
-        1 => 
-        array (
-          0 => 'type',
-          1 => 
-          array (
-            'name' => 'displayed_url',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_start',
-            'label' => 'LBL_DATE_TIME',
-          ),
-          1 => 
-          array (
-            'name' => 'password',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'duration_hours',
-            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
-            'label' => 'LBL_DURATION',
-          ),
-          1 => 
-          array (
             'name' => 'parent_name',
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
+          1 => 'type',
         ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'reminder_time',
-            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-            'label' => 'LBL_REMINDER',
-          ),
-          1 => 'location',
-        ),
-        5 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'av_activity_types_meetings_1_name',
-          ),
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
+        1 => 
         array (
           0 => 
           array (
@@ -152,18 +98,101 @@ array (
           ),
           1 => 
           array (
-            'name' => 'date_modified',
-            'label' => 'LBL_DATE_MODIFIED',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'name' => 'av_activity_types_meetings_1_name',
           ),
         ),
-        1 => 
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'name',
+            'label' => 'LBL_SUBJECT',
+          ),
+          1 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_start',
+            'label' => 'LBL_DATE_TIME',
+          ),
+          1 => 'status',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_end',
+            'comment' => 'Date meeting ends',
+            'label' => 'LBL_DATE_END',
+          ),
+          1 => 
+          array (
+            'name' => 'duration_hours',
+            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
+            'label' => 'LBL_DURATION',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'duration',
+            'comment' => 'Duration handler dropdown',
+            'label' => 'LBL_DURATION',
+          ),
+          1 => 
+          array (
+            'name' => 'reminder_time',
+            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
+            'label' => 'LBL_REMINDER',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'email_reminder_time',
+            'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
+            'label' => 'LBL_EMAIL_REMINDER_TIME',
+          ),
+        ),
+        7 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        8 => 
+        array (
+          0 => 'location',
+          1 => 
+          array (
+            'name' => 'password',
+          ),
+        ),
+        9 => 
         array (
           0 => 'team_name',
-          1 => 
+        ),
+        10 => 
+        array (
+          0 => 
           array (
             'name' => 'date_entered',
             'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'label' => 'LBL_DATE_MODIFIED',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
           ),
         ),
       ),

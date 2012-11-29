@@ -19,23 +19,32 @@ $dashletData['av_IRDDashlet']['searchFields'] = array (
   ),
 );
 $dashletData['av_IRDDashlet']['columns'] = array (
-  'name' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_NAME',
-    'link' => true,
-    'default' => true,
-    'name' => 'name',
-  ),
   'accounts_av_ird_1_name' => 
   array (
     'type' => 'relate',
     'link' => true,
     'label' => 'LBL_ACCOUNTS_AV_IRD_1_FROM_ACCOUNTS_TITLE',
     'id' => 'ACCOUNTS_AV_IRD_1ACCOUNTS_IDA',
-    'width' => '20%',
+    'width' => '15%',
     'default' => true,
     'name' => 'accounts_av_ird_1_name',
+  ),
+  'name' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_LIST_NAME',
+    'link' => true,
+    'default' => true,
+    'name' => 'name',
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '20%',
+    'default' => true,
+    'name' => 'description',
   ),
   'income_date' => 
   array (
@@ -43,6 +52,7 @@ $dashletData['av_IRDDashlet']['columns'] = array (
     'default' => true,
     'label' => 'LBL_INCOME_DATE',
     'width' => '10%',
+    'name' => 'income_date',
   ),
   'amount' => 
   array (

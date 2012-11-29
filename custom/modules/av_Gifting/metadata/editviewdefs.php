@@ -86,9 +86,20 @@ array (
             'comment' => '',
             'label' => 'LBL_DATE_CRUMMEY_SENT',
           ),
-          1 => '',
+          1 => 'assigned_user_name',
         ),
         6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
+        ),
+        7 => 
         array (
           0 => 
           array (
@@ -101,17 +112,6 @@ array (
             'name' => 'date_modified',
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
           ),
         ),
       ),

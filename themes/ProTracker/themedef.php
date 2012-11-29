@@ -34,5 +34,5 @@ $themedef = array(
     'version' => array(
         'regex_matches' => array('6\.*.*'),
         ),
-    'group_tabs' => false,
+    'group_tabs' => true,
     );

@@ -62,9 +62,16 @@ array (
         ),
         2 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'av_offices_av_office_gifts_1_name',
+          ),
         ),
         3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -77,13 +84,6 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_offices_av_office_gifts_1_name',
           ),
         ),
       ),

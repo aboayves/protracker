@@ -82,6 +82,11 @@ array (
         ),
         4 => 
         array (
+          0 => 'team_name',
+          1 => 'assigned_user_name',
+        ),
+        5 => 
+        array (
           0 => 
           array (
             'name' => 'date_entered',
@@ -94,10 +99,6 @@ array (
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-        5 => 
-        array (
-          0 => 'team_name',
         ),
       ),
     ),
