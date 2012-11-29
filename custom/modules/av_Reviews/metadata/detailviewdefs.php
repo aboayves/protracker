@@ -41,59 +41,28 @@ array (
         array (
           0 => 
           array (
-            'name' => 'accounts_av_reviews_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_ACCOUNTS_TITLE',
-          ),
-          1 => 'name',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
-          1 => 'assigned_user_name',
-        ),
-        2 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'review_date',
             'comment' => '',
             'label' => 'LBL_REVIEW_DATE',
           ),
-          1 => 
-          array (
-            'name' => 'score',
-            'comment' => '',
-            'label' => 'LBL_SCORE',
-          ),
+        ),
+        1 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
+        2 => 
+        array (
+          0 => 'team_name',
         ),
         3 => 
         array (
           0 => 'description',
-        ),
-        4 => 
-        array (
-          0 => '',
-          1 => 'team_name',
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
         ),
       ),
     ),

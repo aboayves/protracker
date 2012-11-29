@@ -30,8 +30,6 @@ array (
       'javascript' => '{sugar_getscript file="include/javascript/popup_parent_helper.js"}
 	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
 	{sugar_getscript file="modules/Documents/documents.js"}',
-      'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -59,7 +57,11 @@ array (
           0 => 'assigned_user_name',
           1 => 
           array (
-            'name' => 'accounts_av_cashflow_1_name',
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
           ),
         ),
         3 => 
@@ -70,22 +72,8 @@ array (
         4 => 
         array (
           0 => 'status_id',
-          1 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
         ),
         5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-          1 => '',
-        ),
-        6 => 
         array (
           0 => 
           array (
@@ -93,26 +81,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'accounts_av_cashflow_1_name',
           ),
         ),
       ),

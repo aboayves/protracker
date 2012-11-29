@@ -82,6 +82,7 @@ array (
             'comment' => '',
             'label' => 'LBL_COST_BASIS',
           ),
+          1 => '',
         ),
         4 => 
         array (
@@ -91,6 +92,7 @@ array (
             'comment' => '',
             'label' => 'LBL_COST_BASIS_DATE',
           ),
+          1 => '',
         ),
         5 => 
         array (
@@ -112,28 +114,6 @@ array (
         array (
           0 => 'description',
           1 => 'team_name',
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_accounts_contacts_1_name',
-          ),
         ),
       ),
       'lbl_editview_panel3' => 
@@ -206,12 +186,6 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_BILLED',
           ),
-          1 => 
-          array (
-            'name' => 'reinvest_capital_gains',
-            'comment' => '',
-            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
-          ),
         ),
         5 => 
         array (
@@ -229,6 +203,15 @@ array (
           ),
         ),
         6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reinvest_capital_gains',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
+          ),
+        ),
+        7 => 
         array (
           0 => 
           array (

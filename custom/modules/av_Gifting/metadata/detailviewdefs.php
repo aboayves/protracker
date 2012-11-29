@@ -100,8 +100,7 @@ array (
         ),
         6 => 
         array (
-          0 => '',
-          1 => 'team_name',
+          0 => 'team_name',
         ),
         7 => 
         array (

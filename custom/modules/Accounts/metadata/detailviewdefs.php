@@ -89,25 +89,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_offices_accounts_1_name',
+            'name' => 'preferred_comm',
+            'studio' => 'visible',
+            'label' => 'LBL_PREFERRED_COMM',
           ),
         ),
         2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_contacts_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_contacts_2_name',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'envelope',
-        ),
-        4 => 
         array (
           0 => 
           array (
@@ -117,12 +104,10 @@ array (
           ),
           1 => 
           array (
-            'name' => 'client_since_date',
-            'comment' => '',
-            'label' => 'LBL_CLIENT_SINCE_DATE',
+            'name' => 'av_offices_accounts_1_name',
           ),
         ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (
@@ -137,11 +122,21 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-<<<<<<< HEAD
         4 => 
-=======
-        6 => 
->>>>>>> schema-buildout
+        array (
+          0 => 
+          array (
+            'name' => 'priority_c',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIORITY',
+          ),
+          1 => 
+          array (
+            'name' => 'client_since_c',
+            'label' => 'LBL_CLIENT_SINCE',
+          ),
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -149,19 +144,20 @@ array (
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
-          1 => 'team_name',
+          1 => 'envelope',
         ),
-<<<<<<< HEAD
         5 => 
-=======
-        7 => 
->>>>>>> schema-buildout
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'current_net_worth',
             'label' => 'LBL_CURRENT_NET_WORTH',
           ),
+        ),
+        7 => 
+        array (
+          0 => '',
           1 => 
           array (
             'name' => 'managed_assets',
@@ -171,6 +167,11 @@ array (
           ),
         ),
         8 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        9 => 
         array (
           0 => 
           array (
@@ -185,24 +186,17 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'label' => 'LBL_DATE_MODIFIED',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-          ),
-        ),
         10 => 
         array (
           0 => '',
           1 => '',
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contacts_accounts_1_name',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -290,6 +284,11 @@ array (
             'name' => 'client_since',
             'label' => 'LBL_CLIENT_SINCE',
           ),
+          1 => 
+          array (
+            'name' => 'accounting_id',
+            'label' => 'LBL_ACCOUNTING_ID',
+          ),
         ),
         2 => 
         array (
@@ -317,7 +316,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'accounting_id',
+            'name' => 'accounting_id_c',
             'label' => 'LBL_ACCOUNTING_ID',
           ),
         ),
@@ -403,15 +402,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'is_investment_client',
-            'comment' => '',
-            'label' => 'LBL_IS_INVESTMENT_CLIENT',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'termination_date',
             'comment' => '',
             'label' => 'LBL_TERMINATION_DATE',
@@ -423,7 +413,7 @@ array (
             'label' => 'LBL_IS_TERMINATED',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (

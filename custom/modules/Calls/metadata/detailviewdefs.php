@@ -84,50 +84,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
-          ),
-          1 => 
-          array (
-            'name' => 'assigned_user_name',
-            'customCode' => '{$fields.assigned_user_name.value}',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'name',
             'label' => 'LBL_SUBJECT',
-          ),
-          1 => 
-          array (
-            'name' => 'av_activity_types_calls_1_name',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_start',
-            'customCode' => '{$fields.date_start.value} {$fields.time_start.value}&nbsp;',
-            'label' => 'LBL_DATE_TIME',
-          ),
-          1 => 
-          array (
-            'name' => 'date_end',
-            'comment' => 'Date is which call is scheduled to (or did) end',
-            'label' => 'LBL_DATE_END',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'duration_hours',
-            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
-            'label' => 'LBL_DURATION',
           ),
           1 => 
           array (
@@ -140,7 +98,36 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        4 => 
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_start',
+            'customCode' => '{$fields.date_start.value} {$fields.time_start.value}&nbsp;',
+            'label' => 'LBL_DATE_TIME',
+          ),
+          1 => 
+          array (
+            'name' => 'parent_name',
+            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'duration_hours',
+            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
+            'label' => 'LBL_DURATION',
+          ),
+          1 => 
+          array (
+            'name' => 'reminder_time',
+            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
+            'label' => 'LBL_REMINDER',
+          ),
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -150,29 +137,28 @@ array (
           ),
           1 => 
           array (
-            'name' => 'reminder_time',
-            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-            'label' => 'LBL_REMINDER',
+            'name' => 'av_activity_types_calls_1_name',
           ),
         ),
-        5 => 
-        array (
-          0 => 'team_name',
-          1 => '',
-        ),
-        6 => 
+      ),
+      'LBL_PANEL_ASSIGNMENT' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}&nbsp;',
-            'label' => 'LBL_DATE_ENTERED',
+            'name' => 'assigned_user_name',
+            'customCode' => '{$fields.assigned_user_name.value}',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
-          1 => 
+          1 => 'team_name',
+        ),
+        1 => 
+        array (
+          0 => 
           array (
-            'name' => 'date_modified',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}&nbsp;',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'created_by_name',
+            'label' => 'LBL_CREATED',
           ),
         ),
       ),

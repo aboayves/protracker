@@ -1,7 +1,7 @@
 <?php
-// created: 2012-11-27 22:03:13
+// created: 2012-06-01 13:23:06
 $dictionary["accounts_contacts_1"] = array (
-  'true_relationship_type' => 'one-to-one',
+  'true_relationship_type' => 'one-to-many',
   'from_studio' => true,
   'relationships' => 
   array (
@@ -76,8 +76,8 @@ $dictionary["accounts_contacts_1"] = array (
     ),
     2 => 
     array (
-      'name' => 'accounts_contacts_1_idb2',
-      'type' => 'index',
+      'name' => 'accounts_contacts_1_alt',
+      'type' => 'alternate_key',
       'fields' => 
       array (
         0 => 'accounts_contacts_1contacts_idb',

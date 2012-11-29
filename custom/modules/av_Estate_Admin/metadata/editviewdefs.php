@@ -20,7 +20,6 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -35,15 +34,11 @@ array (
         array (
           0 => 
           array (
-            'name' => 'accountant',
-            'comment' => '',
-            'label' => 'LBL_ACCOUNTANT',
-          ),
-          1 => 
-          array (
-            'name' => 'attorney',
-            'comment' => '',
-            'label' => 'LBL_ATTORNEY',
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
           ),
         ),
         2 => 
@@ -59,54 +54,6 @@ array (
           0 => 
           array (
             'name' => 'accounts_av_estate_admin_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'alternate_valuation_date',
-            'comment' => '',
-            'label' => 'LBL_ALTERNATE_VALUATION_DATE',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_of_death',
-            'comment' => '',
-            'label' => 'LBL_DATE_OF_DEATH',
-          ),
-          1 => 
-          array (
-            'name' => 'ein',
-            'comment' => '',
-            'label' => 'LBL_EIN',
-          ),
-        ),
-        5 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

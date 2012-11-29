@@ -24,8 +24,6 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -55,15 +53,7 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_av_cashflow_1_name',
-          ),
+          0 => 'status',
         ),
         3 => 
         array (
@@ -72,48 +62,23 @@ array (
         ),
         4 => 
         array (
-          0 => 
-          array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
-          ),
+          0 => 'team_name',
           1 => 
           array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-          1 => '',
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
             'name' => 'description',
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
-          1 => 'team_name',
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
           1 => 
           array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'accounts_av_cashflow_1_name',
           ),
         ),
       ),
