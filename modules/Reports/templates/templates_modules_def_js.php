@@ -249,7 +249,10 @@ field_defs_<?php echo $module_name; ?>[ "<?php echo $field_def['name']; ?>"].opt
 	
 <?php
 			        $options_array = array();
-			        $options_array = $field_def['function']();	    
+					
+					if(function_exists($field_def['function'])){
+						$options_array = $field_def['function']();
+					}
 	
 			        foreach($options_array as $option_value=>$option_text)          
 			        {
