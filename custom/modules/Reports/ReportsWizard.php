@@ -36,6 +36,11 @@ require_once('modules/Reports/templates/templates_reports.php');
 
 $is_owner =  true;
 global $current_user;
+$tpl_file_path = 'modules/Reports/ReportsWizard.tpl';
+if(is_file('custom/'.$tpl_file_path))
+{
+	$tpl_file_path = 'custom/'.$tpl_file_path;
+}
 if (isset($args['reporter']->saved_report) && $args['reporter']->saved_report->assigned_user_id != $current_user->id) {
 	$is_owner = false;
 }
@@ -190,8 +195,7 @@ if (isset($_REQUEST['run_query']) && ($_REQUEST['run_query'] == 1)) {
 	$sugar_smarty->assign("chart_description", htmlentities( $args['reporter']->chart_description, ENT_QUOTES, 'UTF-8'));
 
 	setSortByInfo($args['reporter'], $sugar_smarty);
-
-	echo $sugar_smarty->fetch('modules/Reports/ReportsWizard.tpl');
+	echo $sugar_smarty->fetch($tpl_file_path);
 	echo "<br/><br/>";
 	echo "<div id='resultsDiv' name='resultsDiv'>";
 	//$image_path = $orig_image_path;
@@ -267,7 +271,7 @@ else if (isset($_REQUEST['save_report']) && ($_REQUEST['save_report'] == 'on')) 
 		$sugar_smarty->assign("report_offset", $args['reporter']->report_offset);
 		$sugar_smarty->assign("chart_description", htmlentities( $args['reporter']->chart_description, ENT_QUOTES, 'UTF-8'));
 		setSortByInfo($args['reporter'], $sugar_smarty);
-		echo $sugar_smarty->fetch('modules/Reports/ReportsWizard.tpl');
+		echo $sugar_smarty->fetch($tpl_file_path);
 
 		if (!empty($_REQUEST['current_step']) && $_REQUEST['current_step']=='report_details'){
 			echo "<br/><br/>";
@@ -375,7 +379,7 @@ else if (!empty($_REQUEST['id'])) {
 	$sugar_smarty->assign("chart_description", htmlentities( $args['reporter']->chart_description, ENT_QUOTES, 'UTF-8'));
 
 	setSortByInfo($args['reporter'], $sugar_smarty);
-	echo $sugar_smarty->fetch('modules/Reports/ReportsWizard.tpl');
+	echo $sugar_smarty->fetch($tpl_file_path);
 }
 else if ((isset($_REQUEST['selected_report_module']))) {
 	if(!isset($_REQUEST['id'])){
@@ -386,15 +390,18 @@ else if ((isset($_REQUEST['selected_report_module']))) {
 	$saved_report_seed->retrieve($_REQUEST['id'], false);
 	//Create from Group builder
 	if($_REQUEST['selected_report_module'] == 'Accounts') {
-		$saved_report_seed->content = '{"display_columns":[{"name":"name","label":"Name","table_key":"self"},{"name":"phone_office","label":"Office Phone","table_key":"self"},{"name": "email_address","label": "Email Address","table_key": "Accounts:email_addresses_primary"},{"name":"phone_fax","label":"Fax","table_key":"self"},{"name":"billing_address_street","label":"Billing Street","table_key":"self"},{"name":"billing_address_city","label":"Billing City","table_key":"self"},{"name":"billing_address_country","label":"Billing Country","table_key":"self"}],"module": "'.$_REQUEST['selected_report_module'].'","report_type":"tabular","full_table_list":{"self":{"value":"'.$_REQUEST['selected_report_module'].'",	"module":"'.$_REQUEST['selected_report_module'].'","label":"'.$_REQUEST['selected_report_module'].'"},"Accounts:email_addresses_primary": {"name": "Clients  >  Email Address","parent": "self","link_def": {"name": "email_addresses_primary","relationship_name": "accounts_email_addresses_primary","bean_is_lhs": true,"link_type": "many","label": "Email Address","module": "EmailAddresses","table_key": "Accounts:email_addresses_primary"},"dependents": ["display_cols_row_4"],"module": "EmailAddresses","label": "Email Address"}}}';
+		$saved_report_seed->content = '{"display_columns":[{"name":"name","label":"Name","table_key":"self"},{"name":"phone_office","label":"Office Phone","table_key":"self"},{"name": "email_address","label": "Email Address","table_key": "Accounts:email_addresses_primary"},{"name":"phone_fax","label":"Fax","table_key":"self"},{"name":"billing_address_street","label":"Billing Street","table_key":"self"},{"name":"billing_address_city","label":"Billing City","table_key":"self"},{"name":"billing_address_country","label":"Billing Country","table_key":"self"}],"module": "'.$_REQUEST['selected_report_module'].'","report_type":"tabular","assigned_user_id":"'.$current_user->id.'","assigned_user_id":"1","full_table_list":{"self":{"value":"'.$_REQUEST['selected_report_module'].'",	"module":"'.$_REQUEST['selected_report_module'].'","label":"'.$_REQUEST['selected_report_module'].'"},"Accounts:email_addresses_primary": {"name": "Clients  >  Email Address","parent": "self","link_def": {"name": "email_addresses_primary","relationship_name": "accounts_email_addresses_primary","bean_is_lhs": true,"link_type": "many","label": "Email Address","module": "EmailAddresses","table_key": "Accounts:email_addresses_primary"},"dependents": ["display_cols_row_4"],"module": "EmailAddresses","label": "Email Address"}}}';
 	}
 	else{
-		$saved_report_seed->content = '{"display_columns":[{"name":"full_name","label":"Name","table_key":"self"},{"name":"home_address_city","label":"Home Address City","table_key":"self"},{"name":"home_address_country","label":"Home Address Country","table_key":"self"},{"name":"phone_mobile","label":"Mobile Phone","table_key":"self"},{"name":"phone_work","label":"Work Phone","table_key":"self"},{"name":"phone_fax","label":"Fax","table_key":"self"},{"name":"email_address","label":"Email Address","table_key":"Contacts:email_addresses_primary"}],"module": "'.$_REQUEST['selected_report_module'].'","report_type":"tabular","full_table_list":{"self":{"value":"'.$_REQUEST['selected_report_module'].'","module":"'.$_REQUEST['selected_report_module'].'","label":"'.$_REQUEST['selected_report_module'].'"},"Contacts:email_addresses_primary":{"name":"Contacts  >  Email Address","parent":"self","link_def":{"name":"email_addresses_primary","relationship_name":"contacts_email_addresses_primary","bean_is_lhs":true,"link_type":"many","label":"Email Address","module":"EmailAddresses","table_key":"Contacts:email_addresses_primary"},"dependents":["display_cols_row_9"],"module":"EmailAddresses","label":"Email Address"}}}';
+		$saved_report_seed->content = '{"display_columns":[{"name":"full_name","label":"Name","table_key":"self"},{"name":"home_address_city","label":"Home Address City","table_key":"self"},{"name":"home_address_country","label":"Home Address Country","table_key":"self"},{"name":"phone_mobile","label":"Mobile Phone","table_key":"self"},{"name":"phone_work","label":"Work Phone","table_key":"self"},{"name":"phone_fax","label":"Fax","table_key":"self"},{"name":"email_address","label":"Email Address","table_key":"Contacts:email_addresses_primary"}],"module": "'.$_REQUEST['selected_report_module'].'","report_type":"tabular","assigned_user_id":"'.$current_user->id.'","full_table_list":{"self":{"value":"'.$_REQUEST['selected_report_module'].'","module":"'.$_REQUEST['selected_report_module'].'","label":"'.$_REQUEST['selected_report_module'].'"},"Contacts:email_addresses_primary":{"name":"Contacts  >  Email Address","parent":"self","link_def":{"name":"email_addresses_primary","relationship_name":"contacts_email_addresses_primary","bean_is_lhs":true,"link_type":"many","label":"Email Address","module":"EmailAddresses","table_key":"Contacts:email_addresses_primary"},"dependents":["display_cols_row_9"],"module":"EmailAddresses","label":"Email Address"}}}';
 	}
+	$saved_report_seed->assigned_user_id=$current_user->id;
+	$saved_report_seed->assigned_user_name=$current_user->user_name;
 	$args['reporter'] = new Report($saved_report_seed->content);
 	$args['reporter']->saved_report = &$saved_report_seed;
 	$args['reporter']->is_saved_report = true;
 	$args['reporter']->saved_report_id = $saved_report_seed->id;
+	$sugar_smarty->assign('hide_pre_save_btn', 'true');
 	$sugar_smarty->assign('report_def_str', $args['reporter']->report_def_str);
 	if (!isset($args['reporter']->report_def['do_round']) || $args['reporter']->report_def['do_round'] == 1)
 			$sugar_smarty->assign("do_round", 1);
@@ -475,7 +482,7 @@ else if ((isset($_REQUEST['selected_report_module']))) {
 
 	setSortByInfo($args['reporter'], $sugar_smarty);
 
-	echo $sugar_smarty->fetch('modules/Reports/ReportsWizard.tpl');
+	echo $sugar_smarty->fetch($tpl_file_path);
 }
 else {
 	$assigned_user_html_def = array(
@@ -500,7 +507,7 @@ else {
 	$sugar_smarty->assign("chart_description", htmlentities( $args['reporter']->chart_description, ENT_QUOTES, 'UTF-8'));
 	setSortByInfo($args['reporter'], $sugar_smarty);
 
-	echo $sugar_smarty->fetch('modules/Reports/ReportsWizard.tpl');
+	echo $sugar_smarty->fetch($tpl_file_path);
 }
 
 function setSortByInfo(&$reporter, &$smarty) {
