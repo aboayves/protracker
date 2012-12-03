@@ -61,7 +61,7 @@ $(document).ready(function() {
 	});
    
  });
-
+	
 </script>
 
 {/literal}
@@ -84,8 +84,13 @@ var max_tabs = {$max_tabs};
             </td>
             {/if}
             <td class="contentPanel">
-            	<div class="contentPanelData">
-              	<table style="width:100%" id="contentTable"><tr><td>
+            	
+                <div class="contentPanelData">
+                	<div class="createDashlet">
+                    <img src="themes/ProTracker/images/createDashlet.png" alt="" /> Create
+                  </div>
+                    <table style="width:100%" id="contentTable"><tr><td>
+                
             
 
         

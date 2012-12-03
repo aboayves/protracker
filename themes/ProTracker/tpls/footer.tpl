@@ -52,7 +52,7 @@
     </div>
     <div class="clear"></div>
 </div>
-{if $AUTHENTICATED}
+
 <div class="clear"></div>
 <!--<div id="arrow" title="Show" class="up"></div>-->
 <div id="footer">
@@ -65,7 +65,6 @@
     {/foreach}
 
      </div>-->
-{/if}
 <script>
  	var logoStats = "&#169; 2004-2012 SugarCRM Inc. All Rights Reserved. {$STATISTICS}";
 </script>       
@@ -123,13 +122,11 @@ $('#zenbox_tab').ready(function(){
 {/literal}{/if}{/if}
 
 </script>
+{literal}
 
 
-{if $AUTHENTICATED}
     <div class="clear"></div>
 </div>
-{/if}
-{literal}
 <script>
 
 
