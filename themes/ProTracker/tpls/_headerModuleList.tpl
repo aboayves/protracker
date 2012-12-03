@@ -40,16 +40,17 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
 {/if}
 
     {* group modules *}
-    {if $USE_GROUP_TABS}
+    {if $USE_GROUP_TABS}        
     
-        <ul class="sf-menu">
-          {foreach from=$groupTabs item=module key=group name=groupList}
-              {php}
-                  $group = str_replace(" ", "_", $this->get_template_vars('group'));
-                  $this->assign('group_id', $group);
-              {/php}
-          <li {if $tabGroupName eq $group}class="selected"{/if} id="{$group}"><a href="#" class="{if $tabGroupName eq $group}selected{/if}">{$group}</a>
-
+            <ul class="sf-menu">
+              {foreach from=$groupTabs item=module key=group name=groupList}
+                  {php}
+                      $group = str_replace(" ", "_", $this->get_template_vars('group'));
+                      $this->assign('group_id', $group);
+                  {/php}
+              <li {if $tabGroupName eq $group}class="selected"{/if}><a href="#" class="{if $tabGroupName eq $group}selected{/if}">{$group}</a>
+				
+                
 			{* tab groups *}
             
             
@@ -79,6 +80,7 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
                 
                 
                 	{foreach from=$tabGroup.modules item=module key=name name=moduleList}
+                    
                         {if $name == "Home"}
                             {assign var='homeImageLabel' value=$homeImage}
                             {assign var='homeClass' value='home'}
@@ -88,15 +90,10 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
                             {assign var='homeClass' value=''}
                             {assign var='title' value=''}
                         {/if}
-                        
-                        {if $name == $MODULE_TAB}
-                            <li class="current {$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module label=$name title=$title class="sf-with-ul"}
-                        {else}
-                            <li class="{$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module label=$name title=$title class="sf-with-ul"}
-                        {/if}
+                        <li class="{$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module label=$name title=$title class="sf-with-ul"}
                             {if $shortcutTopMenu.$name && $name != "Home"}
                             <ul class="megamenu">
-                            <li >
+                            <li>
                                 <div class="megawrapper">
                                     <div class="megacolumn">
                                         <div class="megacolumn-content divider">
