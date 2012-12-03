@@ -53,7 +53,7 @@ if (SUGAR.ajaxUI && !SUGAR.ajaxUI.hist_loaded)
 {literal}
 <script type='text/javascript'>
 
-$(document).ready(function(){
+$(document).ready(function() {
 	
 	$(".modulesdrager").click(function(){
 		$(this).toggleClass("hide");
@@ -77,7 +77,7 @@ var max_tabs = {$max_tabs};
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
           {if $AUTHENTICATED}
-            <td class="moduleListPanel" width="230px">
+            <td class="moduleListPanel">
             <div class="moduleListPanelData">
             	{include file="_headerModuleList.tpl" theme_template=true}
             </div>
