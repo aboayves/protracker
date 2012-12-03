@@ -86,9 +86,11 @@ var max_tabs = {$max_tabs};
             <td class="contentPanel">
             	
                 <div class="contentPanelData">
-                	<div class="createDashlet">
-                    <img src="themes/ProTracker/images/createDashlet.png" alt="" /> Create
-                  </div>
+                {if $smarty.request.module != "Home" && $smarty.request.module != "Calendar"}
+					<a href="index.php?module={$smarty.request.module}&action=EditView" class="createDashlet" style="text-decoration:none;">
+                    	Create New
+                  	</a>
+				{/if}
                     <table style="width:100%" id="contentTable"><tr><td>
                 
             
