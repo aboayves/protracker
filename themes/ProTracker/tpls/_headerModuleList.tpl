@@ -90,7 +90,7 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
                             {assign var='homeClass' value=''}
                             {assign var='title' value=''}
                         {/if}
-                        <li class="{$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module label=$name title=$title class="sf-with-ul"}
+                        <li class="{$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module title=$title class="sf-with-ul"}
                             {if $shortcutTopMenu.$name && $name != "Home"}
                             <ul class="megamenu">
                             <li>
@@ -242,9 +242,9 @@ $this->assign('currentGroupTab', $currentGroupTab);
 	{/if}
 	
 	{if $name == $MODULE_TAB}
-		<li class="current {$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module label=$name title=$title class="sf-with-ul"}
+		<li class="current {$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module title=$title class="sf-with-ul"}
 	{else}
-		<li class="{$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module label=$name title=$title class="sf-with-ul"}
+		<li class="{$homeClass}">{sugar_link id="moduleTab_$tabGroupName$name" module=$name data=$module title=$title class="sf-with-ul"}
 	{/if}
 		{if $shortcutTopMenu.$name && $name != "Home"}
 		<ul class="megamenu">
