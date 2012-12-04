@@ -58,16 +58,16 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
             {assign var='overflowSuffix' value='Overflow'}
             {assign var='overflowHidden' value='Hidden'}
             
-            {foreach from=$groupTabs item=tabGroup key=tabGroupName name=tabGroups}
+            {foreach from=$groupTabs item=tabGroup key=tabGroupName1 name=tabGroups}
             
             {php}
-                $tabGroupName = str_replace(" ", "_", $this->get_template_vars('tabGroupName'));
+                $tabGroupName = str_replace(" ", "_", $this->get_template_vars('tabGroupName1'));
                 $currentGroupTab = str_replace(" ", "_", $this->get_template_vars('currentGroupTab'));
                 $this->assign('tabGroupName', $tabGroupName);
                 $this->assign('currentGroupTab', $currentGroupTab);
             {/php}
             
-            {if  $group == $tabGroupName}
+            {if  $group == $tabGroupName1}
               
               {if $tabGroupName == $APP.LBL_TABGROUP_ALL}
               {assign var='groupTabId' value=''}
