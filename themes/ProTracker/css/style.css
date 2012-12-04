@@ -506,6 +506,7 @@ div.moduleTitle
 		top:6px;
 		left:245px;
 		z-index:9999;
+		width:40%;
 }
 #moduleList img { border:0; }
 .moduleTitle img
@@ -517,6 +518,7 @@ div.moduleTitle
 .moduleTitle h2
 {
     display: block;
+	float:left;
 	color: #03568A;
 	font-size: 19px;
 	padding-top: 7px;
@@ -545,7 +547,7 @@ line-height: 16px;
 
 .moduleTitle span.utils
 {
-    display: none;
+	display:block;
     float: right;
     margin-top: 6px;
 }
