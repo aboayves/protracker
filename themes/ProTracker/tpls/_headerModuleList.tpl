@@ -43,6 +43,9 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
     {if $USE_GROUP_TABS}        
     
             <ul class="sf-menu">
+            
+            {include file="_headerFixedModuleList.tpl" theme_template=true}
+
               {foreach from=$groupTabs item=module key=group name=groupList}
                   {php}
                       $group = str_replace(" ", "_", $this->get_template_vars('group'));
