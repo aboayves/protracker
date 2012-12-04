@@ -1,9 +1,9 @@
 <?php
 // created: 2012-12-04 10:01:59
 $GLOBALS['tabStructure'] = array (
-  'LBL_GROUPTAB6_1353291972' => 
+  'LBL_TABGROUP_ACCOUNT_MANAGEMENT' => 
   array (
-    'label' => 'LBL_GROUPTAB6_1353291972',
+    'label' => 'LBL_TABGROUP_ACCOUNT_MANAGEMENT',
     'modules' => 
     array (
       0 => 'av_Accounts',
@@ -31,9 +31,9 @@ $GLOBALS['tabStructure'] = array (
       6 => 'av_Task_Template',
     ),
   ),
-  'LBL_GROUPTAB2_1354614062' => 
+  'LBL_TABGROUP_BILLING' => 
   array (
-    'label' => 'LBL_GROUPTAB2_1354614062',
+    'label' => 'LBL_TABGROUP_BILLING',
     'modules' => 
     array (
       0 => 'Contracts',
@@ -41,9 +41,9 @@ $GLOBALS['tabStructure'] = array (
       2 => 'Quotes',
     ),
   ),
-  'LBL_GROUPTAB3_1354614142' => 
+  'LBL_TABGROUP_COMPLIANCE' => 
   array (
-    'label' => 'LBL_GROUPTAB3_1354614142',
+    'label' => 'LBL_TABGROUP_COMPLIANCE',
     'modules' => 
     array (
       0 => 'av_IPS',
@@ -51,17 +51,17 @@ $GLOBALS['tabStructure'] = array (
       2 => 'av_Suitability',
     ),
   ),
-  'LBL_GROUPTAB4_1354614267' => 
+  'LBL_TABGROUP_DOCUMENT_MANAGEMENT' => 
   array (
-    'label' => 'LBL_GROUPTAB4_1354614267',
+    'label' => 'LBL_TABGROUP_DOCUMENT_MANAGEMENT',
     'modules' => 
     array (
       0 => 'Documents',
     ),
   ),
-  'LBL_GROUPTAB5_1354614342' => 
+  'LBL_TABGROUP_ESTATE_PLANNING' => 
   array (
-    'label' => 'LBL_GROUPTAB5_1354614342',
+    'label' => 'LBL_TABGROUP_ESTATE_PLANNING',
     'modules' => 
     array (
       0 => 'av_Estate_Admin',
@@ -74,9 +74,9 @@ $GLOBALS['tabStructure'] = array (
       7 => 'av_Wills',
     ),
   ),
-  'LBL_GROUPTAB6_1354614495' => 
+  'LBL_TABGROUP_FIRM_MANAGEMENT' => 
   array (
-    'label' => 'LBL_GROUPTAB6_1354614495',
+    'label' => 'LBL_TABGROUP_FIRM_MANAGEMENT',
     'modules' => 
     array (
       0 => 'av_Offices',
@@ -86,18 +86,18 @@ $GLOBALS['tabStructure'] = array (
       4 => 'av_Commissions',
     ),
   ),
-  'LBL_GROUPTAB7_1354614605' => 
+  'LBL_TABGROUP_GOALS_OBJECTIVES' => 
   array (
-    'label' => 'LBL_GROUPTAB7_1354614605',
+    'label' => 'LBL_TABGROUP_GOALS_OBJECTIVES',
     'modules' => 
     array (
       0 => 'av_Cashflow',
       1 => 'av_Goals',
     ),
   ),
-  'LBL_GROUPTAB7_1353291973' => 
+  'LBL_TABGROUP_INSURANCE' => 
   array (
-    'label' => 'LBL_GROUPTAB7_1353291973',
+    'label' => 'LBL_TABGROUP_INSURANCE',
     'modules' => 
     array (
       0 => 'av_Business_Insurance',
@@ -110,26 +110,26 @@ $GLOBALS['tabStructure'] = array (
       7 => 'av_Vehicle_Insurance',
     ),
   ),
-  'LBL_GROUPTAB9_1354614720' => 
+  'LBL_TABGROUP_PROJECT_MANAGEMENT' => 
   array (
-    'label' => 'LBL_GROUPTAB9_1354614720',
+    'label' => 'LBL_TABGROUP_PROJECT_MANAGEMENT',
     'modules' => 
     array (
       0 => 'Project',
     ),
   ),
-  'LBL_GROUPTAB10_1354614768' => 
+  'LBL_TABGROUP_RELATED' => 
   array (
-    'label' => 'LBL_GROUPTAB10_1354614768',
+    'label' => 'LBL_TABGROUP_RELATED',
     'modules' => 
     array (
       0 => 'av_Professionals',
       1 => 'av_Relatives',
     ),
   ),
-  'LBL_GROUPTAB11_1354614824' => 
+  'LBL_TABGROUP_RETIREMENT_PLANNING' => 
   array (
-    'label' => 'LBL_GROUPTAB11_1354614824',
+    'label' => 'LBL_TABGROUP_RETIREMENT_PLANNING',
     'modules' => 
     array (
       0 => 'av_Medicare',
@@ -138,9 +138,9 @@ $GLOBALS['tabStructure'] = array (
       3 => 'av_Social_Security',
     ),
   ),
-  'LBL_TABGROUP_SALES' => 
+  'LBL_TABGROUP_SALES_MARKETING' => 
   array (
-    'label' => 'LBL_TABGROUP_SALES',
+    'label' => 'LBL_TABGROUP_SALES_MARKETING',
     'modules' => 
     array (
       0 => 'Campaigns',
@@ -150,9 +150,9 @@ $GLOBALS['tabStructure'] = array (
       4 => 'ProspectLists',
     ),
   ),
-  'LBL_GROUPTAB13_1354615174' => 
+  'LBL_TABGROUP_TAGGING' => 
   array (
-    'label' => 'LBL_GROUPTAB13_1354615174',
+    'label' => 'LBL_TABGROUP_TAGGING',
     'modules' => 
     array (
       0 => 'av_Keywords',
@@ -160,9 +160,9 @@ $GLOBALS['tabStructure'] = array (
       2 => 'av_Activity_Types',
     ),
   ),
-  'LBL_GROUPTAB9_1353291973' => 
+  'LBL_TABGROUP_TAXES' => 
   array (
-    'label' => 'LBL_GROUPTAB9_1353291973',
+    'label' => 'LBL_TABGROUP_TAXES',
     'modules' => 
     array (
       0 => 'av_Tax_Estimates',
