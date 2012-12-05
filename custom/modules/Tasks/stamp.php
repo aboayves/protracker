@@ -2,13 +2,25 @@
 class task_status_change
 {
 	var $sent = array();
-	
+	var $parentPType;
+	var $parentSubject;
+	var $parentDueDate;
+		
 	function stamp_completion(&$bean, $event, $arguments)
 	{
 		if($bean->fetched_row['status'] != $bean->status)
 		{
 			if($bean->status == 'Completed')
 			{
+				$this->parentPType = $bean->parent_type;
+				$this->parentPName = $bean->parent_name;
+				
+				$datetime = strtotime($bean->date_due);
+				$duedate = date("d M, Y", $datetime);
+				$this->parentDueDate = $duedate;
+				
+				$this->parentSubject = $bean->name;
+				
 				$bean->date_complete = $bean->date_modified;
 				$this->notify_parent($bean->id, $bean->parent_tasks_id);
 				$this->notify_child($bean->id);
@@ -40,13 +52,35 @@ class task_status_change
 	
 	function notify_child($beanID)
 	{
-		global $db;
-		
-		$query = "SELECT assigned_user_id FROM tasks WHERE deleted=0 AND parent_tasks_id='{$beanID}' AND id NOT IN ('" . implode("','", $this->sent) . "'); ";
+		global $db, $sugar_config;
+
+		$query = "SELECT  id, assigned_user_id, parent_type, date_due, name FROM tasks WHERE deleted=0 AND parent_tasks_id='{$beanID}' AND id NOT IN ('" . implode("','", $this->sent) . "'); ";
 		$child_task = $db->query($query);
+			$emailTemplate_bean = new EmailTemplate();
+			$emailTemplate_bean->id = 'parent-completion-notification';
+			$emailTemplate_bean->retrieve();
+			$body = $emailTemplate_bean->body_html;
+			
+			$parentPType = $this->parentPType;
+			$parentSubject = $this->parentSubject;
+			$parentDueDate = $this->parentDueDate;
+		
 		while($child_task = $db->fetchByAssoc($child_task))
 		{
-			$this->doMail($child_task['assigned_user_id'], 'parent task completion notification','parent task completion notification');
+			$childPType = $child_task['parent_type'];
+			$childName = $child_task['name'];
+			
+			$datetime = strtotime( $child_task['date_due']);
+			$duedate = date("d M, Y", $datetime);
+			$childDueDate = $duedate;
+			
+			$curTaskId = $child_task['id'];
+			
+			$url=$sugar_config['site_url'];
+			$taskLink =$url."/index.php?module=Tasks&action=DetailView&record={$curTaskId}";
+			
+			eval("\$body = \"$body\";");
+			$this->doMail($child_task['assigned_user_id'], $body, 'Parent Task Completion Notification');
 		}
 	}
 	
