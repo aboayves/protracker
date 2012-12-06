@@ -42,7 +42,7 @@ if(ACLController::checkAccess('av_Groups', 'edit', true)){
 	$module_menu[]=Array("index.php?module=av_Groups&action=EditView&return_module=av_Groups&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"Createav_Groups", 'av_Groups');
 }
 
-if(ACLController::checkAccess('Accounts', 'list', true)){
+if(ACLController::checkAccess('av_Groups', 'list', true)){
 	$module_menu[]=Array("index.php?module=av_Groups&action=index&return_module=av_Groups&return_action=DetailView", $mod_strings['LNK_LIST'],"av_Groups", 'av_Groups');
 }
 

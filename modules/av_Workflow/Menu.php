@@ -39,10 +39,10 @@ global $mod_strings, $app_strings, $sugar_config;
 
 		
 if(ACLController::checkAccess('av_Workflow', 'edit', true)){
-	$module_menu[]=Array("index.php?module=av_Workflow&action=EditView&return_module=av_Workflow&return_action=index", $mod_strings['LNK_NEW_RECORD'],"Createav_Workflow", 'av_Workflow');
+	$module_menu[]=Array("index.php?module=av_Workflow&action=EditView&return_module=av_Workflow&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"Createav_Workflow", 'av_Workflow');
 }
 
-if(ACLController::checkAccess('Accounts', 'list', true)){
+if(ACLController::checkAccess('av_Workflow', 'list', true)){
 	$module_menu[]=Array("index.php?module=av_Workflow&action=index&return_module=av_Workflow&return_action=DetailView", $mod_strings['LNK_LIST'],"av_Workflow", 'av_Workflow');
 }
 
