@@ -6,6 +6,14 @@ array (
   array (
     'templateMeta' => 
     array (
+	
+	   'includes' => 
+      array (
+		  0 => 
+		  array (
+			'file' => 'custom/include/js/reportsPopupav_Groups.js',
+		  ),
+		),
       'form' => 
       array (
         'buttons' => 
@@ -65,6 +73,14 @@ array (
 		  17 => 
 		  array(
 		  	'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=av_Groups&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">'
+		  ),
+		  18 => 
+		  array(
+		  	'customCode' => '<input onclick="reportPopupClient(\'{$fields.id.value}\')" title="Select Clients using Group Rules" type="button" name="reportsPopupClients" id="reportsPopupClients" value="Select Clients using Group Rules">'
+		  ),
+		  19 => 
+		  array(
+		  	'customCode' => '<input onclick="reportpopupContact(\'{$fields.id.value}\')" title="Select Contacts using Group Rules" type="button" name="reportsPopupContacts" id="reportsPopupContacts" value="Select Contacts using Group Rules">'
 		  ),
 		),
       ),
