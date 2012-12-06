@@ -29,6 +29,8 @@
 *}
 {include file="_head.tpl" theme_template=true}
 <body class="yui-skin-sam">
+<div class="wrapper">
+	<div class="contentsWrappaer">
     <a name="top"></a>
 	{include file="_dcmenu.tpl" theme_template=true}
 

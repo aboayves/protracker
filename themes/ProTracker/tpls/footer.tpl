@@ -40,11 +40,7 @@
     {/if}
 		<div class="clear"></div>
     </div>
-    {if $AUTHENTICATED}
-    <div class="globelLinkBar">
-   
-    </div>
-    {/if}
+    
     </td>
         </tr>
       </table>
@@ -52,8 +48,13 @@
     </div>
     <div class="clear"></div>
 </div>
-
+{if $AUTHENTICATED}
+    <div class="globelLinkBar">
+   
+    </div>
+    {/if}
 <div class="clear"></div>
+</div>
 <!--<div id="arrow" title="Show" class="up"></div>-->
 <div id="footer">
    <!-- <img src="{$COMPANY_LOGO_URL}" class="logo" id="logo" title="{$STATISTICS}" border="0"/>-->
@@ -180,6 +181,7 @@ function qe_init(){
 	    YAHOO.util.Event.onContentReady('ajaxUI-history-field', SUGAR.ajaxUI.firstLoad);
 </script>
 {/literal}
+</div>
 </body>
 </html>
 

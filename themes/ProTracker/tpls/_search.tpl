@@ -17,7 +17,6 @@
     </div>
 </div>
 
-</div>
 
 <script>
     search = '{$APP.LBL_SEARCH}';

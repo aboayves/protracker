@@ -27,7 +27,7 @@
  ********************************************************************************/
 
 *}
-    
+    	<li class="{$homeClass}"><a href="index.php?module=Home&action=index" module="Home" class="sf-with-ul">Home</a></li>
     	<li class="{$homeClass}"><a href="index.php?module=av_Companies&action=index" module="av_Companies" class="sf-with-ul">Companies</a>
         	<ul class="megamenu">
                             <li>
