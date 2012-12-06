@@ -39,7 +39,7 @@ global $mod_strings, $app_strings, $sugar_config;
 
 		
 if(ACLController::checkAccess('av_Groups', 'edit', true)){
-	$module_menu[]=Array("index.php?module=av_Groups&action=EditView&return_module=av_Groups&return_action=index", $mod_strings['LNK_NEW_RECORD'],"Createav_Groups", 'av_Groups');
+	$module_menu[]=Array("index.php?module=av_Groups&action=EditView&return_module=av_Groups&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"Createav_Groups", 'av_Groups');
 }
 
 if(ACLController::checkAccess('Accounts', 'list', true)){
