@@ -28,7 +28,39 @@
 require_once('include/MVC/View/views/view.popup.php');
 class ReportsViewPopup extends ViewPopup{
 	var $type ='list';
-	function ViewPopup(){
+	function ReportsViewPopup(){
+		
+		if(isset($_REQUEST['selected']) && !empty($_REQUEST['selected'])){
+			echo 'Selecting report please wait......
+			<script type="text/javascript" >
+				window.onload=function(){
+					eval("var request_data = " + window.opener.get_popup_request_data());
+					
+					var call_back_function = eval("window.opener." + request_data.call_back_function);
+					
+					var passthru_data = Object();
+					if (typeof (request_data.passthru_data) != "undefined") {
+						passthru_data = request_data.passthru_data;
+					}
+					
+					var result_data = {
+						"form_name": request_data.form_name,
+						"name_to_value_array": {subpanel_id:"' . $_REQUEST['selected'] . '"},
+						"passthru_data": passthru_data,
+						"popupConfirm": 0
+					};
+					
+					closePopup();
+					call_back_function(result_data);
+				};
+			</script>
+			<script type="text/javascript" src="cache/include/javascript/sugar_grp1_jquery.js"></script>
+			<script type="text/javascript" src="cache/include/javascript/sugar_grp1_yui.js"></script>
+			<script type="text/javascript" src="cache/include/javascript/sugar_grp1.js"></script>
+			<script type="text/javascript" src="include/javascript/popup_helper.js"></script>';
+			exit(0);
+		}
+		
 		parent::SugarView();
 	}
 	function display(){
@@ -100,24 +132,6 @@ class ReportsViewPopup extends ViewPopup{
 		$popup = new Popup_Picker();
 		$popup->_hide_clear_button = true;
 		echo $popup->process_page();
-		echo "<script>
-				window.onload=function(){
-					if(getUrlVars()['selected']){
-						send_back('savedreports', getUrlVars()['selected']);
-					}
-				};
-				function getUrlVars(){
-					var vars = [], hash;
-					var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-					for(var i = 0; i < hashes.length; i++)
-					{
-						hash = hashes[i].split('=');
-						vars.push(hash[0]);
-						vars[hash[0]] = hash[1];
-					}
-					return vars;
-				}
-			</script>";
 	}
 }
 ?>
