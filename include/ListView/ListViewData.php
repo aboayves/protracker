@@ -521,7 +521,13 @@ class ListViewData {
             }
         }
 
-
+		//-----------------MODULE LABEL---------------
+		if(!empty($GLOBALS['app_list_strings']['moduleList'][$seed->module_dir]))
+    		$pageData['bean']['moduleLabel'] = $GLOBALS['app_list_strings']['moduleList'][$seed->module_dir];
+    	else
+    		$pageData['bean']['moduleLabel'] = $pageData['bean']['moduleName'];
+		//----------------------------------------------------------------------------	
+		
 		return array('data'=>$data , 'pageData'=>$pageData, 'query' => $queryString);
 	}
 

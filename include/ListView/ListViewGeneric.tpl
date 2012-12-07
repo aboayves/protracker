@@ -69,7 +69,7 @@
                     {$APP.MSG_EMPTY_LIST_VIEW_NO_RESULTS|replace:"<item2>":$createLink|replace:"<item3>":$importLink}
                 </p>
                 <p class="submsg">
-                    {$APP.MSG_EMPTY_LIST_VIEW_NO_RESULTS_SUBMSG|replace:"<item1>":$pageData.bean.moduleName|replace:"<item4>":$helpLink}
+                    {$APP.MSG_EMPTY_LIST_VIEW_NO_RESULTS_SUBMSG|replace:"<item1>":$pageData.bean.moduleLabel|replace:"<item4>":$helpLink}
                 </p>
         {elseif $query == "-advanced_search"}
             <p class="msg">
@@ -106,13 +106,13 @@
 	{include file='include/ListView/ListViewPagination.tpl'}
 	<tr height='20'>
 			{if $prerow}
-				<td width='1%' class="td_alt">
-					&nbsp;
+				<td width='1%' class="td_alt">&nbsp;
+					
 				</td>
 			{/if}
 			{if $favorites}
-			<td class='td_alt' >
-					&nbsp;
+			<td class='td_alt' >&nbsp;
+					
 			</td>
 			{/if}
 			{if !empty($quickViewLinks)}
