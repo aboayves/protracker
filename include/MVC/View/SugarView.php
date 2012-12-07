@@ -1459,7 +1459,7 @@ EOHTML;
     	{
     	    if (!empty($iconPath) && !$bTitle) {
 				return "<a href='index.php?module={$this->module}&action=index'>" 
-				     . "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'></a>" 
+				     . "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'> &nbsp;".$firstParam."</a>" 
 				     . "<span class='pointer'>&raquo;</span>".$app_strings['LBL_SEARCH'];
 			} else {
 				return $firstParam;
@@ -1468,7 +1468,7 @@ EOHTML;
     	{
 		    if (!empty($iconPath) && !$bTitle) {
 				return "<a href='index.php?module={$this->module}&action=index'>" 
-				     . "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'></a>";
+				     . "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'> &nbsp;".$firstParam."</a>";
 			} else {
 				return "<a href='index.php?module={$this->module}&action=index'>{$firstParam}</a>";
 			}
