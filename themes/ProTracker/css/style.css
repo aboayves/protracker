@@ -3617,10 +3617,10 @@ body
 {
          
 	color: #191919;
-	background-color: #434542;
-	background: url('../../../../index.php?entryPoint=getImage&imageName=background.png');
+	background-color: #b2e0fc;
+	/*background: url('../../../../index.php?entryPoint=getImage&imageName=background.png');
 	background-repeat:repeat;
-	background-position:top left;
+	background-position:top left;*/
 }
 h1, h2
 {
