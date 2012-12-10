@@ -180,7 +180,7 @@
          //reset css generating by positionMenu
         this.removeClass("rtl ltr");
 
-    	if(this.offset() && this.parent().parent().hasClass('sf-menu') != true) {
+    	if(this.offset()) {
             //reset position to origin
             var is_rtl_theme = sf.op['rtl'] || sf.defaults['rtl'];
             if(is_rtl_theme) {
@@ -405,7 +405,7 @@
         showSuperfishUl: function() {
             var o = sf.op,
             sh = sf.c.shadowClass + '-off',
-            $ul = this.addClass(o.hoverClass).find('>ul:hidden').show().css('visibility', 'visible');
+            $ul = this.addClass(o.hoverClass).find('>ul:hidden').show().css('visibility', 'visible').css('max-height', $(window).height() + 'px');
             sf.positionMenu.call($ul);
             sf.IE7fix.call($ul);
             o.onBeforeShow.call($ul);
