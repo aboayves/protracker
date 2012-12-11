@@ -15,6 +15,10 @@ array (
 		  ),
 		  1 => 
 		  array (
+		  	'file' => 'custom/include/js/jquery/jquery.blockUI.js',
+		  ),
+		  2 => 
+		  array (
 		  	'file' => 'custom/modules/av_Groups/custom_js.js',
 		  ),
 		),

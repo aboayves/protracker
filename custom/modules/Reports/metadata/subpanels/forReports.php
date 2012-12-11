@@ -27,15 +27,6 @@ $subpanel_layout = array(
 			'vname' => 'LBL_REPORT_TYPE',
 			'width' => '10%',
 		),
-		'edit_button' => 
-		array (
-			'vname' => 'LBL_EDIT_BUTTON',
-			'widget_class' => 'SubPanelCstmEditRoleButton',
-		 	'target' => 'Reports',
-			'action' => 'EditView',
-			'id_field' => 'reports_id',
-			'width' => '5%',
-		),
 		'remove_button' => 
 		array (
 			'vname' => 'LBL_REMOVE',

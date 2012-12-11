@@ -1,6 +1,25 @@
 function rebuildGroup()
 {
 	//TODO :: ajax to the RebuildGroup.php
+	$.blockUI({ message: '<h1><img src="themes/default/images/loading.gif" height="20px" width="20px" /> Refreshing Group...</h1>', css: { backgroundColor: '3D3D3D', color: '3A3A3A'} });
+	var sUrl = "index.php?module=av_Groups&action=RebuildGroup&record="+document.DetailView.record.value+"&sugar_body_only=1&to_pdf=1";
+    var callback = {
+
+        success: function(oResponse) {
+			addReports(eval('('+oResponse.responseText+')'));
+            YAHOO.log("XHR transaction was successful.", "info", "example");
+            //make_tree(eval(YAHOO.lang.JSON.parse(oResponse.responseText)));
+			$.unblockUI();
+        },
+        failure: function(oResponse) {
+            YAHOO.log("Failed to process XHR transaction.", "info", "example");
+//			alert(oResponse.responseText);
+			alert('Failed to complete..');
+			$.unblockUI();
+        },
+        timeout: 7000
+    };
+	YAHOO.util.Connect.asyncRequest('POST', sUrl, callback);
 }
 
 //data should be {contacts:[report_id1, report_id2], accounts:[report_id3, report_id4]}
