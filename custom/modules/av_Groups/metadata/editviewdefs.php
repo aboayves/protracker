@@ -77,6 +77,10 @@ array (
             'name' => 'last_checked_c',
             'label' => 'LBL_LAST_CHECKED',
           ),
+		  1 => array(
+		  	'name' => 'lastupdated',
+			'customCode' => '{$fields.lastupdated.value}',
+		  ),
         ),
         6 => 
         array (

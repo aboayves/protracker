@@ -13,6 +13,10 @@ array (
 		  array (
 			'file' => 'custom/include/js/reportsPopupav_Groups.js',
 		  ),
+		  1 => 
+		  array (
+		  	'file' => 'custom/modules/av_Groups/custom_js.js',
+		  ),
 		),
       'form' => 
       array (
@@ -152,6 +156,10 @@ array (
             'name' => 'last_checked_c',
             'label' => 'LBL_LAST_CHECKED',
           ),
+		  1 => array(
+		  	'name' => 'lastupdated',
+			'customCode' => '{$fields.lastupdated.value} <img src="custom/themes/default/images/refresh.jpg" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
+		  ),
         ),
         5 => 
         array (
