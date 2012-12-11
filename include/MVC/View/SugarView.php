@@ -590,7 +590,13 @@ class SugarView
                 $groupTabs[$tabIdx]['extra'] = $extraTabs;
             }
         }
-
+		
+		//Hardcoding modules
+		$topTabList['av_Companies'] = $app_list_strings['moduleList']['av_Companies'];
+		$topTabList['av_Groups'] = $app_list_strings['moduleList']['av_Groups'];
+		$topTabList['Accounts'] = $app_list_strings['moduleList']['Accounts'];
+		$topTabList['Contacts'] = $app_list_strings['moduleList']['Contacts'];
+		
         if ( isset($topTabList) && is_array($topTabList) ) {
             // Adding shortcuts array to menu array for displaying shortcuts associated with each module
             $shortcutTopMenu = array();
