@@ -35,6 +35,16 @@ class av_Groups extends av_Groups_sugar {
 	function av_Groups(){	
 		parent::av_Groups_sugar();
 	}
-	
+	function get_reports_subpanel_query(){
+	    $sql="SELECT saved_reports.id, saved_reports.name, saved_reports.module, saved_reports.report_type, saved_reports.assigned_user_id, 'av_groups_reports'panel_name
+			  FROM saved_reports
+			  INNER JOIN av_groups_reports ON saved_reports.id = av_groups_reports.reports_id
+			  AND av_groups_reports.deleted =0
+			  INNER JOIN av_groups ON av_groups.id = av_groups_reports.av_groups_id
+			  AND av_groups_reports.deleted =0
+			  WHERE av_groups_reports.av_groups_id = '{$this->id}'
+			  AND saved_reports.deleted =0";
+		return $sql;
+	}
 }
 ?>
