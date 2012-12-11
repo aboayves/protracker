@@ -93,5 +93,19 @@
 			$db->query($query);
 		
 		}
+		function populateReportsSubpanelFunc($bean, $event, $arguments) {
+			if (isset($_REQUEST['return_type']) && $_REQUEST['return_type'] == 'report'){
+				global $db, $timedate;
+				$newID=create_guid();
+				$date_modified=$timedate->nowDb();
+				$sql = "SELECT * from av_groups_reports where av_groups_id = '{$bean->id}' AND reports_id = '{$_REQUEST['subpanel_id']}'";
+				$result = $db->query($sql);
+				if($db->getRowCount($result) == 0){
+					$sql="INSERT INTO av_groups_reports(id, date_modified, av_groups_id, reports_id)
+						  VALUES('{$newID}', '{$date_modified}', '{$bean->id}', '{$_REQUEST['subpanel_id']}')";
+					$db->query($sql, true);
+				}
+			}
+		}
 	}
 ?>
