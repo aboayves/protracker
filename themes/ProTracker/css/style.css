@@ -533,11 +533,6 @@ div.moduleTitle
     padding-top: 0;
 /*    margin-bottom: 10px;*/
     margin-top: 0;
-		position:fixed;
-		top:6px;
-		left:245px;
-		z-index:9999;
-		width:40%;
 }
 #moduleList img { border:0; }
 .moduleTitle img
@@ -555,6 +550,10 @@ div.moduleTitle
 	padding-top: 7px;
 	font-weight: bold;
 	margin-bottom:15px;
+	position:fixed;
+	top:6px;
+	left:245px;
+	z-index:22;
 	
 	
 	text-shadow: 1px 1px 0px #ffffff;
@@ -645,6 +644,7 @@ line-height: 16px;
     padding: 6px;
     vertical-align: top;
     text-align: left;
+	font-size: 15px !important;
 }
 .detail tr td[scope=row] 
 {
@@ -700,8 +700,13 @@ div.actionsContainer
     padding: 0 !important;
 	vertical-align: top;
     padding: 3px !important;
+	font-size: 15px !important;
 	
 }
+input, select, textarea, button, .button {
+	font-size: 15px !important;
+}
+
 .edit tr td[scope=row]
 {
     padding: 5px 5px 5px 7px !important;
@@ -5827,7 +5832,7 @@ width:100%;
 
 .dcmenu{
 color:blue;
-height:45px;
+height:52px;
 min-width: 950px;
 background: rgb(249,249,249); /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */

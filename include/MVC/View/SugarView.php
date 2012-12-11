@@ -590,7 +590,13 @@ class SugarView
                 $groupTabs[$tabIdx]['extra'] = $extraTabs;
             }
         }
-
+		
+		//Hardcoding modules
+		$topTabList['av_Companies'] = $app_list_strings['moduleList']['av_Companies'];
+		$topTabList['av_Groups'] = $app_list_strings['moduleList']['av_Groups'];
+		$topTabList['Accounts'] = $app_list_strings['moduleList']['Accounts'];
+		$topTabList['Contacts'] = $app_list_strings['moduleList']['Contacts'];
+		
         if ( isset($topTabList) && is_array($topTabList) ) {
             // Adding shortcuts array to menu array for displaying shortcuts associated with each module
             $shortcutTopMenu = array();
@@ -1459,7 +1465,8 @@ EOHTML;
     	{
     	    if (!empty($iconPath) && !$bTitle) {
 				return "<a href='index.php?module={$this->module}&action=index'>" 
-				     . "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'> &nbsp;".$firstParam."</a>" 
+				     //. "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'> &nbsp;"
+					 . $firstParam."</a>" 
 				     . "<span class='pointer'>&raquo;</span>".$app_strings['LBL_SEARCH'];
 			} else {
 				return $firstParam;
@@ -1468,7 +1475,8 @@ EOHTML;
     	{
 		    if (!empty($iconPath) && !$bTitle) {
 				return "<a href='index.php?module={$this->module}&action=index'>" 
-				     . "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'> &nbsp;".$firstParam."</a>";
+				     //. "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'> &nbsp;"
+					 . $firstParam."</a>";
 			} else {
 				return "<a href='index.php?module={$this->module}&action=index'>{$firstParam}</a>";
 			}
