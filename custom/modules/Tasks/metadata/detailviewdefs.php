@@ -198,7 +198,10 @@ array (
             'label' => 'LBL_ON_TASK_LIST',
           ),
         ),
-        3 => 
+		),
+		'lbl_tree_View' => 
+        array( 
+		0=>
         array (
           0 => 
           array (

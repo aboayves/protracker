@@ -14,4 +14,5 @@ $mod_strings = array (
   'LBL_DESCRIPTION' => 'Task Description',
   'LBL_ALOW_ASIGNE_TO_MODIFY' => 'User Modifiable',
   'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
+  'LBL_TREE_VIEW' => 'Tree View',
 );
