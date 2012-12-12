@@ -9,13 +9,5 @@ $layout_defs["av_Groups"]["subpanel_setup"]["av_groups_reports"] = array (
   'get_subpanel_data' => 'function:get_reports_subpanel_query',
   'top_buttons' => 
   array (
-    0 => 
-    array (
-      'widget_class' => 'SubPanelTopButtonQuickCreate',
-    ),
-    1 => 
-    array (
-      'widget_class' => 'SubPanelTopSelectButton',
-    ),
   ),
 );
