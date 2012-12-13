@@ -185,7 +185,7 @@ height: 120px !important;
 #companyLogo 
 {
     height: 40px;
-	padding: 7px 0 0px 7px;
+	padding: 4px 0 0px 7px;
     float:left;
 }
 #search, #sitemapLink, #colorPicker, #welcome, #globalLinksLeft
@@ -5832,7 +5832,7 @@ width:100%;
 
 .dcmenu{
 color:blue;
-height:52px;
+height:48px;
 min-width: 950px;
 background: rgb(249,249,249); /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -7417,8 +7417,8 @@ div.hoverscroll div.fixed-arrow.bottom {
 	
 }
 #main{
-	margin-top:-4px;
-	}
+	margin-top:-1px;
+}
 
 
 div#content > table
