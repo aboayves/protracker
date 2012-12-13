@@ -9,6 +9,7 @@ function rebuildGroup()
 			addReports(eval('('+oResponse.responseText+')'));
             YAHOO.log("XHR transaction was successful.", "info", "example");
             //make_tree(eval(YAHOO.lang.JSON.parse(oResponse.responseText)));
+			refreshUpdatedDate(oResponse.responseText);
 			$.unblockUI();
         },
         failure: function(oResponse) {
@@ -83,4 +84,8 @@ function addReport(rep_id, subMetaData){
 	};
 	
 	call_back_function(result_data);
+}
+function refreshUpdatedDate(jsonData){
+	var updated_date = (jQuery.parseJSON(jsonData)).updated_date;
+	$("#lastupdated span").text(updated_date);
 }

@@ -162,7 +162,7 @@ array (
           ),
 		  1 => array(
 		  	'name' => 'lastupdated',
-			'customCode' => '{$fields.lastupdated.value} <img src="custom/themes/default/images/refresh.jpg" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
+			'customCode' => '<span id="lastupdated">{$fields.lastupdated.value}</span> <img src="custom/themes/default/images/refresh.jpg" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
 		  ),
         ),
         5 => 
