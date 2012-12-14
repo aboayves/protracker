@@ -3057,18 +3057,18 @@ $GLOBALS['app_list_strings']['contact_type_list']=array (
   'Other' => 'Other',
 );
 
-$app_strings['LBL_TABGROUP_ACCOUNT_MANAGEMENT'] = 'Account Management';
+$app_strings['LBL_TABGROUP_ACCOUNT_MANAGEMENT'] = 'Account';
 $app_strings['LBL_TABGROUP_BILLING'] = 'Billing';
 $app_strings['LBL_TABGROUP_COMPLIANCE'] = 'Compliance';
 $app_strings['LBL_TABGROUP_DOCUMENT_MANAGEMENT'] = 'Document Management';
 $app_strings['LBL_TABGROUP_ESTATE_PLANNING'] = 'Estate Planning';
-$app_strings['LBL_TABGROUP_FIRM_MANAGEMENT'] = 'Firm Management';
+$app_strings['LBL_TABGROUP_FIRM_MANAGEMENT'] = 'Firm';
 $app_strings['LBL_TABGROUP_GOALS_OBJECTIVES'] = 'Goals & Objectives';
 $app_strings['LBL_TABGROUP_INSURANCE'] = 'Insurance';
 $app_strings['LBL_TABGROUP_PROJECT_MANAGEMENT'] = 'Project Management';
-$app_strings['LBL_TABGROUP_RELATED'] = 'Related';
+$app_strings['LBL_TABGROUP_RELATED'] = 'Relationships';
 $app_strings['LBL_TABGROUP_RETIREMENT_PLANNING'] = 'Retirement Planning';
-$app_strings['LBL_TABGROUP_SALES_MARKETING'] = 'Sales & Marketing';
+$app_strings['LBL_TABGROUP_SALES_MARKETING'] = 'Marketing & Sales';
 $app_strings['LBL_TABGROUP_TAGGING'] = 'Tagging';
 $app_strings['LBL_TABGROUP_TAXES'] = 'Taxes';
 ?>
