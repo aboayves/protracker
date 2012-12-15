@@ -88,10 +88,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'av_activity_types_meetings_1_name',
-          ),
         ),
         2 => 
         array (
@@ -194,8 +190,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         ),
         7 => 
         array (
-          0 => '',
-          1 => '',
         ),
         8 => 
         array (

@@ -64,10 +64,6 @@ array (
           array (
             'name' => 'description',
           ),
-          1 => 
-          array (
-            'name' => 'contacts_av_estate_documents_1_name',
-          ),
         ),
         4 => 
         array (
@@ -77,10 +73,6 @@ array (
         5 => 
         array (
           0 => 
-          array (
-            'name' => 'accounts_av_estate_documents_1_name',
-          ),
-          1 => 
           array (
             'name' => 'agent',
             'comment' => '',

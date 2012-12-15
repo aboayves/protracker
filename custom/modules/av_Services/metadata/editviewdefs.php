@@ -29,11 +29,6 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_services_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_SERVICES_1_FROM_ACCOUNTS_TITLE',
-          ),
           1 => 'name',
         ),
         1 => 

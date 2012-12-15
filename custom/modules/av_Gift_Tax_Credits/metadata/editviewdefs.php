@@ -49,10 +49,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_gift_tax_credits_1_name',
-          ),
         ),
         3 => 
         array (

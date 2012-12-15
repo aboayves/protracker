@@ -85,10 +85,6 @@ array (
           array (
             'name' => 'description',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_av_ips_1_name',
-          ),
         ),
         6 => 
         array (
@@ -105,7 +101,6 @@ array (
         ),
         7 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'team_name',

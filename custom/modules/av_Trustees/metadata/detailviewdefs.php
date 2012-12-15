@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -37,14 +39,62 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
           1 => 'assigned_user_name',
         ),
-        1 => 
-        array (
-          0 => 'team_name',
-        ),
         2 => 
+        array (
+          0 => 'name',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'date_verified',
+            'comment' => '',
+            'label' => 'LBL_DATE_VERIFIED',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'cc_statements',
+            'comment' => '',
+            'label' => 'LBL_CC_STATEMENTS',
+          ),
+          1 => 
+          array (
+            'name' => 'cc_mail',
+            'comment' => '',
+            'label' => 'LBL_CC_MAIL',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'cc_reports',
+            'comment' => '',
+            'label' => 'LBL_CC_REPORTS',
+          ),
+          1 => 
+          array (
+            'name' => 'ok_to_speak_to',
+            'comment' => '',
+            'label' => 'LBL_OK_TO_SPEAK_TO',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 'description',
+        ),
+        7 => 
         array (
           0 => 
           array (
@@ -57,25 +107,6 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'av_accounts_av_trustees_1_name',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'contacts_av_trustees_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'av_trusts_av_trustees_1_name',
           ),
         ),
       ),

@@ -44,10 +44,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_retirement_projections_1_name',
-          ),
         ),
       ),
     ),

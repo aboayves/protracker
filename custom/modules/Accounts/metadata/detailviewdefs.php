@@ -79,67 +79,36 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
-          1 => 
-          array (
-            'name' => 'av_offices_accounts_1_name',
-          ),
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_contacts_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_contacts_2_name',
-          ),
         ),
         3 => 
         array (
           0 => 'envelope',
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'account_type',
             'comment' => 'The Company is of this type',
             'label' => 'LBL_TYPE',
           ),
-          1 => 
+        ),
+        4 => 
+        array (
+          0 => 
           array (
             'name' => 'client_since_date',
             'comment' => '',
             'label' => 'LBL_CLIENT_SINCE_DATE',
           ),
-        ),
-        5 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'status',
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
-          1 => 
-          array (
-            'name' => 'client_number',
-            'comment' => '',
-            'label' => 'LBL_CLIENT_NUMBER',
-          ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'comment' => 'Full text of the note',
-            'label' => 'LBL_DESCRIPTION',
-          ),
-          1 => 'team_name',
-        ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
@@ -148,13 +117,28 @@ array (
           ),
           1 => 
           array (
+            'name' => 'priority',
+            'comment' => '',
+            'label' => 'LBL_PRIORITY',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
             'name' => 'managed_assets',
             'comment' => 'Gets the managed assets.',
             'studio' => 'visible',
             'label' => 'LBL_MANAGED_ASSETS',
           ),
+          1 => 
+          array (
+            'name' => 'client_number',
+            'comment' => '',
+            'label' => 'LBL_CLIENT_NUMBER',
+          ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -169,6 +153,16 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 'team_name',
+        ),
         9 => 
         array (
           0 => 
@@ -182,11 +176,6 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
           ),
-        ),
-        10 => 
-        array (
-          0 => '',
-          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 

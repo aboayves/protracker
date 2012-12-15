@@ -33,11 +33,6 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_service_team_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_SERVICE_TEAM_1_FROM_ACCOUNTS_TITLE',
-          ),
           1 => 
           array (
             'name' => 'role',

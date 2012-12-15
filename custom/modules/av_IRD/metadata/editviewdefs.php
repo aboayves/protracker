@@ -30,19 +30,10 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
-          array (
-            'name' => 'contacts_av_ird_1_name',
-            'label' => 'LBL_CONTACTS_AV_IRD_1_FROM_CONTACTS_TITLE',
-          ),
         ),
         1 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_ird_1_name',
-          ),
         ),
         2 => 
         array (

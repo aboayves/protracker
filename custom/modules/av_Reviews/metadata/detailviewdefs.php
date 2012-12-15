@@ -39,11 +39,6 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_reviews_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_ACCOUNTS_TITLE',
-          ),
           1 => 'name',
         ),
         1 => 
@@ -77,7 +72,6 @@ array (
         ),
         4 => 
         array (
-          0 => '',
           1 => 'team_name',
         ),
         5 => 

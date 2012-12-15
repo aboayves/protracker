@@ -49,18 +49,10 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'contacts_av_estate_admin_1_name',
-          ),
         ),
         3 => 
         array (
           0 => 
-          array (
-            'name' => 'accounts_av_estate_admin_1_name',
-          ),
-          1 => 
           array (
             'name' => 'alternate_valuation_date',
             'comment' => '',
@@ -84,8 +76,7 @@ array (
         ),
         5 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'team_name',
             'displayParams' => 

@@ -75,10 +75,6 @@ array (
           array (
             'name' => 'description',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_av_business_insurance_1_name',
-          ),
         ),
         5 => 
         array (
@@ -280,7 +276,6 @@ array (
             'comment' => '',
             'label' => 'LBL_MEDICAL_PAYMENTS',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -308,7 +303,6 @@ array (
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
-          1 => '',
         ),
         2 => 
         array (

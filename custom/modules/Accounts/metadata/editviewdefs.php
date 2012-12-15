@@ -70,43 +70,53 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
-          1 => 
-          array (
-            'name' => 'av_offices_accounts_1_name',
-          ),
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_contacts_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_contacts_2_name',
-          ),
         ),
         3 => 
         array (
           0 => 'envelope',
+          1 => 'account_type',
         ),
         4 => 
         array (
-          0 => 'account_type',
-          1 => 
+          0 => 
           array (
             'name' => 'client_since_date',
             'comment' => '',
             'label' => 'LBL_CLIENT_SINCE_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'status',
+            'name' => 'current_net_worth',
+            'label' => 'LBL_CURRENT_NET_WORTH',
+          ),
+          1 => 
+          array (
+            'name' => 'priority',
+            'comment' => '',
+            'label' => 'LBL_PRIORITY',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'managed_assets',
+            'comment' => 'Gets the managed assets.',
             'studio' => 'visible',
-            'label' => 'LBL_STATUS',
+            'label' => 'LBL_MANAGED_ASSETS',
+            'type' => 'readonly',
           ),
           1 => 
           array (
@@ -115,7 +125,22 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        6 => 
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'document_path',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_PATH',
+          ),
+          1 => 
+          array (
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
+          ),
+        ),
+        8 => 
         array (
           0 => 
           array (
@@ -129,37 +154,6 @@ array (
             array (
               'display' => true,
             ),
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'current_net_worth',
-            'label' => 'LBL_CURRENT_NET_WORTH',
-          ),
-          1 => 
-          array (
-            'name' => 'managed_assets',
-            'comment' => 'Gets the managed assets.',
-            'studio' => 'visible',
-            'label' => 'LBL_MANAGED_ASSETS',
-            'type' => 'readonly',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'document_path',
-            'comment' => '',
-            'label' => 'LBL_DOCUMENT_PATH',
-          ),
-          1 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
           ),
         ),
         9 => 
@@ -176,11 +170,6 @@ array (
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-        10 => 
-        array (
-          0 => '',
-          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 

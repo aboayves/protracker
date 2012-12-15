@@ -79,11 +79,6 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_payments_1_name',
-          ),
-          1 => '',
         ),
         4 => 
         array (

@@ -29,11 +29,6 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_account_owners_contacts_1_name',
-          ),
-          1 => '',
         ),
         1 => 
         array (

@@ -39,11 +39,6 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_social_security_1_name',
-          ),
-          1 => '',
         ),
         1 => 
         array (
@@ -58,12 +53,9 @@ array (
             'comment' => '',
             'label' => 'LBL_YEAR_OF_ESTIMATE',
           ),
-          1 => '',
         ),
         3 => 
         array (
-          0 => '',
-          1 => '',
         ),
         4 => 
         array (
@@ -112,8 +104,6 @@ array (
         ),
         7 => 
         array (
-          0 => '',
-          1 => '',
         ),
         8 => 
         array (
@@ -147,13 +137,10 @@ array (
         ),
         10 => 
         array (
-          0 => '',
-          1 => '',
         ),
         11 => 
         array (
           0 => 'description',
-          1 => '',
         ),
         12 => 
         array (

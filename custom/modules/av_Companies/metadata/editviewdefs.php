@@ -75,10 +75,6 @@ array (
             'comment' => '',
             'label' => 'LBL_MASTER_ACCOUNT',
           ),
-          1 => 
-          array (
-            'name' => 'av_accounts_av_companies_1_name',
-          ),
         ),
         5 => 
         array (
@@ -93,7 +89,6 @@ array (
             'comment' => '',
             'label' => 'LBL_ROUTING_NUMBER',
           ),
-          1 => '',
         ),
         7 => 
         array (

@@ -94,11 +94,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
           array (
             'name' => 'name',
           ),
-          1 => 
-          array (
-            'name' => 'av_activity_types_calls_1_name',
-            'label' => 'LBL_AV_ACTIVITY_TYPES_CALLS_1_FROM_AV_ACTIVITY_TYPES_TITLE',
-          ),
         ),
         2 => 
         array (
@@ -167,7 +162,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
               'display' => true,
             ),
           ),
-          1 => '',
         ),
         6 => 
         array (

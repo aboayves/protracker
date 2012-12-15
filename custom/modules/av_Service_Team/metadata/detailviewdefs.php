@@ -62,10 +62,6 @@ array (
         3 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_service_team_1_name',
-          ),
         ),
       ),
     ),

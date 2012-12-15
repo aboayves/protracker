@@ -3,16 +3,18 @@ $module_name = 'av_Life_Insurance';
 $OBJECT_NAME = 'AV_LIFE_INSURANCE';
 $listViewDefs [$module_name] = 
 array (
-  'DOCUMENT_NAME' => 
+  'ACCOUNTS_AV_LIFE_INSURANCE_1_NAME' => 
   array (
-    'width' => '30%',
-    'label' => 'LBL_NAME',
+    'type' => 'relate',
     'link' => true,
+    'label' => 'LBL_ACCOUNTS_AV_LIFE_INSURANCE_1_FROM_ACCOUNTS_TITLE',
+    'id' => 'ACCOUNTS_AV_LIFE_INSURANCE_1ACCOUNTS_IDA',
+    'width' => '20%',
     'default' => true,
   ),
   'CATEGORY_ID' => 
   array (
-    'width' => '20%',
+    'width' => '15%',
     'label' => 'LBL_LIST_CATEGORY',
     'default' => true,
   ),
@@ -23,12 +25,13 @@ array (
     'label' => 'LBL_DESCRIPTION',
     'width' => '20%',
   ),
-  'AGENT_NAME' => 
+  'FACE_VALUE' => 
   array (
-    'type' => 'varchar',
+    'type' => 'currency',
     'default' => true,
-    'label' => 'LBL_AGENT_NAME',
-    'width' => '15%',
+    'label' => 'LBL_FACE_VALUE',
+    'currency_format' => true,
+    'width' => '10%',
   ),
   'MATURITY_DATE' => 
   array (
@@ -43,23 +46,20 @@ array (
     'default' => true,
     'label' => 'LBL_PREMIUM',
     'currency_format' => true,
-    'width' => '15%',
+    'width' => '10%',
   ),
-  'FACE_VALUE' => 
+  'AGENT_NAME' => 
   array (
-    'type' => 'currency',
+    'type' => 'varchar',
     'default' => true,
-    'label' => 'LBL_FACE_VALUE',
-    'currency_format' => true,
+    'label' => 'LBL_AGENT_NAME',
     'width' => '15%',
   ),
-  'ACCOUNTS_AV_LIFE_INSURANCE_1_NAME' => 
+  'DOCUMENT_NAME' => 
   array (
-    'type' => 'relate',
+    'width' => '30%',
+    'label' => 'LBL_NAME',
     'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_LIFE_INSURANCE_1_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_LIFE_INSURANCE_1ACCOUNTS_IDA',
-    'width' => '20%',
     'default' => true,
   ),
   'MODIFIED_BY_NAME' => 

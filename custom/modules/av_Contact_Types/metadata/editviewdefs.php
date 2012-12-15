@@ -44,10 +44,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'contacts_av_contact_types_1_name',
-          ),
         ),
       ),
     ),

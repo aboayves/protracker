@@ -29,24 +29,10 @@ array (
     ),
     'panels' => 
     array (
-      'default' => 
+      'lbl_editview_panel2' => 
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'document_name',
-            'label' => 'LBL_DOC_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'link' => 'uploadfile',
-              'id' => 'id',
-            ),
-          ),
         ),
         1 => 
         array (
@@ -57,19 +43,26 @@ array (
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'policy_number',
+            'comment' => '',
+            'label' => 'LBL_POLICY_NUMBER',
           ),
           1 => 
           array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
           ),
         ),
         3 => 
         array (
-          0 => 'active_date',
-          1 => 'exp_date',
+          0 => 'status',
+          1 => 
+          array (
+            'name' => 'term',
+            'comment' => '',
+            'label' => 'LBL_TERM',
+          ),
         ),
         4 => 
         array (
@@ -90,18 +83,79 @@ array (
         array (
           0 => 
           array (
-            'name' => 'issue_date',
+            'name' => 'endorsements',
             'comment' => '',
-            'label' => 'LBL_ISSUE_DATE',
+            'label' => 'LBL_ENDORSEMENTS',
           ),
           1 => 
           array (
-            'name' => 'last_ledger_date',
-            'comment' => '',
-            'label' => 'LBL_LAST_LEDGER_DATE',
+            'name' => 'file_ext',
+            'label' => 'LBL_FILE_EXTENSION',
           ),
         ),
         6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'incontestability_period',
+            'comment' => '',
+            'label' => 'LBL_INCONTESTABILITY_PERIOD',
+          ),
+          1 => 
+          array (
+            'name' => 'file_mime_type',
+            'label' => 'LBL_MIME',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'accelerated_benefit_rider',
+            'comment' => '',
+            'label' => 'LBL_ACCELERATED_BENEFIT_RIDER',
+          ),
+          1 => 
+          array (
+            'name' => 'add_rider',
+            'comment' => '',
+            'label' => 'LBL_ADD_RIDER',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 'active_date',
+          1 => 'exp_date',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'waiver_of_premium_rider',
+            'comment' => '',
+            'label' => 'LBL_WAIVER_OF_PREMIUM_RIDER',
+          ),
+          1 => 
+          array (
+            'name' => 'provisions',
+            'comment' => '',
+            'label' => 'LBL_PROVISIONS',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
+          1 => 
+          array (
+            'name' => 'status_id',
+            'label' => 'LBL_DOC_STATUS',
+          ),
+        ),
+        11 => 
         array (
           0 => 
           array (
@@ -109,15 +163,28 @@ array (
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
         ),
-        7 => 
+        12 => 
         array (
           0 => 
           array (
-            'name' => 'accounts_av_life_insurance_1_name',
+            'name' => 'document_name',
+            'label' => 'LBL_DOC_NAME',
           ),
-          1 => 'team_name',
+          1 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'link' => 'uploadfile',
+              'id' => 'id',
+            ),
+          ),
         ),
-        8 => 
+        13 => 
+        array (
+          0 => 'team_name',
+        ),
+        14 => 
         array (
           0 => 
           array (
@@ -158,42 +225,9 @@ array (
             'comment' => '',
             'label' => 'LBL_PREMIUM_FREQUENCY',
           ),
-          1 => 
-          array (
-            'name' => 'face_value',
-            'comment' => '',
-            'label' => 'LBL_FACE_VALUE',
-          ),
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'cash_value',
-            'comment' => '',
-            'label' => 'LBL_CASH_VALUE',
-          ),
-          1 => 
-          array (
-            'name' => 'cash_value_interest_rate',
-            'comment' => '',
-            'label' => 'LBL_CASH_VALUE_INTEREST_RATE',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'surrender_value',
-            'comment' => '',
-            'label' => 'LBL_SURRENDER_VALUE',
-          ),
-          1 => 
-          array (
-            'name' => 'surender_value_prior_year',
-            'comment' => '',
-            'label' => 'LBL_SURENDER_VALUE_PRIOR_YEAR',
-          ),
         ),
       ),
       'lbl_editview_panel1' => 
@@ -229,54 +263,45 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel2' => 
+      'lbl_editview_panel4' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            'name' => 'policy_number',
+            'name' => 'face_value',
             'comment' => '',
-            'label' => 'LBL_POLICY_NUMBER',
+            'label' => 'LBL_FACE_VALUE',
           ),
           1 => 
           array (
-            'name' => 'type',
+            'name' => 'issue_date',
             'comment' => '',
-            'label' => 'LBL_TYPE',
+            'label' => 'LBL_ISSUE_DATE',
           ),
         ),
         1 => 
         array (
-          0 => 'status',
+          0 => 
+          array (
+            'name' => 'death_benefit',
+            'comment' => '',
+            'label' => 'LBL_DEATH_BENEFIT',
+          ),
           1 => 
           array (
-            'name' => 'term',
+            'name' => 'last_ledger_date',
             'comment' => '',
-            'label' => 'LBL_TERM',
+            'label' => 'LBL_LAST_LEDGER_DATE',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'endorsements',
+            'name' => 'cash_value',
             'comment' => '',
-            'label' => 'LBL_ENDORSEMENTS',
-          ),
-          1 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'incontestability_period',
-            'comment' => '',
-            'label' => 'LBL_INCONTESTABILITY_PERIOD',
+            'label' => 'LBL_CASH_VALUE',
           ),
           1 => 
           array (
@@ -285,7 +310,55 @@ array (
             'label' => 'LBL_MATURITY_DATE',
           ),
         ),
-        4 => 
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'cash_value_interest_rate',
+            'comment' => '',
+            'label' => 'LBL_CASH_VALUE_INTEREST_RATE',
+          ),
+        ),
+      ),
+      'lbl_editview_panel5' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'surrender_value',
+            'comment' => '',
+            'label' => 'LBL_SURRENDER_VALUE',
+          ),
+          1 => 
+          array (
+            'name' => 'surender_value_prior_year',
+            'comment' => '',
+            'label' => 'LBL_SURENDER_VALUE_PRIOR_YEAR',
+          ),
+        ),
+      ),
+      'lbl_editview_panel6' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'dividends',
+            'comment' => '',
+            'label' => 'LBL_DIVIDENDS',
+          ),
+          1 => 
+          array (
+            'name' => 'dividends_prior_year',
+            'comment' => '',
+            'label' => 'LBL_DIVIDENDS_PRIOR_YEAR',
+          ),
+        ),
+      ),
+      'lbl_editview_panel7' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
@@ -298,65 +371,6 @@ array (
             'name' => 'loan_interest_rate',
             'comment' => '',
             'label' => 'LBL_LOAN_INTEREST_RATE',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accelerated_benefit_rider',
-            'comment' => '',
-            'label' => 'LBL_ACCELERATED_BENEFIT_RIDER',
-          ),
-          1 => 
-          array (
-            'name' => 'add_rider',
-            'comment' => '',
-            'label' => 'LBL_ADD_RIDER',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'waiver_of_premium_rider',
-            'comment' => '',
-            'label' => 'LBL_WAIVER_OF_PREMIUM_RIDER',
-          ),
-          1 => 
-          array (
-            'name' => 'provisions',
-            'comment' => '',
-            'label' => 'LBL_PROVISIONS',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'death_benefit',
-            'comment' => '',
-            'label' => 'LBL_DEATH_BENEFIT',
-          ),
-          1 => 
-          array (
-            'name' => 'dividends',
-            'comment' => '',
-            'label' => 'LBL_DIVIDENDS',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'dividends_prior_year',
-            'comment' => '',
-            'label' => 'LBL_DIVIDENDS_PRIOR_YEAR',
-          ),
-          1 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
           ),
         ),
       ),

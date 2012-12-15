@@ -41,9 +41,6 @@ array (
             'label' => 'LBL_VALUE',
           ),
         ),
-        2 => 
-        array (
-        ),
         8 => 
         array (
           0 => 'description',

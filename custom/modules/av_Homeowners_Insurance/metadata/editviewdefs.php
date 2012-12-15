@@ -57,7 +57,6 @@ array (
         2 => 
         array (
           0 => 'assigned_user_name',
-          1 => '',
         ),
         3 => 
         array (
@@ -74,15 +73,9 @@ array (
           array (
             'name' => 'description',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_av_homeowners_insurance_1_name',
-          ),
         ),
         6 => 
         array (
-          0 => '',
-          1 => '',
         ),
         7 => 
         array (
@@ -145,8 +138,6 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 
@@ -322,7 +313,6 @@ array (
             'comment' => '',
             'label' => 'LBL_CONTENTS_REPLACEMENT',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel3' => 
@@ -395,7 +385,6 @@ array (
             'comment' => '',
             'label' => 'LBL_LIVING_AREA',
           ),
-          1 => '',
         ),
       ),
     ),

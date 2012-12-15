@@ -38,6 +38,126 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'accounts_av_life_insurance_1_name',
+            'label' => 'LBL_ACCOUNTS_AV_LIFE_INSURANCE_1_FROM_ACCOUNTS_TITLE',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 'category_id',
+          1 => 'subcategory_id',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'policy_number',
+            'comment' => '',
+            'label' => 'LBL_POLICY_NUMBER',
+          ),
+          1 => 
+          array (
+            'name' => 'term',
+            'comment' => '',
+            'label' => 'LBL_TERM',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'maturity_date',
+            'comment' => '',
+            'label' => 'LBL_MATURITY_DATE',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'status_id',
+            'label' => 'LBL_DOC_STATUS',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 'active_date',
+          1 => 
+          array (
+            'name' => 'exp_date',
+            'label' => 'LBL_DOC_EXP_DATE',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'start_date',
+            'comment' => '',
+            'label' => 'LBL_START_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'end_date',
+            'comment' => '',
+            'label' => 'LBL_END_DATE',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'issue_date',
+            'comment' => '',
+            'label' => 'LBL_ISSUE_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'last_ledger_date',
+            'comment' => '',
+            'label' => 'LBL_LAST_LEDGER_DATE',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'displayParams' => 
+            array (
+              'rows' => 10,
+              'cols' => 120,
+            ),
+          ),
+          1 => '',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'premium',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM',
+          ),
+          1 => 
+          array (
+            'name' => 'premium_due_date',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM_DUE_DATE',
+          ),
+        ),
+        10 => 
+        array (
           0 => 'document_name',
           1 => 
           array (
@@ -54,124 +174,9 @@ array (
             ),
           ),
         ),
-        1 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        2 => 
-        array (
-          0 => 'assigned_user_name',
-          1 => 
-          array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'active_date',
-          1 => 
-          array (
-            'name' => 'exp_date',
-            'label' => 'LBL_DOC_EXP_DATE',
-          ),
-        ),
-        4 => 
+        11 => 
         array (
           0 => 
-          array (
-            'name' => 'start_date',
-            'comment' => '',
-            'label' => 'LBL_START_DATE',
-          ),
-          1 => 
-          array (
-            'name' => 'end_date',
-            'comment' => '',
-            'label' => 'LBL_END_DATE',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'issue_date',
-            'comment' => '',
-            'label' => 'LBL_ISSUE_DATE',
-          ),
-          1 => 
-          array (
-            'name' => 'last_ledger_date',
-            'comment' => '',
-            'label' => 'LBL_LAST_LEDGER_DATE',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'displayParams' => 
-            array (
-              'rows' => 10,
-              'cols' => 120,
-            ),
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'premium',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM',
-          ),
-          1 => 
-          array (
-            'name' => 'premium_due_date',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM_DUE_DATE',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'policy_number',
-            'comment' => '',
-            'label' => 'LBL_POLICY_NUMBER',
-          ),
-          1 => 
-          array (
-            'name' => 'term',
-            'comment' => '',
-            'label' => 'LBL_TERM',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
-          1 => 
-          array (
-            'name' => 'maturity_date',
-            'comment' => '',
-            'label' => 'LBL_MATURITY_DATE',
-          ),
-        ),
-        10 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_av_life_insurance_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_LIFE_INSURANCE_1_FROM_ACCOUNTS_TITLE',
-          ),
-          1 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -180,7 +185,7 @@ array (
             ),
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (

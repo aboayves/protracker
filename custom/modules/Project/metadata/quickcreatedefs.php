@@ -60,7 +60,7 @@ array (
         ),
         4 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'service_c',
             'studio' => 'visible',

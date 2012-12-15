@@ -87,10 +87,6 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_activity_types_tasks_1_name',
-          ),
           1 => 
           array (
             'name' => 'parent_tasks_name',
@@ -187,8 +183,7 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'on_task_list',
             'label' => 'LBL_ON_TASK_LIST',

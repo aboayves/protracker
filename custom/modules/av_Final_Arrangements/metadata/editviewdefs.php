@@ -77,10 +77,6 @@ array (
           array (
             'name' => 'description',
           ),
-          1 => 
-          array (
-            'name' => 'contacts_av_final_arrangements_1_name',
-          ),
         ),
         6 => 
         array (
@@ -98,10 +94,6 @@ array (
         ),
         7 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_final_arrangements_1_name',
-          ),
           1 => 
           array (
             'name' => 'team_name',

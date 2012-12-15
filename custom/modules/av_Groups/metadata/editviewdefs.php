@@ -36,10 +36,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'contacts_av_groups_1_name',
-          ),
-          1 => 
-          array (
             'name' => 'priority',
             'comment' => '',
             'label' => 'LBL_PRIORITY',
@@ -47,10 +43,6 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'contacts_av_groups_2_name',
-          ),
           1 => 
           array (
             'name' => 'document_path',

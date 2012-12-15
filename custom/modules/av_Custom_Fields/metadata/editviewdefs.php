@@ -20,6 +20,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -28,11 +30,17 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'field_value',
+            'comment' => '',
+            'label' => 'LBL_FIELD_VALUE',
+          ),
         ),
         1 => 
         array (
-          0 => 
+          0 => 'description',
+          1 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -43,21 +51,21 @@ array (
         ),
         2 => 
         array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'contacts_av_custom_fields_1_name',
-          ),
+          0 => 'assigned_user_name',
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'accounts_av_custom_fields_1_name',
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
           ),
           1 => 
           array (
-            'name' => 'av_accounts_av_custom_fields_1_name',
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

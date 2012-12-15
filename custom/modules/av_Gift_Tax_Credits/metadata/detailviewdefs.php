@@ -62,10 +62,6 @@ array (
         3 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_gift_tax_credits_1_name',
-          ),
         ),
       ),
     ),

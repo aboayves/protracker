@@ -76,17 +76,6 @@ array (
             'name' => 'description',
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
-          1 => 
-          array (
-            'name' => 'contacts_av_final_arrangements_1_name',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_av_final_arrangements_1_name',
-          ),
         ),
       ),
     ),

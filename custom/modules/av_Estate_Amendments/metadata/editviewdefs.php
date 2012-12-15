@@ -86,21 +86,9 @@ array (
             'comment' => '',
             'label' => 'LBL_PROVISIONS',
           ),
-          1 => 
-          array (
-            'name' => 'av_wills_av_estate_amendments_1_name',
-          ),
         ),
         6 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_trusts_av_estate_amendments_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'av_estate_documents_av_estate_amendments_1_name',
-          ),
         ),
         7 => 
         array (

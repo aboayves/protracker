@@ -155,45 +155,8 @@ array (
           ),
           1 => 'envelope',
         ),
-        10 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_offices_contacts_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'av_tax_returns_contacts_1_name',
-          ),
-        ),
-        11 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_account_owners_contacts_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'av_accounts_contacts_1_name',
-          ),
-        ),
         12 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_contacts_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'accounts_contacts_2_name',
-          ),
-        ),
-        13 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_contacts_3_name',
-          ),
         ),
       ),
       'lbl_editview_panel5' => 

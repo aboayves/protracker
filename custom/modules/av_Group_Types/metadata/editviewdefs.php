@@ -44,10 +44,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'av_groups_av_group_types_1_name',
-          ),
         ),
       ),
     ),

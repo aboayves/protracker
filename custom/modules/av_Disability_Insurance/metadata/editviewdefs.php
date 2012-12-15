@@ -70,10 +70,6 @@ array (
         4 => 
         array (
           0 => 'status_id',
-          1 => 
-          array (
-            'name' => 'accounts_av_disability_insurance_1_name',
-          ),
         ),
         5 => 
         array (
@@ -200,8 +196,6 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 
@@ -379,7 +373,6 @@ array (
             'comment' => '',
             'label' => 'LBL_WAIVER_OF_PREMIUM',
           ),
-          1 => '',
         ),
       ),
     ),

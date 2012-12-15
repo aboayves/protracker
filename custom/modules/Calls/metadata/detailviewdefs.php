@@ -101,10 +101,6 @@ array (
             'name' => 'name',
             'label' => 'LBL_SUBJECT',
           ),
-          1 => 
-          array (
-            'name' => 'av_activity_types_calls_1_name',
-          ),
         ),
         2 => 
         array (
@@ -158,7 +154,6 @@ array (
         5 => 
         array (
           0 => 'team_name',
-          1 => '',
         ),
         6 => 
         array (

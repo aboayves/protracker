@@ -108,10 +108,6 @@ array (
         ),
         6 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_identification_1_name',
-          ),
           1 => 'category_id',
         ),
         7 => 

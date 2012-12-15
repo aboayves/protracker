@@ -57,15 +57,7 @@ array (
         ),
         2 => 
         array (
-          0 => '',
           1 => 'description',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_accounts_av_account_histories_name',
-          ),
         ),
       ),
     ),

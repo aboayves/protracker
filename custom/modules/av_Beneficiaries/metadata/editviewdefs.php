@@ -31,10 +31,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_accounts_av_beneficiaries_1_name',
-          ),
-          1 => 
-          array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
@@ -42,10 +38,6 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'contacts_av_beneficiaries_1_name',
-          ),
           1 => 'name',
         ),
         2 => 

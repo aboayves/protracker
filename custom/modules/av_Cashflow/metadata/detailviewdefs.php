@@ -60,10 +60,6 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_av_cashflow_1_name',
-          ),
         ),
         3 => 
         array (
@@ -90,7 +86,6 @@ array (
             'name' => 'file_ext',
             'label' => 'LBL_FILE_EXTENSION',
           ),
-          1 => '',
         ),
         6 => 
         array (

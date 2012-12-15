@@ -62,10 +62,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_account_types_av_accounts_1_name',
-          ),
-          1 => 
-          array (
             'name' => 'value_date',
             'comment' => '',
             'label' => 'LBL_VALUE_DATE',
@@ -87,13 +83,6 @@ array (
             'name' => 'cost_basis_date',
             'comment' => '',
             'label' => 'LBL_COST_BASIS_DATE',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_accounts_av_companies_1_name',
           ),
         ),
         6 => 
@@ -134,10 +123,6 @@ array (
         ),
         9 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_accounts_contacts_1_name',
-          ),
         ),
       ),
       'lbl_editview_panel3' => 

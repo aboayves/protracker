@@ -96,10 +96,6 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
-          1 => 
-          array (
-            'name' => 'av_activity_types_meetings_1_name',
-          ),
         ),
         2 => 
         array (
@@ -166,8 +162,6 @@ array (
         ),
         7 => 
         array (
-          0 => '',
-          1 => '',
         ),
         8 => 
         array (

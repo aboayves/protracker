@@ -20,6 +20,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -34,19 +36,24 @@ array (
         array (
           0 => 
           array (
+            'name' => 'av_Account_Categories_name',
+            'label' => 'LBL_AV_ACCOUNT_CATEGORIES_NAME',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 'description',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
             'name' => 'team_name',
             'displayParams' => 
             array (
               'display' => true,
             ),
-          ),
-        ),
-        2 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'av_account_categories_av_account_types_1_name',
           ),
         ),
       ),
