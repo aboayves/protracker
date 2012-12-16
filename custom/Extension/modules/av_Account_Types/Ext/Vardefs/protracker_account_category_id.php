@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-13 23:48:54
+// created: 2012-12-16 14:41:36
 $dictionary["av_Account_Types"]["fields"]["account_category_id"] = array (
 	'name' => 'account_category_id',
 	'rname' => 'id',

@@ -1,11 +1,9 @@
 <?php
 // created: 2012-12-16 14:41:36
-$dictionary["av_Account_Types"]["fields"]["schedule"] = array (
-	'name' => 'schedule',
-	'vname' => 'LBL_SCHEDULE',
-	'type' => 'enum',
-	'options' => 'account_schedule_list',
-	'len' => '100',
+$dictionary["av_Account_Types"]["fields"]["is_beneficiary_required"] = array (
+	'name' => 'is_beneficiary_required',
+	'vname' => 'LBL_IS_BENEFICIARY_REQUIRED',
+	'type' => 'bool',
 	'audited' => '0',
 	'required' => '0',
 	'comment' => '',

@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-13 23:48:54
+// created: 2012-12-16 14:41:36
 $layout_defs["av_Account_Categories"]["subpanel_setup"]["av_account_types_av_account_categories"] = array (
 	'order' => 100,
 	'module' => 'av_Account_Types',
