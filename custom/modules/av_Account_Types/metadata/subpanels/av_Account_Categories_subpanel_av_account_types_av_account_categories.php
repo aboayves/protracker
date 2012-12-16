@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-14 03:27:30
+// created: 2012-12-16 19:40:49
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -8,10 +8,12 @@ $subpanel_layout['list_fields'] = array (
     'width' => '45%',
     'default' => true,
   ),
-  'date_modified' => 
+  'description' => 
   array (
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '45%',
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => true,
   ),
   'edit_button' => 
