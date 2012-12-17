@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 15:01:03
+// created: 2012-12-17 15:34:51
 $dictionary["Meeting"]["fields"]["on_meeting_agenda"] = array (
 	'name' => 'on_meeting_agenda',
 	'vname' => 'LBL_ON_MEETING_AGENDA',
