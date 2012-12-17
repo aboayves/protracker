@@ -42,6 +42,11 @@ array (
             'name' => 'parent_name',
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
+          1 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
         ),
         2 => 
         array (
@@ -81,7 +86,7 @@ array (
         ),
         5 => 
         array (
-          1 => 'team_name',
+          0 => 'team_name',
         ),
         6 => 
         array (
