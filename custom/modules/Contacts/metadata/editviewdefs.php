@@ -69,66 +69,71 @@ array (
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+            'name' => 'av_Contact_Types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
           ),
           1 => 
           array (
-            'name' => 'nickname',
-            'comment' => '',
-            'label' => 'LBL_NICKNAME',
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'middle_name',
+            'name' => 'nickname',
             'comment' => '',
-            'label' => 'LBL_MIDDLE_NAME',
+            'label' => 'LBL_NICKNAME',
           ),
           1 => 
           array (
-            'name' => 'annual_household_income',
+            'name' => 'middle_name',
             'comment' => '',
-            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
+            'label' => 'LBL_MIDDLE_NAME',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
+            'name' => 'annual_household_income',
+            'comment' => '',
+            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
+          ),
+          1 => 
+          array (
             'name' => 'last_name',
           ),
-          1 => '',
         ),
         5 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'suffix',
             'comment' => '',
             'label' => 'LBL_SUFFIX',
           ),
-          1 => '',
         ),
         6 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'contact_priority',
             'label' => 'LBL_CONTACT_PRIORITY',
-          ),
-          1 => 
-          array (
-            'name' => 'document_path',
-            'comment' => '',
-            'label' => 'LBL_DOCUMENT_PATH',
           ),
         ),
         7 => 
         array (
           0 => 
+          array (
+            'name' => 'document_path',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_PATH',
+          ),
+          1 => 
           array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
@@ -142,22 +147,25 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_COMMENTS',
           ),
-          1 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
-          ),
         ),
         9 => 
         array (
           0 => 
           array (
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
+          ),
+          1 => 
+          array (
             'name' => 'date_entered',
             'comment' => 'Date record created',
             'label' => 'LBL_DATE_ENTERED',
           ),
-          1 => 
+        ),
+        10 => 
+        array (
+          0 => 
           array (
             'name' => 'date_modified',
             'comment' => 'Date record last modified',
