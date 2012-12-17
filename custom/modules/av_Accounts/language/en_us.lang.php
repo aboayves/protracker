@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 16:18:59
+// created: 2012-12-17 19:50:24
 $mod_strings = array (
   'LBL_DEPENDENT_DROPDOWN' => 'Dependent Dropdown',
   'LBL_DEPENDENT_BOOL' => 'Checkbox',
@@ -19,4 +19,5 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL6' => 'Origin',
   'LBL_EDITVIEW_PANEL7' => 'Closed',
   'LBL_EDITVIEW_PANEL8' => 'Other',
+  'LBL_AV_TRANSACTIONS' => 'Transactions',
 );

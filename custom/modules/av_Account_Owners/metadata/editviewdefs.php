@@ -29,10 +29,11 @@ array (
       array (
         0 => 
         array (
-        ),
-        1 => 
-        array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'Contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
           1 => 
           array (
             'name' => 'ownership_percent',
@@ -40,7 +41,16 @@ array (
             'label' => 'LBL_OWNERSHIP_PERCENT',
           ),
         ),
+        1 => 
+        array (
+          0 => 'name',
+          1 => '',
+        ),
         2 => 
+        array (
+          0 => 'description',
+        ),
+        3 => 
         array (
           0 => 
           array (

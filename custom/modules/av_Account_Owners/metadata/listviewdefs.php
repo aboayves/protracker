@@ -2,15 +2,6 @@
 $module_name = 'av_Account_Owners';
 $listViewDefs [$module_name] = 
 array (
-  'AV_ACCOUNT_OWNERS_CONTACTS_1_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_AV_ACCOUNT_OWNERS_CONTACTS_1_FROM_CONTACTS_TITLE',
-    'id' => 'AV_ACCOUNT_OWNERS_CONTACTS_1CONTACTS_IDB',
-    'width' => '10%',
-    'default' => true,
-  ),
   'OWNERSHIP_PERCENT' => 
   array (
     'type' => 'currency',
@@ -18,22 +9,6 @@ array (
     'label' => 'LBL_OWNERSHIP_PERCENT',
     'currency_format' => true,
     'width' => '10%',
-  ),
-  'MODIFIED_BY_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_MODIFIED_NAME',
-    'id' => 'MODIFIED_USER_ID',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'DATE_MODIFIED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
-    'default' => true,
   ),
   'DESCRIPTION' => 
   array (
@@ -58,6 +33,15 @@ array (
     'id' => 'ASSIGNED_USER_ID',
     'default' => false,
   ),
+  'AV_ACCOUNT_OWNERS_CONTACTS_1_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNT_OWNERS_CONTACTS_1_FROM_CONTACTS_TITLE',
+    'id' => 'AV_ACCOUNT_OWNERS_CONTACTS_1CONTACTS_IDB',
+    'width' => '10%',
+    'default' => false,
+  ),
   'NAME' => 
   array (
     'width' => '32%',
@@ -78,6 +62,22 @@ array (
   array (
     'width' => '9%',
     'label' => 'LBL_TEAM',
+    'default' => false,
+  ),
+  'MODIFIED_BY_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_MODIFIED_NAME',
+    'id' => 'MODIFIED_USER_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '10%',
     'default' => false,
   ),
 );
