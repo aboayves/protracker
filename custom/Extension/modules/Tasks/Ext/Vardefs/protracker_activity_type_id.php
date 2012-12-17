@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 15:34:56
+// created: 2012-12-17 15:53:15
 $dictionary["Task"]["fields"]["activity_type_id"] = array (
 	'name' => 'activity_type_id',
 	'rname' => 'id',
@@ -39,8 +39,8 @@ $dictionary["Task"]["fields"]["av_activity_types"] = array (
 	'vname' => 'LBL_AV_ACTIVITY_TYPES',
 );
 $dictionary["Task"]["relationships"]["task_av_activity_types"] = array (
-	'lhs_module' => 'Task',
-	'lhs_table' => 'task',
+	'lhs_module' => 'Tasks',
+	'lhs_table' => 'tasks',
 	'lhs_key' => 'activity_type_id',
 	'rhs_module' => 'av_Activity_Types',
 	'rhs_table' => 'av_activity_types',

@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 15:34:51
+// created: 2012-12-17 15:53:10
 $dictionary["Meeting"]["fields"]["activity_type_id"] = array (
 	'name' => 'activity_type_id',
 	'rname' => 'id',
@@ -39,8 +39,8 @@ $dictionary["Meeting"]["fields"]["av_activity_types"] = array (
 	'vname' => 'LBL_AV_ACTIVITY_TYPES',
 );
 $dictionary["Meeting"]["relationships"]["meeting_av_activity_types"] = array (
-	'lhs_module' => 'Meeting',
-	'lhs_table' => 'meeting',
+	'lhs_module' => 'Meetings',
+	'lhs_table' => 'meetings',
 	'lhs_key' => 'activity_type_id',
 	'rhs_module' => 'av_Activity_Types',
 	'rhs_table' => 'av_activity_types',

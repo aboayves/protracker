@@ -1,8 +1,8 @@
 <?php
-// created: 2012-12-17 15:34:56
+// created: 2012-12-17 15:53:16
 $layout_defs["av_Activity_Types"]["subpanel_setup"]["task_av_activity_types"] = array (
 	'order' => 100,
-	'module' => 'Task',
+	'module' => 'Tasks',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_TASK',
 	'get_subpanel_data' => 'task_av_activity_types',

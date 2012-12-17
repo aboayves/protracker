@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 15:34:56
+// created: 2012-12-17 15:53:16
 $dictionary["Task"]["fields"]["percent_complete"] = array (
 	'name' => 'percent_complete',
 	'vname' => 'LBL_PERCENT_COMPLETE',

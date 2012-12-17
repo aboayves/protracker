@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 15:34:56
+// created: 2012-12-17 15:53:16
 $dictionary["Task"]["fields"]["on_client_task_list"] = array (
 	'name' => 'on_client_task_list',
 	'vname' => 'LBL_ON_CLIENT_TASK_LIST',
