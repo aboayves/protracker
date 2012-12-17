@@ -1,11 +1,11 @@
 <?php
-// created: 2012-12-17 15:01:03
-$layout_defs["av_Activity_Types"]["subpanel_setup"]["meeting_av_activity_types"] = array (
+// created: 2012-12-17 15:14:44
+$layout_defs["av_Activity_Types"]["subpanel_setup"]["task_av_activity_types"] = array (
 	'order' => 100,
-	'module' => 'Meetings',
+	'module' => 'Tasks',
 	'subpanel_name' => 'default',
-	'title_key' => 'LBL_MEETING',
-	'get_subpanel_data' => 'meeting_av_activity_types',
+	'title_key' => 'LBL_TASK',
+	'get_subpanel_data' => 'task_av_activity_types',
 	'top_buttons' => 
 	array (
 		0 => 

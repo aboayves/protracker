@@ -79,7 +79,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'parent_name',
             'label' => 'LBL_LIST_RELATED_TO',
           ),
-          1 => 'type',
+          1 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
         ),
         1 => 
         array (
@@ -88,6 +92,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
+          1 => '',
         ),
         2 => 
         array (
@@ -190,9 +195,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         ),
         7 => 
         array (
-        ),
-        8 => 
-        array (
           0 => 
           array (
             'name' => 'location',
@@ -201,11 +203,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           ),
           1 => 'password',
         ),
-        9 => 
+        8 => 
         array (
           0 => 'team_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
