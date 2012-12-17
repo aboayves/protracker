@@ -27,19 +27,35 @@ $dashletData['av_AccountsDashlet']['columns'] = array (
     'default' => true,
     'name' => 'name',
   ),
-  'type' => 
+  'account_number' => 
   array (
-    'type' => 'enum',
+    'type' => 'varchar',
     'default' => true,
-    'label' => 'LBL_TYPE',
+    'label' => 'LBL_ACCOUNT_NUMBER',
     'width' => '10%',
   ),
-  'date_entered' => 
+  'description' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_DATE_ENTERED',
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => true,
-    'name' => 'date_entered',
+  ),
+  'value_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'label' => 'LBL_VALUE_DATE',
+    'width' => '10%',
+  ),
+  'value' => 
+  array (
+    'type' => 'currency',
+    'default' => true,
+    'label' => 'LBL_VALUE',
+    'currency_format' => true,
+    'width' => '10%',
   ),
   'date_modified' => 
   array (
@@ -68,5 +84,20 @@ $dashletData['av_AccountsDashlet']['columns'] = array (
     'label' => 'LBL_LIST_TEAM',
     'name' => 'team_name',
     'default' => false,
+  ),
+  'type' => 
+  array (
+    'type' => 'enum',
+    'default' => false,
+    'label' => 'LBL_TYPE',
+    'width' => '10%',
+    'name' => 'type',
+  ),
+  'date_entered' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_DATE_ENTERED',
+    'default' => false,
+    'name' => 'date_entered',
   ),
 );

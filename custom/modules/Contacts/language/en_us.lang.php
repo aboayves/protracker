@@ -1,5 +1,5 @@
 <?php
-// created: 2012-11-19 17:25:24
+// created: 2012-12-17 16:50:10
 $mod_strings = array (
   'LBL_OTHER_ADDRESS_STREET' => 'Other Address Street',
   'LBL_OTHER_ADDRESS_CITY' => 'Other Address City',
@@ -71,4 +71,6 @@ $mod_strings = array (
   'LBL_CONTACT_CALLS' => 'Calls',
   'LBL_CONTACT_MEETINGS' => 'Meetings',
   'LBL_CONTACTS_RT_NOTES_TITLE' => 'Notes',
+  'LBL_EDITVIEW_PANEL7' => 'Education',
+  'LBL_EDITVIEW_PANEL8' => 'Financial',
 );

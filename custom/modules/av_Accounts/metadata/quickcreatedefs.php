@@ -35,28 +35,44 @@ array (
       array (
         0 => 
         array (
+          0 => 'name',
+          1 => 
+          array (
+            'name' => 'av_Account_Types_name',
+            'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        2 => 
+        array (
           0 => 
           array (
             'name' => 'value',
             'label' => 'LBL_VALUE',
           ),
+          1 => 
+          array (
+            'name' => 'value_date',
+            'comment' => '',
+            'label' => 'LBL_VALUE_DATE',
+          ),
         ),
-        8 => 
-        array (
-          0 => 'description',
-        ),
-        9 => 
+        3 => 
         array (
           0 => 
           array (
             'name' => 'accounts_av_accounts_name',
             'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
           ),
-          1 => 
-          array (
-            'name' => 'av_net_worth_av_accounts_name',
-            'label' => 'LBL_AV_NET_WORTH_AV_ACCOUNTS_FROM_AV_NET_WORTH_TITLE',
-          ),
+          1 => '',
+        ),
+        4 => 
+        array (
+          0 => 'description',
         ),
       ),
     ),
