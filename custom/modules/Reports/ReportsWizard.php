@@ -146,6 +146,10 @@ if (isset($_REQUEST['save_report_as']))
 	$sugar_smarty->assign("save_report_as", $_REQUEST['save_report_as']);
 else
 	$sugar_smarty->assign("save_report_as", "");
+if (isset($_REQUEST['category'])){
+	$sugar_smarty->assign("selected_category", $_REQUEST['category']);
+}
+$sugar_smarty->assign("reports_category", $app_list_strings['category_dropdown_list']);
 
 if (isset($_REQUEST['id']))
 	$sugar_smarty->assign("id", $_REQUEST['id']);

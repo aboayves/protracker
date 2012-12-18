@@ -333,6 +333,10 @@ document.getElementById('progress_div').innerHTML = '{sugar_getimage name="bar_l
 				<td width="20%" scope='row'><label for='save_report_as'>{$MOD.LBL_REPORT_NAME}:</label> <span class='required'>*</span></td>
 				<td><input type='text' size='45' name='save_report_as' id='save_report_as' value='{$save_report_as}'></td>
 			</tr>
+			<tr>
+				<td width="20%" scope='row'><label for='category'>{$MOD.LBL_CATEGORY}:</label> <span class='required'>*</span></td>
+				<td>{html_options name=category options=$reports_category selected=$selected_category}</td>
+			</tr>
 			{if $IS_ADMIN}
 			<tr>
 				<td scope='row'><label for='show_query'>{$MOD.LBL_SHOW_QUERY}:</label></td>

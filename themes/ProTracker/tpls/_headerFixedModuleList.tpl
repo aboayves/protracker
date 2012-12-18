@@ -213,3 +213,16 @@
                             </ul>
         </li>
 		<li class="{$homeClass}"><a href="index.php?module=Calendar&action=index" module="Calendar" class="sf-with-ul">Calendar</a></li>
+{php}
+	$this->assign('reportCategories', $GLOBALS['app_list_strings']['category_dropdown_list']);
+{/php}
+		
+		<li class="{$homeClass}"><a href="index.php?module=Reports&action=index" module="Reports" class="sf-with-ul">Reports</a>
+			<ul style="visibility: hidden; max-height: 704px; left: 210px; right: auto; top: 0px; bottom: auto; display: none;" class="sf-menu sf-js-enabled" id="themeTabGroupMenu_Reports">
+{foreach from=$reportCategories key=shortcut_value item=shortcut_item}
+				<li class="">
+					<a module="Reports" class="sf-with-ul" id="moduleTab_Reports{$shortcut_item}" href="index.php?module=Reports&action=index&searchFormTab=advanced_search&query=true&&category[]={$shortcut_value}" tabindex="-1">{$shortcut_item}</a>
+				</li>
+{/foreach}
+			</ul>
+		</li>

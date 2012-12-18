@@ -3056,7 +3056,9 @@ $GLOBALS['app_list_strings']['contact_type_list']=array (
   'Vendor' => 'Vendor',
   'Other' => 'Other',
 );
-
+$GLOBALS['app_list_strings']['category_dropdown_list']=array (
+  'Compliance_Report' => 'Compliance Report',
+);
 $app_strings['LBL_TABGROUP_ACCOUNT_MANAGEMENT'] = 'Account';
 $app_strings['LBL_TABGROUP_BILLING'] = 'Billing';
 $app_strings['LBL_TABGROUP_COMPLIANCE'] = 'Compliance';

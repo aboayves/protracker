@@ -2120,7 +2120,8 @@ return str_replace(' > ','_',
             $this->report_def_str,
             0,
             $saved_report->team_id,
-            $chart_type);
+            $chart_type,
+			$_REQUEST['category']);
         $this->saved_report = $saved_report;
 
         if (!empty($this->saved_report)) {
