@@ -70,14 +70,29 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
+          1 => 
+          array (
+            'name' => 'Contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         2 => 
         array (
+          0 => 
+          array (
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
+          ),
+          1 => '',
         ),
         3 => 
         array (
           0 => 'envelope',
-          1 => 'account_type',
+          1 => 
+          array (
+            'name' => 'av_Client_Types_name',
+            'label' => 'LBL_AV_CLIENT_TYPES_NAME',
+          ),
         ),
         4 => 
         array (
