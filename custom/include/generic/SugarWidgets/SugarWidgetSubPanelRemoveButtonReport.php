@@ -1,4 +1,5 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -27,25 +28,18 @@
  ********************************************************************************/
 
 
-class av_GroupsController extends SugarController
-{
-	function action_updateAccountsRelationshipFields(){
-		global $db;
-		$sql="UPDATE av_groups_accounts_c SET {$_REQUEST['field']}={$_REQUEST['value']} WHERE deleted=0 AND av_groups_accountsav_groups_ida='{$_REQUEST['group_id']}' AND av_groups_accountsaccounts_idb='{$_REQUEST['account_id']}'";
-		$db->query($sql);
-	}
-	function action_updateContactsRelationshipFields()
-	{
-		global $db;
-		$sql="UPDATE av_groups_contacts_c SET {$_REQUEST['field']}={$_REQUEST['value']} WHERE deleted=0 AND av_groups_contactsav_groups_ida='{$_REQUEST['group_id']}' AND av_groups_contactscontacts_idb='{$_REQUEST['contact_id']}'";
-		$db->query($sql);
-	}
-	function action_delete_report(){
-		global $db;
-		$this->view='';
-		$sql="Update av_groups_reports SET deleted=1 WHERE av_groups_id='{$_REQUEST['group_id']}'
-			  AND reports_id= '{$_REQUEST['report_id']}'";
-		$db->query($sql);
+
+
+
+class SugarWidgetSubPanelRemoveButtonReport extends SugarWidgetSubPanelRemoveButton {
+	/**
+	 * 
+	 * @see SugarWidgetSubPanelRemoveButton::displayList()
+	 */
+	function displayList(&$layout_def) {
+		global $app_strings;
+		$icon_remove_text = strtolower($app_strings['LBL_ID_FF_REMOVE']);
+		$retStr = "<a href=\"javascript:deleteRelationShip('{$_REQUEST['record']}', '{$layout_def['fields']['ID']}')\">$icon_remove_text</a>";
+		return $retStr;
 	}
 }
-?>
