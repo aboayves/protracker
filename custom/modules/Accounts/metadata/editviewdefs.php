@@ -72,8 +72,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'Contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
+            'name' => 'Client_name',
+            'label' => 'LBL_CLIENT_NAME',
           ),
         ),
         2 => 
@@ -82,6 +82,12 @@ array (
           array (
             'name' => 'av_Offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'CoClient_name',
+            'label' => 'LBL_COCLIENT_NAME',
+            'tabindex' => 'Co-Client',
           ),
         ),
         3 => 

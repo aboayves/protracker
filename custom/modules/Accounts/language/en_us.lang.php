@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-18 18:31:03
+// created: 2012-12-19 21:28:02
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -53,4 +53,6 @@ $mod_strings = array (
   'LBL_ACCOUNTS_AV_CASHFLOW_1_FROM_AV_CASHFLOW_TITLE' => 'Cash Flow',
   'LBL_ACCOUNTS_AV_CUSTOM_FIELDS_1_FROM_AV_CUSTOM_FIELDS_TITLE' => 'Custom Fields',
   'LBL_AV_GROUPS_ACCOUNTS_FROM_AV_GROUPS_TITLE' => 'Groups',
+  'LBL_CLIENT_NAME' => 'Primary Client',
+  'LBL_COCLIENT_NAME' => 'Co-Client',
 );
