@@ -1,8 +1,8 @@
 <?php
-// created: 2012-12-19 16:52:13
-$dictionary["Campaign"]["fields"]["strategy"] = array (
-	'name' => 'strategy',
-	'vname' => 'LBL_STRATEGY',
+// created: 2012-12-19 16:53:09
+$dictionary["Opportunity"]["fields"]["competitors"] = array (
+	'name' => 'competitors',
+	'vname' => 'LBL_COMPETITORS',
 	'type' => 'varchar',
 	'len' => '255',
 	'audited' => 0,
