@@ -1,8 +1,8 @@
 <?php
 // created: 2012-12-19 10:57:59
-$dictionary["av_Goals"]["fields"]["amount"] = array (
-	'name' => 'amount',
-	'vname' => 'LBL_AMOUNT',
+$dictionary["av_Cashflow"]["fields"]["variable_expenses_per_year"] = array (
+	'name' => 'variable_expenses_per_year',
+	'vname' => 'LBL_VARIABLE_EXPENSES_PER_YEAR',
 	'type' => 'currency',
 	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
