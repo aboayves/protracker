@@ -77,7 +77,6 @@ array (
             'name' => 'av_Activity_Types_name',
             'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
-          1 => '',
         ),
         2 => 
         array (

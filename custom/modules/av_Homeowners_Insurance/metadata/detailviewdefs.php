@@ -35,25 +35,26 @@ array (
         array (
           0 => 
           array (
-            'name' => 'document_name',
-            'label' => 'LBL_DOC_NAME',
+            'name' => 'Accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
           ),
           1 => 
           array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'link' => 'uploadfile',
-              'id' => 'id',
-            ),
+            'name' => 'Contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
         ),
         1 => 
         array (
+          0 => '',
+          1 => '',
+        ),
+        2 => 
+        array (
           0 => 'category_id',
           1 => 'subcategory_id',
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -61,12 +62,12 @@ array (
             'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'active_date',
           1 => 'exp_date',
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -74,16 +75,13 @@ array (
             'label' => 'LBL_DOC_STATUS',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
-        ),
-        6 => 
-        array (
         ),
         7 => 
         array (
@@ -136,9 +134,6 @@ array (
             'comment' => '',
             'label' => 'LBL_AGENT_FAX',
           ),
-        ),
-        2 => 
-        array (
         ),
       ),
       'lbl_editview_panel1' => 

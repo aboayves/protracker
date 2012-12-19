@@ -33,6 +33,16 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'av_Companies_name',
+            'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'Contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
         array (
@@ -183,6 +193,7 @@ array (
         13 => 
         array (
           0 => 'team_name',
+          1 => '',
         ),
         14 => 
         array (
@@ -225,9 +236,6 @@ array (
             'comment' => '',
             'label' => 'LBL_PREMIUM_FREQUENCY',
           ),
-        ),
-        2 => 
-        array (
         ),
       ),
       'lbl_editview_panel1' => 

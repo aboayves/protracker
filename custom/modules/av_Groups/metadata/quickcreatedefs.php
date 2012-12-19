@@ -85,11 +85,6 @@ array (
             'comment' => '',
             'label' => 'LBL_STATUS',
           ),
-          1 => 
-          array (
-            'name' => 'broadcast_group_c',
-            'label' => 'LBL_BROADCAST_GROUP',
-          ),
         ),
         6 => 
         array (

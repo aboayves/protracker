@@ -1,7 +1,7 @@
 <?php
-// created: 2012-11-15 21:17:55
+// created: 2012-12-18 18:22:01
 $mod_strings = array (
-  'LBL_BROADCAST_GROUP' => 'Broadcast Group',
   'LBL_EDITVIEW_PANEL1' => 'Leaders',
   'LBL_RT_GROUP_MEMBERSHIP_AV_GROUPS_FROM_RT_GROUP_MEMBERSHIP_TITLE' => 'Members',
+  'LBL_AV_GROUPS_CONTACTS_FROM_CONTACTS_TITLE' => 'Contacts',
 );

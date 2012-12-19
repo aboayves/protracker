@@ -57,6 +57,19 @@ array (
         array (
           0 => 
           array (
+            'name' => 'title',
+          ),
+          1 => 
+          array (
+            'name' => 'nickname',
+            'comment' => '',
+            'label' => 'LBL_NICKNAME',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
             'name' => 'first_name',
           ),
           1 => 
@@ -65,7 +78,7 @@ array (
             'label' => 'LBL_ACCOUNTS_CONTACTS_1_FROM_ACCOUNTS_TITLE',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -80,26 +93,17 @@ array (
             'name' => 'phone_work',
           ),
         ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'title',
-          ),
-          1 => 
-          array (
-            'name' => 'phone_mobile',
-          ),
-        ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'email1',
+            'name' => 'suffix',
+            'comment' => '',
+            'label' => 'LBL_SUFFIX',
           ),
           1 => 
           array (
-            'name' => 'phone_fax',
+            'name' => 'phone_mobile',
           ),
         ),
         5 => 
@@ -108,6 +112,10 @@ array (
           array (
             'name' => 'contact_priority',
             'label' => 'LBL_CONTACT_PRIORITY',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_fax',
           ),
         ),
         6 => 
@@ -120,8 +128,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'envelope',
-            'label' => 'LBL_ENVELOPE',
+            'name' => 'email1',
           ),
         ),
       ),
@@ -137,14 +144,20 @@ array (
           ),
           1 => 
           array (
-            'name' => 'alt_address_street',
-            'comment' => 'Street address for alternate address',
-            'label' => 'LBL_ALT_ADDRESS',
+            'name' => 'home_address_street',
+            'comment' => '',
+            'label' => 'LBL_HOME_ADDRESS_STREET',
           ),
         ),
         1 => 
         array (
           0 => 
+          array (
+            'name' => 'work_address_street',
+            'comment' => '',
+            'label' => 'LBL_WORK_ADDRESS_STREET',
+          ),
+          1 => 
           array (
             'name' => 'other_address_street',
             'comment' => 'Street address for other address',
@@ -179,6 +192,7 @@ array (
             'name' => 'ssn',
             'label' => 'LBL_SSN',
           ),
+          1 => '',
         ),
         2 => 
         array (
@@ -205,12 +219,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_TYPE',
           ),
-          1 => 
-          array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
-          ),
+          1 => '',
         ),
         1 => 
         array (
@@ -219,6 +228,12 @@ array (
             'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
+          ),
+          1 => 
+          array (
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
           ),
         ),
       ),
@@ -230,11 +245,6 @@ array (
           array (
             'name' => 'account_name',
           ),
-          1 => 
-          array (
-            'name' => 'business_trust',
-            'label' => 'LBL_BUSINESS_TRUST',
-          ),
         ),
         1 => 
         array (
@@ -244,11 +254,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PROFESSION',
           ),
-          1 => 
-          array (
-            'name' => 'sec_related_party',
-            'label' => 'LBL_SEC_RELATED_PARTY',
-          ),
         ),
         2 => 
         array (
@@ -257,32 +262,6 @@ array (
             'name' => 'position',
             'studio' => 'visible',
             'label' => 'LBL_POSITION',
-          ),
-          1 => 
-          array (
-            'name' => 'employee_or_firm',
-            'label' => 'LBL_EMPLOYEE_OR_FIRM',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'employee_id',
-            'label' => 'LBL_EMPLOYEE_ID',
-          ),
-          1 => 
-          array (
-            'name' => 'contribution_apply',
-            'label' => 'LBL_CONTRIBUTION_APPLY',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'gift_applicable',
-            'label' => 'LBL_GIFT_APPLICABLE',
           ),
         ),
       ),
@@ -332,22 +311,6 @@ array (
             'name' => 'campaign_name',
             'comment' => 'The first campaign name for Contact (Meta-data only)',
             'label' => 'LBL_CAMPAIGN',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'aux_email',
-            'label' => 'LBL_AUX_EMAIL',
-          ),
-          1 => 
-          array (
-            'name' => 'aux_mail',
-            'label' => 'LBL_AUX_MAIL',
           ),
         ),
       ),

@@ -44,8 +44,6 @@ array (
         ),
         1 => 
         array (
-          0 => '',
-          1 => '',
         ),
         2 => 
         array (
@@ -68,7 +66,6 @@ array (
             'name' => 'accounts_av_accounts_name',
             'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
           ),
-          1 => '',
         ),
         4 => 
         array (

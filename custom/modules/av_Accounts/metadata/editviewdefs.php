@@ -76,12 +76,27 @@ array (
         array (
           0 => 
           array (
+            'name' => 'category',
+            'comment' => '',
+            'label' => 'LBL_CATEGORY',
+          ),
+          1 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
             'name' => 'custodian',
             'comment' => '',
             'label' => 'LBL_CUSTODIAN',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -95,7 +110,7 @@ array (
             'label' => 'LBL_VALUE',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 'description',
           1 => 
@@ -107,7 +122,7 @@ array (
             ),
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -241,15 +256,20 @@ array (
             'comment' => '',
             'label' => 'LBL_INVESTMENT_POLICY',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'policy_date',
+            'comment' => '',
+            'label' => 'LBL_POLICY_DATE',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'policy_date',
+            'name' => 'target_return',
             'comment' => '',
-            'label' => 'LBL_POLICY_DATE',
+            'label' => 'LBL_TARGET_RETURN',
           ),
           1 => 
           array (
@@ -275,13 +295,6 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'target_return',
-            'comment' => '',
-            'label' => 'LBL_TARGET_RETURN',
-          ),
-          1 => '',
         ),
         4 => 
         array (
@@ -447,7 +460,6 @@ array (
             'comment' => '',
             'label' => 'LBL_ROUTING_NUMBER',
           ),
-          1 => '',
         ),
         5 => 
         array (
@@ -457,7 +469,6 @@ array (
             'comment' => '',
             'label' => 'LBL_MASTER_ACCOUNT',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel5' => 
@@ -470,7 +481,6 @@ array (
             'comment' => '',
             'label' => 'LBL_BILLING_POLICY_DATE',
           ),
-          1 => '',
         ),
         1 => 
         array (
@@ -480,7 +490,6 @@ array (
             'comment' => '',
             'label' => 'LBL_BILLED_AMOUNT',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -490,7 +499,6 @@ array (
             'comment' => '',
             'label' => 'LBL_BILLED_PERCENT',
           ),
-          1 => '',
         ),
         3 => 
         array (
@@ -500,7 +508,6 @@ array (
             'comment' => '',
             'label' => 'LBL_BILLING_POLICY',
           ),
-          1 => '',
         ),
         4 => 
         array (
@@ -510,7 +517,6 @@ array (
             'comment' => '',
             'label' => 'LBL_BILLING_EXCEPTIONS',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel8' => 
@@ -610,7 +616,6 @@ array (
             'comment' => '',
             'label' => 'LBL_SOURCE_OF_FUNDS',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -635,7 +640,6 @@ array (
             'comment' => '',
             'label' => 'LBL_ORIGINAL_OWNER_NAME',
           ),
-          1 => '',
         ),
         4 => 
         array (
@@ -677,7 +681,6 @@ array (
             'name' => 'Users_name',
             'label' => 'LBL_USERS_NAME',
           ),
-          1 => '',
         ),
       ),
     ),

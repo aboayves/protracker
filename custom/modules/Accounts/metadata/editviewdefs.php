@@ -83,7 +83,6 @@ array (
             'name' => 'av_Offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
-          1 => '',
         ),
         3 => 
         array (

@@ -77,81 +77,90 @@ array (
         array (
           0 => 
           array (
-            'name' => 'title',
-            'comment' => 'The title of the contact',
-            'label' => 'LBL_TITLE',
-          ),
-          1 => 
-          array (
             'name' => 'salutation',
             'comment' => 'Contact salutation (e.g., Mr, Ms)',
             'label' => 'LBL_SALUTATION',
+          ),
+          1 => 
+          array (
+            'name' => 'nickname',
+            'comment' => '',
+            'label' => 'LBL_NICKNAME',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'av_Contact_Types_name',
-            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+            'name' => 'title',
+            'comment' => 'The title of the contact',
+            'label' => 'LBL_TITLE',
           ),
           1 => 
           array (
-            'name' => 'first_name',
-            'comment' => 'First name of the contact',
-            'label' => 'LBL_FIRST_NAME',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'nickname',
-            'comment' => '',
-            'label' => 'LBL_NICKNAME',
+            'name' => 'first_name',
+            'comment' => 'First name of the contact',
+            'label' => 'LBL_FIRST_NAME',
           ),
           1 => 
           array (
-            'name' => 'middle_name',
-            'comment' => '',
-            'label' => 'LBL_MIDDLE_NAME',
+            'name' => 'av_Contact_Types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'annual_household_income',
+            'name' => 'middle_name',
             'comment' => '',
-            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
+            'label' => 'LBL_MIDDLE_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'last_name',
-            'comment' => 'Last name of the contact',
-            'label' => 'LBL_LAST_NAME',
-          ),
-        ),
-        5 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'suffix',
-            'comment' => '',
-            'label' => 'LBL_SUFFIX',
-          ),
-        ),
-        6 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'contact_priority',
             'label' => 'LBL_CONTACT_PRIORITY',
           ),
         ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_name',
+            'comment' => 'Last name of the contact',
+            'label' => 'LBL_LAST_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'annual_household_income',
+            'comment' => '',
+            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'suffix',
+            'comment' => '',
+            'label' => 'LBL_SUFFIX',
+          ),
+          1 => '',
+        ),
         7 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        8 => 
         array (
           0 => 
           array (
@@ -161,12 +170,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'description',
-            'comment' => 'Full text of the note',
-            'label' => 'LBL_DESCRIPTION',
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -174,25 +183,17 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_COMMENTS',
           ),
+          1 => 'team_name',
         ),
-        9 => 
+        10 => 
         array (
           0 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
-          ),
-          1 => 
           array (
             'name' => 'date_entered',
             'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
             'label' => 'LBL_DATE_ENTERED',
           ),
-        ),
-        10 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
@@ -302,7 +303,6 @@ array (
         6 => 
         array (
           0 => '',
-          1 => '',
         ),
         7 => 
         array (
@@ -382,9 +382,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'date_of_death',
-            'comment' => '',
-            'label' => 'LBL_DATE_OF_DEATH',
+            'name' => 'marital_status',
+            'studio' => 'visible',
+            'label' => 'LBL_MARITAL_STATUS',
           ),
         ),
         3 => 
@@ -396,9 +396,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'marital_status',
-            'studio' => 'visible',
-            'label' => 'LBL_MARITAL_STATUS',
+            'name' => 'anniversary_date',
+            'comment' => '',
+            'label' => 'LBL_ANNIVERSARY_DATE',
           ),
         ),
         4 => 
@@ -411,9 +411,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'anniversary_date',
+            'name' => 'date_of_death',
             'comment' => '',
-            'label' => 'LBL_ANNIVERSARY_DATE',
+            'label' => 'LBL_DATE_OF_DEATH',
           ),
         ),
         5 => 
@@ -434,6 +434,7 @@ array (
         6 => 
         array (
           0 => '',
+          1 => '',
         ),
         7 => 
         array (
@@ -696,15 +697,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-          1 => 'team_name',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
@@ -716,7 +708,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -731,7 +723,7 @@ array (
             'label' => 'LBL_DO_NOT_CALL',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -746,7 +738,7 @@ array (
             'label' => 'LBL_DO_NOT_MAIL',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -760,7 +752,7 @@ array (
             'label' => 'LBL_DO_NOT_EMAIL',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -782,6 +774,56 @@ array (
         array (
           0 => 
           array (
+            'name' => 'id_type',
+            'comment' => '',
+            'label' => 'LBL_ID_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'id_number',
+            'comment' => '',
+            'label' => 'LBL_ID_NUMBER',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'id_date_issued',
+            'comment' => '',
+            'label' => 'LBL_ID_DATE_ISSUED',
+          ),
+          1 => 
+          array (
+            'name' => 'id_date_expires',
+            'comment' => '',
+            'label' => 'LBL_ID_DATE_EXPIRES',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'id_issued_by',
+            'comment' => '',
+            'label' => 'LBL_ID_ISSUED_BY',
+          ),
+          1 => 
+          array (
+            'name' => 'id_on_file',
+            'comment' => '',
+            'label' => 'LBL_ID_ON_FILE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
             'name' => 'send_adv_offer',
             'comment' => '',
             'label' => 'LBL_SEND_ADV_OFFER',
@@ -793,7 +835,7 @@ array (
             'label' => 'LBL_ALIAS',
           ),
         ),
-        1 => 
+        5 => 
         array (
           0 => 
           array (
