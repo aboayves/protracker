@@ -2,19 +2,20 @@
 	class PopulateMembers{
 		function populateMembersFunc($bean, $event, $arguments) {
 			global $db, $timedate;
-			
 			$expiration = '';
 			$xDays = is_numeric($bean->membership_expiration_days) ? $bean->membership_expiration_days : 0;
 			if(intval($xDays) > 0){
 				$expiration = date('Y-m-d', strtotime(date("Y-m-d", strtotime($timedate->nowDbDate())) ."+".$bean->membership_expiration_days. "  day"));
 			}
-			
 			$destination_address = "";
 			$name = "";
 			$envelope = "";
 			$opt_out_flag ='0';
 			$include='1';
 			if($arguments['related_module'] == 'Accounts'){
+				$now = $timedate->nowDB();
+				$updated_date = $timedate->to_display_date_time($now);
+				$bean->lastupdated = $updated_date;
 				$account = BeanFactory::getBean('Accounts', $arguments['related_id']);
 
 				if($bean->delivery_method_av_group == 'Home Address'){
@@ -37,8 +38,10 @@
 				if($opt_out_flag){
 					$include='0';
 				}
-				
 			}elseif($arguments['related_module'] == 'Contacts'){
+				$now = $timedate->nowDB();
+				$updated_date = $timedate->to_display_date_time($now);
+				$bean->lastupdated = $updated_date;
 				$contactBean = BeanFactory::getBean('Contacts', $arguments['related_id']);
 				if($bean->delivery_method_av_group == 'Home Address'){
 					$opt_out_flag=$contactBean->do_not_mail;
@@ -98,6 +101,8 @@
 				global $db, $timedate;
 				$newID=create_guid();
 				$date_modified=$timedate->nowDb();
+				$sql="UPDATE av_Groups SET lastupdated= '{$date_modified}' WHERE id='{$bean->id}'";
+				$db->query($sql);
 				$sql = "SELECT * from av_groups_reports where av_groups_id = '{$bean->id}' AND reports_id = '{$_REQUEST['subpanel_id']}'";
 				$result = $db->query($sql);
 				if($db->getRowCount($result) == 0){
