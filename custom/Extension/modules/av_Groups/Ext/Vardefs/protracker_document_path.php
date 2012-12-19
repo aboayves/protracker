@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-19 14:41:36
+// created: 2012-12-19 14:50:46
 $dictionary["av_Groups"]["fields"]["document_path"] = array (
 	'name' => 'document_path',
 	'vname' => 'LBL_DOCUMENT_PATH',
