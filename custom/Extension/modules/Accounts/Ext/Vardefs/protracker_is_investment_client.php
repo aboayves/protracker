@@ -1,6 +1,6 @@
 <?php
-// created: 2012-12-17 22:36:45
-$dictionary["Account"]["fields"]["is_investment_client"] = array (
+// created: 2012-12-19 21:08:44
+$dictionary["Accounts"]["fields"]["is_investment_client"] = array (
 	'name' => 'is_investment_client',
 	'vname' => 'LBL_IS_INVESTMENT_CLIENT',
 	'type' => 'bool',
