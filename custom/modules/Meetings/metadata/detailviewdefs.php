@@ -87,7 +87,11 @@ array (
             'name' => 'parent_name',
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
-          1 => 'type',
+          1 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
         ),
         1 => 
         array (
@@ -96,10 +100,7 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
-          1 => 
-          array (
-            'name' => 'av_activity_types_meetings_1_name',
-          ),
+          1 => '',
         ),
         2 => 
         array (
@@ -166,22 +167,17 @@ array (
         ),
         7 => 
         array (
-          0 => '',
-          1 => '',
-        ),
-        8 => 
-        array (
           0 => 'location',
           1 => 
           array (
             'name' => 'password',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 'team_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (

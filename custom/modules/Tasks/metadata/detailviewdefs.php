@@ -76,6 +76,14 @@ array (
         ),
         1 => 
         array (
+          0 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
+        ),
+        2 => 
+        array (
           0 => 'status',
           1 => 
           array (
@@ -84,29 +92,25 @@ array (
             'label' => 'LBL_PROJECT',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 'assigned_user_name',
           1 => 'priority',
         ),
-        3 => 
+        4 => 
         array (
           0 => 
-          array (
-            'name' => 'av_activity_types_tasks_1_name',
-          ),
-          1 => 
           array (
             'name' => 'parent_tasks_name',
             'label' => 'LBL_PARENT_TASKS',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 'date_start',
           1 => 'date_due',
         ),
-        5 => 
+        6 => 
         array (
           0 => 'client_task',
           1 => 
@@ -115,7 +119,7 @@ array (
             'customLabel' => 'Related to:',	// - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -124,7 +128,7 @@ array (
             'customCode' => '<div> {$fields.description.value} <div>',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -133,12 +137,12 @@ array (
             'label' => 'LBL_RESULTS',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 'category',
           1 => 'team_name',
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -151,7 +155,7 @@ array (
             'label' => 'LBL_DTE_CMP',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -191,8 +195,7 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'on_task_list',
             'label' => 'LBL_ON_TASK_LIST',

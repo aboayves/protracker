@@ -39,30 +39,55 @@ array (
       array (
         0 => 
         array (
+          1 => 'name',
+        ),
+        1 => 
+        array (
           0 => 
           array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
-          1 => 
+          1 => 'assigned_user_name',
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'review_date',
             'comment' => '',
             'label' => 'LBL_REVIEW_DATE',
           ),
-        ),
-        1 => 
-        array (
-          0 => 'assigned_user_name',
-        ),
-        2 => 
-        array (
-          0 => 'team_name',
+          1 => 
+          array (
+            'name' => 'score',
+            'comment' => '',
+            'label' => 'LBL_SCORE',
+          ),
         ),
         3 => 
         array (
           0 => 'description',
+        ),
+        4 => 
+        array (
+          1 => 'team_name',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),

@@ -90,7 +90,7 @@ array (
         ),
         2 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'on_task_list',
             'label' => 'LBL_ON_TASK_LIST',
@@ -116,7 +116,7 @@ array (
         ),
         4 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'parent_name',
             'label' => 'LBL_LIST_RELATED_TO',

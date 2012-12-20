@@ -62,7 +62,8 @@ function deleteAttachmentCallBack(text)
           ),
           1 => 
           array (
-            'name' => 'av_activity_types_notes_1_name',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
         1 => 
@@ -72,7 +73,11 @@ function deleteAttachmentCallBack(text)
             'name' => 'parent_name',
             'label' => 'LBL_RELATED_TO',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
         ),
         2 => 
         array (
@@ -116,8 +121,7 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
         ),
         5 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'team_name',
           ),

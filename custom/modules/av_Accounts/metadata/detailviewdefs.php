@@ -57,57 +57,60 @@ array (
           ),
           1 => 
           array (
-            'name' => 'value',
-            'label' => 'LBL_VALUE',
+            'name' => 'Contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'av_account_types_av_accounts_1_name',
+            'name' => 'av_Account_Types_name',
+            'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
           ),
           1 => 
           array (
-            'name' => 'value_date',
+            'name' => 'ownership_type',
             'comment' => '',
-            'label' => 'LBL_VALUE_DATE',
+            'label' => 'LBL_OWNERSHIP_TYPE',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'cost_basis',
+            'name' => 'category',
             'comment' => '',
-            'label' => 'LBL_COST_BASIS',
+            'label' => 'LBL_CATEGORY',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'cost_basis_date',
+            'name' => 'custodian',
             'comment' => '',
-            'label' => 'LBL_COST_BASIS_DATE',
+            'label' => 'LBL_CUSTODIAN',
           ),
-          1 => '',
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'av_accounts_av_companies_1_name',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_closed',
+            'name' => 'value_date',
             'comment' => '',
-            'label' => 'LBL_DATE_CLOSED',
+            'label' => 'LBL_VALUE_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'value',
+            'label' => 'LBL_VALUE',
           ),
           1 => 
           array (
@@ -115,10 +118,25 @@ array (
             'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 'description',
           1 => 'team_name',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
       'lbl_editview_panel3' => 
@@ -191,6 +209,12 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_BILLED',
           ),
+          1 => 
+          array (
+            'name' => 'reinvest_capital_gains',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
+          ),
         ),
         5 => 
         array (
@@ -208,15 +232,6 @@ array (
           ),
         ),
         6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'reinvest_capital_gains',
-            'comment' => '',
-            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
-          ),
-        ),
-        7 => 
         array (
           0 => 
           array (
@@ -238,30 +253,93 @@ array (
         array (
           0 => 
           array (
-            'name' => 'target_bonds',
+            'name' => 'investment_policy',
             'comment' => '',
-            'label' => 'LBL_TARGET_BONDS',
+            'label' => 'LBL_INVESTMENT_POLICY',
           ),
           1 => 
           array (
-            'name' => 'target_return',
+            'name' => 'policy_date',
             'comment' => '',
-            'label' => 'LBL_TARGET_RETURN',
+            'label' => 'LBL_POLICY_DATE',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'target_cash',
+            'name' => 'target_return',
             'comment' => '',
-            'label' => 'LBL_TARGET_CASH',
+            'label' => 'LBL_TARGET_RETURN',
+          ),
+          1 => 
+          array (
+            'name' => 'investment_objective',
+            'comment' => '',
+            'label' => 'LBL_INVESTMENT_OBJECTIVE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'risk_tolerance',
+            'comment' => '',
+            'label' => 'LBL_RISK_TOLERANCE',
+          ),
+          1 => 
+          array (
+            'name' => 'withdrawal_requirement',
+            'comment' => '',
+            'label' => 'LBL_WITHDRAWAL_REQUIREMENT',
+          ),
+        ),
+        3 => 
+        array (
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'allocation_stocks',
+            'comment' => '',
+            'label' => 'LBL_ALLOCATION_STOCKS',
           ),
           1 => 
           array (
             'name' => 'target_stocks',
             'comment' => '',
             'label' => 'LBL_TARGET_STOCKS',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'allocation_bonds',
+            'comment' => '',
+            'label' => 'LBL_ALLOCATION_BONDS',
+          ),
+          1 => 
+          array (
+            'name' => 'target_bonds',
+            'comment' => '',
+            'label' => 'LBL_TARGET_BONDS',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'allocation_cash',
+            'comment' => '',
+            'label' => 'LBL_ALLOCATION_CASH',
+          ),
+          1 => 
+          array (
+            'name' => 'target_cash',
+            'comment' => '',
+            'label' => 'LBL_TARGET_CASH',
           ),
         ),
       ),
@@ -310,6 +388,299 @@ array (
             'name' => 'cash_balance_low_percent',
             'comment' => '',
             'label' => 'LBL_CASH_BALANCE_LOW_PERCENT',
+          ),
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'url',
+            'comment' => '',
+            'label' => 'LBL_URL',
+          ),
+          1 => 
+          array (
+            'name' => 'rep_name',
+            'comment' => '',
+            'label' => 'LBL_REP_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'username',
+            'comment' => '',
+            'label' => 'LBL_USERNAME',
+          ),
+          1 => 
+          array (
+            'name' => 'rep_phone',
+            'comment' => '',
+            'label' => 'LBL_REP_PHONE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'password',
+            'comment' => '',
+            'label' => 'LBL_PASSWORD',
+          ),
+          1 => 
+          array (
+            'name' => 'rep_email',
+            'comment' => '',
+            'label' => 'LBL_REP_EMAIL',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'pin',
+            'comment' => '',
+            'label' => 'LBL_PIN',
+          ),
+          1 => 
+          array (
+            'name' => 'rep_fax',
+            'comment' => '',
+            'label' => 'LBL_REP_FAX',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'routing_number',
+            'comment' => '',
+            'label' => 'LBL_ROUTING_NUMBER',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'master_account',
+            'comment' => '',
+            'label' => 'LBL_MASTER_ACCOUNT',
+          ),
+        ),
+      ),
+      'lbl_editview_panel5' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billing_policy_date',
+            'comment' => '',
+            'label' => 'LBL_BILLING_POLICY_DATE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billed_amount',
+            'comment' => '',
+            'label' => 'LBL_BILLED_AMOUNT',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billed_percent',
+            'comment' => '',
+            'label' => 'LBL_BILLED_PERCENT',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billing_policy',
+            'comment' => '',
+            'label' => 'LBL_BILLING_POLICY',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'billing_exceptions',
+            'comment' => '',
+            'label' => 'LBL_BILLING_EXCEPTIONS',
+          ),
+        ),
+      ),
+      'lbl_editview_panel8' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apr',
+            'comment' => '',
+            'label' => 'LBL_APR',
+          ),
+          1 => 
+          array (
+            'name' => 'apy',
+            'comment' => '',
+            'label' => 'LBL_APY',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'maturity_date',
+            'comment' => '',
+            'label' => 'LBL_MATURITY_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'pmi',
+            'comment' => '',
+            'label' => 'LBL_PMI',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'payment_frequency',
+            'comment' => '',
+            'label' => 'LBL_PAYMENT_FREQUENCY',
+          ),
+          1 => 
+          array (
+            'name' => 'payment',
+            'comment' => '',
+            'label' => 'LBL_PAYMENT',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'term',
+            'comment' => '',
+            'label' => 'LBL_TERM',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_qualified_plan',
+            'comment' => '',
+            'label' => 'LBL_IS_QUALIFIED_PLAN',
+          ),
+          1 => 
+          array (
+            'name' => 'asset_class',
+            'comment' => '',
+            'label' => 'LBL_ASSET_CLASS',
+          ),
+        ),
+      ),
+      'lbl_editview_panel6' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_opened',
+            'comment' => '',
+            'label' => 'LBL_DATE_OPENED',
+          ),
+          1 => 
+          array (
+            'name' => 'initial_amount',
+            'comment' => '',
+            'label' => 'LBL_INITIAL_AMOUNT',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'source_of_funds',
+            'comment' => '',
+            'label' => 'LBL_SOURCE_OF_FUNDS',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'cost_basis_date',
+            'comment' => '',
+            'label' => 'LBL_COST_BASIS_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'cost_basis',
+            'comment' => '',
+            'label' => 'LBL_COST_BASIS',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'original_owner_name',
+            'comment' => '',
+            'label' => 'LBL_ORIGINAL_OWNER_NAME',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'original_owner_birthdate',
+            'comment' => '',
+            'label' => 'LBL_ORIGINAL_OWNER_BIRTHDATE',
+          ),
+          1 => 
+          array (
+            'name' => 'original_owner_date_of_death',
+            'comment' => '',
+            'label' => 'LBL_ORIGINAL_OWNER_DATE_OF_DEATH',
+          ),
+        ),
+      ),
+      'lbl_editview_panel7' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_closed',
+            'comment' => '',
+            'label' => 'LBL_IS_CLOSED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_closed',
+            'comment' => '',
+            'label' => 'LBL_DATE_CLOSED',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'Users_name',
+            'label' => 'LBL_USERS_NAME',
           ),
         ),
       ),

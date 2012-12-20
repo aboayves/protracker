@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 // created: 2012-11-14 17:36:26
+=======
+// created: 2012-12-19 21:28:02
+>>>>>>> origin/schema-buildout
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -48,4 +52,18 @@ $mod_strings = array (
   'LBL_ACCOUNTS_AV_SOCIAL_SECURITY_1_FROM_AV_SOCIAL_SECURITY_TITLE' => 'Social Security',
   'LBL_RT_OFFICES_ACCOUNTS_1_FROM_RT_OFFICES_TITLE' => 'Office',
   'LBL_LIST_ASSIGNED_USER' => 'Firm Contact',
+  'LBL_ACCOUNTS_RT_NOTES_TITLE' => 'Notes',
+  'LBL_PREFERRED_COMM' => 'Preferred Comm',
+  'LBL_TYPE' => 'Client Type DO NOT USE',
+  'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'Primary Contact',
+  'ACCOUNTS_CONTACTS_2_NAME' => 'Secondary Contact',
+  'LBL_CLIENT_SINCE_DATE' => 'Client Since',
+  'LBL_ACCOUNTS_MEETINGS_FROM_MEETINGS_TITLE' => 'Meetings',
+  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Documents',
+  'LBL_QUOTES_SUBPANEL_TITLE' => 'Quotes',
+  'LBL_ACCOUNTS_AV_CASHFLOW_1_FROM_AV_CASHFLOW_TITLE' => 'Cash Flow',
+  'LBL_ACCOUNTS_AV_CUSTOM_FIELDS_1_FROM_AV_CUSTOM_FIELDS_TITLE' => 'Custom Fields',
+  'LBL_AV_GROUPS_ACCOUNTS_FROM_AV_GROUPS_TITLE' => 'Groups',
+  'LBL_CLIENT_NAME' => 'Primary Client',
+  'LBL_COCLIENT_NAME' => 'Co-Client',
 );

@@ -114,10 +114,6 @@ array (
         6 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'av_offices_leads_1_name',
-          ),
         ),
       ),
       'LBL_PANEL_ADVANCED' => 

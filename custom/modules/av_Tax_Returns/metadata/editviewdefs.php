@@ -44,20 +44,12 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_tax_returns_1_name',
-          ),
         ),
         3 => 
         array (
           0 => 
           array (
             'name' => 'accounts_av_tax_returns_2_name',
-          ),
-          1 => 
-          array (
-            'name' => 'av_tax_returns_av_tax_forms_1_name',
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 <?php
+// created: 2012-12-16 14:41:36
 $dictionary["av_Account_Types"]["fields"]["report_sort"] = array (
 	'name' => 'report_sort',
 	'vname' => 'LBL_REPORT_SORT',

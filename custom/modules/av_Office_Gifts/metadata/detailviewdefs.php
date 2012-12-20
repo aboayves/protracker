@@ -40,10 +40,6 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
-          array (
-            'name' => 'accounts_av_office_gifts_1_name',
-          ),
         ),
         1 => 
         array (
@@ -58,13 +54,6 @@ array (
             'name' => 'value',
             'comment' => '',
             'label' => 'LBL_VALUE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_offices_av_office_gifts_1_name',
           ),
         ),
         3 => 

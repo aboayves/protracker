@@ -37,8 +37,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'contract_name',
-            'label' => 'LBL_CONTRACT_NAME',
+            'name' => 'document_name',
+            'label' => 'LBL_DOC_NAME',
           ),
           1 => 
           array (
@@ -67,13 +67,13 @@ array (
         array (
           0 => 
           array (
-            'name' => 'document_name',
-            'label' => 'LBL_DOC_NAME',
+            'name' => 'revision',
+            'label' => 'LBL_DOC_VERSION',
           ),
           1 => 
           array (
-            'name' => 'revision',
-            'label' => 'LBL_DOC_VERSION',
+            'name' => 'contract_name',
+            'label' => 'LBL_CONTRACT_NAME',
           ),
         ),
         3 => 
@@ -96,8 +96,19 @@ array (
         ),
         5 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
+          1 => 
+          array (
+            'name' => 'doc_type',
+            'comment' => 'Document type (ex: Google, box.net, LotusLive)',
+            'studio' => 
+            array (
+              'wirelesseditview' => false,
+              'wirelessdetailview' => false,
+              'wirelesslistview' => false,
+              'wireless_basic_search' => false,
+            ),
+            'label' => 'LBL_DOC_TYPE',
+          ),
         ),
         6 => 
         array (
@@ -142,23 +153,8 @@ array (
         ),
         10 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_activity_types_documents_1_name',
-          ),
-          1 => 
-          array (
-            'name' => 'doc_type',
-            'comment' => 'Document type (ex: Google, box.net, LotusLive)',
-            'studio' => 
-            array (
-              'wirelesseditview' => false,
-              'wirelessdetailview' => false,
-              'wirelesslistview' => false,
-              'wireless_basic_search' => false,
-            ),
-            'label' => 'LBL_DOC_TYPE',
-          ),
+          0 => 'category_id',
+          1 => 'subcategory_id',
         ),
         11 => 
         array (
@@ -181,7 +177,6 @@ array (
             'name' => 'selected_revision_name',
             'label' => 'LBL_SELECTED_REVISION_NAME',
           ),
-          1 => '',
         ),
         13 => 
         array (

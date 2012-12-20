@@ -20,6 +20,7 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -34,6 +35,31 @@ array (
         array (
           0 => 
           array (
+            'name' => 'credit_amount',
+            'comment' => '',
+            'label' => 'LBL_CREDIT_AMOUNT',
+          ),
+          1 => 
+          array (
+            'name' => 'date_credit_used',
+            'comment' => '',
+            'label' => 'LBL_DATE_CREDIT_USED',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 'description',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contact_id',
+            'comment' => '',
+            'label' => 'LBL_CONTACT_ID',
+          ),
+          1 => 
+          array (
             'name' => 'team_name',
             'displayParams' => 
             array (
@@ -41,12 +67,19 @@ array (
             ),
           ),
         ),
-        2 => 
+        4 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
           1 => 
           array (
-            'name' => 'accounts_av_gift_tax_credits_1_name',
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

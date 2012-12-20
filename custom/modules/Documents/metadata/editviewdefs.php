@@ -41,11 +41,7 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'contract_name',
-            'label' => 'LBL_CONTRACT_NAME',
-          ),
+          0 => 'document_name',
           1 => 
           array (
             'name' => 'assigned_user_name',
@@ -70,11 +66,15 @@ array (
         ),
         2 => 
         array (
-          0 => 'document_name',
-          1 => 
+          0 => 
           array (
             'name' => 'revision',
             'customCode' => '<input name="revision" type="text" value="{$fields.revision.value}" {$DISABLED}>',
+          ),
+          1 => 
+          array (
+            'name' => 'contract_name',
+            'label' => 'LBL_CONTRACT_NAME',
           ),
         ),
         3 => 
@@ -100,8 +100,7 @@ array (
         ),
         5 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
+          1 => 'doc_type',
         ),
         6 => 
         array (
@@ -153,11 +152,8 @@ array (
         ),
         10 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_activity_types_documents_1_name',
-          ),
-          1 => 'doc_type',
+          0 => 'category_id',
+          1 => 'subcategory_id',
         ),
         11 => 
         array (
@@ -183,7 +179,6 @@ array (
             'name' => 'selected_revision_name',
             'label' => 'LBL_SELECTED_REVISION_NAME',
           ),
-          1 => '',
         ),
         13 => 
         array (

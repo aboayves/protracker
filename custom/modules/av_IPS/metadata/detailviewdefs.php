@@ -24,6 +24,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -48,26 +50,41 @@ array (
         ),
         1 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
+          0 => 
+          array (
+            'name' => 'ips_date',
+            'comment' => '',
+            'label' => 'LBL_IPS_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'questionnaire_date',
+            'comment' => '',
+            'label' => 'LBL_QUESTIONNAIRE_DATE',
+          ),
         ),
         2 => 
         array (
-          0 => 'status',
+          0 => 'category_id',
+          1 => 'subcategory_id',
         ),
         3 => 
         array (
-          0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        4 => 
-        array (
-          0 => 'team_name',
-          1 => 
+          0 => 
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
+          1 => 
+          array (
+            'name' => 'status_id',
+            'label' => 'LBL_DOC_STATUS',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 'active_date',
+          1 => 'exp_date',
         ),
         5 => 
         array (
@@ -76,9 +93,37 @@ array (
             'name' => 'description',
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'file_ext',
+            'label' => 'LBL_FILE_EXTENSION',
+          ),
           1 => 
           array (
-            'name' => 'accounts_av_ips_1_name',
+            'name' => 'file_mime_type',
+            'label' => 'LBL_MIME',
+          ),
+        ),
+        7 => 
+        array (
+          1 => 'team_name',
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

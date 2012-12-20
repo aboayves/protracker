@@ -9,6 +9,13 @@ array (
     'default' => true,
     'link' => true,
   ),
+  'ACCOUNT_NUMBER' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_ACCOUNT_NUMBER',
+    'width' => '10%',
+  ),
   'ACCOUNTS_AV_ACCOUNTS_NAME' => 
   array (
     'type' => 'relate',
@@ -18,51 +25,11 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'TYPE' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'label' => 'LBL_TYPE',
-    'width' => '10%',
-  ),
-  'AV_ACCOUNT_TYPES_AV_ACCOUNTS_1_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_AV_ACCOUNT_TYPES_AV_ACCOUNTS_1_FROM_AV_ACCOUNT_TYPES_TITLE',
-    'id' => 'AV_ACCOUNT_TYPES_AV_ACCOUNTS_1AV_ACCOUNT_TYPES_IDA',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '9%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
-  ),
-  'AV_ACCOUNTS_AV_COMPANIES_1_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_AV_ACCOUNTS_AV_COMPANIES_1_FROM_AV_COMPANIES_TITLE',
-    'id' => 'AV_ACCOUNTS_AV_COMPANIES_1AV_COMPANIES_IDB',
-    'width' => '10%',
-    'default' => true,
-  ),
   'OWNERSHIP' => 
   array (
     'type' => 'varchar',
     'default' => true,
     'label' => 'LBL_OWNERSHIP',
-    'width' => '10%',
-  ),
-  'ACCOUNT_NUMBER' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_ACCOUNT_NUMBER',
     'width' => '10%',
   ),
   'VALUE' => 

@@ -20,6 +20,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -27,33 +29,55 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
+          1 => 'name',
         ),
         2 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'percent',
+            'comment' => '',
+            'label' => 'LBL_PERCENT',
+          ),
           1 => 
           array (
-            'name' => 'av_accounts_av_beneficiaries_1_name',
+            'name' => 'per_stirpes',
+            'comment' => '',
+            'label' => 'LBL_PER_STIRPES',
           ),
         ),
         3 => 
         array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'date_verified',
+            'comment' => '',
+            'label' => 'LBL_DATE_VERIFIED',
+          ),
+        ),
+        4 => 
+        array (
           0 => 
           array (
-            'name' => 'contacts_av_beneficiaries_1_name',
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

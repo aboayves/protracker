@@ -39,10 +39,6 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_gifting_1_name',
-          ),
         ),
         1 => 
         array (
@@ -100,7 +96,7 @@ array (
         ),
         6 => 
         array (
-          0 => 'team_name',
+          1 => 'team_name',
         ),
         7 => 
         array (

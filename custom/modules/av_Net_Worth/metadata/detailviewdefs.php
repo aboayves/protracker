@@ -39,7 +39,7 @@ array (
       array (
         0 => 
         array (
-          1 => 'assigned_user_name',
+          0 => 'assigned_user_name',
         ),
         1 => 
         array (

@@ -62,10 +62,6 @@ array (
         3 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'contacts_av_other_addresses_1_name',
-          ),
         ),
       ),
     ),

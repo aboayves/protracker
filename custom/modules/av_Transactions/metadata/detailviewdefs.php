@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -38,13 +40,72 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'team_name',
         ),
         2 => 
+        array (
+        ),
+        3 => 
+        array (
+        ),
+        4 => 
+        array (
+          1 => 
+          array (
+            'name' => 'state',
+            'comment' => '',
+            'label' => 'LBL_STATE',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'federal_withholding_percent',
+            'comment' => '',
+            'label' => 'LBL_FEDERAL_WITHHOLDING_PERCENT',
+          ),
+          1 => 
+          array (
+            'name' => 'state_withholding_percent',
+            'comment' => '',
+            'label' => 'LBL_STATE_WITHHOLDING_PERCENT',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'federal_withholding_amount',
+            'comment' => '',
+            'label' => 'LBL_FEDERAL_WITHHOLDING_AMOUNT',
+          ),
+          1 => 
+          array (
+            'name' => 'state_withholding_amount',
+            'comment' => '',
+            'label' => 'LBL_STATE_WITHHOLDING_AMOUNT',
+          ),
+        ),
+        7 => 
+        array (
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'account_number',
+            'comment' => '',
+            'label' => 'LBL_ACCOUNT_NUMBER',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 'description',
+        ),
+        10 => 
         array (
           0 => 
           array (
@@ -57,14 +118,6 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'av_accounts_av_transactions_1_name',
           ),
         ),
       ),

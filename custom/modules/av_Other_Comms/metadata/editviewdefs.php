@@ -44,10 +44,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'contacts_av_other_comms_1_name',
-          ),
         ),
       ),
     ),
