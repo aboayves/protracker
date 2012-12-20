@@ -50,27 +50,19 @@ class checkChangeClass {
 	function stampIt($bean, $event, $arguments){
 		global $db;
 		// stamping the net worth history module
-		$account_id = $bean->rel_fields_before_value['accounts_av_accountsaccounts_ida'];
-		
+		$account_id = $bean->accounts_id;
 		$sql = "SELECT SUM(if(av_accounts_cstm.managed_c='Yes',av_accounts.value,0)) AS managed_assets, SUM(av_accounts.value) AS current_net_worth
-				FROM `accounts_av_accounts_c`
-				LEFT JOIN av_accounts
-				ON
-				(
-					av_accounts.deleted=0
-					AND
-					av_accounts.id = accounts_av_accounts_c.accounts_av_accountsav_accounts_idb
-				)
+				FROM av_accounts
 				RIGHT JOIN av_accounts_cstm
 				ON
 				(
 					av_accounts_cstm.id_c = av_accounts.id
 				)
 				WHERE 
-					accounts_av_accounts_c.deleted=0 
+					av_accounts.deleted=0 
 					AND 
-					accounts_av_accounts_c.accounts_av_accountsaccounts_ida='{$account_id}'
-				GROUP BY accounts_av_accounts_c.accounts_av_accountsaccounts_ida";
+					av_accounts.accounts_id='{$account_id}'
+				GROUP BY av_accounts.accounts_id";
 		$client_assets = $db->query($sql);
 		$client_assets = $db->fetchByAssoc($client_assets);// current assets of the related client
 		
@@ -82,18 +74,11 @@ class checkChangeClass {
 		
 		// check for duplicate networth history stamp
 		$sql = "SELECT * 
-			FROM `accounts_av_net_worth_c`
-			LEFT JOIN av_net_worth
-			ON
-			(
-				av_net_worth.deleted=0
-				AND
-				av_net_worth.id = accounts_av_net_worth_c.accounts_av_net_worthav_net_worth_idb
-			)
-			WHERE
-				accounts_av_net_worth_c.deleted = 0 AND accounts_av_net_worth_c.accounts_av_net_worthaccounts_ida = '{$account_id}'
-			ORDER BY date_entered DESC
-			LIMIT 1";
+				FROM av_net_worth
+				WHERE
+					av_net_worth.deleted = 0 AND av_net_worth.accounts_id = '{$account_id}'
+				ORDER BY date_entered DESC
+				LIMIT 1";
 		$net_worth_history = $db->query($sql);
 		$net_worth_history = $db->fetchByAssoc($net_worth_history);
 		// if its not a duplicate
