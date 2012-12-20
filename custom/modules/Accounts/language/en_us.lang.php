@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-// created: 2012-11-14 17:36:26
-=======
-// created: 2012-12-19 21:28:02
->>>>>>> origin/schema-buildout
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
