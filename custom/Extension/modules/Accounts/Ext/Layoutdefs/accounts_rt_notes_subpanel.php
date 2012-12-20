@@ -21,4 +21,3 @@ $layout_defs["Accounts"]["subpanel_setup"]['accounts_notes'] = array (
     ),
   ),
 );
-
