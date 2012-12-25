@@ -157,8 +157,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'duration',
             'customCode' => '
                 @@FIELD@@
-                <input id="duration_hours" name="duration_hours" type="hidden" value="{$fields.duration_hours.value}">
-                <input id="duration_minutes" name="duration_minutes" type="hidden" value="{$fields.duration_minutes.value}">
                 {sugar_getscript file="modules/Meetings/duration_dependency.js"}
                 <script type="text/javascript">
                     var date_time_format = "{$CALENDAR_FORMAT}";
