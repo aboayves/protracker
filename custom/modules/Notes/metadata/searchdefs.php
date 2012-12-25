@@ -37,12 +37,6 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'filename' => 
-      array (
-        'name' => 'filename',
-        'default' => true,
-        'width' => '10%',
-      ),
       'created_by_name' => 
       array (
         'type' => 'relate',
