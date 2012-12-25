@@ -23,6 +23,9 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_accounts'] = array (
     2 => array (
       'widget_class' => 'SubPanelTopSelectFromReportButton',
     ),
+	3 => array (
+      'widget_class' => 'SubPanelTopMergeToAccounts',
+    ),
   ),
 );
 $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
@@ -47,6 +50,9 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
     ),
     2 => array (
       'widget_class' => 'SubPanelTopSelectFromReportButton',
+    ),
+	3 => array (
+      'widget_class' => 'SubPanelTopMergeToContacts',
     ),
   ),
 );
