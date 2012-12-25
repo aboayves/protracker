@@ -59,7 +59,7 @@
 <div id="footer">
    <!-- <img src="{$COMPANY_LOGO_URL}" class="logo" id="logo" title="{$STATISTICS}" border="0"/>-->
         
-         <a href="http://www.sugarcrm.com" target="_blank" class="copyright">&#169; 2012 SugarCRM Inc.</a>
+         <a href="http://www.protracker.com" target="_blank" class="copyright">&#169; 2012 ProTracker Software, Inc. All rights reserved.</a>
     <!--<div id="partner">
     {foreach from=$DYNAMICDCACTIONS item=action}
         {$action.script} {$action.image} 
