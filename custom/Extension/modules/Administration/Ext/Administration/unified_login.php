@@ -10,16 +10,16 @@ foreach ($admin_group_header as $key => $values)
 		$admin_group_header[$key][3]['Administration']['UnifiedLogin'] = $admin_option_defs['UnifiedLogin'];
 	}
 }
-echo '<div id="dialogForURL" title="Enter REST URL" style="display:none"><br/><br/>
+echo '<div id="dialogForURL" title="Register for unified login" style="display:none"><br/><br/>
 		  <form name="input" action="index.php?module=Users&action=register_admin" method="POST">
-			  Enter URL: <input type="text" id="rest_url" name="rest_url"/> &nbsp;
+			  Server URL: <input type="text" id="rest_url" name="rest_url"/> &nbsp;
 			  <input type="submit" id="create_admin" name="create_admin" value="Register"/>
 		  </form>
 	 </div>';
 echo '<script type="text/javascript">
 		function dialogForURL()
 		{
-			 $( "#dialogForURL" ).dialog({ width: 400 });
+			 $( "#dialogForURL" ).dialog({ width: 430 });
 		}
 		
       </script>';
