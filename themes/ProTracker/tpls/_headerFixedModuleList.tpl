@@ -28,7 +28,7 @@
 
 *}
     	<li class="{$homeClass}"><a href="index.php?module=Home&action=index" module="Home" class="sf-with-ul">Home</a></li>
-    	<li class="{$homeClass}"><a href="index.php?module=av_Companies&action=index" module="av_Companies" class="sf-with-ul">Companies</a>
+    	<li class="{$homeClass}"><a href="index.php?module=Contacts&action=index" module="Contacts" class="sf-with-ul">Contacts</a>
         	<ul class="megamenu">
                             <li>
                                 <div class="megawrapper">
@@ -36,8 +36,8 @@
                                         <div class="megacolumn-content divider">
                                         <ul class="MMShortcuts">
                                         <li class="groupLabel">{$APP.LBL_LINK_ACTIONS}</li>
-                                        {assign var='name' value='av_Companies'}
-										{foreach from=$shortcutTopMenu.$name item=shortcut_item}
+										{assign var='name' value='Contacts'}
+                                        {foreach from=$shortcutTopMenu.$name item=shortcut_item}
                                           {if $shortcut_item.URL == "-"}
                                             <hr style="margin-top: 2px; margin-bottom: 2px" />
                                           {else}
@@ -120,53 +120,7 @@
                             </li>
                             </ul>
         </li>
-        <li class="{$homeClass}"><a href="index.php?module=Contacts&action=index" module="Contacts" class="sf-with-ul">Contacts</a>
-        	<ul class="megamenu">
-                            <li>
-                                <div class="megawrapper">
-                                    <div class="megacolumn">
-                                        <div class="megacolumn-content divider">
-                                        <ul class="MMShortcuts">
-                                        <li class="groupLabel">{$APP.LBL_LINK_ACTIONS}</li>
-										{assign var='name' value='Contacts'}
-                                        {foreach from=$shortcutTopMenu.$name item=shortcut_item}
-                                          {if $shortcut_item.URL == "-"}
-                                            <hr style="margin-top: 2px; margin-bottom: 2px" />
-                                          {else}
-                                            <li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" href="{sugar_ajax_url url=$shortcut_item.URL}">{$shortcut_item.LABEL}</a></li>
-                                          {/if}
-                                        {/foreach}
-                                        </ul>
-                                        </div>
-                                    </div>
-                                    <div class="megacolumn">
-                                        <div class="megacolumn-content divider">
-                                        {if $groupTabId}
-                                        <ul id="lastViewedContainer{$tabGroupName}_{$name}" class="MMLastViewed">
-                                            <li class="groupLabel">{$APP.LBL_LAST_VIEWED}</li>
-                                            <li id="shortCutsLoading{$tabGroupName}_{$name}"><a href="#">&nbsp;</a></li>
-                                        </ul>
-                                        {else}
-                                        <ul id="lastViewedContainer{$name}" class="MMLastViewed">
-                                            <li class="groupLabel">{$APP.LBL_LAST_VIEWED}</li>
-                                            <li id="shortCutsLoading{$tabGroupName}_{$name}"><a href="#">&nbsp;</a></li>
-                                        </ul>
-                                        {/if}
-                                        </div>
-                                    </div>
-                                    <div class="megacolumn">
-                                        <div class="megacolumn-content">
-                                        <ul class="MMFavorites">
-                                            <li class="groupLabel">{$APP.LBL_FAVORITES}</li>
-                                            <li><a href="javascript: void(0);">&nbsp;</a></li>
-                                        </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            </ul>
-        </li>
-        <li class="{$homeClass}"><a href="index.php?module=av_Groups&action=index" module="av_Groups" class="sf-with-ul">Groups</a>
+		<li class="{$homeClass}"><a href="index.php?module=av_Groups&action=index" module="av_Groups" class="sf-with-ul">Groups</a>
         	<ul class="megamenu">
                             <li>
                                 <div class="megawrapper">
@@ -212,3 +166,63 @@
                             </li>
                             </ul>
         </li>
+        <li class="{$homeClass}"><a href="index.php?module=av_Companies&action=index" module="av_Companies" class="sf-with-ul">Companies</a>
+        	<ul class="megamenu">
+                            <li>
+                                <div class="megawrapper">
+                                    <div class="megacolumn">
+                                        <div class="megacolumn-content divider">
+                                        <ul class="MMShortcuts">
+                                        <li class="groupLabel">{$APP.LBL_LINK_ACTIONS}</li>
+                                        {assign var='name' value='av_Companies'}
+										{foreach from=$shortcutTopMenu.$name item=shortcut_item}
+                                          {if $shortcut_item.URL == "-"}
+                                            <hr style="margin-top: 2px; margin-bottom: 2px" />
+                                          {else}
+                                            <li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" href="{sugar_ajax_url url=$shortcut_item.URL}">{$shortcut_item.LABEL}</a></li>
+                                          {/if}
+                                        {/foreach}
+                                        </ul>
+                                        </div>
+                                    </div>
+                                    <div class="megacolumn">
+                                        <div class="megacolumn-content divider">
+                                        {if $groupTabId}
+                                        <ul id="lastViewedContainer{$tabGroupName}_{$name}" class="MMLastViewed">
+                                            <li class="groupLabel">{$APP.LBL_LAST_VIEWED}</li>
+                                            <li id="shortCutsLoading{$tabGroupName}_{$name}"><a href="#">&nbsp;</a></li>
+                                        </ul>
+                                        {else}
+                                        <ul id="lastViewedContainer{$name}" class="MMLastViewed">
+                                            <li class="groupLabel">{$APP.LBL_LAST_VIEWED}</li>
+                                            <li id="shortCutsLoading{$tabGroupName}_{$name}"><a href="#">&nbsp;</a></li>
+                                        </ul>
+                                        {/if}
+                                        </div>
+                                    </div>
+                                    <div class="megacolumn">
+                                        <div class="megacolumn-content">
+                                        <ul class="MMFavorites">
+                                            <li class="groupLabel">{$APP.LBL_FAVORITES}</li>
+                                            <li><a href="javascript: void(0);">&nbsp;</a></li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            </ul>
+        </li>
+		<li class="{$homeClass}"><a href="index.php?module=Calendar&action=index" module="Calendar" class="sf-with-ul">Calendar</a></li>
+{php}
+	$this->assign('reportCategories', $GLOBALS['app_list_strings']['category_dropdown_list']);
+{/php}
+		
+		<li class="{$homeClass}"><a href="index.php?module=Reports&action=index" module="Reports" class="sf-with-ul">Reports</a>
+			<ul style="visibility: hidden; max-height: 704px; left: 210px; right: auto; top: 0px; bottom: auto; display: none;" class="sf-menu sf-js-enabled" id="themeTabGroupMenu_Reports">
+{foreach from=$reportCategories key=shortcut_value item=shortcut_item}
+				<li class="">
+					<a module="Reports" class="sf-with-ul" id="moduleTab_Reports{$shortcut_item}" href="index.php?module=Reports&action=index&searchFormTab=advanced_search&query=true&&category[]={$shortcut_value}" tabindex="-1">{$shortcut_item}</a>
+				</li>
+{/foreach}
+			</ul>
+		</li>

@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -38,9 +40,56 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
+        ),
+        1 => 
+        array (
+          0 => 'description',
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_Account_Categories_name',
+            'label' => 'LBL_AV_ACCOUNT_CATEGORIES_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'is_beneficiary_required',
+            'comment' => '',
+            'label' => 'LBL_IS_BENEFICIARY_REQUIRED',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'retirement_plan_type',
+            'comment' => '',
+            'label' => 'LBL_RETIREMENT_PLAN_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'schedule',
+            'comment' => '',
+            'label' => 'LBL_SCHEDULE',
+          ),
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => 'assigned_user_name',
+          1 => 'team_name',
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -53,13 +102,6 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_account_categories_av_account_types_1_name',
           ),
         ),
       ),

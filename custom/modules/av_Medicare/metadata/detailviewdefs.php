@@ -40,10 +40,6 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
-          array (
-            'name' => 'accounts_av_medicare_1_name',
-          ),
         ),
         1 => 
         array (
@@ -53,7 +49,6 @@ array (
             'comment' => '',
             'label' => 'LBL_CLAIM_NUMBER',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -87,7 +82,6 @@ array (
         ),
         4 => 
         array (
-          0 => '',
           1 => 
           array (
             'name' => 'monthly_premium',

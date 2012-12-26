@@ -1,4 +1,5 @@
 <?php
+// created: 2012-12-16 14:30:01
 $dictionary["av_Account_Categories"]["fields"]["is_liability"] = array (
 	'name' => 'is_liability',
 	'vname' => 'LBL_IS_LIABILITY',

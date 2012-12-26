@@ -79,7 +79,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'parent_name',
             'label' => 'LBL_LIST_RELATED_TO',
           ),
-          1 => 'type',
+          1 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
         ),
         1 => 
         array (
@@ -88,10 +92,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'av_activity_types_meetings_1_name',
-          ),
+          1 => '',
         ),
         2 => 
         array (
@@ -156,8 +157,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'duration',
             'customCode' => '
                 @@FIELD@@
-                <input id="duration_hours" name="duration_hours" type="hidden" value="{$fields.duration_hours.value}">
-                <input id="duration_minutes" name="duration_minutes" type="hidden" value="{$fields.duration_minutes.value}">
                 {sugar_getscript file="modules/Meetings/duration_dependency.js"}
                 <script type="text/javascript">
                     var date_time_format = "{$CALENDAR_FORMAT}";
@@ -194,11 +193,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         ),
         7 => 
         array (
-          0 => '',
-          1 => '',
-        ),
-        8 => 
-        array (
           0 => 
           array (
             'name' => 'location',
@@ -207,11 +201,11 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           ),
           1 => 'password',
         ),
-        9 => 
+        8 => 
         array (
           0 => 'team_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (

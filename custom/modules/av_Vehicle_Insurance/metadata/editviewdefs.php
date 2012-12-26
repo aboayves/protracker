@@ -79,10 +79,6 @@ array (
           array (
             'name' => 'description',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_av_vehicle_insurance_1_name',
-          ),
         ),
       ),
     ),

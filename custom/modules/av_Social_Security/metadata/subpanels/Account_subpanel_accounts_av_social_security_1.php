@@ -1,5 +1,5 @@
 <?php
-// created: 2012-11-07 16:34:33
+// created: 2012-12-12 14:23:59
 $subpanel_layout['list_fields'] = array (
   'year_of_estimate' => 
   array (
@@ -38,30 +38,6 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_RETIREMENT_AT_AGE_70',
     'currency_format' => true,
     'width' => '10%',
-  ),
-  'retired_spouse' => 
-  array (
-    'type' => 'currency',
-    'default' => true,
-    'vname' => 'LBL_RETIRED_SPOUSE',
-    'currency_format' => true,
-    'width' => '10%',
-  ),
-  'family' => 
-  array (
-    'type' => 'currency',
-    'default' => true,
-    'vname' => 'LBL_FAMILY',
-    'currency_format' => true,
-    'width' => '10%',
-  ),
-  'description' => 
-  array (
-    'type' => 'text',
-    'vname' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '25%',
-    'default' => true,
   ),
   'date_modified' => 
   array (

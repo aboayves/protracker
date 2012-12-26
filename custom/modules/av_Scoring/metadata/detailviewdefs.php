@@ -58,7 +58,6 @@ array (
             'comment' => '',
             'label' => 'LBL_SCORE_DATE',
           ),
-          1 => '',
         ),
         4 => 
         array (

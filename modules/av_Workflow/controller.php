@@ -46,7 +46,7 @@ class av_WorkflowController extends SugarController {
 				$tmpStampRev = $this->setTaskDates($tasks_template['children'], $dates, $daysOut, $reversed, $tmpStamp, $dayKeyword);
 			}
 			
-			if($reversed && intval($daysOut[$tasks_template['id']]) > 0){
+			if($reversed && intval($daysOut[$tasks_template['id']]) >= 0){
 				$tmpStamp = strtotime("-" . intval($daysOut[$tasks_template['id']]) . " " . $dayKeyword, $tmpStampRev);
 			}
 			

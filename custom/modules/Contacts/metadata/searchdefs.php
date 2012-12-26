@@ -11,6 +11,7 @@ array (
         'label' => 'LBL_NAME',
         'type' => 'name',
         'default' => true,
+        'width' => '10%',
       ),
       'current_user_only' => 
       array (
@@ -18,6 +19,7 @@ array (
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
       'favorites_only' => 
       array (
@@ -25,15 +27,138 @@ array (
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
+      ),
+      'opted_out' => 
+      array (
+        'type' => 'bool',
+        'label' => 'LBL_OPTED_OUT',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'opted_out',
+      ),
+      'birthdate' => 
+      array (
+        'type' => 'date',
+        'label' => 'LBL_BIRTHDATE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'birthdate',
+      ),
+      'marital_status' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_MARITAL_STATUS',
+        'width' => '10%',
+        'name' => 'marital_status',
+      ),
+      'team_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_TEAM',
+        'id' => 'TEAM_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'team_name',
+      ),
+      'assigned_user_id' => 
+      array (
+        'name' => 'assigned_user_id',
+        'type' => 'enum',
+        'label' => 'LBL_ASSIGNED_TO',
+        'function' => 
+        array (
+          'name' => 'get_user_array',
+          'params' => 
+          array (
+            0 => false,
+          ),
+        ),
+        'default' => true,
+        'width' => '10%',
+      ),
+      'campaign_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_CAMPAIGN',
+        'id' => 'CAMPAIGN_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'campaign_name',
+      ),
+      'phone_home' => 
+      array (
+        'type' => 'phone',
+        'label' => 'LBL_HOME_PHONE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'phone_home',
+      ),
+      'address_state' => 
+      array (
+        'name' => 'address_state',
+        'label' => 'LBL_STATE',
+        'type' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'date_modified' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_modified',
       ),
     ),
     'advanced_search' => 
     array (
+      'search_name' => 
+      array (
+        'label' => 'LBL_NAME',
+        'type' => 'name',
+        'default' => true,
+        'width' => '10%',
+        'name' => 'search_name',
+      ),
+      'current_user_only' => 
+      array (
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+        'name' => 'current_user_only',
+      ),
+      'favorites_only' => 
+      array (
+        'name' => 'favorites_only',
+        'label' => 'LBL_FAVORITES_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'last_name' => 
+      array (
+        'name' => 'last_name',
+        'default' => true,
+        'width' => '10%',
+      ),
       'first_name' => 
       array (
         'name' => 'first_name',
         'default' => true,
         'width' => '10%',
+      ),
+      'opted_out' => 
+      array (
+        'type' => 'bool',
+        'label' => 'LBL_OPTED_OUT',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'opted_out',
       ),
       'email' => 
       array (
@@ -48,12 +173,6 @@ array (
         'name' => 'phone',
         'label' => 'LBL_ANY_PHONE',
         'type' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'last_name' => 
-      array (
-        'name' => 'last_name',
         'default' => true,
         'width' => '10%',
       ),
@@ -73,12 +192,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'account_name' => 
-      array (
-        'name' => 'account_name',
-        'default' => true,
-        'width' => '10%',
-      ),
       'address_state' => 
       array (
         'name' => 'address_state',
@@ -94,6 +207,22 @@ array (
         'type' => 'name',
         'default' => true,
         'width' => '10%',
+      ),
+      'priority' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_PRIORITY',
+        'width' => '10%',
+        'name' => 'priority',
+      ),
+      'status' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_STATUS',
+        'width' => '10%',
+        'name' => 'status',
       ),
       'assigned_user_id' => 
       array (
@@ -111,20 +240,33 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'primary_address_country' => 
+      'team_name' => 
       array (
-        'name' => 'primary_address_country',
-        'label' => 'LBL_COUNTRY',
-        'type' => 'name',
-        'options' => 'countries_dom',
-        'default' => true,
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_TEAMS',
         'width' => '10%',
+        'default' => true,
+        'id' => 'TEAM_ID',
+        'name' => 'team_name',
       ),
-      'lead_source' => 
+      'campaign_name' => 
       array (
-        'name' => 'lead_source',
-        'default' => true,
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_CAMPAIGN',
         'width' => '10%',
+        'default' => true,
+        'id' => 'CAMPAIGN_ID',
+        'name' => 'campaign_name',
+      ),
+      'referred_by' => 
+      array (
+        'type' => 'varchar',
+        'default' => true,
+        'label' => 'LBL_REFERRED_BY',
+        'width' => '10%',
+        'name' => 'referred_by',
       ),
       'birthdate' => 
       array (
@@ -134,13 +276,21 @@ array (
         'default' => true,
         'name' => 'birthdate',
       ),
-      'favorites_only' => 
+      'ssn' => 
       array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
+        'type' => 'varchar',
         'default' => true,
+        'label' => 'LBL_SSN',
         'width' => '10%',
+        'name' => 'ssn',
+      ),
+      'date_modified' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_modified',
       ),
     ),
   ),

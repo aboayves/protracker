@@ -29,11 +29,6 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_goals_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_GOALS_1_FROM_ACCOUNTS_TITLE',
-          ),
           1 => 'name',
         ),
         1 => 

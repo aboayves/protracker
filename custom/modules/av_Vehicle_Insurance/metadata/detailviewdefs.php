@@ -76,10 +76,6 @@ array (
             'name' => 'description',
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
-          1 => 
-          array (
-            'name' => 'accounts_av_vehicle_insurance_1_name',
-          ),
         ),
       ),
     ),

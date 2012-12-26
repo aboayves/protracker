@@ -8,6 +8,7 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_accounts'] = array (
   'sort_by' => 'id',
   'title_key' => 'LBL_AV_GROUPS_ACCOUNTS_FROM_ACCOUNTS_TITLE',
   'get_subpanel_data' => 'av_groups_accounts',
+  'refresh_page' =>true,
   'top_buttons' => 
   array (
     0 => 
@@ -21,6 +22,9 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_accounts'] = array (
     ),
     2 => array (
       'widget_class' => 'SubPanelTopSelectFromReportButton',
+    ),
+	3 => array (
+      'widget_class' => 'SubPanelTopMergeToAccounts',
     ),
   ),
 );
@@ -32,6 +36,7 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
   'sort_by' => 'id',
   'title_key' => 'LBL_AV_GROUPS_CONTACTS_FROM_CONTACTS_TITLE',
   'get_subpanel_data' => 'av_groups_contacts',
+  'refresh_page' =>true,
   'top_buttons' => 
   array (
     0 => 
@@ -45,6 +50,9 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
     ),
     2 => array (
       'widget_class' => 'SubPanelTopSelectFromReportButton',
+    ),
+	3 => array (
+      'widget_class' => 'SubPanelTopMergeToContacts',
     ),
   ),
 );

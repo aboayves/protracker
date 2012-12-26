@@ -33,10 +33,7 @@ array (
             'name' => 'name',
             'label' => 'LBL_SUBJECT',
           ),
-          1 => 
-          array (
-            'name' => 'av_activity_types_notes_1_name',
-          ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
@@ -45,7 +42,11 @@ array (
             'name' => 'parent_name',
             'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
         ),
         2 => 
         array (
@@ -85,8 +86,7 @@ array (
         ),
         5 => 
         array (
-          0 => '',
-          1 => 'team_name',
+          0 => 'team_name',
         ),
         6 => 
         array (

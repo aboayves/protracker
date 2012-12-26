@@ -1,3 +1,3 @@
 <?php
-$mod_strings['LBL_CONTACT_ID']='Contact ID';
+$mod_strings['LBL_CONTACT_ID']='Contact';
 ?>

@@ -29,26 +29,40 @@ array (
       array (
         0 => 
         array (
+          1 => 'name',
+        ),
+        1 => 
+        array (
           0 => 
           array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
-          1 => 
+          1 => 'assigned_user_name',
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'review_date',
             'comment' => '',
             'label' => 'LBL_REVIEW_DATE',
           ),
+          1 => 
+          array (
+            'name' => 'score',
+            'comment' => '',
+            'label' => 'LBL_SCORE',
+          ),
         ),
-        1 => 
+        3 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 'description',
         ),
-        2 => 
+        4 => 
         array (
-          0 => 
+          1 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -57,9 +71,20 @@ array (
             ),
           ),
         ),
-        3 => 
+        5 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),

@@ -44,10 +44,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'accounts_av_fact_finder_1_name',
-          ),
         ),
       ),
     ),

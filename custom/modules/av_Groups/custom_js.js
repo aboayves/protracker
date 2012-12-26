@@ -9,6 +9,7 @@ function rebuildGroup()
 			addReports(eval('('+oResponse.responseText+')'));
             YAHOO.log("XHR transaction was successful.", "info", "example");
             //make_tree(eval(YAHOO.lang.JSON.parse(oResponse.responseText)));
+			refreshUpdatedDate(oResponse.responseText);
 			$.unblockUI();
         },
         failure: function(oResponse) {
@@ -83,4 +84,19 @@ function addReport(rep_id, subMetaData){
 	};
 	
 	call_back_function(result_data);
+}
+function refreshUpdatedDate(jsonData){
+	var updated_date = (jQuery.parseJSON(jsonData)).updated_date;
+	$("#lastupdated span").text(updated_date);
+}
+function deleteRelationShip(group_id, report_id){
+	if(sp_rem_conf()){
+		$.ajax({
+			type: 'GET',
+			url:'index.php?module=av_Groups&action=delete_report&group_id='+group_id+'&report_id='+report_id,
+			complete: function(resp){
+				showSubPanel('av_groups_reports', null, true);
+			}
+		});
+	}
 }

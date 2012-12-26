@@ -14,7 +14,8 @@ FROM av_groups_reports
 LEFT JOIN saved_reports ON (saved_reports.id=reports_id AND saved_reports.deleted=0) 
 WHERE av_groups_id='{$id}' AND av_groups_reports.deleted=0";
 $result = $db->query($sql);
-$ajaxData=array('accounts'=>array(), 'contacts'=>array());
+$updated_date = $timedate->to_display_date_time($now);
+$ajaxData=array('accounts'=>array(), 'contacts'=>array(), 'updated_date'=>$updated_date);
 while($report = $db->fetchByAssoc($result))
 {
 	$ajaxData[strtolower($report['module'])][] = $report['reports_id'];

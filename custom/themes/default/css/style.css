@@ -14,3 +14,6 @@
 .yui3-skin-sam.edit.view.dcQuickEdit #tree_plotting_div .ygtvchildren .ygtvitem table.ygtvtable td table th{
 	padding:0px !important;
 }
+.globelLinkBar{
+	height:0px !important;
+}

@@ -57,7 +57,7 @@ class Customav_GroupsViewDetail extends ViewDetail
 	}
     public function display()
     {
-		global $db;
+		global $db, $timedate;
 		
 		if(isset($_REQUEST['uid']) && !empty($_REQUEST['uid']) && isset($_REQUEST['mass']))
 		{
@@ -82,7 +82,16 @@ class Customav_GroupsViewDetail extends ViewDetail
 		}
 		
 		$this->dv->ss->assign('mail_to_members', '<input type="button" onclick="javascript: location.href=\'mailto:?bcc=' . implode(';',$mem_email) . '\'" value="Email to Members"/>');
-		parent::display();
+		$updateDate = strtotime($this->bean->lastupdated);
+        $nowDate = strtotime($timedate->to_display_date_time($timedate->nowDB()));
+		$date_diff_days = ($nowDate - $updateDate)/3600/24;
+		if($date_diff_days >=1){
+			$this->dv->process();
+			$this->dv->fieldDefs['lastupdated']['value'] = "<span style='color:red'>".$this->dv->fieldDefs['lastupdated']['value']."</span>";
+			echo $this->dv->display();
+		}else{		
+			parent::display();
+		}
 		$this->massupdate();		
     }
 

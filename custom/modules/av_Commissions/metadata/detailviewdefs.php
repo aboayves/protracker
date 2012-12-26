@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -42,9 +44,51 @@ array (
         ),
         1 => 
         array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'amount',
+            'comment' => '',
+            'label' => 'LBL_AMOUNT',
+          ),
+          1 => 
+          array (
+            'name' => 'commission',
+            'comment' => '',
+            'label' => 'LBL_COMMISSION',
+          ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'commission_date',
+            'comment' => '',
+            'label' => 'LBL_COMMISSION_DATE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'schedule',
+            'comment' => '',
+            'label' => 'LBL_SCHEDULE',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 'description',
+        ),
+        5 => 
+        array (
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -57,21 +101,6 @@ array (
             'name' => 'date_modified',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'av_accounts_av_commissions_1_name',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_life_insurance_av_commissions_1_name',
           ),
         ),
       ),

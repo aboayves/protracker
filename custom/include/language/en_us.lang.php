@@ -21,10 +21,6 @@ $app_list_strings['moduleList']['Accounts']='Clients';
 
 
 
-
-
-
-
 $GLOBALS['app_list_strings']['relationship_listing_list']=array (
 
 
@@ -3057,18 +3053,65 @@ $GLOBALS['app_list_strings']['contact_type_list']=array (
   'Other' => 'Other',
 );
 
-$app_strings['LBL_TABGROUP_ACCOUNT_MANAGEMENT'] = 'Account Management';
-$app_strings['LBL_TABGROUP_BILLING'] = 'Billing';
+$app_list_strings['account_schedule_list'] = array (
+	'' => '',
+	'Schedule_A' => 'Schedule A',
+	'Schedule_B' => 'Schedule B',
+	'Schedule_C' => 'Schedule C',
+	'Schedule_D' => 'Schedule D',
+	'Schedule_E' => 'Schedule E',
+	'Schedule_F' => 'Schedule F',
+	'Schedule_G' => 'Schedule G',
+	'Schedule_H' => 'Schedule H',
+	'Schedule_I' => 'Schedule I',
+	'Schedule_J' => 'Schedule J',
+	'Schedule_K' => 'Schedule K',
+	'Schedule_L' => 'Schedule L',
+	'Schedule_M' => 'Schedule M',
+	'Schedule_N' => 'Schedule N',
+	'Schedule_O' => 'Schedule O',
+	'Schedule_P' => 'Schedule P',
+	'Schedule_Q' => 'Schedule Q',
+	'Schedule_R' => 'Schedule R',
+	'Schedule_S' => 'Schedule S',
+	'Schedule_T' => 'Schedule T',
+	'Schedule_U' => 'Schedule U',
+	'Schedule_V' => 'Schedule V',
+	'Schedule_W' => 'Schedule W',
+	'Schedule_X' => 'Schedule X',
+	'Schedule_Y' => 'Schedule Y',
+	'Schedule_Z' => 'Schedule Z',
+	'Other' => 'Other',
+);
+$app_list_strings['retirement_plan_type_list'] = array (
+	'' => '',
+	'IRA' => 'IRA',
+	'IRA_Rollover_From_Qualified_Plan_or_Trust' => 'IRA Rollover From Qualified Plan or Trust',
+	'Qualified_Retirement_Plan' => 'Qualified Retirement Plan',
+	'Roth_IRA' => 'Roth IRA',
+	'Other' => 'Other',
+);
+
+$app_list_strings['preferred_document_submittal_list'] = array (
+	'' => '',
+	'Mail' => 'Mail',
+	'Email' => 'Email',
+	'In_Person' => 'In Person',
+	'Other' => 'Other',
+);
+
+$app_strings['LBL_TABGROUP_DOCUMENT_MANAGEMENT'] = 'Documents';
+$app_strings['LBL_TABGROUP_PROJECT_MANAGEMENT'] = 'Projects';
+$app_strings['LBL_TABGROUP_SALES_MARKETING'] = 'Marketing & Sales';
+$app_strings['LBL_TABGROUP_RELATED'] = 'Relationships';
 $app_strings['LBL_TABGROUP_COMPLIANCE'] = 'Compliance';
-$app_strings['LBL_TABGROUP_DOCUMENT_MANAGEMENT'] = 'Document Management';
-$app_strings['LBL_TABGROUP_ESTATE_PLANNING'] = 'Estate Planning';
-$app_strings['LBL_TABGROUP_FIRM_MANAGEMENT'] = 'Firm Management';
+$app_strings['LBL_TABGROUP_FIRM_MANAGEMENT'] = 'Firm';
+$app_strings['LBL_TABGROUP_ACCOUNT_MANAGEMENT'] = 'Accounts';
 $app_strings['LBL_TABGROUP_GOALS_OBJECTIVES'] = 'Goals & Objectives';
-$app_strings['LBL_TABGROUP_INSURANCE'] = 'Insurance';
-$app_strings['LBL_TABGROUP_PROJECT_MANAGEMENT'] = 'Project Management';
-$app_strings['LBL_TABGROUP_RELATED'] = 'Related';
+$app_strings['LBL_TABGROUP_ESTATE_PLANNING'] = 'Estate Planning';
 $app_strings['LBL_TABGROUP_RETIREMENT_PLANNING'] = 'Retirement Planning';
-$app_strings['LBL_TABGROUP_SALES_MARKETING'] = 'Sales & Marketing';
-$app_strings['LBL_TABGROUP_TAGGING'] = 'Tagging';
-$app_strings['LBL_TABGROUP_TAXES'] = 'Taxes';
+$app_strings['LBL_TABGROUP_INSURANCE'] = 'Insurance';
+$app_strings['LBL_TABGROUP_TAXES'] = 'Tax';
+$app_strings['LBL_TABGROUP_BILLING'] = 'Billing';
+
 ?>
