@@ -547,7 +547,7 @@ div.moduleTitle
 	float:left;
 	color: #03568A;
 	font-size: 19px;
-	padding-top: 7px;
+	padding-top: 4px;
 	font-weight: bold;
 	margin-bottom:15px;
 	position:fixed;
@@ -605,6 +605,11 @@ line-height: 16px;
     margin-top:10px;
     padding:10px 6px 12px 10px;
     padding:20px 16px 22px 30px;
+	border-radius:0px 0px 4px 4px;
+	-moz-border-radius:0px 0px 4px 4px;
+	-webkit-border-radius:0px 0px 4px 4px;
+	-o-border-radius:0px 0px 4px 4px;
+	-ms-border-radius:0px 0px 4px 4px;
 }
 .view tr td table, 
 .view tr td table tr td
@@ -1281,7 +1286,7 @@ text-align: right;
 
 .search_form .view a {
 	color: #03568A;
-	font-size: 12px;
+	font-size: 14px;
 	text-decoration: none;
 	text-shadow: 0px 1px #fff;
 	font-weight: bold;
@@ -2649,6 +2654,11 @@ embed
 		padding-left: 9px;
 		padding-right: 9px;
 		border-bottom:1px solid #777;
+		border-radius:4px 4px 0px 0px;
+		-moz-border-radius:4px 4px 0px 0px;
+		-webkit-border-radius:4px 4px 0px 0px;
+		-o-border-radius:4px 4px 0px 0px;
+		-ms-border-radius:4px 4px 0px 0px;
 	}
 	
 	.dashletPanel .hd .hd-center,.dashletPanel .hd .tl,.dashletPanel .hd .tr {
@@ -2662,7 +2672,11 @@ embed
 	background: -ms-linear-gradient(top,  rgba(242,242,242,1) 0%,rgba(188,188,188,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(242,242,242,1) 0%,rgba(188,188,188,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#bcbcbc',GradientType=0 ); /* IE6-8 */
-
+	border-radius:4px 0px 0px 0px;
+	-moz-border-radius:4px 0px 0px 0px;
+	-webkit-border-radius:4px 0px 0px 0px;
+	-o-border-radius:4px 0px 0px 0px;
+	-ms-border-radius:4px 0px 0px 0px;
 	}
 
 	.dashletPanel .hd  .hd-center {
@@ -2676,6 +2690,11 @@ embed
 		top:0;
 		right:0;
 		position:absolute;
+		border-radius:0px 4px 0px 0px;
+		-moz-border-radius:0px 4px 0px 0px;
+		-webkit-border-radius:0px 4px 0px 0px;
+		-o-border-radius:0px 4px 0px 0px;
+		-ms-border-radius:0px 4px 0px 0px;
 /*		-moz-border-radius-topright: 6px;
 		-webkit-border-top-right-radius: 6px;
 		border-radius-topright: 6px;
@@ -2736,6 +2755,11 @@ embed
 	.dashletPanel .bd .bd-center {
 		padding: 0px;
 		background-color:#fff;
+		border-radius:0px 0px 4px 4px;
+		-moz-border-radius:0px 0px 4px 4px;
+		-webkit-border-radius:0px 0px 4px 4px;
+		-ms-border-radius:0px 0px 4px 4px;
+		-o-border-radius:0px 0px 4px 4px;
 	}
 	
 	.dashletPanel .bd .ml {
@@ -3878,8 +3902,8 @@ span.id-ff button.button.btn_copy img{
 }
 
 span.id-ff.multiple button{
-	margin-top: -4px;
-	*margin-top: -8px;
+	margin: -4px 0px 0px 0px;
+	*margin: -8px 0px 0px 0px;
 }
 
 span.id-ff.multiple.ownline button{
@@ -3888,23 +3912,20 @@ span.id-ff.multiple.ownline button{
 }
 
 span.id-ff.multiple button.button.firstChild{
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomright: 0px;
-  border-radius-topright: 0px;
-  border-radius-bottomright: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  -webkit-border-bottom-top-radius: 0px;
+	border-radius:5px 0px 0px 5px !important;
+	-moz-border-radius:5px 0px 0px 5px !important;
+	-webkit-border-radius:5px 0px 0px 5px !important;
+	-o-border-radius:5px 0px 0px 5px !important;
+	-ms-border-radius:5px 0px 0px 5px !important;
+	border-right:none; 
 }
 
 span.id-ff.multiple button.button.lastChild{
-	-moz-border-radius-topleft: 0px;  
-	-moz-border-radius-bottomleft: 0px; 
-	border-radius-topleft: 0px;  
-	border-radius-bottomleft: 0px; 
-	-webkit-border-bottom-left-radius: 0px;
-	-webkit-border-top-left-radius: 0px;
-	
-	border-left-color: #eee;
+	border-radius:0px 5px 5px 0px !important;
+	-moz-border-radius:0px 5px 5px 0px !important;
+	-webkit-border-radius:0px 5px 5px 0px !important;
+	-o-border-radius:0px 5px 5px 0px !important;
+	-ms-border-radius:0px 5px 5px 0px !important;
 }
 
 .id-ff-remove {
@@ -4555,7 +4576,7 @@ ul.subpanelTablist li a.activeSubTab:hover
 .list tr.pagination td table td span.pageNumbers
 {
     color: #03568A;
-	font-size: 15px;
+	font-size: 16px;
 }
 .list tr.pagination td table td span.pageNumbers{
 	color:#fff !important;
@@ -4571,15 +4592,19 @@ ul.subpanelTablist li a.activeSubTab:hover
 	border:1px solid #03568A;
 	}
 .list.view  tr:last-child td:first-child ,.list.view  tr:last-child th:first-child{
-	-moz-border-radius-bottomleft: 6px;
-	-webkit-border-bottom-left-radius: 6px;
-	border-border-radius-bottomleft: 6px;
+	border-radius:0px 0px 0px 4px;
+	-moz-border-radius:0px 0px 0px 4px;
+	-webkit-border-radius:0px 0px 0px 4px;
+	-o-border-radius:0px 0px 0px 4px;
+	-ms-border-radius:0px 0px 0px 4px;
 }
 
 .list.view  tr:last-child td:last-child,.list.view  tr:last-child th:last-child  {
-	-moz-border-radius-bottomright: 6px;
-	-webkit-border-bottom-right-radius: 6px;
-	border-border-radius-bottomright: 6px;
+	border-radius:0px 0px 4px 0px;
+	-moz-border-radius:0px 0px 4px 0px;
+	-webkit-border-radius:0px 0px 4px 0px;
+	-ms-border-radius:0px 0px 4px 0px;
+	-o-border-radius:0px 0px 4px 0px;
 }
 
 .list.view  tr:last-child th,.list.view  tr:last-child td {
@@ -4587,21 +4612,20 @@ ul.subpanelTablist li a.activeSubTab:hover
 }
 
 .list tr.pagination td table td:first-child {
-	-moz-border-radius-topleft: 6px;
-	border-radius-topleft: 6px;
-	-moz-border-radius-bottomleft: 6px;
-	border-radius-bottomleft: 6px;
-	-webkit-border-bottom-left-radius: 6px;
-	-webkit-border-top-left-radius: 6px;
+	border-radius:4px 0px 0px 4px;
+	-moz-border-radius:4px 0px 0px 4px;
+	-webkit-border-radius:4px 0px 0px 4px;
+	-ms-border-radius:4px 0px 0px 4px;
+	-o-border-radius:4px 0px 0px 4px;
+	
 }
 
 .list tr.pagination td table td:last-child {
-	-moz-border-radius-topright: 6px;
-	border-radius-topright: 6px;
-	-moz-border-radius-bottomright: 6px;
-	border-radius-bottomright: 6px;
-	-webkit-border-bottom-right-radius: 6px;
-	-webkit-border-top-right-radius: 6px;
+	border-radius:0px 4px 4px 0px;
+	-moz-border-radius:0px 4px 4px 0px;
+	-webkit-border-radius:0px 4px 4px 0px;
+	-ms-border-radius:0px 4px 4px 0px;
+	-o-border-radius:0px 4px 4px 0px;
 }
 
 #subpanel_list .list.view {
@@ -5262,6 +5286,7 @@ margin: 0 4px 0 0;
 }
 
 .yui-navset .yui-nav li a em, .yui-navset-top .yui-nav li a em, .yui-navset-bottom .yui-nav li a em {
+	font-size:14px;
 *height: 19px; /* ie 7 hack */
 }
 
@@ -5542,7 +5567,7 @@ select{
 /* for all views */
 .view tr, .view td, .view h4, .view div
 {
-    font-size: 13px;
+    font-size: 16px;
 }
 .view td a, .view div a, .list th div
 {
@@ -5677,7 +5702,8 @@ div.selectCol{
 a.utilsLink:link, 
 a.utilsLink:visited
 {
-    font-size: 12px;
+    font-size: 14px;
+	font-weight:bold;
 }
 a.tabFormAdvLink:link, 
 a.tabFormAdvLink:visited 
@@ -5826,13 +5852,13 @@ ul.megamenu, ul.moduleTabMore, ul.sf-sub-modulelist{
 #dcmenutop{
 padding:0px;
 position:relative;
-height:50px;
+height:46px;
 width:100%;
 }
 
 .dcmenu{
 color:blue;
-height:48px;
+height:45px;
 min-width: 950px;
 background: rgb(249,249,249); /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -6522,7 +6548,7 @@ ul.clickMenu:hover > li > span > a, ul.clickMenu:hover > li > a, ul.clickMenu:ho
 }
 
 ul.clickMenu li span:hover {
-	background-position: 5px 3px;
+	background-position: 5px 6px;
 }
 ul.clickMenu li, ul.SugarActionMenuIESub li {
 	float: left;
@@ -6540,7 +6566,7 @@ ul.clickMenu li a, .list tr.pagination td.buttons ul.clickMenu > li > a:link, .l
 	font-weight: normal !important;
 	padding: 3px 10px 3px 10px !important;
 	color: #000;
-	font-size: 12px;
+	font-size: 16px;
 /*	border-radius:5px;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
@@ -6560,9 +6586,9 @@ text-decoration: none !important;
 }
 ul.clickMenu li > span { /*--Drop down trigger styles--*/
 	width: 20px;
-	height: 21px;
+	height: 27px;
 	float: left;
-	background: url(../../../../index.php?entryPoint=getImage&imageName=actionMenuArrow.png) no-repeat 5px -25px;
+	background: url(../../../../index.php?entryPoint=getImage&imageName=actionMenuArrow.png) no-repeat 5px -22px;
 	cursor: pointer;
 }
 
@@ -6575,7 +6601,7 @@ ul.clickMenu li span.subhover {
 ul.clickMenu li ul.subnav, ul.clickMenu ul.subnav-sub, ul.SugarActionMenuIESub {
 	list-style: none;
 	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
-	left: 0; top: 23px;
+	left: 0; top: 27px;
 	background: #fff;
 	margin: 0;
 	display: none;
@@ -6709,7 +6735,7 @@ ul.clickMenu li ul.subnav li a,ul.clickMenu li ul.subnav li input, ul.subnav-sub
 	/*width: 150px;*/
 	width:100%;
 	text-align: left;
-	font-size: 12px !important;
+	font-size: 16px !important;
 	color: #000;
 
 }
@@ -6724,7 +6750,7 @@ ul.clickMenu li ul.subnav li a:hover,ul.clickMenu li ul.subnav li input:hover, u
 background-color: #434542;
 color: #fff;
 font-weight: normal !important;
-font-size: 12px !important;
+font-size: 16px !important;
 cursor: pointer;
 text-shadow: none;
 border-radius: 0px;
@@ -6789,7 +6815,7 @@ ul#selectLink.clickMenu {
 td.paginationActionButtons ul.clickMenu .massall,
 ul#selectLink.clickMenu .massall, td.selectCol .massall{
 	float: left;
-	margin: 4px 4px;
+	margin: 7px 4px;
 }
 
 td.paginationActionButtons ul.selectmenu > li > a, td.selectCol ul.selectmenu > li > a, ul#selectLink.clickMenu > li > a {
@@ -6835,9 +6861,9 @@ ul.clickMenu.show {
 
 .selectActionsDisabled span {
 	width: 17px;
-	height: 22px;
+	height: 27px;
 	float: left;
-	background: url(../../../../index.php?entryPoint=getImage&imageName=actionMenuArrow.png) no-repeat 6px -25px;
+	background: url(../../../../index.php?entryPoint=getImage&imageName=actionMenuArrow.png) no-repeat 7px -22px;
 	opacity: .5;
 	}
 
@@ -7417,7 +7443,6 @@ div.hoverscroll div.fixed-arrow.bottom {
 	
 }
 #main{
-	margin-top:-1px;
 }
 
 
