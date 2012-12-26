@@ -28,7 +28,7 @@ class singleSignOnHook {
 						rtrim($fields_string,'&');
 					$redirect = "index.php?module=Users&action=EditView&".$fields_string;
 				}
-				SugarApplication::appendErrorMessage('Either the instance key or site URL is invalid');
+				SugarApplication::appendErrorMessage('Unable to complete requested action. Either the instance key or site URL is invalid.');
 				$sql="UPDATE users SET".$customSet."WHERE id='{$bean->id}'";
 				$db->query($sql);
 				SugarApplication::redirect($redirect);
@@ -53,14 +53,14 @@ class singleSignOnHook {
 			}
 			rtrim($fields_string,'&');
 			if($api->httpCode == '200'){
-				SugarApplication::appendErrorMessage('The user name already exists');
+				SugarApplication::appendErrorMessage('Unable to complete requested action. The user name already exists.');
 				$bean->deleted=1;
 				SugarApplication::redirect("index.php?module=Users&action=EditView&".$fields_string);
 			}
 			else if($api->httpCode == '404'){
 				$result = $api->post($sugar_config['restServerURL']."/users", $parameters);
 				if($api->httpCode == '403'){
-					SugarApplication::appendErrorMessage('Either the instance key or site URL is invalid');
+					SugarApplication::appendErrorMessage('Unable to complete requested action. Either the instance key or site URL is invalid.');
 					$bean->deleted=1;
 					SugarApplication::redirect("index.php?module=Users&action=EditView&".$fields_string);
 				}
