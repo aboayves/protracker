@@ -19,6 +19,13 @@ array (
           'field' => '30',
         ),
       ),
+	  'includes' => 
+      array (
+		  0 => 
+		  array (
+			'file' => 'custom/modules/Users/populate_email.js',
+		  ),
+		),
       'form' => 
       array (
         'headerTpl' => 'modules/Users/tpls/EditViewHeader.tpl',

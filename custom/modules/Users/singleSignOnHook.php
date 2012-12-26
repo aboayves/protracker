@@ -12,10 +12,26 @@ class singleSignOnHook {
 		if($_REQUEST['action'] == 'delete' || $bean->status == 'Inactive'){
 			$result = $api->delete($sugar_config['restServerURL']."/users/".$bean->user_name, $parameters);
 			if($api->httpCode == '403'){
+				$customSet = "";
+				$redirect = "";
+				if($_REQUEST['action'] == 'delete'){
+					$customSet = " status='Active', deleted=0 ";
+					$redirect = "index.php?module=Users&action=DetailView&record={$bean->id}";
+				}else if($_REQUEST['action'] != 'delete' && $bean->status == 'Inactive'){
+					$customSet = " status='Active' ";
+						unset($_REQUEST['action']);
+						unset($_REQUEST['new_password']);
+						unset($_REQUEST['confirm_new_password']);
+						foreach($_REQUEST as $key=>$value){ 
+							$fields_string .= $key.'='.$value.'&';
+						}
+						rtrim($fields_string,'&');
+					$redirect = "index.php?module=Users&action=EditView&".$fields_string;
+				}
 				SugarApplication::appendErrorMessage('Either the instance key or site URL is invalid');
-				$sql="UPDATE users SET deleted=0 WHERE id='{$bean->id}'";
+				$sql="UPDATE users SET".$customSet."WHERE id='{$bean->id}'";
 				$db->query($sql);
-				SugarApplication::redirect("index.php?module=Users&action=DetailView&record={$bean->id}");
+				SugarApplication::redirect($redirect);
 			}
 		}
 	}
@@ -29,22 +45,21 @@ class singleSignOnHook {
 		$api = new RestClient();
 		if(empty($bean->id) || ($bean->status!=$bean->fetched_row['status'] && $bean->status=='Active')){
 			$response = $api->get($sugar_config['restServerURL']."/users/".$bean->user_name);
+			unset($_REQUEST['action']);
+			unset($_REQUEST['new_password']);
+			unset($_REQUEST['confirm_new_password']);
+			foreach($_REQUEST as $key=>$value){ 
+				$fields_string .= $key.'='.$value.'&';
+			}
+			rtrim($fields_string,'&');
 			if($api->httpCode == '200'){
 				SugarApplication::appendErrorMessage('The user name already exists');
 				$bean->deleted=1;
-				SugarApplication::redirect("index.php?module=Users&action=EditView");
+				SugarApplication::redirect("index.php?module=Users&action=EditView&".$fields_string);
 			}
 			else if($api->httpCode == '404'){
 				$result = $api->post($sugar_config['restServerURL']."/users", $parameters);
 				if($api->httpCode == '403'){
-					$_POST = $_REQUEST;
-					unset($_POST['action']);
-					unset($_POST['new_password']);
-					unset($_POST['confirm_new_password']);
-					foreach($_POST as $key=>$value){ 
-						$fields_string .= $key.'='.$value.'&';
-					}
-						rtrim($fields_string,'&');
 					SugarApplication::appendErrorMessage('Either the instance key or site URL is invalid');
 					$bean->deleted=1;
 					SugarApplication::redirect("index.php?module=Users&action=EditView&".$fields_string);
