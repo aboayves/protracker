@@ -4,8 +4,9 @@ $subpanel_layout['list_fields'] = array (
   'delete_multiple_check' => 
   array(
 	'vname' => 'LBL_DELETE_MULTIPLE_CHECK',
-	'width' => '10%',
+	'width' => '5%',
 	'default' => true,
+	'sortable' => false,
 	),
   'name' => 
   array (
