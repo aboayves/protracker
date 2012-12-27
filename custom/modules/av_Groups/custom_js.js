@@ -100,3 +100,53 @@ function deleteRelationShip(group_id, report_id){
 		});
 	}
 }
+function deleteMultiGroupMembers(subpanel_module, subpanel_name){
+	if(confirm("Are you sure you want to delete the selected relationship(s)? Only the relationship(s) will be removed. The record(s) will not be deleted")){
+		checked_checkboxes_obj = $("input:checkbox[name=delete_multiple_check]:checked");
+		var checked_checkboxes_val=new Array();
+		jQuery.each(checked_checkboxes_obj, function(){
+		   checked_checkboxes_val.push($(this).val());
+		});
+		var parameters="record_to_delete_ids="+checked_checkboxes_val+"&subpanel_module="+subpanel_module;
+		$.ajax({
+				type: 'POST',
+				url:'index.php?module=av_Groups&action=delete_multi_group_members',
+				data: parameters,
+				complete: function(resp){
+					showSubPanel(subpanel_name, null, true);
+					check_forAllGroupMembers();
+				}
+		});
+	}
+}
+function check_forAllGroupMembers(){
+	$("#list_subpanel_av_groups_contacts").children().children().children().eq(1).children().first().children().html('<input id="delete_all_check_contacts" name="delete_all_check_contacts" type="checkbox"/>');
+	$("#delete_all_check_contacts").change(function(){
+		if($("#delete_all_check_contacts").is(':checked')){
+			$("#list_subpanel_av_groups_contacts").children().children().children().each(function(){
+				$(this).children().eq(0).children().children().get(0).checked=true;
+			});
+		}
+		else{
+			$("#list_subpanel_av_groups_contacts").children().children().children().each(function(){
+				$(this).children().eq(0).children().children().get(0).checked=false;
+			});
+		}
+	});
+	$("#list_subpanel_av_groups_accounts").children().children().children().eq(1).children().first().children().html('<input id="delete_all_check_accounts" name="delete_all_check_accounts" type="checkbox"/>');
+	$("#delete_all_check_accounts").change(function(){
+		if($("#delete_all_check_accounts").is(':checked')){
+			$("#list_subpanel_av_groups_accounts").children().children().children().each(function(){
+				$(this).children().eq(0).children().children().get(0).checked=true;
+			});
+		}
+		else{
+			$("#list_subpanel_av_groups_accounts").children().children().children().each(function(){
+				$(this).children().eq(0).children().children().get(0).checked=false;
+			});
+		}
+	});
+}
+$(function(){
+	check_forAllGroupMembers();
+});
