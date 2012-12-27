@@ -100,3 +100,21 @@ function deleteRelationShip(group_id, report_id){
 		});
 	}
 }
+function deleteMultiGroupMembers(subpanel_module, subpanel_name){
+	if(confirm("Are you sure you want to delete the selected relationship(s)? Only the relationship(s) will be removed. The record(s) will not be deleted")){
+		checked_checkboxes_obj = $("input:checkbox[name=delete_multiple_check]:checked");
+		var checked_checkboxes_val=new Array();
+		jQuery.each(checked_checkboxes_obj, function(){
+		   checked_checkboxes_val.push($(this).val());
+		});
+		var parameters="record_to_delete_ids="+checked_checkboxes_val+"&subpanel_module="+subpanel_module;
+		$.ajax({
+				type: 'POST',
+				url:'index.php?module=av_Groups&action=delete_multi_group_members',
+				data: parameters,
+				complete: function(resp){
+					showSubPanel(subpanel_name, null, true);
+				}
+		});
+	}
+}

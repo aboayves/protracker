@@ -26,6 +26,9 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_accounts'] = array (
 	3 => array (
       'widget_class' => 'SubPanelTopMergeToAccounts',
     ),
+	4 => array (
+      'widget_class' => 'SubPanelTopMultiDelete',
+    ),
   ),
 );
 $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
@@ -53,6 +56,9 @@ $layout_defs["av_Groups"]["subpanel_setup"]['av_groups_contacts'] = array (
     ),
 	3 => array (
       'widget_class' => 'SubPanelTopMergeToContacts',
+    ),
+	4 => array (
+      'widget_class' => 'SubPanelTopMultiDelete',
     ),
   ),
 );

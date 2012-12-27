@@ -47,5 +47,12 @@ class av_GroupsController extends SugarController
 			  AND reports_id= '{$_REQUEST['report_id']}'";
 		$db->query($sql);
 	}
+	function action_delete_multi_group_members(){
+		global $db;
+		$this->view='';
+		$record_to_delete_ids = explode(',', $_REQUEST['record_to_delete_ids']);
+		$sql="Update av_group_membership SET deleted=1 WHERE parent_id IN('" . implode("','", $record_to_delete_ids) . "') AND parent_type='{$_REQUEST['subpanel_module']}'";
+		$db->query($sql);
+	}
 }
 ?>

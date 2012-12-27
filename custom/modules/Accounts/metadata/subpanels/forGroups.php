@@ -9,6 +9,11 @@ $subpanel_layout = array(
 	'where' => '',
 	
 	'list_fields' => array (
+		'delete_multiple_check' => array(
+			'vname' => 'LBL_DELETE_MULTIPLE_CHECK',
+			'width' => '10%',
+			'default' => true,
+		),
 		'name' => 
 		array (
 			'vname' => 'LBL_LIST_ACCOUNT_NAME',
