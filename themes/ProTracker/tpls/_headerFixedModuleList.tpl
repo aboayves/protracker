@@ -214,7 +214,11 @@
         </li>
 		<li class="{$homeClass}"><a href="index.php?module=Calendar&action=index" module="Calendar" class="sf-with-ul">Calendar</a></li>
 {php}
-	$this->assign('reportCategories', $GLOBALS['app_list_strings']['category_dropdown_list']);
+	$arr = $GLOBALS['app_list_strings']['category_dropdown_list'];
+	if(isset($arr[''])){
+		unset($arr['']);
+	}
+	$this->assign('reportCategories', $arr);
 {/php}
 		
 		<li class="{$homeClass}"><a href="index.php?module=Reports&action=index" module="Reports" class="sf-with-ul">Reports</a>
