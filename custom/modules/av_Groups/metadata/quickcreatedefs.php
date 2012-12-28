@@ -67,7 +67,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'delivery_method',
+            'name' => 'delivery_method_av_group',
             'comment' => '',
             'label' => 'LBL_DELIVERY_METHOD',
           ),
