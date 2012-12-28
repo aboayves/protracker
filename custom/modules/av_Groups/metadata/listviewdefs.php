@@ -25,7 +25,7 @@ array (
     'width' => '15%',
     'default' => true,
   ),
-  'DELIVERY_METHOD' => 
+  'DELIVERY_METHOD_AV_GROUP' => 
   array (
     'type' => 'enum',
     'default' => true,

@@ -119,7 +119,7 @@ array (
         ),
         1 => 
         array (
-          0 => 'delivery_method',
+          0 => 'delivery_method_av_group',
           1 => 
           array (
             'name' => 'av_offices_av_groups_name',
