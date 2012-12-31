@@ -20,6 +20,10 @@ array (
 <input type=\'hidden\' value=\'false\' name=\'to_pdf\'>
 <input onclick="this.form.to_pdf.value=\'true\';this.form.action.value=\'CsvExport\';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value=\'false\';" type=\'button\' name=\'csv_export\' value=\'Export to CSV\' />',
           ),
+		  5 => 
+          array (
+            'customCode' => '<input type="button"  title="Generate Networth Statement" value="Generate Networth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
+          ),
         ),
       ),
       'maxColumns' => '2',
