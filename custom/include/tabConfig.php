@@ -1,6 +1,17 @@
 <?php
 // created: 2012-12-04 10:01:59
 $GLOBALS['tabStructure'] = array (
+  'LBL_TABGROUP_ADMINISTRATION' => 
+  array (
+    'label' => 'LBL_TABGROUP_ADMINISTRATION',
+    'modules' => 
+    array (
+      0 => 'av_Account_Types',
+      1 => 'av_Activity_Types',
+      2 => 'av_Keywords',
+      3 => 'av_Custom_Fields',
+    ),
+  ),
   'LBL_TABGROUP_ACTIVITIES' => 
   array (
     'label' => 'LBL_TABGROUP_ACTIVITIES',
@@ -87,13 +98,12 @@ $GLOBALS['tabStructure'] = array (
       1 => 'av_Account_Histories',
       2 => 'av_Account_Owners',
       3 => 'av_Account_Categories',
-      4 => 'av_Account_Types',
-      5 => 'av_Beneficiaries',
-      6 => 'av_Net_Worth',
-      7 => 'av_Positions',
-      8 => 'av_Transaction_Schedule',
-      9 => 'av_Transactions',
-      10 => 'av_Trustees',
+      4 => 'av_Beneficiaries',
+      5 => 'av_Net_Worth',
+      6 => 'av_Positions',
+      7 => 'av_Transaction_Schedule',
+      8 => 'av_Transactions',
+      9 => 'av_Trustees',
     ),
   ),
   'LBL_TABGROUP_GOALS_OBJECTIVES' => 

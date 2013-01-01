@@ -3113,5 +3113,6 @@ $app_strings['LBL_TABGROUP_RETIREMENT_PLANNING'] = 'Retirement Planning';
 $app_strings['LBL_TABGROUP_INSURANCE'] = 'Insurance';
 $app_strings['LBL_TABGROUP_TAXES'] = 'Tax';
 $app_strings['LBL_TABGROUP_BILLING'] = 'Billing';
+$app_strings['LBL_TABGROUP_ADMINISTRATION'] = 'Administration';
 
 ?>

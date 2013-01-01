@@ -80,7 +80,7 @@ class AjaxCompose{
 		if($count > 1 && $actions[$count-2] != ""){
 			$crumbs = "<a onclick='{$actions[$count-2]}' href='javascript:void(0)'>". getStudioIcon('back', 'back', 16, 16) . '</a>&nbsp;'. $crumbs;	
 		}
-		return $crumbs . '<br><br>';
+		return ""; //$crumbs . '<br><br>';
 		
 		
 	}
