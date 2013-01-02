@@ -73,6 +73,7 @@ MBLoader.insert();
 {/literal}
 </script>
 <div id="footerHTML" class="y-hidden">
+<!--
     <table width="100%" cellpadding="0" cellspacing="0"><tr><td nowrap="nowrap">
     <input type="button" class="button" value="{$mod.LBL_HOME}" onclick="ModuleBuilder.main('home');">
     {if $TEST_STUDIO == true}
@@ -87,5 +88,6 @@ MBLoader.insert();
         <img height="25" width="83" class="img" src="include/images/poweredby_sugarcrm_65.png" border="0" align="absmiddle"/>
     </a>
      </td></tr></table>
+-->
 </div>
 {include file='modules/ModuleBuilder/tpls/assistantJavascript.tpl'}
