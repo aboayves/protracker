@@ -1,10 +1,11 @@
 <?php
 	global $db;
-	$query = "SELECT user_preferences.id, user_preferences.contents FROM user_preferences WHERE category='Home'";
+	$query = "SELECT user_preferences.id, user_preferences.contents FROM user_preferences";
 	$db_result = $db->query($query);
 	$is_updated = false;
 	while ($db_row = $db->fetchByAssoc($db_result)){
 		$pref_array = unserialize(base64_decode($db_row['contents']));
+		$pref_array['subpanel_tabs'] = 'on';
 		foreach ($pref_array['pages'] as $key => $page){
 			if (isset($page['pageTitle']) && $page['pageTitle'] == "My Sugar"){
 				$pref_array['pages'][$key]['pageTitle']="My Protracker";
@@ -23,6 +24,6 @@
 		}
 	}
 	if($is_updated){
-		echo 'News and Page Titles are successfully updated.';
+		echo 'News, Page Titles and Subpanel Tabs are successfully updated.';
 	}
 ?>
