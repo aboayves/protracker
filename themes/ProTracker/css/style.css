@@ -139,7 +139,7 @@ th, td
 	position:absolute;
 	left:0;
 	top:0;
-	width:100%;
+	min-width:100%;
 	min-height:100%;
 
 }
@@ -1060,25 +1060,33 @@ table.detail {
 ul.tablist, ul.subpanelTablist
 {
     list-style: none;
-    padding: 3px 0;
+    padding: 0px 0;
     margin: 0;
-	height: 16px;
 	margin-left: 0px;
 	margin-bottom: 0px;
-	width: 100%;
+	display:block;
 	width: auto\9;
+	height:35px;
+	white-space:nowrap;
+	position:relative;
+	overflow:hidden;
 }
 
 ul.tablist li, ul.subpanelTablist li
 {
     list-style: none;
     margin: 0;
-    display: inline;
+    display: inline-block;
+	float:none;
+	height:35px;
+	white-space:nowrap;
+	overflow:hidden;
 }
 ul.tablist li a, ul.subpanelTablist li a
 {
-    padding: 3px 8px;
-    margin: 0px;
+	display:block;
+    padding: 5px 10px;
+    margin: 4px 0px 0px 0px;
     border-bottom: none;
     text-decoration: none;
 }
@@ -1120,7 +1128,7 @@ table.subpanelTabForm td
 }
 #groupTabs li, #searchTabs li
 {
-    margin:0 -3px 0 0;
+
 }
 table.subpanelTabForm
 {
@@ -2904,6 +2912,7 @@ embed
 		background:none; 
 		border: 0;
 		padding: 0 22px;
+		position:relative;
 	}
 	
 	.dashletPanelMenu .bd .bd-center {
@@ -3594,12 +3603,15 @@ ul.tablist li a.current, ul.tablist li a.current:hover
 }
 ul.subpanelTablist li a.current, ul.subpanelTablist li a.current:hover
 {
-    border-bottom:2px solid #fff;
+    border:2px solid #02436C ;
+	border-bottom:none;
     font-weight: bold;
+	padding:7px 10px;
+	margin:0px;
 }
 .subpanelTabForm .h3Row 
 {
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #02436C;
 	background-image: none;
 }
 
@@ -4945,7 +4957,7 @@ text-shadow: 0px 1px #fff;
 }
 ul.tablist, ul.subpanelTablist
 {
-    border-bottom-color: #ccc;
+    border-bottom-color: #02436C;
 }
 ul.tablist li a:hover, 
 ul.subpanelTablist li a:hover
@@ -4956,12 +4968,11 @@ ul.subpanelTablist li a:hover
 ul.tablist li a, 
 ul.subpanelTablist li a
 {
-    background-color: #fff;
-    border-color: #eee;
+    background-color: #f3f3f3;
+    border-color: #CBCBCB;
 	-moz-border-radius: 0px 6px 0px 0px;
 	border-radius: 0px 6px 0px 0px;
 	-webkit-border-top-right-radius: 6px;
-    margin-left: 4px;
 }
 
 ul.tablist li:first-child a, 
@@ -4985,12 +4996,8 @@ ul.subpanelTablist li a:hover
 ul.subpanelTablist li a.current, 
 ul.subpanelTablist li a.current:hover
 {
-    color: #03568A;
-	background: #fff;
-    border-right-color: #ccc;
-    border-left-color: #ccc;
-    border-top-color: #ccc;
-    border-bottom-color: #fff;
+    color: #fff;
+	background: #03568A;
 
 }
 
@@ -5005,15 +5012,16 @@ ul.tablist li a.current:link, ul.tablist li a.current:visited, ul.tablist li a.c
 
 /* dashlet pages */
 #tabListContainer {
-margin-top: -1px;
-border: 0px;
-float: left;
+	margin:0;
+	border: 0px;
+	float: left;
 }
 
 #tabListContainer ul.subpanelTablist{
-	padding: 9px 0 10px;
+	padding: 0;
 	width: 100%;
 	height: auto;
+	height:35px;
 }
 
 
@@ -5023,13 +5031,13 @@ float: left;
 }
 
 #tabListContainer ul.subpanelTablist li a:link, .tabListContainer  ul.subpanelTablist li a:visited{
- font-size: 14px;
- padding: 6px 10px;
- background-color: #f3f3f3;
- border-color: #cbcbcb;
- margin-left: 2px;
-position: relative;
-top: 4px;
+	font-size: 15px;
+	line-height:20px;
+	padding: 5px 10px;
+	background-color: #f3f3f3;
+	border-color: #cbcbcb;
+	position: relative;
+	top: 0px;
 }
 
 #tabListContainer ul.subpanelTablist li:first-child a {
@@ -5041,14 +5049,14 @@ top: 4px;
 }
 
 #tabListContainer ul.subpanelTablist li a.current{
-position: relative;
-top: 3px;
-padding: 9px 5px 7px 20px;
-border-bottom-color: #fff;	
-background-color: #03568A;
-color:#fff;
-border-color:#02436C !important;
-
+	position: relative;
+	top: 0px;
+	padding: 7px 10px;
+	border-bottom-color: #fff;	
+	background-color: #03568A;
+	color:#fff;
+	border-color:#02436C !important;
+	margin:0px;
 }
 
 #tabListContainer.active  ul.subpanelTablist li a:hover,#tabListContainer.active ul.subpanelTablist li a.current{
@@ -5176,8 +5184,7 @@ text-align: right;
 }
 
 #addPage {
-height: 30px;
-margin-top: 2px;
+height: 35px;
 }
 
 #addPage a{
@@ -5185,14 +5192,14 @@ border-width: 2px 2px 0px 2px;
 border-style: solid;
 border-color: #02436c;
 background-color:#03568A;
-margin-left: 2px;
-padding: 5px 10px 7px 10px;
+padding:9px 10px;
 *padding: 7px 10px 22px;
 position: relative;
-top: 9px;
+top: 10px;
 -moz-border-radius: 0px 6px 0px 0px;
 border-radius: 0px 6px 0px 0px;
 -webkit-border-top-right-radius: 6px;
+margin:0px 0px 0px 5px;
 }
 #dashletCtrls a {
 font-size: 13px;
@@ -5277,7 +5284,9 @@ border: 0px none;
 }
 
 .yui-navset li em {
-font-size: 13px;
+font-size: 14px;
+color:#444;
+font-weight:normal;
 }
 
 .yui-navset .yui-nav li, .yui-navset .yui-navset-top .yui-nav li {
@@ -5328,13 +5337,14 @@ margin: 0 4px 0 0;
     {
     /*background:#DDD url('../../../../index.php?entryPoint=getImage&themeName=Sugar&imageName=sugar-yui-sprites.png') repeat-x scroll 0 -131px;*/
 	height: 24px;
-	background:#e5f0f8;
-	border-radius:5px 5px 0 0;
-	-webkit-border-radius:5px 5px 0 0;
-	-moz-border-radius:5px 5px 0 0;
-	border:2px solid #4e8fad;
+	background:#F3F3F3;
+	border-radius:0px 6px 0 0;
+	-webkit-border-radius:0px 6px 0 0;
+	-moz-border-radius:0px 6px 0 0;
+	border:2px solid #CBCBCB;
 	border-bottom:none;
 	padding-top:2px;
+	color:#444 !important;
 	
 }
  
@@ -5343,15 +5353,21 @@ margin: 0 4px 0 0;
  }
  
  
- .sugar-progress-bar, .yui-navset .yui-nav .selected a, .yui-navset .yui-nav .selected a:focus, .yui-navset .yui-nav .selected a:hover
+.sugar-progress-bar, .yui-navset .yui-nav .selected a, .yui-navset .yui-nav .selected a:focus, .yui-navset .yui-nav .selected a:hover
 {
    /*background:#cacaca url('../../../../index.php?entryPoint=getImage&themeName=Sugar&imageName=sugar-yui-sprites.png') repeat-x scroll 0 -157px;*/
 		
-    background:#03568A !important;
+    	background:#03568A !important;
 		border:2px solid #02436C !important;
 		border-bottom:none !important;
-		padding:2px 0;
+		padding:3px 0;
+		color:#fff !important;
+		font-weight:bold !important;
     
+}
+
+.yui-navset .yui-nav .selected a em, .yui-navset .yui-nav .selected a:focus em, .yui-navset .yui-nav .selected a:hover em{
+	font-weight:bold;
 }
 
 .yui-navset .yui-nav .selected a, .yui-navset .yui-nav .selected a em, .yui-navset .yui-nav a, .yui-navset .yui-nav a em, .yui-navset .yui-nav a, .yui-navset .yui-navset-top .yui-nav a  {
@@ -5764,6 +5780,7 @@ ul.subpanelTablist li a,
 .subpanelTabForm h3
 {
     font-size: 15px;
+	line-height:20px;
 }
 .subTabMore 
 {
