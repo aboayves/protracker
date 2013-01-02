@@ -15,12 +15,13 @@ $mod_strings = array (
   'LBL_DELETE_PAGE_CONFIRM' => 'Are you sure you want to delete this page?',
   'LBL_SAVING_PAGE_TITLE' => 'Saving Page Title...',
   'LBL_RETRIEVING_PAGE' => 'Retrieving Page...',
-  'LBL_HOME_PAGE_1_NAME' => 'Home',
+  'LBL_HOME_PAGE_1_NAME' => 'My ProTracker',
   'LBL_DASHLET_SEARCH' => 'Find Dashlet',
   'LBL_SUGAR_COMMUNITY_EDITION' => 'Community Edition',
   'LBL_SUGAR_PROFESSIONAL' => "Professional",
   'LBL_SUGAR_ENTERPRISE' => "Enterprise",
-	'LBL_POWERED_BY_SUGAR' => 'ProTrackerWeb' /*for 508 compliance fix*/,
+  'LBL_POWERED_BY_SUGAR' => 'ProTrackerWeb' /*for 508 compliance fix*/,
+  'LBL_DASHLET_SUGAR_NEWS' => 'Protracker News',
 );
 
 
