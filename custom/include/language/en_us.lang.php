@@ -1033,7 +1033,7 @@ $GLOBALS['app_list_strings']['parent_type_display_tasks']=array (
 
 
 
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
 
 
 
@@ -1049,22 +1049,14 @@ $GLOBALS['app_list_strings']['parent_type_display_tasks']=array (
 
 
 
-	'av_Groups'=>'Groups',
+	'av_Groups'=>'Group',
 
 
 
     'Quotes' => 'Quote',
 
-
-
-    'Bugs' => 'Bug Tracker',
-
-
-
-    'Cases' => 'Case',
-
-
-
+	
+	
     'Leads' => 'Lead',
 
 
