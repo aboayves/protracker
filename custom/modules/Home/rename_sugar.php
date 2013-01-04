@@ -7,8 +7,8 @@
 		$pref_array = unserialize(base64_decode($db_row['contents']));
 		$pref_array['subpanel_tabs'] = 'on';
 		foreach ($pref_array['pages'] as $key => $page){
-			if (isset($page['pageTitle']) && $page['pageTitle'] == "My Sugar"){
-				$pref_array['pages'][$key]['pageTitle']="My Protracker";
+			if (isset($page['pageTitle']) && ($page['pageTitle'] == "My Sugar" || $page['pageTitle'] == "My Protracker")){
+				$pref_array['pages'][$key]['pageTitle']="My ProTracker";
 			}
 		}
 		foreach ($pref_array['dashlets'] as $key => $page){
