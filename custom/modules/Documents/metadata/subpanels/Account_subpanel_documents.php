@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-14 15:56:24
+// created: 2013-01-07 15:43:15
 $subpanel_layout['list_fields'] = array (
   'object_image' => 
   array (
@@ -45,15 +45,8 @@ $subpanel_layout['list_fields'] = array (
     'width' => '10%',
     'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => 'av_Activity_Types',
-    'target_record_key' => 'av_activity_types_documents_1av_activity_types_ida',
-  ),
-  'category_id' => 
-  array (
-    'name' => 'category_id',
-    'vname' => 'LBL_LIST_CATEGORY',
-    'width' => '10%',
-    'default' => true,
+    'target_module' => NULL,
+    'target_record_key' => NULL,
   ),
   'doc_type' => 
   array (
@@ -62,18 +55,18 @@ $subpanel_layout['list_fields'] = array (
     'width' => '10%',
     'default' => true,
   ),
-  'status_id' => 
-  array (
-    'name' => 'status_id',
-    'vname' => 'LBL_LIST_STATUS',
-    'width' => '10%',
-    'default' => true,
-  ),
   'active_date' => 
   array (
     'name' => 'active_date',
     'vname' => 'LBL_LIST_ACTIVE_DATE',
     'width' => '10%',
+    'default' => true,
+  ),
+  'date_modified' => 
+  array (
+    'type' => 'datetime',
+    'vname' => 'LBL_DATE_MODIFIED',
+    'width' => '8%',
     'default' => true,
   ),
   'get_latest' => 

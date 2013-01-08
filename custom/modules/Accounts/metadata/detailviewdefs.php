@@ -22,7 +22,11 @@ array (
           ),
 		  5 => 
           array (
-            'customCode' => '<input type="button"  title="Generate Networth Statement" value="Generate Networth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
+            'customCode' => '<input type="button" title="Generate Networth Statement" value="Generate Networth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
+          ),
+      6 => 
+          array (
+            'customCode' => '<input type="button" title="POP" value="POP" name="POPIT" id="POPIT" onclick="alert(\'{$fields.report_salutation.value}\');"/>',
           ),
         ),
       ),
