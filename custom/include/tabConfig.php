@@ -1,18 +1,7 @@
 <?php
 // created: 2012-12-04 10:01:59
 $GLOBALS['tabStructure'] = array (
-  'LBL_TABGROUP_ADMINISTRATION' => 
-  array (
-    'label' => 'LBL_TABGROUP_ADMINISTRATION',
-    'modules' => 
-    array (
-      0 => 'av_Account_Types',
-      1 => 'av_Activity_Types',
-      2 => 'av_Keywords',
-      3 => 'av_Custom_Fields',
-    ),
-  ),
-  'LBL_TABGROUP_ACTIVITIES' => 
+ 'LBL_TABGROUP_ACTIVITIES' => 
   array (
     'label' => 'LBL_TABGROUP_ACTIVITIES',
     'modules' => 

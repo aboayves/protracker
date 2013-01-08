@@ -184,10 +184,3 @@
 {/foreach}
 			</ul>
 		</li>
-{php}
-	$this->assign('is_admin', $GLOBALS['current_user']->is_admin);
-{/php}
-
-{if $is_admin}	
-		<li class="{$homeClass}"><a href="index.php?module=ModuleBuilder&action=index&type=dropdowns" module="ModuleBuilder" class="sf-with-ul">Menu Admin</a></li>
-{/if}
