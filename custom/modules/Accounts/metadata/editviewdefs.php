@@ -70,11 +70,7 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
-          1 => 
-          array (
-            'name' => 'Client_name',
-            'label' => 'LBL_CLIENT_NAME',
-          ),
+          1 => 'primary_contact_name',
         ),
         2 => 
         array (
@@ -83,12 +79,7 @@ array (
             'name' => 'av_Offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'CoClient_name',
-            'label' => 'LBL_COCLIENT_NAME',
-            'tabindex' => 'Co-Client',
-          ),
+          1 => 'secondary_contact_name',
         ),
         3 => 
         array (
@@ -190,11 +181,6 @@ array (
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-        10 => 
-        array (
-          0 => 'primary_contact_name',
-          1 => 'secondary_contact_name',
         ),
       ),
       'lbl_editview_panel2' => 

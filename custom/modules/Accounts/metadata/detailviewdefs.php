@@ -20,7 +20,7 @@ array (
 <input type=\'hidden\' value=\'false\' name=\'to_pdf\'>
 <input onclick="this.form.to_pdf.value=\'true\';this.form.action.value=\'CsvExport\';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value=\'false\';" type=\'button\' name=\'csv_export\' value=\'Export to CSV\' />',
           ),
-		  5 => 
+          5 => 
           array (
             'customCode' => '<input type="button"  title="Generate Networth Statement" value="Generate Networth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
           ),
@@ -85,8 +85,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'Client_name',
-            'label' => 'LBL_CLIENT_NAME',
+            'name' => 'primary_contact_name',
+            'label' => 'LBL_PRIMARY_CONTACT_NAME',
           ),
         ),
         2 => 
@@ -98,9 +98,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'CoClient_name',
-            'label' => 'LBL_COCLIENT_NAME',
-            'tabindex' => 'Co-Client',
+            'name' => 'secondary_contact_name',
+            'label' => 'LBL_SECONDARY_CONTACT_NAME',
           ),
         ),
         3 => 
@@ -194,19 +193,6 @@ array (
             'name' => 'date_modified',
             'label' => 'LBL_DATE_MODIFIED',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-          ),
-        ),
-        10 => 
-        array (
-          0 => 
-          array (
-            'name' => 'primary_contact_name',
-            'label' => 'LBL_PRIMARY_CONTACT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'secondary_contact_name',
-            'label' => 'LBL_SECONDARY_CONTACT_NAME',
           ),
         ),
       ),
