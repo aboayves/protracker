@@ -148,9 +148,7 @@ class av_WorkflowController extends SugarController {
 			$pri_cont_assigned_user = $current_user->id;
 			
 			if($_REQUEST['parent_type'] == "Accounts" && $clientRec){
-				$sql = "SELECT contacts.id, contacts.assigned_user_id FROM contacts ".
-						"INNER JOIN accounts_contacts_1_c ON contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND accounts_contacts_1_c.deleted = '0' AND accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $_REQUEST['parent_id'] . "' ".
-						"WHERE contacts.contact_priority = 'Primary' AND contacts.deleted='0'";
+				$sql = "SELECT contacts.id, contacts.assigned_user_id FROM contacts INNER JOIN accounts_contacts ON contacts.id=accounts_contacts.contact_id AND accounts_contacts.deleted='0' AND accounts_contacts.account_id='" . $_REQUEST['parent_id'] . "' AND accounts_contacts.contact_type='Primary' WHERE contacts.deleted='0'";
 				$result = $db->query($sql);
 				if($row = $db->fetchByAssoc($result)){
 					$pri_cont_assigned_type = 'Contacts';
@@ -164,9 +162,7 @@ class av_WorkflowController extends SugarController {
 			$sec_cont_assigned_user = $current_user->id;
 			
 			if($_REQUEST['parent_type'] == "Accounts" && $coClientRec){
-				$sql = "SELECT contacts.id, contacts.assigned_user_id FROM contacts ".
-						"INNER JOIN accounts_contacts_1_c ON contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND accounts_contacts_1_c.deleted = '0' AND accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $_REQUEST['parent_id'] . "' ".
-						"WHERE contacts.contact_priority = 'Secondary' AND contacts.deleted='0'";
+				$sql = "SELECT contacts.id, contacts.assigned_user_id FROM contacts INNER JOIN accounts_contacts ON contacts.id=accounts_contacts.contact_id AND accounts_contacts.deleted='0' AND accounts_contacts.account_id='" . $_REQUEST['parent_id'] . "' AND accounts_contacts.contact_type='Secondary' WHERE contacts.deleted='0'";
 				$result = $db->query($sql);
 				if($row = $db->fetchByAssoc($result)){
 					$sec_cont_assigned_type = 'Contacts';
@@ -377,19 +373,13 @@ class av_WorkflowController extends SugarController {
 		
 		if(isset($_REQUEST['parent_type']) && !empty($_REQUEST['parent_type']) && isset($_REQUEST['parent_id']) && !empty($_REQUEST['parent_id'])){
 			if($_REQUEST['parent_type'] == "Accounts"){
-				$sql = "SELECT users.first_name, users.last_name FROM contacts ".
-						"LEFT JOIN users ON contacts.assigned_user_id=users.id AND users.deleted='0' ".
-						"INNER JOIN accounts_contacts_1_c ON contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND accounts_contacts_1_c.deleted = '0' AND accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $_REQUEST['parent_id'] . "' ".
-						"WHERE contacts.contact_priority = 'Primary' AND contacts.deleted='0'";
+				$sql = "SELECT users.first_name, users.last_name FROM contacts LEFT JOIN users ON contacts.assigned_user_id=users.id AND users.deleted='0' INNER JOIN accounts_contacts ON contacts.id=accounts_contacts.contact_id AND accounts_contacts.deleted='0' AND accounts_contacts.account_id='" . $_REQUEST['parent_id'] . "' AND accounts_contacts.contact_type='Primary' WHERE contacts.deleted='0'";
 				$result = $db->query($sql);
 				if($row = $db->fetchByAssoc($result)){
 					$pri_cont_assigned_user = trim($row['first_name'] . " " . $row['last_name']);
 				}
 				
-				$sql = "SELECT users.first_name, users.last_name FROM contacts ".
-						"LEFT JOIN users ON contacts.assigned_user_id=users.id AND users.deleted='0' ".
-						"INNER JOIN accounts_contacts_1_c ON contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND accounts_contacts_1_c.deleted = '0' AND accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $_REQUEST['parent_id'] . "' ".
-						"WHERE contacts.contact_priority = 'Secondary' AND contacts.deleted='0'";
+				$sql = "SELECT users.first_name, users.last_name FROM contacts LEFT JOIN users ON contacts.assigned_user_id=users.id AND users.deleted='0' INNER JOIN accounts_contacts ON contacts.id=accounts_contacts.contact_id AND accounts_contacts.deleted='0' AND accounts_contacts.account_id='" . $_REQUEST['parent_id'] . "' AND accounts_contacts.contact_type='Secondary' WHERE contacts.deleted='0'";
 				$result = $db->query($sql);
 				if($row = $db->fetchByAssoc($result)){
 					$sec_cont_assigned_user = trim($row['first_name'] . " " . $row['last_name']);

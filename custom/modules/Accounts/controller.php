@@ -21,24 +21,24 @@
 						"IFNULL(contacts.salutation,'') as 'salutation', ".
 						"IFNULL(contacts.first_name,'') as 'first_name', ".
 						"IFNULL(contacts.last_name,'') as 'last_name', ".
-						"contacts.contact_priority ".
+						"accounts_contacts.contact_type ".
 					"FROM ".
 						"contacts ".
 					"INNER JOIN ".
-						"accounts_contacts_1_c ".
+						"accounts_contacts ".
 					"ON ".
-						"contacts.id = accounts_contacts_1_c.accounts_contacts_1contacts_idb AND ".
-						"accounts_contacts_1_c.deleted = '0' AND ".
-						"accounts_contacts_1_c.accounts_contacts_1accounts_ida = '" . $this->bean->id . "' ".
+						"contacts.id=accounts_contacts.contact_id AND ".
+						"accounts_contacts.deleted='0' AND ".
+						"accounts_contacts.account_id='" . $this->bean->id . "' AND ".
+						"accounts_contacts.contact_type IN ('Primary','Secondary') ".
 					"WHERE ".
-						"contacts.contact_priority IN ('Primary','Secondary') AND ".
 						"contacts.deleted='0'";
 			$res = $db->query($sql, true);
 			while($row = $db->fetchByAssoc($res)){
 				$name = trim($row['salutation'] . ' ' . $row['first_name'] . ' ' . $row['last_name']);
 				
-				$client = $row['contact_priority'] == 'Primary' ? $name : $client;
-				$coClient = $row['contact_priority'] == 'Secondary' ? $name : $coClient;
+				$client = $row['contact_type'] == 'Primary' ? $name : $client;
+				$coClient = $row['contact_type'] == 'Secondary' ? $name : $coClient;
 			}
 			
 //----------------------------------------------------------------------------------
