@@ -1,7 +1,7 @@
 <?php
 // created: 2012-12-19 16:15:19
-$dictionary["Account"]["fields"]["client_id"] = array (
-	'name' => 'client_id',
+$dictionary["Account"]["fields"]["primary_client_id"] = array (
+	'name' => 'primary_client_id',
 	'rname' => 'id',
 	'vname' => 'LBL_CLIENT_ID',
 	'type' => 'id',
@@ -22,7 +22,7 @@ $dictionary["Account"]["fields"]["Client_name"] = array (
 	'vname' => 'LBL_CLIENT_NAME',
 	'type' => 'relate',
 	'rname' => 'name',
-	'id_name' => 'client_id',
+	'id_name' => 'primary_client_id',
 	'join_name' => 'clients',
 	'link' => 'clients',
 	'table' => 'contacts',
@@ -41,7 +41,7 @@ $dictionary["Account"]["fields"]["clients"] = array (
 $dictionary["Account"]["relationships"]["account_contacts_client"] = array (
 	'lhs_module' => 'Accounts',
 	'lhs_table' => 'accounts',
-	'lhs_key' => 'client_id',
+	'lhs_key' => 'primary_client_id',
 	'rhs_module' => 'Contacts',
 	'rhs_table' => 'contacts',
 	'rhs_key' => 'id',
