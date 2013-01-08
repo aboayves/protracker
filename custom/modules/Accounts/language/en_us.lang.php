@@ -61,4 +61,6 @@ $mod_strings = array (
   'LBL_AV_GROUPS_ACCOUNTS_FROM_AV_GROUPS_TITLE' => 'Groups',
   'LBL_CLIENT_NAME' => 'Primary Client',
   'LBL_COCLIENT_NAME' => 'Co-Client',
+  'LBL_PRIMARY_CONTACT_NAME' => 'Primary Contact',
+  'LBL_SECONDARY_CONTACT_NAME' => 'Secondary Contact',
 );

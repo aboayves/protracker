@@ -191,6 +191,11 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
+        10 => 
+        array (
+          0 => 'primary_contact_name',
+          1 => 'secondary_contact_name',
+        ),
       ),
       'lbl_editview_panel2' => 
       array (

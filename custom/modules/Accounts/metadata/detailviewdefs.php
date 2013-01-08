@@ -196,6 +196,19 @@ array (
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
           ),
         ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'primary_contact_name',
+            'label' => 'LBL_PRIMARY_CONTACT_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'secondary_contact_name',
+            'label' => 'LBL_SECONDARY_CONTACT_NAME',
+          ),
+        ),
       ),
       'lbl_editview_panel2' => 
       array (
