@@ -99,7 +99,7 @@ class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopB
 		if(empty($additionalFormFields['parent_type']))
 		{
 			if($defines['focus']->object_name=='Contact') {
-				$additionalFormFields['parent_type'] = 'Accounts';
+				$additionalFormFields['parent_type'] = 'Contacts';
 			}
 			else {
 				$additionalFormFields['parent_type'] = $defines['focus']->module_dir;
@@ -108,7 +108,7 @@ class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopB
 		if(empty($additionalFormFields['parent_name']))
 		{
 			if($defines['focus']->object_name=='Contact') {
-				$additionalFormFields['parent_name'] = $defines['focus']->account_name;
+				$additionalFormFields['parent_name'] = $defines['focus']->name;
 				$additionalFormFields['account_name'] = $defines['focus']->account_name;
 			}
 			else {
@@ -118,7 +118,7 @@ class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopB
 		if(empty($additionalFormFields['parent_id']))
 		{
 			if($defines['focus']->object_name=='Contact') {
-				$additionalFormFields['parent_id'] = $defines['focus']->account_id;
+				$additionalFormFields['parent_id'] = $defines['focus']->id;
 				$additionalFormFields['account_id'] = $defines['focus']->account_id;
 			}
 			else {

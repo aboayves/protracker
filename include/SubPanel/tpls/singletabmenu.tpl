@@ -67,7 +67,7 @@ SUGAR.util.doWhen("typeof get_module_name != 'undefined'", function()
 
 
 {if !empty($sugartabs)}
-<ul id="groupTabs" class="subpanelTablist">
+<ul id="groupTabs" class="subpanelTablist" style="position:static !important;">
 {foreach from=$sugartabs item=tab}
 	<li id="{$tab.label}_sp_tab">
 		<a class="{$tab.type}" href="javascript:SUGAR.subpanelUtils.loadSubpanelGroup('{$tab.label}');">{$tab.label}</a>
@@ -75,17 +75,36 @@ SUGAR.util.doWhen("typeof get_module_name != 'undefined'", function()
 {/foreach}
 {if !empty($moreMenu)}
 	<li>
-		<div id='MorePanelHandle' onmouseover='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);'>
-			{sugar_getimage name="blank" ext=".gif" width="16" height="16" alt=$app_strings.LBL_MORE other_attributes='border="0" '}
+		<div id='MorePanelHandle' onmouseover='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);' onclick='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);'>
+			{sugar_getimage name="more_subpanel" ext=".gif" width="100" height="50" alt=$app_strings.LBL_MORE other_attributes='border="0" '}
 		</div>
+        {if !empty($moreMenu)}
+        <div id="MorePanelMenu" class="menu">
+        {foreach from=$moreMenu item=tab}
+            <a href="javascript:SUGAR.subpanelUtils.loadSubpanelGroupFromMore('{$tab.label}');" class="menuItem" id="{$tab.label}_sp_mm" parentid="MorePanelMenu" onmouseover="hiliteItem(this,'yes');" onmouseout="unhiliteItem(this);">{$tab.label}</a>
+        {/foreach}
+		</div>
+        {/if}
+        
+        {foreach from=$otherMoreSubMenu item=group}
+        {if !empty($group.tabs)}
+        <div id="MoreSub{$group.key}PanelMenu" class="menu">
+        {foreach from=$group.tabs item=subtab}
+            <a href="#{$subtab.key}" class="menuItem" parentid="MoreSub{$group.key}PanelMenu" onmouseover="hiliteItem(this,'yes'); closeSubMenus(this);" onmouseout="unhiliteItem(this);">{$subtab.label}</a>
+        {/foreach}
+        </div>
+        {/if}
+        {/foreach}    
 	</li>
 {/if}
 </ul>
+{/if}
+
 {* Table closed in SubPanelTiles.php, line 295 *}
 <table width="100%" cellspacing="0" cellpadding="0" border="0" class="subpanelTabForm">
 	<tr>
 		<td>
-{/if}
+
 
 {if $showLinks == 'true'}
 <table cellpadding="0" cellspacing="0" width='100%'>
@@ -115,23 +134,11 @@ SUGAR.util.doWhen("typeof get_module_name != 'undefined'", function()
 	</tr>
 </table>
 {/if}
+<script>
+$(':not(.#MorePanelMenu)').click(function() {ldelim}
+    $("#MorePanelMenu").hide();
+{rdelim});
+</script>
 
-{if !empty($moreMenu)}
-<div id="MorePanelMenu" class="menu">
-{foreach from=$moreMenu item=tab}
-	<a href="javascript:SUGAR.subpanelUtils.loadSubpanelGroupFromMore('{$tab.label}');" class="menuItem" id="{$tab.label}_sp_mm" parentid="MorePanelMenu" onmouseover="hiliteItem(this,'yes'); closeSubMenus(this);" onmouseout="unhiliteItem(this);">{$tab.label}</a>
-{/foreach}
-</div>
-{/if}
-
-{foreach from=$otherMoreSubMenu item=group}
-{if !empty($group.tabs)}
-<div id="MoreSub{$group.key}PanelMenu" class="menu">
-{foreach from=$group.tabs item=subtab}
-	<a href="#{$subtab.key}" class="menuItem" parentid="MoreSub{$group.key}PanelMenu" onmouseover="hiliteItem(this,'yes'); closeSubMenus(this);" onmouseout="unhiliteItem(this);">{$subtab.label}</a>
-{/foreach}
-</div>
-{/if}
-{/foreach}
 
 

@@ -305,15 +305,24 @@ padding-right:10px;
 	display:none;
 	visibility:hidden;
 	background-color:#f6f6f6;
-	z-index: 2;
-	border: #999999 solid 1px;
+	z-index: 1000;
+	border: #999999 solid 1px !important;
 	filter:alpha(opacity=90);
 	-moz-opacity:0.9;
 	opacity: 0.9;
+	left:auto !important;
 /*	width:150px;*/
 }
 
-
+.menu a{
+	border-radius:0px;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	-o-border-radius:0px;
+	-ms-border-radius:0px;
+	border-top:0px !important;
+	margin:0px !important;
+}
 
 /* sitemap link */
 #sitemapLink span 

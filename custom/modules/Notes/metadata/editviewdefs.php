@@ -11,7 +11,7 @@ array (
         'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
         'hidden' => 
         array (
-          0 => '<input type="hidden" name="attach_to_group_id" value="">',
+          0 => '<input type="hidden" name="attach_to_group_id" value="{$fields.attach_to_group_id.value}">',
         ),
       ),
       'maxColumns' => '2',
