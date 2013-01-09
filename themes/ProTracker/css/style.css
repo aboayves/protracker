@@ -539,7 +539,7 @@ div.import_instruction
 /* module title */
 div.moduleTitle
 {
-    line-height:2em;
+    height:auto !important;
 	padding-bottom: 3px;
     padding-top: 0;
 /*    margin-bottom: 10px;*/
@@ -575,7 +575,7 @@ div.moduleTitle
 
 .moduleTitle h2 a {
 font-size: 18px;
-color: #0e70b8;
+color: #03568A;
 text-decoration: none;
 }
 
@@ -7510,8 +7510,8 @@ div#content table tr td.contentPanel{
 }
 
 div#content > table tr td.contentPanel .contentPanelData{
-	padding:15px 30px;
-	}
+	padding:5px 30px;
+}
 
 .globelLinkBar{
 	display:block;
@@ -7717,6 +7717,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 		border-color: #6c6c6c;
 		color: #000;
 	}
+
+a.cstm_subpanel_more_button { 
+  background :#F3F3F3 url("../../../../index.php?entryPoint=getImage&themeName=ProTacker&imageName=more_subpanel_arrow.png") !important; 
+  background-position: 48px 7px !important;
+  background-repeat:no-repeat !important;
+  width:50px !important;
+  display: block !important;
+  text-align: justify !important;
+}	
+
+	
+.MMShortcuts li a,
+.MMLastViewed li a,
+.MMFavorites li a{
+	font-weight:bold !important;
+}
+
+
+
 a.cstm_subpanel_more_button { 
   background :#F3F3F3 url("../../../../index.php?entryPoint=getImage&themeName=ProTacker&imageName=more_subpanel_arrow.png") !important; 
   background-position: 48px 7px !important;
