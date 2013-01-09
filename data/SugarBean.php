@@ -1920,7 +1920,7 @@ function save_relationship_changes($is_update, $exclude=array())
                     {
                         $idName = $def['id_name'];
 
-                        if (!empty($this->rel_fields_before_value[$idName]) && empty($this->$idName))
+                        if (!empty($this->rel_fields_before_value[$idName]) && $this->rel_fields_before_value[$idName] != $this->$idName)
                         {
                             //if before value is not empty then attempt to delete relationship
                             $GLOBALS['log']->debug("save_relationship_changes(): From field_defs - attempting to remove the relationship record: {$def [ 'link' ]} = {$this->rel_fields_before_value[$def [ 'id_name' ]]}");

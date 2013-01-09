@@ -15,7 +15,8 @@ $dictionary["Account"]["fields"]["primary_contact_name"] = array (
 
 $dictionary["Account"]["fields"]["primary_contact_id"] = array (
 	'name' => 'primary_contact_id',
-	'type' => 'link',
+	'type' => 'id',
+	'link' => 'primary_contact',
 	'relationship' => 'accounts_contacts_primary',
 	'source' => 'non-db',
 	'reportable' => false,
