@@ -75,9 +75,9 @@ SUGAR.util.doWhen("typeof get_module_name != 'undefined'", function()
 {/foreach}
 {if !empty($moreMenu)}
 	<li>
-		<div id='MorePanelHandle' onmouseover='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);' onclick='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);'>
-			{sugar_getimage name="more_subpanel" ext=".gif" width="100" height="50" alt=$app_strings.LBL_MORE other_attributes='border="0" '}
-		</div>
+		<a id="MorePanelHandle" href="javascript:void();" class="cstm_subpanel_more_button" 
+		onmouseover='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);' 
+		onclick='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);'>More</a>
         {if !empty($moreMenu)}
         <div id="MorePanelMenu" class="menu">
         {foreach from=$moreMenu item=tab}

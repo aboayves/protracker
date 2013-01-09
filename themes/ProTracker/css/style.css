@@ -1077,7 +1077,7 @@ ul.tablist, ul.subpanelTablist
 	margin-bottom: 0px;
 	display:block;
 	width: auto\9;
-	height:35px;
+	height:auto;
 	white-space:nowrap;
 	position:relative;
 	overflow:hidden;
@@ -7717,4 +7717,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 		border-color: #6c6c6c;
 		color: #000;
 	}
-	
+a.cstm_subpanel_more_button { 
+  background :#F3F3F3 url("../../../../index.php?entryPoint=getImage&themeName=ProTacker&imageName=more_subpanel_arrow.png") !important; 
+  background-position: 48px 7px !important;
+  background-repeat:no-repeat !important;
+  width:50px !important;
+  display: block !important;
+  text-align: justify !important;
+}	
