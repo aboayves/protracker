@@ -7718,3 +7718,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', end
 		color: #000;
 	}
 	
+.MMShortcuts li a,
+.MMLastViewed li a,
+.MMFavorites li a{
+	font-weight:bold !important;
+}
