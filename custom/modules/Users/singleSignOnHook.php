@@ -43,6 +43,19 @@ class singleSignOnHook {
 		'instanceKey' => md5($sugar_config['instanceKey'])
 		);
 		$api = new RestClient();
+		if(!empty($bean->user_name) && !empty($bean->fetched_row['user_name']) && $bean->user_name != $bean->fetched_row['user_name']){
+			$parameters = array( 
+				'previous_user_name' =>$bean->fetched_row['user_name'],
+				'user_name' => $bean->user_name,
+				'site_url' => $sugar_config['site_url'],
+				'instanceKey' => md5($sugar_config['instanceKey'])
+			);
+			$api->post($sugar_config['restServerURL']."/users", $parameters);
+			if($api->httpCode == '403'){
+				SugarApplication::appendErrorMessage('Unable to complete requested action. Either the instance key or site URL is invalid.');
+				SugarApplication::redirect("index.php?module=Users&action=EditView&record={$bean->id}");
+			}
+		}
 		if(empty($bean->id) || ($bean->status!=$bean->fetched_row['status'] && $bean->status=='Active')){
 			$response = $api->get($sugar_config['restServerURL']."/users/".$bean->user_name);
 			unset($_REQUEST['action']);
