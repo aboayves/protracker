@@ -988,7 +988,7 @@ if (typeof(ModuleBuilder) == 'undefined') {
 			var mp = ModuleBuilder.mainPanel;
 			var c = Dom.get("mblayout");
 			mp.set("height", Dom.getViewportHeight() - Dom.getY(c) - 30);
-			mp.set("width", Dom.getViewportWidth() - 40);
+			mp.set("width", Dom.getViewportWidth() - 240);
 			mp.resize(true);
 			var tabEl = ModuleBuilder.tabPanel.get("element");
 			Dom.setStyle(tabEl.firstChild.nextSibling, "overflow-y", "auto");
