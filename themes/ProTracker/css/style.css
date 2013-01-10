@@ -7744,3 +7744,7 @@ a.cstm_subpanel_more_button {
   display: block !important;
   text-align: justify !important;
 }	
+
+#mbtabs{
+	height: 100%;
+}
