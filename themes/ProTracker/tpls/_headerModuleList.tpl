@@ -47,7 +47,8 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
             {include file="_headerFixedModuleList.tpl" theme_template=true}
 
               {foreach from=$groupTabs item=module key=group name=groupList}
-                  {php}
+                  {if $group != "All"}
+				  {php}
                       $group = str_replace(" ", "_", $this->get_template_vars('group'));
                       $this->assign('group_id', $group);
                   {/php}
@@ -207,6 +208,7 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
 			{/foreach}
                        
           </li>
+		  {/if}
           {/foreach}
         </ul>
     

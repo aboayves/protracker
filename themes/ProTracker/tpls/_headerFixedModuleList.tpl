@@ -28,6 +28,7 @@
 
 *}
     	<li class="{$homeClass}"><a href="index.php?module=Home&action=index" module="Home" class="sf-with-ul">Home</a></li>
+		<li class="{$homeClass}"><a href="index.php?module=Calendar&action=index" module="Calendar" class="sf-with-ul">Calendar</a></li>
     	<li class="{$homeClass}"><a href="index.php?module=Contacts&action=index" module="Contacts" class="sf-with-ul">Contacts</a>
         	<ul class="megamenu">
 				<li>
@@ -166,7 +167,6 @@
 				</li>
 			</ul>
         </li>
-		<li class="{$homeClass}"><a href="index.php?module=Calendar&action=index" module="Calendar" class="sf-with-ul">Calendar</a></li>
 {php}
 	$arr = $GLOBALS['app_list_strings']['category_dropdown_list'];
 	if(isset($arr[''])){
