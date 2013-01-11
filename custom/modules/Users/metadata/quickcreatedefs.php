@@ -44,7 +44,6 @@ $viewdefs['Users']['QuickCreate'] = array(
                 array(
                     'name'=>'user_name',
                     'displayParams' => array('required'=>true),
-					'customCode' => '<input type="text" name="user_name" value="{$fields.user_name.value}"><span style="color:red">&nbsp; This username has to be an email address.</span>',
                 ),
                 'first_name'
             ),

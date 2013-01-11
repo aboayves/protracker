@@ -47,7 +47,6 @@ array (
             array (
               'required' => true,
             ),
-			'customCode' => '<input type="text" name="user_name" value="{$fields.user_name.value}"><span style="color:red">&nbsp; This username has to be an email address.</span>',
           ),
           1 => 'first_name',
         ),

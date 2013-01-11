@@ -14,4 +14,5 @@ window.onload = function(){
 		}
 		return params;
 	}
+	addToValidate('EditView', 'user_name', 'email', true,'This username has to be an email address.' );
 };
