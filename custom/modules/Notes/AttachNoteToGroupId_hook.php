@@ -17,6 +17,7 @@ class AttachToGroupId{
 				unset($record['file_url']);
 				$record['parent_id'] = $row['parent_id'];
 				$record['parent_type'] = $row['parent_type'];
+				$record['attach_to_group_id'] = '';
 				$keys = implode(',' , array_keys($record));
 				$values = implode("','" , array_values($record));
 				if(!empty($values)){
