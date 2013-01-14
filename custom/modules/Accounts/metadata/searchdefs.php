@@ -25,6 +25,17 @@ array (
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
+      ),
+      'team_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_TEAM',
+        'id' => 'TEAM_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'team_name',
       ),
     ),
     'advanced_search' => 

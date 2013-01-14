@@ -29,30 +29,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'opted_out' => 
-      array (
-        'type' => 'bool',
-        'label' => 'LBL_OPTED_OUT',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'opted_out',
-      ),
-      'birthdate' => 
-      array (
-        'type' => 'date',
-        'label' => 'LBL_BIRTHDATE',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'birthdate',
-      ),
-      'marital_status' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'label' => 'LBL_MARITAL_STATUS',
-        'width' => '10%',
-        'name' => 'marital_status',
-      ),
       'team_name' => 
       array (
         'type' => 'relate',
@@ -62,56 +38,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'team_name',
-      ),
-      'assigned_user_id' => 
-      array (
-        'name' => 'assigned_user_id',
-        'type' => 'enum',
-        'label' => 'LBL_ASSIGNED_TO',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
-        'default' => true,
-        'width' => '10%',
-      ),
-      'campaign_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_CAMPAIGN',
-        'id' => 'CAMPAIGN_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'campaign_name',
-      ),
-      'phone_home' => 
-      array (
-        'type' => 'phone',
-        'label' => 'LBL_HOME_PHONE',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'phone_home',
-      ),
-      'address_state' => 
-      array (
-        'name' => 'address_state',
-        'label' => 'LBL_STATE',
-        'type' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'date_modified' => 
-      array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_MODIFIED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'date_modified',
       ),
     ),
     'advanced_search' => 

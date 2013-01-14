@@ -15,7 +15,7 @@ array (
   ),
   'PARENT_NAME' => 
   array (
-    'width' => '10%',
+    'width' => '15%',
     'label' => 'LBL_LIST_RELATED_TO',
     'dynamic_module' => 'PARENT_TYPE',
     'id' => 'PARENT_ID',
@@ -38,7 +38,7 @@ array (
   ),
   'STATUS' => 
   array (
-    'width' => '9%',
+    'width' => '15%',
     'label' => 'LBL_LIST_STATUS',
     'link' => false,
     'default' => true,
@@ -49,7 +49,7 @@ array (
     'link' => true,
     'label' => 'LBL_PARENT_TASKS',
     'id' => 'PARENT_TASKS_ID',
-    'width' => '8%',
+    'width' => '15%',
     'default' => true,
   ),
   'NAME' => 
@@ -58,20 +58,6 @@ array (
     'label' => 'LBL_LIST_SUBJECT',
     'link' => true,
     'default' => true,
-  ),
-  'CONTACT_NAME' => 
-  array (
-    'width' => '5%',
-    'label' => 'LBL_LIST_CONTACT',
-    'link' => true,
-    'id' => 'CONTACT_ID',
-    'module' => 'Contacts',
-    'default' => true,
-    'ACLTag' => 'CONTACT',
-    'related_fields' => 
-    array (
-      0 => 'contact_id',
-    ),
   ),
   'ASSIGNED_USER_NAME' => 
   array (
@@ -86,7 +72,7 @@ array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_PERCENT_COMPLETE',
-    'width' => '10%',
+    'width' => '8%',
   ),
   'DATE_COMPLETE' => 
   array (
@@ -100,6 +86,20 @@ array (
     'width' => '2%',
     'label' => 'LBL_LIST_TEAM',
     'default' => false,
+  ),
+  'CONTACT_NAME' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_LIST_CONTACT',
+    'link' => true,
+    'id' => 'CONTACT_ID',
+    'module' => 'Contacts',
+    'default' => false,
+    'ACLTag' => 'CONTACT',
+    'related_fields' => 
+    array (
+      0 => 'contact_id',
+    ),
   ),
   'ON_REPORT_CARD' => 
   array (

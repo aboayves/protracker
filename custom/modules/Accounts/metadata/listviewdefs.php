@@ -20,7 +20,7 @@ array (
     'default' => true,
     'studio' => 'visible',
     'label' => 'LBL_STATUS',
-    'width' => '10%',
+    'width' => '8%',
   ),
   'PRIORITY' => 
   array (
@@ -28,7 +28,7 @@ array (
     'default' => true,
     'studio' => 'visible',
     'label' => 'LBL_PRIORITY',
-    'width' => '10%',
+    'width' => '8%',
   ),
   'ASSIGNED_USER_NAME' => 
   array (
@@ -44,6 +44,12 @@ array (
     'label' => 'LBL_DESCRIPTION',
     'sortable' => false,
     'width' => '10%',
+    'default' => true,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_DATE_MODIFIED',
     'default' => true,
   ),
   'TEAM_NAME' => 
@@ -155,12 +161,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_EMPLOYEES',
-    'default' => false,
-  ),
-  'DATE_MODIFIED' => 
-  array (
-    'width' => '5%',
-    'label' => 'LBL_DATE_MODIFIED',
     'default' => false,
   ),
   'CREATED_BY_NAME' => 

@@ -1,21 +1,12 @@
 <?php
 $dashletData['av_AccountsDashlet']['searchFields'] = array (
-  'date_entered' => 
+  'accounts_av_accounts_name' => 
   array (
     'default' => '',
   ),
-  'date_modified' => 
+  'account_number' => 
   array (
     'default' => '',
-  ),
-  'team_id' => 
-  array (
-    'default' => '',
-  ),
-  'assigned_user_id' => 
-  array (
-    'type' => 'assigned_user_name',
-    'default' => 'Ron Walters',
   ),
 );
 $dashletData['av_AccountsDashlet']['columns'] = array (
@@ -33,21 +24,7 @@ $dashletData['av_AccountsDashlet']['columns'] = array (
     'default' => true,
     'label' => 'LBL_ACCOUNT_NUMBER',
     'width' => '10%',
-  ),
-  'description' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
-    'default' => true,
-  ),
-  'value_date' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_VALUE_DATE',
-    'width' => '10%',
+    'name' => 'account_number',
   ),
   'value' => 
   array (
@@ -56,6 +33,15 @@ $dashletData['av_AccountsDashlet']['columns'] = array (
     'label' => 'LBL_VALUE',
     'currency_format' => true,
     'width' => '10%',
+    'name' => 'value',
+  ),
+  'value_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'label' => 'LBL_VALUE_DATE',
+    'width' => '10%',
+    'name' => 'value_date',
   ),
   'date_modified' => 
   array (
@@ -92,6 +78,15 @@ $dashletData['av_AccountsDashlet']['columns'] = array (
     'label' => 'LBL_TYPE',
     'width' => '10%',
     'name' => 'type',
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+    'name' => 'description',
   ),
   'date_entered' => 
   array (
