@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-15 15:26:56
+// created: 2013-01-15 20:29:22
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Agent',
   'LBL_EDITVIEW_PANEL3' => 'Policy Details',

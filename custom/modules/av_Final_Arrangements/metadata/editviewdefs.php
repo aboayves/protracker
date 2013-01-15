@@ -38,24 +38,27 @@ array (
       array (
         0 => 
         array (
-          0 => 'document_name',
-          1 => 
+          0 => 
           array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'onchangeSetFileNameTo' => 'document_name',
-            ),
+            'name' => 'Accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
           ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
+          0 => 'document_name',
+          1 => 
+          array (
+            'name' => 'memo_location',
+            'comment' => '',
+            'label' => 'LBL_MEMO_LOCATION',
+          ),
         ),
         2 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 'category_id',
+          1 => 'subcategory_id',
         ),
         3 => 
         array (
@@ -65,35 +68,33 @@ array (
         4 => 
         array (
           0 => 'status_id',
-          1 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
+          1 => '',
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'description',
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'onchangeSetFileNameTo' => 'document_name',
+            ),
           ),
         ),
         6 => 
         array (
           0 => 
           array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-          1 => 
-          array (
-            'name' => 'memo_location',
-            'comment' => '',
-            'label' => 'LBL_MEMO_LOCATION',
+            'name' => 'file_ext',
+            'label' => 'LBL_FILE_EXTENSION',
           ),
         ),
         7 => 
         array (
+          0 => 
+          array (
+            'name' => 'description',
+          ),
           1 => 
           array (
             'name' => 'team_name',
