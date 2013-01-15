@@ -1,8 +1,8 @@
 <?php
-$module_name = 'av_Account_Owners';
+$module_name = 'av_Scoring';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
@@ -21,7 +21,6 @@ array (
         ),
       ),
       'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -31,42 +30,31 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Accounts_name',
-            'label' => 'LBL_AV_ACCOUNTS_NAME',
+            'name' => 'Accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'Contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
-          ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
           0 => 'name',
           1 => 
           array (
-            'name' => 'ownership_percent',
+            'name' => 'score_date',
             'comment' => '',
-            'label' => 'LBL_OWNERSHIP_PERCENT',
+            'label' => 'LBL_SCORE_DATE',
           ),
         ),
         2 => 
         array (
           0 => 'description',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
           1 => 
           array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
           ),
         ),
       ),

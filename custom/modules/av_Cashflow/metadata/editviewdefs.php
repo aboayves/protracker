@@ -40,14 +40,7 @@ array (
         0 => 
         array (
           0 => 'document_name',
-          1 => 
-          array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'onchangeSetFileNameTo' => 'document_name',
-            ),
-          ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
@@ -56,20 +49,27 @@ array (
         ),
         2 => 
         array (
-          0 => 'assigned_user_name',
-        ),
-        3 => 
-        array (
           0 => 'active_date',
           1 => 'exp_date',
         ),
-        4 => 
+        3 => 
         array (
           0 => 'status_id',
           1 => 
           array (
             'name' => 'file_mime_type',
             'label' => 'LBL_MIME',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'onchangeSetFileNameTo' => 'document_name',
+            ),
           ),
         ),
         5 => 

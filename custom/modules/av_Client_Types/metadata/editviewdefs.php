@@ -1,5 +1,5 @@
 <?php
-$module_name = 'av_Account_Owners';
+$module_name = 'av_Client_Types';
 $viewdefs [$module_name] = 
 array (
   'EditView' => 
@@ -21,7 +21,6 @@ array (
         ),
       ),
       'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -29,32 +28,22 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_Accounts_name',
-            'label' => 'LBL_AV_ACCOUNTS_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'Contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
-          ),
+          0 => 'name',
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'name',
+          0 => 'description',
           1 => 
           array (
-            'name' => 'ownership_percent',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP_PERCENT',
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
           ),
         ),
         2 => 
-        array (
-          0 => 'description',
-        ),
-        3 => 
         array (
           0 => 
           array (

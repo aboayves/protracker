@@ -40,12 +40,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'link' => 'uploadfile',
-              'id' => 'id',
-            ),
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
         1 => 
@@ -55,18 +51,10 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-        ),
-        3 => 
-        array (
           0 => 'active_date',
           1 => 'exp_date',
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -77,6 +65,18 @@ array (
           array (
             'name' => 'file_mime_type',
             'label' => 'LBL_MIME',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'link' => 'uploadfile',
+              'id' => 'id',
+            ),
           ),
         ),
         5 => 

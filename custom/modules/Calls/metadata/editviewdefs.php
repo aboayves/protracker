@@ -117,12 +117,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
         array (
           0 => 
           array (
-            'name' => 'duration_hours',
-            'label' => 'LBL_DURATION',
-            'customCode' => '{literal}<script type="text/javascript">function isValidDuration() { form = document.getElementById(\'EditView\'); if ( form.duration_hours.value + form.duration_minutes.value <= 0 ) { alert(\'{/literal}{$MOD.NOTICE_DURATION_TIME}{literal}\'); return false; } return true; }</script>{/literal}<input id="duration_hours" name="duration_hours" size="2" maxlength="2" type="text" value="{$fields.duration_hours.value}" onkeyup="SugarWidgetScheduler.update_time();"/>{$fields.duration_minutes.value}&nbsp;<span class="dateFormat">{$MOD.LBL_HOURS_MINUTES}</span>',
-          ),
-          1 => 
-          array (
             'name' => 'status',
             'fields' => 
             array (
@@ -136,8 +130,39 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
               ),
             ),
           ),
+          1 => 
+          array (
+            'name' => 'direction',
+            'comment' => 'Indicates whether call is inbound or outbound',
+            'label' => 'LBL_DIRECTION',
+          ),
         ),
         4 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'duration_hours',
+            'label' => 'LBL_DURATION',
+            'customCode' => '{literal}<script type="text/javascript">function isValidDuration() { form = document.getElementById(\'EditView\'); if ( form.duration_hours.value + form.duration_minutes.value <= 0 ) { alert(\'{/literal}{$MOD.NOTICE_DURATION_TIME}{literal}\'); return false; } return true; }</script>{/literal}<input id="duration_hours" name="duration_hours" size="2" maxlength="2" type="text" value="{$fields.duration_hours.value}" onkeyup="SugarWidgetScheduler.update_time();"/>{$fields.duration_minutes.value}&nbsp;<span class="dateFormat">{$MOD.LBL_HOURS_MINUTES}</span>',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reminder_time',
+            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
+            'label' => 'LBL_REMINDER',
+          ),
+          1 => 
+          array (
+            'name' => 'email_reminder_time',
+            'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
+            'label' => 'LBL_EMAIL_REMINDER_TIME',
+          ),
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -147,15 +172,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
           ),
           1 => 
           array (
-            'name' => 'reminder_time',
-            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-            'label' => 'LBL_REMINDER',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
             'name' => 'team_name',
             'displayParams' => 
             array (
@@ -163,7 +179,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
             ),
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
