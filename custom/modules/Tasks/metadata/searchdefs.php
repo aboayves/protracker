@@ -68,15 +68,15 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'av_activity_types_tasks_1_name' => 
+      'av_Activity_Types_name' => 
       array (
         'type' => 'relate',
         'link' => true,
-        'label' => 'LBL_AV_ACTIVITY_TYPES_TASKS_1_FROM_AV_ACTIVITY_TYPES_TITLE',
-        'id' => 'AV_ACTIVITY_TYPES_TASKS_1AV_ACTIVITY_TYPES_IDA',
+        'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+        'id' => 'activity_type_id',
         'width' => '10%',
         'default' => true,
-        'name' => 'av_activity_types_tasks_1_name',
+        'name' => 'av_Activity_Types_name',
       ),
       'parent_tasks_name' => 
       array (
