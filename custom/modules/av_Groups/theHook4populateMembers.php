@@ -101,7 +101,7 @@
 				global $db, $timedate;
 				$newID=create_guid();
 				$date_modified=$timedate->nowDb();
-				$sql="UPDATE av_Groups SET lastupdated= '{$date_modified}' WHERE id='{$bean->id}'";
+				$sql="UPDATE av_groups SET lastupdated= '{$date_modified}' WHERE id='{$bean->id}'";
 				$db->query($sql);
 				$sql = "SELECT * from av_groups_reports where av_groups_id = '{$bean->id}' AND reports_id = '{$_REQUEST['subpanel_id']}'";
 				$result = $db->query($sql);
