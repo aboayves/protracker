@@ -1,5 +1,5 @@
 <?php
-$layout_defs["Accounts"]["subpanel_setup"]['accounts_contacts'] = array (
+/*$layout_defs["Accounts"]["subpanel_setup"]['accounts_contacts'] = array (
   'order' => 101,
   'module' => 'Contacts',
   'subpanel_name' => 'ForAccounts',
@@ -20,3 +20,4 @@ $layout_defs["Accounts"]["subpanel_setup"]['accounts_contacts'] = array (
     ),
   ),
 );
+*/
