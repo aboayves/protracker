@@ -4,7 +4,7 @@ global $db;
 header("Content-type:text/octect-stream");
 header("Content-Disposition:attachment;filename=\"{$_REQUEST['name']}-mailing list.csv\"");
 
-echo "Name,Envelope Name,Street,City,State,Country,Zip,Phone,Fax,Contact Type,Status,Priority,Company\n";
+echo "Name,Envelope Name,Street,City,State,Country,Zip,Phone,Fax,Contact Type,Status,Priority\n";
 
 $sql="
 SELECT 
@@ -18,7 +18,6 @@ SELECT
 	contacts.primary_address_country, 
 	contacts.phone_home, 
 	contacts.phone_fax as contacts_fax, 
-	contacts.type, 
 	contacts.status AS contact_status, 
 	contacts.priority AS contact_priority, 
 	accounts.name, 
@@ -29,12 +28,12 @@ SELECT
 	accounts.billing_address_country, 
 	accounts.phone_office, 
 	accounts.phone_fax as accounts_fax, 
-	accounts.account_type, 
 	accounts.status AS client_status, 
 	accounts.priority AS client_priority,
 	av_group_membership.parent_type,
 	av_group_membership.envelope,
-	av_offices.name AS company_name
+	av_client_types.name AS client_type,
+	av_contact_types.name AS contact_type
 FROM av_group_membership
 LEFT JOIN 
 	accounts 
@@ -46,13 +45,13 @@ LEFT JOIN
 		av_group_membership.parent_type='Accounts'
 	)
 LEFT JOIN 
-	av_offices_accounts_1_c
+	av_client_types
 	ON(
-		av_offices_accounts_1_c.deleted=0 
-		AND 
-		av_offices_accounts_1_c.av_offices_accounts_1accounts_idb=accounts.id 
+		av_client_types.deleted=0 
+		AND
+		av_client_types.id=accounts.client_type_id 
 	)
-LEFT JOIN 
+LEFT JOIN
 	contacts 
 	ON(
 		contacts.deleted=0 
@@ -62,35 +61,11 @@ LEFT JOIN
 		av_group_membership.parent_type='Contacts' 
 	)
 LEFT JOIN 
-	av_offices_contacts_1_c 
+	av_contact_types
 	ON(
-		av_offices_contacts_1_c.deleted=0 
-		AND 
-		av_offices_contacts_1_c.av_offices_contacts_1contacts_idb=contacts.id 
-	)
-	
-LEFT JOIN
-	av_offices 
-	ON(
-		av_offices.deleted=0 
-		AND 
-		(
-			(
-				av_offices_accounts_1_c.av_offices_accounts_1av_offices_ida IS NOT NULL
-				AND 
-				av_offices_accounts_1_c.av_offices_accounts_1av_offices_ida!='' 
-				AND 
-				av_offices.id=av_offices_accounts_1_c.av_offices_accounts_1av_offices_ida 
-			)
-			OR
-			(
-				av_offices_contacts_1_c.av_offices_contacts_1av_offices_ida IS NOT NULL 
-				AND 
-				av_offices_contacts_1_c.av_offices_contacts_1av_offices_ida!='' 
-				AND 
-				av_offices.id=av_offices_contacts_1_c.av_offices_contacts_1av_offices_ida 
-			)
-		)
+		av_contact_types.deleted=0 
+		AND
+		av_contact_types.id=contacts.contact_type_id 
 	)
 WHERE 
 	av_group_membership.deleted=0 
@@ -105,11 +80,11 @@ while($member = $db->fetchByAssoc($members))
 
 	if($member['parent_type']=="Accounts")
 	{
-	echo $member['name'].",".$member['envelope'].",".$member['billing_address_street'].",".$member['billing_address_city'].",".$member['billing_address_state'].",".$member['billing_address_country'].","."'".$member['billing_address_postalcode'].",".$member['phone_office'].",".$member['accounts_fax'].",".$member['account_type'].",".$member['client_status'].",".$member['client_priority'].",".$member['company_name']."\n";
+	echo $member['name'].",".$member['envelope'].",".$member['billing_address_street'].",".$member['billing_address_city'].",".$member['billing_address_state'].",".$member['billing_address_country'].","."'".$member['billing_address_postalcode'].",".$member['phone_office'].",".$member['accounts_fax'].",".$member['client_type'].",".$member['client_status'].",".$member['client_priority']."\n";
 	}
 	else
 	{
-		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].",".$member['envelope'].",".$member['primary_address_street'].",".$member['primary_address_city'].",".$member['primary_address_state'].",".$member['primary_address_country'].","."'".$member['primary_address_postalcode'].",".$member['phone_home'].",".$member['contacts_fax'].",".$member['type'].",".$member['contact_status'].",".$member['contact_priority'].",".$member['company_name']."\n";
+		echo $member['salutation']." ".$member['first_name']." ".$member['last_name'].",".$member['envelope'].",".$member['primary_address_street'].",".$member['primary_address_city'].",".$member['primary_address_state'].",".$member['primary_address_country'].","."'".$member['primary_address_postalcode'].",".$member['phone_home'].",".$member['contacts_fax'].",".$member['contact_type'].",".$member['contact_status'].",".$member['contact_priority']."\n";
 	}
 }
 
