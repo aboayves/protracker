@@ -7747,3 +7747,9 @@ a.cstm_subpanel_more_button {
 #mbtabs{
 	height: 100%;
 }
+
+#MorePanelMenu, #MorePanelMenu a{
+	color:#000000 !important;
+	font-size:15px;
+	width:auto !important;
+}

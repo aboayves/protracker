@@ -76,7 +76,6 @@ SUGAR.util.doWhen("typeof get_module_name != 'undefined'", function()
 {if !empty($moreMenu)}
 	<li>
 		<a id="MorePanelHandle" href="javascript:void();" class="cstm_subpanel_more_button" 
-		onmouseover='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);' 
 		onclick='SUGAR.subpanelUtils.menu.tbspButtonMouseOver(this.id,"","",0);'>More</a>
         {if !empty($moreMenu)}
         <div id="MorePanelMenu" class="menu">
