@@ -25,8 +25,10 @@ echo '<script type="text/javascript">
       </script>';
 	  
 if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
-	$admin_option_defs=array();
+	$admin_group_header = array();
 	
+	//Protracker Admin
+	$admin_option_defs = array();
 	$admin_option_defs['Administration']['av_Account_Types'] = array(
 		'av_Account_Types',
 		translate('av_Account_Types', 'LBL_MODULE_NAME'),
@@ -62,8 +64,137 @@ if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
 		'./index.php?module=ModuleBuilder&action=index&type=dropdowns'
 	);
 	
-	$admin_group_header = array(
-		array('ProTracker Administration', '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings')
+	//$admin_group_header[] = array('ProTracker Administration', '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
+	
+	//Users Admin
+	//$admin_option_defs = array();
+	$admin_option_defs['Users']['user_management'] = array(
+		'Users',
+		'LBL_MANAGE_USERS_TITLE',
+		'LBL_MANAGE_USERS',
+		'./index.php?module=Users&action=index'
 	);
+	
+	$admin_option_defs['Users']['roles_management'] = array(
+		'Roles',
+		'LBL_MANAGE_ROLES_TITLE',
+		'LBL_MANAGE_ROLES',
+		'./index.php?module=ACLRoles&action=index'
+	);
+	
+	$admin_option_defs['Users']['teams_management'] = array(
+		'Teams',
+		'LBL_MANAGE_TEAMS_TITLE',
+		'LBL_MANAGE_TEAMS',
+		'./index.php?module=Teams&action=index'
+	);
+	
+	//$admin_group_header[] = array('LBL_USERS_TITLE','',false,$admin_option_defs, 'LBL_USERS_DESC');
+	
+	//system.
+	//$admin_option_defs = array();
+	$admin_option_defs['Administration']['connector_settings'] = array(
+		'icon_Connectors',
+		'LBL_CONNECTOR_SETTINGS',
+		'LBL_CONNECTOR_SETTINGS_DESC',
+		'./index.php?module=Connectors&action=ConnectorSettings'
+	);
+	
+	$admin_option_defs['Administration']['feed_settings'] = array(
+		'icon_SugarFeed',
+		'LBL_SUGARFEED_SETTINGS',
+		'LBL_SUGARFEED_SETTINGS_DESC',
+		'./index.php?module=SugarFeed&action=AdminSettings'
+	);
+	
+	$admin_option_defs['Administration']['import'] = array(
+		'Import',
+		'LBL_IMPORT_WIZARD',
+		'LBL_IMPORT_WIZARD_DESC',
+		'./index.php?module=Import&action=step1&import_module=Administration'
+	);
+	
+	$admin_option_defs['Administration']['sugarpdf'] = array(
+		'icon_AdminPDF',
+		'LBL_SUGARPDF_SETTINGS',
+		'LBL_SUGARPDF_SETTINGS_DESC',
+		'./index.php?module=Configurator&action=SugarpdfSettings'
+	);
+	
+	//$admin_group_header[]= array('LBL_ADMINISTRATION_HOME_TITLE','',false,$admin_option_defs, 'LBL_ADMINISTRATION_HOME_DESC');
+	
+	//email manager.
+	//$admin_option_defs = array();
+	$admin_option_defs['Emails']['mass_Email_config'] = array(
+		'EmailMan',
+		'LBL_MASS_EMAIL_CONFIG_TITLE',
+		'LBL_MASS_EMAIL_CONFIG_DESC',
+		'./index.php?module=EmailMan&action=config'
+	);
+	
+	$admin_option_defs['Emails']['mailboxes'] = array(
+		'InboundEmail',
+		'LBL_MANAGE_MAILBOX',
+		'LBL_MAILBOX_DESC',
+		'./index.php?module=InboundEmail&action=index'
+	);
+	
+	$admin_option_defs['Campaigns']['mass_Email'] = array(
+		'EmailMan',
+		'LBL_MASS_EMAIL_MANAGER_TITLE',
+		'LBL_MASS_EMAIL_MANAGER_DESC',
+		'./index.php?module=EmailMan&action=index'
+	);
+	
+	//$admin_group_header[] = array('LBL_EMAIL_TITLE','',false,$admin_option_defs, 'LBL_EMAIL_DESC');
+	
+	//product catalog.
+	//$admin_option_defs = array();
+	$admin_option_defs['Products']['product_catalog'] = array(
+		'Products',
+		'LBL_PRODUCTS_TITLE',
+		'LBL_PRODUCTS',
+		'./index.php?module=ProductTemplates&action=ListView'
+	);
+	
+	$admin_option_defs['Products']['product_categories'] = array(
+		'Product_Categories',
+		'LBL_PRODUCT_CATEGORIES_TITLE',
+		'LBL_PRODUCT_CATEGORIES',
+		'./index.php?module=ProductCategories&action=index'
+	);
+	
+	$admin_option_defs['Products']['product_types'] = array(
+		'Product_Types',
+		'LBL_PRODUCT_TYPES_TITLE',
+		'LBL_PRODUCT_TYPES',
+		'./index.php?module=ProductTypes&action=index'
+	);
+	
+	//$admin_group_header[] = array('LBL_PRICE_LIST_TITLE','',false,$admin_option_defs, 'LBL_PRICE_LIST_DESC');
+	
+	//Forecasting
+	//$admin_option_defs = array();
+	$admin_option_defs['Forecasts']['timeperiod_management'] = array(
+		'TimePeriods',
+		'LBL_MANAGE_TIMEPERIODS_TITLE',
+		'LBL_MANAGE_TIMEPERIODS',
+		'./index.php?module=TimePeriods&action=ListView'
+	);
+	
+	//$admin_group_header[] = array('LBL_FORECAST_TITLE','',false,$admin_option_defs, 'LBL_FORECAST_DESC');
+	
+	//Contracts
+	//$admin_option_defs = array();
+	$admin_option_defs['Contracts']['contract_type_management'] = array(
+		'Contracts',
+		'LBL_MANAGE_CONTRACTEMPLATES_TITLE',
+		'LBL_CONTRACT_TYPES',
+		'./index.php?module=ContractTypes&action=index'
+	);
+	
+	//$admin_group_header[] = array($app_list_strings['moduleList']['Contracts'],'',false,$admin_option_defs, 'LBL_CONTRACT_DESC');
+	
+	$admin_group_header[] = array('ProTracker Administration', '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
 }
 ?>
