@@ -335,16 +335,16 @@ array (
             'name' => 'phone_fax',
             'label' => 'LBL_FAX_PHONE',
           ),
-          1 => '',
-        ),
-        9 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'primary_address_date_start',
             'comment' => '',
             'label' => 'LBL_PRIMARY_ADDRESS_DATE_START',
           ),
+        ),
+        9 => 
+        array (
+          0 => '',
           1 => 
           array (
             'name' => 'primary_address_date_end',

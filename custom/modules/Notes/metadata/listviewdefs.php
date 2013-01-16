@@ -1,9 +1,25 @@
 <?php
 $listViewDefs ['Notes'] = 
 array (
-  'PARENT_NAME' => 
+  'AV_ACTIVITY_TYPES_NOTES_1_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACTIVITY_TYPES_NOTES_1_FROM_AV_ACTIVITY_TYPES_TITLE',
+    'id' => 'AV_ACTIVITY_TYPES_NOTES_1AV_ACTIVITY_TYPES_IDA',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'NAME' => 
   array (
     'width' => '20%',
+    'label' => 'LBL_LIST_SUBJECT',
+    'link' => true,
+    'default' => true,
+  ),
+  'PARENT_NAME' => 
+  array (
+    'width' => '12%',
     'label' => 'LBL_LIST_RELATED_TO',
     'dynamic_module' => 'PARENT_TYPE',
     'id' => 'PARENT_ID',
@@ -17,59 +33,25 @@ array (
       1 => 'parent_type',
     ),
   ),
-  'NAME' => 
+  'ASSIGNED_USER_NAME' => 
   array (
-    'width' => '40%',
-    'label' => 'LBL_LIST_SUBJECT',
     'link' => true,
-    'default' => true,
-  ),
-  'AV_ACTIVITY_TYPES_NOTES_1_NAME' => 
-  array (
     'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_AV_ACTIVITY_TYPES_NOTES_1_FROM_AV_ACTIVITY_TYPES_TITLE',
-    'id' => 'AV_ACTIVITY_TYPES_NOTES_1AV_ACTIVITY_TYPES_IDA',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'CREATED_BY_NAME' => 
-  array (
-    'type' => 'relate',
-    'label' => 'LBL_CREATED_BY',
-    'width' => '10%',
-    'default' => true,
-    'related_fields' => 
-    array (
-      0 => 'created_by',
-    ),
-  ),
-  'DATE_ENTERED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_ENTERED',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'MODIFIED_BY_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_MODIFIED_BY',
-    'id' => 'MODIFIED_USER_ID',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
     'width' => '10%',
     'default' => true,
   ),
   'DATE_MODIFIED' => 
   array (
-    'width' => '20%',
+    'width' => '10%',
     'label' => 'LBL_DATE_MODIFIED',
     'link' => false,
     'default' => true,
   ),
   'FILENAME' => 
   array (
-    'width' => '20%',
+    'width' => '15%',
     'label' => 'LBL_LIST_FILENAME',
     'default' => true,
     'type' => 'file',
@@ -131,12 +113,30 @@ array (
     'label' => 'LBL_LIST_TEAM',
     'default' => false,
   ),
-  'ASSIGNED_USER_NAME' => 
+  'DATE_ENTERED' => 
   array (
-    'link' => true,
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_ENTERED',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'CREATED_BY_NAME' => 
+  array (
     'type' => 'relate',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
+    'label' => 'LBL_CREATED_BY',
+    'width' => '10%',
+    'default' => false,
+    'related_fields' => 
+    array (
+      0 => 'created_by',
+    ),
+  ),
+  'MODIFIED_BY_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_MODIFIED_BY',
+    'id' => 'MODIFIED_USER_ID',
     'width' => '10%',
     'default' => false,
   ),

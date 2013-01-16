@@ -15,9 +15,16 @@ array (
   ),
   'STATUS' => 
   array (
-    'width' => '1%',
+    'width' => '10%',
     'label' => 'LBL_STATUS',
     'link' => false,
+    'default' => true,
+  ),
+  'NAME' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_LIST_SUBJECT',
+    'link' => true,
     'default' => true,
   ),
   'PARENT_NAME' => 
@@ -36,34 +43,9 @@ array (
       1 => 'parent_type',
     ),
   ),
-  'CONTACT_NAME' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_LIST_CONTACT',
-    'link' => true,
-    'id' => 'CONTACT_ID',
-    'module' => 'Contacts',
-    'default' => true,
-    'ACLTag' => 'CONTACT',
-  ),
-  'NAME' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_SUBJECT',
-    'link' => true,
-    'default' => true,
-  ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '30%',
-    'default' => true,
-  ),
   'DATE_START' => 
   array (
-    'width' => '15%',
+    'width' => '12%',
     'label' => 'LBL_LIST_DATE',
     'link' => false,
     'default' => true,
@@ -72,19 +54,26 @@ array (
       0 => 'time_start',
     ),
   ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
-  ),
   'DIRECTION' => 
   array (
     'width' => '10%',
     'label' => 'LBL_LIST_DIRECTION',
     'link' => false,
+    'default' => true,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_ASSIGNED_TO_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '10%',
     'default' => true,
   ),
   'TEAM_NAME' => 
@@ -93,10 +82,74 @@ array (
     'label' => 'LBL_LIST_TEAM',
     'default' => false,
   ),
+  'SET_ACCEPT_LINKS' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ACCEPT_LINK',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'ACCEPT_STATUS' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ACCEPT_STATUS',
+    'width' => '10%',
+    'default' => false,
+  ),
   'DATE_ENTERED' => 
   array (
     'width' => '15%',
     'label' => 'LBL_DATE_ENTERED',
+    'default' => false,
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '30%',
+    'default' => false,
+  ),
+  'CONTACT_NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_LIST_CONTACT',
+    'link' => true,
+    'id' => 'CONTACT_ID',
+    'module' => 'Contacts',
+    'default' => false,
+    'ACLTag' => 'CONTACT',
+  ),
+  'MODIFIED_BY_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_MODIFIED_NAME',
+    'id' => 'MODIFIED_USER_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'CREATED_BY_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CREATED',
+    'id' => 'CREATED_BY',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DURATION_HOURS' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_DURATION_HOURS',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DURATION_MINUTES' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_DURATION_MINUTES',
+    'width' => '10%',
     'default' => false,
   ),
 );
