@@ -289,10 +289,6 @@ array (
         ),
         6 => 
         array (
-          0 => '',
-        ),
-        7 => 
-        array (
           0 => 
           array (
             'name' => 'phone_home',
@@ -306,7 +302,7 @@ array (
             'label' => 'LBL_OFFICE_PHONE',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -321,7 +317,7 @@ array (
             'label' => 'LBL_OTHER_PHONE',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -330,6 +326,21 @@ array (
             'label' => 'LBL_FAX_PHONE',
           ),
           1 => '',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'primary_address_date_start',
+            'comment' => '',
+            'label' => 'LBL_PRIMARY_ADDRESS_DATE_START',
+          ),
+          1 => 
+          array (
+            'name' => 'primary_address_date_end',
+            'comment' => '',
+            'label' => 'LBL_PRIMARY_ADDRESS_DATE_END',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
