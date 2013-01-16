@@ -67,7 +67,10 @@ array (
         ),
         1 => 
         array (
-          0 => 'description',
+          0 => array(
+		  	'name' => 'description',
+            'customCode' => '<div> {$fields.description.value} <div>',
+		  ),
           1 => 'team_name',
         ),
         2 => 
