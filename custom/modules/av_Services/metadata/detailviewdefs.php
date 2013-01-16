@@ -39,7 +39,7 @@ array (
       array (
         0 => 
         array (
-          1 => 'name',
+          0 => 'name',
         ),
         1 => 
         array (
@@ -72,6 +72,21 @@ array (
           1 => 'team_name',
         ),
         4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_start',
+            'comment' => '',
+            'label' => 'LBL_DATE_START',
+          ),
+          1 => 
+          array (
+            'name' => 'date_end',
+            'comment' => '',
+            'label' => 'LBL_DATE_END',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (

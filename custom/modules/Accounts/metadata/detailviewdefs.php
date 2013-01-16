@@ -20,11 +20,11 @@ array (
 <input type=\'hidden\' value=\'false\' name=\'to_pdf\'>
 <input onclick="this.form.to_pdf.value=\'true\';this.form.action.value=\'CsvExport\';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value=\'false\';" type=\'button\' name=\'csv_export\' value=\'Export to CSV\' />',
           ),
-		  5 => 
+          5 => 
           array (
             'customCode' => '<input type="button" title="Generate Networth Statement" value="Generate Networth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
           ),
-      6 => 
+          6 => 
           array (
             'customCode' => '<input type="button" title="POP" value="POP" name="POPIT" id="POPIT" onclick="alert(\'{$fields.report_salutation.value}\');"/>',
           ),
@@ -163,6 +163,16 @@ array (
         ),
         7 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'phase',
+            'comment' => '',
+            'label' => 'LBL_PHASE',
+          ),
+        ),
+        8 => 
+        array (
           0 => 
           array (
             'name' => 'document_path',
@@ -176,7 +186,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -186,7 +196,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (

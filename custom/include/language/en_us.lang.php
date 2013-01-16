@@ -3092,6 +3092,14 @@ $app_list_strings['preferred_document_submittal_list'] = array (
 	'Other' => 'Other',
 );
 
+$app_list_strings['client_phase_list'] = array (
+	'' => '',
+	'Accumulation' => 'Accumulation',
+	'Preservation' => 'Preservation',
+	'Distribuion' => 'Distribuion',
+	'Other' => 'Other',
+);
+
 $app_strings['LBL_TABGROUP_DOCUMENT_MANAGEMENT'] = 'Documents';
 $app_strings['LBL_TABGROUP_PROJECT_MANAGEMENT'] = 'Projects';
 $app_strings['LBL_TABGROUP_SALES_MARKETING'] = 'Marketing & Sales';
