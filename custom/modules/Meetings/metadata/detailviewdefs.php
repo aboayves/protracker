@@ -74,7 +74,7 @@ array (
         ),
       ),
       'useTabs' => false,
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -143,12 +143,6 @@ array (
         5 => 
         array (
           0 => 
-          array (
-            'name' => 'duration',
-            'comment' => 'Duration handler dropdown',
-            'label' => 'LBL_DURATION',
-          ),
-          1 => 
           array (
             'name' => 'reminder_time',
             'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',

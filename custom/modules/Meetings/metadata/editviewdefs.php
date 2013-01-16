@@ -66,7 +66,7 @@ array (
 <script>toggle_portal_flag();function toggle_portal_flag()  {ldelim} {$TOGGLE_JS} {rdelim} 
 function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.EditView.submit();{rdelim}{rdelim}</script>',
       'useTabs' => false,
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -145,16 +145,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           ),
           1 => 
           array (
-            'name' => 'duration_hours',
-            'comment' => 'Duration (hours)',
-            'label' => 'LBL_DURATION_HOURS',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'duration',
+           	'name' => 'duration_hours',
             'customCode' => '
                 @@FIELD@@
                 {sugar_getscript file="modules/Meetings/duration_dependency.js"}
@@ -169,7 +160,10 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
                 </script>            
             ',
           ),
-          1 => 
+        ),
+        5 => 
+        array (
+          0 => 
           array (
             'name' => 'reminder_time',
             'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
