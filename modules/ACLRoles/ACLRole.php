@@ -266,13 +266,15 @@ function mark_relationships_deleted($id){
 	function create_new_list_query($order_by, $where,$filter=array(),$params=array(), $show_deleted = 0,$join_type='', $return_array = false,$parentbean=null, $singleSelect = false, $ifListForExport = false){
 		$arr = parent::create_new_list_query($order_by, $where,$filter,$params, $show_deleted,$join_type, $return_array,$parentbean, $singleSelect, $ifListForExport);
 		
-		if(isset($arr['where']) && !empty($arr['where'])){
-			$arr['where'] .= " AND ";
-		}else{
-			$arr['where'] .= " WHERE ";
+		if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
+			if(isset($arr['where']) && !empty($arr['where'])){
+				$arr['where'] .= " AND ";
+			}else{
+				$arr['where'] .= " WHERE ";
+			}
+			
+			$arr['where'] .= " acl_roles.name NOT IN ('Standard Edition','Enhanced Edition','Enterprise Edition') ";
 		}
-		
-		$arr['where'] .= " acl_roles.name NOT LIKE 'Standard Edition' AND acl_roles.name NOT LIKE 'Enhanced Edition' AND acl_roles.name NOT LIKE 'Enterprise Edition' ";
 		
 		return $arr;
 	}
