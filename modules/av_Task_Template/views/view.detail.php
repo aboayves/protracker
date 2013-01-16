@@ -13,7 +13,9 @@ class av_Task_TemplateViewDetail extends ViewDetail {
 				'<script src="include/javascript/yui/build/json/json-min.js" ></script>'.
 				'<script src="include/javascript/yui/build/treeview/treeview-min.js" ></script>';
 
-        parent::display();
+        $this->bean->description = html_entity_decode($this->bean->description);
+		
+	    parent::display();
     }
 
 }

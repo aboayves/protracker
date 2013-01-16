@@ -66,7 +66,7 @@ array (
 <script>toggle_portal_flag();function toggle_portal_flag()  {ldelim} {$TOGGLE_JS} {rdelim} 
 function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.EditView.submit();{rdelim}{rdelim}</script>',
       'useTabs' => false,
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -143,12 +143,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
               'updateCallback' => 'SugarWidgetScheduler.update_time();',
             ),
           ),
-          1 => 
-          array (
-            'name' => 'duration_hours',
-            'comment' => 'Duration (hours)',
-            'label' => 'LBL_DURATION_HOURS',
-          ),
         ),
         5 => 
         array (
@@ -157,6 +151,8 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'name' => 'duration',
             'customCode' => '
                 @@FIELD@@
+                <input id="duration_hours" name="duration_hours" type="hidden" value="{$fields.duration_hours.value}">
+                <input id="duration_minutes" name="duration_minutes" type="hidden" value="{$fields.duration_minutes.value}">
                 {sugar_getscript file="modules/Meetings/duration_dependency.js"}
                 <script type="text/javascript">
                     var date_time_format = "{$CALENDAR_FORMAT}";

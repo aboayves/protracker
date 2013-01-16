@@ -614,6 +614,9 @@ class SugarView
                         );
                 }
             }
+			
+			ksort($groupTabs);
+			
             $ss->assign("groupTabs",$groupTabs);
             $ss->assign("shortcutTopMenu",$shortcutTopMenu);
             $ss->assign('USE_GROUP_TABS',$usingGroupTabs);

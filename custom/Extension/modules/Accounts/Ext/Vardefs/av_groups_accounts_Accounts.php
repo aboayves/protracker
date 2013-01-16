@@ -27,19 +27,22 @@ $dictionary["Account"]['fields']['av_groups_fields'] = array(
 	'source' => 'non-db',
 	'Importable' => false,
 	'duplicate_merge'=> 'disabled',
+	'studio' => false,
 );
 
 $dictionary["Account"]['fields']['membership_id'] = array (
 	'name' => 'membership_id',
 	'vname' => 'LBL_ID',
 	'type' => 'id',
-	'source' => 'non-db'
+	'studio' => false,
+	'source' => 'non-db',
 );
 
 $dictionary["Account"]['fields']['envelope'] = array(
 	'name' => 'envelope',
 	'vname' => 'LBL_ENVELOPE',
 	'type' => 'text',
+	'studio' => false,
 	'source' => 'non-db',
 );
 
@@ -49,6 +52,7 @@ $dictionary["Account"]['fields']['include'] = array(
 	'type' => 'bool',
 	'source' => 'non-db',
 	'default' => true,
+	'studio' => false,
 );
 
 $dictionary["Account"]['fields']['opted_out'] = array(
@@ -56,6 +60,7 @@ $dictionary["Account"]['fields']['opted_out'] = array(
 	'vname' => 'LBL_OPTED_OUT',
 	'type' => 'bool',
 	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Account"]['fields']['expiration_date'] = array(
@@ -63,6 +68,7 @@ $dictionary["Account"]['fields']['expiration_date'] = array(
 	'vname' => 'LBL_EXPIRATION_DATE',
 	'type' => 'date',
 	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Account"]['fields']['delivery_method'] = array(
@@ -71,6 +77,7 @@ $dictionary["Account"]['fields']['delivery_method'] = array(
 	'type' => 'enum',
 	'options' => 'grp_delivery_method_list',
 	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Account"]['fields']['comments'] = array(
@@ -78,4 +85,5 @@ $dictionary["Account"]['fields']['comments'] = array(
 	'vname' => 'LBL_COMMENTS',
 	'type' => 'text',
 	'source' => 'non-db',
+	'studio' => false,
 );

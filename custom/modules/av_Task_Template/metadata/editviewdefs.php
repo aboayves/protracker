@@ -26,6 +26,10 @@ array (
       array (
         0 => 
         array (
+          'file' => 'include/javascript/tiny_mce/tiny_mce.js',
+        ),
+		1 => 
+        array (
           'file' => 'modules/av_Task_Template/custom_javascript.js',
         ),
       ),
@@ -45,8 +49,7 @@ array (
         ),
         1 => 
         array (
-          0 => 'description',
-          1 => 
+          0 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -140,6 +143,10 @@ array (
 		 0 => '',
          1 => 'client_task',
         ),
+		9 => 
+        array (
+          0 =>  'description',
+		),
       ),
     ),
   ),

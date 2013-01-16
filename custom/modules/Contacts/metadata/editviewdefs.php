@@ -127,14 +127,8 @@ array (
             'comment' => '',
             'label' => 'LBL_SUFFIX',
           ),
-          1 => '',
         ),
         7 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        8 => 
         array (
           0 => 
           array (
@@ -149,7 +143,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -159,7 +153,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -194,8 +188,7 @@ array (
         ),
         1 => 
         array (
-          0 => 'envelope',
-          1 => 
+          0 => 
           array (
             'name' => 'preferred_meeting_time',
             'comment' => '',
@@ -289,10 +282,6 @@ array (
         ),
         6 => 
         array (
-          0 => '',
-        ),
-        7 => 
-        array (
           0 => 
           array (
             'name' => 'phone_home',
@@ -306,7 +295,7 @@ array (
             'label' => 'LBL_OFFICE_PHONE',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -321,7 +310,7 @@ array (
             'label' => 'LBL_OTHER_PHONE',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -329,7 +318,6 @@ array (
             'comment' => 'Contact fax number',
             'label' => 'LBL_FAX_PHONE',
           ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
@@ -423,11 +411,6 @@ array (
         ),
         6 => 
         array (
-          0 => '',
-          1 => '',
-        ),
-        7 => 
-        array (
           0 => 
           array (
             'name' => 'civic',
@@ -441,7 +424,7 @@ array (
             'label' => 'LBL_PROFESSIONAL',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -456,7 +439,7 @@ array (
             'label' => 'LBL_CHARITIES',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -471,7 +454,7 @@ array (
             'label' => 'LBL_POLITICS',
           ),
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -486,7 +469,7 @@ array (
             'label' => 'LBL_MILITARY_SERVICE',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -501,7 +484,7 @@ array (
             'label' => 'LBL_LEVEL_OF_HEALTH',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -516,7 +499,7 @@ array (
             'label' => 'LBL_LIKES',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (

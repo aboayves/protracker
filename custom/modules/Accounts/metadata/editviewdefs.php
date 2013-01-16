@@ -83,8 +83,7 @@ array (
         ),
         3 => 
         array (
-          0 => 'envelope',
-          1 => 
+          0 => 
           array (
             'name' => 'av_Client_Types_name',
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
