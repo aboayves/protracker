@@ -65,7 +65,6 @@ array (
           1 => 
           array (
             'name' => 'envelope',
-            'type' => 'readOnly',
           ),
         ),
         5 => 

@@ -27,13 +27,15 @@ $dictionary["Contact"]['fields']['av_groups_fields'] = array(
 	'source' => 'non-db',
 	'Importable' => false,
 	'duplicate_merge'=> 'disabled',
+	'studio' => false,
 );
 
 $dictionary["Contact"]['fields']['membership_id'] = array (
 	'name' => 'membership_id',
 	'vname' => 'LBL_ID',
 	'type' => 'id',
-	'source' => 'non-db'
+	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Contact"]['fields']['envelope'] = array(
@@ -41,6 +43,7 @@ $dictionary["Contact"]['fields']['envelope'] = array(
 	'vname' => 'LBL_ENVELOPE',
 	'type' => 'text',
 	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Contact"]['fields']['include'] = array(
@@ -49,6 +52,7 @@ $dictionary["Contact"]['fields']['include'] = array(
 	'type' => 'bool',
 	'default' => true,
 	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Contact"]['fields']['opted_out'] = array(
@@ -56,6 +60,7 @@ $dictionary["Contact"]['fields']['opted_out'] = array(
 	'vname' => 'LBL_OPTED_OUT',
 	'type' => 'bool',
 	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Contact"]['fields']['expiration_date'] = array(
@@ -63,6 +68,7 @@ $dictionary["Contact"]['fields']['expiration_date'] = array(
 	'vname' => 'LBL_EXPIRATION_DATE',
 	'type' => 'date',
 	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Contact"]['fields']['delivery_method'] = array(
@@ -71,6 +77,7 @@ $dictionary["Contact"]['fields']['delivery_method'] = array(
 	'type' => 'enum',
 	'options' => 'grp_delivery_method_list',
 	'source' => 'non-db',
+	'studio' => false,
 );
 
 $dictionary["Contact"]['fields']['comments'] = array(
@@ -78,4 +85,5 @@ $dictionary["Contact"]['fields']['comments'] = array(
 	'vname' => 'LBL_COMMENTS',
 	'type' => 'text',
 	'source' => 'non-db',
+	'studio' => false,
 );
