@@ -35,90 +35,72 @@ array (
         array (
           0 => 
           array (
-            'name' => 'business_name',
-            'comment' => '',
-            'label' => 'LBL_BUSINESS_NAME',
+            'name' => 'Contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
-          1 => 'category_id',
+          1 => '',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'document_name',
-            'label' => 'LBL_DOC_NAME',
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
           ),
           1 => 
           array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'link' => 'uploadfile',
-              'id' => 'id',
-            ),
+            'name' => 'policy_number',
+            'comment' => '',
+            'label' => 'LBL_POLICY_NUMBER',
           ),
         ),
         2 => 
         array (
-          0 => 'subcategory_id',
-          1 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
+          0 => 'status',
+          1 => '',
         ),
         3 => 
         array (
-          0 => 'active_date',
-          1 => 'exp_date',
+          0 => 
+          array (
+            'name' => 'start_date',
+            'comment' => '',
+            'label' => 'LBL_START_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'end_date',
+            'comment' => '',
+            'label' => 'LBL_END_DATE',
+          ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'description',
-            'label' => 'LBL_DOC_DESCRIPTION',
+            'name' => 'premium',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM',
           ),
+          1 => '',
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
+            'name' => 'premium_due_date',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM_DUE_DATE',
           ),
-          1 => 'team_name',
+          1 => 
+          array (
+            'name' => 'premium_frequency',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM_FREQUENCY',
+          ),
         ),
         6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'endorsements',
-            'comment' => '',
-            'label' => 'LBL_ENDORSEMENTS',
-          ),
-          1 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        8 => 
         array (
           0 => 
           array (
@@ -133,17 +115,84 @@ array (
             'label' => 'LBL_DEDUCTIBLE',
           ),
         ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'link' => 'uploadfile',
+              'id' => 'id',
+            ),
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'business_name',
+            'comment' => '',
+            'label' => 'LBL_BUSINESS_NAME',
+          ),
+        ),
         9 => 
         array (
           0 => 
           array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
+            'name' => 'property',
+            'comment' => '',
+            'label' => 'LBL_PROPERTY',
+          ),
+        ),
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'covered_locations',
+            'comment' => '',
+            'label' => 'LBL_COVERED_LOCATIONS',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'label' => 'LBL_DOC_DESCRIPTION',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 
+          array (
+            'name' => 'endorsements',
+            'comment' => '',
+            'label' => 'LBL_ENDORSEMENTS',
+          ),
+        ),
+        13 => 
+        array (
+          0 => 
+          array (
+            'name' => 'status_id',
+            'label' => 'LBL_DOC_STATUS',
+          ),
+          1 => 'team_name',
+        ),
+        14 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
           ),
           1 => 
           array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),
@@ -159,9 +208,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'covered_locations',
+            'name' => 'coverage_employee_dishonesty',
             'comment' => '',
-            'label' => 'LBL_COVERED_LOCATIONS',
+            'label' => 'LBL_COVERAGE_EMPLOYEE_DISHONESTY',
           ),
         ),
         1 => 
@@ -174,27 +223,52 @@ array (
           ),
           1 => 
           array (
-            'name' => 'coverage_employee_dishonesty',
+            'name' => 'coverage_exterior_signs',
             'comment' => '',
-            'label' => 'LBL_COVERAGE_EMPLOYEE_DISHONESTY',
+            'label' => 'LBL_COVERAGE_EXTERIOR_SIGNS',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
+            'name' => 'medical_payments',
+            'comment' => '',
+            'label' => 'LBL_MEDICAL_PAYMENTS',
+          ),
+          1 => 
+          array (
             'name' => 'coverage_equipment',
             'comment' => '',
             'label' => 'LBL_COVERAGE_EQUIPMENT',
           ),
-          1 => 
-          array (
-            'name' => 'coverage_exterior_signs',
-            'comment' => '',
-            'label' => 'LBL_COVERAGE_EXTERIOR_SIGNS',
-          ),
         ),
         3 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'loss_of_income_rents',
+            'comment' => '',
+            'label' => 'LBL_LOSS_OF_INCOME_RENTS',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'coverage_personal_property_on_premises',
+            'comment' => '',
+            'label' => 'LBL_COVERAGE_PERSONAL_PROPERTY_ON_PREMISES',
+          ),
+          1 => 
+          array (
+            'name' => 'liability_bodily_injury',
+            'comment' => '',
+            'label' => 'LBL_LIABILITY_BODILY_INJURY',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -204,12 +278,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'coverage_personal_property_on_premises',
+            'name' => 'liability_completed_operations',
             'comment' => '',
-            'label' => 'LBL_COVERAGE_PERSONAL_PROPERTY_ON_PREMISES',
+            'label' => 'LBL_LIABILITY_COMPLETED_OPERATIONS',
           ),
         ),
-        4 => 
+        6 => 
         array (
           0 => 
           array (
@@ -224,37 +298,22 @@ array (
             'label' => 'LBL_LIABILITY_INDEPENDENT_CONTRACTORS',
           ),
         ),
-        5 => 
+        7 => 
         array (
           0 => 
+          array (
+            'name' => 'money_on_premises',
+            'comment' => '',
+            'label' => 'LBL_MONEY_ON_PREMISES',
+          ),
+          1 => 
           array (
             'name' => 'liability_fire_legal',
             'comment' => '',
             'label' => 'LBL_LIABILITY_FIRE_LEGAL',
           ),
-          1 => 
-          array (
-            'name' => 'liability_completed_operations',
-            'comment' => '',
-            'label' => 'LBL_LIABILITY_COMPLETED_OPERATIONS',
-          ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'liability_bodily_injury',
-            'comment' => '',
-            'label' => 'LBL_LIABILITY_BODILY_INJURY',
-          ),
-          1 => 
-          array (
-            'name' => 'loss_of_income_rents',
-            'comment' => '',
-            'label' => 'LBL_LOSS_OF_INCOME_RENTS',
-          ),
-        ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -262,93 +321,20 @@ array (
             'comment' => '',
             'label' => 'LBL_MONEY_OFF_PREMISES',
           ),
-          1 => 
-          array (
-            'name' => 'money_on_premises',
-            'comment' => '',
-            'label' => 'LBL_MONEY_ON_PREMISES',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'medical_payments',
-            'comment' => '',
-            'label' => 'LBL_MEDICAL_PAYMENTS',
-          ),
-        ),
-      ),
-      'lbl_editview_panel3' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'policy_number',
-            'comment' => '',
-            'label' => 'LBL_POLICY_NUMBER',
-          ),
-          1 => 'status',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'start_date',
-            'comment' => '',
-            'label' => 'LBL_START_DATE',
-          ),
-          1 => 
-          array (
-            'name' => 'end_date',
-            'comment' => '',
-            'label' => 'LBL_END_DATE',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'property',
-            'comment' => '',
-            'label' => 'LBL_PROPERTY',
-          ),
-          1 => 
-          array (
-            'name' => 'premium',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'premium_due_date',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM_DUE_DATE',
-          ),
-          1 => 
-          array (
-            'name' => 'premium_frequency',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM_FREQUENCY',
-          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 
       array (
         0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_Companies_name',
+            'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+        ),
+        1 => 
         array (
           0 => 
           array (
@@ -363,7 +349,7 @@ array (
             'label' => 'LBL_AGENT_EMAIL',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (

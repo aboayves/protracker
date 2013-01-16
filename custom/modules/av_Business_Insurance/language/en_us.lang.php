@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-15 20:29:22
+// created: 2013-01-16 18:21:11
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Agent',
   'LBL_EDITVIEW_PANEL3' => 'Policy Details',
@@ -13,4 +13,5 @@ $mod_strings = array (
   'LBL_COVERAGE_PERSONAL_PROPERTY_OFF_PREMISES' => 'Personal Property Off Premises',
   'LBL_COVERAGE_PERSONAL_PROPERTY_OF_OTHERS' => 'Personal Property of Others',
   'LBL_COVERAGE_PERSONAL_PROPERTY_ON_PREMISES' => 'Personal Property On Premises',
+  'LBL_LIABILITY_COMPLETED_OPERATIONS' => 'Liability Complete Operations',
 );
