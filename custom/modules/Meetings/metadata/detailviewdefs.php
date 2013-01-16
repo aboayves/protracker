@@ -135,7 +135,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'duration_hours',
+            'name' => 'duration',
             'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
             'label' => 'LBL_DURATION',
           ),
