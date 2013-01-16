@@ -37,9 +37,8 @@ array (
           0 => 'delivery_method_av_group',
           1 => 
           array (
-            'name' => 'av_offices_av_groups_name',
-            'studio' => 'visible',
-            'label' => 'LBL_OFFICE',
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
         2 => 
