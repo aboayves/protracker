@@ -1,9 +1,10 @@
 <?php
-// created: 2013-01-15 16:25:26
-$dictionary["User"]["fields"]["is_db_admin"] = array (
-	'name' => 'is_db_admin',
-	'vname' => 'LBL_IS_DB_ADMIN',
-	'type' => 'bool',
+// created: 2013-01-16 14:06:09
+$dictionary["Contact"]["fields"]["source_of_funds"] = array (
+	'name' => 'source_of_funds',
+	'vname' => 'LBL_SOURCE_OF_FUNDS',
+	'type' => 'varchar',
+	'len' => '255',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

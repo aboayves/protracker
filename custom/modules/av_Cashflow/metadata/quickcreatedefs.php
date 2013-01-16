@@ -38,7 +38,11 @@ array (
       array (
         0 => 
         array (
-          0 => 'document_name',
+          0 => 
+          array (
+            'name' => 'Accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
           1 => 'assigned_user_name',
         ),
         1 => 
@@ -61,8 +65,13 @@ array (
         ),
         2 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
+          0 => 
+          array (
+            'name' => 'year',
+            'comment' => '',
+            'label' => 'LBL_YEAR',
+          ),
+          1 => '',
         ),
         3 => 
         array (
@@ -75,41 +84,6 @@ array (
               'cols' => 120,
             ),
           ),
-          1 => '',
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'exp_date',
-            'label' => 'LBL_DOC_EXP_DATE',
-          ),
-          1 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-          1 => 
-          array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_av_cashflow_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_CASHFLOW_1_FROM_ACCOUNTS_TITLE',
-          ),
           1 => 
           array (
             'name' => 'team_name',
@@ -119,7 +93,7 @@ array (
             ),
           ),
         ),
-        7 => 
+        4 => 
         array (
           0 => 
           array (

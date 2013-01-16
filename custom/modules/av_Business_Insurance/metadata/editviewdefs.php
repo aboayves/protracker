@@ -69,34 +69,14 @@ array (
             'comment' => '',
             'label' => 'LBL_STATUS',
           ),
-          1 => '',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'start_date',
-            'comment' => '',
-            'label' => 'LBL_START_DATE',
-          ),
           1 => 
-          array (
-            'name' => 'end_date',
-            'comment' => '',
-            'label' => 'LBL_END_DATE',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
           array (
             'name' => 'premium',
             'comment' => '',
             'label' => 'LBL_PREMIUM',
           ),
-          1 => '',
         ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (
@@ -111,7 +91,22 @@ array (
             'label' => 'LBL_PREMIUM_FREQUENCY',
           ),
         ),
-        6 => 
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'start_date',
+            'comment' => '',
+            'label' => 'LBL_START_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'end_date',
+            'comment' => '',
+            'label' => 'LBL_END_DATE',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -126,18 +121,7 @@ array (
             'label' => 'LBL_DEDUCTIBLE',
           ),
         ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'onchangeSetFileNameTo' => 'document_name',
-            ),
-          ),
-        ),
-        8 => 
+        6 => 
         array (
           0 => 
           array (
@@ -146,7 +130,7 @@ array (
             'label' => 'LBL_BUSINESS_NAME',
           ),
         ),
-        9 => 
+        7 => 
         array (
           0 => 
           array (
@@ -155,7 +139,7 @@ array (
             'label' => 'LBL_PROPERTY',
           ),
         ),
-        10 => 
+        8 => 
         array (
           0 => 
           array (
@@ -164,14 +148,14 @@ array (
             'label' => 'LBL_COVERED_LOCATIONS',
           ),
         ),
-        11 => 
+        9 => 
         array (
           0 => 
           array (
             'name' => 'description',
           ),
         ),
-        12 => 
+        10 => 
         array (
           0 => 
           array (
@@ -180,7 +164,7 @@ array (
             'label' => 'LBL_ENDORSEMENTS',
           ),
         ),
-        13 => 
+        11 => 
         array (
           0 => 'status_id',
           1 => 
@@ -192,7 +176,7 @@ array (
             ),
           ),
         ),
-        14 => 
+        12 => 
         array (
           0 => 
           array (
@@ -354,12 +338,6 @@ array (
             'comment' => '',
             'label' => 'LBL_AGENT_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'agent_email',
-            'comment' => '',
-            'label' => 'LBL_AGENT_EMAIL',
-          ),
         ),
         2 => 
         array (
@@ -374,6 +352,15 @@ array (
             'name' => 'agent_fax',
             'comment' => '',
             'label' => 'LBL_AGENT_FAX',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'agent_email',
+            'comment' => '',
+            'label' => 'LBL_AGENT_EMAIL',
           ),
         ),
       ),
