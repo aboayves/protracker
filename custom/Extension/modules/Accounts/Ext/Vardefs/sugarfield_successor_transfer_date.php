@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 22:36:46
+// created: 2013-01-16 14:29:00
 $dictionary["Account"]["fields"]["successor_transfer_date"] = array (
 	'name' => 'successor_transfer_date',
 	'vname' => 'LBL_SUCCESSOR_TRANSFER_DATE',
