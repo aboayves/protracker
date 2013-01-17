@@ -8,13 +8,5 @@ $dictionary["Contact"]["fields"]["home_address_street"] = array (
 	'len' => '150',
 	'calculated' => false,
 	'merge_filter' => 'enabled',
-    'hideLabel' => true,
-	'displayParams' =>
-	array (
-	  'key' => 'home',
-	  'rows' => 2,
-	  'cols' => 30,
-	  'maxlength' => 150,
-	),
 );
 ?>
