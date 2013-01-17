@@ -208,18 +208,28 @@ array (
           0 => 
           array (
             'name' => 'home_address_street',
-            'comment' => '',
-            'label' => 'LBL_HOME_ADDRESS_STREET',
+            'hideLabel' => true,
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'home',
+              'rows' => 2,
+              'cols' => 30,
+              'maxlength' => 150,
+            ),
           ),
           1 => 
           array (
             'name' => 'work_address_street',
-            'comment' => '',
+            'hideLabel' => true,
+            'type' => 'address',
             'displayParams' => 
             array (
               'key' => 'work',
+              'rows' => 2,
+              'cols' => 30,
+              'maxlength' => 150,
             ),
-            'label' => 'LBL_WORK_ADDRESS_STREET',
           ),
         ),
         4 => 

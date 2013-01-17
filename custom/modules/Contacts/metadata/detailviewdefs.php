@@ -233,12 +233,22 @@ array (
             'name' => 'home_address_street',
             'comment' => '',
             'label' => 'LBL_HOME_ADDRESS_STREET',
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'home',
+            ),
           ),
           1 => 
           array (
             'name' => 'work_address_street',
             'comment' => '',
             'label' => 'LBL_WORK_ADDRESS_STREET',
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'work',
+            ),
           ),
         ),
         4 => 
