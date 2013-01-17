@@ -1,0 +1,25 @@
+<?php
+$dictionary["av_Accounts"]["fields"]["managed"] = array (
+	  'required' => true,
+      'name' => 'managed',
+      'vname' => 'LBL_MANAGED',
+      'type' => 'enum',
+      'massupdate' => '0',
+      'default' => '',
+      'comments' => '',
+      'help' => '',
+      'importable' => 'true',
+      'duplicate_merge' => 'disabled',
+      'duplicate_merge_dom_value' => '0',
+      'audited' => false,
+      'reportable' => true,
+      'unified_search' => false,
+      'merge_filter' => 'disabled',
+      'calculated' => false,
+      'len' => 100,
+      'size' => '20',
+      'options' => 'managed_list',
+      'studio' => 'visible',
+      'dependency' => false,
+);
+?>

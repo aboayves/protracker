@@ -98,6 +98,7 @@ array (
             'comment' => '',
             'label' => 'LBL_CUSTODIAN',
           ),
+		  1 => 'managed',
         ),
         5 => 
         array (
@@ -112,18 +113,22 @@ array (
             'name' => 'value',
             'label' => 'LBL_VALUE',
           ),
+        ),
+		6 => 
+        array (
+		  0 => '',
           1 => 
           array (
             'name' => 'accounts_av_accounts_name',
             'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 'description',
           1 => 'team_name',
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (

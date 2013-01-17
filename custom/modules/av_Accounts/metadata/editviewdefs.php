@@ -95,27 +95,33 @@ array (
             'comment' => '',
             'label' => 'LBL_CUSTODIAN',
           ),
+		  1 => 'managed',
         ),
         5 => 
         array (
-          0 => 
-          array (
-            'name' => 'value_date',
-            'comment' => '',
-            'label' => 'LBL_VALUE_DATE',
-          ),
-          1 => 
+		 0 => 
           array (
             'name' => 'value',
             'label' => 'LBL_VALUE',
           ),
           1 => 
           array (
+            'name' => 'value_date',
+            'comment' => '',
+            'label' => 'LBL_VALUE_DATE',
+          ),
+
+        ),
+		6 => 
+        array (
+		  0 => '',
+          1 => 
+          array (
             'name' => 'accounts_av_accounts_name',
             'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 'description',
           1 => 
@@ -127,7 +133,7 @@ array (
             ),
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
