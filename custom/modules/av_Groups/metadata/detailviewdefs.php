@@ -6,21 +6,21 @@ array (
   array (
     'templateMeta' => 
     array (
-		'includes' => 
+      'includes' => 
       array (
-		  0 => 
-		  array (
-			'file' => 'custom/include/js/reportsPopupav_Groups.js',
-		  ),
-		  1 => 
-		  array (
-		  	'file' => 'custom/include/js/jquery/jquery.blockUI.js',
-		  ),
-		  2 => 
-		  array (
-		  	'file' => 'custom/modules/av_Groups/custom_js.js',
-		  ),
-		),
+        0 => 
+        array (
+          'file' => 'custom/include/js/reportsPopupav_Groups.js',
+        ),
+        1 => 
+        array (
+          'file' => 'custom/include/js/jquery/jquery.blockUI.js',
+        ),
+        2 => 
+        array (
+          'file' => 'custom/modules/av_Groups/custom_js.js',
+        ),
+      ),
       'form' => 
       array (
         'buttons' => 
@@ -70,26 +70,26 @@ array (
             'customCode' => '<input title="Mass Update" type="button" name="MassUpdate" id="MassUpdate" onclick="document.getElementById(\'massupdate_form\').style.display = \'\'; var yLoc = YAHOO.util.Dom.getY(\'massupdate_form\'); scroll(0,yLoc);" value="Mass Update">',
           ),
           14 => 
-		  array(
-		  	'customCode' => '<input title="Merge Contacts to Word" type="button" name="MergeContacts2Word" id="MergeContacts2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergeContacts2Word&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge Contacts to Word">',
-		  ),
-		  15 => 
-		  array(
-		  	'customCode' => '<input title="Merge Clients to Word" type="button" name="MergeClients2Word" id="MergeClients2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergeClients2Word&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge Clients to Word">',
-		  ),
-		  16 => 
-		  array(
-		  	'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=av_Groups&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">'
-		  ),
-		  17 => 
-		  array(
-		  	'customCode' => '<input onclick="reportPopupClient(\'{$fields.id.value}\')" title="Select Clients using Group Rules" type="button" name="reportsPopupClients" id="reportsPopupClients" value="Select Clients using Group Rules">'
-		  ),
-		  18 => 
-		  array(
-		  	'customCode' => '<input onclick="reportpopupContact(\'{$fields.id.value}\')" title="Select Contacts using Group Rules" type="button" name="reportsPopupContacts" id="reportsPopupContacts" value="Select Contacts using Group Rules">'
-		  ),
-		),
+          array (
+            'customCode' => '<input title="Merge Contacts to Word" type="button" name="MergeContacts2Word" id="MergeContacts2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergeContacts2Word&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge Contacts to Word">',
+          ),
+          15 => 
+          array (
+            'customCode' => '<input title="Merge Clients to Word" type="button" name="MergeClients2Word" id="MergeClients2Word" onclick="window.open(\'index.php?module=av_Groups&action=MergeClients2Word&record={$fields.id.value}&name={$fields.name.value}&sugar_body_only=true\');" value="Merge Clients to Word">',
+          ),
+          16 => 
+          array (
+            'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=av_Groups&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">',
+          ),
+          17 => 
+          array (
+            'customCode' => '<input onclick="reportPopupClient(\'{$fields.id.value}\')" title="Select Clients using Group Rules" type="button" name="reportsPopupClients" id="reportsPopupClients" value="Select Clients using Group Rules">',
+          ),
+          18 => 
+          array (
+            'customCode' => '<input onclick="reportpopupContact(\'{$fields.id.value}\')" title="Select Contacts using Group Rules" type="button" name="reportsPopupContacts" id="reportsPopupContacts" value="Select Contacts using Group Rules">',
+          ),
+        ),
       ),
       'maxColumns' => '2',
       'widths' => 
@@ -122,9 +122,8 @@ array (
           0 => 'delivery_method_av_group',
           1 => 
           array (
-            'name' => 'av_offices_av_groups_name',
-            'studio' => 'visible',
-            'label' => 'LBL_OFFICE',
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
         2 => 
@@ -159,10 +158,6 @@ array (
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
           ),
-          1 => array(
-		  	'name' => 'lastupdated',
-			'customCode' => '<span id="lastupdated">{$fields.lastupdated.value}</span> <img src="custom/themes/default/images/refresh.jpg" title="Refresh Group" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
-		  ),
         ),
         6 => 
         array (

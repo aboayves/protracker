@@ -39,27 +39,29 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'Accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
           1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'team_name',
-        ),
-        2 => 
-        array (
-          0 => 'description',
-        ),
-        3 => 
-        array (
-          0 => 
+          0 => 'name',
+          1 => 
           array (
             'name' => 'score_date',
             'comment' => '',
             'label' => 'LBL_SCORE_DATE',
           ),
         ),
-        4 => 
+        2 => 
+        array (
+          0 => 'description',
+          1 => 'team_name',
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -74,7 +76,7 @@ array (
             'label' => 'LBL_NET_WORTH',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -89,13 +91,28 @@ array (
             'label' => 'LBL_NET_WORTH_POTENTIAL',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
             'name' => 'ideal_client_match',
             'comment' => '',
             'label' => 'LBL_IDEAL_CLIENT_MATCH',
+          ),
+          1 => 
+          array (
+            'name' => 'percent_of_aum',
+            'comment' => '',
+            'label' => 'LBL_PERCENT_OF_AUM',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'client_age',
+            'comment' => '',
+            'label' => 'LBL_CLIENT_AGE',
           ),
           1 => 
           array (
@@ -108,48 +125,18 @@ array (
         array (
           0 => 
           array (
-            'name' => 'influence_potential',
+            'name' => 'source_of_client',
             'comment' => '',
-            'label' => 'LBL_INFLUENCE_POTENTIAL',
+            'label' => 'LBL_SOURCE_OF_CLIENT',
           ),
           1 => 
           array (
-            'name' => 'profitability',
+            'name' => 'outside_investments',
             'comment' => '',
-            'label' => 'LBL_PROFITABILITY',
+            'label' => 'LBL_OUTSIDE_INVESTMENTS',
           ),
         ),
         8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'satisfaction_level',
-            'comment' => '',
-            'label' => 'LBL_SATISFACTION_LEVEL',
-          ),
-          1 => 
-          array (
-            'name' => 'profitability_potential',
-            'comment' => '',
-            'label' => 'LBL_PROFITABILITY_POTENTIAL',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'hassle_factor',
-            'comment' => '',
-            'label' => 'LBL_HASSLE_FACTOR',
-          ),
-          1 => 
-          array (
-            'name' => 'portfolio_value',
-            'comment' => '',
-            'label' => 'LBL_PORTFOLIO_VALUE',
-          ),
-        ),
-        10 => 
         array (
           0 => 
           array (
@@ -159,27 +146,27 @@ array (
           ),
           1 => 
           array (
-            'name' => 'outside_investments',
+            'name' => 'portfolio_value',
             'comment' => '',
-            'label' => 'LBL_OUTSIDE_INVESTMENTS',
+            'label' => 'LBL_PORTFOLIO_VALUE',
           ),
         ),
-        11 => 
+        9 => 
         array (
           0 => 
           array (
-            'name' => 'source_of_client',
+            'name' => 'satisfaction_level',
             'comment' => '',
-            'label' => 'LBL_SOURCE_OF_CLIENT',
+            'label' => 'LBL_SATISFACTION_LEVEL',
           ),
           1 => 
           array (
-            'name' => 'percent_of_aum',
+            'name' => 'profitability',
             'comment' => '',
-            'label' => 'LBL_PERCENT_OF_AUM',
+            'label' => 'LBL_PROFITABILITY',
           ),
         ),
-        12 => 
+        10 => 
         array (
           0 => 
           array (
@@ -189,24 +176,58 @@ array (
           ),
           1 => 
           array (
+            'name' => 'profitability_potential',
+            'comment' => '',
+            'label' => 'LBL_PROFITABILITY_POTENTIAL',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hassle_factor',
+            'comment' => '',
+            'label' => 'LBL_HASSLE_FACTOR',
+          ),
+          1 => 
+          array (
             'name' => 'referral_history',
             'comment' => '',
             'label' => 'LBL_REFERRAL_HISTORY',
           ),
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
-            'name' => 'client_age',
+            'name' => 'influence_potential',
             'comment' => '',
-            'label' => 'LBL_CLIENT_AGE',
+            'label' => 'LBL_INFLUENCE_POTENTIAL',
           ),
           1 => 
           array (
             'name' => 'referral_potential',
             'comment' => '',
             'label' => 'LBL_REFERRAL_POTENTIAL',
+          ),
+        ),
+        13 => 
+        array (
+          0 => '',
+        ),
+        14 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

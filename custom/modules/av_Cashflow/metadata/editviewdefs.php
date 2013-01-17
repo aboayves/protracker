@@ -40,7 +40,21 @@ array (
         0 => 
         array (
           0 => 'document_name',
-          1 => 
+          1 => 'assigned_user_name',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'year',
+            'comment' => '',
+            'label' => 'LBL_YEAR',
+          ),
+          1 => 'active_date',
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'uploadfile',
             'displayParams' => 
@@ -49,38 +63,7 @@ array (
             ),
           ),
         ),
-        1 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        2 => 
-        array (
-          0 => 'assigned_user_name',
-        ),
         3 => 
-        array (
-          0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        4 => 
-        array (
-          0 => 'status_id',
-          1 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        6 => 
         array (
           0 => 
           array (
@@ -95,7 +78,7 @@ array (
             ),
           ),
         ),
-        7 => 
+        4 => 
         array (
           0 => 
           array (
@@ -108,6 +91,69 @@ array (
             'name' => 'date_modified',
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'income_per_month',
+            'comment' => '',
+            'label' => 'LBL_INCOME_PER_MONTH',
+          ),
+          1 => 
+          array (
+            'name' => 'income_per_year',
+            'comment' => '',
+            'label' => 'LBL_INCOME_PER_YEAR',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'savings_per_month',
+            'comment' => '',
+            'label' => 'LBL_SAVINGS_PER_MONTH',
+          ),
+          1 => 
+          array (
+            'name' => 'savings_per_year',
+            'comment' => '',
+            'label' => 'LBL_SAVINGS_PER_YEAR',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fixed_expenses_per_month',
+            'comment' => '',
+            'label' => 'LBL_FIXED_EXPENSES_PER_MONTH',
+          ),
+          1 => 
+          array (
+            'name' => 'fixed_expenses_per_year',
+            'comment' => '',
+            'label' => 'LBL_FIXED_EXPENSES_PER_YEAR',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'variable_expenses_per_month',
+            'comment' => '',
+            'label' => 'LBL_VARIABLE_EXPENSES_PER_MONTH',
+          ),
+          1 => 
+          array (
+            'name' => 'variable_expenses_per_year',
+            'comment' => '',
+            'label' => 'LBL_VARIABLE_EXPENSES_PER_YEAR',
           ),
         ),
       ),

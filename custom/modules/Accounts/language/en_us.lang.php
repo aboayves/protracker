@@ -1,4 +1,5 @@
 <?php
+// created: 2013-01-07 17:50:21
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -23,7 +24,7 @@ $mod_strings = array (
   'LBL_ACCOUNTING_ID' => 'Accounting ID',
   'LBL_LAST_REBAL' => 'Last Rebal',
   'LBL_MARRIED' => 'Married',
-  'LBL_PREFERRED_COMM' => 'Preferred Communication',
+  'LBL_PREFERRED_COMM' => 'Preferred Comm',
   'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE' => 'Clients',
   'LBL_ACCOUNTS_AV_SERVICE_TEAM_1_FROM_AV_SERVICE_TEAM_TITLE' => 'Service Team',
   'LBL_ACCOUNTS_AV_SERVICES_1_FROM_AV_SERVICES_TITLE' => 'Services',
@@ -48,7 +49,6 @@ $mod_strings = array (
   'LBL_RT_OFFICES_ACCOUNTS_1_FROM_RT_OFFICES_TITLE' => 'Office',
   'LBL_LIST_ASSIGNED_USER' => 'Firm Contact',
   'LBL_ACCOUNTS_RT_NOTES_TITLE' => 'Notes',
-  'LBL_PREFERRED_COMM' => 'Preferred Comm',
   'LBL_TYPE' => 'Client Type DO NOT USE',
   'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'Primary Contact',
   'ACCOUNTS_CONTACTS_2_NAME' => 'Secondary Contact',
@@ -63,4 +63,20 @@ $mod_strings = array (
   'LBL_COCLIENT_NAME' => 'Co-Client',
   'LBL_PRIMARY_CONTACT_NAME' => 'Primary Contact',
   'LBL_SECONDARY_CONTACT_NAME' => 'Secondary Contact',
+  'LBL_AV_WILLS' => 'Wills',
+  'LBL_ACCOUNTS_CALLS_FROM_CALLS_TITLE' => 'Calls',
+  'LBL_AV_VEHICLE_INSURANCE' => 'Vehicle Insurance',
+  'LBL_AV_UMBRELLA_INSURANCE' => 'Umbrella Insurance',
+  'LBL_AV_LONG_TERM_CARE_INSURANCE' => 'Long Term Care Insurance',
+  'LBL_AV_HOMEOWNERS_INSURANCE' => 'Homeowners Insurance',
+  'LBL_AV_HEALTH_INSURANCE' => 'Health Insurance',
+  'LBL_AV_DISABILITY_INSURANCE' => 'Disability Insurance',
+  'LBL_AV_BUSINESS_INSURANCE' => 'Business Insurance',
+  'LBL_AV_TRUSTS' => 'Trusts',
+  'LBL_AV_ESTATE_DOCUMENTS' => 'Estate Documents',
+  'LBL_AV_IRD' => 'IRD',
+  'LBL_AV_GIFTING' => 'Gifting',
+  'LBL_AV_IPS' => 'IPS',
+  'LBL_AV_GIFT_TAX_CREDITS' => 'Gift Tax Credits',
+  'LBL_AV_FINAL_ARRANGEMENTS' => 'Final Arrangements',
 );

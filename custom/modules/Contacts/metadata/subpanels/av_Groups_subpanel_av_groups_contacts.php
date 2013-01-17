@@ -1,13 +1,13 @@
 <?php
-// created: 2012-12-18 18:22:01
+// created: 2013-01-07 15:27:26
 $subpanel_layout['list_fields'] = array (
   'delete_multiple_check' => 
-  array(
-	'vname' => 'LBL_DELETE_MULTIPLE_CHECK',
-	'width' => '5%',
-	'default' => true,
-	'sortable' => false,
-	),
+  array (
+    'vname' => 'LBL_DELETE_MULTIPLE_CHECK',
+    'width' => '5%',
+    'default' => true,
+    'sortable' => false,
+  ),
   'name' => 
   array (
     'name' => 'name',
@@ -17,14 +17,6 @@ $subpanel_layout['list_fields'] = array (
     'widget_class' => 'SubPanelDetailViewLink',
     'module' => 'Contacts',
     'width' => '20%',
-    'default' => true,
-  ),
-  'envelope' => 
-  array (
-    'type' => 'text',
-    'vname' => 'LBL_ENVELOPE',
-    'sortable' => false,
-    'width' => '10%',
     'default' => true,
   ),
   'include' => 

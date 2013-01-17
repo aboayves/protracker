@@ -179,11 +179,6 @@ array (
             'comment' => 'The birthdate of the contact',
             'label' => 'LBL_BIRTHDATE',
           ),
-          1 => 
-          array (
-            'name' => 'age',
-            'label' => 'LBL_AGE',
-          ),
         ),
         1 => 
         array (
@@ -215,16 +210,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'type',
-            'studio' => 'visible',
-            'label' => 'LBL_TYPE',
-          ),
-          1 => '',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
             'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
@@ -253,15 +238,6 @@ array (
             'name' => 'profession',
             'studio' => 'visible',
             'label' => 'LBL_PROFESSION',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'position',
-            'studio' => 'visible',
-            'label' => 'LBL_POSITION',
           ),
         ),
       ),

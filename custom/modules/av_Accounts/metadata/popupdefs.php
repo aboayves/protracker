@@ -39,13 +39,13 @@ $popupMeta = array (
     'default' => true,
     'name' => 'accounts_av_accounts_name',
   ),
-  'OWNERSHIP' => 
+  'OWNERSHIP_TYPE' => 
   array (
-    'type' => 'varchar',
+    'type' => 'enum',
     'default' => true,
-    'label' => 'LBL_OWNERSHIP',
+    'label' => 'LBL_OWNERSHIP_TYPE',
     'width' => '10%',
-    'name' => 'ownership',
+    'name' => 'ownership_type',
   ),
   'VALUE' => 
   array (

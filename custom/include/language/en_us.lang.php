@@ -3092,6 +3092,61 @@ $app_list_strings['preferred_document_submittal_list'] = array (
 	'Other' => 'Other',
 );
 
+$app_list_strings['client_phase_list'] = array (
+	'' => '',
+	'Accumulation' => 'Accumulation',
+	'Preservation' => 'Preservation',
+	'Distribuion' => 'Distribuion',
+	'Other' => 'Other',
+);
+
+$app_list_strings['review_group_list'] = array (
+	'' => '',
+	'Jan' => 'Jan',
+	'Feb' => 'Feb',
+	'Mar' => 'Mar',
+	'Apr' => 'Apr',
+	'May' => 'May',
+	'Jun' => 'Jun',
+	'Jul' => 'Jul',
+	'Aug' => 'Aug',
+	'Sep' => 'Sep',
+	'Oct' => 'Oct',
+	'Nov' => 'Nov',
+	'Dec' => 'Dec',
+	'Q1' => 'Q1',
+	'Q2' => 'Q2',
+	'Q3' => 'Q3',
+	'Q4' => 'Q4',
+	'A' => 'A',
+	'B' => 'B',
+	'C' => 'C',
+	'D' => 'D',
+	'E' => 'E',
+	'F' => 'F',
+	'G' => 'G',
+	'H' => 'H',
+	'I' => 'I',
+	'J' => 'J',
+	'K' => 'K',
+	'L' => 'L',
+	'M' => 'M',
+	'N' => 'N',
+	'O' => 'O',
+	'P' => 'P',
+	'Q' => 'Q',
+	'R' => 'R',
+	'S' => 'S',
+	'T' => 'T',
+	'U' => 'U',
+	'V' => 'V',
+	'W' => 'W',
+	'X' => 'X',
+	'Y' => 'Y',
+	'Z' => 'Z',
+	'Other' => 'Other',
+);
+
 $app_strings['LBL_TABGROUP_DOCUMENT_MANAGEMENT'] = 'Documents';
 $app_strings['LBL_TABGROUP_PROJECT_MANAGEMENT'] = 'Projects';
 $app_strings['LBL_TABGROUP_SALES_MARKETING'] = 'Marketing & Sales';

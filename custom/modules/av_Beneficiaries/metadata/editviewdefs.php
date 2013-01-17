@@ -31,6 +31,11 @@ array (
         array (
           0 => 
           array (
+            'name' => 'Contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+          1 => 
+          array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
@@ -38,7 +43,17 @@ array (
         ),
         1 => 
         array (
-          1 => 'name',
+          0 => 
+          array (
+            'name' => 'av_Accounts_name',
+            'label' => 'LBL_AV_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'date_verified',
+            'comment' => '',
+            'label' => 'LBL_DATE_VERIFIED',
+          ),
         ),
         2 => 
         array (
@@ -58,12 +73,6 @@ array (
         3 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'date_verified',
-            'comment' => '',
-            'label' => 'LBL_DATE_VERIFIED',
-          ),
         ),
         4 => 
         array (

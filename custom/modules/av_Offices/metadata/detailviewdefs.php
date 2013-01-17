@@ -40,17 +40,17 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'description',
-        ),
-        1 => 
-        array (
           0 => 
           array (
             'name' => 'office_name',
             'comment' => '',
             'label' => 'LBL_OFFICE_NAME',
           ),
+          1 => 'ticker_symbol',
+        ),
+        1 => 
+        array (
+          0 => 'name',
           1 => 'industry',
         ),
         2 => 
@@ -65,7 +65,7 @@ array (
         ),
         4 => 
         array (
-          0 => 'ticker_symbol',
+          0 => 'description',
           1 => 'team_name',
         ),
         5 => 
@@ -287,14 +287,6 @@ array (
             'comment' => 'The country used for the shipping address',
             'label' => 'LBL_SHIPPING_ADDRESS_COUNTRY',
           ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
-        array (
-          0 => 'email1',
-          1 => '',
         ),
       ),
     ),

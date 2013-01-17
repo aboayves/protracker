@@ -1,3 +1,3 @@
 <?php
-$mod_strings['LBL_BUSINESS_NAME']='Buiness Name';
+$mod_strings['LBL_BUSINESS_NAME']='Business Name';
 ?>

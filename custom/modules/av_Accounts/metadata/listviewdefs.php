@@ -16,6 +16,13 @@ array (
     'label' => 'LBL_ACCOUNT_NUMBER',
     'width' => '10%',
   ),
+  'OWNERSHIP_TYPE' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_OWNERSHIP_TYPE',
+    'width' => '10%',
+  ),
   'ACCOUNTS_AV_ACCOUNTS_NAME' => 
   array (
     'type' => 'relate',
@@ -24,13 +31,6 @@ array (
     'id' => 'ACCOUNTS_AV_ACCOUNTSACCOUNTS_IDA',
     'width' => '10%',
     'default' => true,
-  ),
-  'OWNERSHIP' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_OWNERSHIP',
-    'width' => '10%',
   ),
   'VALUE' => 
   array (
@@ -74,6 +74,13 @@ array (
     'type' => 'enum',
     'default' => false,
     'label' => 'LBL_ASSET_CLASS',
+    'width' => '10%',
+  ),
+  'OWNERSHIP' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_OWNERSHIP',
     'width' => '10%',
   ),
   'TEAM_NAME' => 

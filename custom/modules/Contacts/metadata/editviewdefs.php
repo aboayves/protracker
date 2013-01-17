@@ -54,9 +54,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'salutation',
-            'comment' => 'Contact salutation (e.g., Mr, Ms)',
-            'label' => 'LBL_SALUTATION',
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
           ),
           1 => 
           array (
@@ -69,9 +68,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'title',
-            'comment' => 'The title of the contact',
-            'label' => 'LBL_TITLE',
+            'name' => 'middle_name',
+            'comment' => '',
+            'label' => 'LBL_MIDDLE_NAME',
           ),
           1 => 
           array (
@@ -83,8 +82,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+            'name' => 'last_name',
           ),
           1 => 
           array (
@@ -96,9 +94,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'middle_name',
+            'name' => 'suffix',
             'comment' => '',
-            'label' => 'LBL_MIDDLE_NAME',
+            'label' => 'LBL_SUFFIX',
           ),
           1 => 
           array (
@@ -108,10 +106,7 @@ array (
         ),
         5 => 
         array (
-          0 => 
-          array (
-            'name' => 'last_name',
-          ),
+          0 => '',
           1 => 
           array (
             'name' => 'annual_household_income',
@@ -120,15 +115,6 @@ array (
           ),
         ),
         6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'suffix',
-            'comment' => '',
-            'label' => 'LBL_SUFFIX',
-          ),
-        ),
-        7 => 
         array (
           0 => 
           array (
@@ -143,7 +129,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -153,7 +139,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -318,6 +304,22 @@ array (
             'comment' => 'Contact fax number',
             'label' => 'LBL_FAX_PHONE',
           ),
+          1 => 
+          array (
+            'name' => 'primary_address_date_start',
+            'comment' => '',
+            'label' => 'LBL_PRIMARY_ADDRESS_DATE_START',
+          ),
+        ),
+        9 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'primary_address_date_end',
+            'comment' => '',
+            'label' => 'LBL_PRIMARY_ADDRESS_DATE_END',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -329,11 +331,6 @@ array (
             'name' => 'birthdate',
             'comment' => 'The birthdate of the contact',
             'label' => 'LBL_BIRTHDATE',
-          ),
-          1 => 
-          array (
-            'name' => 'age',
-            'label' => 'LBL_AGE',
           ),
         ),
         1 => 
@@ -557,28 +554,9 @@ array (
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'position',
-            'studio' => 'visible',
-            'label' => 'LBL_POSITION',
-          ),
-          1 => 
-          array (
-            'name' => 'employee_or_firm',
-            'label' => 'LBL_EMPLOYEE_OR_FIRM',
-          ),
+          0 => 'department',
         ),
         3 => 
-        array (
-          0 => 'department',
-          1 => 
-          array (
-            'name' => 'contribution_apply',
-            'label' => 'LBL_CONTRIBUTION_APPLY',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (
@@ -592,7 +570,7 @@ array (
             'label' => 'LBL_EMPLOYMENT_STATUS',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -607,7 +585,7 @@ array (
             'label' => 'LBL_RETIREMENT_DATE',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (

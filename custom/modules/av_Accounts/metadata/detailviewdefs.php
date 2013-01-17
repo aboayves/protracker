@@ -35,30 +35,34 @@ array (
     ),
     'panels' => 
     array (
-      'default' => 
+      'lbl_editview_panel9' => 
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 
+          0 => 
           array (
             'name' => 'account_number',
             'comment' => '',
             'label' => 'LBL_ACCOUNT_NUMBER',
+          ),
+          1 => 
+          array (
+            'name' => 'Account_name',
+            'label' => 'LBL_ACCOUNT_NAME',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'ownership',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP',
+            'name' => 'Contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
           1 => 
           array (
-            'name' => 'Contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
+            'name' => 'ownership_type',
+            'comment' => '',
+            'label' => 'LBL_OWNERSHIP_TYPE',
           ),
         ),
         2 => 
@@ -68,12 +72,7 @@ array (
             'name' => 'av_Account_Types_name',
             'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'ownership_type',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP_TYPE',
-          ),
+          1 => '',
         ),
         3 => 
         array (
@@ -94,9 +93,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'custodian',
+            'name' => 'asset_class',
             'comment' => '',
-            'label' => 'LBL_CUSTODIAN',
+            'label' => 'LBL_ASSET_CLASS',
           ),
 		  1 => 'managed',
         ),
@@ -104,13 +103,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'value_date',
+            'name' => 'custodian',
             'comment' => '',
-            'label' => 'LBL_VALUE_DATE',
+            'label' => 'LBL_CUSTODIAN',
           ),
-          1 => 
+        ),
+        6 => 
+        array (
+          0 => 
           array (
             'name' => 'value',
+            'comment' => '',
             'label' => 'LBL_VALUE',
           ),
         ),
@@ -119,8 +122,9 @@ array (
 		  0 => '',
           1 => 
           array (
-            'name' => 'accounts_av_accounts_name',
-            'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
+            'name' => 'value_date',
+            'comment' => '',
+            'label' => 'LBL_VALUE_DATE',
           ),
         ),
         7 => 
@@ -214,12 +218,7 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_BILLED',
           ),
-          1 => 
-          array (
-            'name' => 'reinvest_capital_gains',
-            'comment' => '',
-            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
-          ),
+          1 => '',
         ),
         5 => 
         array (
@@ -240,15 +239,30 @@ array (
         array (
           0 => 
           array (
+            'name' => 'reinvest_interest',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_INTEREST',
+          ),
+          1 => 
+          array (
             'name' => 'reinvest_dividends',
             'comment' => '',
             'label' => 'LBL_REINVEST_DIVIDENDS',
           ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_qualified_plan',
+            'comment' => '',
+            'label' => 'LBL_IS_QUALIFIED_PLAN',
+          ),
           1 => 
           array (
-            'name' => 'reinvest_interest',
+            'name' => 'reinvest_capital_gains',
             'comment' => '',
-            'label' => 'LBL_REINVEST_INTEREST',
+            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
           ),
         ),
       ),
@@ -301,9 +315,6 @@ array (
         ),
         3 => 
         array (
-        ),
-        4 => 
-        array (
           0 => 
           array (
             'name' => 'allocation_stocks',
@@ -317,7 +328,7 @@ array (
             'label' => 'LBL_TARGET_STOCKS',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -332,7 +343,7 @@ array (
             'label' => 'LBL_TARGET_BONDS',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -581,21 +592,6 @@ array (
             'label' => 'LBL_TERM',
           ),
         ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'is_qualified_plan',
-            'comment' => '',
-            'label' => 'LBL_IS_QUALIFIED_PLAN',
-          ),
-          1 => 
-          array (
-            'name' => 'asset_class',
-            'comment' => '',
-            'label' => 'LBL_ASSET_CLASS',
-          ),
-        ),
       ),
       'lbl_editview_panel6' => 
       array (
@@ -662,10 +658,7 @@ array (
             'label' => 'LBL_ORIGINAL_OWNER_DATE_OF_DEATH',
           ),
         ),
-      ),
-      'lbl_editview_panel7' => 
-      array (
-        0 => 
+        5 => 
         array (
           0 => 
           array (
@@ -680,7 +673,7 @@ array (
             'label' => 'LBL_DATE_CLOSED',
           ),
         ),
-        1 => 
+        6 => 
         array (
           0 => 
           array (

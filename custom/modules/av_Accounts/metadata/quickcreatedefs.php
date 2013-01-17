@@ -44,8 +44,35 @@ array (
         ),
         1 => 
         array (
+          0 => 
+          array (
+            'name' => 'account_number',
+            'comment' => '',
+            'label' => 'LBL_ACCOUNT_NUMBER',
+          ),
+          1 => 
+          array (
+            'name' => 'ownership_type',
+            'comment' => '',
+            'label' => 'LBL_OWNERSHIP_TYPE',
+          ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'category',
+            'comment' => '',
+            'label' => 'LBL_CATEGORY',
+          ),
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -59,7 +86,7 @@ array (
             'label' => 'LBL_VALUE_DATE',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -67,7 +94,7 @@ array (
             'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 'description',
         ),

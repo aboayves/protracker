@@ -41,20 +41,24 @@ array (
         array (
           0 => 
           array (
+            'name' => 'av_Accounts_name',
+            'label' => 'LBL_AV_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
             'name' => 'Contacts_name',
             'label' => 'LBL_CONTACTS_NAME',
           ),
+        ),
+        1 => 
+        array (
+          0 => 'name',
           1 => 
           array (
             'name' => 'ownership_percent',
             'comment' => '',
             'label' => 'LBL_OWNERSHIP_PERCENT',
           ),
-        ),
-        1 => 
-        array (
-          0 => 'name',
-          1 => '',
         ),
         2 => 
         array (

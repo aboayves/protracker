@@ -121,12 +121,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'duration_hours',
-            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
-            'label' => 'LBL_DURATION',
-          ),
-          1 => 
-          array (
             'name' => 'status',
             'comment' => 'The status of the call (Held, Not Held, etc.)',
             'studio' => 
@@ -135,8 +129,39 @@ array (
             ),
             'label' => 'LBL_STATUS',
           ),
+          1 => 
+          array (
+            'name' => 'direction',
+            'customCode' => '{$fields.direction.options[$fields.direction.value]} {$fields.status.options[$fields.status.value]}',
+            'label' => 'LBL_STATUS',
+          ),
         ),
         4 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'duration_hours',
+            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
+            'label' => 'LBL_DURATION',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reminder_time',
+            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
+            'label' => 'LBL_REMINDER',
+          ),
+          1 => 
+          array (
+            'name' => 'email_reminder_time',
+            'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
+            'label' => 'LBL_EMAIL_REMINDER_TIME',
+          ),
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -144,18 +169,9 @@ array (
             'comment' => 'Full text of the note',
             'label' => 'LBL_DESCRIPTION',
           ),
-          1 => 
-          array (
-            'name' => 'reminder_time',
-            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-            'label' => 'LBL_REMINDER',
-          ),
+          1 => 'team_name',
         ),
-        5 => 
-        array (
-          0 => 'team_name',
-        ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
