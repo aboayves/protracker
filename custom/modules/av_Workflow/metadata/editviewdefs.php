@@ -36,14 +36,24 @@ array (
         array (
           0 => 
           array (
-            'name' => 'category',
-            'label' => 'LBL_CATEGORY',
+            'name' => 'workflow',
+            'studio' => 'visible',
+            'label' => 'LBL_MODULE_NAME',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'related_to',
+            'studio' => 'visible',
+            'label' => 'LBL_RELATED_TO',
+          ),
         ),
         2 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'category',
+            'label' => 'LBL_CATEGORY',
+          ),
           1 => '',
         ),
         3 => 
