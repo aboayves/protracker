@@ -61,5 +61,5 @@ $mod_strings = array (
   'LBL_CATEGORY' => 'Category',
   'LBL_RT_WORKFLOW_RT_TASK_TEMPLATE' => 'Task Templates',
   'LBL_RT_WORKFLOW_NAME' => 'Workflow',
-  'LBL_TREE' => 'Tree',
+  'LBL_TREE' => 'Task Tree',
 );
