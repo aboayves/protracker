@@ -37,20 +37,22 @@ class singleSignOnHook {
 	}
 	function create_or_activate($bean){
 		global $sugar_config;
-		$parameters = array( 
-		'user_name' => $bean->user_name, 
-		'site_url' => $sugar_config['site_url'],
-		'instanceKey' => md5($sugar_config['instanceKey'])
-		);
 		$api = new RestClient();
-		if(!empty($bean->user_name) && !empty($bean->fetched_row['user_name']) && $bean->user_name != $bean->fetched_row['user_name']){
+		if($bean->user_name != $bean->fetched_row['user_name'] || $bean->is_admin != $bean->fetched_row['is_admin'] || $bean->is_mobile_user != $bean->fetched_row['is_mobile_user'] || $bean->product_level != $bean->fetched_row['product_level']){
 			$parameters = array( 
 				'previous_user_name' =>$bean->fetched_row['user_name'],
 				'user_name' => $bean->user_name,
 				'site_url' => $sugar_config['site_url'],
+				'previous_is_admin' =>$bean->fetched_row['is_admin'],
+				'is_admin' => $bean->is_admin,
+				'previous_is_mobile_admin' =>$bean->fetched_row['is_mobile_user'],
+				'is_mobile_admin' => $bean->is_mobile_user,
+				'previous_product_level' =>$bean->fetched_row['product_level'],
+				'product_level' => $bean->product_level,
+				'request' => 'update',
 				'instanceKey' => md5($sugar_config['instanceKey'])
 			);
-			$api->post($sugar_config['restServerURL']."/users", $parameters);
+			$result = $api->post($sugar_config['restServerURL']."/users", $parameters);
 			if($api->httpCode == '403'){
 				SugarApplication::appendErrorMessage('Unable to complete requested action. Either the instance key or site URL is invalid.');
 				SugarApplication::redirect("index.php?module=Users&action=EditView&record={$bean->id}");
@@ -71,6 +73,14 @@ class singleSignOnHook {
 				SugarApplication::redirect("index.php?module=Users&action=EditView&".$fields_string);
 			}
 			else if($api->httpCode == '404'){
+				$parameters = array( 
+				'user_name' => $bean->user_name, 
+				'site_url' => $sugar_config['site_url'],
+				'is_admin' => $bean->is_admin,
+				'is_mobile_admin' => $bean->is_mobile_user,
+				'product_level' => $bean->product_level,
+				'instanceKey' => md5($sugar_config['instanceKey'])
+				);
 				$result = $api->post($sugar_config['restServerURL']."/users", $parameters);
 				if($api->httpCode == '403'){
 					SugarApplication::appendErrorMessage('Unable to complete requested action. Either the instance key or site URL is invalid.');
