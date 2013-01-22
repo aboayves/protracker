@@ -5728,7 +5728,7 @@ div.selectCol{
 a.utilsLink:link, 
 a.utilsLink:visited
 {
-    font-size: 16px;
+    font-size: 16px !important;
 	font-weight:bold;
 }
 a.tabFormAdvLink:link, 
