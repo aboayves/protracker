@@ -3145,7 +3145,7 @@ $app_list_strings['review_group_list'] = array (
 	'Y' => 'Y',
 	'Z' => 'Z',
 	'Other' => 'Other',
-);
+);$app_list_strings['client_relationship_type_list'] = array (	'' => '',	'None' => 'None',	'Couple' => 'Couple',	'Family' => 'Family',	'Dependent' => 'Dependent',	'Business' => 'Business',	'Partnership' => 'Partnership',	'Professional_Association' => 'Professional Association',	'Other' => 'Other',);
 
 $app_strings['LBL_TABGROUP_DOCUMENT_MANAGEMENT'] = 'Documents';
 $app_strings['LBL_TABGROUP_PROJECT_MANAGEMENT'] = 'Projects';
