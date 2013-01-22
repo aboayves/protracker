@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+<?php
+// created: 2012-12-19 10:57:59
+$dictionary["Account"]["fields"]["preferred_calling_time"] = array (
+	'name' => 'preferred_calling_time',
+	'vname' => 'LBL_PREFERRED_CALLING_TIME',
+	'type' => 'relate',
+	'id_name' => 'primary_contact_id',
+	'rname' => 'preferred_calling_time',
+	'source' => 'non-db',
+	'table' => 'contacts',
+	'module' => 'Contacts',
+);
+?>
+=======
 <?php
 // created: 2013-01-22 15:43:19
 $dictionary["Account"]["fields"]["preferred_calling_time"] = array (
@@ -18,3 +33,4 @@ $dictionary["Account"]["fields"]["preferred_calling_time"] = array (
 	'group' => '',
 );
 ?>
+>>>>>>> Clients module: added client preference and relationship type fields
