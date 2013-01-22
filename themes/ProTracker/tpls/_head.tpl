@@ -41,6 +41,16 @@
 {$SUGAR_JS}
 {literal}
 <script type="text/javascript">
+$(function(){
+	$("#create_image").remove();
+	var href = $("#create_link").attr('href');
+	$("#edit_button").parents(":eq(2)").append("<ul class='clickMenu' ><li id='create_link_li'></li></ul>");
+	($(".listViewBody").parent().children().first().children().eq(1)).append("<ul class='clickMenu'><li id='create_link_li'></li></ul>");
+	$("#CANCEL_HEADER").parent().append('<input type="button" id="create_link" value="Create New" name="create_link" onclick="window.location=\''+href+'\'" class="button">');
+	$("#CANCEL_HEADER").parents(":eq(6)").children().first().children().eq(1).remove();
+	$("#create_link").text("Create New");
+	$("#create_link").appendTo($("#create_link_li"));
+});
 <!--
 SUGAR.themes.theme_name      = '{/literal}{$THEME}{literal}';
 SUGAR.themes.hide_image      = '{/literal}{sugar_getimagepath file="hide.gif"}{literal}';
