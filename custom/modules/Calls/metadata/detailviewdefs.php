@@ -138,7 +138,11 @@ array (
         ),
         4 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
           1 => 
           array (
             'name' => 'duration_hours',
