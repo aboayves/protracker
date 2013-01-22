@@ -28,7 +28,7 @@ array (
         array (
           'file' => 'include/javascript/tiny_mce/tiny_mce.js',
         ),
-		1 => 
+        1 => 
         array (
           'file' => 'modules/av_Task_Template/custom_javascript.js',
         ),
@@ -62,9 +62,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'task_category',
-            'studio' => 'visible',
-            'label' => 'LBL_TASK_CATEGORY',
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
           1 => 
           array (
@@ -138,15 +137,15 @@ array (
           ),
           1 => 'on_task_list',
         ),
-		8 => 
+        8 => 
         array (
-		 0 => '',
-         1 => 'client_task',
+          0 => '',
+          1 => 'client_task',
         ),
-		9 => 
+        9 => 
         array (
-          0 =>  'description',
-		),
+          0 => 'description',
+        ),
       ),
     ),
   ),
