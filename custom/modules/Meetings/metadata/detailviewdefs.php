@@ -74,7 +74,7 @@ array (
         ),
       ),
       'useTabs' => false,
-      'syncDetailEditViews' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -133,16 +133,16 @@ array (
             'comment' => 'Date meeting ends',
             'label' => 'LBL_DATE_END',
           ),
-          1 => 
+        ),
+        5 => 
+        array (
+          0 => 
           array (
             'name' => 'duration',
             'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
             'label' => 'LBL_DURATION',
           ),
-        ),
-        5 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'reminder_time',
             'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',

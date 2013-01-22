@@ -66,7 +66,7 @@ array (
 <script>toggle_portal_flag();function toggle_portal_flag()  {ldelim} {$TOGGLE_JS} {rdelim} 
 function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.EditView.submit();{rdelim}{rdelim}</script>',
       'useTabs' => false,
-      'syncDetailEditViews' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
