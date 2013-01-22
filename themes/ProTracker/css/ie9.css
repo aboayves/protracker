@@ -1,0 +1,61 @@
+button, input[type=submit], input[type=reset], input[type=button], .button, .buttons .button, .yui-button button,
+.button.primary,.yui-dialog .ft span.default button,
+button:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover,
+button:focus, input[type=submit]:focus, input[type=reset]:focus, input[type=button]:focus,
+button[selected], input[type=submit][selected], input[type=reset][selected], input[type=button][selected],
+.button.primary:hover,.button.primary:focus ,button.primary[selected],.yui-dialog .ft span.default button:hover,
+button[disabled], input[type=submit][disabled], input[type=reset][disabled], input[type=button][disabled],
+.pagination button,
+.monthFooter,
+.monthFooter td,
+.monthHeader,
+.yui-module .hd, .yui-panel .hd,
+.dcmenu,
+ul.clickMenu,
+ul.clickMenu.subpanel.records:hover,
+.ui-dialog .ui-dialog-titlebar,
+#showMoreDiv,
+#zenbox_container .zenbox_header,
+div#content > table tr td.moduleListPanel,
+.globelLinkBar,
+#footer,
+.loginBox,
+.createDashlet,
+.createDashlet:hover,
+.search_form .view,
+.dashletPanel .hd .hd-center,.dashletPanel .hd .tl,.dashletPanel .hd .tr,
+.dashletPanel.dc .hd,
+.dashletPanelMenu.wizard div.hr,
+.dashletPanelMenu.wizard.import .bd #submitDiv,
+#ie8GradientFix,
+.oddListRowS1:hover td ul.clickMenu.subpanel.records , .evenListRowS1:hover td ul.clickMenu.subpanel.records,
+ul#quickCreateULSubnav,
+#quickCreate ul.clickMenu li ul.subnav,
+ul#globalLinksSubnav, #globalLinksModule ul.clickMenu li ul.subnav,
+.ui-dialog .ui-dialog-titlebar,
+#showMoreDiv,
+.modulesdrager,
+.modulesdrager.hide
+{
+	filter:none !important;
+}
+
+/*#moduleList{
+}
+
+#moduleList ul.sf-menu{
+}
+
+#moduleList ul.sf-menu li{
+}
+
+#moduleList ul.sf-menu li a{
+}
+
+#moduleList ul.sf-menu li a:hover{
+}
+
+#moduleList ul.sf-menu li a ul.megamenu{
+}
+*/
+
