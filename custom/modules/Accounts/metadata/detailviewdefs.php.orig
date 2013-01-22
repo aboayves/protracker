@@ -115,8 +115,7 @@ array (
         ),
 		4 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
            
           ),
@@ -127,7 +126,8 @@ array (
         ),
         5 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'av_client_types_name',
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
