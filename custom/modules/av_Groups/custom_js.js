@@ -84,6 +84,7 @@ function addReport(rep_id, subMetaData){
 	};
 	
 	call_back_function(result_data);
+	check_forAllGroupMembers();
 }
 function refreshUpdatedDate(jsonData){
 	var updated_date = (jQuery.parseJSON(jsonData)).updated_date;
