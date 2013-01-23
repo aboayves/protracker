@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 20:20:40
+// created: 2013-01-23 17:54:33
 $mod_strings = array (
   'LBL_DD1' => 'Dropdown 1',
   'LBL_DD2' => 'Dropdown 2',
@@ -16,4 +16,5 @@ $mod_strings = array (
   'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
   'LBL_TREE_VIEW' => 'Tree View',
   'LBL_AV_ACTIVITY_TYPES_NAME' => 'Activity Type',
+  'LBL_ASSIGNED_TO_CLIENT' => 'Assigned to Client',
 );
