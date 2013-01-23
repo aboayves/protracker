@@ -6637,7 +6637,7 @@ ul.clickMenu li a, .list tr.pagination td.buttons ul.clickMenu > li > a:link, .l
 	text-decoration: none;
 	float: left;
 	font-weight: normal !important;
-	padding: 3px 10px 3px 10px !important;
+	padding: 3px 10px 5px 10px !important;
 	color: #000;
 	font-size: 16px;
 /*	border-radius:5px;
