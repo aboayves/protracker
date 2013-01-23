@@ -64,6 +64,6 @@ if ( YAHOO.env.ua )
 </script>
 {/literal}
 <!--[if gte IE 9]>
-	<link rel='stylesheet' href='{sugar_getJSPath file="themes/ProTracker/css/ie9.css"}'/>
+	<link rel='stylesheet' href='{sugar_getjspath file="themes/ProTracker/css/ie9.css"}'/>
 <![endif]-->
 </head>
