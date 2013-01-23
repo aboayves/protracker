@@ -273,6 +273,9 @@
      *              if $ul is not given, it will restore back to the original structure
      */
     sf.IEfix = function($ul) {
+		//Quick fix for IE 9 & 10
+		return;
+		
         if ( ($.browser.msie && $.browser.version > 6) || $(this).hasClass("iefix") ) {
             if($ul) {
                 //Take out the element out of the fixed box model,
