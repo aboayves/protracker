@@ -4626,7 +4626,14 @@ ul.subpanelTablist li a.activeSubTab:hover
 #subpanel_list .list{
 	border:1px solid #03568A;
 	}
-.list.view  tr:last-child td:first-child ,.list.view  tr:last-child th:first-child{
+
+.list.view  tr:last-child th,
+.list.view  tr:last-child td {
+	border-bottom: 0px none;
+}
+
+.list.view  tr:last-child td:first-child,
+.list.view  tr:last-child th:first-child{
 	border-radius:0px 0px 0px 4px;
 	-moz-border-radius:0px 0px 0px 4px;
 	-webkit-border-radius:0px 0px 0px 4px;
@@ -4634,7 +4641,8 @@ ul.subpanelTablist li a.activeSubTab:hover
 	-ms-border-radius:0px 0px 0px 4px;
 }
 
-.list.view  tr:last-child td:last-child,.list.view  tr:last-child th:last-child  {
+.list.view  tr:last-child td:last-child,
+.list.view  tr:last-child th:last-child  {
 	border-radius:0px 0px 4px 0px;
 	-moz-border-radius:0px 0px 4px 0px;
 	-webkit-border-radius:0px 0px 4px 0px;
@@ -4642,8 +4650,13 @@ ul.subpanelTablist li a.activeSubTab:hover
 	-o-border-radius:0px 0px 4px 0px;
 }
 
-.list.view  tr:last-child th,.list.view  tr:last-child td {
-	border-bottom: 0px none;
+.list.view  tr:last-child th[colspan],
+.list.view  tr:last-child td[colspan] {
+	border-radius:0px 0px 4px 4px;
+	-moz-border-radius:0px 0px 4px 4px;
+	-webkit-border-radius:0px 0px 4px 4px;
+	-o-border-radius:0px 0px 4px 4px;
+	-ms-border-radius:0px 0px 4px 4px;
 }
 
 .list tr.pagination td table td:first-child {
@@ -4664,6 +4677,11 @@ ul.subpanelTablist li a.activeSubTab:hover
 }
 
 #subpanel_list .list.view {
+border-radius:4px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+-ms-border-radius:4px;
+-o-border-radius:4px;
 /*box-shadow: #ccc 0px 0px 10px;
 -moz-box-shadow: #ccc 0px 0px 10px;
 -webkit-box-shadow: #ccc 0px 0px 10px;*/
