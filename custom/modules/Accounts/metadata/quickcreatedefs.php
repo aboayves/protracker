@@ -61,7 +61,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_type',
+            'name' => 'av_client_types_name',
           ),
           1 => 
           array (

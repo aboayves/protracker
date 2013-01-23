@@ -109,9 +109,9 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'account_type' => 
+      'av_client_types_name' => 
       array (
-        'name' => 'account_type',
+        'name' => 'av_client_types_name',
         'default' => true,
         'width' => '10%',
       ),

@@ -85,7 +85,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Client_Types_name',
+            'name' => 'av_client_types_name',
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
           ),
         ),
