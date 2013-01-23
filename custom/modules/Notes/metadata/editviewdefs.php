@@ -83,6 +83,25 @@ function deleteAttachmentCallBack(text)
         array (
           0 => 
           array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+          1 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'filename',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
             'name' => 'description',
             'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
 
@@ -99,34 +118,12 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
             'label' => 'LBL_NOTE_STATUS',
           ),
-        ),
-        3 => 
-        array (
-          0 => 'filename',
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'on_meeting_agenda',
-            'comment' => '',
-            'label' => 'LBL_ON_MEETING_AGENDA',
-          ),
           1 => 
-          array (
-            'name' => 'on_report_card',
-            'comment' => '',
-            'label' => 'LBL_ON_REPORT_CARD',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
           array (
             'name' => 'team_name',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (

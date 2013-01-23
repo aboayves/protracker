@@ -76,6 +76,18 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         array (
           0 => 
           array (
+            'name' => 'name',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'parent_name',
             'label' => 'LBL_LIST_RELATED_TO',
           ),
@@ -85,29 +97,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-          1 => '',
-        ),
         2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'name',
-          ),
-          1 => 
-          array (
-            'name' => 'on_meeting_agenda',
-            'comment' => '',
-            'label' => 'LBL_ON_MEETING_AGENDA',
-          ),
-        ),
-        3 => 
         array (
           0 => 
           array (
@@ -131,7 +121,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             ),
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -143,8 +133,14 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
               'updateCallback' => 'SugarWidgetScheduler.update_time();',
             ),
           ),
+          1 => 
+          array (
+            'name' => 'reminder_time',
+            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
+            'label' => 'LBL_REMINDER',
+          ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -167,27 +163,12 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
           ),
           1 => 
           array (
-            'name' => 'reminder_time',
-            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-            'label' => 'LBL_REMINDER',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'comment' => 'Full text of the note',
-            'label' => 'LBL_DESCRIPTION',
-          ),
-          1 => 
-          array (
             'name' => 'email_reminder_time',
             'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
             'label' => 'LBL_EMAIL_REMINDER_TIME',
           ),
         ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
@@ -195,13 +176,34 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'comment' => 'Meeting location',
             'label' => 'LBL_LOCATION',
           ),
+          1 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
           1 => 'password',
         ),
-        8 => 
+        7 => 
         array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 'team_name',
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
