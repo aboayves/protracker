@@ -5,6 +5,7 @@ $dictionary["av_Accounts"]["fields"]["value"] = array (
 	'vname' => 'LBL_VALUE',
 	'type' => 'currency',
 	'dbtype' => 'decimal(26,2)',
+	'align' => 'right',
 	'len' => '26',
 	'size' => '20',
 	'audited' => 0,

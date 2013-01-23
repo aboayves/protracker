@@ -1717,11 +1717,13 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
 
 	                $widget_contents = $layout_manager->widgetDisplay($widget_args);
 	                $cell_width = empty($widget_args['width']) ? '' : $widget_args['width'];
+					$cell_align = empty($widget_args['align']) ? '' : $widget_args['align'];
 	                $this->xTemplate->assign('HEADER_CELL', $widget_contents);
 	                static $count;
 	            if(!isset($count))$count = 0; else $count++;
 	                $this->xTemplate->assign('CELL_COUNT', $count);
 	                $this->xTemplate->assign('CELL_WIDTH', $cell_width);
+					$this->xTemplate->assign('CELL_ALIGN', $cell_align);
 	                $this->xTemplate->parse('dyn_list_view.header_cell');
                 } else {
                 	$buttons = true;
