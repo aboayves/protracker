@@ -10,6 +10,10 @@ class AttachToGroupId{
 				}
 			}
 			//adding single note entry for group 
+			if(empty($record['parent_id'])){
+				$record['parent_type'] = 'av_Groups';
+				$record['parent_id'] = $bean->attach_to_group_id;
+			}
 			$record['attach_to_group_id'] = '';
 			$record['av_group_id'] = $bean->attach_to_group_id;
 			$keys = implode(',' , array_keys($record));
