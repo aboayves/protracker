@@ -106,7 +106,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Client_Types_name',
+            'name' => 'av_client_types_name',
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
           ),
         ),
@@ -131,6 +131,7 @@ array (
           array (
             'name' => 'current_net_worth',
             'label' => 'LBL_CURRENT_NET_WORTH',
+			'type' => 'currency',
           ),
           1 => 
           array (
@@ -147,6 +148,7 @@ array (
             'comment' => 'Gets the managed assets.',
             'studio' => 'visible',
             'label' => 'LBL_MANAGED_ASSETS',
+			'type' => 'currency',
           ),
           1 => 
           array (

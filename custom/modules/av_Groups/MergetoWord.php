@@ -30,7 +30,7 @@ SELECT
 	accounts.billing_address_country, 
 	accounts.phone_office, 
 	accounts.phone_fax, 
-	accounts.account_type, 
+	accounts.av_client_types_name, 
 	accounts.status AS client_status, 
 	accounts.priority AS client_priority,
 	av_group_membership.parent_type, 
@@ -106,7 +106,7 @@ while($member = $db->fetchByAssoc($members))
 
 	if($member['parent_type']=="Accounts")
 	{
-	echo $member['name'].",".$member['billing_address_street'].",".$member['billing_address_city'].",".$member['billing_address_state'].",".$member['billing_address_postalcode'].",".$member['phone_office'].",".$member['phone_fax'].",".$member['account_type'].",".$member['client_status'].",".$member['client_priority'].",".$member['office_name']."\n";
+	echo $member['name'].",".$member['billing_address_street'].",".$member['billing_address_city'].",".$member['billing_address_state'].",".$member['billing_address_postalcode'].",".$member['phone_office'].",".$member['phone_fax'].",".$member['av_client_types_name'].",".$member['client_status'].",".$member['client_priority'].",".$member['office_name']."\n";
 	}
 	elseif($member['parent_type']=="Contacts")
 	{

@@ -8,11 +8,11 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'ACCOUNT_TYPE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_TYPE',
-    'default' => true,
+  'AV_CLIENT_TYPES_NAME' =>
+  array(
+	'width' => '10%',
+	'label' => 'LBL_AV_CLIENT_TYPES_NAME',
+	'default' => true,
   ),
   'STATUS' => 
   array (

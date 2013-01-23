@@ -5,11 +5,9 @@ $searchFields['Accounts'] = array (
   array (
     'query_type' => 'default',
   ),
-  'account_type' => 
+  'av_client_types_name' => 
   array (
     'query_type' => 'default',
-    'options' => 'account_type_dom',
-    'template_var' => 'ACCOUNT_TYPE_OPTIONS',
   ),
   'industry' => 
   array (
