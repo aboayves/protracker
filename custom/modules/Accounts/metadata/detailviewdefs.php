@@ -233,6 +233,15 @@ array (
             'label' => 'LBL_FAX',
           ),
         ),
+		2 => 
+        array (
+          0 =>	'preferred_comm', 
+          1 => 	'preferred_calling_time',
+        ),
+		3 => 
+        array (
+          0 =>	'preferred_meeting_time', 
+        ),
       ),
       'lbl_editview_panel1' => 
       array (
