@@ -69,7 +69,7 @@ $subpanel_layout['list_fields'] = array (
   ),
   'edit_button' => 
   array (
-    'widget_class' => 'SubPanelEditButton',
+    'widget_class' => 'SubPanelCstmEditAccount',
     'module' => 'av_Accounts',
     'width' => '4%',
     'default' => true,
