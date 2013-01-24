@@ -60,7 +60,9 @@ while($member = $db->fetchByAssoc($members))
 	}
 	$row='';
 	foreach($member as $field_name=>$field)
-	{
+	{	
+		$field = str_replace('&quot;', "'", $field);
+		$field = '"'.$field.'"';
 		if(!in_array($field_name, $skip_fields))
 		{
 			$row.=$field.',';
