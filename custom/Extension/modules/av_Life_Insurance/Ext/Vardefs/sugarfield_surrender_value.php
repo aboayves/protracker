@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-18 22:54:18
+// created: 2013-01-24 11:09:46
 $dictionary["av_Life_Insurance"]["fields"]["surrender_value"] = array (
 	'name' => 'surrender_value',
 	'vname' => 'LBL_SURRENDER_VALUE',
@@ -7,6 +7,7 @@ $dictionary["av_Life_Insurance"]["fields"]["surrender_value"] = array (
 	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
 	'size' => '20',
+	'align' => 'right',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

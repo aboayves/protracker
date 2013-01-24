@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 14:21:28
+// created: 2013-01-24 11:09:46
 $dictionary["av_Positions"]["fields"]["price"] = array (
 	'name' => 'price',
 	'vname' => 'LBL_PRICE',
@@ -7,6 +7,7 @@ $dictionary["av_Positions"]["fields"]["price"] = array (
 	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
 	'size' => '20',
+	'align' => 'right',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',
