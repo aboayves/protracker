@@ -1,19 +1,22 @@
 <?php
+// created: 2013-01-24 11:09:46
 $dictionary["av_Commissions"]["fields"]["commission"] = array (
 	'name' => 'commission',
 	'vname' => 'LBL_COMMISSION',
 	'type' => 'currency',
+	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
 	'size' => '20',
-	'audited' => '0',
-	'required' => '0',
+	'align' => 'right',
+	'audited' => 0,
+	'required' => 0,
 	'comment' => '',
 	'default' => '',
-	'massupdate' => '1',
-	'reportable' => '1',
-	'importable' => '1',
+	'massupdate' => True,
+	'reportable' => True,
+	'importable' => True,
 	'duplicate_merge' => 'Enabled',
-	'duplicate_merge_dom_value' => '1',
+	'duplicate_merge_dom_value' => True,
 	'help' => '',
 	'group' => '',
 );

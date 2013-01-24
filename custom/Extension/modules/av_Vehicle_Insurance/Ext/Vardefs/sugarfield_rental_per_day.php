@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-18 22:21:22
+// created: 2013-01-24 11:09:47
 $dictionary["av_Vehicle_Insurance"]["fields"]["rental_per_day"] = array (
 	'name' => 'rental_per_day',
 	'vname' => 'LBL_RENTAL_PER_DAY',
@@ -7,6 +7,7 @@ $dictionary["av_Vehicle_Insurance"]["fields"]["rental_per_day"] = array (
 	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
 	'size' => '20',
+	'align' => 'right',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

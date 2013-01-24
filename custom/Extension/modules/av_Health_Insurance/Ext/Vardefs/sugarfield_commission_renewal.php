@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-22 22:01:31
+// created: 2013-01-24 11:09:46
 $dictionary["av_Health_Insurance"]["fields"]["commission_renewal"] = array (
 	'name' => 'commission_renewal',
 	'vname' => 'LBL_COMMISSION_RENEWAL',
@@ -7,6 +7,7 @@ $dictionary["av_Health_Insurance"]["fields"]["commission_renewal"] = array (
 	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
 	'size' => '20',
+	'align' => 'right',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',
