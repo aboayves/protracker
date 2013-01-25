@@ -143,12 +143,28 @@ array (
         ),
         3 => 
         array (
-          0 => 'communication_type',
+          0 => 
+          array (
+            'name' => 'delivery_method',
+            'comment' => '',
+            'label' => 'LBL_DELIVERY_METHOD',
+          ),
           1 => 'membership_expiration_days',
         ),
         4 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'lastupdated',
+            'comment' => 'Date group updated',
+            'label' => 'LBL_LASTUPDATED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_checked',
+            'comment' => '',
+            'label' => 'LBL_DATE_CHECKED',
+          ),
         ),
         5 => 
         array (
@@ -161,12 +177,7 @@ array (
         ),
         6 => 
         array (
-          0 => 
-          array (
-            'name' => 'date_checked',
-            'comment' => '',
-            'label' => 'LBL_DATE_CHECKED',
-          ),
+          0 => 'description',
           1 => 'team_name',
         ),
         7 => 
