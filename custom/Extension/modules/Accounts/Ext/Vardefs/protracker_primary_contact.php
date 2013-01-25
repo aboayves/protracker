@@ -32,4 +32,28 @@ $dictionary["Account"]["fields"]["primary_contact"] = array (
 	'vname' => 'LBL_PRIMARY_CONTACT_NAME',
 	'id_name' => 'primary_contact_id'
 );
+
+$dictionary["Account"]["fields"] ['primary_contact_image'] = array (
+    'required' => false,
+    'name' => 'primary_contact_image',
+    'vname' => 'LBL_PRIMARY_CONTACT_IMAGE',
+    'type' => 'image',
+    'source' => 'non-db',
+    'massupdate' => 0,
+    'no_default' => false,
+    'comments' => '',
+	"border"=>"3",
+	"width"=>"130",
+	"height"=>"130",
+    'help' => '',
+    'importable' => 'true',
+    'duplicate_merge' => 'disabled',
+    'duplicate_merge_dom_value' => '0',
+    'audited' => false,
+    'reportable' => true,
+    'unified_search' => false,
+    'merge_filter' => 'disabled',
+    'len' => '255',
+    'size' => '20',
+  );
 ?>

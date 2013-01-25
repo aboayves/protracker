@@ -93,6 +93,17 @@ array (
         array (
           0 => 
           array (
+           
+          ),
+          1 => 
+          array (
+			'name'=>'primary_contact_image'
+          ),
+        ),
+		3 => 
+        array (
+          0 => 
+          array (
             'name' => 'av_Offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
@@ -102,7 +113,18 @@ array (
             'label' => 'LBL_SECONDARY_CONTACT_NAME',
           ),
         ),
-        3 => 
+		4 => 
+        array (
+          0 => 
+          array (
+           
+          ),
+          1 => 
+          array (
+			'name'=>'secondary_contact_image'
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -110,7 +132,7 @@ array (
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
           ),
         ),
-        4 => 
+        6 => 
         array (
           0 => 
           array (
@@ -125,7 +147,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        5 => 
+        7 => 
         array (
           0 => 
           array (
@@ -140,7 +162,7 @@ array (
             'label' => 'LBL_PRIORITY',
           ),
         ),
-        6 => 
+        8 => 
         array (
           0 => 
           array (
@@ -157,7 +179,7 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        7 => 
+        9 => 
         array (
           0 => 
           array (
@@ -172,7 +194,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        8 => 
+        10 => 
         array (
           0 => 
           array (
@@ -182,7 +204,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        9 => 
+        11 => 
         array (
           0 => 
           array (

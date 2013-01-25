@@ -58,7 +58,7 @@ ORDER BY av_net_worth.date_entered DESC
 			)
 		  )
 		);
-		
+		$this->showPrimarySecondaryImage();
 		parent::display();
 		
 		$jsRow = '';
@@ -118,6 +118,26 @@ ORDER BY av_net_worth.date_entered DESC
 					'weekNumbers:false'.
 				'});'.
 			'</script>';
+		
+	}
+	/***
+	* show images against primary and secondary
+	*/
+	public function showPrimarySecondaryImage(){
+		global $db;
+		if(!empty($this->bean->primary_contact_id) || !empty($this->bean->secondary_contact_id)){
+			$sql = "SELECT id,picture FROM contacts WHERE id ='".$this->bean->primary_contact_id."' OR id ='".$this->bean->secondary_contact_id."'";
+			$res = $db->query($sql);
+			while($row = $db->fetchByAssoc($res)){
+				if($row['id'] == $this->bean->primary_contact_id){
+					$this->bean->primary_contact_image = $row['picture'];
+				}
+				else if($row['id'] == $this->bean->secondary_contact_id){
+					$this->bean->secondary_contact_image = $row['picture'];
+				}
+			}
+			
+		}
 		
 	}
 } 
