@@ -8,7 +8,14 @@ array (
     'type' => 'int',
     'default' => true,
     'label' => 'LBL_YEAR',
-    'width' => '10%',
+    'width' => '5%',
+  ),
+  'NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'name',
+    'width' => '15%',
+    'default' => true,
   ),
   'STATUS_ID' => 
   array (
@@ -29,6 +36,19 @@ array (
     'width' => '10%',
     'label' => 'LBL_LIST_ACTIVE_DATE',
     'default' => true,
+  ),
+  'MODIFIED_BY_NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_MODIFIED_USER',
+    'module' => 'Users',
+    'id' => 'USERS_ID',
+    'default' => true,
+    'sortable' => false,
+    'related_fields' => 
+    array (
+      0 => 'modified_user_id',
+    ),
   ),
   'DATE_ENTERED' => 
   array (
@@ -107,26 +127,6 @@ array (
     'label' => 'LBL_VARIABLE_EXPENSES_PER_YEAR',
     'currency_format' => true,
     'width' => '10%',
-  ),
-  'MODIFIED_BY_NAME' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_MODIFIED_USER',
-    'module' => 'Users',
-    'id' => 'USERS_ID',
-    'default' => false,
-    'sortable' => false,
-    'related_fields' => 
-    array (
-      0 => 'modified_user_id',
-    ),
-  ),
-  'NAME' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'name',
-    'width' => '15%',
-    'default' => false,
   ),
   'CATEGORY_ID' => 
   array (
