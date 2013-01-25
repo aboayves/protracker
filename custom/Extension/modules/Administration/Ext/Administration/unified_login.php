@@ -349,6 +349,20 @@ if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
 		'./index.php?module=av_Custom_Fields&action=index'
 	);
 	
+	$admin_option_defs['Administration']['av_Fee_Schedules'] = array(
+		'av_Fee_Schedules',
+		translate('av_Fee_Schedules', 'LBL_MODULE_NAME'),
+		'Manage Fee Schedules',
+		'./index.php?module=av_Fee_Schedules&action=index'
+	);
+	
+	$admin_option_defs['Administration']['av_Commission_Schedules'] = array(
+		'av_Commission_Schedules',
+		translate('av_Commission_Schedules', 'LBL_MODULE_NAME'),
+		'Manage Commission Schedules',
+		'./index.php?module=av_Commission_Schedules&action=index'
+	);
+	
 	$admin_option_defs['Administration']['dropdowneditor'] = array(
 		'Dropdown',
 		'LBL_DROPDOWN_EDITOR',
