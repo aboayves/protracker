@@ -59,9 +59,17 @@ array (
           ),
           1 => 
           array (
-            'name' => 'nickname',
-            'comment' => '',
-            'label' => 'LBL_NICKNAME',
+            'name' => 'account_name',
+            'displayParams' => 
+            array (
+              'key' => 'billing',
+              'copy' => 'primary',
+              'billingKey' => 'primary',
+              'additionalFields' => 
+              array (
+                'phone_office' => 'phone_work',
+              ),
+            ),
           ),
         ),
         2 => 
@@ -74,8 +82,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
         3 => 
@@ -86,8 +94,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_Contact_Types_name',
-            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
         4 => 
@@ -100,18 +108,32 @@ array (
           ),
           1 => 
           array (
-            'name' => 'contact_priority',
-            'label' => 'LBL_CONTACT_PRIORITY',
+            'name' => 'av_Contact_Types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'account_name',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
+          ),
+          1 => 
+          array (
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'nickname',
+            'comment' => '',
+            'label' => 'LBL_NICKNAME',
+          ),
               'copy' => 'primary',
               'billingKey' => 'primary',
               'additionalFields' => 
@@ -127,7 +149,7 @@ array (
             'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -142,7 +164,17 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        7 => 
+        8 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
+          ),
+        ),
+        9 => 
         array (
           0 => 
           array (
@@ -152,7 +184,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        8 => 
+        10 => 
         array (
           0 => 
           array (
@@ -188,6 +220,12 @@ array (
         1 => 
         array (
           0 => 
+          array (
+            'name' => 'preferred_document_submittal',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_DOCUMENT_SUBMITTAL',
+          ),
+          1 => 
           array (
             'name' => 'preferred_meeting_time',
             'comment' => '',
@@ -570,6 +608,7 @@ array (
         2 => 
         array (
           0 => 'department',
+          1 => '',
         ),
         3 => 
         array (
@@ -669,12 +708,6 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
-          1 => 
-          array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
-          ),
         ),
         1 => 
         array (
@@ -738,6 +771,16 @@ array (
         array (
           0 => 
           array (
+            'name' => 'date_compliance_check',
+            'comment' => '',
+            'label' => 'LBL_DATE_COMPLIANCE_CHECK',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'id_type',
             'comment' => '',
             'label' => 'LBL_ID_TYPE',
@@ -749,7 +792,7 @@ array (
             'label' => 'LBL_ID_NUMBER',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -764,7 +807,7 @@ array (
             'label' => 'LBL_ID_DATE_EXPIRES',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -779,12 +822,12 @@ array (
             'label' => 'LBL_ID_ON_FILE',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => '',
           1 => '',
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -799,7 +842,7 @@ array (
             'label' => 'LBL_ALIAS',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -813,6 +856,79 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_SEC_RELATED',
           ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_foreign_official',
+            'comment' => '',
+            'label' => 'LBL_IS_FOREIGN_OFFICIAL',
+          ),
+          1 => 
+          array (
+            'name' => 'is_party_to_private_bank',
+            'comment' => '',
+            'label' => 'LBL_IS_PARTY_TO_PRIVATE_BANK',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'foreign_official_info',
+            'comment' => '',
+            'label' => 'LBL_FOREIGN_OFFICIAL_INFO',
+          ),
+          1 => 
+          array (
+            'name' => 'private_bank_info',
+            'comment' => '',
+            'label' => 'LBL_PRIVATE_BANK_INFO',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'source_of_funds',
+            'comment' => '',
+            'label' => 'LBL_SOURCE_OF_FUNDS',
+          ),
+          1 => '',
+        ),
+      ),
+      'lbl_editview_panel8' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'ein',
+            'comment' => '',
+            'label' => 'LBL_EIN',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'alternate_valuation_date',
+            'comment' => '',
+            'label' => 'LBL_ALTERNATE_VALUATION_DATE',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'form706',
+            'comment' => '',
+            'label' => 'LBL_FORM706',
+          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 
