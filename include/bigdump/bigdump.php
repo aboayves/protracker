@@ -2,6 +2,10 @@
 
 error_reporting(E_ALL);
 
+// Sugar includes
+include('../../config.php');
+$configOptions = $sugar_config['dbconfig'];
+
 // BigDump ver. 0.35b from 2012-12-26
 // Staggered import of an large MySQL Dump (like phpMyAdmin 2.x Dump)
 // Even through the webservers with hard runtime limit and those in safe mode
@@ -11,6 +15,7 @@ error_reporting(E_ALL);
 //               AJAX & CSV functionalities: Krzysiek Herod (kr81uni at wp dot pl) 
 // Copyright:    GPL (C) 2003-2013
 // More Infos:   http://www.ozerov.de/bigdump
+
 
 // This program is free software; you can redistribute it and/or modify it under the
 // terms of the GNU General Public License as published by the Free Software Foundation;
@@ -41,11 +46,10 @@ error_reporting(E_ALL);
 // *** Set UTF8 as default connection charset
 
 // Database configuration
-
-$db_server   = 'localhost';
-$db_name     = '';
-$db_username = '';
-$db_password = ''; 
+$db_server   = $configOptions['db_host_name'];
+$db_name     = $configOptions['db_name'];
+$db_username = $configOptions['db_user_name'];
+$db_password = $configOptions['db_password']; 
 
 // Connection charset should be the same as the dump file charset (utf8, latin1, cp1251, koi8r etc.)
 // See http://dev.mysql.com/doc/refman/5.0/en/charset-charsets.html for the full list
