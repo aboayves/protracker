@@ -106,7 +106,20 @@ array (
         ),
         5 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'account_name',
+            'displayParams' => 
+            array (
+              'key' => 'billing',
+              'copy' => 'primary',
+              'billingKey' => 'primary',
+              'additionalFields' => 
+              array (
+                'phone_office' => 'phone_work',
+              ),
+            ),
+          ),
           1 => 
           array (
             'name' => 'annual_household_income',
@@ -518,17 +531,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_name',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-              'copy' => 'primary',
-              'billingKey' => 'primary',
-              'additionalFields' => 
-              array (
-                'phone_office' => 'phone_work',
-              ),
-            ),
+            'name' => 'employer',
+            'comment' => '',
+            'label' => 'LBL_EMPLOYER',
           ),
           1 => 
           array (

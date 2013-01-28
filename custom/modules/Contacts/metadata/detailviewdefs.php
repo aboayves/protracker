@@ -132,7 +132,14 @@ array (
         ),
         5 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'account_name',
+            'label' => 'LBL_ACCOUNT_NAME',
+            'displayParams' => 
+            array (
+            ),
+          ),
           1 => 
           array (
             'name' => 'annual_household_income',
@@ -528,11 +535,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_name',
-            'label' => 'LBL_ACCOUNT_NAME',
-            'displayParams' => 
-            array (
-            ),
+            'name' => 'employer',
+            'comment' => '',
+            'label' => 'LBL_EMPLOYER',
           ),
           1 => 
           array (
