@@ -38,7 +38,7 @@ class av_Account_Histories_sugar extends Basic {
 	var $module_dir = 'av_Account_Histories';
 	var $object_name = 'av_Account_Histories';
 	var $table_name = 'av_account_histories';
-	var $importable = false;
+	var $importable = true;
 		var $id;
 		var $name;
 		var $date_entered;
