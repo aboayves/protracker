@@ -1,4 +1,6 @@
 <?php
+require_once('modules/Currencies/Currency.php');
+
 function getManagedAssets($account_id){
 	global $db;
 	$sql = "
@@ -13,7 +15,7 @@ function getManagedAssets($account_id){
 	";
 	$result = $db->query($sql);
 	$result = $db->fetchByAssoc($result);
-	return $result['managed_assets'];
+	return format_number($result['managed_assets'], NULL, 0);//$result['managed_assets'];
 }
 function getCurrentNetWorth($account_id){
 	global $db;
@@ -27,6 +29,6 @@ function getCurrentNetWorth($account_id){
 	";
 	$result = $db->query($sql);
 	$result = $db->fetchByAssoc($result);
-	return $result['current_networth'];
+	return format_number($result['current_networth'], NULL, 0); //$result['current_networth']
 }
 ?>
