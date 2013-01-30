@@ -274,6 +274,7 @@
      */
     sf.IEfix = function($ul) {
 		//Quick fix for IE 9 & 10
+		if(($.browser.msie && $.browser.version == 9))
 		return;
 		
         if ( ($.browser.msie && $.browser.version > 6) || $(this).hasClass("iefix") ) {
