@@ -152,8 +152,7 @@ array (
           0 => 
           array (
             'name' => 'current_net_worth',
-            'label' => 'LBL_CURRENT_NET_WORTH',
-			'type' => 'currency',
+            'label' => 'LBL_CURRENT_NET_WORTH',			
           ),
           1 => 
           array (
@@ -170,7 +169,6 @@ array (
             'comment' => 'Gets the managed assets.',
             'studio' => 'visible',
             'label' => 'LBL_MANAGED_ASSETS',
-			'type' => 'currency',
           ),
           1 => 
           array (
