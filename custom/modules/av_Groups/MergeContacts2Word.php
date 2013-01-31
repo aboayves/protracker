@@ -6,10 +6,11 @@ header("Content-Disposition:attachment;filename=\"{$_REQUEST['name']}.csv\"");
 
 //echo "Name, Street, City, State, Zip, Phone, Fax, Contact Type, Status, Priority, Office\n";
 
-$sql="
+ $sql="
 SELECT 
-	contacts.* 
+	contacts.*
 FROM av_group_membership
+
 LEFT JOIN 
 	contacts 
 	ON(
@@ -28,9 +29,16 @@ WHERE
 	AND 
 	av_group_membership.parent_type='Contacts'
 ";
+
 $members = $db->query($sql);
-$skip_fields = array('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', );
+
+$member = $db->fetchByAssoc($members);
+
+
+
+$skip_fields = array('id', 'deleted', 'team_id', 'team_set_id', 'picture', 'campaign_id', 'contact_id', '', '', '', '', '', '', '', '');
 $put_names=true;
+//print '<pre>';print_r($sql);die();
 while($member = $db->fetchByAssoc($members))
 {
 	if($put_names)
@@ -49,8 +57,9 @@ while($member = $db->fetchByAssoc($members))
 					$row.= $contact_mod_strings[$field_name_map[$field_name]['vname']];
 				else if (isset($field_name_map[$field_name]) && isset($field_name_map[$field_name]['vname']))
 					$row.=$field_name_map[$field_name]['vname'];
-				else
+				else{
 					$row.=$field_name;
+				}
 				$row.=',';
 			}
 		}
@@ -59,6 +68,10 @@ while($member = $db->fetchByAssoc($members))
 		$put_names=false;
 	}
 	$row='';
+	$member['modified_user_id'] = 	get_assigned_user_name($member['modified_user_id']);
+	$member['assigned_user_id'] = 	get_assigned_user_name($member['assigned_user_id']);
+	$member['created_by'] = 	get_assigned_user_name($member['created_by']);
+
 	foreach($member as $field_name=>$field)
 	{	
 		$field = str_replace('&quot;', "'", $field);
@@ -72,7 +85,9 @@ while($member = $db->fetchByAssoc($members))
 }
 if(count($rows))
 {
+	ob_start();
 	ob_clean();
 	echo ' '.$rows = implode("\r\n", $rows);
 }
+
 ?>
