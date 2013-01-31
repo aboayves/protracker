@@ -34,7 +34,7 @@ $dashletData['CallsDashlet']['searchFields'] = array (
 $dashletData['CallsDashlet']['columns'] = array (
   'set_complete' => 
   array (
-    'width' => '5%',
+    'width' => '3%',
     'label' => 'LBL_LIST_CLOSE',
     'default' => true,
     'sortable' => false,
@@ -47,7 +47,7 @@ $dashletData['CallsDashlet']['columns'] = array (
   ),
   'name' => 
   array (
-    'width' => '40%',
+    'width' => '30%',
     'label' => 'LBL_SUBJECT',
     'link' => true,
     'default' => true,
@@ -55,7 +55,7 @@ $dashletData['CallsDashlet']['columns'] = array (
   ),
   'parent_name' => 
   array (
-    'width' => '29%',
+    'width' => '30%',
     'label' => 'LBL_LIST_RELATED_TO',
     'sortable' => false,
     'dynamic_module' => 'PARENT_TYPE',
