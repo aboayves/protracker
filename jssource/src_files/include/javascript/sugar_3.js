@@ -1348,7 +1348,7 @@ function getXMLHTTPinstance() {
 
 	// IE Check supports ActiveX controls
 	if (userAgent.indexOf("msie") != -1 && userAgent.indexOf("mac") == -1 && userAgent.indexOf("opera") == -1) {
-		var version = navigator.appVersion.match(/MSIE (.\..)/)[1] ;
+		var version = $.browser.version ;
 		if(version >= 5.5 ) {
 			try {
 				xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");

@@ -237,7 +237,7 @@ if(newColor){var c=null;if(domDetect){for(c=0;c<rowCellsCnt;c++){theCells[c].set
 else{for(c=0;c<rowCellsCnt;c++){theCells[c].style.backgroundColor=newColor;}}}
 return true;}
 function goToUrl(selObj,goToLocation){eval("document.location.href = '"+goToLocation+"pos="+selObj.options[selObj.selectedIndex].value+"'");}
-var json_objects=new Object();function getXMLHTTPinstance(){var xmlhttp=false;var userAgent=navigator.userAgent.toLowerCase();if(userAgent.indexOf("msie")!=-1&&userAgent.indexOf("mac")==-1&&userAgent.indexOf("opera")==-1){var version=navigator.appVersion.match(/MSIE (.\..)/)[1];if(version>=5.5){try{xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");}
+var json_objects=new Object();function getXMLHTTPinstance(){var xmlhttp=false;var userAgent=navigator.userAgent.toLowerCase();if(userAgent.indexOf("msie")!=-1&&userAgent.indexOf("mac")==-1&&userAgent.indexOf("opera")==-1){var version=$.browser.version;if(version>=5.5){try{xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");}
 catch(e){try{xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
 catch(E){xmlhttp=false;}}}}
 if(!xmlhttp&&typeof XMLHttpRequest!='undefined'){xmlhttp=new XMLHttpRequest();}
