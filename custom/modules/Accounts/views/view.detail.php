@@ -20,14 +20,7 @@ class AccountsViewDetail extends ViewDetail
 */
 		$sql = "
 SELECT YEAR(av_net_worth.date_entered) AS year, av_net_worth.grand_total AS worth, av_net_worth.managed_assets
-FROM `accounts`
-LEFT JOIN accounts_av_net_worth_c 
-	ON 
-	(
-		accounts_av_net_worth_c.deleted=0 
-		AND 
-		accounts_av_net_worth_c.accounts_av_net_worthaccounts_ida = '{$this->bean->id}'
-	)
+FROM `accounts_av_net_worth_c`
 LEFT JOIN av_net_worth
 	ON
 	(
@@ -35,19 +28,32 @@ LEFT JOIN av_net_worth
 		AND
 		av_net_worth.id = accounts_av_net_worth_c.accounts_av_net_worthav_net_worth_idb
 	)
-WHERE accounts.deleted=0 AND accounts.id='{$this->bean->id}'
+WHERE 
+	accounts_av_net_worth_c.deleted=0 
+	AND 
+	accounts_av_net_worth_c.accounts_av_net_worthaccounts_ida = '{$this->bean->id}'
 GROUP BY YEAR(av_net_worth.date_entered)
 ORDER BY av_net_worth.date_entered DESC
 		";
 
 		$sql_result = $this->bean->db->query($sql);
 		$graph_data = array();
+		$min = INF;
+		$max = -INF;
+		
 		while($graph_data_row = $this->bean->db->fetchByAssoc($sql_result))
 		{
 			$graph_data[$graph_data_row['year']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
+			
+			$max = ($graph_data_row['worth']>=$max) ? $graph_data_row['worth'] : $max;
+			$max = ($graph_data_row['managed_assets']>=$max) ? $graph_data_row['managed_assets'] : $max;
+			$min =  ($graph_data_row['managed_assets']<$min) ? $graph_data_row['managed_assets'] : $min;
+			$min =  ($graph_data_row['worth']<$min) ? $graph_data_row['worth'] : $min;
+
 		}
-//		$theData = '<pre>'.print_r($graph_data, true).'</pre>';
-		$theData = "<div style='height:50px;width:100%;'></div><div id='divForGraph'></div>";
+		$theData = "<div id='divForGraph' style='width:100%; height:400px'></div>";
+	//   $theData = "<div style='width:100%; height:400px'></div><div id='divForGraph'></div>";
+
 		$this->dv->ss->assign('theGraph', $theData);
 		
 		$this->dv->defs['panels']['LBL_GRAPH'] = array(
@@ -59,66 +65,68 @@ ORDER BY av_net_worth.date_entered DESC
 		  )
 		);
 		$this->showPrimarySecondaryImage();
-		parent::display();
+	
 		
+		$test = $graph_data;
+		$new_test = array();
+		$i = 0;
+		foreach($test as $key=>$data){
+		    $new_test[$i]['year'] = $key;
+			$new_test[$i]['worth'] = $data['worth'];
+			$new_test[$i]['managed_assets'] = $data['managed_assets'];
+			$i++;
+		}
+		
+		$interval = round(($max - $min)/15);
+		if($min >= 10000)
+		{
+			$min = round($min / 10000) * 10000;
+			$interval = round($interval / 10000) * 10000;		
+		}
+		else if($min >= 5000)
+		{
+			$min = round($min / 5000) * 5000;
+			$interval = round($interval / 5000) * 5000;					
+		}
+	parent::display();	
 		$jsRow = '';
 		//the javascript things for the graphs go here...
 		echo "
-		<script type='text/javascript' src='custom/include/js/jquery/jqBarGraph.1.1.js'></script>
+		<script type='text/javascript' src='custom/include/js/jquery/jqxcore.js'></script>
+		<script type='text/javascript' src='custom/include/js/jquery/jqxchart.js'></script>	
+		<script type='text/javascript' src='custom/include/js/jquery/jqxdata.js'></script>	
+
 		<script type='text/javascript'>
-		arrayOfData = new Array(
-		";
-		
-		unset($graph_data['']);
-		foreach($graph_data as $year=>$data)
-		{
-			$year = empty($year)? '0' : $year;
-			$worth = empty($data['worth'])? 0 : $data['worth'];
-			$managed_assets = empty($data['managed_assets'])? 0 : $data['managed_assets'];
-			echo $jsRow."\r\n";
-			$jsRow = "[[{$worth}, {$managed_assets}],'{$year}'],";
-		}
-		echo rtrim($jsRow, ',');
-		echo "
-		);
-//		Accounts_detailview_tabs.selectTab(4);	//just to show off my graph's animation effects.. We go back to out first tab in 3.5 seconds.
-		$('#divForGraph').jqBarGraph({ 
-										data: arrayOfData,
-										colors: ['#437346', '#97D95C'],
-										animate: true,
-										legends: ['Net Worth', 'Managed'],
-										legend: true,
-										width: 400,
-										type: 'multi'
-									});
-//		setTimeout('Accounts_detailview_tabs.selectTab(0);',3500);	//going back to the first tab after 3.5 seconds.
-		</script>";
-		
-		//Date dialog for net worth statement
-		echo '<div id="DialogForDatePicker" title="Date Picker" style="display:none">'.
-				'<form name="input" action="index.php?module=Accounts&action=PrintNetWorth&record=' . $this->bean->id . '" method="POST">'.
-					'<span class="dateTime">'.
-						'Select Date: '.
-						'<input type="text" maxlength="10" size="11" id="net_worth_date" name="net_worth_date" autocomplete="off" class="date_input"> &nbsp;'.
-						'<img border="0" id="net_worth_date_trigger" style="position:relative; top:6px" alt="Enter Date" src="themes/Sugar/images/jscalendar.png">'.
-					'</span> &nbsp; &nbsp; &nbsp;'.
-					'<input type="submit" value="Generate Net Worth"/>'.
-				'</form>'.
-			'</div>'.
-			'<script type="text/javascript">'.
-				'Calendar.setup ({'.
-					'inputField : "net_worth_date",'.
-					'ifFormat : "%m/%d/%Y %I:%M%P",'.
-					'daFormat : "%m/%d/%Y %I:%M%P",'.
-					'button : "net_worth_date_trigger",'.
-					'singleClick : true,'.
-					'dateStr : "",'.
-					'startWeekday: 0,'.
-					'step : 1,'.
-					'weekNumbers:false'.
-				'});'.
-			'</script>';
-		
+		Accounts_detailview_tabs.selectTab(6);
+
+				$('#divForGraph').jqxChart( {
+							  source: ".json_encode($new_test).",															  
+							  title: 'Net Worth',
+							  categoryAxis:
+							  {
+								  dataField: 'year'
+							  },
+							  colorScheme: 'scheme05',
+							  seriesGroups:
+							  [
+								{
+								  type: 'line',
+								  valueAxis:
+								  {
+									unitInterval: ".$interval.",
+									minValue: ".$min.",
+									maxValue: ".$max."
+								  },
+								  series: [
+									{ dataField: 'worth', displayText: 'Net Worth' },
+									{ dataField: 'managed_assets', displayText: 'Managed Assets' }
+								  ]
+								}
+							  ]
+						});
+		setTimeout('Accounts_detailview_tabs.selectTab(0);',2500);
+</script>";
+
 	}
 	/***
 	* show images against primary and secondary

@@ -38,6 +38,10 @@ array (
         array (
           'file' => 'include/javascript/tiny_mce/tiny_mce.js',
         ),
+		2 => 
+        array (
+          'file' => 'custom/modules/Accounts/copy_primary_contact_address.js',
+        ),
       ),
       'syncDetailEditViews' => true,
     ),
@@ -70,8 +74,15 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
-          1 => 'primary_contact_name',
-        ),
+          1=>
+		 array (
+			'name' => 'primary_contact_name',
+			'displayParams'=>array(
+			  'call_back_function'=>'set_location_querystring'
+			 ),
+		  ),
+
+		),
         2 => 
         array (
           0 => 
