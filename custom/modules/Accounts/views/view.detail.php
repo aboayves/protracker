@@ -88,6 +88,14 @@ ORDER BY av_net_worth.date_entered DESC
 			$min = round($min / 5000) * 5000;
 			$interval = round($interval / 5000) * 5000;					
 		}
+		if($min==INF)
+		{
+			$min = 0;
+		}
+		if($max==-INF)
+		{
+			$max = 0;
+		}
 	parent::display();	
 		$jsRow = '';
 		//the javascript things for the graphs go here...
