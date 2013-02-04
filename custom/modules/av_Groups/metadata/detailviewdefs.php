@@ -83,11 +83,11 @@ array (
           ),
           17 => 
           array (
-            'customCode' => '<input onclick="reportPopupClient(\'{$fields.id.value}\')" title="Select Clients using Group Rules" type="button" name="reportsPopupClients" id="reportsPopupClients" value="Select Clients using Group Rules">',
+            'customCode' => '<input onclick="reportPopupClient(\'{$fields.id.value}\')" title="Select Clients from Reports" type="button" name="reportsPopupClients" id="reportsPopupClients" value="Select Clients from Reports">',
           ),
           18 => 
           array (
-            'customCode' => '<input onclick="reportpopupContact(\'{$fields.id.value}\')" title="Select Contacts using Group Rules" type="button" name="reportsPopupContacts" id="reportsPopupContacts" value="Select Contacts using Group Rules">',
+            'customCode' => '<input onclick="reportpopupContact(\'{$fields.id.value}\')" title="Select Contacts from Reports" type="button" name="reportsPopupContacts" id="reportsPopupContacts" value="Select Contacts from Reports">',
           ),
         ),
       ),
@@ -160,7 +160,7 @@ array (
           ),
 		  1 => array(
 		  	'name' => 'lastupdated',
-			'customCode' => '<span id="lastupdated">{$fields.lastupdated.value}</span> <img src="custom/themes/default/images/refresh.jpg" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
+			'customCode' => '<span id="lastupdated">{$fields.lastupdated.value}</span> <img src="custom/themes/default/images/refresh.jpg" style="cursor:pointer;" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
 		  ),
         ),
         6 => 
