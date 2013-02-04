@@ -83,29 +83,26 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
-          1 => 
-          array (
-            'name' => 'primary_contact_name',
-            'label' => 'LBL_PRIMARY_CONTACT_NAME',
-          ),
         ),
         2 => 
         array (
           0 => 
           array (
-           
+            'name' => 'primary_contact_image',
+			'hideLabel' => true,
           ),
           1 => 
           array (
-			'name'=>'primary_contact_image'
+            'name' => 'secondary_contact_image',
+			'hideLabel' => true,
           ),
         ),
-		3 => 
+        3 => 
         array (
           0 => 
           array (
-            'name' => 'av_Offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
+            'name' => 'primary_contact_name',
+            'label' => 'LBL_PRIMARY_CONTACT_NAME',
           ),
           1 => 
           array (
@@ -113,15 +110,12 @@ array (
             'label' => 'LBL_SECONDARY_CONTACT_NAME',
           ),
         ),
-		4 => 
+        4 => 
         array (
           0 => 
           array (
-           
-          ),
-          1 => 
-          array (
-			'name'=>'secondary_contact_image'
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
         5 => 
@@ -152,7 +146,7 @@ array (
           0 => 
           array (
             'name' => 'current_net_worth',
-            'label' => 'LBL_CURRENT_NET_WORTH',			
+            'label' => 'LBL_CURRENT_NET_WORTH',
           ),
           1 => 
           array (
@@ -253,14 +247,14 @@ array (
             'label' => 'LBL_FAX',
           ),
         ),
-		2 => 
+        2 => 
         array (
-          0 =>	'preferred_comm', 
-          1 => 	'preferred_calling_time',
+          0 => 'preferred_comm',
+          1 => 'preferred_calling_time',
         ),
-		3 => 
+        3 => 
         array (
-          0 =>	'preferred_meeting_time', 
+          0 => 'preferred_meeting_time',
         ),
       ),
       'lbl_editview_panel1' => 
