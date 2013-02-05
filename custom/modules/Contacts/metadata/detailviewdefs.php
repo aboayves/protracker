@@ -154,8 +154,6 @@ array (
             'comment' => '',
             'label' => 'LBL_NICKNAME',
           ),
-            ),
-          ),
           1 => 
           array (
             'name' => 'annual_household_income',
@@ -192,9 +190,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'description',
-            'comment' => 'Full text of the note',
-            'label' => 'LBL_DESCRIPTION',
+            'name' => 'comments',
+            'studio' => 'visible',
+            'label' => 'LBL_COMMENTS',
           ),
           1 => 'team_name',
         ),
@@ -709,6 +707,12 @@ array (
             'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
+          ),
+          1 => 
+          array (
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
           ),
         ),
         1 => 

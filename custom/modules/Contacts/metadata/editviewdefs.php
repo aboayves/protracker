@@ -134,14 +134,6 @@ array (
             'comment' => '',
             'label' => 'LBL_NICKNAME',
           ),
-              'copy' => 'primary',
-              'billingKey' => 'primary',
-              'additionalFields' => 
-              array (
-                'phone_office' => 'phone_work',
-              ),
-            ),
-          ),
           1 => 
           array (
             'name' => 'annual_household_income',
@@ -178,8 +170,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
+            'name' => 'comments',
+            'studio' => 'visible',
+            'label' => 'LBL_COMMENTS',
           ),
           1 => 'team_name',
         ),
