@@ -57,6 +57,11 @@ array (
         ),
         2 => 
         array (
+          0 => 'name',
+          1 => '',
+        ),
+        3 => 
+        array (
           0 => 
           array (
             'name' => 'percent',
@@ -70,11 +75,19 @@ array (
             'label' => 'LBL_PER_STIRPES',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (

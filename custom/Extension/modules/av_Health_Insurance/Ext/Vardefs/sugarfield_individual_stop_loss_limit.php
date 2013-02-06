@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-18 22:54:16
+// created: 2013-01-24 11:09:46
 $dictionary["av_Health_Insurance"]["fields"]["individual_stop_loss_limit"] = array (
 	'name' => 'individual_stop_loss_limit',
 	'vname' => 'LBL_INDIVIDUAL_STOP_LOSS_LIMIT',
@@ -7,6 +7,7 @@ $dictionary["av_Health_Insurance"]["fields"]["individual_stop_loss_limit"] = arr
 	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
 	'size' => '20',
+	'align' => 'right',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

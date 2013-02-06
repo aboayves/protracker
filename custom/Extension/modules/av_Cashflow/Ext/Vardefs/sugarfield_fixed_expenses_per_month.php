@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-19 10:57:59
+// created: 2013-01-24 11:09:46
 $dictionary["av_Cashflow"]["fields"]["fixed_expenses_per_month"] = array (
 	'name' => 'fixed_expenses_per_month',
 	'vname' => 'LBL_FIXED_EXPENSES_PER_MONTH',
@@ -7,6 +7,7 @@ $dictionary["av_Cashflow"]["fields"]["fixed_expenses_per_month"] = array (
 	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
 	'size' => '20',
+	'align' => 'right',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

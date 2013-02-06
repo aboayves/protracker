@@ -52,8 +52,15 @@ array (
         array (
           0 => 
           array (
-            'name' => 'description',
-            'label' => 'LBL_NOTE_STATUS',
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+          1 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
           ),
         ),
         3 => 
@@ -73,22 +80,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'on_meeting_agenda',
-            'comment' => '',
-            'label' => 'LBL_ON_MEETING_AGENDA',
+            'name' => 'description',
+            'label' => 'LBL_NOTE_STATUS',
           ),
-          1 => 
-          array (
-            'name' => 'on_report_card',
-            'comment' => '',
-            'label' => 'LBL_ON_REPORT_CARD',
-          ),
+          1 => 'team_name',
         ),
         5 => 
-        array (
-          0 => 'team_name',
-        ),
-        6 => 
         array (
           0 => 
           array (

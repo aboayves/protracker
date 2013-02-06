@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-18 22:54:16
+// created: 2013-01-24 11:09:46
 $dictionary["av_Health_Insurance"]["fields"]["copay_prescription_namebrand"] = array (
 	'name' => 'copay_prescription_namebrand',
 	'vname' => 'LBL_COPAY_PRESCRIPTION_NAMEBRAND',
@@ -7,6 +7,7 @@ $dictionary["av_Health_Insurance"]["fields"]["copay_prescription_namebrand"] = a
 	'dbtype' => 'decimal(26,2)',
 	'len' => '26',
 	'size' => '20',
+	'align' => 'right',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

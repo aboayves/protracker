@@ -31,4 +31,4 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 global $mod_strings, $app_strings, $sugar_config;
  
 if(ACLController::checkAccess('av_Tax_Forms', 'edit', true))$module_menu[]=Array("index.php?module=av_Tax_Forms&action=EditView&return_module=av_Tax_Forms&return_action=DetailView", $mod_strings['LNK_NEW_RECORD'],"Createav_Tax_Forms", 'av_Tax_Forms');
-if(ACLController::checkAccess('av_Tax_Forms', 'edit', true))$module_menu[]=Array("index.php?module=av_Tax_Forms&action=ImportVCard", $mod_strings['LNK_IMPORT_VCARD'],"Createav_Tax_Forms", 'av_Tax_Forms');if(ACLController::checkAccess('av_Tax_Forms', 'list', true))$module_menu[]=Array("index.php?module=av_Tax_Forms&action=index&return_module=av_Tax_Forms&return_action=DetailView", $mod_strings['LNK_LIST'],"av_Tax_Forms", 'av_Tax_Forms');
+if(ACLController::checkAccess('av_Tax_Forms', 'list', true))$module_menu[]=Array("index.php?module=av_Tax_Forms&action=index&return_module=av_Tax_Forms&return_action=DetailView", $mod_strings['LNK_LIST'],"av_Tax_Forms", 'av_Tax_Forms');

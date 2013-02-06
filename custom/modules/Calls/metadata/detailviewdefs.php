@@ -84,8 +84,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+            'name' => 'name',
+            'label' => 'LBL_SUBJECT',
           ),
           1 => 
           array (
@@ -98,11 +98,35 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
-            'label' => 'LBL_SUBJECT',
+            'name' => 'parent_name',
+            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+          ),
+          1 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'direction',
+            'customCode' => '{$fields.direction.options[$fields.direction.value]} {$fields.status.options[$fields.status.value]}',
+            'label' => 'LBL_STATUS',
+          ),
+          1 => 
+          array (
+            'name' => 'status',
+            'comment' => 'The status of the call (Held, Not Held, etc.)',
+            'studio' => 
+            array (
+              'detailview' => false,
+            ),
+            'label' => 'LBL_STATUS',
+          ),
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -117,49 +141,30 @@ array (
             'label' => 'LBL_DATE_END',
           ),
         ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'status',
-            'comment' => 'The status of the call (Held, Not Held, etc.)',
-            'studio' => 
-            array (
-              'detailview' => false,
-            ),
-            'label' => 'LBL_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'direction',
-            'customCode' => '{$fields.direction.options[$fields.direction.value]} {$fields.status.options[$fields.status.value]}',
-            'label' => 'LBL_STATUS',
-          ),
-        ),
         4 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'duration_hours',
             'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
             'label' => 'LBL_DURATION',
+          ),
+          1 => 
+          array (
+            'name' => 'reminder_time',
+            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
+            'label' => 'LBL_REMINDER',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'reminder_time',
-            'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
-            'label' => 'LBL_REMINDER',
-          ),
-          1 => 
-          array (
             'name' => 'email_reminder_time',
             'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
             'label' => 'LBL_EMAIL_REMINDER_TIME',
           ),
+          1 => '',
         ),
         6 => 
         array (

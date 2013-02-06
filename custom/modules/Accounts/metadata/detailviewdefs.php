@@ -112,7 +112,8 @@ array (
         ),
         4 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'av_Offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
@@ -120,7 +121,8 @@ array (
         ),
         5 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'av_client_types_name',
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
@@ -169,6 +171,46 @@ array (
             'name' => 'client_number',
             'comment' => '',
             'label' => 'LBL_CLIENT_NUMBER',
+          ),
+        ),
+        9 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'phase',
+            'comment' => '',
+            'label' => 'LBL_PHASE',
+          ),
+        ),
+        8 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'relationship_type',
+            'comment' => '',
+            'label' => 'LBL_RELATIONSHIP_TYPE',
+          ),
+        ),
+        9 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'phase',
+            'comment' => '',
+            'label' => 'LBL_PHASE',
+          ),
+        ),
+        8 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'relationship_type',
+            'comment' => '',
+            'label' => 'LBL_RELATIONSHIP_TYPE',
           ),
         ),
         9 => 

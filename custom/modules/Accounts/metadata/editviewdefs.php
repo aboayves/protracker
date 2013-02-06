@@ -94,7 +94,8 @@ array (
         ),
         3 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'av_client_types_name',
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
@@ -148,6 +149,26 @@ array (
         ),
         7 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'phase',
+            'comment' => '',
+            'label' => 'LBL_PHASE',
+          ),
+        ),
+        8 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'relationship_type',
+            'comment' => '',
+            'label' => 'LBL_RELATIONSHIP_TYPE',
+          ),
+        ),
+        9 => 
+        array (
           0 => 
           array (
             'name' => 'document_path',
@@ -161,7 +182,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        8 => 
+        10 => 
         array (
           0 => 
           array (
@@ -177,7 +198,7 @@ array (
             ),
           ),
         ),
-        9 => 
+        11 => 
         array (
           0 => 
           array (

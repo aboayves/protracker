@@ -36,27 +36,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'workflow',
-            'studio' => 'visible',
-            'label' => 'LBL_MODULE_NAME',
-          ),
-          1 => 
-          array (
             'name' => 'related_to',
             'studio' => 'visible',
             'label' => 'LBL_RELATED_TO',
           ),
+          1 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
         ),
         2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'category',
-            'label' => 'LBL_CATEGORY',
-          ),
-          1 => '',
-        ),
-        3 => 
         array (
           0 => 
           array (
@@ -66,12 +56,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'add_to_project',
+            'name' => 'workflow',
             'studio' => 'visible',
-            'label' => 'LBL_ADD_TO_PROJECT',
+            'label' => 'LBL_MODULE_NAME',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -86,7 +76,7 @@ array (
             'label' => 'LBL_START_DATE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -101,7 +91,7 @@ array (
             'label' => 'LBL_SKIP_WEEKENDS_HOLIDAYS',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -116,7 +106,7 @@ array (
             'label' => 'LBL_WORKFLOW_COUNTS_DOWN_TO_TARGET_DATE',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 'description',
           1 => 
@@ -128,7 +118,7 @@ array (
             ),
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (

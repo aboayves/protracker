@@ -58,4 +58,5 @@ $mod_strings = array (
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
   'LBL_AV_ACCOUNT_HISTORIES_SUBPANEL_TITLE' => 'Account Histories',
   'LBL_NEW_FORM_TITLE' => 'New Account Histories',
+  'LBL_IMPORT' => 'Import <display_module_name>',
 );
