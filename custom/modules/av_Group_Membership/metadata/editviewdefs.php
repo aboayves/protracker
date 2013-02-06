@@ -34,7 +34,11 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+		  array(
+		     'name'=>'name',
+		     'type'=>'readonly',
+			),
           1 => 'parent_name',
         ),
         1 => 
