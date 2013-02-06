@@ -569,7 +569,7 @@ div.moduleTitle {
 
 .moduleTitle span.utils {
     display: block;
-    float: right;
+    float: left;
     margin-top: 6px;
 }
 
