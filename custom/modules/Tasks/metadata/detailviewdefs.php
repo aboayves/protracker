@@ -71,7 +71,6 @@ array (
           1 => 
           array (
             'name' => 'parent_name',
-            'customLabel' => 'Related to - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
         ),
         1 => 
@@ -113,11 +112,6 @@ array (
         6 => 
         array (
           0 => 'client_task',
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'customLabel' => 'Related to:',	// - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}
-          ),
         ),
         7 => 
         array (
