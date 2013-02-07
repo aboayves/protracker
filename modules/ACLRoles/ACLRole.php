@@ -273,7 +273,7 @@ function mark_relationships_deleted($id){
 				$arr['where'] .= " WHERE ";
 			}
 			
-			$arr['where'] .= " acl_roles.name NOT IN ('Standard Edition','Enhanced Edition','Enterprise Edition') ";
+			$arr['where'] .= " acl_roles.name NOT IN ('Standard Edition','Professional Edition ','Enterprise Edition') ";
 		}
 		
 		return $arr;
