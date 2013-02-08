@@ -26,16 +26,26 @@ echo '<script type="text/javascript">
 		}
 		
       </script>';
-$sql = "SELECT acl_roles.name FROM acl_roles ".				
-			   " INNER JOIN acl_roles_users ".
-			   " ON ( acl_roles_users.deleted = 0 AND acl_roles.id = acl_roles_users.role_id )".
-			   " WHERE acl_roles.deleted ='0' ".
-			   " AND acl_roles_users.user_id='".$current_user->id."'";	
+$sql = "
+SELECT acl_roles.id, name 
+FROM acl_roles 
+LEFT JOIN acl_roles_users 
+	ON ( acl_roles_users.deleted = 0 AND acl_roles.id = acl_roles_users.role_id ) 
+WHERE 
+	acl_roles.deleted ='0' 
+	AND acl_roles_users.user_id='{$current_user->id}'
+";
 $res = $db->query($sql);
 $row = $db->fetchByAssoc($res);
 
+if($row['id'] == "")
+{
+	$row['id'] =  "reserved_standard";
+	
+}
+
 $admin_role_options = array(
-		"Standard"=>array(
+		"reserved_standard"=>array(
 		
 			"av_Account_Types"=>array(
 				'av_Account_Types',
@@ -81,7 +91,7 @@ $admin_role_options = array(
 				'./index.php?module=Import&action=step1&import_module=Administration'
 			),			
 		),
-		"Professional"=>array(
+		"reserved_professional"=>array(
 			"av_Account_Types"=>array(
 				'av_Account_Types',
 				translate('av_Account_Types', 'LBL_MODULE_NAME'),
@@ -155,7 +165,7 @@ $admin_role_options = array(
 				'./index.php?module=Teams&action=index'
 			),
 		),
-		"enhanced edition"=>array(
+		"reserved_enterprise"=>array(
 			"av_Account_Types"=>array(
 				'av_Account_Types',
 				translate('av_Account_Types', 'LBL_MODULE_NAME'),
@@ -318,7 +328,19 @@ $option_module_groups = array(
 
 	  
 if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
+		$admin_option_defs = array();
 	$admin_group_header = array();
+	foreach($admin_role_options[$row['id']] as $key=>$options){
+		$admin_option_defs [$option_module_groups[$key]][$key] = $options;
+	}
+	
+	$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
+}
+else if(!empty($row['name']) && !empty($admin_role_options[$row['name']])){
+
+//$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
+
+/*	$admin_group_header = array();
 	
 	//Protracker Admin
 	$admin_option_defs = array();
@@ -485,20 +507,9 @@ if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
 		'LBL_CONTRACT_TYPES',
 		'./index.php?module=ContractTypes&action=index'
 	);
-
-	$aclRole = new ACLRole();
-	$roleName = $aclRole->getUserRoles($current_user->id);
-	
 	//$admin_group_header[] = array($app_list_strings['moduleList']['Contracts'],'',false,$admin_option_defs, 'LBL_CONTRACT_DESC');
-	$admin_group_header[] = array('ProTracker Administration - '.$roleName[0], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
-}
-else if(!empty($row['name']) && !empty($admin_role_options[$row['name']])){
-	$admin_option_defs = array();
-	$admin_group_header = array();
-	foreach($admin_role_options[$row['name']] as $key=>$options){
-		$admin_option_defs [$option_module_groups[$key]][$key] = $options;
-	}
-	$admin_group_header[] = array('ProTracker Administration - '.$roleName[0], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
-}
+	$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
+*/}
+
 
 ?>
