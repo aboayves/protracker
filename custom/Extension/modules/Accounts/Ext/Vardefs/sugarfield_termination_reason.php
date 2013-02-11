@@ -3,8 +3,7 @@
 $dictionary["Account"]["fields"]["termination_reason"] = array (
 	'name' => 'termination_reason',
 	'vname' => 'LBL_TERMINATION_REASON',
-	'type' => 'varchar',
-	'len' => '255',
+	'type' => 'text',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

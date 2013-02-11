@@ -3,8 +3,7 @@
 $dictionary["av_Estate_Amendments"]["fields"]["provisions"] = array (
 	'name' => 'provisions',
 	'vname' => 'LBL_PROVISIONS',
-	'type' => 'varchar',
-	'len' => '255',
+	'type' => 'text',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

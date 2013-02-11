@@ -3,8 +3,7 @@
 $dictionary["av_Accounts"]["fields"]["investment_policy"] = array (
 	'name' => 'investment_policy',
 	'vname' => 'LBL_INVESTMENT_POLICY',
-	'type' => 'varchar',
-	'len' => '255',
+	'type' => 'text',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',
