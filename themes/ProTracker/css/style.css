@@ -545,6 +545,14 @@ div.moduleTitle {
     padding-top: 4px;
     font-weight: bold;
     margin-bottom: 15px;
+	
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align:left;
+	width: 600px;
+	direction:rtl;
+	  
     position: fixed;
     top: 6px;
     left: 245px;
@@ -552,6 +560,7 @@ div.moduleTitle {
     text-shadow: 1px 1px 0px #ffffff;
     -webkit-text-shadow: 1px 1px 0px #ffffff;
     -moz-text-shadow: 1px 1px 0px #ffffff;
+
 }
 
 .moduleTitle h2 a {
