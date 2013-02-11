@@ -89,12 +89,10 @@ array (
           0 => 
           array (
             'name' => 'primary_contact_image',
-			'hideLabel' => true,
           ),
           1 => 
           array (
             'name' => 'secondary_contact_image',
-			'hideLabel' => true,
           ),
         ),
         3 => 
