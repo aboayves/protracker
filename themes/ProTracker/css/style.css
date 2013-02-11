@@ -88,7 +88,7 @@ input[type="submit"] {
 }
 
 input[type=text],input[type=password],textarea {
-    width: auto;
+    width: 300px !important;
 }
 
 input[type=checkbox],input[type=radio] {
