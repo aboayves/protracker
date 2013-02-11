@@ -80,6 +80,20 @@ array (
         array (
           0 => 
           array (
+            'name' => 'selected_revision_name',
+            'label' => 'LBL_SELECTED_REVISION_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'attach_to_group_id',
+            'comment' => 'Used as hidden field',
+            'label' => 'LBL_ATTACH_TO_GROUP_ID',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
             'name' => 'template_type',
             'label' => 'LBL_DET_TEMPLATE_TYPE',
           ),
@@ -89,14 +103,14 @@ array (
             'label' => 'LBL_DET_IS_TEMPLATE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 'active_date',
           1 => 'exp_date',
         ),
-        5 => 
+        6 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'doc_type',
             'comment' => 'Document type (ex: Google, box.net, LotusLive)',
@@ -108,14 +122,6 @@ array (
               'wireless_basic_search' => false,
             ),
             'label' => 'LBL_DOC_TYPE',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_DOC_DESCRIPTION',
           ),
         ),
         7 => 
@@ -160,25 +166,16 @@ array (
         array (
           0 => 
           array (
-            'name' => 'team_name',
-            'label' => 'LBL_TEAM',
+            'name' => 'description',
+            'label' => 'LBL_DOC_DESCRIPTION',
           ),
           1 => 
           array (
-            'name' => 'attach_to_group_id',
-            'comment' => 'Used as hidden field',
-            'label' => 'LBL_ATTACH_TO_GROUP_ID',
+            'name' => 'team_name',
+            'label' => 'LBL_TEAM',
           ),
         ),
         12 => 
-        array (
-          0 => 
-          array (
-            'name' => 'selected_revision_name',
-            'label' => 'LBL_SELECTED_REVISION_NAME',
-          ),
-        ),
-        13 => 
         array (
           0 => 
           array (

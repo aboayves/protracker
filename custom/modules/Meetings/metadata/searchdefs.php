@@ -1,5 +1,5 @@
 <?php
-$searchdefs ['Tasks'] = 
+$searchdefs ['Meetings'] = 
 array (
   'layout' => 
   array (
@@ -76,26 +76,6 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'av_activity_types_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
-        'id' => 'activity_type_id',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'av_Activity_Types_name',
-      ),
-      'parent_tasks_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_PARENT_TASKS',
-        'id' => 'PARENT_TASKS_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'parent_tasks_name',
-      ),
       'status' => 
       array (
         'name' => 'status',
@@ -118,50 +98,36 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'modified_user_id' => 
-      array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_MODIFIED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'modified_user_id',
-      ),
-      'date_due' => 
+      'date_start' => 
       array (
         'type' => 'datetimecombo',
+        'label' => 'LBL_DATE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_start',
+      ),
+      'type' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
         'studio' => 
         array (
-          'required' => true,
-          'no_duplicate' => true,
+          'wirelesseditview' => false,
+          'wirelessdetailview' => false,
+          'wirelesslistview' => false,
+          'wireless_basic_search' => false,
         ),
-        'label' => 'LBL_DUE_DATE',
+        'label' => 'LBL_TYPE',
         'width' => '10%',
-        'default' => true,
-        'name' => 'date_due',
+        'name' => 'type',
       ),
-      'date_modified' => 
+      'location' => 
       array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_MODIFIED',
+        'type' => 'varchar',
+        'label' => 'LBL_LOCATION',
         'width' => '10%',
         'default' => true,
-        'name' => 'date_modified',
-      ),
-      'date_complete' => 
-      array (
-        'type' => 'datetime',
-        'label' => 'LBL_DTE_CMP',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'date_complete',
-      ),
-      'closed_status' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_CLOSED_STATUS',
-        'width' => '10%',
-        'name' => 'closed_status',
+        'name' => 'location',
       ),
       'team_name' => 
       array (
@@ -173,29 +139,30 @@ array (
         'default' => true,
         'name' => 'team_name',
       ),
-      'on_meeting_agenda' => 
+      'created_by' => 
       array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ON_MEETING_AGENDA',
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
         'width' => '10%',
-        'name' => 'on_meeting_agenda',
+        'default' => true,
+        'name' => 'created_by',
       ),
-      'on_client_task_list' => 
+      'modified_user_id' => 
       array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ON_CLIENT_TASK_LIST',
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
         'width' => '10%',
-        'name' => 'on_client_task_list',
+        'default' => true,
+        'name' => 'modified_user_id',
       ),
-      'on_report_card' => 
+      'description' => 
       array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ON_REPORT_CARD',
+        'type' => 'text',
+        'label' => 'LBL_DESCRIPTION',
+        'sortable' => false,
         'width' => '10%',
-        'name' => 'on_report_card',
+        'default' => true,
+        'name' => 'description',
       ),
     ),
   ),

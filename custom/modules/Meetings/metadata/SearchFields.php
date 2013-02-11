@@ -1,6 +1,6 @@
 <?php
-// created: 2013-02-08 15:42:38
-$searchFields['Tasks'] = array (
+// created: 2013-02-08 16:20:58
+$searchFields['Meetings'] = array (
   'name' => 
   array (
     'query_type' => 'default',
@@ -13,6 +13,10 @@ $searchFields['Tasks'] = array (
       0 => 'contacts.first_name',
       1 => 'contacts.last_name',
     ),
+  ),
+  'date_start' => 
+  array (
+    'query_type' => 'default',
   ),
   'current_user_only' => 
   array (
@@ -32,7 +36,7 @@ $searchFields['Tasks'] = array (
   'status' => 
   array (
     'query_type' => 'default',
-    'options' => 'task_status_dom',
+    'options' => 'meeting_status_dom',
     'template_var' => 'STATUS_FILTER',
   ),
   'favorites_only' => 
@@ -41,7 +45,7 @@ $searchFields['Tasks'] = array (
     'operator' => 'subquery',
     'subquery' => 'SELECT sugarfavorites.record_id FROM sugarfavorites 
 			                    WHERE sugarfavorites.deleted=0 
-			                        and sugarfavorites.module = \'Tasks\'
+			                        and sugarfavorites.module = \'Meetings\'
 			                        and sugarfavorites.assigned_user_id = \'{0}\'',
     'db_field' => 
     array (
@@ -58,8 +62,8 @@ $searchFields['Tasks'] = array (
     'operator' => 'not in',
     'closed_values' => 
     array (
-      0 => 'Completed',
-      1 => 'Deferred',
+      0 => 'Held',
+      1 => 'Not Held',
     ),
     'type' => 'bool',
   ),
@@ -117,37 +121,19 @@ $searchFields['Tasks'] = array (
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'range_date_due' => 
+  'range_date_end' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'start_range_date_due' => 
+  'start_range_date_end' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'end_range_date_due' => 
-  array (
-    'query_type' => 'default',
-    'enable_range_search' => true,
-    'is_date_field' => true,
-  ),
-  'range_date_complete' => 
-  array (
-    'query_type' => 'default',
-    'enable_range_search' => true,
-    'is_date_field' => true,
-  ),
-  'start_range_date_complete' => 
-  array (
-    'query_type' => 'default',
-    'enable_range_search' => true,
-    'is_date_field' => true,
-  ),
-  'end_range_date_complete' => 
+  'end_range_date_end' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,

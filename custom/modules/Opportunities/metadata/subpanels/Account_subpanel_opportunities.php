@@ -1,45 +1,32 @@
 <?php
-// created: 2013-02-07 18:06:36
+// created: 2013-02-07 18:05:08
 $subpanel_layout['list_fields'] = array (
-  'quote_num' => 
-  array (
-    'type' => 'int',
-    'vname' => 'LBL_QUOTE_NUM',
-    'width' => '5%',
-    'default' => true,
-  ),
   'name' => 
   array (
-    'vname' => 'LBL_LIST_QUOTE_NAME',
+    'name' => 'name',
+    'vname' => 'LBL_LIST_OPPORTUNITY_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '25%',
+    'width' => '40%',
     'default' => true,
   ),
-  'total_usdollar' => 
+  'sales_stage' => 
   array (
-    'vname' => 'LBL_LIST_AMOUNT_USDOLLAR',
+    'name' => 'sales_stage',
+    'vname' => 'LBL_LIST_SALES_STAGE',
     'width' => '15%',
     'default' => true,
   ),
-  'date_quote_expected_closed' => 
+  'date_closed' => 
   array (
-    'name' => 'date_quote_expected_closed',
-    'vname' => 'LBL_LIST_DATE_QUOTE_EXPECTED_CLOSED',
-    'width' => '10%',
+    'name' => 'date_closed',
+    'vname' => 'LBL_LIST_DATE_CLOSED',
+    'width' => '15%',
     'default' => true,
   ),
-  'date_entered' => 
+  'amount_usdollar' => 
   array (
-    'type' => 'datetime',
-    'vname' => 'LBL_DATE_ENTERED',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'date_modified' => 
-  array (
-    'type' => 'datetime',
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
+    'vname' => 'LBL_LIST_AMOUNT_USDOLLAR',
+    'width' => '15%',
     'default' => true,
   ),
   'assigned_user_name' => 
@@ -56,7 +43,7 @@ $subpanel_layout['list_fields'] = array (
   array (
     'vname' => 'LBL_EDIT_BUTTON',
     'widget_class' => 'SubPanelEditButton',
-    'module' => 'Quotes',
+    'module' => 'Opportunities',
     'width' => '4%',
     'default' => true,
   ),

@@ -81,6 +81,20 @@ array (
         array (
           0 => 
           array (
+            'name' => 'selected_revision_name',
+            'label' => 'LBL_SELECTED_REVISION_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'attach_to_group_id',
+            'comment' => 'Used as hidden field',
+            'label' => 'LBL_ATTACH_TO_GROUP_ID',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
             'name' => 'template_type',
             'label' => 'LBL_DET_TEMPLATE_TYPE',
           ),
@@ -90,7 +104,7 @@ array (
             'label' => 'LBL_DET_IS_TEMPLATE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -98,16 +112,9 @@ array (
           ),
           1 => 'exp_date',
         ),
-        5 => 
-        array (
-          1 => 'doc_type',
-        ),
         6 => 
         array (
-          0 => 
-          array (
-            'name' => 'description',
-          ),
+          0 => 'doc_type',
         ),
         7 => 
         array (
@@ -159,28 +166,18 @@ array (
         array (
           0 => 
           array (
+            'name' => 'description',
+          ),
+          1 => 
+          array (
             'name' => 'team_name',
             'displayParams' => 
             array (
               'required' => true,
             ),
           ),
-          1 => 
-          array (
-            'name' => 'attach_to_group_id',
-            'comment' => 'Used as hidden field',
-            'label' => 'LBL_ATTACH_TO_GROUP_ID',
-          ),
         ),
         12 => 
-        array (
-          0 => 
-          array (
-            'name' => 'selected_revision_name',
-            'label' => 'LBL_SELECTED_REVISION_NAME',
-          ),
-        ),
-        13 => 
         array (
           0 => 
           array (
