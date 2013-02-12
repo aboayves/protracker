@@ -89,12 +89,40 @@ array (
           0 => 
           array (
             'name' => 'primary_contact_image',
-			'label' => ' ',
+			'label' => '',
+			'customCode'=>'
+			<input type="hidden" value="$fields.primary_contact_image.value" id="primary_contact_image" class="sugar_field">
+				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_primary_contact_image\').src)">
+				<img style="
+				border: 1px solid black; 
+				width: auto;
+				height: 132px;
+				float:left;
+				margin-right: 5px;
+				" src="index.php?entryPoint=download&amp;id={$fields.primary_contact_image.value}&amp;type=SugarFieldImage&amp;isTempFile=1" name="img_primary_contact_image" id="img_primary_contact_image">
+				</a>
+			<span style>{$fields.primary_contact_name.value}</br>DOB: {$fields.primary_contact_birthdate.value}</span>
+			'
           ),
           1 => 
           array (
             'name' => 'secondary_contact_image',
 			'label' => ' ',
+			'customCode' => '
+			<input id="secondary_contact_image" class="sugar_field" type="hidden" value="$fields.secondary_contact_image.value">
+				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_secondary_contact_image\').src)">
+				<img 
+				id="img_secondary_contact_image" 
+				style=" 
+				border: 1px solid black;
+				width: auto;
+				height: 132px;
+				float:left;
+				margin-right: 5px;
+				" src="index.php?entryPoint=download&id={$fields.secondary_contact_image.value}&type=SugarFieldImage&isTempFile=1" name="img_secondary_contact_image">
+					</a>
+				<span style>{$fields.secondary_contact_name.value}</br>DOB: {$fields.secondary_contact_birthdate.value}</span>
+				'
           ),
         ),
         3 => 

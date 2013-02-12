@@ -60,8 +60,8 @@ class AccountsViewDetail extends ViewDetail
 		$graph_data = array();
 		for($i=1; $i<=5; $i++)
 		{
-			$graph_data_db[$year]['worth'] =($graph_data_db[$year]['worth']=='') ? '0': $graph_data_db[$year]['worth'];
-			$graph_data_db[$year]['managed_assets'] =($graph_data_db[$year]['managed_assets']=='') ? '0': $graph_data_db[$year]['managed_assets'];
+			$graph_data_db[$year]['worth'] =($graph_data_db[$year]['worth']=='') ? 0: $graph_data_db[$year]['worth'];
+			$graph_data_db[$year]['managed_assets'] =($graph_data_db[$year]['managed_assets']=='') ? 0: $graph_data_db[$year]['managed_assets'];
 			
 			$graph_data[$year] = array('worth'=>$graph_data_db[$year]['worth'],'managed_assets'=>$graph_data_db[$year]['managed_assets']);
 		 $year--;
@@ -88,13 +88,15 @@ class AccountsViewDetail extends ViewDetail
 			$i++;
 		}
 		
+		$min = ($min>0) ? $min : 0;
 		$interval = round(($max - $min)/15);
-		if($min >= 10000)
+		
+		if($interval >= 10000)
 		{
 			$min = round($min / 10000) * 10000;
 			$interval = round($interval / 10000) * 10000;		
 		}
-		else if($min >= 5000)
+		else if($interval >= 5000)
 		{
 			$min = round($min / 5000) * 5000;
 			$interval = round($interval / 5000) * 5000;					
@@ -135,7 +137,11 @@ class AccountsViewDetail extends ViewDetail
 							  ]
 						});
 		Accounts_detailview_tabs.selectTab(0);
-</script>";
+		$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);	
+		$('#primary_contact_image').closest('td').prev('td').text('');
+		$('#secondary_contact_image').closest('td').prev('td').text('');
+		
+		</script>";
    }
    else
    {
@@ -150,7 +156,10 @@ class AccountsViewDetail extends ViewDetail
 		  )
 		);
 		$this->showPrimarySecondaryImage();
+
+		
 		parent::display();
+		
 	}
 
 }
@@ -160,14 +169,16 @@ class AccountsViewDetail extends ViewDetail
 	public function showPrimarySecondaryImage(){
 		global $db;
 		if(!empty($this->bean->primary_contact_id) || !empty($this->bean->secondary_contact_id)){
-			$sql = "SELECT id,picture FROM contacts WHERE id ='".$this->bean->primary_contact_id."' OR id ='".$this->bean->secondary_contact_id."'";
+			$sql = "SELECT id, picture FROM contacts WHERE deleted=0 and id ='{$this->bean->primary_contact_id}' OR id ='{$this->bean->secondary_contact_id}'";
 			$res = $db->query($sql);
 			while($row = $db->fetchByAssoc($res)){
 				if($row['id'] == $this->bean->primary_contact_id){
 					$this->bean->primary_contact_image = $row['picture'];
+				    $this->bean->primary_contact_birthdate = date("m/d/y", strtotime($this->bean->primary_contact_birthdate));
 				}
 				else if($row['id'] == $this->bean->secondary_contact_id){
 					$this->bean->secondary_contact_image = $row['picture'];
+					$this->bean->secondary_contact_birthdate = date("m/d/y", strtotime($this->bean->secondary_contact_birthdate));
 				}
 			}
 			
