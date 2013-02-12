@@ -110,11 +110,11 @@ $admin_role_options = array(
 				'Manage Contact types',
 				'./index.php?module=av_Contact_Types&action=index'
 			),
-			"av_client_types"=>array(
-				'av_client_types',
-				translate('av_client_types', 'LBL_MODULE_NAME'),
+			"av_Client_Types"=>array(
+				'av_Client_Types',
+				translate('av_Client_Types', 'LBL_MODULE_NAME'),
 				'Manage Client types',
-				'./index.php?module=av_client_types&action=index'
+				'./index.php?module=av_Client_Types&action=index'
 			),
 			"av_Group_Types"=>array(
 				'av_Group_Types',
@@ -184,11 +184,11 @@ $admin_role_options = array(
 				'Manage Contact types',
 				'./index.php?module=av_Contact_Types&action=index'
 			),
-			"av_client_types"=>array(
-				'av_client_types',
-				translate('av_client_types', 'LBL_MODULE_NAME'),
+			"av_Client_Types"=>array(
+				'av_Client_Types',
+				translate('av_Client_Types', 'LBL_MODULE_NAME'),
 				'Manage Client types',
-				'./index.php?module=av_client_types&action=index'
+				'./index.php?module=av_Client_Types&action=index'
 			),
 			"av_Group_Types"=>array(
 				'av_Group_Types',
@@ -304,7 +304,7 @@ $option_module_groups = array(
 		"av_Account_Types"=>"Administration",
 		"av_Activity_Types"=>"Administration",
 		"av_Contact_Types"=>"Administration",
-		"av_client_types"=>"Administration",
+		"av_Client_Types"=>"Administration",
 		"av_Group_Types"=>"Administration",
 		"ContractTypes"=>"Contracts",
 		"Import"=>"Administration",
