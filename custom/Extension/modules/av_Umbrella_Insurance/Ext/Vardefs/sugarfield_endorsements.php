@@ -3,8 +3,7 @@
 $dictionary["av_Umbrella_Insurance"]["fields"]["endorsements"] = array (
 	'name' => 'endorsements',
 	'vname' => 'LBL_ENDORSEMENTS',
-	'type' => 'varchar',
-	'len' => '255',
+	'type' => 'text',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',
