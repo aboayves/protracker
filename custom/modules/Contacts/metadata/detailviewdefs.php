@@ -350,7 +350,12 @@ array (
             'label' => 'LBL_BIRTHDATE',
           ),
         ),
-        1 => 
+		1 => 
+        array (
+          0 => 'age',
+		  1 => 'year_end_age',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -364,7 +369,7 @@ array (
             'label' => 'LBL_BIRTHPLACE',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -379,7 +384,7 @@ array (
             'label' => 'LBL_MARITAL_STATUS',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -393,7 +398,7 @@ array (
             'label' => 'LBL_ANNIVERSARY_DATE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -408,7 +413,7 @@ array (
             'label' => 'LBL_DATE_OF_DEATH',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -423,7 +428,7 @@ array (
             'label' => 'LBL_CHILDREN',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -438,7 +443,7 @@ array (
             'label' => 'LBL_PROFESSIONAL',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -453,7 +458,7 @@ array (
             'label' => 'LBL_CHARITIES',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -468,7 +473,7 @@ array (
             'label' => 'LBL_POLITICS',
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -483,7 +488,7 @@ array (
             'label' => 'LBL_MILITARY_SERVICE',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -498,7 +503,7 @@ array (
             'label' => 'LBL_LEVEL_OF_HEALTH',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -513,7 +518,7 @@ array (
             'label' => 'LBL_LIKES',
           ),
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (
