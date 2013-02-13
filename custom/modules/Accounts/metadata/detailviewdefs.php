@@ -109,7 +109,7 @@ array (
 			{/if}
 			
 			<span>
-				<a href="index.php?module=Contacts&ref=pri_name&action=DetailView&record={$fields.primary_contact_id.value}">
+				<a href="index.php?module=Contacts&action=DetailView&record={$fields.primary_contact_id.value}">
 				<span id="primary_contact_id" class="sugar_field">{$fields.primary_contact_name.value}</span></a>
 				</br>
 				{if $fields.primary_contact_birthdate.value}DOB: {$fields.primary_contact_birthdate.value}{/if}
@@ -137,7 +137,7 @@ array (
 				{/if}
 
 				<span>
-				 <a href="index.php?module=Contacts&action=DetailView&record={$fields.secondary_contact_id.value}&ref=sec_name">
+				 <a href="index.php?module=Contacts&action=DetailView&record={$fields.secondary_contact_id.value}">
 					<span id="secondary_contact_id" class="sugar_field">{$fields.secondary_contact_name.value}</span></a>
 					</br>
 					{if $fields.secondary_contact_birthdate.value}DOB: {$fields.secondary_contact_birthdate.value}{/if}
@@ -297,12 +297,35 @@ array (
         ),
         2 => 
         array (
-          0 => 'preferred_comm',
-          1 => 'preferred_calling_time',
+          0 =>
+			array( 
+				'name' =>'preferred_comm',
+				'customCode' =>'
+				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
+					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_comm.value}</span>
+				</a>',
+			),
+          1 =>
+			array(
+				'name' => 'preferred_calling_time',
+				'customCode' =>'
+				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
+					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_calling_time.value}</span>
+				</a>',
+			),
+		  
         ),
         3 => 
         array (
-          0 => 'preferred_meeting_time',
+          0 =>
+			array(
+			'name' => 'preferred_meeting_time',
+			'customCode' =>'
+				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
+					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_meeting_time.value}</span>
+				</a>',
+			),
+			
         ),
       ),
       'lbl_editview_panel1' => 
