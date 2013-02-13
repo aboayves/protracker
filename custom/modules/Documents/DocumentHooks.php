@@ -26,5 +26,14 @@ class DocumentHooks
 			$db->query($sql);
 		}
 	}
+	
+	function ListViewSource(&$bean, $event, $arguments)
+    {
+		if( $bean->doc_type == 'Sugar')
+		{
+			$bean->doc_type = 'ProTracker';       
+		}
+    }
+	
 }
 ?>
