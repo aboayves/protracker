@@ -90,7 +90,12 @@ array (
           array (
             'name' => 'primary_contact_image',
 			'label' => '',
+			'displayParams' =>
+			array (
+				'trimColon' => 1,
+			),
 			'customCode'=>'
+			{if $fields.primary_contact_image.value}
 			<input type="hidden" value="$fields.primary_contact_image.value" id="primary_contact_image" class="sugar_field">
 				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_primary_contact_image\').src)">
 				<img style="
@@ -101,7 +106,14 @@ array (
 				margin-right: 5px;
 				" src="index.php?entryPoint=download&amp;id={$fields.primary_contact_image.value}&amp;type=SugarFieldImage&amp;isTempFile=1" name="img_primary_contact_image" id="img_primary_contact_image">
 				</a>
-			<span style>{$fields.primary_contact_name.value}</br>DOB: {$fields.primary_contact_birthdate.value}</span>
+			{/if}
+			
+			<span>
+				<a href="index.php?module=Contacts&ref=pri_name&action=DetailView&record={$fields.primary_contact_id.value}">
+				<span id="primary_contact_id" class="sugar_field">{$fields.primary_contact_name.value}</span></a>
+				</br>
+				{if $fields.primary_contact_birthdate.value}DOB: {$fields.primary_contact_birthdate.value}{/if}
+			</span>
 			'
           ),
           1 => 
@@ -109,6 +121,7 @@ array (
             'name' => 'secondary_contact_image',
 			'label' => ' ',
 			'customCode' => '
+			{if $fields.secondary_contact_image.value}
 			<input id="secondary_contact_image" class="sugar_field" type="hidden" value="$fields.secondary_contact_image.value">
 				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_secondary_contact_image\').src)">
 				<img 
@@ -121,7 +134,14 @@ array (
 				margin-right: 5px;
 				" src="index.php?entryPoint=download&id={$fields.secondary_contact_image.value}&type=SugarFieldImage&isTempFile=1" name="img_secondary_contact_image">
 					</a>
-				<span style>{$fields.secondary_contact_name.value}</br>DOB: {$fields.secondary_contact_birthdate.value}</span>
+				{/if}
+
+				<span>
+				 <a href="index.php?module=Contacts&action=DetailView&record={$fields.secondary_contact_id.value}&ref=sec_name">
+					<span id="secondary_contact_id" class="sugar_field">{$fields.secondary_contact_name.value}</span></a>
+					</br>
+					{if $fields.secondary_contact_birthdate.value}DOB: {$fields.secondary_contact_birthdate.value}{/if}
+				</span>
 				'
           ),
         ),
