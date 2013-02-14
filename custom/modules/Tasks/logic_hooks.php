@@ -14,4 +14,9 @@ $hook_array['before_save'][] = Array(1, 'attach_to_group_id', 'custom/modules/Ta
 
 $hook_array['after_retrieve'] = Array(); 
 $hook_array['after_retrieve'][] = Array(1, 'dirty fix for the task-task 1-M relationship for parent_tasks_id.', 'custom/modules/Tasks/taskhooks.php','taskhooks', 'fix_parent_id'); 
+
+$hook_array['process_record'] = Array(); 
+$hook_array['process_record'][] = Array(1, 'change date color in listveiw', 'custom/modules/Tasks/processRecordLogic.php','process_record', 'process_record');
+
+
 ?>

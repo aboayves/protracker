@@ -6,7 +6,7 @@ array (
   array (
     'basic_search' => 
     array (
-      'accounts_av_goals_1_name' => 
+   /*   'accounts_av_goals_1_name' => 
       array (
         'type' => 'relate',
         'link' => true,
@@ -16,7 +16,7 @@ array (
         'default' => true,
         'name' => 'accounts_av_goals_1_name',
       ),
-      'name' => 
+     */ 'name' => 
       array (
         'name' => 'name',
         'default' => true,

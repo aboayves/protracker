@@ -125,7 +125,6 @@ array (
             'name' => 'assigned_to_client_c',
             'label' => 'LBL_ASSIGNED_TO_CLIENT',
           ),
-        ),
         7 => 
         array (
           0 => 

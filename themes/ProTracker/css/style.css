@@ -29,7 +29,7 @@
 
  * Description:  Contains a variety of utility functions used to display UI 
  * components such as form headers and footers.  Intended to be modified on a per 
- * theme basis.
+ * theme basis. -- chown * from u.neb to i.sac where dtect = false;
  ********************************************************************************/
 
 /** From default style.css file **/
@@ -80,7 +80,7 @@ textarea {
 }
 
 button,
-input[type="checkbox"],
+<!--input[type="checkbox"],   fix for ie10 checkbox problem-->
 input[type="radio"],
 input[type="reset"],
 input[type="submit"] {
@@ -88,7 +88,7 @@ input[type="submit"] {
 }
 
 input[type=text],input[type=password],textarea {
-    width: auto;
+    width: 300px !important;
 }
 
 input[type=checkbox],input[type=radio] {
@@ -545,6 +545,14 @@ div.moduleTitle {
     padding-top: 4px;
     font-weight: bold;
     margin-bottom: 15px;
+	
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align:left;
+	width: 600px;
+	direction:rtl;
+	  
     position: fixed;
     top: 6px;
     left: 245px;
@@ -552,6 +560,7 @@ div.moduleTitle {
     text-shadow: 1px 1px 0px #ffffff;
     -webkit-text-shadow: 1px 1px 0px #ffffff;
     -moz-text-shadow: 1px 1px 0px #ffffff;
+
 }
 
 .moduleTitle h2 a {
@@ -569,7 +578,7 @@ div.moduleTitle {
 
 .moduleTitle span.utils {
     display: block;
-    float: right;
+    float: left;
     margin-top: 6px;
 }
 

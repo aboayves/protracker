@@ -12,6 +12,18 @@ $dictionary["Account"]["fields"]["secondary_contact_name"] = array (
 	'module' => 'Contacts',
 	'rname' => 'name'
 );
+$dictionary["Account"]["fields"]["secondary_contact_birthdate"] = array (
+	'name' => 'secondary_contact_birthdate',
+	'type' => 'relate',
+	'source' => 'non-db',
+	'vname' => 'LBL_SECONDARY_CONTACT_DOB',
+	'save' => true,
+	'id_name' => 'secondary_contact_id',
+	'link' => 'secondary_contact',
+	'table' => 'contacts',
+	'module' => 'Contacts',
+	'rname' => 'birthdate'
+);
 
 $dictionary["Account"]["fields"]["secondary_contact_id"] = array (
 	'name' => 'secondary_contact_id',

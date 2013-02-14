@@ -1,5 +1,6 @@
 <?php
 // created: 2012-12-19 16:15:19
+
 $dictionary["Account"]["fields"]["primary_contact_name"] = array (
 	'name' => 'primary_contact_name',
 	'type' => 'relate',
@@ -13,6 +14,19 @@ $dictionary["Account"]["fields"]["primary_contact_name"] = array (
 	'rname' => 'name'
 );
 
+$dictionary["Account"]["fields"]["primary_contact_birthdate"] = array (
+	'name' => 'primary_contact_birthdate',
+	'type' => 'relate',
+	'source' => 'non-db',
+	'vname' => 'LBL_PRIMARY_CONTACT_DOB',
+	'save' => true,
+	'id_name' => 'primary_contact_id',
+	'link' => 'primary_contact',
+	'table' => 'contacts',
+	'module' => 'Contacts',
+	'rname' => 'birthdate',
+	'studio' => 'visible',
+);
 $dictionary["Account"]["fields"]["primary_contact_id"] = array (
 	'name' => 'primary_contact_id',
 	'type' => 'id',
@@ -23,6 +37,7 @@ $dictionary["Account"]["fields"]["primary_contact_id"] = array (
 	'side' => 'right',
 	'vname' => 'LBL_PRIMARY_CONTACT_ID'
 );
+
 
 $dictionary["Account"]["fields"]["primary_contact"] = array (
 	'name' => 'primary_contact',
