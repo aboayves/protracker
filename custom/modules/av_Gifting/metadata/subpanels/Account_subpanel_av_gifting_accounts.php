@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-07 16:55:58
+// created: 2013-02-07 16:32:15
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -22,34 +22,12 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_RECIPIENT',
     'width' => '20%',
   ),
-  'description' => 
-  array (
-    'type' => 'text',
-    'vname' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '20%',
-    'default' => true,
-  ),
   'is_709_required' => 
   array (
     'type' => 'bool',
     'default' => true,
     'vname' => 'LBL_IS_709_REQUIRED',
     'width' => '5%',
-  ),
-  'date_709_filed' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'vname' => 'LBL_DATE_709_FILED',
-    'width' => '8%',
-  ),
-  'date_crummey_sent' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'vname' => 'LBL_DATE_CRUMMEY_SENT',
-    'width' => '8%',
   ),
   'value' => 
   array (

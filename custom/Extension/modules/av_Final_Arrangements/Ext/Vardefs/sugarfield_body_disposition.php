@@ -3,8 +3,7 @@
 $dictionary["av_Final_Arrangements"]["fields"]["body_disposition"] = array (
 	'name' => 'body_disposition',
 	'vname' => 'LBL_BODY_DISPOSITION',
-	'type' => 'varchar',
-	'len' => '255',
+	'type' => 'text',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

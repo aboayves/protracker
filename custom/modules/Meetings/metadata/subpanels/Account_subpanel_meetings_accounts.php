@@ -1,12 +1,12 @@
 <?php
-// created: 2012-12-12 18:44:11
+// created: 2013-02-07 18:04:13
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
     'name' => 'name',
     'vname' => 'LBL_LIST_SUBJECT',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '20%',
+    'width' => '15%',
     'default' => true,
   ),
   'date_start' => 
@@ -16,27 +16,24 @@ $subpanel_layout['list_fields'] = array (
     'width' => '10%',
     'default' => true,
   ),
-  'duration_hours' => 
+  'av_activity_types_name' => 
   array (
-    'type' => 'int',
-    'vname' => 'LBL_DURATION_HOURS',
-    'width' => '5%',
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+    'id' => 'ACTIVITY_TYPE_ID',
+    'width' => '8%',
     'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'av_Activity_Types',
+    'target_record_key' => 'activity_type_id',
   ),
-  'duration_minutes' => 
+  'status' => 
   array (
-    'type' => 'int',
-    'vname' => 'LBL_DURATION_MINUTES',
-    'width' => '5%',
+    'type' => 'enum',
     'default' => true,
-  ),
-  'description' => 
-  array (
-    'type' => 'text',
-    'vname' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '20%',
-    'default' => true,
+    'vname' => 'LBL_STATUS',
+    'width' => '8%',
   ),
   'location' => 
   array (

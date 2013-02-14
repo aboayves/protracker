@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-01 05:25:26
+// created: 2013-02-07 18:44:36
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -84,4 +84,11 @@ $mod_strings = array (
   'LBL_AV_FACT_FINDER' => 'Questionnaires',
   'LBL_AV_LIFE_INSURANCE' => 'Life Insurance',
   'LBL_AV_SERVICES' => 'Services',
+  'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contacts',
+  'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
+  'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Products',
+  'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Contracts',
+  'LBL_LEADS_SUBPANEL_TITLE' => 'Leads',
+  'LBL_CASES_SUBPANEL_TITLE' => 'Cases',
+  'LBL_ACCOUNTS_AV_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
 );

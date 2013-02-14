@@ -5,6 +5,12 @@ array (
   array (
     'basic_search' => 
     array (
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -18,12 +24,6 @@ array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'name' => 
-      array (
-        'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
@@ -38,6 +38,12 @@ array (
     ),
     'advanced_search' => 
     array (
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -54,11 +60,13 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'name' => 
+      'open_only' => 
       array (
-        'name' => 'name',
+        'label' => 'LBL_OPEN_ITEMS',
+        'type' => 'bool',
         'default' => true,
         'width' => '10%',
+        'name' => 'open_only',
       ),
       'parent_name' => 
       array (
@@ -68,7 +76,7 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'av_Activity_Types_name' => 
+      'av_activity_types_name' => 
       array (
         'type' => 'relate',
         'link' => true,
@@ -146,14 +154,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'date_complete',
-      ),
-      'open_only' => 
-      array (
-        'label' => 'LBL_OPEN_ITEMS',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-        'name' => 'open_only',
       ),
       'closed_status' => 
       array (

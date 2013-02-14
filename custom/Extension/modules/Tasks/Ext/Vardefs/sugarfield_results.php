@@ -3,8 +3,7 @@
 $dictionary["Task"]["fields"]["results"] = array (
 	'name' => 'results',
 	'vname' => 'LBL_RESULTS',
-	'type' => 'varchar',
-	'len' => '255',
+	'type' => 'text',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

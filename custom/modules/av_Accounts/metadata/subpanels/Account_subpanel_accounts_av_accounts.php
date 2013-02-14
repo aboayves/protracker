@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-14 17:18:45
+// created: 2013-02-07 18:44:36
 $subpanel_layout['list_fields'] = array (
   'account_number' => 
   array (
@@ -15,17 +15,17 @@ $subpanel_layout['list_fields'] = array (
     'width' => '25%',
     'default' => true,
   ),
-  'av_account_types_av_accounts_1_name' => 
+  'av_account_types_name' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'vname' => 'LBL_AV_ACCOUNT_TYPES_AV_ACCOUNTS_1_FROM_AV_ACCOUNT_TYPES_TITLE',
-    'id' => 'AV_ACCOUNT_TYPES_AV_ACCOUNTS_1AV_ACCOUNT_TYPES_IDA',
+    'vname' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+    'id' => 'ACCOUNT_TYPE_ID',
     'width' => '10%',
     'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
     'target_module' => 'av_Account_Types',
-    'target_record_key' => 'av_account_types_av_accounts_1av_account_types_ida',
+    'target_record_key' => 'account_type_id',
   ),
   'category' => 
   array (
@@ -50,8 +50,8 @@ $subpanel_layout['list_fields'] = array (
     'width' => '12%',
     'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => 'av_Companies',
-    'target_record_key' => 'av_accounts_av_companies_1av_companies_idb',
+    'target_module' => NULL,
+    'target_record_key' => NULL,
   ),
   'value' => 
   array (
