@@ -138,8 +138,6 @@ class AccountsViewDetail extends ViewDetail
 						});
 		Accounts_detailview_tabs.selectTab(0);
 		$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);	
-		$('#primary_contact_image').closest('td').prev('td').text('');
-		$('#secondary_contact_image').closest('td').prev('td').text('');
 		
 		</script>";
    }
@@ -156,10 +154,15 @@ class AccountsViewDetail extends ViewDetail
 		  )
 		);
 		$this->showPrimarySecondaryImage();
-
+		
 		
 		parent::display();
-		
+		echo "<script>		
+			window.onload=function(){
+				$('#primary_contact_image').closest('td').prev('td').text('');
+				$('#secondary_contact_image').closest('td').prev('td').text('');
+			};
+			</script>";
 	}
 
 }
@@ -174,12 +177,18 @@ class AccountsViewDetail extends ViewDetail
 			while($row = $db->fetchByAssoc($res)){
 				if($row['id'] == $this->bean->primary_contact_id){
 					$this->bean->primary_contact_image = $row['picture'];
-				    $this->bean->primary_contact_birthdate = date("m/d/y", strtotime($this->bean->primary_contact_birthdate));
+				    if($this->bean->primary_contact_birthdate && $this->bean->primary_contact_birthdate != '')
+					{
+						$this->bean->primary_contact_birthdate = date("m/d/y", strtotime($this->bean->primary_contact_birthdate));
+					}
 				}
 				else if($row['id'] == $this->bean->secondary_contact_id){
 					$this->bean->secondary_contact_image = $row['picture'];
-					$this->bean->secondary_contact_birthdate = date("m/d/y", strtotime($this->bean->secondary_contact_birthdate));
-				}
+					if($this->bean->secondary_contact_birthdate && $this->bean->secondary_contact_birthdate != '')
+					{
+						$this->bean->secondary_contact_birthdate = date("m/d/y", strtotime($this->bean->secondary_contact_birthdate));
+					}
+			}
 			}
 			
 		}
