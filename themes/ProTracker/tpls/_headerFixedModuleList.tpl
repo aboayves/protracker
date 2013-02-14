@@ -27,6 +27,10 @@
  ********************************************************************************/
 
 *}
+
+		
+		
+
     	<li class="{$homeClass}"><a href="index.php?module=Home&action=index" module="Home" class="sf-with-ul">Home</a></li>
 		<li class="{$homeClass}"><a href="index.php?module=Calendar&action=index" module="Calendar" class="sf-with-ul">Calendar</a></li>
     	<li class="{$homeClass}"><a href="index.php?module=Contacts&action=index" module="Contacts" class="sf-with-ul">Contacts</a>
@@ -42,7 +46,11 @@
 							  {if $shortcut_item.URL == "-"}
 								<hr style="margin-top: 2px; margin-bottom: 2px" />
 							  {else}
+							    {if $shortcut_item.LABEL|replace:' ':'' == "ViewContactReports"}
+								<li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" onclick="window.open('{sugar_ajax_url url=$shortcut_item.URL}', '{$shortcut_item.LABEL|replace:' ':''}','height=' + screen.height/2 + ',width=' + screen.width/2 + ',resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,location=yes');">{$shortcut_item.LABEL}</a></li>
+								{else}
 								<li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" href="{sugar_ajax_url url=$shortcut_item.URL}">{$shortcut_item.LABEL}</a></li>
+								 {/if}
 							  {/if}
 							{/foreach}
 							</ul>
@@ -88,7 +96,12 @@
 							  {if $shortcut_item.URL == "-"}
 								<hr style="margin-top: 2px; margin-bottom: 2px" />
 							  {else}
-								<li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" href="{sugar_ajax_url url=$shortcut_item.URL}">{$shortcut_item.LABEL}</a></li>
+								
+								{if $shortcut_item.LABEL|replace:' ':'' == "ViewClientReports"}
+								     <li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" onclick="window.open('{sugar_ajax_url url=$shortcut_item.URL}', '{$shortcut_item.LABEL|replace:' ':''}','height=' + screen.height/2 + ',width=' + screen.width/2 + ',resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,location=yes');">{$shortcut_item.LABEL}</a></li>
+								{else}
+									 <li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" href="{sugar_ajax_url url=$shortcut_item.URL}">{$shortcut_item.LABEL}</a></li>
+								{/if}
 							  {/if}
 							{/foreach}
 							</ul>
@@ -134,7 +147,11 @@
 							  {if $shortcut_item.URL == "-"}
 								<hr style="margin-top: 2px; margin-bottom: 2px" />
 							  {else}
-							   <li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" href="{sugar_ajax_url url=$shortcut_item.URL}">{$shortcut_item.LABEL}</a></li>
+									{if $shortcut_item.LABEL|replace:' ':'' == "ViewGroupReports"}
+								   <li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" target="_blank" href="{sugar_ajax_url url=$shortcut_item.URL}">{$shortcut_item.LABEL}</a></li>
+									{else}
+								   <li><a id="{$shortcut_item.LABEL|replace:' ':''}{$tabGroupName}" href="{sugar_ajax_url url=$shortcut_item.URL}">{$shortcut_item.LABEL}</a></li>
+									 {/if}
 							  {/if}
 							{/foreach}
 							</ul>
