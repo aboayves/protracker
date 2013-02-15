@@ -110,7 +110,7 @@ array (
 			
 			<span>
 				<a href="index.php?module=Contacts&action=DetailView&record={$fields.primary_contact_id.value}">
-				<span id="primary_contact_id" class="sugar_field">{$fields.primary_contact_name.value}</span></a>
+				<span id="primary_contact_id" class="sugar_field">{$fields.primary_contact_nickname.value}</span></a>
 				</br>
 				{if $fields.primary_contact_birthdate.value}DOB: {$fields.primary_contact_birthdate.value}{/if}
 			</span>
@@ -138,7 +138,7 @@ array (
 
 				<span>
 				 <a href="index.php?module=Contacts&action=DetailView&record={$fields.secondary_contact_id.value}">
-					<span id="secondary_contact_id" class="sugar_field">{$fields.secondary_contact_name.value}</span></a>
+					<span id="secondary_contact_id" class="sugar_field">{$fields.secondary_contact_nickname.value}</span></a>
 					</br>
 					{if $fields.secondary_contact_birthdate.value}DOB: {$fields.secondary_contact_birthdate.value}{/if}
 				</span>
