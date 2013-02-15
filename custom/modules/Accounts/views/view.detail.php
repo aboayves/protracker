@@ -47,25 +47,26 @@ class AccountsViewDetail extends ViewDetail
 			$graph_data_db[$graph_data_row['year']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
 			if($year == 0)
 			{	
-				$year = $graph_data_row['year'];
+				$year = $graph_data_row['year']-5;
 		
 			}
 			$max = ($graph_data_row['worth']>=$max) ? $graph_data_row['worth'] : $max;
 			$max = ($graph_data_row['managed_assets']>=$max) ? $graph_data_row['managed_assets'] : $max;
 			$min =  ($graph_data_row['managed_assets']<$min) ? $graph_data_row['managed_assets'] : $min;
 			$min =  ($graph_data_row['worth']<$min) ? $graph_data_row['worth'] : $min;
-
 		}
 		
 		$graph_data = array();
 		for($i=1; $i<=5; $i++)
 		{
+			$year++;
 			$graph_data_db[$year]['worth'] =($graph_data_db[$year]['worth']=='') ? 0: $graph_data_db[$year]['worth'];
 			$graph_data_db[$year]['managed_assets'] =($graph_data_db[$year]['managed_assets']=='') ? 0: $graph_data_db[$year]['managed_assets'];
 			
 			$graph_data[$year] = array('worth'=>$graph_data_db[$year]['worth'],'managed_assets'=>$graph_data_db[$year]['managed_assets']);
-		 $year--;
 		}
+		
+
 		
 		$this->dv->defs['panels']['LBL_GRAPH'] = array(
 		  array(
@@ -127,8 +128,14 @@ class AccountsViewDetail extends ViewDetail
 								  {
 									unitInterval: ".$interval.",
 									minValue: ".$min.",
-									maxValue: ".$max."
+									maxValue: ".$max.",
+									formatSettings:
+									  {
+										 thousandsSeparator : ','
+									 
+									  }
 								  },
+								  
 								  series: [
 									{ dataField: 'worth', displayText: 'Net Worth' },
 									{ dataField: 'managed_assets', displayText: 'Managed Assets' }
@@ -136,10 +143,14 @@ class AccountsViewDetail extends ViewDetail
 								}
 							  ]
 						});
+			
 		Accounts_detailview_tabs.selectTab(0);
 		$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);	
 		
 		</script>";
+		echo "<style>";
+			".jqx-chart-axis-text{text-align:right !important;}";
+		echo "</style>";
    }
    else
    {
