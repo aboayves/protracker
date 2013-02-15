@@ -55,6 +55,19 @@ array (
         array (
           0 => 
           array (
+            'name' => 'picture',
+            'label' => 'LBL_PICTURE_FILE',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'full_name',
             'label' => 'LBL_NAME',
             'displayParams' => 
@@ -69,17 +82,30 @@ array (
           ),
           1 => 
           array (
-            'name' => 'picture',
-            'label' => 'LBL_PICTURE_FILE',
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'comment' => 'First name of the contact',
-            'label' => 'LBL_FIRST_NAME',
+            'name' => 'av_Contact_Types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
           ),
           1 => 
           array (
@@ -90,60 +116,29 @@ array (
             ),
           ),
         ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'middle_name',
-            'comment' => '',
-            'label' => 'LBL_MIDDLE_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'av_Offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'last_name',
-            'comment' => 'Last name of the contact',
-            'label' => 'LBL_LAST_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-        ),
         4 => 
         array (
-          0 => 
-          array (
-            'name' => 'suffix',
-            'comment' => '',
-            'label' => 'LBL_SUFFIX',
-          ),
+          0 => '',
           1 => 
           array (
-            'name' => 'av_Contact_Types_name',
-            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+            'name' => 'annual_household_income',
+            'comment' => '',
+            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
+            'name' => 'salutation',
+            'comment' => 'Contact salutation (e.g., Mr, Ms)',
+            'label' => 'LBL_SALUTATION',
           ),
           1 => 
           array (
-            'name' => 'contact_priority',
-            'label' => 'LBL_CONTACT_PRIORITY',
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
           ),
         ),
         6 => 
@@ -156,9 +151,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'annual_household_income',
+            'name' => 'report_salutation',
             'comment' => '',
-            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
+            'label' => 'LBL_REPORT_SALUTATION',
           ),
         ),
         7 => 
@@ -169,24 +164,8 @@ array (
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
           ),
-          1 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
-          ),
         ),
         8 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'report_salutation',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
-          ),
-        ),
-        9 => 
         array (
           0 => 
           array (
@@ -196,7 +175,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -389,27 +368,23 @@ array (
             'comment' => 'The birthdate of the contact',
             'label' => 'LBL_BIRTHDATE',
           ),
+          1 => 'age',
         ),
-		1 => 
-        array (
-          0 => 'age',
-		  1 => 'year_end_age',
-        ),
-        2 => 
+        1 => 
         array (
           0 => 
-          array (
-            'name' => 'ssn',
-            'label' => 'LBL_SSN',
-          ),
-          1 => 
           array (
             'name' => 'birthplace',
             'comment' => '',
             'label' => 'LBL_BIRTHPLACE',
           ),
+          1 => 
+          array (
+            'name' => 'ssn',
+            'label' => 'LBL_SSN',
+          ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -424,7 +399,7 @@ array (
             'label' => 'LBL_MARITAL_STATUS',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -438,7 +413,7 @@ array (
             'label' => 'LBL_ANNIVERSARY_DATE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -453,7 +428,7 @@ array (
             'label' => 'LBL_DATE_OF_DEATH',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -467,6 +442,11 @@ array (
             'comment' => '',
             'label' => 'LBL_CHILDREN',
           ),
+        ),
+        6 => 
+        array (
+          0 => '',
+          1 => '',
         ),
         7 => 
         array (
@@ -713,12 +693,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
-          1 => 
-          array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
-          ),
+          1 => '',
         ),
         1 => 
         array (
