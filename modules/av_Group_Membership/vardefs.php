@@ -161,8 +161,8 @@ $dictionary['av_Group_Membership'] = array(
   array(
     'name' => 'envelope',
     'vname' => 'LBL_ENVELOPE',
-    'type' => 'text',
-    'comments' => 'Text Area dependent on related Contact/Client Envelope field',
+    'type' => 'varchar',
+    'comments' => 'Text Field dependent on related Contact/Client Salutation field',
   ),
   'expiration_date' =>
   array(
