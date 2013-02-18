@@ -1,7 +1,7 @@
 <?php
-$dictionary["av_Accounts"]["fields"]["managed"] = array (
+$dictionary["av_Accounts"]["fields"]["managed_c"] = array (
 	  'required' => true,
-      'name' => 'managed',
+      'name' => 'managed_c',
       'vname' => 'LBL_MANAGED',
       'type' => 'enum',
       'massupdate' => '0',
@@ -21,5 +21,6 @@ $dictionary["av_Accounts"]["fields"]["managed"] = array (
       'options' => 'managed_list',
       'studio' => 'visible',
       'dependency' => false,
+	  'source' =>'db',
 );
 ?>

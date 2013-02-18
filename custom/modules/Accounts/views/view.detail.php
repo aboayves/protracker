@@ -20,18 +20,11 @@ class AccountsViewDetail extends ViewDetail
 */    	
 	$sql = "
 			SELECT YEAR(av_net_worth.date_entered) AS year, av_net_worth.grand_total AS worth, av_net_worth.managed_assets
-			FROM `accounts_av_net_worth_c`
-			LEFT JOIN av_net_worth
-				ON
-				(
-					av_net_worth.deleted=0
-					AND
-					av_net_worth.id = accounts_av_net_worth_c.accounts_av_net_worthav_net_worth_idb
-				)
+			FROM av_net_worth
 			WHERE 
-				accounts_av_net_worth_c.deleted=0 
+				av_net_worth.deleted=0 
 				AND 
-				accounts_av_net_worth_c.accounts_av_net_worthaccounts_ida = '{$this->bean->id}'
+				av_net_worth.accounts_id = '{$this->bean->id}'
 			GROUP BY YEAR(av_net_worth.date_entered)
 			ORDER BY av_net_worth.date_entered DESC
 		";

@@ -11,7 +11,7 @@ function getManagedAssets($account_id){
 				AND 
 				av_accounts.accounts_id='{$account_id}'
 				AND
-				av_accounts.managed = 'Yes'
+				av_accounts.managed_c = 'Yes'
 	";
 	$result = $db->query($sql);
 	$result = $db->fetchByAssoc($result);

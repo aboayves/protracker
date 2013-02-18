@@ -95,7 +95,7 @@ array (
             'comment' => '',
             'label' => 'LBL_ASSET_CLASS',
           ),
-          1 => 'managed',
+          1 => 'managed_c',
         ),
         5 => 
         array (
@@ -109,7 +109,12 @@ array (
         ),
         6 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'value',
+            'comment' => '',
+            'label' => 'LBL_VALUE',
+          ),
           1 => 
           array (
             'name' => 'value_date',
