@@ -152,14 +152,8 @@ array (
           1 => 'membership_expiration_days',
         ),
         4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'lastupdated',
-            'comment' => 'Date group updated',
-            'label' => 'LBL_LASTUPDATED',
-          ),
-          1 => 
+        array (         
+		 1 => 
           array (
             'name' => 'date_checked',
             'comment' => '',
