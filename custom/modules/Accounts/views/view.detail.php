@@ -10,24 +10,21 @@ class AccountsViewDetail extends ViewDetail
 	}
 	function display() 
 	{
-		//this button is now defined in the detailviewdefs now where it should be..
-/*		$this->dv->defs['templateMeta']['form']['buttons'][] = array (
-			'customCode' => "
-<input type='hidden' value='pt' name='query'>
-<input type='hidden' value='false' name='to_pdf'>
-<input onclick=\"this.form.to_pdf.value='true';this.form.action.value='CsvExport';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value='false';\" type='button' name='csv_export' value='Export to CSV' />",
-		);
-*/    	
-	$sql = "
-			SELECT YEAR(av_net_worth.date_entered) AS year, av_net_worth.grand_total AS worth, av_net_worth.managed_assets
+	$sql = "SELECT *
+			FROM
+			(	
+			SELECT YEAR(av_net_worth.date_entered) AS year, MONTH(av_net_worth.date_entered) AS month, DAY(av_net_worth.date_entered) AS day,  av_net_worth.grand_total AS worth, av_net_worth.managed_assets
 			FROM av_net_worth
 			WHERE 
 				av_net_worth.deleted=0 
 				AND 
 				av_net_worth.accounts_id = '{$this->bean->id}'
-			GROUP BY YEAR(av_net_worth.date_entered)
-			ORDER BY av_net_worth.date_entered DESC
+			  ORDER BY av_net_worth.date_entered DESC
+			) AS a1
+			GROUP BY a1.month, a1.year
+			ORDER BY a1.year DESC
 		";
+		
 	$sql_result = $this->bean->db->query($sql);
 	if($sql_result->num_rows >0)
 	{
@@ -37,7 +34,9 @@ class AccountsViewDetail extends ViewDetail
 		$year = 0;
 		while($graph_data_row = $this->bean->db->fetchByAssoc($sql_result))
 		{
-			$graph_data_db[$graph_data_row['year']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
+			
+			
+			$graph_data_db[$graph_data_row['year']][$graph_data_row['month']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
 			if($year == 0)
 			{	
 				$year = $graph_data_row['year']-5;
@@ -48,19 +47,31 @@ class AccountsViewDetail extends ViewDetail
 			$min =  ($graph_data_row['managed_assets']<$min) ? $graph_data_row['managed_assets'] : $min;
 			$min =  ($graph_data_row['worth']<$min) ? $graph_data_row['worth'] : $min;
 		}
-		
+//print '<pre>';print_r($sql);die();
+	
 		$graph_data = array();
-		for($i=1; $i<=5; $i++)
+		$data4graph = array();
+		$k=0;
+		for($j=1; $j<=5; $j++)
 		{
 			$year++;
-			$graph_data_db[$year]['worth'] =($graph_data_db[$year]['worth']=='') ? 0: $graph_data_db[$year]['worth'];
-			$graph_data_db[$year]['managed_assets'] =($graph_data_db[$year]['managed_assets']=='') ? 0: $graph_data_db[$year]['managed_assets'];
-			
-			$graph_data[$year] = array('worth'=>$graph_data_db[$year]['worth'],'managed_assets'=>$graph_data_db[$year]['managed_assets']);
+			for($i=1; $i<=12; $i++)
+			{
+				$graph_data_db[$year][$i]['worth'] =($graph_data_db[$year][$i]['worth']=='') ? 0: $graph_data_db[$year][$i]['worth'];
+				$graph_data_db[$year][$i]['managed_assets'] =($graph_data_db[$year][$i]['managed_assets']=='') ? 0: $graph_data_db[$year][$i]['managed_assets'];
+				
+//				$graph_data[$year][$i] = array('worth'=>$graph_data_db[$year][$i]['worth'],'managed_assets'=>$graph_data_db[$year][$i]['managed_assets']);
+				
+				$data4graph[$k]['year'] = ($i==1) ? $year : '';
+				
+				
+				$data4graph[$k]['worth'] = $graph_data_db[$year][$i]['worth'];
+					$data4graph[$k]['managed_assets'] = $graph_data_db[$year][$i]['managed_assets'];
+					$k++;
+			}
+		
 		}
-		
-
-		
+//print '<pre>';print_r($data4graph);die();
 		$this->dv->defs['panels']['LBL_GRAPH'] = array(
 		  array(
 		  	array(
@@ -72,18 +83,9 @@ class AccountsViewDetail extends ViewDetail
 		$this->showPrimarySecondaryImage();
 	
 		parent::display();
-		$data = $graph_data;
-		$data4graph = array();
-		$i = 0;
-		foreach($data as $key=>$data){
-		    $data4graph[$i]['year'] = $key;
-			$data4graph[$i]['worth'] = $data['worth'];
-			$data4graph[$i]['managed_assets'] = $data['managed_assets'];
-			$i++;
-		}
-		
+
 		$min = ($min>0) ? $min : 0;
-		$interval = round(($max - $min)/15);
+		$interval = round(($max - $min)/4);
 		
 		if($interval >= 10000)
 		{
@@ -110,7 +112,9 @@ class AccountsViewDetail extends ViewDetail
 							  title: 'Net Worth',
 							  categoryAxis:
 							  {
-								  dataField: 'year'
+								  dataField: 'year',
+								  lineWidth: 40, 
+								  textRotationAngle: -90
 							  },
 							  colorScheme: 'scheme05',
 							  seriesGroups:
@@ -120,7 +124,7 @@ class AccountsViewDetail extends ViewDetail
 								  valueAxis:
 								  {
 									unitInterval: ".$interval.",
-									minValue: ".$min.",
+									minValue: 0,
 									maxValue: ".$max.",
 									formatSettings:
 									  {
