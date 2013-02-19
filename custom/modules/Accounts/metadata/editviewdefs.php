@@ -78,7 +78,11 @@ array (
 		 array (
 			'name' => 'primary_contact_name',
 			'displayParams'=>array(
-			  'call_back_function'=>'set_location_querystring'
+			  'call_back_function'=>'set_location_querystring',
+			  'field' =>  
+              array ( 
+                'onChange' => "populateEmail();", 
+                 ),
 			 ),
 		  ),
 

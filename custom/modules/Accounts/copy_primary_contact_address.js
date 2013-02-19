@@ -2,13 +2,33 @@
 
 function set_location_querystring(popup_reply_data)
 {	
-
 	var currRecord = $('input[name=record]').val();
     var contactId = popup_reply_data['name_to_value_array']['primary_contact_id'];
 	
 	$("#primary_contact_id").val(popup_reply_data['name_to_value_array']['primary_contact_id']);
 	$("#primary_contact_name").val(popup_reply_data['name_to_value_array']['primary_contact_name']);
 
+	if($('#Accounts0emailAddress0').val() == '')
+	{
+	    get_account_email(contactId);
+		return;
+	}
+	
+	var conf = confirm("Do you want to replace the Mailing Address from the new primary contact's Mailing Address ?");
+	if(conf)
+	{
+	    get_account_email(contactId);
+	}
+	else
+	{
+		return;	
+	}
+}
+
+function populateEmail()
+{	
+	var currRecord = $('input[name=record]').val();
+    var contactId = document.getElementById('primary_contact_id').value;
 	if($('#Accounts0emailAddress0').val() == '')
 	{
 	    get_account_email(contactId);
