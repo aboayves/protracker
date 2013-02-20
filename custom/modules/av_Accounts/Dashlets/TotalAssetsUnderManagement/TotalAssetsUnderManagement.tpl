@@ -19,7 +19,7 @@
 	<script type="text/javascript">
             // prepare jqxChart settings
             var settings = {
-                title: "Total Assets Under Management",
+                title: "Client Networth History",
                 padding: { left: 5, top: 5, right: 5, bottom: 5 },
                 titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
                 source: sampleData,
