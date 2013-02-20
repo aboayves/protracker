@@ -76,6 +76,7 @@ array (
           1 => 
           array (
             'name' => 'envelope',
+			'type' => 'readonly',
           ),
         ),
         5 => 
