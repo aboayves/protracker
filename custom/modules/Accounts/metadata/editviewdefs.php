@@ -38,7 +38,7 @@ array (
         array (
           'file' => 'include/javascript/tiny_mce/tiny_mce.js',
         ),
-		2 => 
+        2 => 
         array (
           'file' => 'custom/modules/Accounts/copy_primary_contact_address.js',
         ),
@@ -74,19 +74,19 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
-          1=>
-		 array (
-			'name' => 'primary_contact_name',
-			'displayParams'=>array(
-			  'call_back_function'=>'set_location_querystring',
-			  'field' =>  
-              array ( 
-                'onChange' => "populateEmail();", 
-                 ),
-			 ),
-		  ),
-
-		),
+          1 => 
+          array (
+            'name' => 'primary_contact_name',
+            'displayParams' => 
+            array (
+              'call_back_function' => 'set_location_querystring',
+              'field' => 
+              array (
+                'onChange' => 'populateEmail();',
+              ),
+            ),
+          ),
+        ),
         2 => 
         array (
           0 => 
@@ -224,8 +224,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'phone_office',
-            'label' => 'LBL_PHONE_OFFICE',
+            'name' => 'phone_home',
+            'comment' => '',
+            'label' => 'LBL_PHONE_HOME',
           ),
           1 => 
           array (
@@ -238,14 +239,59 @@ array (
         array (
           0 => 
           array (
+            'name' => 'phone_work',
+            'comment' => '',
+            'label' => 'LBL_PHONE_WORK',
+          ),
+          1 => 
+          array (
             'name' => 'website',
             'type' => 'link',
             'label' => 'LBL_WEBSITE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_mobile',
+            'comment' => '',
+            'label' => 'LBL_PHONE_MOBILE',
           ),
           1 => 
           array (
             'name' => 'phone_fax',
             'label' => 'LBL_FAX',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'preferred_communication',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_COMMUNICATION',
+          ),
+          1 => 
+          array (
+            'name' => 'preferred_document_submittal',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_DOCUMENT_SUBMITTAL',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'preferred_calling_time',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_CALLING_TIME',
+          ),
+          1 => 
+          array (
+            'name' => 'preferred_meeting_time',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_MEETING_TIME',
           ),
         ),
       ),
@@ -255,26 +301,24 @@ array (
         array (
           0 => 
           array (
+            'name' => 'mailing_address_street',
+            'hideLabel' => true,
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'mailing',
+              'rows' => 2,
+              'cols' => 30,
+              'maxlength' => 150,
+            ),
+          1 => 
+          array (
             'name' => 'billing_address_street',
             'hideLabel' => true,
             'type' => 'address',
             'displayParams' => 
             array (
               'key' => 'billing',
-              'rows' => 2,
-              'cols' => 30,
-              'maxlength' => 150,
-            ),
-          ),
-          1 => 
-          array (
-            'name' => 'shipping_address_street',
-            'hideLabel' => true,
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'shipping',
-              'copy' => 'billing',
               'rows' => 2,
               'cols' => 30,
               'maxlength' => 150,

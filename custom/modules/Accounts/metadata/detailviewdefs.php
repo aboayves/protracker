@@ -83,13 +83,18 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
+          1 => 
+          array (
+            'name' => 'primary_contact_name',
+            'label' => 'LBL_PRIMARY_CONTACT_NAME',
+          ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'primary_contact_name',
-            'label' => 'LBL_PRIMARY_CONTACT_NAME',
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
           1 => 
           array (
@@ -99,79 +104,6 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'primary_contact_image',
-            'label' => '',
-            'displayParams' => 
-            array (
-              'trimColon' => 1,
-            ),
-            'customCode' => '
-			{if $fields.primary_contact_image.value}
-			<input type="hidden" value="$fields.primary_contact_image.value" id="primary_contact_image" class="sugar_field">
-				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_primary_contact_image\').src)">
-				<img style="
-				border: 1px solid black; 
-				width: auto;
-				height: 132px;
-				float:left;
-				margin-right: 5px;
-				" src="index.php?entryPoint=download&amp;id={$fields.primary_contact_image.value}&amp;type=SugarFieldImage&amp;isTempFile=1" name="img_primary_contact_image" id="img_primary_contact_image">
-				</a>
-			{/if}
-			
-			<span>
-				{if $fields.primary_contact_salutation.value}Salutation: {$fields.primary_contact_salutation.value}{/if}</br>
-				{if $fields.primary_contact_birthdate.value}Nick: {$fields.primary_contact_nickname.value}{/if}</br>
-				{if $fields.primary_contact_birthdate.value}DOB: {$fields.primary_contact_birthdate.value}{/if}</br>
-				{if $fields.primary_contact_age.value}Age: {$fields.primary_contact_age.value}{/if}</br>
-				{if $fields.primary_contact_ssn.value}SSN: {$fields.primary_contact_ssn.value}{/if}
-
-			</span>
-			',
-          ),
-          1 => 
-          array (
-            'name' => 'secondary_contact_image',
-            'label' => ' ',
-            'customCode' => '
-			{if $fields.secondary_contact_image.value}
-			<input id="secondary_contact_image" class="sugar_field" type="hidden" value="$fields.secondary_contact_image.value">
-				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_secondary_contact_image\').src)">
-				<img 
-				id="img_secondary_contact_image" 
-				style=" 
-				border: 1px solid black;
-				width: auto;
-				height: 132px;
-				float:left;
-				margin-right: 5px;
-				" src="index.php?entryPoint=download&id={$fields.secondary_contact_image.value}&type=SugarFieldImage&isTempFile=1" name="img_secondary_contact_image">
-					</a>
-				{/if}
-
-				<span>
-				{if $fields.secondary_contact_salutation.value}Salutation: {$fields.secondary_contact_salutation.value}{/if}</br>
-				{if $fields.secondary_contact_nickname.value}Nick: {$fields.secondary_contact_nickname.value}{/if}</br>
-				{if $fields.secondary_contact_birthdate.value}DOB: {$fields.secondary_contact_birthdate.value}{/if}</br>
-				{if $fields.secondary_contact_age.value}Age: {$fields.secondary_contact_age.value}{/if}</br>
-				{if $fields.secondary_contact_ssn.value}SSN: {$fields.secondary_contact_ssn.value}{/if}
-			</span>
-				',
-          ),
-        ),
-        4 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'av_Offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
-          ),
-        ),
-        5 => 
-        array (
           0 => '',
           1 => 
           array (
@@ -179,7 +111,7 @@ array (
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
           ),
         ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -194,7 +126,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
@@ -208,7 +140,7 @@ array (
             'label' => 'LBL_PRIORITY',
           ),
         ),
-        8 => 
+        6 => 
         array (
           0 => 
           array (
@@ -224,47 +156,27 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
+        7 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'phase',
+            'comment' => '',
+            'label' => 'LBL_PHASE',
+          ),
+        ),
+        8 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'relationship_type',
+            'comment' => '',
+            'label' => 'LBL_RELATIONSHIP_TYPE',
+          ),
+        ),
         9 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'phase',
-            'comment' => '',
-            'label' => 'LBL_PHASE',
-          ),
-        ),
-        10 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'relationship_type',
-            'comment' => '',
-            'label' => 'LBL_RELATIONSHIP_TYPE',
-          ),
-        ),
-        11 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'phase',
-            'comment' => '',
-            'label' => 'LBL_PHASE',
-          ),
-        ),
-        12 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'relationship_type',
-            'comment' => '',
-            'label' => 'LBL_RELATIONSHIP_TYPE',
-          ),
-        ),
-        13 => 
         array (
           0 => 
           array (
@@ -279,7 +191,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        14 => 
+        10 => 
         array (
           0 => 
           array (
@@ -289,7 +201,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        15 => 
+        11 => 
         array (
           0 => 
           array (
@@ -310,9 +222,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'phone_office',
-            'comment' => 'The office phone number',
-            'label' => 'LBL_PHONE_OFFICE',
+            'name' => 'phone_home',
+            'comment' => '',
+            'label' => 'LBL_PHONE_HOME',
           ),
           1 => 
           array (
@@ -325,6 +237,12 @@ array (
         array (
           0 => 
           array (
+            'name' => 'phone_work',
+            'comment' => '',
+            'label' => 'LBL_PHONE_WORK',
+          ),
+          1 => 
+          array (
             'name' => 'website',
             'type' => 'link',
             'label' => 'LBL_WEBSITE',
@@ -333,6 +251,15 @@ array (
               'link_target' => '_blank',
             ),
           ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_mobile',
+            'comment' => '',
+            'label' => 'LBL_PHONE_MOBILE',
+          ),
           1 => 
           array (
             'name' => 'phone_fax',
@@ -340,17 +267,24 @@ array (
             'label' => 'LBL_FAX',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
-            'name' => 'preferred_comm',
-            'customCode' => '
-				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
-					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_comm.value}</span>
-				</a>',
+            'name' => 'preferred_communication',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_COMMUNICATION',
           ),
           1 => 
+          array (
+            'name' => 'preferred_document_submittal',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_DOCUMENT_SUBMITTAL',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
           array (
             'name' => 'preferred_calling_time',
             'customCode' => '
@@ -358,10 +292,7 @@ array (
 					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_calling_time.value}</span>
 				</a>',
           ),
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'preferred_meeting_time',
             'customCode' => '
@@ -377,22 +308,23 @@ array (
         array (
           0 => 
           array (
+            'name' => 'mailing_address_street',
+            'comment' => '',
+            'label' => 'LBL_MAILING_ADDRESS',
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'mailing',
+            ),
+          ),
+          1 => 
+          array (
             'name' => 'billing_address_street',
             'label' => 'LBL_BILLING_ADDRESS',
             'type' => 'address',
             'displayParams' => 
             array (
               'key' => 'billing',
-            ),
-          ),
-          1 => 
-          array (
-            'name' => 'shipping_address_street',
-            'label' => 'LBL_SHIPPING_ADDRESS',
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'shipping',
             ),
           ),
         ),
