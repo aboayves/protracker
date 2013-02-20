@@ -19,7 +19,7 @@
 	<script type="text/javascript">
             // prepare jqxChart settings
             var settings = {
-                title: "Client Networth History",
+                title: "Client Net Worth History",
                 padding: { left: 5, top: 5, right: 5, bottom: 5 },
                 titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
                 source: sampleData,
@@ -40,7 +40,12 @@
                                 minValue: 0,
                                 maxValue: max,
                                 unitInterval: interval,
-                                description: ''
+                                description: '',
+								formatSettings:
+								  {
+									 thousandsSeparator : ','
+								 
+								  }
                             },
                             series: [
                                     { dataField: 'networth', displayText: 'Net Worth'},
