@@ -9,6 +9,8 @@ $hook_array['before_save'][] = Array(1, 'workflow', 'include/workflow/WorkFlowHa
 $hook_array['after_save'] = Array();
 $hook_array['after_save'][] = Array(1,'ScheduleCall', 'custom/modules/Calls/ScheduleCall_hook.php', 'SaveCall', 'saveCalls');
 
+$hook_array['process_record'] = Array(); 
+$hook_array['process_record'][] = Array(1, 'change date color in listveiw', 'custom/modules/Calls/processRecordLogic.php','process_record', 'process_record');
 
 
 ?>

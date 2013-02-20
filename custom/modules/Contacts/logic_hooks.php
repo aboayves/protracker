@@ -9,4 +9,9 @@ $hook_array['before_save'][] = Array(1, 'Contacts push feed', 'modules/Contacts/
 
 $hook_array['process_record'] = Array();
 $hook_array['process_record'][] = Array(2, 'delete_multiple_record_contact', 'custom/modules/Contacts/delete_multiple_record_contact.php', 'delete_multiple_record_contact', 'delete_multiple_record_contact_fun');
+
+$hook_array['after_relationship_add'] = Array(); 
+$hook_array['after_relationship_add'][] = Array(1, 'hookName', 'custom/modules/Contacts/ContactLogicHook.php','ContactLogicHook', 'relatioshipAdd'); 
+
+
 ?>

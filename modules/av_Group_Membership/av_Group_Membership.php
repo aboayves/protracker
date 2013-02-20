@@ -34,5 +34,14 @@ class av_Group_Membership extends av_Group_Membership_sugar {
 	function av_Group_Membership(){	
 		parent::av_Group_Membership_sugar();
 	}
+	public function get_envelope($parent_id, $parent_type)
+	{
+		global $db;
+		$sql = "SELECT report_salutation FROM ".strtolower($parent_type)." WHERE deleted=0 AND id='{$parent_id}' LIMIT 1";
+		$res = $db->query($sql);
+		$res = $db->fetchByAssoc($res);
+		return $res['report_salutation'];
+		
+	}
 }
 ?>

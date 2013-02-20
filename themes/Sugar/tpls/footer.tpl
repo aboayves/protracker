@@ -52,7 +52,7 @@
 
      </div>
 <script>
- 	var logoStats = "&#169; 2004-2012 SugarCRM Inc. All Rights Reserved. {$STATISTICS}";
+ 	var logoStats = "&#169; 2013 ProTracker Software, Inc. All rights reserved. {$STATISTICS}";
 </script>       
 {if $smarty.request.module != "Emails" && $smarty.request.module != "Users" && $smarty.request.module != "UpgradeWizard"}
 {literal}

@@ -1,6 +1,13 @@
 <?php
-// created: 2012-12-14 16:10:49
+// created: 2013-02-07 18:06:36
 $subpanel_layout['list_fields'] = array (
+  'quote_num' => 
+  array (
+    'type' => 'int',
+    'vname' => 'LBL_QUOTE_NUM',
+    'width' => '5%',
+    'default' => true,
+  ),
   'name' => 
   array (
     'vname' => 'LBL_LIST_QUOTE_NAME',

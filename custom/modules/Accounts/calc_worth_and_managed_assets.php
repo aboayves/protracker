@@ -1,6 +1,8 @@
 <?php
+require_once('modules/Currencies/Currency.php');
+
 function getManagedAssets($account_id){
-	global $db;
+	global $db, $sugar_config;
 	$sql = "
 			SELECT SUM(av_accounts.value) as managed_assets
 			FROM av_accounts
@@ -9,14 +11,14 @@ function getManagedAssets($account_id){
 				AND 
 				av_accounts.accounts_id='{$account_id}'
 				AND
-				av_accounts.managed = 'Yes'
+				av_accounts.managed_c = 'Yes'
 	";
 	$result = $db->query($sql);
 	$result = $db->fetchByAssoc($result);
-	return $result['managed_assets'];
+	return $sugar_config['default_currency_symbol'].' '.format_number($result['managed_assets'], NULL, 0);//$result['managed_assets'];
 }
 function getCurrentNetWorth($account_id){
-	global $db;
+	global $db, $sugar_config;
 	$sql = "
 			SELECT SUM(av_accounts.value) as current_networth
 			FROM av_accounts
@@ -27,6 +29,6 @@ function getCurrentNetWorth($account_id){
 	";
 	$result = $db->query($sql);
 	$result = $db->fetchByAssoc($result);
-	return $result['current_networth'];
+	return $sugar_config['default_currency_symbol'].' '. format_number($result['current_networth'], NULL, 0); //$result['current_networth']
 }
 ?>

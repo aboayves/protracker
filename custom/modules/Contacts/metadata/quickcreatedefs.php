@@ -131,6 +131,10 @@ array (
             'name' => 'email1',
           ),
         ),
+		7 =>
+		array (
+			0 => 'report_salutation',
+		),
       ),
       'lbl_editview_panel5' => 
       array (

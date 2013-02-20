@@ -1,4 +1,7 @@
-<?php
+<?php 
+require_once('modules/ACLRoles/ACLRole.php');
+
+global $db, $current_user;
 $admin_option_defs = array();
 $admin_option_defs['UnifiedLogin'] = array(
 'themes/default/images/WorkFlow.gif', 'LBL_UNIFIED_LOGIN', 'LBL_REG_UNIFIED_LOGIN', 'javascript:dialogForURL();');
@@ -23,9 +26,315 @@ echo '<script type="text/javascript">
 		}
 		
       </script>';
+$sql = "
+SELECT acl_roles.id, name 
+FROM acl_roles 
+LEFT JOIN acl_roles_users 
+	ON ( acl_roles_users.deleted = 0 AND acl_roles.id = acl_roles_users.role_id ) 
+WHERE 
+	acl_roles.deleted ='0' 
+	AND acl_roles_users.user_id='{$current_user->id}'
+";
+$res = $db->query($sql);
+$row = $db->fetchByAssoc($res);
+
+if($row['id'] == "")
+{
+	$row['id'] =  "reserved_standard";
+	
+}
+
+$admin_role_options = array(
+		"reserved_standard"=>array(
+		
+			"av_Account_Types"=>array(
+				'av_Account_Types',
+				translate('av_Account_Types', 'LBL_MODULE_NAME'),
+				'Manage account types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Activity_Types"=>array(
+				'av_Activity_Types',
+				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
+				'Manage Activity types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Contact_Types"=>array(
+				'av_Contact_Types',
+				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
+				'Manage Contact types',
+				'./index.php?module=av_Contact_Types&action=index'
+			),
+			"av_Client_Types"=>array(
+				'av_Client_Types',
+				translate('av_Client_Types', 'LBL_MODULE_NAME'),
+				'Manage Client types',
+				'./index.php?module=av_Client_Types&action=index'
+			),
+			"av_Group_Types"=>array(
+				'av_Group_Types',
+				translate('av_Group_Types', 'LBL_MODULE_NAME'),
+				'Manage Group types',
+				'./index.php?module=av_Group_Types&action=index'
+			),
+			
+			"ContractTypes"=>array(
+				'Contracts',
+				translate('ContractTypes', 'LBL_MODULE_NAME'),
+				'Contract types',
+				'./index.php?module=ContractTypes&action=index'
+			),
+			"Import"=>array(
+				'Import',
+				translate('Import', 'LBL_MODULE_NAME'),
+				'Import Wizard',
+				'./index.php?module=Import&action=step1&import_module=Administration'
+			),			
+		),
+		"reserved_professional"=>array(
+			"av_Account_Types"=>array(
+				'av_Account_Types',
+				translate('av_Account_Types', 'LBL_MODULE_NAME'),
+				'Manage account types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Activity_Types"=>array(
+				'av_Activity_Types',
+				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
+				'Manage Activity types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Contact_Types"=>array(
+				'av_Contact_Types',
+				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
+				'Manage Contact types',
+				'./index.php?module=av_Contact_Types&action=index'
+			),
+			"av_Client_Types"=>array(
+				'av_Client_Types',
+				translate('av_Client_Types', 'LBL_MODULE_NAME'),
+				'Manage Client types',
+				'./index.php?module=av_Client_Types&action=index'
+			),
+			"av_Group_Types"=>array(
+				'av_Group_Types',
+				translate('av_Group_Types', 'LBL_MODULE_NAME'),
+				'Manage Group types',
+				'./index.php?module=av_Group_Types&action=index'
+			),
+			"ContractTypes"=>array(
+				'Contracts',
+				translate('ContractTypes', 'LBL_MODULE_NAME'),
+				'Contract types',
+				'./index.php?module=ContractTypes&action=index'
+			),
+			"Import"=>array(
+				'Import',
+				translate('Import', 'LBL_MODULE_NAME'),
+				'Import Wizard',
+				'./index.php?module=Import&action=step1&import_module=Administration'
+			),
+			"av_Custom_Fields"=>array(
+				'av_Custom_Fields',
+				translate('av_Custom_Fields', 'LBL_MODULE_NAME'),
+				'Manage Custom Fields',
+				'./index.php?module=av_Custom_Fields&action=index'
+			),
+			"SugarFeed"=>array(
+				'icon_SugarFeed',
+				translate('SugarFeed', 'LBL_MODULE_NAME'),
+				'Manage Activity Stream',
+				'./index.php?module=SugarFeed&action=AdminSettings'
+			),
+			"Configurator"=>array(
+				'icon_AdminPDF',
+				translate('Configurator', 'LBL_MODULE_NAME'),
+				'PDF',
+				'./index.php?module=Configurator&action=SugarpdfSettings'
+			),
+			"Users"=>array(
+				'Users',
+				translate('Users', 'LBL_MODULE_NAME'),
+				'Users',
+				'./index.php?module=Users&action=index'
+			),	
+			"Teams"=>array(
+				'Teams',
+				translate('Teams', 'LBL_MODULE_NAME'),
+				'Teams',
+				'./index.php?module=Teams&action=index'
+			),
+		),
+		"reserved_enterprise"=>array(
+			"av_Account_Types"=>array(
+				'av_Account_Types',
+				translate('av_Account_Types', 'LBL_MODULE_NAME'),
+				'Manage account types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Activity_Types"=>array(
+				'av_Activity_Types',
+				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
+				'Manage Activity types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Contact_Types"=>array(
+				'av_Contact_Types',
+				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
+				'Manage Contact types',
+				'./index.php?module=av_Contact_Types&action=index'
+			),
+			"av_Client_Types"=>array(
+				'av_Client_Types',
+				translate('av_Client_Types', 'LBL_MODULE_NAME'),
+				'Manage Client types',
+				'./index.php?module=av_Client_Types&action=index'
+			),
+			"av_Group_Types"=>array(
+				'av_Group_Types',
+				translate('av_Group_Types', 'LBL_MODULE_NAME'),
+				'Manage Group types',
+				'./index.php?module=av_Group_Types&action=index'
+			),
+			"Import"=>array(
+				'Import',
+				translate('Import', 'LBL_MODULE_NAME'),
+				'Import Wizard',
+				'./index.php?module=Import&action=step1&import_module=Administration'
+			),
+			"av_Custom_Fields"=>array(
+				'av_Custom_Fields',
+				translate('av_Custom_Fields', 'LBL_MODULE_NAME'),
+				'Manage Custom Fields',
+				'./index.php?module=av_Custom_Fields&action=index'
+			),
+			"SugarFeed"=>array(
+				'icon_SugarFeed',
+				translate('SugarFeed', 'LBL_MODULE_NAME'),
+				'Manage Activity Stream',
+				'./index.php?module=SugarFeed&action=AdminSettings'
+			),
+			"Configurator"=>array(
+				'icon_AdminPDF',
+				translate('Configurator', 'LBL_MODULE_NAME'),
+				'PDF',
+				'./index.php?module=Configurator&action=SugarpdfSettings'
+			),
+			"Users"=>array(
+				'Users',
+				translate('Users', 'LBL_MODULE_NAME'),
+				'Users',
+				'./index.php?module=Users&action=index'
+			),	
+			"Teams"=>array(
+				'Teams',
+				translate('Teams', 'LBL_MODULE_NAME'),
+				'Teams',
+				'./index.php?module=Teams&action=index'
+			),
+			"ACLRoles"=>array(
+				'ACLRoles',
+				translate('ACLRoles', 'LBL_MODULE_NAME'),
+				'Role Management',
+				'./index.php?module=ACLRoles&action=index'
+			),
+			"dropdowneditor"=>array(
+				'Dropdown',
+				'LBL_DROPDOWN_EDITOR',
+				'DESC_DROPDOWN_EDITOR',
+				'./index.php?module=ModuleBuilder&action=index&type=dropdowns'
+			),
+			"mass_Email_config"=>array(
+				'EmailMan',
+				'LBL_MASS_EMAIL_CONFIG_TITLE',
+				'LBL_MASS_EMAIL_CONFIG_DESC',
+				'./index.php?module=EmailMan&action=config'
+			),
+			"mass_Email"=>array(
+				'EmailMan',
+				'LBL_MASS_EMAIL_MANAGER_TITLE',
+				'LBL_MASS_EMAIL_MANAGER_DESC',
+				'./index.php?module=EmailMan&action=index'
+			),
+			"mailboxes"=>array(
+				'InboundEmail',
+				'LBL_MANAGE_MAILBOX',
+				'LBL_MAILBOX_DESC',
+				'./index.php?module=InboundEmail&action=index'
+			),
+			"timeperiod_management"=>array(
+				'TimePeriods',
+				'LBL_MANAGE_TIMEPERIODS_TITLE',
+				'LBL_MANAGE_TIMEPERIODS',
+				'./index.php?module=TimePeriods&action=ListView'
+			),
+			"connector_settings"=>array(
+				'icon_Connectors',
+				'LBL_CONNECTOR_SETTINGS',
+				'LBL_CONNECTOR_SETTINGS_DESC',
+				'./index.php?module=Connectors&action=ConnectorSettings'
+			),
+			"contract_type_management"=>array(
+				'Contracts',
+				'LBL_MANAGE_CONTRACTEMPLATES_TITLE',
+				'LBL_CONTRACT_TYPES',
+				'./index.php?module=ContractTypes&action=index'
+			),
+			"product_types"=>array(
+				'Product_Types',
+				'LBL_PRODUCT_TYPES_TITLE',
+				'LBL_PRODUCT_TYPES',
+				'./index.php?module=ProductTypes&action=index'
+			),
+			"product_categories"=>array(
+				'Product_Categories',
+				'LBL_PRODUCT_CATEGORIES_TITLE',
+				'LBL_PRODUCT_CATEGORIES',
+				'./index.php?module=ProductCategories&action=index'
+			),
+		),
+) ;
+$option_module_groups = array(
+		"av_Account_Types"=>"Administration",
+		"av_Activity_Types"=>"Administration",
+		"av_Contact_Types"=>"Administration",
+		"av_Client_Types"=>"Administration",
+		"av_Group_Types"=>"Administration",
+		"ContractTypes"=>"Contracts",
+		"Import"=>"Administration",
+		"av_Custom_Fields"=>"Administration",
+		"SugarFeed"=>"Administration",
+		"Configurator"=>"Administration",
+		"Users"=>"Users",
+		"Teams"=>"Users",
+		"ACLRoles"=>"Users",
+		"dropdowneditor"=>"Administration",
+		"mass_Email_config"=>"Emails",
+		"mass_Email"=>"Emails",
+		"mailboxes"=>"Emails",
+		"timeperiod_management"=>"Forecasts",
+		"connector_settings"=>"Administration",
+		"contract_type_management"=>"Contracts",
+		"product_types"=>"Products",
+		"product_categories"=>"Products"
+);
+
+
 	  
 if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
+		$admin_option_defs = array();
 	$admin_group_header = array();
+	foreach($admin_role_options[$row['id']] as $key=>$options){
+		$admin_option_defs [$option_module_groups[$key]][$key] = $options;
+	}
+	
+	$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
+}
+else if(!empty($row['name']) && !empty($admin_role_options[$row['name']])){
+
+//$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
+
+/*	$admin_group_header = array();
 	
 	//Protracker Admin
 	$admin_option_defs = array();
@@ -55,6 +364,20 @@ if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
 		translate('av_Custom_Fields', 'LBL_MODULE_NAME'),
 		'Manage custom fields',
 		'./index.php?module=av_Custom_Fields&action=index'
+	);
+	
+	$admin_option_defs['Administration']['av_Fee_Schedules'] = array(
+		'av_Fee_Schedules',
+		translate('av_Fee_Schedules', 'LBL_MODULE_NAME'),
+		'Manage Fee Schedules',
+		'./index.php?module=av_Fee_Schedules&action=index'
+	);
+	
+	$admin_option_defs['Administration']['av_Commission_Schedules'] = array(
+		'av_Commission_Schedules',
+		translate('av_Commission_Schedules', 'LBL_MODULE_NAME'),
+		'Manage Commission Schedules',
+		'./index.php?module=av_Commission_Schedules&action=index'
 	);
 	
 	$admin_option_defs['Administration']['dropdowneditor'] = array(
@@ -192,9 +515,10 @@ if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
 		'LBL_CONTRACT_TYPES',
 		'./index.php?module=ContractTypes&action=index'
 	);
-	
 	//$admin_group_header[] = array($app_list_strings['moduleList']['Contracts'],'',false,$admin_option_defs, 'LBL_CONTRACT_DESC');
-	
-	$admin_group_header[] = array('ProTracker Administration', '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
-}
+	$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
+*/}
+
+
+
 ?>

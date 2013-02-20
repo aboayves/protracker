@@ -1,6 +1,6 @@
 <?php
 // created: 2012-12-19 21:08:44
-$dictionary["Accounts"]["fields"]["is_investment_client"] = array (
+$dictionary["Account"]["fields"]["is_investment_client"] = array (
 	'name' => 'is_investment_client',
 	'vname' => 'LBL_IS_INVESTMENT_CLIENT',
 	'type' => 'bool',
@@ -14,6 +14,7 @@ $dictionary["Accounts"]["fields"]["is_investment_client"] = array (
 	'duplicate_merge' => 'Enabled',
 	'duplicate_merge_dom_value' => True,
 	'help' => '',
+	'studio' => 'visible',
 	'group' => '',
 );
 ?>

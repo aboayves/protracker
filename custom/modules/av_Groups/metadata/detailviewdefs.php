@@ -83,11 +83,11 @@ array (
           ),
           17 => 
           array (
-            'customCode' => '<input onclick="reportPopupClient(\'{$fields.id.value}\')" title="Select Clients using Group Rules" type="button" name="reportsPopupClients" id="reportsPopupClients" value="Select Clients using Group Rules">',
+            'customCode' => '<input onclick="reportPopupClient(\'{$fields.id.value}\')" title="Select Clients from Reports" type="button" name="reportsPopupClients" id="reportsPopupClients" value="Select Clients from Reports">',
           ),
           18 => 
           array (
-            'customCode' => '<input onclick="reportpopupContact(\'{$fields.id.value}\')" title="Select Contacts using Group Rules" type="button" name="reportsPopupContacts" id="reportsPopupContacts" value="Select Contacts using Group Rules">',
+            'customCode' => '<input onclick="reportpopupContact(\'{$fields.id.value}\')" title="Select Contacts from Reports" type="button" name="reportsPopupContacts" id="reportsPopupContacts" value="Select Contacts from Reports">',
           ),
         ),
       ),
@@ -143,12 +143,22 @@ array (
         ),
         3 => 
         array (
-          0 => 'communication_type',
+          0 => 
+          array (
+            'name' => 'delivery_method',
+            'comment' => '',
+            'label' => 'LBL_DELIVERY_METHOD',
+          ),
           1 => 'membership_expiration_days',
         ),
         4 => 
-        array (
-          0 => 'description',
+        array (         
+		 1 => 
+          array (
+            'name' => 'date_checked',
+            'comment' => '',
+            'label' => 'LBL_DATE_CHECKED',
+          ),
         ),
         5 => 
         array (
@@ -158,15 +168,14 @@ array (
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
           ),
+		  1 => array(
+		  	'name' => 'lastupdated',
+			'customCode' => '<span id="lastupdated">{$fields.lastupdated.value}</span> <img src="custom/themes/default/images/refresh.jpg" style="cursor:pointer;" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
+		  ),
         ),
         6 => 
         array (
-          0 => 
-          array (
-            'name' => 'date_checked',
-            'comment' => '',
-            'label' => 'LBL_DATE_CHECKED',
-          ),
+          0 => 'description',
           1 => 'team_name',
         ),
         7 => 

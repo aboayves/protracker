@@ -2,12 +2,11 @@
 $module_name = 'av_Net_Worth';
 $listViewDefs [$module_name] = 
 array (
-  'ACCOUNTS_AV_NET_WORTH_NAME' => 
+  'ACCOUNTS_NAME' => 
   array (
-    'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_NET_WORTH_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_NET_WORTHACCOUNTS_IDA',
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNTS_ID',
     'width' => '10%',
     'default' => true,
   ),

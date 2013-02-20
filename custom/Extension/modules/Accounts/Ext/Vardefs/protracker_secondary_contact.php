@@ -12,6 +12,18 @@ $dictionary["Account"]["fields"]["secondary_contact_name"] = array (
 	'module' => 'Contacts',
 	'rname' => 'name'
 );
+$dictionary["Account"]["fields"]["secondary_contact_birthdate"] = array (
+	'name' => 'secondary_contact_birthdate',
+	'type' => 'relate',
+	'source' => 'non-db',
+	'vname' => 'LBL_SECONDARY_CONTACT_DOB',
+	'save' => true,
+	'id_name' => 'secondary_contact_id',
+	'link' => 'secondary_contact',
+	'table' => 'contacts',
+	'module' => 'Contacts',
+	'rname' => 'birthdate'
+);
 
 $dictionary["Account"]["fields"]["secondary_contact_id"] = array (
 	'name' => 'secondary_contact_id',
@@ -32,4 +44,26 @@ $dictionary["Account"]["fields"]["secondary_contact"] = array (
 	'vname' => 'LBL_SECONDARY_CONTACT_NAME',
 	'id_name' => 'secondary_contact_id'
 );
+$dictionary["Account"]["fields"] ['secondary_contact_image'] = array (
+    'required' => false,
+    'name' => 'secondary_contact_image',
+    'vname' => 'LBL_SECONDARY_CONTACT_IMAGE',
+    'type' => 'image',
+    'source' => 'non-db',
+    'massupdate' => 0,
+    'no_default' => false,
+    'comments' => '',
+	"border"=>"3",
+	"height"=>"132",
+    'help' => '',
+    'importable' => 'true',
+    'duplicate_merge' => 'disabled',
+    'duplicate_merge_dom_value' => '0',
+    'audited' => false,
+    'reportable' => true,
+    'unified_search' => false,
+    'merge_filter' => 'disabled',
+    'len' => '255',
+    'size' => '20',
+  );
 ?>

@@ -3,8 +3,7 @@
 $dictionary["Account"]["fields"]["billing_description"] = array (
 	'name' => 'billing_description',
 	'vname' => 'LBL_BILLING_DESCRIPTION',
-	'type' => 'varchar',
-	'len' => '255',
+	'type' => 'text',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

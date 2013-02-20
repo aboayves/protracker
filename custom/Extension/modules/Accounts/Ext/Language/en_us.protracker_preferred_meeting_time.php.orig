@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+<?php
+$mod_strings['LBL_PREFERRED_MEETING_TIME']='Preferred Meeting Time';
+?>
+=======
+<?php
+$mod_strings['LBL_PREFERRED_MEETING_TIME']='Preferred Meeting Time';
+?>
+>>>>>>> Clients module: added client preference and relationship type fields

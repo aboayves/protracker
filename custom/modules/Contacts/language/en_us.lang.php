@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-15 20:56:32
+// created: 2013-01-25 19:00:09
 $mod_strings = array (
   'LBL_OTHER_ADDRESS_STREET' => 'Other Address Street',
   'LBL_OTHER_ADDRESS_CITY' => 'Other Address City',
@@ -22,13 +22,15 @@ $mod_strings = array (
   'LBL_PRIMARY_ADDRESS_STREET' => 'Mailing Address Street',
   'LBL_PRIMARY_ADDRESS_STREET_2' => 'Mailing Address Street 2',
   'LBL_PRIMARY_ADDRESS_STREET_3' => 'Mailing Address Street 3',
+  'LBL_HOME_ADDRESS' => 'Home Address',
+  'LBL_HOME_STREET' => 'Home Street',
   'LBL_WORK_ADDRESS' => 'Work Address',
   'LBL_WORK_STREET' => 'Work Address Street',
   'LBL_OTHER_ADDRESS' => 'Other Address',
   'LBL_OTHER_STREET' => 'Other Street',
   'LBL_ALTERNATE_ADDRESS' => 'Alternate Address',
   'LBL_ALT_STREET' => 'Alternate Address Steet',
-  'LBL_ACCOUNT_NAME' => 'Employer',
+  'LBL_ACCOUNT_NAME' => 'Client',
   'LBL_ACCOUNT_ID' => 'Client ID:',
   'LBL_AUX_EMAIL' => 'Email',
   'LBL_AUX_MAIL' => 'Mail',
@@ -74,8 +76,12 @@ $mod_strings = array (
   'LBL_CONTACT_MEETINGS' => 'Meetings',
   'LBL_CONTACTS_RT_NOTES_TITLE' => 'Notes',
   'LBL_EDITVIEW_PANEL7' => 'Education',
-  'LBL_EDITVIEW_PANEL8' => 'Financial',
+  'LBL_EDITVIEW_PANEL8' => 'Estate',
   'LBL_PANEL_ADVANCED' => 'Marketing',
   'LBL_NICKNAME' => 'Nickname',
   'LBL_DEPARTMENT' => 'Position',
+  'LBL_EMPLOYER' => 'Employer',
+  'LBL_REPORT_NAME' => 'Report Name',
+  'LBL_SALUTATION' => 'Salutation',
+  'LBL_REPORT_SALUTATION' => 'Report Salutation',
 );

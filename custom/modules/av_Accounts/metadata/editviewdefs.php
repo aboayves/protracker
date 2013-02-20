@@ -44,8 +44,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'Account_name',
-            'label' => 'LBL_ACCOUNT_NAME',
+            'name' => 'accounts_av_accounts_name',
+            'studio' => 'visible',
+            'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
           ),
         ),
         1 => 
@@ -94,16 +95,17 @@ array (
             'comment' => '',
             'label' => 'LBL_ASSET_CLASS',
           ),
-		  1 => 'managed',
+          1 => 'managed_c',
         ),
         5 => 
         array (
-		 0 => 
+          0 => 
           array (
             'name' => 'custodian',
             'comment' => '',
             'label' => 'LBL_CUSTODIAN',
           ),
+          1 => '',
         ),
         6 => 
         array (
@@ -113,11 +115,6 @@ array (
             'comment' => '',
             'label' => 'LBL_VALUE',
           ),
-
-        ),
-		6 => 
-        array (
-		  0 => '',
           1 => 
           array (
             'name' => 'value_date',

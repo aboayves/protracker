@@ -2,7 +2,7 @@
 $module_name = 'av_Goals';
 $listViewDefs [$module_name] = 
 array (
-  'ACCOUNTS_AV_GOALS_1_NAME' => 
+/*  'ACCOUNTS_AV_GOALS_1_NAME' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -11,7 +11,7 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'NAME' => 
+  */'NAME' => 
   array (
     'width' => '10%',
     'label' => 'LBL_NAME',

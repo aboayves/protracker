@@ -38,6 +38,10 @@ array (
         array (
           'file' => 'include/javascript/tiny_mce/tiny_mce.js',
         ),
+		2 => 
+        array (
+          'file' => 'custom/modules/Accounts/copy_primary_contact_address.js',
+        ),
       ),
       'syncDetailEditViews' => true,
     ),
@@ -70,8 +74,19 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
-          1 => 'primary_contact_name',
-        ),
+          1=>
+		 array (
+			'name' => 'primary_contact_name',
+			'displayParams'=>array(
+			  'call_back_function'=>'set_location_querystring',
+			  'field' =>  
+              array ( 
+                'onChange' => "populateEmail();", 
+                 ),
+			 ),
+		  ),
+
+		),
         2 => 
         array (
           0 => 
@@ -83,7 +98,8 @@ array (
         ),
         3 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'av_client_types_name',
             'label' => 'LBL_AV_CLIENT_TYPES_NAME',
@@ -137,6 +153,26 @@ array (
         ),
         7 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'phase',
+            'comment' => '',
+            'label' => 'LBL_PHASE',
+          ),
+        ),
+        8 => 
+        array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'relationship_type',
+            'comment' => '',
+            'label' => 'LBL_RELATIONSHIP_TYPE',
+          ),
+        ),
+        9 => 
+        array (
           0 => 
           array (
             'name' => 'document_path',
@@ -150,7 +186,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        8 => 
+        10 => 
         array (
           0 => 
           array (
@@ -166,7 +202,7 @@ array (
             ),
           ),
         ),
-        9 => 
+        11 => 
         array (
           0 => 
           array (

@@ -1,12 +1,15 @@
 <?php
 $dictionary["Account"]["fields"]["preferred_comm"] = array (
-		'name' => 'preferred_comm',
-		'vname' => 'LBL_PREFERRED_COMM',
-		'type' => 'enum',
-		'len' => '100',
-		'audited'=>false,
-		'required'=>false,
-		'comments' => '',
-		'options' => 'preferred_communication_list',
-		);
+	'name' => 'preferred_comm',
+	'vname' => 'LBL_PREFERRED_COMM',
+	'type' => 'relate',
+	'audited'=>false,
+	'required'=>false,
+	'comments' => '',
+	'id_name' => 'primary_contact_id',
+	'rname' => 'preferred_communication',
+	'source' => 'non-db',
+	'table' => 'contacts',
+	'module' => 'Contacts',
+);
  ?>
