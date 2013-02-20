@@ -27,7 +27,7 @@ class TotalAssetsUnderManagement extends Dashlet {
 						SELECT  av_net_worth.managed_assets AS networth, av_net_worth.date_entered AS date
 						FROM av_net_worth 
 						RIGHT JOIN accounts 
-						ON(av_net_worth.accounts_id=accounts.id AND accounts.assigned_user_id='1a0d8f4c-b50a-0e6c-3be6-50f92dd8f703' AND accounts.deleted=0)
+						ON(av_net_worth.accounts_id=accounts.id AND accounts.assigned_user_id='{$current_user->id}' AND accounts.deleted=0)
 						WHERE av_net_worth.deleted=0
 						GROUP BY MONTH(av_net_worth.date_entered)
 						ORDER BY YEAR(av_net_worth.date_entered)DESC, MONTH(av_net_worth.date_entered)ASC, DAY(av_net_worth.date_entered)DESC
