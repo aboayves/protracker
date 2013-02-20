@@ -97,7 +97,30 @@ class AccountsViewDetail extends ViewDetail
 			$min = round($min / 5000) * 5000;
 			$interval = round($interval / 5000) * 5000;					
 		}
-
+//Date dialog for net worth statement
+		echo '<div id="DialogForDatePicker" title="Date Picker" style="display:none">'.
+				'<form name="input" action="index.php?module=Accounts&action=PrintNetWorth&record=' . $this->bean->id . '" method="POST">'.
+					'<span class="dateTime">'.
+						'Select Date: '.
+						'<input type="text" maxlength="10" size="11" id="net_worth_date" name="net_worth_date" autocomplete="off" class="date_input"> &nbsp;'.
+						'<img border="0" id="net_worth_date_trigger" style="position:relative; top:6px" alt="Enter Date" src="themes/Sugar/images/jscalendar.png">'.
+					'</span> &nbsp; &nbsp; &nbsp;'.
+					'<input type="submit" value="Generate Net Worth"/>'.
+				'</form>'.
+			'</div>'.
+			'<script type="text/javascript">'.
+				'Calendar.setup ({'.
+					'inputField : "net_worth_date",'.
+					'ifFormat : "%m/%d/%Y %I:%M%P",'.
+					'daFormat : "%m/%d/%Y %I:%M%P",'.
+					'button : "net_worth_date_trigger",'.
+					'singleClick : true,'.
+					'dateStr : "",'.
+					'startWeekday: 0,'.
+					'step : 1,'.
+					'weekNumbers:false'.
+				'});'.
+			'</script>';
 		//the javascript things for the graphs go here...
 		echo "
 		<script type='text/javascript' src='custom/include/js/jquery/jqxcore.js'></script>
