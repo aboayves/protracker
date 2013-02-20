@@ -215,6 +215,8 @@ class AccountsViewDetail extends ViewDetail
 				    if($this->bean->primary_contact_birthdate && $this->bean->primary_contact_birthdate != '')
 					{
 						$this->bean->primary_contact_birthdate = date("m/d/y", strtotime($this->bean->primary_contact_birthdate));
+						$this->bean->primary_contact_age = floor((strtotime("now")-strtotime($this->bean->primary_contact_birthdate))/3600/24/365);
+
 					}
 				}
 				else if($row['id'] == $this->bean->secondary_contact_id){
@@ -222,6 +224,7 @@ class AccountsViewDetail extends ViewDetail
 					if($this->bean->secondary_contact_birthdate && $this->bean->secondary_contact_birthdate != '')
 					{
 						$this->bean->secondary_contact_birthdate = date("m/d/y", strtotime($this->bean->secondary_contact_birthdate));
+						$this->bean->secondary_contact_age = floor((strtotime("now")-strtotime($this->bean->secondary_contact_birthdate))/3600/24/365);
 					}
 			}
 			}
