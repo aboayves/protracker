@@ -52,13 +52,15 @@ class AccountsViewDetail extends ViewDetail
 		$graph_data = array();
 		$data4graph = array();
 		$k=0;
+		$last_value = 0;
+		$last_value_managed = 0;
 		for($j=1; $j<=5; $j++)
 		{
 			$year++;
 			for($i=1; $i<=12; $i++)
 			{
-				$graph_data_db[$year][$i]['worth'] =($graph_data_db[$year][$i]['worth']=='') ? 0: $graph_data_db[$year][$i]['worth'];
-				$graph_data_db[$year][$i]['managed_assets'] =($graph_data_db[$year][$i]['managed_assets']=='') ? 0: $graph_data_db[$year][$i]['managed_assets'];
+				$graph_data_db[$year][$i]['worth'] =($graph_data_db[$year][$i]['worth']=='') ? $last_value: $graph_data_db[$year][$i]['worth'];
+				$graph_data_db[$year][$i]['managed_assets'] =($graph_data_db[$year][$i]['managed_assets']=='') ? $last_value_managed : $graph_data_db[$year][$i]['managed_assets'];
 				
 //				$graph_data[$year][$i] = array('worth'=>$graph_data_db[$year][$i]['worth'],'managed_assets'=>$graph_data_db[$year][$i]['managed_assets']);
 				
@@ -68,6 +70,8 @@ class AccountsViewDetail extends ViewDetail
 				$data4graph[$k]['worth'] = $graph_data_db[$year][$i]['worth'];
 					$data4graph[$k]['managed_assets'] = $graph_data_db[$year][$i]['managed_assets'];
 					$k++;
+				$last_value = $graph_data_db[$year][$i]['worth'];
+				$last_value_managed = $graph_data_db[$year][$i]['managed_assets'];
 			}
 		
 		}
