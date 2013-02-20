@@ -6,13 +6,13 @@ array (
   array (
     'templateMeta' => 
     array (
-	  'includes' =>
-	  array(
-		0 => 
-		array (
-			'file' => 'custom/modules/av_Group_Membership/custom_js.js',
-		)
-	  ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/av_Group_Membership/custom_js.js',
+        ),
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -42,10 +42,10 @@ array (
         0 => 
         array (
           0 => 
-		  array(
-		     'name'=>'name',
-		     'type'=>'readonly',
-			),
+          array (
+            'name' => 'name',
+            'type' => 'readonly',
+          ),
           1 => 'parent_name',
         ),
         1 => 
@@ -60,68 +60,15 @@ array (
             'name' => 'date_add_to_grp',
             'customCode' => '{$fields.date_add_to_grp.value}',
           ),
-          1 => 'delivery_method',
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'opted_out',
           ),
+        ),
+        3 => 
+        array (
+          0 => 'delivery_method',
           1 => 'expiration_date',
-        ),
-        4 => 
-        array (
-          0 => 'comments',
-          1 => 
-          array (
-            'name' => 'envelope',
-			'type' => 'readonly',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'comment' => 'Full text of the note',
-            'label' => 'LBL_DESCRIPTION',
-          ),
-          1 => 
-          array (
-            'name' => 'destination_address',
-            'comment' => 'Destination Address',
-            'label' => 'LBL_DESTINATION_ADDRESS',
-            'type' => 'readOnly',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'team_name',
-            'label' => 'LBL_TEAMS',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
         ),
       ),
     ),
