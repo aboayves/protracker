@@ -161,8 +161,12 @@ $dictionary['av_Group_Membership'] = array(
   array(
     'name' => 'envelope',
     'vname' => 'LBL_ENVELOPE',
-    'type' => 'varchar',
-    'comments' => 'Text Field dependent on related Contact/Client Salutation field',
+    'type' => 'function',
+	'source' => 'function',
+	'function_name'=>'get_envelope',
+	'function_class'=>'av_Group_Membership',
+	'function_params'=> array('parent_id', 'parent_type'),
+	'function_params_source'=>'this',
   ),
   'expiration_date' =>
   array(
