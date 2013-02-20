@@ -75,7 +75,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'accounts_av_net_worth_name',
+            'name' => 'accounts_name',
           ),
         ),
       ),

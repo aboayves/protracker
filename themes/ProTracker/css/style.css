@@ -87,8 +87,15 @@ input[type="submit"] {
     padding: 0px;
 }
 
-input[type=text],input[type=password],textarea {
-    width: 300px !important;
+input[type=text].sqsEnabled{
+	width:265px !important;
+}
+input[type=text].date_input{
+	width:265px !important
+}
+
+input[type=text],input[type=password],textarea,select {
+    width: 300px;
 }
 
 input[type=checkbox],input[type=radio] {
@@ -7216,7 +7223,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', end
     background-color: #e5f0f8;
     border-color: #ccc;
     text-align: right;
-    white-space: nowrap;
+   /*white-space: nowrap; */
+   width:150px;
 		font-size:15px;
 }
 
@@ -7789,6 +7797,7 @@ div.login{
 	}
 label{
 	font-size:15px;
+	line-height: 26px;
 	}
 .createDashlet{
 	display:block;

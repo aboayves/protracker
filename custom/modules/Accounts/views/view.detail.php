@@ -10,31 +10,21 @@ class AccountsViewDetail extends ViewDetail
 	}
 	function display() 
 	{
-		//this button is now defined in the detailviewdefs now where it should be..
-/*		$this->dv->defs['templateMeta']['form']['buttons'][] = array (
-			'customCode' => "
-<input type='hidden' value='pt' name='query'>
-<input type='hidden' value='false' name='to_pdf'>
-<input onclick=\"this.form.to_pdf.value='true';this.form.action.value='CsvExport';SUGAR.ajaxUI.submitForm(this.form);this.form.to_pdf.value='false';\" type='button' name='csv_export' value='Export to CSV' />",
-		);
-*/    	
-	$sql = "
-			SELECT YEAR(av_net_worth.date_entered) AS year, av_net_worth.grand_total AS worth, av_net_worth.managed_assets
-			FROM `accounts_av_net_worth_c`
-			LEFT JOIN av_net_worth
-				ON
-				(
-					av_net_worth.deleted=0
-					AND
-					av_net_worth.id = accounts_av_net_worth_c.accounts_av_net_worthav_net_worth_idb
-				)
+	$sql = "SELECT *
+			FROM
+			(	
+			SELECT YEAR(av_net_worth.date_entered) AS year, MONTH(av_net_worth.date_entered) AS month, DAY(av_net_worth.date_entered) AS day,  av_net_worth.grand_total AS worth, av_net_worth.managed_assets
+			FROM av_net_worth
 			WHERE 
-				accounts_av_net_worth_c.deleted=0 
+				av_net_worth.deleted=0 
 				AND 
-				accounts_av_net_worth_c.accounts_av_net_worthaccounts_ida = '{$this->bean->id}'
-			GROUP BY YEAR(av_net_worth.date_entered)
-			ORDER BY av_net_worth.date_entered DESC
+				av_net_worth.accounts_id = '{$this->bean->id}'
+			  ORDER BY av_net_worth.date_entered DESC
+			) AS a1
+			GROUP BY a1.month, a1.year
+			ORDER BY a1.year DESC
 		";
+		
 	$sql_result = $this->bean->db->query($sql);
 	if($sql_result->num_rows >0)
 	{
@@ -44,29 +34,48 @@ class AccountsViewDetail extends ViewDetail
 		$year = 0;
 		while($graph_data_row = $this->bean->db->fetchByAssoc($sql_result))
 		{
-			$graph_data_db[$graph_data_row['year']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
+			
+			
+			$graph_data_db[$graph_data_row['year']][$graph_data_row['month']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
 			if($year == 0)
 			{	
-				$year = $graph_data_row['year'];
+				$year = $graph_data_row['year']-5;
 		
 			}
 			$max = ($graph_data_row['worth']>=$max) ? $graph_data_row['worth'] : $max;
 			$max = ($graph_data_row['managed_assets']>=$max) ? $graph_data_row['managed_assets'] : $max;
 			$min =  ($graph_data_row['managed_assets']<$min) ? $graph_data_row['managed_assets'] : $min;
 			$min =  ($graph_data_row['worth']<$min) ? $graph_data_row['worth'] : $min;
-
 		}
-		
+//print '<pre>';print_r($sql);die();
+	
 		$graph_data = array();
-		for($i=1; $i<=5; $i++)
+		$data4graph = array();
+		$k=0;
+		$last_value = 0;
+		$last_value_managed = 0;
+		for($j=1; $j<=5; $j++)
 		{
-			$graph_data_db[$year]['worth'] =($graph_data_db[$year]['worth']=='') ? 0: $graph_data_db[$year]['worth'];
-			$graph_data_db[$year]['managed_assets'] =($graph_data_db[$year]['managed_assets']=='') ? 0: $graph_data_db[$year]['managed_assets'];
-			
-			$graph_data[$year] = array('worth'=>$graph_data_db[$year]['worth'],'managed_assets'=>$graph_data_db[$year]['managed_assets']);
-		 $year--;
-		}
+			$year++;
+			for($i=1; $i<=12; $i++)
+			{
+				$graph_data_db[$year][$i]['worth'] =($graph_data_db[$year][$i]['worth']=='') ? $last_value: $graph_data_db[$year][$i]['worth'];
+				$graph_data_db[$year][$i]['managed_assets'] =($graph_data_db[$year][$i]['managed_assets']=='') ? $last_value_managed : $graph_data_db[$year][$i]['managed_assets'];
+				
+//				$graph_data[$year][$i] = array('worth'=>$graph_data_db[$year][$i]['worth'],'managed_assets'=>$graph_data_db[$year][$i]['managed_assets']);
+				
+				$data4graph[$k]['year'] = ($i==1) ? $year : '';
+				
+				
+				$data4graph[$k]['worth'] = $graph_data_db[$year][$i]['worth'];
+					$data4graph[$k]['managed_assets'] = $graph_data_db[$year][$i]['managed_assets'];
+					$k++;
+				$last_value = $graph_data_db[$year][$i]['worth'];
+				$last_value_managed = $graph_data_db[$year][$i]['managed_assets'];
+			}
 		
+		}
+//print '<pre>';print_r($data4graph);die();
 		$this->dv->defs['panels']['LBL_GRAPH'] = array(
 		  array(
 		  	array(
@@ -78,18 +87,9 @@ class AccountsViewDetail extends ViewDetail
 		$this->showPrimarySecondaryImage();
 	
 		parent::display();
-		$data = $graph_data;
-		$data4graph = array();
-		$i = 0;
-		foreach($data as $key=>$data){
-		    $data4graph[$i]['year'] = $key;
-			$data4graph[$i]['worth'] = $data['worth'];
-			$data4graph[$i]['managed_assets'] = $data['managed_assets'];
-			$i++;
-		}
-		
+
 		$min = ($min>0) ? $min : 0;
-		$interval = round(($max - $min)/15);
+		$interval = round(($max - $min)/4);
 		
 		if($interval >= 10000)
 		{
@@ -101,7 +101,30 @@ class AccountsViewDetail extends ViewDetail
 			$min = round($min / 5000) * 5000;
 			$interval = round($interval / 5000) * 5000;					
 		}
-
+//Date dialog for net worth statement
+		echo '<div id="DialogForDatePicker" title="Date Picker" style="display:none">'.
+				'<form name="input" action="index.php?module=Accounts&action=PrintNetWorth&record=' . $this->bean->id . '" method="POST">'.
+					'<span class="dateTime">'.
+						'Select Date: '.
+						'<input type="text" maxlength="10" size="11" id="net_worth_date" name="net_worth_date" autocomplete="off" class="date_input"> &nbsp;'.
+						'<img border="0" id="net_worth_date_trigger" style="position:relative; top:6px" alt="Enter Date" src="themes/Sugar/images/jscalendar.png">'.
+					'</span> &nbsp; &nbsp; &nbsp;'.
+					'<input type="submit" value="Generate Net Worth"/>'.
+				'</form>'.
+			'</div>'.
+			'<script type="text/javascript">'.
+				'Calendar.setup ({'.
+					'inputField : "net_worth_date",'.
+					'ifFormat : "%m/%d/%Y %I:%M%P",'.
+					'daFormat : "%m/%d/%Y %I:%M%P",'.
+					'button : "net_worth_date_trigger",'.
+					'singleClick : true,'.
+					'dateStr : "",'.
+					'startWeekday: 0,'.
+					'step : 1,'.
+					'weekNumbers:false'.
+				'});'.
+			'</script>';
 		//the javascript things for the graphs go here...
 		echo "
 		<script type='text/javascript' src='custom/include/js/jquery/jqxcore.js'></script>
@@ -116,7 +139,9 @@ class AccountsViewDetail extends ViewDetail
 							  title: 'Net Worth',
 							  categoryAxis:
 							  {
-								  dataField: 'year'
+								  dataField: 'year',
+								  lineWidth: 40, 
+								  textRotationAngle: -90
 							  },
 							  colorScheme: 'scheme05',
 							  seriesGroups:
@@ -126,9 +151,15 @@ class AccountsViewDetail extends ViewDetail
 								  valueAxis:
 								  {
 									unitInterval: ".$interval.",
-									minValue: ".$min.",
-									maxValue: ".$max."
+									minValue: 0,
+									maxValue: ".$max.",
+									formatSettings:
+									  {
+										 thousandsSeparator : ','
+									 
+									  }
 								  },
+								  
 								  series: [
 									{ dataField: 'worth', displayText: 'Net Worth' },
 									{ dataField: 'managed_assets', displayText: 'Managed Assets' }
@@ -136,10 +167,14 @@ class AccountsViewDetail extends ViewDetail
 								}
 							  ]
 						});
+			
 		Accounts_detailview_tabs.selectTab(0);
 		$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);	
 		
 		</script>";
+		echo "<style>";
+			".jqx-chart-axis-text{text-align:right !important;}";
+		echo "</style>";
    }
    else
    {
@@ -180,6 +215,8 @@ class AccountsViewDetail extends ViewDetail
 				    if($this->bean->primary_contact_birthdate && $this->bean->primary_contact_birthdate != '')
 					{
 						$this->bean->primary_contact_birthdate = date("m/d/y", strtotime($this->bean->primary_contact_birthdate));
+						$this->bean->primary_contact_age = floor((strtotime("now")-strtotime($this->bean->primary_contact_birthdate))/3600/24/365);
+
 					}
 				}
 				else if($row['id'] == $this->bean->secondary_contact_id){
@@ -187,6 +224,7 @@ class AccountsViewDetail extends ViewDetail
 					if($this->bean->secondary_contact_birthdate && $this->bean->secondary_contact_birthdate != '')
 					{
 						$this->bean->secondary_contact_birthdate = date("m/d/y", strtotime($this->bean->secondary_contact_birthdate));
+						$this->bean->secondary_contact_age = floor((strtotime("now")-strtotime($this->bean->secondary_contact_birthdate))/3600/24/365);
 					}
 			}
 			}

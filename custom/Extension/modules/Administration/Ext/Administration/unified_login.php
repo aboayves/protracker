@@ -1,4 +1,4 @@
-<?php
+<?php 
 require_once('modules/ACLRoles/ACLRole.php');
 
 global $db, $current_user;
@@ -79,7 +79,7 @@ $admin_role_options = array(
 			),
 			
 			"ContractTypes"=>array(
-				'ContractTypes',
+				'Contracts',
 				translate('ContractTypes', 'LBL_MODULE_NAME'),
 				'Contract types',
 				'./index.php?module=ContractTypes&action=index'
@@ -123,7 +123,7 @@ $admin_role_options = array(
 				'./index.php?module=av_Group_Types&action=index'
 			),
 			"ContractTypes"=>array(
-				'ContractTypes',
+				'Contracts',
 				translate('ContractTypes', 'LBL_MODULE_NAME'),
 				'Contract types',
 				'./index.php?module=ContractTypes&action=index'
@@ -141,13 +141,13 @@ $admin_role_options = array(
 				'./index.php?module=av_Custom_Fields&action=index'
 			),
 			"SugarFeed"=>array(
-				'SugarFeed',
+				'icon_SugarFeed',
 				translate('SugarFeed', 'LBL_MODULE_NAME'),
 				'Manage Activity Stream',
 				'./index.php?module=SugarFeed&action=AdminSettings'
 			),
 			"Configurator"=>array(
-				'Configurator',
+				'icon_AdminPDF',
 				translate('Configurator', 'LBL_MODULE_NAME'),
 				'PDF',
 				'./index.php?module=Configurator&action=SugarpdfSettings'
@@ -196,12 +196,6 @@ $admin_role_options = array(
 				'Manage Group types',
 				'./index.php?module=av_Group_Types&action=index'
 			),
-			"ContractTypes"=>array(
-				'ContractTypes',
-				translate('ContractTypes', 'LBL_MODULE_NAME'),
-				'Contract types',
-				'./index.php?module=ContractTypes&action=index'
-			),
 			"Import"=>array(
 				'Import',
 				translate('Import', 'LBL_MODULE_NAME'),
@@ -215,13 +209,13 @@ $admin_role_options = array(
 				'./index.php?module=av_Custom_Fields&action=index'
 			),
 			"SugarFeed"=>array(
-				'SugarFeed',
+				'icon_SugarFeed',
 				translate('SugarFeed', 'LBL_MODULE_NAME'),
 				'Manage Activity Stream',
 				'./index.php?module=SugarFeed&action=AdminSettings'
 			),
 			"Configurator"=>array(
-				'Configurator',
+				'icon_AdminPDF',
 				translate('Configurator', 'LBL_MODULE_NAME'),
 				'PDF',
 				'./index.php?module=Configurator&action=SugarpdfSettings'
@@ -524,6 +518,7 @@ else if(!empty($row['name']) && !empty($admin_role_options[$row['name']])){
 	//$admin_group_header[] = array($app_list_strings['moduleList']['Contracts'],'',false,$admin_option_defs, 'LBL_CONTRACT_DESC');
 	$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
 */}
+
 
 
 ?>

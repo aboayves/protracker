@@ -117,7 +117,7 @@ class av_WorkflowController extends SugarController {
 			$sql = "SELECT ".
 						"id, name, date_entered, date_modified, assign_to, relate_to, ".
 						"modified_user_id, created_by, description, ".
-						"team_id, team_set_id, assigned_user_id, task_category as 'category', ".
+						"team_id, team_set_id, assigned_user_id, activity_type_id, task_category as 'category', ".
 						"private, notify_child_completion, on_task_list, client_task, parent_tasks_id, days_out ".
 					"FROM ".
 						"av_task_template ".

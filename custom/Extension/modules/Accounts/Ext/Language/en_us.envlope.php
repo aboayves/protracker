@@ -1,2 +1,2 @@
 <?php
-$mod_strings['LBL_ENVELOPE'] = 'Envelope';
+$mod_strings['LBL_ENVELOPE'] = 'Salutation';

@@ -34,7 +34,7 @@
 				}
 				
 				$name = $account->name;
-				$envelope = $account->envelope;
+				$envelope = $account->report_salutation;
 				if($opt_out_flag){
 					$include='0';
 				}
@@ -69,7 +69,7 @@
 					$destination_address = $contactBean->aux_email;
 				}
 				$name = $contactBean->salutation." ".$contactBean->first_name." ".$contactBean->last_name;
-				$envelope = $contactBean->envelope;
+				$envelope = $contactBean->report_salutation;
 				if($opt_out_flag){
 					$include='0';
 				}

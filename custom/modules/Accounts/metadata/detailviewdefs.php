@@ -88,13 +88,26 @@ array (
         array (
           0 => 
           array (
+            'name' => 'primary_contact_name',
+            'label' => 'LBL_PRIMARY_CONTACT_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'secondary_contact_name',
+            'label' => 'LBL_SECONDARY_CONTACT_NAME',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
             'name' => 'primary_contact_image',
-			'label' => '',
-			'displayParams' =>
-			array (
-				'trimColon' => 1,
-			),
-			'customCode'=>'
+            'label' => '',
+            'displayParams' => 
+            array (
+              'trimColon' => 1,
+            ),
+            'customCode' => '
 			{if $fields.primary_contact_image.value}
 			<input type="hidden" value="$fields.primary_contact_image.value" id="primary_contact_image" class="sugar_field">
 				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_primary_contact_image\').src)">
@@ -109,18 +122,20 @@ array (
 			{/if}
 			
 			<span>
-				<a href="index.php?module=Contacts&action=DetailView&record={$fields.primary_contact_id.value}">
-				<span id="primary_contact_id" class="sugar_field">{$fields.primary_contact_name.value}</span></a>
-				</br>
-				{if $fields.primary_contact_birthdate.value}DOB: {$fields.primary_contact_birthdate.value}{/if}
+				{if $fields.primary_contact_salutation.value}Salutation: {$fields.primary_contact_salutation.value}{/if}</br>
+				{if $fields.primary_contact_birthdate.value}Nick: {$fields.primary_contact_nickname.value}{/if}</br>
+				{if $fields.primary_contact_birthdate.value}DOB: {$fields.primary_contact_birthdate.value}{/if}</br>
+				{if $fields.primary_contact_age.value}Age: {$fields.primary_contact_age.value}{/if}</br>
+				{if $fields.primary_contact_ssn.value}SSN: {$fields.primary_contact_ssn.value}{/if}
+
 			</span>
-			'
+			',
           ),
           1 => 
           array (
             'name' => 'secondary_contact_image',
-			'label' => ' ',
-			'customCode' => '
+            'label' => ' ',
+            'customCode' => '
 			{if $fields.secondary_contact_image.value}
 			<input id="secondary_contact_image" class="sugar_field" type="hidden" value="$fields.secondary_contact_image.value">
 				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_secondary_contact_image\').src)">
@@ -137,25 +152,13 @@ array (
 				{/if}
 
 				<span>
-				 <a href="index.php?module=Contacts&action=DetailView&record={$fields.secondary_contact_id.value}">
-					<span id="secondary_contact_id" class="sugar_field">{$fields.secondary_contact_name.value}</span></a>
-					</br>
-					{if $fields.secondary_contact_birthdate.value}DOB: {$fields.secondary_contact_birthdate.value}{/if}
-				</span>
-				'
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'primary_contact_name',
-            'label' => 'LBL_PRIMARY_CONTACT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'secondary_contact_name',
-            'label' => 'LBL_SECONDARY_CONTACT_NAME',
+				{if $fields.secondary_contact_salutation.value}Salutation: {$fields.secondary_contact_salutation.value}{/if}</br>
+				{if $fields.secondary_contact_nickname.value}Nick: {$fields.secondary_contact_nickname.value}{/if}</br>
+				{if $fields.secondary_contact_birthdate.value}DOB: {$fields.secondary_contact_birthdate.value}{/if}</br>
+				{if $fields.secondary_contact_age.value}Age: {$fields.secondary_contact_age.value}{/if}</br>
+				{if $fields.secondary_contact_ssn.value}SSN: {$fields.secondary_contact_ssn.value}{/if}
+			</span>
+				',
           ),
         ),
         4 => 
@@ -231,7 +234,7 @@ array (
             'label' => 'LBL_PHASE',
           ),
         ),
-        8 => 
+        10 => 
         array (
           0 => '',
           1 => 
@@ -241,7 +244,7 @@ array (
             'label' => 'LBL_RELATIONSHIP_TYPE',
           ),
         ),
-        9 => 
+        11 => 
         array (
           0 => '',
           1 => 
@@ -251,7 +254,7 @@ array (
             'label' => 'LBL_PHASE',
           ),
         ),
-        8 => 
+        12 => 
         array (
           0 => '',
           1 => 
@@ -261,7 +264,7 @@ array (
             'label' => 'LBL_RELATIONSHIP_TYPE',
           ),
         ),
-        9 => 
+        13 => 
         array (
           0 => 
           array (
@@ -276,7 +279,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        10 => 
+        14 => 
         array (
           0 => 
           array (
@@ -286,7 +289,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        11 => 
+        15 => 
         array (
           0 => 
           array (
@@ -339,35 +342,33 @@ array (
         ),
         2 => 
         array (
-          0 =>
-			array( 
-				'name' =>'preferred_comm',
-				'customCode' =>'
+          0 => 
+          array (
+            'name' => 'preferred_comm',
+            'customCode' => '
 				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
 					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_comm.value}</span>
 				</a>',
-			),
-          1 =>
-			array(
-				'name' => 'preferred_calling_time',
-				'customCode' =>'
+          ),
+          1 => 
+          array (
+            'name' => 'preferred_calling_time',
+            'customCode' => '
 				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
 					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_calling_time.value}</span>
 				</a>',
-			),
-		  
+          ),
         ),
         3 => 
         array (
-          0 =>
-			array(
-			'name' => 'preferred_meeting_time',
-			'customCode' =>'
+          0 => 
+          array (
+            'name' => 'preferred_meeting_time',
+            'customCode' => '
 				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
 					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_meeting_time.value}</span>
 				</a>',
-			),
-			
+          ),
         ),
       ),
       'lbl_editview_panel1' => 
