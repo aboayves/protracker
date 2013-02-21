@@ -65,6 +65,12 @@ $admin_role_options = array(
 				'Manage Contact types',
 				'./index.php?module=av_Contact_Types&action=index'
 			),
+			"ContractTypes"=>array(
+				'Contracts',
+				translate('ContractTypes', 'LBL_MODULE_NAME'),
+				'Contract types',
+				'./index.php?module=ContractTypes&action=index'
+			),
 			"av_Client_Types"=>array(
 				'av_Client_Types',
 				translate('av_Client_Types', 'LBL_MODULE_NAME'),
@@ -78,12 +84,7 @@ $admin_role_options = array(
 				'./index.php?module=av_Group_Types&action=index'
 			),
 			
-			"ContractTypes"=>array(
-				'Contracts',
-				translate('ContractTypes', 'LBL_MODULE_NAME'),
-				'Contract types',
-				'./index.php?module=ContractTypes&action=index'
-			),
+			
 			"Import"=>array(
 				'Import',
 				translate('Import', 'LBL_MODULE_NAME'),
@@ -110,6 +111,12 @@ $admin_role_options = array(
 				'Manage Contact types',
 				'./index.php?module=av_Contact_Types&action=index'
 			),
+			"ContractTypes"=>array(
+				'Contracts',
+				translate('ContractTypes', 'LBL_MODULE_NAME'),
+				'Contract types',
+				'./index.php?module=ContractTypes&action=index'
+			),
 			"av_Client_Types"=>array(
 				'av_Client_Types',
 				translate('av_Client_Types', 'LBL_MODULE_NAME'),
@@ -122,12 +129,7 @@ $admin_role_options = array(
 				'Manage Group types',
 				'./index.php?module=av_Group_Types&action=index'
 			),
-			"ContractTypes"=>array(
-				'Contracts',
-				translate('ContractTypes', 'LBL_MODULE_NAME'),
-				'Contract types',
-				'./index.php?module=ContractTypes&action=index'
-			),
+			
 			"Import"=>array(
 				'Import',
 				translate('Import', 'LBL_MODULE_NAME'),
@@ -183,6 +185,12 @@ $admin_role_options = array(
 				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
 				'Manage Contact types',
 				'./index.php?module=av_Contact_Types&action=index'
+			),
+			"contract_type_management"=>array(
+				'Contracts',
+				'LBL_MANAGE_CONTRACTEMPLATES_TITLE',
+				'LBL_CONTRACT_TYPES',
+				'./index.php?module=ContractTypes&action=index'
 			),
 			"av_Client_Types"=>array(
 				'av_Client_Types',
@@ -274,12 +282,7 @@ $admin_role_options = array(
 				'LBL_CONNECTOR_SETTINGS_DESC',
 				'./index.php?module=Connectors&action=ConnectorSettings'
 			),
-			"contract_type_management"=>array(
-				'Contracts',
-				'LBL_MANAGE_CONTRACTEMPLATES_TITLE',
-				'LBL_CONTRACT_TYPES',
-				'./index.php?module=ContractTypes&action=index'
-			),
+			
 			"product_types"=>array(
 				'Product_Types',
 				'LBL_PRODUCT_TYPES_TITLE',
@@ -297,10 +300,11 @@ $admin_role_options = array(
 $option_module_groups = array(
 		"av_Account_Types"=>"Administration",
 		"av_Activity_Types"=>"Administration",
+		"ContractTypes"=>"Administration",
 		"av_Contact_Types"=>"Administration",
+		"contract_type_management"=>"Administration",
 		"av_Client_Types"=>"Administration",
 		"av_Group_Types"=>"Administration",
-		"ContractTypes"=>"Contracts",
 		"Import"=>"Administration",
 		"av_Custom_Fields"=>"Administration",
 		"SugarFeed"=>"Administration",
@@ -314,7 +318,7 @@ $option_module_groups = array(
 		"mailboxes"=>"Emails",
 		"timeperiod_management"=>"Forecasts",
 		"connector_settings"=>"Administration",
-		"contract_type_management"=>"Contracts",
+		
 		"product_types"=>"Products",
 		"product_categories"=>"Products"
 );
@@ -327,8 +331,9 @@ if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
 	foreach($admin_role_options[$row['id']] as $key=>$options){
 		$admin_option_defs [$option_module_groups[$key]][$key] = $options;
 	}
-	
 	$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
+	
+	
 }
 else if(!empty($row['name']) && !empty($admin_role_options[$row['name']])){
 
@@ -518,6 +523,7 @@ else if(!empty($row['name']) && !empty($admin_role_options[$row['name']])){
 	//$admin_group_header[] = array($app_list_strings['moduleList']['Contracts'],'',false,$admin_option_defs, 'LBL_CONTRACT_DESC');
 	$admin_group_header[] = array('ProTracker Administration - '.$row['name'], '', false, $admin_option_defs, 'Change Dropdown Options, Item Types and other Settings');
 */}
+
 
 
 
