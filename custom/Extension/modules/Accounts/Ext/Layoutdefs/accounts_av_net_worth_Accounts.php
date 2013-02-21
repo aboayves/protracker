@@ -6,7 +6,7 @@ $layout_defs["Accounts"]["subpanel_setup"]['accounts_av_net_worth'] = array (
   'subpanel_name' => 'default',
   'sort_order' => 'asc',
   'sort_by' => 'id',
-  'title_key' => 'Net Worth History',
+  'title_key' => 'LBL_ACCOUNTS_AV_NET_WORTH_FROM_AV_NET_WORTH_TITLE',
   'get_subpanel_data' => 'accounts_av_net_worth',
   'top_buttons' => 
   array (
