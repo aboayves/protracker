@@ -29,7 +29,7 @@ array (
       array (
         0 => 
         array (
-          1 => 'name',
+          0 => 'name',
         ),
         1 => 
         array (
@@ -59,9 +59,6 @@ array (
         3 => 
         array (
           0 => 'description',
-        ),
-        4 => 
-        array (
           1 => 
           array (
             'name' => 'team_name',
@@ -71,7 +68,7 @@ array (
             ),
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (

@@ -2,6 +2,13 @@
 $module_name = 'av_Reviews';
 $listViewDefs [$module_name] = 
 array (
+  'NAME' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
+  ),
   'REVIEW_DATE' => 
   array (
     'type' => 'date',
@@ -46,6 +53,13 @@ array (
     'label' => 'LBL_ASSIGNED_TO_NAME',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '8%',
     'default' => true,
   ),
   'TEAM_NAME' => 
