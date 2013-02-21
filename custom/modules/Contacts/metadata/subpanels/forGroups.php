@@ -8,6 +8,12 @@ $subpanel_layout = array(
 
 	'where' => '',
 	'list_fields' => array(
+		'delete_multiple_check' => array(
+			'vname' => 'LBL_DELETE_MULTIPLE_CHECK',
+			'width' => '5%',
+			'sortable' => false,
+			'default' => true,
+		),
 		'first_name'=>array(
 			'name'=>'first_name',
 			'usage' => 'query_only',
