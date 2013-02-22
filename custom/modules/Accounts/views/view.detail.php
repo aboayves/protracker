@@ -49,7 +49,7 @@ class AccountsViewDetail extends ViewDetail
 		}
 //print '<pre>';print_r($sql);die();
 	
-		$graph_data = array();
+		//$graph_data = array();
 		$data4graph = array();
 		$k=0;
 		$last_value = 0;
@@ -189,17 +189,14 @@ class AccountsViewDetail extends ViewDetail
 		  )
 		);
 		$this->showPrimarySecondaryImage();
-		
-		
 		parent::display();
-		echo "<script>		
-			window.onload=function(){
-				$('#primary_contact_image').closest('td').prev('td').text('');
-				$('#secondary_contact_image').closest('td').prev('td').text('');
-			};
-			</script>";
 	}
-
+		echo "<script>		
+		window.onload=function(){
+			$('#primary_contact_image').closest('td').prev('td').text('');
+			$('#secondary_contact_image').closest('td').prev('td').text('');
+		};
+		</script>";
 }
 	/***
 	* show images against primary and secondary
@@ -214,17 +211,16 @@ class AccountsViewDetail extends ViewDetail
 					$this->bean->primary_contact_image = $row['picture'];
 				    if($this->bean->primary_contact_birthdate && $this->bean->primary_contact_birthdate != '')
 					{
-						$this->bean->primary_contact_birthdate = date("m/d/y", strtotime($this->bean->primary_contact_birthdate));
 						$this->bean->primary_contact_age = floor((strtotime("now")-strtotime($this->bean->primary_contact_birthdate))/3600/24/365);
-
+						$this->bean->primary_contact_birthdate = date("m/d/y", strtotime($this->bean->primary_contact_birthdate));
 					}
 				}
 				else if($row['id'] == $this->bean->secondary_contact_id){
 					$this->bean->secondary_contact_image = $row['picture'];
 					if($this->bean->secondary_contact_birthdate && $this->bean->secondary_contact_birthdate != '')
 					{
-						$this->bean->secondary_contact_birthdate = date("m/d/y", strtotime($this->bean->secondary_contact_birthdate));
 						$this->bean->secondary_contact_age = floor((strtotime("now")-strtotime($this->bean->secondary_contact_birthdate))/3600/24/365);
+						$this->bean->secondary_contact_birthdate = date("m/d/y", strtotime($this->bean->secondary_contact_birthdate));
 					}
 			}
 			}
