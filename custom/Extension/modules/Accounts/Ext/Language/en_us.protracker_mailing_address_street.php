@@ -1,3 +1,3 @@
 <?php
-$mod_strings['LBL_MAILING_ADDRESS_STREET']='Mailing Street';
+$mod_strings['LBL_MAILING_STREET']='Mailing Street';
 ?>
