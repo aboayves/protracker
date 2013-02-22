@@ -150,7 +150,11 @@ array (
         ),
         8 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'spouse_name',
+            'label' => 'LBL_SPOUSE_NAME',
+          ),
           1 => 
           array (
             'name' => 'report_name',
@@ -743,9 +747,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'referred_by',
-            'comment' => '',
-            'label' => 'LBL_REFERRED_BY',
+            'name' => 'Referral_name',
+            'label' => 'LBL_Referral_name',
           ),
           1 => 
           array (
