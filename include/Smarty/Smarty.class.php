@@ -1771,7 +1771,9 @@ class Smarty
                 return @unlink($resource);
             }
         } else {
-            return @unlink($resource);
+            // added check before unlinking to avoid unnecessary error messages
+            // return @unlink($resource);
+            if(file_exists($resource)) return @unlink($resource); 
         }
     }
 
