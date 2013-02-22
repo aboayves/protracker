@@ -13,6 +13,8 @@ $GLOBALS['tabStructure'] = array (
       4 => 'Emails',
       5 => 'av_Workflow',
       6 => 'av_Task_Template',
+      7 => 'Activities',
+      8 => 'History',
     ),
   ),
   'LBL_TABGROUP_DOCUMENT_MANAGEMENT' => 
@@ -36,11 +38,13 @@ $GLOBALS['tabStructure'] = array (
     'label' => 'LBL_TABGROUP_SALES_MARKETING',
     'modules' => 
     array (
-      0 => 'Campaigns',
+      0 => 'CampaignLog',
       1 => 'Opportunities',
       2 => 'Leads',
       3 => 'Prospects',
       4 => 'ProspectLists',
+      5 => 'Quotes',
+      6 => 'Products',
     ),
   ),
   'LBL_TABGROUP_RELATED' => 
@@ -50,8 +54,9 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'av_Professionals',
       1 => 'av_Relatives',
-	  2 => 'av_Service_Team',
+	    2 => 'av_Service_Team',
       3 => 'av_Companies',
+      4 => 'av_Groups',
     ),
   ),
   'LBL_TABGROUP_COMPLIANCE' => 
@@ -70,7 +75,7 @@ $GLOBALS['tabStructure'] = array (
     'modules' => 
     array (
       0 => 'av_Offices',
-	  1 => 'Employees',
+	    1 => 'Employees',
       2 => 'av_Reviews',
       3 => 'av_Scoring',
       4 => 'av_Service_Team',
