@@ -13,6 +13,20 @@ array (
       0 => 'status',
     ),
   ),
+  'NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_LIST_SUBJECT',
+    'link' => true,
+    'default' => true,
+  ),
+  'DATE_DUE' => 
+  array (
+    'width' => '8%',
+    'label' => 'LBL_LIST_DUE_DATE',
+    'link' => false,
+    'default' => true,
+  ),
   'PARENT_NAME' => 
   array (
     'width' => '15%',
@@ -28,13 +42,6 @@ array (
       0 => 'parent_id',
       1 => 'parent_type',
     ),
-  ),
-  'DATE_DUE' => 
-  array (
-    'width' => '8%',
-    'label' => 'LBL_LIST_DUE_DATE',
-    'link' => false,
-    'default' => true,
   ),
   'STATUS' => 
   array (
@@ -52,13 +59,6 @@ array (
     'width' => '15%',
     'default' => true,
   ),
-  'NAME' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_LIST_SUBJECT',
-    'link' => true,
-    'default' => true,
-  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '10%',
@@ -73,13 +73,6 @@ array (
     'default' => true,
     'label' => 'LBL_PERCENT_COMPLETE',
     'width' => '8%',
-  ),
-  'DATE_COMPLETE' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DTE_CMP',
-    'width' => '10%',
-    'default' => true,
   ),
   'TEAM_NAME' => 
   array (
@@ -221,6 +214,13 @@ array (
     'label' => 'LBL_PROJECT',
     'id' => 'PROJECT_ID',
     'link' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_COMPLETE' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DTE_CMP',
     'width' => '10%',
     'default' => false,
   ),

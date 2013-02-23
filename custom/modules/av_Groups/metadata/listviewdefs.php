@@ -32,15 +32,6 @@ array (
     'label' => 'LBL_DELIVERY_METHOD',
     'width' => '10%',
   ),
-  'AV_OFFICES_AV_GROUPS_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_RT_OFFICES_AV_GROUPS_FROM_RT_OFFICES_TITLE',
-    'id' => 'AV_OFFICES_AV_GROUPSAV_OFFICES_IDA',
-    'width' => '15%',
-    'default' => true,
-  ),
   'COMMUNICATION_TYPE' => 
   array (
     'type' => 'enum',
@@ -82,6 +73,15 @@ array (
     'label' => 'LBL_ENVELOPE',
     'sortable' => false,
     'width' => '10%',
+    'default' => false,
+  ),
+  'AV_OFFICES_AV_GROUPS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_RT_OFFICES_AV_GROUPS_FROM_RT_OFFICES_TITLE',
+    'id' => 'AV_OFFICES_AV_GROUPSAV_OFFICES_IDA',
+    'width' => '15%',
     'default' => false,
   ),
   'INCLUDE' => 
