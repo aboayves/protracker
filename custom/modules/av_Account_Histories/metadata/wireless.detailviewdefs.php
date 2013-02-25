@@ -13,10 +13,9 @@ array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
           2 => 'DELETE',
-          3 => 'FIND_DUPLICATES',
         ),
       ),
-      'maxColumns' => '2',
+      'maxColumns' => '1',
       'widths' => 
       array (
         0 => 
@@ -31,36 +30,25 @@ array (
         ),
       ),
       'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
-      'default' => 
+      0 => 
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'av_Accounts_name',
-            'label' => 'LBL_AV_ACCOUNTS_NAME',
-          ),
+          'name' => 'value_date',
+          'comment' => '',
+          'label' => 'LBL_VALUE_DATE',
         ),
-        1 => 
+      ),
+      1 => 
+      array (
+        0 => 
         array (
-          0 => 
-          array (
-            'name' => 'value_date',
-            'comment' => '',
-            'label' => 'LBL_VALUE_DATE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'value',
-            'label' => 'LBL_VALUE',
-          ),
+          'name' => 'value',
+          'comment' => '',
+          'label' => 'LBL_VALUE',
         ),
       ),
     ),
