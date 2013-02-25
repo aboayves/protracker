@@ -53,30 +53,19 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_LIABILITY',
           ),
-          1 => 
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'report_sort',
             'comment' => '',
             'label' => 'LBL_REPORT_SORT',
           ),
         ),
-        3 => 
-        array (
-          0 => 'assigned_user_name',
-          1 => 'team_name',
-        ),
         4 => 
         array (
-          0 => 
-          array (
-            'name' => 'created_by_name',
-            'label' => 'LBL_CREATED',
-          ),
-          1 => 
-          array (
-            'name' => 'modified_by_name',
-            'label' => 'LBL_MODIFIED_NAME',
-          ),
+          0 => 'assigned_user_name',
         ),
       ),
     ),

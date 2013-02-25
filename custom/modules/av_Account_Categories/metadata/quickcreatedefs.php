@@ -42,7 +42,10 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_LIABILITY',
           ),
-          1 => 
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'report_sort',
             'comment' => '',

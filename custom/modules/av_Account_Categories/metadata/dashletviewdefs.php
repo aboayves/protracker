@@ -33,6 +33,7 @@ $dashletData['av_Account_CategoriesDashlet']['columns'] = array (
     'sortable' => false,
     'width' => '10%',
     'default' => true,
+    'name' => 'description',
   ),
   'is_liability' => 
   array (
@@ -40,6 +41,7 @@ $dashletData['av_Account_CategoriesDashlet']['columns'] = array (
     'default' => true,
     'label' => 'LBL_IS_LIABILITY',
     'width' => '10%',
+    'name' => 'is_liability',
   ),
   'created_by' => 
   array (
@@ -82,5 +84,6 @@ $dashletData['av_Account_CategoriesDashlet']['columns'] = array (
     'default' => false,
     'label' => 'LBL_REPORT_SORT',
     'width' => '10%',
+    'name' => 'report_sort',
   ),
 );
