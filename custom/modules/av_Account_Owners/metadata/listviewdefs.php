@@ -8,7 +8,7 @@ array (
     'default' => true,
     'label' => 'LBL_OWNERSHIP_PERCENT',
     'currency_format' => true,
-    'width' => '10%',
+    'width' => '77%',
   ),
   'DESCRIPTION' => 
   array (
@@ -33,22 +33,6 @@ array (
     'id' => 'ASSIGNED_USER_ID',
     'default' => false,
   ),
-  'AV_ACCOUNT_OWNERS_CONTACTS_1_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_AV_ACCOUNT_OWNERS_CONTACTS_1_FROM_CONTACTS_TITLE',
-    'id' => 'AV_ACCOUNT_OWNERS_CONTACTS_1CONTACTS_IDB',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'NAME' => 
-  array (
-    'width' => '32%',
-    'label' => 'LBL_NAME',
-    'default' => false,
-    'link' => true,
-  ),
   'CREATED_BY_NAME' => 
   array (
     'type' => 'relate',
@@ -56,12 +40,6 @@ array (
     'label' => 'LBL_CREATED',
     'id' => 'CREATED_BY',
     'width' => '10%',
-    'default' => false,
-  ),
-  'TEAM_NAME' => 
-  array (
-    'width' => '9%',
-    'label' => 'LBL_TEAM',
     'default' => false,
   ),
   'MODIFIED_BY_NAME' => 

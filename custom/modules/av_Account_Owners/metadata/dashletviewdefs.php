@@ -27,6 +27,7 @@ $dashletData['av_Account_OwnersDashlet']['columns'] = array (
     'id' => 'AV_ACCOUNT_OWNERS_CONTACTS_1CONTACTS_IDB',
     'width' => '10%',
     'default' => true,
+    'name' => 'av_account_owners_contacts_1_name',
   ),
   'ownership_percent' => 
   array (
@@ -35,22 +36,16 @@ $dashletData['av_Account_OwnersDashlet']['columns'] = array (
     'label' => 'LBL_OWNERSHIP_PERCENT',
     'currency_format' => true,
     'width' => '10%',
+    'name' => 'ownership_percent',
   ),
-  'date_modified' => 
+  'description' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_DATE_MODIFIED',
-    'name' => 'date_modified',
-    'default' => true,
-  ),
-  'modified_by_name' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_MODIFIED_NAME',
-    'id' => 'MODIFIED_USER_ID',
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
     'width' => '10%',
     'default' => true,
+    'name' => 'description',
   ),
   'name' => 
   array (
@@ -88,6 +83,7 @@ $dashletData['av_Account_OwnersDashlet']['columns'] = array (
     ),
     'width' => '10%',
     'default' => false,
+    'name' => 'searchfields',
   ),
   'columns' => 
   array (
@@ -127,14 +123,6 @@ $dashletData['av_Account_OwnersDashlet']['columns'] = array (
     'width' => '10%',
     'default' => false,
   ),
-  'description' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
-    'default' => false,
-  ),
   'created_by_name' => 
   array (
     'type' => 'relate',
@@ -143,6 +131,7 @@ $dashletData['av_Account_OwnersDashlet']['columns'] = array (
     'id' => 'CREATED_BY',
     'width' => '10%',
     'default' => false,
+    'name' => 'created_by_name',
   ),
   'created_by' => 
   array (
@@ -163,6 +152,23 @@ $dashletData['av_Account_OwnersDashlet']['columns'] = array (
     'width' => '15%',
     'label' => 'LBL_LIST_TEAM',
     'name' => 'team_name',
+    'default' => false,
+  ),
+  'modified_by_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_MODIFIED_NAME',
+    'id' => 'MODIFIED_USER_ID',
+    'width' => '10%',
+    'default' => false,
+    'name' => 'modified_by_name',
+  ),
+  'date_modified' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_DATE_MODIFIED',
+    'name' => 'date_modified',
     'default' => false,
   ),
 );

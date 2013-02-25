@@ -6,38 +6,6 @@ array (
   array (
     'basic_search' => 
     array (
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'assigned_user_id' => 
-      array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
-        'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
-        'width' => '10%',
-        'default' => true,
-      ),
       'av_account_owners_contacts_1_name' => 
       array (
         'type' => 'relate',
@@ -48,41 +16,18 @@ array (
         'default' => true,
         'name' => 'av_account_owners_contacts_1_name',
       ),
-      'date_modified' => 
+      'ownership_percent' => 
       array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_MODIFIED',
-        'width' => '10%',
+        'type' => 'currency',
         'default' => true,
-        'name' => 'date_modified',
-      ),
-      'modified_user_id' => 
-      array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_MODIFIED',
+        'label' => 'LBL_OWNERSHIP_PERCENT',
+        'currency_format' => true,
         'width' => '10%',
-        'default' => true,
-        'name' => 'modified_user_id',
+        'name' => 'ownership_percent',
       ),
     ),
     'advanced_search' => 
     array (
-      'current_user_only' => 
-      array (
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-        'name' => 'current_user_only',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
       'av_account_owners_contacts_1_name' => 
       array (
         'type' => 'relate',
@@ -101,22 +46,6 @@ array (
         'currency_format' => true,
         'width' => '10%',
         'name' => 'ownership_percent',
-      ),
-      'assigned_user_id' => 
-      array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
-        'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
-        'default' => true,
-        'width' => '10%',
       ),
       'description' => 
       array (
