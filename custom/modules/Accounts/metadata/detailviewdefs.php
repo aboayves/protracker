@@ -94,7 +94,7 @@ array (
           1 => 
           array (
             'name' => 'secondary_contact_name',
-            'label' => 'LBL_SECONDARY_CONTACT_NAME',
+            'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
           ),
         ),
         3 => 

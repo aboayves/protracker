@@ -1,3 +1,3 @@
 <?php
-$mod_strings['LBL_SECONDARY_CONTACT_DOB']='Secondary Contact DOB';
+$mod_strings['LBL_CO_CLIENT_CONTACT_DOB']='Co-Client DOB';
 ?>
