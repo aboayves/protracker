@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'Týmy',
+  'LBL_TEAMS' => 'Týmy',
+  'LBL_TEAM_ID' => 'ID týmu',
   'LBL_ASSIGNED_TO_ID' => 'Přidělené ID uživatele',
   'LBL_ASSIGNED_TO_NAME' => 'Uživatel',
   'LBL_ID' => 'ID',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'Vytvořeno uživatelem',
   'LBL_MODIFIED_USER' => 'Změněno uživatelem',
   'LBL_LIST_NAME' => 'Jméno',
-  'LBL_TEAM' => 'Týmy',
-  'LBL_TEAMS' => 'Týmy',
-  'LBL_TEAM_ID' => 'ID týmu',
   'LBL_LIST_FORM_TITLE' => 'Account Owners Seznam',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

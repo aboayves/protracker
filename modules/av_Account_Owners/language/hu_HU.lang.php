@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'Csoportok',
+  'LBL_TEAMS' => 'Csoportok',
+  'LBL_TEAM_ID' => 'Csoport azonosító',
   'LBL_ASSIGNED_TO_ID' => 'Hozzárendelt felhasználó azonosító',
   'LBL_ASSIGNED_TO_NAME' => 'Felhasználó',
   'LBL_ID' => 'Azonosító',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'Felhasználó által létrehozva',
   'LBL_MODIFIED_USER' => 'Felhasználó által módosítva',
   'LBL_LIST_NAME' => 'Név',
-  'LBL_TEAM' => 'Csoportok',
-  'LBL_TEAMS' => 'Csoportok',
-  'LBL_TEAM_ID' => 'Csoport azonosító',
   'LBL_LIST_FORM_TITLE' => 'Account Owners Lista',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

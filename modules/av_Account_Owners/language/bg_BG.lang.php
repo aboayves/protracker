@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'Екип',
+  'LBL_TEAMS' => 'Екип',
+  'LBL_TEAM_ID' => 'Екип',
   'LBL_ASSIGNED_TO_ID' => 'Отговорник',
   'LBL_ASSIGNED_TO_NAME' => 'Потребител',
   'LBL_LIST_NAME' => 'Име',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_NAME' => 'Име',
   'LBL_CREATED_USER' => 'Създадено от потребител',
   'LBL_MODIFIED_USER' => 'Модифицирано от потребител',
-  'LBL_TEAM' => 'Екип',
-  'LBL_TEAMS' => 'Екип',
-  'LBL_TEAM_ID' => 'Екип',
   'LBL_LIST_FORM_TITLE' => 'Account Owners Списък',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

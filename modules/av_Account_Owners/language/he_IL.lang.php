@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'צוותים',
+  'LBL_TEAMS' => 'צוותים',
+  'LBL_TEAM_ID' => 'Team Id',
   'LBL_ASSIGNED_TO_ID' => 'משתמש שהוקצה Id',
   'LBL_ASSIGNED_TO_NAME' => 'משתמש',
   'LBL_ID' => 'ID',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'נוצר על ידי משתמש',
   'LBL_MODIFIED_USER' => 'שונה על ידי משתמש',
   'LBL_LIST_NAME' => 'שם',
-  'LBL_TEAM' => 'צוותים',
-  'LBL_TEAMS' => 'צוותים',
-  'LBL_TEAM_ID' => 'Team Id',
   'LBL_LIST_FORM_TITLE' => 'Account Owners List',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

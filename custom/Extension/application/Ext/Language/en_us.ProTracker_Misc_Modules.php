@@ -31,3 +31,4 @@ $app_list_strings['moduleList']['av_Commission_Schedules'] = 'Commission Schedul
 $app_list_strings['moduleList']['av_Fee_Schedules'] = 'Fee Schedules';
 $app_list_strings['moduleList']['av_Employee_Licensing'] = 'Employee Licensing';
 $app_list_strings['moduleList']['av_Households'] = 'Households';
+$app_list_strings['moduleList']['av_Account_Owners'] = 'Account Owners';

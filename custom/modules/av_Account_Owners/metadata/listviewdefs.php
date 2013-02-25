@@ -4,58 +4,15 @@ $listViewDefs [$module_name] =
 array (
   'OWNERSHIP_PERCENT' => 
   array (
-    'type' => 'currency',
+    'type' => 'decimal',
     'default' => true,
     'label' => 'LBL_OWNERSHIP_PERCENT',
-    'currency_format' => true,
-    'width' => '77%',
-  ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
     'width' => '10%',
-    'default' => true,
   ),
-  'DATE_ENTERED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_ENTERED',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'ASSIGNED_USER_NAME' => 
+  'TEAM_NAME' => 
   array (
     'width' => '9%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => false,
-  ),
-  'CREATED_BY_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_CREATED',
-    'id' => 'CREATED_BY',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'MODIFIED_BY_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_MODIFIED_NAME',
-    'id' => 'MODIFIED_USER_ID',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'DATE_MODIFIED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
+    'label' => 'LBL_TEAM',
     'default' => false,
   ),
 );

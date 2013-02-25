@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'チーム',
+  'LBL_TEAMS' => 'チーム',
+  'LBL_TEAM_ID' => 'チームID',
   'LBL_ASSIGNED_TO_ID' => 'アサイン先ID',
   'LBL_ASSIGNED_TO_NAME' => 'アサイン先',
   'LBL_ID' => 'ID',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => '作成者',
   'LBL_MODIFIED_USER' => '更新者',
   'LBL_LIST_NAME' => '名前',
-  'LBL_TEAM' => 'チーム',
-  'LBL_TEAMS' => 'チーム',
-  'LBL_TEAM_ID' => 'チームID',
   'LBL_LIST_FORM_TITLE' => 'Account Owners 一覧',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

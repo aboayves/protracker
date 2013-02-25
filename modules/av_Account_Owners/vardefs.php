@@ -40,4 +40,4 @@ $dictionary['av_Account_Owners'] = array(
 if (!class_exists('VardefManager')){
         require_once('include/SugarObjects/VardefManager.php');
 }
-VardefManager::createVardef('av_Account_Owners','av_Account_Owners', array('basic','assignable'));
+VardefManager::createVardef('av_Account_Owners','av_Account_Owners', array('basic','team_security','assignable'));
