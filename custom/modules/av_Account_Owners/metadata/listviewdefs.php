@@ -9,11 +9,12 @@ array (
     'label' => 'LBL_OWNERSHIP_PERCENT',
     'width' => '10%',
   ),
-  'TEAM_NAME' => 
+  'AV_ACCOUNTS_NAME' => 
   array (
-    'width' => '9%',
-    'label' => 'LBL_TEAM',
-    'default' => false,
+    'type' => 'relate',
+    'label' => 'LBL_AV_ACCOUNTS_NAME',
+    'width' => '10%',
+    'default' => true,
   ),
 );
 ?>

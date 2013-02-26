@@ -11,7 +11,7 @@ $dictionary["av_Account_Owners"]["fields"]["asset_id"] = array (
 	'dbtype' => 'id',
 	'required' => true,
 	'massupdate' => false,
-	'reportable' => false,
+	'reportable' => true,
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
@@ -28,6 +28,7 @@ $dictionary["av_Account_Owners"]["fields"]["av_Accounts_name"] = array (
 	'table' => 'av_accounts',
 	'isnull' => 'true',
 	'module' => 'av_Accounts',
+	'width' => '10%',
 );
 $dictionary["av_Account_Owners"]["fields"]["av_accounts"] = array (
 	'name' => 'av_accounts',
