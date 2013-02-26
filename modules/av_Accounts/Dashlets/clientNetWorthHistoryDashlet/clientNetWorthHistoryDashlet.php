@@ -183,7 +183,8 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 					 ) AS net_worth_history
 					 GROUP BY net_worth_history.`month`, net_worth_history.`year` 
 					 ORDER BY net_worth_history.`year` DESC";
-			$this->graph_for = get_user_array()[$user_id];
+			$users_array = get_user_array(); 
+			$this->graph_for = $users_array[$user_id];
 		}
 	
 		return $sql;
