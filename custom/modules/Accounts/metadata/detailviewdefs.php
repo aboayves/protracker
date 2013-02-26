@@ -122,11 +122,12 @@ array (
 			{/if}
 			
 			<span>
-				{if $fields.primary_contact_salutation.value}Salutation: {$fields.primary_contact_salutation.value}{/if}</br>
-				{if $fields.primary_contact_birthdate.value}Nick: {$fields.primary_contact_nickname.value}{/if}</br>
-				{if $fields.primary_contact_birthdate.value}DOB: {$fields.primary_contact_birthdate.value}{/if}</br>
-				{if $fields.primary_contact_age.value}Age: {$fields.primary_contact_age.value}{/if}</br>
-				{if $fields.primary_contact_ssn.value}SSN: {$fields.primary_contact_ssn.value}{/if}
+				{if $fields.primary_contact_title.value}Title: {$fields.primary_contact_title.value}{/if}
+				{if $fields.primary_contact_salutation.value}</br>Salutation: {$fields.primary_contact_salutation.value}{/if}
+				{if $fields.primary_contact_birthdate.value}</br>Nick: {$fields.primary_contact_nickname.value}{/if}
+				{if $fields.primary_contact_birthdate.value}</br>DOB: {$fields.primary_contact_birthdate.value}{/if}
+				{if $fields.primary_contact_age.value}</br>Age: {$fields.primary_contact_age.value}{/if}
+				{if $fields.primary_contact_ssn.value}</br>SSN: {$fields.primary_contact_ssn.value}{/if}
 
 			</span>
 			',
@@ -152,11 +153,12 @@ array (
 				{/if}
 
 				<span>
-				{if $fields.secondary_contact_salutation.value}Salutation: {$fields.secondary_contact_salutation.value}{/if}</br>
-				{if $fields.secondary_contact_nickname.value}Nick: {$fields.secondary_contact_nickname.value}{/if}</br>
-				{if $fields.secondary_contact_birthdate.value}DOB: {$fields.secondary_contact_birthdate.value}{/if}</br>
-				{if $fields.secondary_contact_age.value}Age: {$fields.secondary_contact_age.value}{/if}</br>
-				{if $fields.secondary_contact_ssn.value}SSN: {$fields.secondary_contact_ssn.value}{/if}
+				{if $fields.secondary_contact_title.value}Title: {$fields.secondary_contact_title.value}{/if}
+				{if $fields.secondary_contact_salutation.value}</br>Salutation: {$fields.secondary_contact_salutation.value}{/if}
+				{if $fields.secondary_contact_nickname.value}</br>Nick: {$fields.secondary_contact_nickname.value}{/if}
+				{if $fields.secondary_contact_birthdate.value}</br>DOB: {$fields.secondary_contact_birthdate.value}{/if}
+				{if $fields.secondary_contact_age.value}</br>Age: {$fields.secondary_contact_age.value}{/if}
+				{if $fields.secondary_contact_ssn.value}</br>SSN: {$fields.secondary_contact_ssn.value}{/if}
 			</span>
 				',
           ),

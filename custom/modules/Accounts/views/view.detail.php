@@ -211,7 +211,10 @@ class AccountsViewDetail extends ViewDetail
 					$this->bean->primary_contact_image = $row['picture'];
 				    if($this->bean->primary_contact_birthdate && $this->bean->primary_contact_birthdate != '')
 					{
-						$this->bean->primary_contact_age = floor((strtotime("now")-strtotime($this->bean->primary_contact_birthdate))/3600/24/365);
+						if(strtotime("now") > strtotime($this->bean->primary_contact_birthdate))
+						{
+							$this->bean->primary_contact_age = floor((strtotime("now")-strtotime($this->bean->primary_contact_birthdate))/3600/24/365);
+						}
 						$this->bean->primary_contact_birthdate = date("m/d/y", strtotime($this->bean->primary_contact_birthdate));
 					}
 				}
@@ -219,7 +222,10 @@ class AccountsViewDetail extends ViewDetail
 					$this->bean->secondary_contact_image = $row['picture'];
 					if($this->bean->secondary_contact_birthdate && $this->bean->secondary_contact_birthdate != '')
 					{
-						$this->bean->secondary_contact_age = floor((strtotime("now")-strtotime($this->bean->secondary_contact_birthdate))/3600/24/365);
+						if(strtotime("now") > strtotime($this->bean->secondary_contact_birthdate))
+						{
+							$this->bean->secondary_contact_age = floor((strtotime("now")-strtotime($this->bean->secondary_contact_birthdate))/3600/24/365);
+						}
 						$this->bean->secondary_contact_birthdate = date("m/d/y", strtotime($this->bean->secondary_contact_birthdate));
 					}
 			}
