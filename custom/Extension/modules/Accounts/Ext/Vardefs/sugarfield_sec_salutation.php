@@ -10,6 +10,6 @@ $dictionary["Account"]["fields"]["secondary_contact_salutation"] = array (
 	'link' => 'secondary_contact',
 	'table' => 'contacts',
 	'module' => 'Contacts',
-	'rname' => 'salutation'
+	'rname' => 'report_salutation'
 );
 ?>
