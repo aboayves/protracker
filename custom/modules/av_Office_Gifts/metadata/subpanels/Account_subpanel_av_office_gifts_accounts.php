@@ -1,50 +1,48 @@
 <?php
-// created: 2013-02-26 18:16:27
+// created: 2013-02-26 18:36:54
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
-    'type' => 'name',
-    'link' => true,
     'vname' => 'LBL_NAME',
-    'width' => '10%',
-    'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => NULL,
-    'target_record_key' => NULL,
-  ),
-  'review_date' => 
-  array (
-    'type' => 'date',
+    'width' => '20%',
     'default' => true,
-    'vname' => 'LBL_REVIEW_DATE',
-    'width' => '10%',
-  ),
-  'type' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'vname' => 'LBL_TYPE',
-    'width' => '10%',
   ),
   'description' => 
   array (
     'type' => 'text',
     'vname' => 'LBL_DESCRIPTION',
     'sortable' => false,
-    'width' => '55%',
+    'width' => '30%',
     'default' => true,
+  ),
+  'gift_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'vname' => 'LBL_GIFT_DATE',
+    'width' => '10%',
+  ),
+  'value' => 
+  array (
+    'type' => 'currency',
+    'align' => 'right',
+    'default' => true,
+    'vname' => 'LBL_VALUE',
+    'currency_format' => true,
+    'width' => '10%',
   ),
   'edit_button' => 
   array (
     'widget_class' => 'SubPanelEditButton',
-    'module' => 'av_Reviews',
+    'module' => 'av_Office_Gifts',
     'width' => '4%',
     'default' => true,
   ),
   'remove_button' => 
   array (
     'widget_class' => 'SubPanelRemoveButton',
-    'module' => 'av_Reviews',
+    'module' => 'av_Office_Gifts',
     'width' => '5%',
     'default' => true,
   ),
