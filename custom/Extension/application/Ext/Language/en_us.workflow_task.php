@@ -123,7 +123,7 @@ $app_list_strings['task_priority_dom']['Medium'] = 'Medium';
 $app_list_strings['task_priority_dom']['Low'] = 'Low';
 
 $app_list_strings['task_relate_to_list']['Client'] = 'Primary Contact';
-$app_list_strings['task_relate_to_list']['Co_client'] = 'Secondary Contact';
+$app_list_strings['task_relate_to_list']['Co_client'] = 'Co-Client';
 $app_list_strings['task_relate_to_list']['Related_To'] = 'Workflow Default';
 
 $app_list_strings['task_assign_to_list']['Current_User'] = 'Current User';

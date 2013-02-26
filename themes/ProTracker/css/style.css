@@ -94,7 +94,7 @@ input[type=text].date_input{
 	width:265px !important
 }
 
-input[type=text],input[type=password],textarea,select {
+input[type=text],input[type=password],textarea{
     width: 300px;
 }
 

@@ -88,16 +88,23 @@ array (
             'name' => 'primary_contact_name',
             'label' => 'LBL_PRIMARY_CONTACT_NAME',
           ),
+<<<<<<< HEAD
+=======
           1 => 
           array (
             'name' => 'secondary_contact_name',
             'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
           ),
+>>>>>>> origin/master
         ),
         2 => 
         array (
           0 => 
           array (
+<<<<<<< HEAD
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
+=======
             'name' => 'primary_contact_image',
             'label' => '',
             'displayParams' => 
@@ -158,6 +165,7 @@ array (
 				{if $fields.secondary_contact_ssn.value}</br>SSN: {$fields.secondary_contact_ssn.value}{/if}
 			</span>
 				',
+>>>>>>> origin/master
           ),
           1 => 
           array (
@@ -366,6 +374,11 @@ array (
           0 => 
           array (
             'name' => 'preferred_communication',
+<<<<<<< HEAD
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_COMMUNICATION',
+=======
+>>>>>>> origin/master
           ),
           1 => 
           array (
