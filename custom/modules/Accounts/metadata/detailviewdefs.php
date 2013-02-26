@@ -344,19 +344,11 @@ array (
         array (
           0 => 
           array (
-            'name' => 'preferred_comm',
-            'customCode' => '
-				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
-					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_comm.value}</span>
-				</a>',
+            'name' => 'preferred_communication',
           ),
           1 => 
           array (
             'name' => 'preferred_calling_time',
-            'customCode' => '
-				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
-					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_calling_time.value}</span>
-				</a>',
           ),
         ),
         3 => 
@@ -364,10 +356,6 @@ array (
           0 => 
           array (
             'name' => 'preferred_meeting_time',
-            'customCode' => '
-				<a href="index.php?module=Contacts&ref=comm_tab&action=DetailView&record={$fields.primary_contact_id.value}">
-					<span id="primary_contact_id" class="sugar_field">{$fields.preferred_meeting_time.value}</span>
-				</a>',
           ),
         ),
       ),
