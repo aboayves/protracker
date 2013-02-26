@@ -27,18 +27,20 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 		$sql = $this->constructQuery();
 		$sql_result = $db->query($sql);
 		$graph_data_db = array();
-		$min = INF;
-		$max = -INF;
+		$min = 0;
+		$max = 0;
 		$year = 0;
+		$first_iteration = true;
 		while($graph_data_row = $db->fetchByAssoc($sql_result))
 		{
 			
 			
 			$graph_data_db[$graph_data_row['year']][$graph_data_row['month']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
-			if($year == 0)
-			{	
+			if($first_iteration)
+			{
+				$first_iteration = false;
 				$year = $graph_data_row['year']-5;
-		
+				$max = $min = $graph_data_row['managed_assets'];
 			}
 			$max = ($graph_data_row['worth']>=$max) ? $graph_data_row['worth'] : $max;
 			$max = ($graph_data_row['managed_assets']>=$max) ? $graph_data_row['managed_assets'] : $max;
@@ -69,9 +71,7 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 			}
 		
 		}
-		if($min == INF || $max == -INF){
-			$min=$max=0;
-		}
+		
 		$interval = round(($max - $min)/4);
 		
 		if($interval >= 10000)
