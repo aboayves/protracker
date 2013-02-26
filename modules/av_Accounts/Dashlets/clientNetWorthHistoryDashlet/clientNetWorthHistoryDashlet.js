@@ -28,7 +28,7 @@ function save_settings(){
 	var parameters="id="+id+"&selected_type="+selected_type+"&selected_value="+selected_value;
 	$.ajax({
 		type: 'POST',
-		url:'index.php?module=av_accounts&action=configure_net_worth_dashlet',
+		url:'index.php?module=av_Accounts&action=configure_net_worth_dashlet',
 		data: parameters,
 		complete: function(resp)
 		{
