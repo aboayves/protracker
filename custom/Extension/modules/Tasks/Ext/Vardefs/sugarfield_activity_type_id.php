@@ -15,10 +15,10 @@ $dictionary["Task"]["fields"]["activity_type_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["Task"]["fields"]["av_Activity_Types_name"] = array (
+$dictionary["Task"]["fields"]["av_activity_types_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'av_Activity_Types_name',
+	'name' => 'av_activity_types_name',
 	'vname' => 'LBL_AV_ACTIVITY_TYPES_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

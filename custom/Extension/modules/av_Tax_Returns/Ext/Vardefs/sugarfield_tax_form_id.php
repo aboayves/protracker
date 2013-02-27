@@ -15,10 +15,10 @@ $dictionary["av_Tax_Returns"]["fields"]["tax_form_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Tax_Returns"]["fields"]["av_Tax_Forms_name"] = array (
+$dictionary["av_Tax_Returns"]["fields"]["av_tax_forms_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'av_Tax_Forms_name',
+	'name' => 'av_tax_forms_name',
 	'vname' => 'LBL_AV_TAX_FORMS_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

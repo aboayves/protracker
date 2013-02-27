@@ -15,10 +15,10 @@ $dictionary["av_Social_Security"]["fields"]["account_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Social_Security"]["fields"]["Accounts_name"] = array (
+$dictionary["av_Social_Security"]["fields"]["accounts_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'Accounts_name',
+	'name' => 'accounts_name',
 	'vname' => 'LBL_ACCOUNTS_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

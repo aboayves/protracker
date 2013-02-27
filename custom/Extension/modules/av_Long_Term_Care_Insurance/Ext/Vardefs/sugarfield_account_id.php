@@ -15,10 +15,10 @@ $dictionary["av_Long_Term_Care_Insurance"]["fields"]["account_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Long_Term_Care_Insurance"]["fields"]["Accounts_name"] = array (
+$dictionary["av_Long_Term_Care_Insurance"]["fields"]["accounts_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'Accounts_name',
+	'name' => 'accounts_name',
 	'vname' => 'LBL_ACCOUNTS_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

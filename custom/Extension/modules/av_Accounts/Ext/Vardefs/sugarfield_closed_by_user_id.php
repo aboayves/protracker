@@ -15,10 +15,10 @@ $dictionary["av_Accounts"]["fields"]["closed_by_user_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Accounts"]["fields"]["Users_name"] = array (
+$dictionary["av_Accounts"]["fields"]["users_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'Users_name',
+	'name' => 'users_name',
 	'vname' => 'LBL_USERS_NAME',
 	'type' => 'relate',
 	'rname' => 'name',
