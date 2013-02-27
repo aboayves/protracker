@@ -113,22 +113,14 @@ array (
         6 => 
         array (
           0 => 'client_task',
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'customLabel' => 'Related to:',	// - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
+		  1 => 
           array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
             'customCode' => '<div> {$fields.description.value} <div>',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -137,12 +129,12 @@ array (
             'label' => 'LBL_RESULTS',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 'category',
           1 => 'team_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -155,7 +147,7 @@ array (
             'label' => 'LBL_DTE_CMP',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
