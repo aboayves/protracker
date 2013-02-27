@@ -10,7 +10,7 @@ $dictionary["Account"]["fields"]["primary_contact_title"] = array (
 	'link' => 'primary_contact',
 	'table' => 'contacts',
 	'module' => 'Contacts',
-	'rname' => 'title',
+	'rname' => 'salutation',
 	'studio' => 'visible',
 );
 ?>
