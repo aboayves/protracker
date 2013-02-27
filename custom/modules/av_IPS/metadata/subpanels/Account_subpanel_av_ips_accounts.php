@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-07 17:40:54
+// created: 2013-02-26 18:46:06
 $subpanel_layout['list_fields'] = array (
   'object_image' => 
   array (
@@ -14,19 +14,26 @@ $subpanel_layout['list_fields'] = array (
     'attachment_image_only' => true,
     'default' => true,
   ),
+  'ips_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'vname' => 'LBL_IPS_DATE',
+    'width' => '10%',
+  ),
   'document_name' => 
   array (
     'name' => 'document_name',
     'vname' => 'LBL_LIST_DOCUMENT_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
+    'width' => '30%',
     'default' => true,
   ),
   'active_date' => 
   array (
     'name' => 'active_date',
     'vname' => 'LBL_DOC_ACTIVE_DATE',
-    'width' => '45%',
+    'width' => '12%',
     'default' => true,
   ),
   'edit_button' => 

@@ -1,24 +1,24 @@
 <?php
-// created: 2013-02-27 14:26:32
+// created: 2013-02-27 14:29:49
 $subpanel_layout['list_fields'] = array (
-  'assigned_user_name' => 
+  'contacts_name' => 
   array (
-    'link' => true,
     'type' => 'relate',
-    'vname' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
+    'link' => true,
+    'vname' => 'LBL_CONTACTS_NAME',
+    'id' => 'PROFESSIONAL_ID',
     'width' => '15%',
     'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => 'Users',
-    'target_record_key' => 'assigned_user_id',
+    'target_module' => 'Contacts',
+    'target_record_key' => 'professional_id',
   ),
-  'role' => 
+  'type' => 
   array (
-    'type' => 'enum',
+    'type' => 'varchar',
     'default' => true,
-    'vname' => 'LBL_ROLE',
-    'width' => '30%',
+    'vname' => 'LBL_TYPE',
+    'width' => '15%',
   ),
   'date_modified' => 
   array (
@@ -29,14 +29,14 @@ $subpanel_layout['list_fields'] = array (
   'edit_button' => 
   array (
     'widget_class' => 'SubPanelEditButton',
-    'module' => 'av_Service_Team',
+    'module' => 'av_Professionals',
     'width' => '4%',
     'default' => true,
   ),
   'remove_button' => 
   array (
     'widget_class' => 'SubPanelRemoveButton',
-    'module' => 'av_Service_Team',
+    'module' => 'av_Professionals',
     'width' => '5%',
     'default' => true,
   ),
