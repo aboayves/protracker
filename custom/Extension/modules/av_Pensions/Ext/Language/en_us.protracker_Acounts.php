@@ -1,3 +1,3 @@
 <?php
-$mod_strings['LBL_ACOUNTS']='Acounts';
+$mod_strings['LBL_ACCOUNTS']='Accounts';
 ?>
