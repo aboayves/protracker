@@ -30,6 +30,14 @@ array (
         'default' => true,
         'name' => 'description',
       ),
+      'is_liability' => 
+      array (
+        'type' => 'bool',
+        'default' => true,
+        'label' => 'LBL_IS_LIABILITY',
+        'width' => '10%',
+        'name' => 'is_liability',
+      ),
     ),
   ),
   'templateMeta' => 

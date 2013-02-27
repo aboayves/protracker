@@ -2,27 +2,25 @@
 $module_name = 'av_Reviews';
 $listViewDefs [$module_name] = 
 array (
-  'REVIEW_DATE' => 
+  'NAME' => 
   array (
-    'type' => 'date',
+    'width' => '20%',
+    'label' => 'LBL_NAME',
     'default' => true,
-    'label' => 'LBL_REVIEW_DATE',
-    'width' => '10%',
-  ),
-  'ACCOUNTS_AV_REVIEWS_1_NAME' => 
-  array (
-    'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_REVIEWS_1ACCOUNTS_IDA',
-    'width' => '10%',
-    'default' => true,
   ),
   'TYPE' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_TYPE',
+    'width' => '10%',
+  ),
+  'REVIEW_DATE' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'label' => 'LBL_REVIEW_DATE',
     'width' => '10%',
   ),
   'DESCRIPTION' => 
@@ -46,6 +44,13 @@ array (
     'label' => 'LBL_ASSIGNED_TO_NAME',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '8%',
     'default' => true,
   ),
   'TEAM_NAME' => 

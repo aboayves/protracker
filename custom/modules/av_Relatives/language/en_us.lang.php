@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-22 19:06:44
+// created: 2013-02-23 03:12:08
 $mod_strings = array (
   'LNK_NEW_RECORD' => 'Create Family',
   'LNK_LIST' => 'View Family',
@@ -7,4 +7,5 @@ $mod_strings = array (
   'LBL_LIST_FORM_TITLE' => 'Family List',
   'LBL_SEARCH_FORM_TITLE' => 'Search Family',
   'LBL_HOMEPAGE_TITLE' => 'My Family',
+  'LBL_NAME' => 'Name',
 );

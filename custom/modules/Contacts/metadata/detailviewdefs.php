@@ -178,7 +178,11 @@ array (
         ),
         8 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'spouse_name',
+            'label' => 'LBL_SPOUSE_NAME',
+          ),
           1 => 
           array (
             'name' => 'report_salutation',
@@ -390,10 +394,10 @@ array (
             'label' => 'LBL_BIRTHDATE',
           ),
         ),
-		1 => 
+        1 => 
         array (
           0 => 'age',
-		  1 => 'year_end_age',
+          1 => 'year_end_age',
         ),
         2 => 
         array (
@@ -739,9 +743,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'referred_by',
-            'comment' => '',
-            'label' => 'LBL_REFERRED_BY',
+            'name' => 'Referral_name',
+            'label' => 'LBL_Referral_name',
           ),
           1 => 
           array (

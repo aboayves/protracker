@@ -39,9 +39,18 @@ array (
       array (
         0 => 
         array (
-          1 => 'name',
+          0 => 
+          array (
+            'name' => 'Accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => '',
         ),
         1 => 
+        array (
+          0 => 'name',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -51,7 +60,7 @@ array (
           ),
           1 => 'assigned_user_name',
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -66,12 +75,9 @@ array (
             'label' => 'LBL_SCORE',
           ),
         ),
-        3 => 
-        array (
-          0 => 'description',
-        ),
         4 => 
         array (
+          0 => 'description',
           1 => 'team_name',
         ),
         5 => 

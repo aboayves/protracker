@@ -39,25 +39,43 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'av_Accounts_name',
+            'label' => 'LBL_AV_ACCOUNTS_NAME',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'dependent_dropdown',
-            'label' => 'LBL_DEPENDENT_DROPDOWN',
+            'name' => 'value_date',
+            'comment' => '',
+            'label' => 'LBL_VALUE_DATE',
           ),
-          1 => 
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'value',
             'label' => 'LBL_VALUE',
           ),
         ),
-        2 => 
+        3 => 
         array (
-          1 => 'description',
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),

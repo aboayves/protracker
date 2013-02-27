@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'Timovi',
+  'LBL_TEAMS' => 'Timovi',
+  'LBL_TEAM_ID' => 'ID broj tima',
   'LBL_ASSIGNED_TO_ID' => 'ID broj dodeljenog korisnika',
   'LBL_ASSIGNED_TO_NAME' => 'Korisnik',
   'LBL_ID' => 'ID',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'Kreirao korisnik',
   'LBL_MODIFIED_USER' => 'Promenio korisnik',
   'LBL_LIST_NAME' => 'Ime',
-  'LBL_TEAM' => 'Timovi',
-  'LBL_TEAMS' => 'Timovi',
-  'LBL_TEAM_ID' => 'ID broj tima',
   'LBL_LIST_FORM_TITLE' => 'Account Owners Lista',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

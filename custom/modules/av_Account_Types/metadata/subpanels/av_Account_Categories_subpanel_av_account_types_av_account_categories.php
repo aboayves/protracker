@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-16 19:40:49
+// created: 2013-02-25 16:10:03
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -15,6 +15,20 @@ $subpanel_layout['list_fields'] = array (
     'sortable' => false,
     'width' => '10%',
     'default' => true,
+  ),
+  'is_beneficiary_required' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'vname' => 'LBL_IS_BENEFICIARY_REQUIRED',
+    'width' => '10%',
+  ),
+  'retirement_plan_type' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_RETIREMENT_PLAN_TYPE',
+    'width' => '10%',
   ),
   'edit_button' => 
   array (

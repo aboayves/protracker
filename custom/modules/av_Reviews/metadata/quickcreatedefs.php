@@ -28,14 +28,23 @@ array (
       array (
         0 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'accounts_av_reviews_1_name',
             'label' => 'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_ACCOUNTS_TITLE',
           ),
-          1 => 'name',
         ),
         1 => 
+        array (
+          0 => 'name',
+          1 => 
+          array (
+            'name' => 'Accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -45,7 +54,7 @@ array (
           ),
           1 => 'assigned_user_name',
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -60,7 +69,7 @@ array (
             'label' => 'LBL_SCORE',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'description',
           1 => 
@@ -72,7 +81,7 @@ array (
             ),
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (

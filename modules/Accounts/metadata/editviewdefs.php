@@ -89,12 +89,12 @@ $viewdefs['Accounts']['EditView'] = array(
           ),
 
           array (
-            'name' => 'shipping_address_street',
+            'name' => 'mailing_address_street',
             'hideLabel' => true,
             'type' => 'address',
             'displayParams' => 
             array (
-              'key' => 'shipping',
+              'key' => 'mailing',
               'copy' => 'billing',
               'rows' => 2,
               'cols' => 30,

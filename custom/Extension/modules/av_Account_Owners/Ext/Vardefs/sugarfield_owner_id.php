@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 11:48:55
+// created: 2013-02-05 18:46:36
 $dictionary["av_Account_Owners"]["fields"]["owner_id"] = array (
 	'name' => 'owner_id',
 	'rname' => 'id',
@@ -9,7 +9,7 @@ $dictionary["av_Account_Owners"]["fields"]["owner_id"] = array (
 	'isnull' => 'true',
 	'module' => 'Contacts',
 	'dbtype' => 'id',
-	'required' => false,
+	'required' => true,
 	'massupdate' => false,
 	'reportable' => false,
 	'importable' => false,

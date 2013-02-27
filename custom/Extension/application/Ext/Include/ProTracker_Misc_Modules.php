@@ -1,5 +1,8 @@
 <?php 
  //WARNING: The contents of this file are auto-generated
+$beanList['av_Account_Owners'] = 'av_Account_Owners';
+$beanFiles['av_Account_Owners'] = 'modules/av_Account_Owners/av_Account_Owners.php';
+$moduleList[] = 'av_Account_Owners';
 $beanList['av_Commission_Schedules'] = 'av_Commission_Schedules';
 $beanFiles['av_Commission_Schedules'] = 'modules/av_Commission_Schedules/av_Commission_Schedules.php';
 $moduleList[] = 'av_Commission_Schedules';

@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'Equip',
+  'LBL_TEAMS' => 'Equips',
+  'LBL_TEAM_ID' => 'Id Equip',
   'LBL_ASSIGNED_TO_ID' => 'Usuari Assignat',
   'LBL_ASSIGNED_TO_NAME' => 'Assignat a',
   'LBL_ID' => 'ID',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'Creat Per Usuari',
   'LBL_MODIFIED_USER' => 'Modificat Per Usuari',
   'LBL_LIST_NAME' => 'Nom',
-  'LBL_TEAM' => 'Equip',
-  'LBL_TEAMS' => 'Equips',
-  'LBL_TEAM_ID' => 'Id Equip',
   'LBL_LIST_FORM_TITLE' => 'Account Owners Llista',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'Komandos',
+  'LBL_TEAMS' => 'Komandos',
+  'LBL_TEAM_ID' => 'Komandos Id',
   'LBL_ASSIGNED_TO_ID' => 'Atsakingo Id',
   'LBL_ASSIGNED_TO_NAME' => 'Atsakingas',
   'LBL_ID' => 'ID',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'Sukūrė',
   'LBL_MODIFIED_USER' => 'Redagavo',
   'LBL_LIST_NAME' => 'Pavadinimas',
-  'LBL_TEAM' => 'Komandos',
-  'LBL_TEAMS' => 'Komandos',
-  'LBL_TEAM_ID' => 'Komandos Id',
   'LBL_LIST_FORM_TITLE' => 'Account Owners Sąrašas',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

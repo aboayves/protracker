@@ -38,7 +38,7 @@ array (
         array (
           'file' => 'include/javascript/tiny_mce/tiny_mce.js',
         ),
-		2 => 
+        2 => 
         array (
           'file' => 'custom/modules/Accounts/copy_primary_contact_address.js',
         ),
@@ -74,19 +74,19 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SALUTATION',
           ),
-          1=>
-		 array (
-			'name' => 'primary_contact_name',
-			'displayParams'=>array(
-			  'call_back_function'=>'set_location_querystring',
-			  'field' =>  
-              array ( 
-                'onChange' => "populateEmail();", 
-                 ),
-			 ),
-		  ),
-
-		),
+          1 => 
+          array (
+            'name' => 'primary_contact_name',
+            'displayParams' => 
+            array (
+              'call_back_function' => 'set_location_querystring',
+              'field' => 
+              array (
+                'onChange' => 'populateEmail();',
+              ),
+            ),
+          ),
+        ),
         2 => 
         array (
           0 => 
@@ -124,8 +124,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'current_net_worth',
-            'label' => 'LBL_CURRENT_NET_WORTH',
+            'name' => 'married',
+            'label' => 'LBL_MARRIED',
           ),
           1 => 
           array (
@@ -136,14 +136,7 @@ array (
         ),
         6 => 
         array (
-          0 => 
-          array (
-            'name' => 'managed_assets',
-            'comment' => 'Gets the managed assets.',
-            'studio' => 'visible',
-            'label' => 'LBL_MANAGED_ASSETS',
-            'type' => 'readonly',
-          ),
+          0 => '',
           1 => 
           array (
             'name' => 'client_number',
@@ -153,7 +146,11 @@ array (
         ),
         7 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'current_net_worth',
+            'label' => 'LBL_CURRENT_NET_WORTH',
+          ),
           1 => 
           array (
             'name' => 'phase',
@@ -163,7 +160,14 @@ array (
         ),
         8 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'managed_assets',
+            'comment' => 'Gets the managed assets.',
+            'studio' => 'visible',
+            'label' => 'LBL_MANAGED_ASSETS',
+            'type' => 'readonly',
+          ),
           1 => 
           array (
             'name' => 'relationship_type',
@@ -190,6 +194,33 @@ array (
         array (
           0 => 
           array (
+            'name' => 'net_worth',
+            'label' => 'LBL_NET_WORTH',
+          ),
+          1 => 
+          array (
+            'name' => 'client_id',
+            'label' => 'LBL_CLIENT_ID',
+          ),
+        ),
+        11 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_rebal',
+            'label' => 'LBL_LAST_REBAL',
+          ),
+          1 => 
+          array (
+            'name' => 'is_investment_client',
+            'comment' => '',
+            'label' => 'LBL_IS_INVESTMENT_CLIENT',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 
+          array (
             'name' => 'description',
             'label' => 'LBL_DESCRIPTION',
           ),
@@ -202,7 +233,7 @@ array (
             ),
           ),
         ),
-        11 => 
+        13 => 
         array (
           0 => 
           array (
@@ -224,8 +255,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'phone_office',
-            'label' => 'LBL_PHONE_OFFICE',
+            'name' => 'phone_home',
+            'comment' => '',
+            'label' => 'LBL_PHONE_HOME',
           ),
           1 => 
           array (
@@ -238,14 +270,59 @@ array (
         array (
           0 => 
           array (
+            'name' => 'phone_work',
+            'comment' => '',
+            'label' => 'LBL_PHONE_WORK',
+          ),
+          1 => 
+          array (
             'name' => 'website',
             'type' => 'link',
             'label' => 'LBL_WEBSITE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_mobile',
+            'comment' => '',
+            'label' => 'LBL_PHONE_MOBILE',
           ),
           1 => 
           array (
             'name' => 'phone_fax',
             'label' => 'LBL_FAX',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'preferred_communication',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_COMMUNICATION',
+          ),
+          1 => 
+          array (
+            'name' => 'preferred_document_submittal',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_DOCUMENT_SUBMITTAL',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'preferred_calling_time',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_CALLING_TIME',
+          ),
+          1 => 
+          array (
+            'name' => 'preferred_meeting_time',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_MEETING_TIME',
           ),
         ),
       ),
@@ -254,6 +331,19 @@ array (
         0 => 
         array (
           0 => 
+          array (
+            'name' => 'mailing_address_street',
+            'hideLabel' => true,
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'mailing',
+              'rows' => 2,
+              'cols' => 30,
+              'maxlength' => 150,
+            ),
+          ),
+          1 => 
           array (
             'name' => 'billing_address_street',
             'hideLabel' => true,
@@ -265,57 +355,6 @@ array (
               'cols' => 30,
               'maxlength' => 150,
             ),
-          ),
-          1 => 
-          array (
-            'name' => 'shipping_address_street',
-            'hideLabel' => true,
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'shipping',
-              'copy' => 'billing',
-              'rows' => 2,
-              'cols' => 30,
-              'maxlength' => 150,
-            ),
-          ),
-        ),
-      ),
-      'lbl_editview_panel3' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'net_worth',
-            'label' => 'LBL_NET_WORTH',
-          ),
-          1 => 
-          array (
-            'name' => 'client_id',
-            'label' => 'LBL_CLIENT_ID',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'client_since',
-            'label' => 'LBL_CLIENT_SINCE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'married',
-            'label' => 'LBL_MARRIED',
-          ),
-          1 => 
-          array (
-            'name' => 'last_rebal',
-            'label' => 'LBL_LAST_REBAL',
           ),
         ),
       ),
@@ -339,18 +378,38 @@ array (
         array (
           0 => 
           array (
-            'name' => 'billing_frequency',
+            'name' => 'send_bill_to',
             'comment' => '',
-            'label' => 'LBL_BILLING_FREQUENCY',
+            'label' => 'LBL_SEND_BILL_TO',
           ),
           1 => 
+          array (
+            'name' => 'billed_custodian',
+            'comment' => '',
+            'label' => 'LBL_BILLED_CUSTODIAN',
+          ),
+        ),
+        2 => 
+        array (
+          0 => '',
+          1 => 'annual_revenue',
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'billing_group',
             'comment' => '',
             'label' => 'LBL_BILLING_GROUP',
           ),
+          1 => 
+          array (
+            'name' => 'billing_frequency',
+            'comment' => '',
+            'label' => 'LBL_BILLING_FREQUENCY',
+          ),
         ),
-        2 => 
+        4 => 
         array (
           0 => 
           array (
@@ -360,27 +419,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'billing_rate',
-            'comment' => '',
-            'label' => 'LBL_BILLING_RATE',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'rate_schedule',
             'comment' => '',
             'label' => 'LBL_RATE_SCHEDULE',
           ),
-          1 => 
-          array (
-            'name' => 'send_bill_to',
-            'comment' => '',
-            'label' => 'LBL_SEND_BILL_TO',
-          ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -388,9 +432,14 @@ array (
             'comment' => '',
             'label' => 'LBL_WHEN_BILLED',
           ),
-          1 => 'annual_revenue',
+          1 => 
+          array (
+            'name' => 'billing_rate',
+            'comment' => '',
+            'label' => 'LBL_BILLING_RATE',
+          ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -412,10 +461,11 @@ array (
         array (
           0 => 
           array (
-            'name' => 'is_investment_client',
+            'name' => 'is_terminated',
             'comment' => '',
-            'label' => 'LBL_IS_INVESTMENT_CLIENT',
+            'label' => 'LBL_IS_TERMINATED',
           ),
+          1 => '',
         ),
         1 => 
         array (
@@ -425,12 +475,7 @@ array (
             'comment' => '',
             'label' => 'LBL_TERMINATION_DATE',
           ),
-          1 => 
-          array (
-            'name' => 'is_terminated',
-            'comment' => '',
-            'label' => 'LBL_IS_TERMINATED',
-          ),
+          1 => '',
         ),
         2 => 
         array (
@@ -440,6 +485,7 @@ array (
             'comment' => '',
             'label' => 'LBL_TERMINATION_REASON',
           ),
+          1 => '',
         ),
       ),
     ),

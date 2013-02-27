@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-17 11:48:55
+// created: 2013-02-05 18:46:36
 $dictionary["av_Account_Owners"]["fields"]["asset_id"] = array (
 	'name' => 'asset_id',
 	'rname' => 'id',
@@ -9,16 +9,16 @@ $dictionary["av_Account_Owners"]["fields"]["asset_id"] = array (
 	'isnull' => 'true',
 	'module' => 'av_Accounts',
 	'dbtype' => 'id',
-	'required' => false,
+	'required' => true,
 	'massupdate' => false,
-	'reportable' => false,
+	'reportable' => true,
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Account_Owners"]["fields"]["av_accounts_name"] = array (
+$dictionary["av_Account_Owners"]["fields"]["av_Accounts_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'av_accounts_name',
+	'name' => 'av_Accounts_name',
 	'vname' => 'LBL_AV_ACCOUNTS_NAME',
 	'type' => 'relate',
 	'rname' => 'name',
@@ -28,6 +28,7 @@ $dictionary["av_Account_Owners"]["fields"]["av_accounts_name"] = array (
 	'table' => 'av_accounts',
 	'isnull' => 'true',
 	'module' => 'av_Accounts',
+	'width' => '10%',
 );
 $dictionary["av_Account_Owners"]["fields"]["av_accounts"] = array (
 	'name' => 'av_accounts',

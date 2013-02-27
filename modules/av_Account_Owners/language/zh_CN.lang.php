@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => '团队',
+  'LBL_TEAMS' => '团队',
+  'LBL_TEAM_ID' => '团队编号',
   'LBL_ASSIGNED_TO_ID' => '负责人ID',
   'LBL_ASSIGNED_TO_NAME' => '负责人',
   'LBL_ID' => 'ID',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => '创建用户',
   'LBL_MODIFIED_USER' => '修改用户',
   'LBL_LIST_NAME' => '姓名',
-  'LBL_TEAM' => '团队',
-  'LBL_TEAMS' => '团队',
-  'LBL_TEAM_ID' => '团队编号',
   'LBL_LIST_FORM_TITLE' => 'Account Owners 列表',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

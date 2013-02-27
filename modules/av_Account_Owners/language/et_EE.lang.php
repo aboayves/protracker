@@ -27,6 +27,9 @@
  ********************************************************************************/
 
 $mod_strings = array (
+  'LBL_TEAM' => 'Meeskonnad',
+  'LBL_TEAMS' => 'Meeskonnad',
+  'LBL_TEAM_ID' => 'Meeskonna ID:',
   'LBL_ASSIGNED_TO_ID' => 'Määratud kasutaja Id',
   'LBL_ASSIGNED_TO_NAME' => 'Kasutaja',
   'LBL_ID' => 'ID',
@@ -43,9 +46,6 @@ $mod_strings = array (
   'LBL_CREATED_USER' => 'Looja',
   'LBL_MODIFIED_USER' => 'Muutja',
   'LBL_LIST_NAME' => 'Nimi',
-  'LBL_TEAM' => 'Meeskonnad',
-  'LBL_TEAMS' => 'Meeskonnad',
-  'LBL_TEAM_ID' => 'Meeskonna ID:',
   'LBL_LIST_FORM_TITLE' => 'Account Owners Loend',
   'LBL_MODULE_NAME' => 'Account Owners',
   'LBL_MODULE_TITLE' => 'Account Owners',

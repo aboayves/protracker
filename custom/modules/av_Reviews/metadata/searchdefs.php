@@ -6,6 +6,23 @@ array (
   array (
     'basic_search' => 
     array (
+      'name' => 
+      array (
+        'type' => 'name',
+        'link' => true,
+        'label' => 'LBL_NAME',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'name',
+      ),
+      'type' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_TYPE',
+        'width' => '10%',
+        'name' => 'type',
+      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -21,16 +38,6 @@ array (
         'type' => 'bool',
         'default' => true,
         'width' => '10%',
-      ),
-      'accounts_av_reviews_1_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_ACCOUNTS_TITLE',
-        'id' => 'ACCOUNTS_AV_REVIEWS_1ACCOUNTS_IDA',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'accounts_av_reviews_1_name',
       ),
       'review_date' => 
       array (
@@ -43,6 +50,23 @@ array (
     ),
     'advanced_search' => 
     array (
+      'name' => 
+      array (
+        'type' => 'name',
+        'link' => true,
+        'label' => 'LBL_NAME',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'name',
+      ),
+      'type' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_TYPE',
+        'width' => '10%',
+        'name' => 'type',
+      ),
       'current_user_only' => 
       array (
         'label' => 'LBL_CURRENT_USER_FILTER',
@@ -58,16 +82,6 @@ array (
         'type' => 'bool',
         'default' => true,
         'width' => '10%',
-      ),
-      'accounts_av_reviews_1_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_ACCOUNTS_TITLE',
-        'width' => '10%',
-        'default' => true,
-        'id' => 'ACCOUNTS_AV_REVIEWS_1ACCOUNTS_IDA',
-        'name' => 'accounts_av_reviews_1_name',
       ),
       'assigned_user_id' => 
       array (

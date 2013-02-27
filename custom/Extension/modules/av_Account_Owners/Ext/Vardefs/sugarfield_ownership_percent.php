@@ -1,10 +1,11 @@
 <?php
-// created: 2012-12-17 11:48:56
+// created: 2013-02-05 18:46:36
 $dictionary["av_Account_Owners"]["fields"]["ownership_percent"] = array (
 	'name' => 'ownership_percent',
 	'vname' => 'LBL_OWNERSHIP_PERCENT',
 	'type' => 'decimal',
-	'len' => '3,2',
+	'precision' => '2',
+	'len' => '26',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',

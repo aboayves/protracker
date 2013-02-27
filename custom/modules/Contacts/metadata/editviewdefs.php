@@ -31,7 +31,7 @@ array (
           'field' => '30',
         ),
       ),
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -39,23 +39,20 @@ array (
       array (
         0 => 
         array (
-          0 => 
+          0 => 'picture',
+          1 => 
           array (
-            'name' => 'full_name',
-            'studio' => 
-            array (
-              'listview' => false,
-            ),
-            'label' => 'LBL_NAME',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-          1 => 'picture',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+            'name' => 'title',
+            'comment' => 'The title of the contact',
+            'label' => 'LBL_TITLE',
           ),
           1 => 
           array (
@@ -76,17 +73,31 @@ array (
         array (
           0 => 
           array (
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+          ),
+          1 => 
+          array (
+            'name' => 'av_Contact_Types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
             'name' => 'middle_name',
             'comment' => '',
             'label' => 'LBL_MIDDLE_NAME',
           ),
           1 => 
           array (
-            'name' => 'av_Offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -94,11 +105,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -108,25 +119,21 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_Contact_Types_name',
-            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'contact_priority',
-            'label' => 'LBL_CONTACT_PRIORITY',
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
         6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'salutation',
+            'comment' => 'Contact salutation (e.g., Mr, Ms)',
+            'label' => 'LBL_SALUTATION',
+          ),
+          1 => '',
+        ),
+        7 => 
         array (
           0 => 
           array (
@@ -141,13 +148,12 @@ array (
             'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
-            'name' => 'document_path',
-            'comment' => '',
-            'label' => 'LBL_DOCUMENT_PATH',
+            'name' => 'spouse_name',
+            'label' => 'LBL_SPOUSE_NAME',
           ),
           1 => 
           array (
@@ -156,7 +162,7 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => '',
           1 => 
@@ -166,7 +172,16 @@ array (
             'label' => 'LBL_REPORT_SALUTATION',
           ),
         ),
-        9 => 
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'document_path',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_PATH',
+          ),
+        ),
+        11 => 
         array (
           0 => 
           array (
@@ -176,7 +191,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        10 => 
+        12 => 
         array (
           0 => 
           array (
@@ -385,19 +400,25 @@ array (
             'comment' => 'The birthdate of the contact',
             'label' => 'LBL_BIRTHDATE',
           ),
+          1 => 
+          array (
+            'name' => 'age',
+            'studio' => 'visible',
+            'label' => 'LBL_AGE',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'ssn',
-            'label' => 'LBL_SSN',
-          ),
-          1 => 
-          array (
             'name' => 'birthplace',
             'comment' => '',
             'label' => 'LBL_BIRTHPLACE',
+          ),
+          1 => 
+          array (
+            'name' => 'ssn',
+            'label' => 'LBL_SSN',
           ),
         ),
         2 => 
@@ -461,6 +482,11 @@ array (
         ),
         6 => 
         array (
+          0 => '',
+          1 => '',
+        ),
+        7 => 
+        array (
           0 => 
           array (
             'name' => 'civic',
@@ -474,7 +500,7 @@ array (
             'label' => 'LBL_PROFESSIONAL',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -489,7 +515,7 @@ array (
             'label' => 'LBL_CHARITIES',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -504,7 +530,7 @@ array (
             'label' => 'LBL_POLITICS',
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -519,7 +545,7 @@ array (
             'label' => 'LBL_MILITARY_SERVICE',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -534,7 +560,7 @@ array (
             'label' => 'LBL_LEVEL_OF_HEALTH',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -549,7 +575,7 @@ array (
             'label' => 'LBL_LIKES',
           ),
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (
@@ -700,6 +726,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
+          1 => '',
         ),
         1 => 
         array (
@@ -720,9 +747,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'referred_by',
-            'comment' => '',
-            'label' => 'LBL_REFERRED_BY',
+            'name' => 'Referral_name',
+            'label' => 'LBL_Referral_name',
           ),
           1 => 
           array (
