@@ -80,7 +80,7 @@ class AccountsViewDetail extends ViewDetail
 		  array(
 		  	array(
 			  'hideLabel' => true,
-			  'customCode' => '<div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
+			  'customCode' => '<div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
 			)
 		  )
 		);

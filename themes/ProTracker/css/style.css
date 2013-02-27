@@ -88,10 +88,7 @@ input[type="submit"] {
 }
 
 input[type=text].sqsEnabled{
-	width:265px !important;
-}
-input[type=text].date_input{
-	width:265px !important
+	width:auto !important;
 }
 
 input[type=text],input[type=password],textarea{
@@ -557,7 +554,8 @@ div.moduleTitle {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	text-align:left;
-	width: 600px;
+	min-width:25%;
+	max-width:37%;
 	direction:rtl;
 	  
     position: fixed;

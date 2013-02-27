@@ -10,6 +10,15 @@ array (
     'currency_format' => true,
     'width' => '10%',
   ),
+  'AV_ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNTS_NAME',
+    'id' => 'ASSET_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
   'DESCRIPTION' => 
   array (
     'type' => 'text',
