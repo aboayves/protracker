@@ -2,12 +2,12 @@
 $module_name = 'av_Reviews';
 $listViewDefs [$module_name] = 
 array (
-  'NAME' => 
+  'REVIEW_DATE' => 
   array (
-    'width' => '20%',
-    'label' => 'LBL_NAME',
+    'type' => 'date',
     'default' => true,
-    'link' => true,
+    'label' => 'LBL_REVIEW_DATE',
+    'width' => '10%',
   ),
   'TYPE' => 
   array (
@@ -16,19 +16,12 @@ array (
     'label' => 'LBL_TYPE',
     'width' => '10%',
   ),
-  'REVIEW_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_REVIEW_DATE',
-    'width' => '10%',
-  ),
   'DESCRIPTION' => 
   array (
     'type' => 'text',
     'label' => 'LBL_DESCRIPTION',
     'sortable' => false,
-    'width' => '10%',
+    'width' => '30%',
     'default' => true,
   ),
   'SCORE' => 
@@ -36,7 +29,7 @@ array (
     'type' => 'varchar',
     'default' => true,
     'label' => 'LBL_SCORE',
-    'width' => '10%',
+    'width' => '7%',
   ),
   'ASSIGNED_USER_NAME' => 
   array (
