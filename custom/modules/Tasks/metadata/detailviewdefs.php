@@ -68,81 +68,65 @@ array (
             'name' => 'name',
             'label' => 'LBL_SUBJECT',
           ),
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'customLabel' => 'Related to - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
-          ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'av_Activity_Types_name',
+            'name' => 'parent_name',
+            'customLabel' => 'Related to:',
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_name',
             'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),
         2 => 
         array (
-          0 => 'status',
-          1 => 
+          0 => 
           array (
             'name' => 'project',
             'studio' => 'visible',
             'label' => 'LBL_PROJECT',
           ),
+          1 => 'status',
         ),
         3 => 
         array (
-          0 => 'assigned_user_name',
+          0 => '',
           1 => 'priority',
         ),
         4 => 
+        array (
+          0 => 'date_start',
+          1 => 'date_due',
+        ),
+        5 => 
         array (
           0 => 
           array (
             'name' => 'parent_tasks_name',
             'label' => 'LBL_PARENT_TASKS',
           ),
-        ),
-        5 => 
-        array (
-          0 => 'date_start',
-          1 => 'date_due',
+          1 => 
+          array (
+            'name' => 'percent_complete',
+            'comment' => '',
+            'label' => 'LBL_PERCENT_COMPLETE',
+          ),
         ),
         6 => 
         array (
           0 => 'client_task',
           1 => 
           array (
-            'name' => 'parent_name',
-            'customLabel' => 'Related to:',	// - {sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}
+            'name' => 'assigned_to_client_c',
+            'label' => 'LBL_ASSIGNED_TO_CLIENT',
           ),
         ),
         7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
-            'customCode' => '<div> {$fields.description.value} <div>',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'results',
-            'comment' => '',
-            'label' => 'LBL_RESULTS',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 'category',
-          1 => 'team_name',
-        ),
-        10 => 
         array (
           0 => 
           array (
@@ -155,7 +139,26 @@ array (
             'label' => 'LBL_DTE_CMP',
           ),
         ),
-        11 => 
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
+            'customCode' => '<div> {$fields.description.value} <div>',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'results',
+            'comment' => '',
+            'label' => 'LBL_RESULTS',
+          ),
+          1 => 'team_name',
+        ),
+        10 => 
         array (
           0 => 
           array (
@@ -185,35 +188,30 @@ array (
         ),
         1 => 
         array (
-          0 => 'alow_asigne_to_modify',
+          0 => 
+          array (
+            'name' => 'on_client_task_list',
+            'comment' => '',
+            'label' => 'LBL_ON_CLIENT_TASK_LIST',
+          ),
           1 => 
           array (
-            'name' => 'on_report_card',
-            'comment' => '',
-            'label' => 'LBL_ON_REPORT_CARD',
+            'name' => 'on_task_list',
+            'label' => 'LBL_ON_TASK_LIST',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'on_task_list',
-            'label' => 'LBL_ON_TASK_LIST',
+            'name' => 'notify_child_completion',
+            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
           ),
-        ),
-		),
-		'lbl_tree_View' => 
-        array( 
-		0=>
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'tree',
-			'hideLabel' => true,
-            'customCode' => '<div> <div>'.
-			                '<input type="checkbox" id="pending_only" {$pending_checked} onclick="disable_ajax=0;generateTree();" /> Hide Pending tasks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
-							'<input type="checkbox" id="more_then_90" {$90_checked} onclick="disable_ajax=0;generateTree();" /> Hide tasks greater than 90 days out <br /><br /><br />'.
-							'</div><div id="tree_panel3"></div></div>',
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
           ),
         ),
       ),
