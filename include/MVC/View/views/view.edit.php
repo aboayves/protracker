@@ -34,6 +34,7 @@
  */
 
 require_once('include/EditView/EditView2.php');
+require_once("modules/ACLRoles/ACLRole.php");
  class ViewEdit extends SugarView{
  	var $ev;
  	var $type ='edit';
@@ -57,6 +58,16 @@ require_once('include/EditView/EditView2.php');
     }
 
  	function display(){
+		global $current_user;
+		$acl_role_obj = new ACLRole();
+		$user_roles = $acl_role_obj->getUserRoles($current_user->id); 
+		foreach($user_roles as $user_role)
+		{
+			if(!($user_role == 'Enterprise Edition' || ($user_role != 'Professional Edition' && $user_role != 'Standard Edition' && $current_user->is_admin)))
+			{
+				$this->ev->defs['templateMeta']['form']['hideAudit'] = true;
+			}
+		}
 		$this->ev->process();
 		echo $this->ev->display($this->showTitle);
  	}

@@ -27,7 +27,7 @@
  ********************************************************************************/
 
 require_once('include/DetailView/DetailView2.php');
-
+require_once("modules/ACLRoles/ACLRole.php");
 /**
  * Default view class for handling DetailViews
  *
@@ -71,10 +71,21 @@ class ViewDetail extends SugarView
      * @see SugarView::display()
      */
     public function display()
-    {
+    {	
+		global $current_user;
         if(empty($this->bean->id)){
             sugar_die($GLOBALS['app_strings']['ERROR_NO_RECORD']);
-        }				
+        }
+		
+		$acl_role_obj = new ACLRole();
+		$user_roles = $acl_role_obj->getUserRoles($current_user->id); 
+		foreach($user_roles as $user_role)
+		{
+			if(!($user_role == 'Enterprise Edition' || ($user_role != 'Professional Edition' && $user_role != 'Standard Edition' && $current_user->is_admin)))
+			{
+				$this->dv->defs['templateMeta']['form']['hideAudit'] = true;
+			}
+		}
         $this->dv->process();
         echo $this->dv->display();
     }
