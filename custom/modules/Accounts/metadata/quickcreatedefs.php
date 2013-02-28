@@ -78,7 +78,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
-		  1 => 'report_salutation',
+		  1 => 'client_salutation',
         ),
         3 => 
         array (

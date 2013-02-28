@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-27 14:28:45
+// created: 2013-02-07 18:44:36
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -65,6 +65,7 @@ $mod_strings = array (
   'LBL_CO_CLIENT_CONTACT_NAME' => 'Co-Client',
   'LBL_AV_WILLS' => 'Wills',
   'LBL_ACCOUNTS_CALLS_FROM_CALLS_TITLE' => 'Calls',
+  'LBL_LIST_ACCOUNT_NAME' => 'Client Name',
   'LBL_AV_VEHICLE_INSURANCE' => 'Vehicle Insurance',
   'LBL_AV_UMBRELLA_INSURANCE' => 'Umbrella Insurance',
   'LBL_AV_LONG_TERM_CARE_INSURANCE' => 'Long Term Care Insurance',
@@ -79,7 +80,7 @@ $mod_strings = array (
   'LBL_AV_IPS' => 'IPS',
   'LBL_AV_GIFT_TAX_CREDITS' => 'Gift Tax Credits',
   'LBL_AV_FINAL_ARRANGEMENTS' => 'Final Arrangements',
-  'LBL_NAME' => 'Name',
+  'LBL_NAME' => 'Client Name',
   'LBL_AV_RELATIVES' => 'Family',
   'LBL_AV_FACT_FINDER' => 'Questionnaires',
   'LBL_AV_LIFE_INSURANCE' => 'Life Insurance',

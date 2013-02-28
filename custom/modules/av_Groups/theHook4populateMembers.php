@@ -34,7 +34,7 @@
 				}
 				
 				$name = $account->name;
-				$envelope = $account->report_salutation;
+				$envelope = $account->client_salutation;
 				if($opt_out_flag){
 					$include='0';
 				}

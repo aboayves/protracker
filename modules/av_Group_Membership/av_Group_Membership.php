@@ -37,10 +37,13 @@ class av_Group_Membership extends av_Group_Membership_sugar {
 	public function get_envelope($parent_id, $parent_type)
 	{
 		global $db;
-		$sql = "SELECT report_salutation FROM ".strtolower($parent_type)." WHERE deleted=0 AND id='{$parent_id}' LIMIT 1";
+		if(strtolower($parent_type)=='accounts')
+			$sql = "SELECT client_salutation AS the_salutation FROM accounts WHERE deleted=0 AND id='{$parent_id}' LIMIT 1";
+		else if(strtolower($parent_type)=='contacts')
+			$sql = "SELECT report_salutation AS the_salutation FROM contacts WHERE deleted=0 AND id='{$parent_id}' LIMIT 1";
 		$res = $db->query($sql);
 		$res = $db->fetchByAssoc($res);
-		return $res['report_salutation'];
+		return $res['the_salutation'];
 		
 	}
 }

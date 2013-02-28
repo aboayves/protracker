@@ -70,9 +70,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'report_salutation',
+            'name' => 'client_salutation',
             'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
+            'label' => 'LBL_CLIENT_SALUTATION',
           ),
           1 => 
           array (
