@@ -23,9 +23,8 @@
 							  title: 'For: '+graph_for,
 							  categoryAxis:
 							  {
-								  dataField: 'year',
+								  dataField: 'month',
 								  lineWidth: 40, 
-								  textRotationAngle: -90
 							  },
 							  colorScheme: 'scheme05',
 							  seriesGroups:
@@ -52,7 +51,7 @@
 							  ]
 				});
 			}
-         
+$('#svgChart>g>g:nth-child(7)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(7)>text').attr('x'))-25);	         
 
     </script>
 {/literal}
