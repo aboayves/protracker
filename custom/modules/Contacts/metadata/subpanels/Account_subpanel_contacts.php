@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-07 17:52:53
+// created: 2013-02-28 15:50:59
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -12,26 +12,34 @@ $subpanel_layout['list_fields'] = array (
     'width' => '23%',
     'default' => true,
   ),
-  'account_name' => 
+  'report_salutation' => 
   array (
-    'name' => 'account_name',
-    'module' => 'Accounts',
-    'target_record_key' => 'account_id',
-    'target_module' => 'Accounts',
-    'widget_class' => 'SubPanelDetailViewLink',
-    'vname' => 'LBL_LIST_ACCOUNT_NAME',
-    'width' => '22%',
-    'sortable' => false,
+    'type' => 'varchar',
+    'default' => true,
+    'vname' => 'LBL_REPORT_SALUTATION',
+    'width' => '10%',
+  ),
+  'birthdate' => 
+  array (
+    'type' => 'date',
+    'vname' => 'LBL_BIRTHDATE',
+    'width' => '10%',
     'default' => true,
   ),
-  'email1' => 
+  'age' => 
   array (
-    'name' => 'email1',
-    'vname' => 'LBL_LIST_EMAIL',
-    'widget_class' => 'SubPanelEmailLink',
-    'width' => '30%',
-    'sortable' => false,
+    'type' => 'function',
+    'studio' => 'visible',
+    'vname' => 'LBL_AGE',
+    'width' => '7%',
     'default' => true,
+  ),
+  'ssn' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'vname' => 'LBL_SSN',
+    'width' => '12%',
   ),
   'date_modified' => 
   array (
