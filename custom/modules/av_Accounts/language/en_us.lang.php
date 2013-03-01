@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-25 18:12:42
+// created: 2013-02-28 16:54:20
 $mod_strings = array (
   'LBL_DEPENDENT_DROPDOWN' => 'Dependent Dropdown',
   'LBL_DEPENDENT_BOOL' => 'Checkbox',
@@ -25,4 +25,5 @@ $mod_strings = array (
   'LBL_LIST_NAME' => 'Asset Nickname',
   'LBL_OWNERSHIP_TYPE' => 'Ownership Type',
   'LBL_AV_ACCOUNT_HISTORIES' => 'Account Histories',
+  'LBL_ACCOUNTS_NAME' => 'Client',
 );
