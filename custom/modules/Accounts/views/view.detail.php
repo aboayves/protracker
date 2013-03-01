@@ -132,7 +132,7 @@ class AccountsViewDetail extends ViewDetail
 		<script type='text/javascript' src='custom/include/js/jquery/jqxdata.js'></script>	
 
 		<script type='text/javascript'>
-		Accounts_detailview_tabs.selectTab(6);
+		Accounts_detailview_tabs.selectTab(5);
 
 				$('#divForGraph').jqxChart( {
 							  source: ".json_encode($data4graph).",															  

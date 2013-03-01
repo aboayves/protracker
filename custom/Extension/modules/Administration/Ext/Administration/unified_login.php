@@ -46,17 +46,24 @@ if($row['id'] == "")
 
 $admin_role_options = array(
 		"reserved_standard"=>array(
-			"av_Contact_Types"=>array(
-				'av_Contact_Types',
-				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
-				'Manage Contact types',
-				'./index.php?module=av_Contact_Types&action=index'
-			),
+		
 			"av_Account_Types"=>array(
 				'av_Account_Types',
 				translate('av_Account_Types', 'LBL_MODULE_NAME'),
-				'Manage account types',
+				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Activity_Types"=>array(
+				'av_Activity_Types',
+				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
+				'Manage Activity Types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Group_Types"=>array(
+				'av_Group_Types',
+				translate('av_Group_Types', 'LBL_MODULE_NAME'),
+				'Manage Group Types',
+				'./index.php?module=av_Group_Types&action=index'
 			),
 			"ContractTypes"=>array(
 				'Contracts',
@@ -64,25 +71,19 @@ $admin_role_options = array(
 				'Contract types',
 				'./index.php?module=ContractTypes&action=index'
 			),
-			"av_Activity_Types"=>array(
-				'av_Activity_Types',
-				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
-				'Manage Activity types',
-				'./index.php?module=av_Account_Types&action=index'
-			),
 			"av_Client_Types"=>array(
 				'av_Client_Types',
 				translate('av_Client_Types', 'LBL_MODULE_NAME'),
-				'Manage Client types',
+				'Manage Client Types',
 				'./index.php?module=av_Client_Types&action=index'
 			),
-			"av_Group_Types"=>array(
-				'av_Group_Types',
-				translate('av_Group_Types', 'LBL_MODULE_NAME'),
-				'Manage Group types',
-				'./index.php?module=av_Group_Types&action=index'
-			),
 			
+			"av_Contact_Types"=>array(
+				'av_Contact_Types',
+				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
+				'Manage Contact Types',
+				'./index.php?module=av_Contact_Types&action=index'
+			),
 			
 			"Import"=>array(
 				'Import',
@@ -92,17 +93,23 @@ $admin_role_options = array(
 			),			
 		),
 		"reserved_professional"=>array(
-			"av_Contact_Types"=>array(
-				'av_Contact_Types',
-				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
-				'Manage Contact types',
-				'./index.php?module=av_Contact_Types&action=index'
-			),
 			"av_Account_Types"=>array(
 				'av_Account_Types',
 				translate('av_Account_Types', 'LBL_MODULE_NAME'),
-				'Manage account types',
+				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Activity_Types"=>array(
+				'av_Activity_Types',
+				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
+				'Manage Activity Types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Group_Types"=>array(
+				'av_Group_Types',
+				translate('av_Group_Types', 'LBL_MODULE_NAME'),
+				'Manage Group Types',
+				'./index.php?module=av_Group_Types&action=index'
 			),
 			"ContractTypes"=>array(
 				'Contracts',
@@ -110,25 +117,19 @@ $admin_role_options = array(
 				'Contract types',
 				'./index.php?module=ContractTypes&action=index'
 			),
-			"av_Activity_Types"=>array(
-				'av_Activity_Types',
-				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
-				'Manage Activity types',
-				'./index.php?module=av_Account_Types&action=index'
-			),
 			"av_Client_Types"=>array(
 				'av_Client_Types',
 				translate('av_Client_Types', 'LBL_MODULE_NAME'),
-				'Manage Client types',
+				'Manage Client Types',
 				'./index.php?module=av_Client_Types&action=index'
 			),
-			"av_Group_Types"=>array(
-				'av_Group_Types',
-				translate('av_Group_Types', 'LBL_MODULE_NAME'),
-				'Manage Group types',
-				'./index.php?module=av_Group_Types&action=index'
-			),
 			
+			"av_Contact_Types"=>array(
+				'av_Contact_Types',
+				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
+				'Manage Contact Types',
+				'./index.php?module=av_Contact_Types&action=index'
+			),
 			"Import"=>array(
 				'Import',
 				translate('Import', 'LBL_MODULE_NAME'),
@@ -167,17 +168,23 @@ $admin_role_options = array(
 			),
 		),
 		"reserved_enterprise"=>array(
-			"av_Contact_Types"=>array(
-				'av_Contact_Types',
-				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
-				'Manage Contact types',
-				'./index.php?module=av_Contact_Types&action=index'
-			),
 			"av_Account_Types"=>array(
 				'av_Account_Types',
 				translate('av_Account_Types', 'LBL_MODULE_NAME'),
-				'Manage account types',
+				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Activity_Types"=>array(
+				'av_Activity_Types',
+				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
+				'Manage Activity Types',
+				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Group_Types"=>array(
+				'av_Group_Types',
+				translate('av_Group_Types', 'LBL_MODULE_NAME'),
+				'Manage Group Types',
+				'./index.php?module=av_Group_Types&action=index'
 			),
 			"contract_type_management"=>array(
 				'Contracts',
@@ -185,23 +192,17 @@ $admin_role_options = array(
 				'LBL_CONTRACT_TYPES',
 				'./index.php?module=ContractTypes&action=index'
 			),
-			"av_Activity_Types"=>array(
-				'av_Activity_Types',
-				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
-				'Manage Activity types',
-				'./index.php?module=av_Account_Types&action=index'
-			),
 			"av_Client_Types"=>array(
 				'av_Client_Types',
 				translate('av_Client_Types', 'LBL_MODULE_NAME'),
-				'Manage Client types',
+				'Manage Client Types',
 				'./index.php?module=av_Client_Types&action=index'
 			),
-			"av_Group_Types"=>array(
-				'av_Group_Types',
-				translate('av_Group_Types', 'LBL_MODULE_NAME'),
-				'Manage Group types',
-				'./index.php?module=av_Group_Types&action=index'
+			"av_Contact_Types"=>array(
+				'av_Contact_Types',
+				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
+				'Manage Contact Types',
+				'./index.php?module=av_Contact_Types&action=index'
 			),
 			"Import"=>array(
 				'Import',
@@ -297,13 +298,13 @@ $admin_role_options = array(
 		),
 ) ;
 $option_module_groups = array(
-		"av_Contact_Types"=>"Administration",
 		"av_Account_Types"=>"Administration",
-		"ContractTypes"=>"Administration",
 		"av_Activity_Types"=>"Administration",
+		"av_Group_Types"=>"Administration",
+		"av_Contact_Types"=>"Administration",
 		"contract_type_management"=>"Administration",
 		"av_Client_Types"=>"Administration",
-		"av_Group_Types"=>"Administration",
+		"ContractTypes"=>"Administration",
 		"Import"=>"Administration",
 		"av_Custom_Fields"=>"Administration",
 		"SugarFeed"=>"Administration",
@@ -345,14 +346,14 @@ else if(!empty($row['name']) && !empty($admin_role_options[$row['name']])){
 	$admin_option_defs['Administration']['av_Account_Types'] = array(
 		'av_Account_Types',
 		translate('av_Account_Types', 'LBL_MODULE_NAME'),
-		'Manage account types',
+		'Manage Account Types',
 		'./index.php?module=av_Account_Types&action=index'
 	);
 	
 	$admin_option_defs['Administration']['av_Activity_Types'] = array(
 		'av_Activity_Types',
 		translate('av_Activity_Types', 'LBL_MODULE_NAME'),
-		'Manage activity types',
+		'Manage Activity Types',
 		'./index.php?module=av_Activity_Types&action=index'
 	);
 	
