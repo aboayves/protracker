@@ -91,7 +91,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Offices_name',
+            'name' => 'av_offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
           1 => 'secondary_contact_name',

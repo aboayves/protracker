@@ -205,7 +205,11 @@ array (
         ),
         6 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
+          ),
           1 => 
           array (
             'name' => 'client_number',

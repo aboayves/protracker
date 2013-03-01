@@ -8,10 +8,12 @@ require_once('include/Sugar_Smarty.php');
 class clientNetWorthHistoryDashlet extends DashletGenericChart{
     public $graph_for;
     function clientNetWorthHistoryDashlet($id, $def) {
+		global $current_user;
         $this->loadLanguage('clientNetWorthHistoryDashlet', 'modules/av_Accounts/Dashlets/'); 
         parent::Dashlet($id); 
-		  
-        $this->isConfigurable = true; // dashlet is configurable?
+		if(!$current_user->is_admin){
+			$this->isConfigurable = false; // dashlet is configurable?
+		}
         $this->hasScript = false; // dashlet has javascript attached to it?
 		$this->seedBean = new av_Net_Worth();
         // if no custom title, use default
@@ -40,6 +42,9 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 		}
 		$graph_data =array();
 		$i = array_shift(array_keys($graph_data_db))-5;
+		if($i <=0){
+			$i += 12;
+		}
 		$graph_data[0]['month'] = $this->monthName($i); 
 		$graph_data[0]['worth'] = 0;
 		$graph_data[0]['managed_assets'] = 0;
@@ -51,6 +56,9 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 			}
 		}
 		for($j=1; $j<=5; $j++){
+			if(($i+$j)>12){
+				$i = 1-$j;
+			}
 			if(isset($graph_data_db[$i+$j])){
 				$graph_data[$j]['month'] = $this->monthName($i+$j); 
 				$graph_data[$j]['worth'] = $graph_data_db[$i+$j]['worth'];
@@ -80,8 +88,7 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 		$ss->assign('graphFor', $this->graph_for);
         $str = $ss->fetch('modules/av_Accounts/Dashlets/clientNetWorthHistoryDashlet/clientNetWorthHistoryDashlet.tpl');
 
-		
-	  return parent::display().$str; // return parent::display for title and such
+	    return parent::display().$str; // return parent::display for title and such
     }
 	 //overrided
 	public function displayOptions() {
@@ -99,12 +106,10 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 		}
 		$select_option = array (
 								'current_user' => 'Current User', 
-								'specific_company' => 'Select Company'
+								'specific_company' => 'Select Company',
+								'specific_user' => 'Select User'
 								);
-        if($current_user->is_admin){
-			$select_option['specific_user'] = 'Select User';
-		}
-		$query ="SELECT id, name FROM accounts where deleted=0";
+		$query ="SELECT id, name FROM av_offices where deleted=0";
 		$result = $db->query($query);
 		$accounts_options = array();
 		while($row = $db->fetchByAssoc($result)) {
@@ -144,24 +149,15 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 	function constructQuery(){
 		global $current_user;
 		$dashletDefs = $current_user->getPreference('dashlets','Home'); // load user's dashlets config	
+		$custom_and =" ";
 		$sql = " ";
 		if (
 			isset($dashletDefs[$this->id]['options']['selected_type']) &&
 			$dashletDefs[$this->id]['options']['selected_type'] =='specific_company'
 		   )
 		{
-			$sql .="SELECT * 
-					FROM(
-						SELECT YEAR(av_net_worth.date_entered) as year, MONTH(av_net_worth.date_entered) AS month, DAY(av_net_worth.date_entered) AS day, av_net_worth.grand_total AS worth, av_net_worth.managed_assets 
-						FROM av_net_worth 
-						WHERE av_net_worth.deleted=0 
-						AND av_net_worth.accounts_id = '{$dashletDefs[$this->id]['options']['selected_value']}'
-						ORDER BY av_net_worth.date_entered DESC
-					) AS net_worth_history 
-					GROUP BY net_worth_history.month
-					ORDER BY net_worth_history.year DESC, net_worth_history.month DESC
-					LIMIT 6";
-			$this->graph_for = BeanFactory::getBean('Accounts', $dashletDefs[$this->id]['options']['selected_value'])->name;
+			$custom_and = " accounts.office_id='{$dashletDefs[$this->id]['options']['selected_value']}' ";
+			$this->graph_for = BeanFactory::getBean('av_Offices', $dashletDefs[$this->id]['options']['selected_value'])->name;
 		}else{
 			if (
 			   isset($dashletDefs[$this->id]['options']['selected_type']) &&
@@ -172,29 +168,26 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 			}else{
 				$user_id = $current_user->id;
 			}
-			$sql .="SELECT `year`, `month`, SUM(worth) AS worth, SUM(managed_assets) AS managed_assets 
+			$custom_and = " accounts.assigned_user_id='{$user_id}' ";
+			$users_array = get_user_array(); 
+			$this->graph_for = $users_array[$user_id];
+		}
+		$sql .="SELECT `year`, `month`, SUM(worth) AS worth, SUM(managed_assets) AS managed_assets 
 					FROM(
 						SELECT YEAR(av_net_worth.date_entered) as year, MONTH(av_net_worth.date_entered) AS month, DAY(av_net_worth.date_entered) AS day, av_net_worth.grand_total AS worth, av_net_worth.managed_assets 
 						FROM av_net_worth 
-						RIGHT JOIN accounts ON(accounts.deleted=0 AND accounts.assigned_user_id='{$user_id}' AND accounts.id=av_net_worth.accounts_id) 
+						RIGHT JOIN accounts ON(accounts.deleted=0 AND ".$custom_and." AND accounts.id=av_net_worth.accounts_id) 
 						WHERE av_net_worth.deleted=0 
 						ORDER BY av_net_worth.date_entered DESC
 					) AS net_worth_history 
 					GROUP BY net_worth_history.month
 					ORDER BY net_worth_history.year DESC, net_worth_history.month DESC
 					LIMIT 6";
-			$users_array = get_user_array(); 
-			$this->graph_for = $users_array[$user_id];
-		}
 	
 		return $sql;
 	}
 	function monthName($month_int) {
 		$months = array("December","January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-		$months['-1'] = "November";
-		$months['-2'] = "October";
-		$months['-3'] = "September";
-		$months['-4'] = "August";
 		return $months[$month_int];
 	}
 }
