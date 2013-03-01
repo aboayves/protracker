@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-08 16:01:25
+// created: 2013-02-28 18:18:21
 $searchFields['Notes'] = array (
   'name' => 
   array (

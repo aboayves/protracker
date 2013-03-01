@@ -1,6 +1,6 @@
 <?php
-// created: 2013-02-28 16:54:58
-$searchFields['av_Accounts'] = array (
+// created: 2012-12-18 18:18:53
+$searchFields['av_Companies'] = array (
   'name' => 
   array (
     'query_type' => 'default',
@@ -20,17 +20,13 @@ $searchFields['av_Accounts'] = array (
   array (
     'query_type' => 'default',
   ),
-  'account_number' => 
-  array (
-    'query_type' => 'default',
-  ),
   'favorites_only' => 
   array (
     'query_type' => 'format',
     'operator' => 'subquery',
     'subquery' => 'SELECT sugarfavorites.record_id FROM sugarfavorites 
 			                    WHERE sugarfavorites.deleted=0 
-			                        and sugarfavorites.module = \'av_Accounts\'
+			                        and sugarfavorites.module = \'av_Companies\'
 			                        and sugarfavorites.assigned_user_id = \'{0}\'',
     'db_field' => 
     array (

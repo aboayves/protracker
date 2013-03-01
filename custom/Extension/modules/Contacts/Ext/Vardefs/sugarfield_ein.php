@@ -16,5 +16,6 @@ $dictionary["Contact"]["fields"]["ein"] = array (
 	'duplicate_merge_dom_value' => True,
 	'help' => '',
 	'group' => '',
+	'unified_search' => true,
 );
 ?>

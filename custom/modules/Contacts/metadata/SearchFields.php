@@ -46,10 +46,11 @@ $searchFields['Contacts'] = array (
     'db_field' => 
     array (
       0 => 'phone_mobile',
-      1 => 'phone_work',
-      2 => 'phone_other',
-      3 => 'phone_fax',
-      4 => 'assistant_phone',
+      1 => 'phone_home',
+      2 => 'phone_work',
+      3 => 'phone_other',
+      4 => 'phone_fax',
+      5 => 'assistant_phone',
     ),
   ),
   'email' => 
@@ -135,6 +136,14 @@ $searchFields['Contacts'] = array (
     ),
   ),
   'campaign_name' => 
+  array (
+    'query_type' => 'default',
+  ),
+   'ssn' => 
+  array (
+    'query_type' => 'default',
+  ),
+   'ein' => 
   array (
     'query_type' => 'default',
   ),

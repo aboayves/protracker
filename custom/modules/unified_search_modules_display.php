@@ -1,5 +1,5 @@
 <?php
-// created: 2012-11-07 21:25:08
+// created: 2013-03-01 03:38:21
 $unified_search_modules_display = array (
   'Accounts' => 
   array (
@@ -21,7 +21,15 @@ $unified_search_modules_display = array (
   array (
     'visible' => true,
   ),
+  'av_Groups' => 
+  array (
+    'visible' => true,
+  ),
   'Leads' => 
+  array (
+    'visible' => true,
+  ),
+  'av_Accounts' => 
   array (
     'visible' => true,
   ),
@@ -38,6 +46,10 @@ $unified_search_modules_display = array (
     'visible' => true,
   ),
   'Tasks' => 
+  array (
+    'visible' => true,
+  ),
+  'av_Companies' => 
   array (
     'visible' => true,
   ),
@@ -78,14 +90,6 @@ $unified_search_modules_display = array (
     'visible' => false,
   ),
   'av_Account_Histories' => 
-  array (
-    'visible' => false,
-  ),
-  'av_Accounts' => 
-  array (
-    'visible' => false,
-  ),
-  'av_Groups' => 
   array (
     'visible' => false,
   ),
