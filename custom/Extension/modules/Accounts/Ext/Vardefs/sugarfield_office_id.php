@@ -15,10 +15,10 @@ $dictionary["Account"]["fields"]["office_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["Account"]["fields"]["av_Offices_name"] = array (
+$dictionary["Account"]["fields"]["av_offices_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'av_Offices_name',
+	'name' => 'av_offices_name',
 	'vname' => 'LBL_AV_OFFICES_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

@@ -28,7 +28,7 @@ array (
       array (
         0 => 
         array (
-          0 => '',
+          0 => 'name',
           1 => 
           array (
             'name' => 'accounts_av_reviews_1_name',
@@ -37,10 +37,14 @@ array (
         ),
         1 => 
         array (
-          0 => 'name',
-          1 => 
+          0 => 
           array (
             'name' => 'Accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
         ),

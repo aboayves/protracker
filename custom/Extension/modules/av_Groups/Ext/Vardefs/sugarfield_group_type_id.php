@@ -15,10 +15,10 @@ $dictionary["av_Groups"]["fields"]["group_type_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Groups"]["fields"]["av_Group_Types_name"] = array (
+$dictionary["av_Groups"]["fields"]["av_group_types_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'av_Group_Types_name',
+	'name' => 'av_group_types_name',
 	'vname' => 'LBL_AV_GROUP_TYPES_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

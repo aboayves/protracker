@@ -2,9 +2,41 @@
 $module_name = 'av_Accounts';
 $listViewDefs [$module_name] = 
 array (
+  'ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNTS_ID',
+    'width' => '12%',
+    'default' => true,
+  ),
+  'CATEGORY' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_CATEGORY',
+    'width' => '10%',
+  ),
+  'AV_ACCOUNT_TYPES_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+    'id' => 'ACCOUNT_TYPE_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'CUSTODIAN' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_CUSTODIAN',
+    'width' => '10%',
+  ),
   'NAME' => 
   array (
-    'width' => '32%',
+    'width' => '20%',
     'label' => 'LBL_NAME',
     'default' => true,
     'link' => true,
@@ -15,22 +47,6 @@ array (
     'default' => true,
     'label' => 'LBL_ACCOUNT_NUMBER',
     'width' => '10%',
-  ),
-  'OWNERSHIP_TYPE' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'label' => 'LBL_OWNERSHIP_TYPE',
-    'width' => '10%',
-  ),
-  'ACCOUNTS_AV_ACCOUNTS_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_ACCOUNTSACCOUNTS_IDA',
-    'width' => '10%',
-    'default' => true,
   ),
   'VALUE' => 
   array (
@@ -47,13 +63,6 @@ array (
     'label' => 'LBL_VALUE_DATE',
     'width' => '10%',
   ),
-  'DATE_MODIFIED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
-    'default' => true,
-  ),
   'DESCRIPTION' => 
   array (
     'type' => 'text',
@@ -61,13 +70,6 @@ array (
     'sortable' => false,
     'width' => '10%',
     'default' => false,
-  ),
-  'CATEGORY' => 
-  array (
-    'type' => 'enum',
-    'default' => false,
-    'label' => 'LBL_CATEGORY',
-    'width' => '10%',
   ),
   'ASSET_CLASS' => 
   array (
@@ -83,11 +85,25 @@ array (
     'label' => 'LBL_OWNERSHIP',
     'width' => '10%',
   ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '10%',
+    'default' => false,
+  ),
   'TEAM_NAME' => 
   array (
     'width' => '9%',
     'label' => 'LBL_TEAM',
     'default' => false,
+  ),
+  'OWNERSHIP_TYPE' => 
+  array (
+    'type' => 'enum',
+    'default' => false,
+    'label' => 'LBL_OWNERSHIP_TYPE',
+    'width' => '10%',
   ),
   'DATE_ENTERED' => 
   array (

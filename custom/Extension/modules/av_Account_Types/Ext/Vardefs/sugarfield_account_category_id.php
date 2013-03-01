@@ -14,10 +14,10 @@ $dictionary["av_Account_Types"]["fields"]["account_category_id"] = array (
 	'importable' => 'false',
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Account_Types"]["fields"]["av_Account_Categories_name"] = array (
+$dictionary["av_Account_Types"]["fields"]["av_account_categories_name"] = array (
 	'required' => 'false',
 	'source' => 'non-db',
-	'name' => 'av_Account_Categories_name',
+	'name' => 'av_account_categories_name',
 	'vname' => 'LBL_AV_ACCOUNT_CATEGORIES_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

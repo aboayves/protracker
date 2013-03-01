@@ -5,12 +5,6 @@ array (
   array (
     'basic_search' => 
     array (
-      'name' => 
-      array (
-        'name' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -24,6 +18,12 @@ array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'name' => 
+      array (
+        'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
@@ -76,26 +76,6 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'av_activity_types_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
-        'id' => 'activity_type_id',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'av_Activity_Types_name',
-      ),
-      'parent_tasks_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_PARENT_TASKS',
-        'id' => 'PARENT_TASKS_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'parent_tasks_name',
-      ),
       'status' => 
       array (
         'name' => 'status',
@@ -117,6 +97,14 @@ array (
         ),
         'default' => true,
         'width' => '10%',
+      ),
+      'created_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_user_id',
       ),
       'modified_user_id' => 
       array (
@@ -146,32 +134,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'date_modified',
-      ),
-      'date_complete' => 
-      array (
-        'type' => 'datetime',
-        'label' => 'LBL_DTE_CMP',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'date_complete',
-      ),
-      'closed_status' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_CLOSED_STATUS',
-        'width' => '10%',
-        'name' => 'closed_status',
-      ),
-      'team_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_TEAMS',
-        'id' => 'TEAM_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'team_name',
       ),
       'on_meeting_agenda' => 
       array (

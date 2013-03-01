@@ -15,10 +15,10 @@ $dictionary["Contact"]["fields"]["referral_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["Contact"]["fields"]["Referral_name"] = array (
+$dictionary["Contact"]["fields"]["referral_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'Referral_name',
+	'name' => 'referral_name',
 	'vname' => 'LBL_REFERRAL_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

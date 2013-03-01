@@ -15,10 +15,10 @@ $dictionary["av_Accounts"]["fields"]["commission_schedule_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Accounts"]["fields"]["av_Commission_Schedules_name"] = array (
+$dictionary["av_Accounts"]["fields"]["av_commission_schedules_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'av_Commission_Schedules_name',
+	'name' => 'av_commission_schedules_name',
 	'vname' => 'LBL_AV_COMMISSION_SCHEDULES_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-07 18:44:36
+// created: 2013-02-28 18:18:42
 $subpanel_layout['list_fields'] = array (
   'account_number' => 
   array (
@@ -40,18 +40,6 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'vname' => 'LBL_CUSTODIAN',
     'width' => '12%',
-  ),
-  'av_accounts_av_companies_1_name' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'vname' => 'LBL_AV_ACCOUNTS_AV_COMPANIES_1_FROM_AV_COMPANIES_TITLE',
-    'id' => 'AV_ACCOUNTS_AV_COMPANIES_1AV_COMPANIES_IDB',
-    'width' => '12%',
-    'default' => true,
-    'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => NULL,
-    'target_record_key' => NULL,
   ),
   'value' => 
   array (

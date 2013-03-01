@@ -44,6 +44,16 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'accounts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'id' => 'ACCOUNTS_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'accounts_name',
+      ),
       'favorites_only' => 
       array (
         'name' => 'favorites_only',
@@ -69,17 +79,6 @@ array (
         'label' => 'LBL_ACCOUNT_NUMBER',
         'width' => '10%',
         'name' => 'account_number',
-      ),
-      'accounts_av_accounts_name' => 
-      array (
-        'type' => 'relate',
-        'studio' => 'visible',
-        'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
-        'link' => true,
-        'width' => '10%',
-        'default' => true,
-        'id' => 'ACCOUNTS_ID',
-        'name' => 'accounts_av_accounts_name',
       ),
       'date_opened' => 
       array (

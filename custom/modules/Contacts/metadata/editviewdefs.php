@@ -185,9 +185,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'comments',
-            'studio' => 'visible',
-            'label' => 'LBL_COMMENTS',
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
           ),
           1 => 'team_name',
         ),

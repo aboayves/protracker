@@ -139,13 +139,13 @@ array (
         'default' => true,
         'name' => 'team_name',
       ),
-      'created_by' => 
+      'created_user_id' => 
       array (
         'type' => 'assigned_user_name',
         'label' => 'LBL_CREATED',
         'width' => '10%',
         'default' => true,
-        'name' => 'created_by',
+        'name' => 'created_user_id',
       ),
       'modified_user_id' => 
       array (

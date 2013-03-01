@@ -57,6 +57,7 @@ $GLOBALS['tabStructure'] = array (
 	    2 => 'av_Service_Team',
       3 => 'av_Companies',
       4 => 'av_Groups',
+      5 => 'Contacts',
     ),
   ),
   'LBL_TABGROUP_COMPLIANCE' => 

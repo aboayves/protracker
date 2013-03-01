@@ -1,44 +1,41 @@
 <?php
-// created: 2012-11-15 19:00:37
+// created: 2013-02-28 18:52:40
 $subpanel_layout['list_fields'] = array (
-  'name' => 
+  'grand_total' => 
   array (
-    'vname' => 'LBL_NAME',
-    'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
+    'type' => 'currency',
+    'vname' => 'LBL_GRAND_TOTAL',
+    'currency_format' => true,
+    'width' => '15%',
     'default' => true,
-  ),
-  'accounts_av_net_worth_name' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'vname' => 'LBL_ACCOUNTS_AV_NET_WORTH_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_NET_WORTHACCOUNTS_IDA',
-    'width' => '10%',
-    'default' => true,
-    'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => 'Accounts',
-    'target_record_key' => 'accounts_av_net_worthaccounts_ida',
   ),
   'net_worth_date' => 
   array (
     'type' => 'date',
     'default' => true,
     'vname' => 'LBL_NET_WORTH_DATE',
-    'width' => '10%',
+    'width' => '15%',
   ),
-  'grand_total' => 
+  'managed_assets' => 
   array (
     'type' => 'currency',
-    'vname' => 'LBL_GRAND_TOTAL',
+    'vname' => 'LBL_MANAGED_ASSETS',
     'currency_format' => true,
-    'width' => '10%',
+    'width' => '20%',
+    'default' => true,
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '30%',
     'default' => true,
   ),
   'date_modified' => 
   array (
     'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '45%',
+    'width' => '10%',
     'default' => true,
   ),
   'edit_button' => 

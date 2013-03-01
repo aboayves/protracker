@@ -1,6 +1,13 @@
 <?php
-// created: 2013-02-26 18:16:27
+// created: 2013-02-28 02:41:56
 $subpanel_layout['list_fields'] = array (
+  'review_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'vname' => 'LBL_REVIEW_DATE',
+    'width' => '10%',
+  ),
   'name' => 
   array (
     'type' => 'name',
@@ -11,13 +18,6 @@ $subpanel_layout['list_fields'] = array (
     'widget_class' => 'SubPanelDetailViewLink',
     'target_module' => NULL,
     'target_record_key' => NULL,
-  ),
-  'review_date' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'vname' => 'LBL_REVIEW_DATE',
-    'width' => '10%',
   ),
   'type' => 
   array (

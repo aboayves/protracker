@@ -15,10 +15,10 @@ $dictionary["av_Tax_Returns"]["fields"]["contact_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Tax_Returns"]["fields"]["Contacts_name"] = array (
+$dictionary["av_Tax_Returns"]["fields"]["contacts_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'Contacts_name',
+	'name' => 'contacts_name',
 	'vname' => 'LBL_CONTACTS_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

@@ -75,7 +75,7 @@ function deleteAttachmentCallBack(text)
           ),
           1 => 
           array (
-            'name' => 'av_Activity_Types_name',
+            'name' => 'av_activity_types_name',
             'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),

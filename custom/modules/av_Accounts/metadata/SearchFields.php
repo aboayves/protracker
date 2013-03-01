@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-14 18:01:25
+// created: 2013-02-28 16:54:58
 $searchFields['av_Accounts'] = array (
   'name' => 
   array (
@@ -17,6 +17,10 @@ $searchFields['av_Accounts'] = array (
     'type' => 'bool',
   ),
   'assigned_user_id' => 
+  array (
+    'query_type' => 'default',
+  ),
+  'account_number' => 
   array (
     'query_type' => 'default',
   ),

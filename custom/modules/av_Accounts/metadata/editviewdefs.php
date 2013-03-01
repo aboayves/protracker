@@ -36,6 +36,15 @@ array (
       array (
         0 => 
         array (
+          0 => 'name',
+          1 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+        ),
+        1 => 
+        array (
           0 => 
           array (
             'name' => 'account_number',
@@ -44,17 +53,16 @@ array (
           ),
           1 => 
           array (
-            'name' => 'accounts_av_accounts_name',
-            'studio' => 'visible',
-            'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
-            'name' => 'Contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
+            'name' => 'av_account_types_name',
+            'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
           ),
           1 => 
           array (
@@ -63,41 +71,22 @@ array (
             'label' => 'LBL_OWNERSHIP_TYPE',
           ),
         ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_Account_Types_name',
-            'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
-          ),
-          1 => '',
-        ),
         3 => 
         array (
           0 => 
+          array (
+            'name' => 'ownership',
+            'comment' => '',
+            'label' => 'LBL_OWNERSHIP',
+          ),
+          1 => 
           array (
             'name' => 'category',
             'comment' => '',
             'label' => 'LBL_CATEGORY',
           ),
-          1 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
         ),
         4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'asset_class',
-            'comment' => '',
-            'label' => 'LBL_ASSET_CLASS',
-          ),
-          1 => 'managed_c',
-        ),
-        5 => 
         array (
           0 => 
           array (
@@ -105,6 +94,16 @@ array (
             'comment' => '',
             'label' => 'LBL_CUSTODIAN',
           ),
+          1 => 
+          array (
+            'name' => 'asset_class',
+            'comment' => '',
+            'label' => 'LBL_ASSET_CLASS',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 'managed_c',
           1 => '',
         ),
         6 => 
@@ -124,6 +123,11 @@ array (
         ),
         7 => 
         array (
+          0 => '',
+          1 => '',
+        ),
+        8 => 
+        array (
           0 => 'description',
           1 => 
           array (
@@ -134,7 +138,7 @@ array (
             ),
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (

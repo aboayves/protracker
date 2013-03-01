@@ -15,10 +15,10 @@ $dictionary["av_Estate_Documents"]["fields"]["contact_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Estate_Documents"]["fields"]["Contacts_name"] = array (
+$dictionary["av_Estate_Documents"]["fields"]["contacts_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'Contacts_name',
+	'name' => 'contacts_name',
 	'vname' => 'LBL_CONTACTS_NAME',
 	'type' => 'relate',
 	'rname' => 'name',

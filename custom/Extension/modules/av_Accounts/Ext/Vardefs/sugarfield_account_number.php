@@ -16,5 +16,6 @@ $dictionary["av_Accounts"]["fields"]["account_number"] = array (
 	'duplicate_merge_dom_value' => True,
 	'help' => '',
 	'group' => '',
+	'unified_search'=> true,
 );
 ?>
