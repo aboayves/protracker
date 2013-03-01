@@ -39,39 +39,48 @@ array (
       array (
         0 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+          ),
+          1 => 
+          array (
+            'name' => 'net_worth_date',
+            'comment' => '',
+            'label' => 'LBL_NET_WORTH_DATE',
+          ),
         ),
         1 => 
         array (
-          0 => 'team_name',
-          1 => 
+          0 => 
           array (
             'name' => 'grand_total',
             'label' => 'LBL_GRAND_TOTAL',
           ),
-        ),
-        2 => 
-        array (
-          0 => 'description',
           1 => 
           array (
             'name' => 'managed_assets',
             'label' => 'LBL_MANAGED_ASSETS',
           ),
         ),
+        2 => 
+        array (
+          0 => 'description',
+          1 => 'team_name',
+        ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'av_net_worth_av_accounts_name',
-            'label' => 'LBL_AV_NET_WORTH_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE',
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'label' => 'LBL_DATE_ENTERED',
           ),
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'accounts_name',
+            'name' => 'date_modified',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

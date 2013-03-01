@@ -7,7 +7,7 @@ array (
     'link' => true,
     'label' => 'LBL_ACCOUNTS_NAME',
     'id' => 'ACCOUNTS_ID',
-    'width' => '10%',
+    'width' => '15%',
     'default' => true,
   ),
   'GRAND_TOTAL' => 
@@ -15,19 +15,34 @@ array (
     'type' => 'currency',
     'label' => 'LBL_GRAND_TOTAL',
     'currency_format' => true,
+    'width' => '15%',
+    'default' => true,
+  ),
+  'NET_WORTH_DATE' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'label' => 'LBL_NET_WORTH_DATE',
+    'width' => '10%',
+  ),
+  'MANAGED_ASSETS' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_MANAGED_ASSETS',
+    'currency_format' => true,
+    'width' => '15%',
+    'default' => true,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
     'width' => '10%',
     'default' => true,
   ),
-  'NAME' => 
-  array (
-    'width' => '32%',
-    'label' => 'LBL_NAME',
-    'default' => true,
-    'link' => true,
-  ),
   'ASSIGNED_USER_NAME' => 
   array (
-    'width' => '9%',
+    'width' => '12%',
     'label' => 'LBL_ASSIGNED_TO_NAME',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',

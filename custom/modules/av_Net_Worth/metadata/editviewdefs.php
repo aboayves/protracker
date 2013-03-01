@@ -36,22 +36,28 @@ array (
       array (
         0 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+          ),
+          1 => 
+          array (
+            'name' => 'net_worth_date',
+            'comment' => '',
+            'label' => 'LBL_NET_WORTH_DATE',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
+            'name' => 'grand_total',
+            'label' => 'LBL_GRAND_TOTAL',
           ),
           1 => 
           array (
-            'name' => 'grand_total',
-            'label' => 'LBL_GRAND_TOTAL',
+            'name' => 'managed_assets',
+            'label' => 'LBL_MANAGED_ASSETS',
           ),
         ),
         2 => 
@@ -59,23 +65,26 @@ array (
           0 => 'description',
           1 => 
           array (
-            'name' => 'managed_assets',
-            'label' => 'LBL_MANAGED_ASSETS',
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'av_net_worth_av_accounts_name',
-            'label' => 'LBL_AV_NET_WORTH_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE',
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
           ),
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'accounts_name',
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),
