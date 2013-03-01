@@ -9,33 +9,20 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'DESCRIPTION' => 
+  'AV_ACCOUNT_CATEGORIES_NAME' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNT_CATEGORIES_NAME',
+    'id' => 'ACCOUNT_CATEGORY_ID',
     'width' => '10%',
     'default' => true,
-  ),
-  'IS_BENEFICIARY_REQUIRED' => 
-  array (
-    'type' => 'bool',
-    'default' => true,
-    'label' => 'LBL_IS_BENEFICIARY_REQUIRED',
-    'width' => '10%',
   ),
   'RETIREMENT_PLAN_TYPE' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_RETIREMENT_PLAN_TYPE',
-    'width' => '10%',
-  ),
-  'REPORT_SORT' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_REPORT_SORT',
     'width' => '10%',
   ),
   'SCHEDULE' => 
@@ -45,16 +32,26 @@ array (
     'label' => 'LBL_SCHEDULE',
     'width' => '10%',
   ),
-  'ASSIGNED_USER_NAME' => 
+  'IS_BENEFICIARY_REQUIRED' => 
   array (
-    'width' => '9%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'default' => false,
+    'type' => 'bool',
+    'default' => true,
+    'label' => 'LBL_IS_BENEFICIARY_REQUIRED',
+    'width' => '10%',
   ),
-  'TEAM_NAME' => 
+  'REPORT_SORT' => 
   array (
-    'width' => '9%',
-    'label' => 'LBL_TEAM',
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_REPORT_SORT',
+    'width' => '10%',
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => false,
   ),
 );

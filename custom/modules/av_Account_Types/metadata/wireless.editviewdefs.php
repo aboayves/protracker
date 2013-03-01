@@ -32,35 +32,35 @@ array (
       array (
         0 => 
         array (
-          'name' => 'description',
-          'comment' => 'Full text of the note',
-          'label' => 'LBL_DESCRIPTION',
+          'name' => 'av_account_categories_name',
+          'label' => 'LBL_AV_ACCOUNT_CATEGORIES_NAME',
         ),
       ),
       2 => 
       array (
         0 => 
         array (
-          'name' => 'av_Account_Categories_name',
-          'label' => 'LBL_AV_ACCOUNT_CATEGORIES_NAME',
+          'name' => 'retirement_plan_type',
+          'comment' => '',
+          'label' => 'LBL_RETIREMENT_PLAN_TYPE',
         ),
       ),
       3 => 
       array (
         0 => 
         array (
-          'name' => 'is_beneficiary_required',
+          'name' => 'schedule',
           'comment' => '',
-          'label' => 'LBL_IS_BENEFICIARY_REQUIRED',
+          'label' => 'LBL_SCHEDULE',
         ),
       ),
       4 => 
       array (
         0 => 
         array (
-          'name' => 'retirement_plan_type',
+          'name' => 'is_beneficiary_required',
           'comment' => '',
-          'label' => 'LBL_RETIREMENT_PLAN_TYPE',
+          'label' => 'LBL_IS_BENEFICIARY_REQUIRED',
         ),
       ),
       5 => 
@@ -76,9 +76,9 @@ array (
       array (
         0 => 
         array (
-          'name' => 'schedule',
-          'comment' => '',
-          'label' => 'LBL_SCHEDULE',
+          'name' => 'description',
+          'comment' => 'Full text of the note',
+          'label' => 'LBL_DESCRIPTION',
         ),
       ),
     ),
