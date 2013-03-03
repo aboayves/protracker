@@ -1,28 +1,34 @@
 <?php
-// created: 2013-03-02 04:37:13
+// created: 2013-03-02 04:37:43
 $subpanel_layout['list_fields'] = array (
-  'transaction_date' => 
+  'name' => 
   array (
-    'type' => 'date',
+    'vname' => 'LBL_NAME',
+    'widget_class' => 'SubPanelDetailViewLink',
+    'width' => '45%',
     'default' => true,
-    'vname' => 'LBL_TRANSACTION_DATE',
-    'width' => '10%',
   ),
-  'type' => 
+  'transaction_type' => 
   array (
     'type' => 'enum',
     'default' => true,
-    'vname' => 'LBL_TYPE',
+    'vname' => 'LBL_TRANSACTION_TYPE',
     'width' => '10%',
   ),
-  'amount' => 
+  'transaction_frequency' => 
   array (
-    'type' => 'currency',
-    'align' => 'right',
+    'type' => 'int',
     'default' => true,
-    'vname' => 'LBL_AMOUNT',
-    'currency_format' => true,
+    'vname' => 'LBL_TRANSACTION_FREQUENCY',
     'width' => '10%',
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => true,
   ),
   'date_modified' => 
   array (
@@ -33,14 +39,14 @@ $subpanel_layout['list_fields'] = array (
   'edit_button' => 
   array (
     'widget_class' => 'SubPanelEditButton',
-    'module' => 'av_Transactions',
+    'module' => 'av_Transaction_Schedule',
     'width' => '4%',
     'default' => true,
   ),
   'remove_button' => 
   array (
     'widget_class' => 'SubPanelRemoveButton',
-    'module' => 'av_Transactions',
+    'module' => 'av_Transaction_Schedule',
     'width' => '5%',
     'default' => true,
   ),

@@ -6,10 +6,39 @@ array (
   array (
     'basic_search' => 
     array (
+      'accounts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'width' => '10%',
+        'default' => true,
+        'id' => 'ACCOUNTS_ID',
+        'name' => 'accounts_name',
+      ),
       'name' => 
       array (
         'name' => 'name',
         'default' => true,
+        'width' => '10%',
+      ),
+      'av_account_types_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+        'id' => 'ACCOUNT_TYPE_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'av_account_types_name',
+      ),
+      'custodian' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_CUSTODIAN',
+        'width' => '10%',
+        'name' => 'custodian',
       ),
       'current_user_only' => 
       array (
@@ -17,6 +46,7 @@ array (
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
       'favorites_only' => 
       array (
@@ -24,26 +54,11 @@ array (
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
     ),
     'advanced_search' => 
     array (
-      'assigned_user_id' => 
-      array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
-        'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
-        'default' => true,
-        'width' => '10%',
-      ),
       'accounts_name' => 
       array (
         'type' => 'relate',
@@ -54,23 +69,24 @@ array (
         'default' => true,
         'name' => 'accounts_name',
       ),
-      'favorites_only' => 
+      'name' => 
       array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
+        'type' => 'name',
+        'link' => true,
         'default' => true,
         'width' => '10%',
+        'label' => 'LBL_NAME',
+        'name' => 'name',
       ),
-      'team_name' => 
+      'av_account_types_name' => 
       array (
         'type' => 'relate',
         'link' => true,
-        'label' => 'LBL_TEAMS',
+        'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
         'width' => '10%',
         'default' => true,
-        'id' => 'TEAM_ID',
-        'name' => 'team_name',
+        'id' => 'ACCOUNT_TYPE_ID',
+        'name' => 'av_account_types_name',
       ),
       'account_number' => 
       array (
@@ -80,6 +96,14 @@ array (
         'width' => '10%',
         'name' => 'account_number',
       ),
+      'favorites_only' => 
+      array (
+        'name' => 'favorites_only',
+        'label' => 'LBL_FAVORITES_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+      ),
       'date_opened' => 
       array (
         'type' => 'date',
@@ -87,22 +111,6 @@ array (
         'label' => 'LBL_DATE_OPENED',
         'width' => '10%',
         'name' => 'date_opened',
-      ),
-      'asset_class' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'label' => 'LBL_ASSET_CLASS',
-        'width' => '10%',
-        'name' => 'asset_class',
-      ),
-      'type' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'label' => 'LBL_TYPE',
-        'width' => '10%',
-        'name' => 'type',
       ),
       'ownership_type' => 
       array (
@@ -176,14 +184,6 @@ array (
         'label' => 'LBL_IS_RMD',
         'width' => '10%',
         'name' => 'is_rmd',
-      ),
-      'is_qualified_plan' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_IS_QUALIFIED_PLAN',
-        'width' => '10%',
-        'name' => 'is_qualified_plan',
       ),
     ),
   ),

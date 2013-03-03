@@ -35,6 +35,14 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'accounts_av_accounts_name',
+            'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
+          ),
+        ),
+        1 => 
+        array (
           0 => 'name',
           1 => 
           array (
@@ -42,7 +50,7 @@ array (
             'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -55,21 +63,6 @@ array (
             'name' => 'ownership_type',
             'comment' => '',
             'label' => 'LBL_OWNERSHIP_TYPE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
-          1 => 
-          array (
-            'name' => 'category',
-            'comment' => '',
-            'label' => 'LBL_CATEGORY',
           ),
         ),
         3 => 
@@ -87,14 +80,6 @@ array (
           ),
         ),
         4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accounts_av_accounts_name',
-            'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
-          ),
-        ),
-        5 => 
         array (
           0 => 'description',
         ),
