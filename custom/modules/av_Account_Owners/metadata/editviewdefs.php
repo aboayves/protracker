@@ -21,6 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -46,7 +47,6 @@ array (
             'comment' => '',
             'label' => 'LBL_OWNERSHIP_PERCENT',
           ),
-          1 => '',
         ),
         3 => 
         array (

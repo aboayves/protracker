@@ -30,19 +30,19 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Accounts_name',
+            'name' => 'av_accounts_name',
             'label' => 'LBL_AV_ACCOUNTS_NAME',
           ),
         ),
         1 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         2 => 
-        array (
-          0 => 'description',
-        ),
-        3 => 
         array (
           0 => 
           array (
@@ -50,6 +50,10 @@ array (
             'comment' => '',
             'label' => 'LBL_OWNERSHIP_PERCENT',
           ),
+        ),
+        3 => 
+        array (
+          0 => 'description',
         ),
       ),
     ),

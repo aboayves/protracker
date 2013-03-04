@@ -4,6 +4,22 @@ $dashletData['av_Account_TypesDashlet']['searchFields'] = array (
   array (
     'default' => '',
   ),
+  'av_account_categories_name' => 
+  array (
+    'default' => '',
+  ),
+  'schedule' => 
+  array (
+    'default' => '',
+  ),
+  'retirement_plan_type' => 
+  array (
+    'default' => '',
+  ),
+  'is_beneficiary_required' => 
+  array (
+    'default' => '',
+  ),
   'description' => 
   array (
     'default' => '',
@@ -18,13 +34,38 @@ $dashletData['av_Account_TypesDashlet']['columns'] = array (
     'default' => true,
     'name' => 'name',
   ),
-  'description' => 
+  'av_account_categories_name' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNT_CATEGORIES_NAME',
+    'id' => 'ACCOUNT_CATEGORY_ID',
     'width' => '10%',
     'default' => true,
+  ),
+  'schedule' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_SCHEDULE',
+    'width' => '10%',
+    'name' => 'schedule',
+  ),
+  'retirement_plan_type' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_RETIREMENT_PLAN_TYPE',
+    'width' => '10%',
+    'name' => 'retirement_plan_type',
+  ),
+  'is_beneficiary_required' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'label' => 'LBL_IS_BENEFICIARY_REQUIRED',
+    'width' => '10%',
+    'name' => 'is_beneficiary_required',
   ),
   'date_modified' => 
   array (
@@ -32,6 +73,15 @@ $dashletData['av_Account_TypesDashlet']['columns'] = array (
     'label' => 'LBL_DATE_MODIFIED',
     'name' => 'date_modified',
     'default' => false,
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
+    'name' => 'description',
   ),
   'date_entered' => 
   array (
@@ -48,6 +98,7 @@ $dashletData['av_Account_TypesDashlet']['columns'] = array (
     'id' => 'MODIFIED_USER_ID',
     'width' => '10%',
     'default' => false,
+    'name' => 'modified_by_name',
   ),
   'created_by' => 
   array (
@@ -63,13 +114,6 @@ $dashletData['av_Account_TypesDashlet']['columns'] = array (
     'name' => 'assigned_user_name',
     'default' => false,
   ),
-  'is_beneficiary_required' => 
-  array (
-    'type' => 'bool',
-    'default' => false,
-    'label' => 'LBL_IS_BENEFICIARY_REQUIRED',
-    'width' => '10%',
-  ),
   'created_by_name' => 
   array (
     'type' => 'relate',
@@ -78,6 +122,7 @@ $dashletData['av_Account_TypesDashlet']['columns'] = array (
     'id' => 'CREATED_BY',
     'width' => '10%',
     'default' => false,
+    'name' => 'created_by_name',
   ),
   'report_sort' => 
   array (
@@ -85,20 +130,7 @@ $dashletData['av_Account_TypesDashlet']['columns'] = array (
     'default' => false,
     'label' => 'LBL_REPORT_SORT',
     'width' => '10%',
-  ),
-  'retirement_plan_type' => 
-  array (
-    'type' => 'enum',
-    'default' => false,
-    'label' => 'LBL_RETIREMENT_PLAN_TYPE',
-    'width' => '10%',
-  ),
-  'schedule' => 
-  array (
-    'type' => 'enum',
-    'default' => false,
-    'label' => 'LBL_SCHEDULE',
-    'width' => '10%',
+    'name' => 'report_sort',
   ),
   'team_name' => 
   array (

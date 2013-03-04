@@ -21,6 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -29,7 +30,6 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
         ),
         1 => 
         array (
@@ -39,6 +39,11 @@ array (
             'comment' => '',
             'label' => 'LBL_REPORT_SORT',
           ),
+          1 => 'assigned_user_name',
+        ),
+        2 => 
+        array (
+          0 => 'description',
           1 => 
           array (
             'name' => 'team_name',
@@ -47,10 +52,6 @@ array (
               'display' => true,
             ),
           ),
-        ),
-        2 => 
-        array (
-          0 => 'description',
         ),
         3 => 
         array (

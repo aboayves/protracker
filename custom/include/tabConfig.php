@@ -1,7 +1,7 @@
 <?php
-// created: 2012-12-04 10:01:59
+// created: 2013-03-03 03:39:10
 $GLOBALS['tabStructure'] = array (
- 'LBL_TABGROUP_ACTIVITIES' => 
+  'LBL_TABGROUP_ACTIVITIES' => 
   array (
     'label' => 'LBL_TABGROUP_ACTIVITIES',
     'modules' => 
@@ -13,8 +13,7 @@ $GLOBALS['tabStructure'] = array (
       4 => 'Emails',
       5 => 'av_Workflow',
       6 => 'av_Task_Template',
-      7 => 'Activities',
-      8 => 'History',
+      7 => 'av_Activity_Types',
     ),
   ),
   'LBL_TABGROUP_DOCUMENT_MANAGEMENT' => 
@@ -38,13 +37,12 @@ $GLOBALS['tabStructure'] = array (
     'label' => 'LBL_TABGROUP_SALES_MARKETING',
     'modules' => 
     array (
-      0 => 'CampaignLog',
-      1 => 'Opportunities',
-      2 => 'Leads',
-      3 => 'Prospects',
-      4 => 'ProspectLists',
-      5 => 'Quotes',
-      6 => 'Products',
+      0 => 'Opportunities',
+      1 => 'Leads',
+      2 => 'Prospects',
+      3 => 'ProspectLists',
+      4 => 'Quotes',
+      5 => 'Products',
     ),
   ),
   'LBL_TABGROUP_RELATED' => 
@@ -54,7 +52,7 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'av_Professionals',
       1 => 'av_Relatives',
-	    2 => 'av_Service_Team',
+      2 => 'av_Service_Team',
       3 => 'av_Companies',
       4 => 'av_Groups',
       5 => 'Contacts',
@@ -76,12 +74,11 @@ $GLOBALS['tabStructure'] = array (
     'modules' => 
     array (
       0 => 'av_Offices',
-	    1 => 'Employees',
-      2 => 'av_Reviews',
-      3 => 'av_Scoring',
-      4 => 'av_Service_Team',
-      5 => 'av_Services',
-      6 => 'av_Commissions',
+      1 => 'av_Reviews',
+      2 => 'av_Scoring',
+      3 => 'av_Service_Team',
+      4 => 'av_Services',
+      5 => 'av_Commissions',
     ),
   ),
   'LBL_TABGROUP_ACCOUNT_MANAGEMENT' => 
@@ -93,12 +90,13 @@ $GLOBALS['tabStructure'] = array (
       1 => 'av_Account_Histories',
       2 => 'av_Account_Owners',
       3 => 'av_Account_Categories',
-      4 => 'av_Beneficiaries',
-      5 => 'av_Net_Worth',
-      6 => 'av_Positions',
-      7 => 'av_Transaction_Schedule',
-      8 => 'av_Transactions',
-      9 => 'av_Trustees',
+      4 => 'av_Account_Types',
+      5 => 'av_Beneficiaries',
+      6 => 'av_Net_Worth',
+      7 => 'av_Positions',
+      8 => 'av_Transaction_Schedule',
+      9 => 'av_Transactions',
+      10 => 'av_Trustees',
     ),
   ),
   'LBL_TABGROUP_GOALS_OBJECTIVES' => 
@@ -108,7 +106,6 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'av_Cashflow',
       1 => 'av_Goals',
-      2 => 'av_Fact_Finder',
     ),
   ),
   'LBL_TABGROUP_ESTATE_PLANNING' => 
@@ -116,14 +113,13 @@ $GLOBALS['tabStructure'] = array (
     'label' => 'LBL_TABGROUP_ESTATE_PLANNING',
     'modules' => 
     array (
-      0 => 'av_Estate_Admin',
-      1 => 'av_Estate_Documents',
-      2 => 'av_Final_Arrangements',
-      3 => 'av_Gift_Tax_Credits',
-      4 => 'av_Gifting',
-      5 => 'av_IRD',
-      6 => 'av_Trusts',
-      7 => 'av_Wills',
+      0 => 'av_Estate_Documents',
+      1 => 'av_Final_Arrangements',
+      2 => 'av_Gift_Tax_Credits',
+      3 => 'av_Gifting',
+      4 => 'av_IRD',
+      5 => 'av_Trusts',
+      6 => 'av_Wills',
     ),
   ),
   'LBL_TABGROUP_RETIREMENT_PLANNING' => 
@@ -169,7 +165,6 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'Contracts',
       1 => 'av_Payments',
-      2 => 'Quotes',
       2 => 'av_Accounts',
     ),
   ),

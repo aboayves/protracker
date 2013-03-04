@@ -9,6 +9,15 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'CONTACTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'OWNER_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
   'OWNERSHIP_PERCENT' => 
   array (
     'type' => 'decimal',

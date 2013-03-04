@@ -53,8 +53,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
+            'name' => 'ownership_type',
+            'comment' => '',
+            'label' => 'LBL_OWNERSHIP_TYPE',
           ),
         ),
         2 => 
@@ -66,27 +67,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'ownership_type',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP_TYPE',
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
         ),
         3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'ownership',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP',
-          ),
-          1 => 
-          array (
-            'name' => 'category',
-            'comment' => '',
-            'label' => 'LBL_CATEGORY',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (
@@ -96,17 +81,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'asset_class',
+            'name' => 'ownership',
             'comment' => '',
-            'label' => 'LBL_ASSET_CLASS',
+            'label' => 'LBL_OWNERSHIP',
           ),
         ),
-        5 => 
-        array (
-          0 => 'managed_c',
-          1 => '',
-        ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -121,12 +101,7 @@ array (
             'label' => 'LBL_VALUE_DATE',
           ),
         ),
-        7 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        8 => 
+        5 => 
         array (
           0 => 'description',
           1 => 
@@ -138,7 +113,7 @@ array (
             ),
           ),
         ),
-        9 => 
+        6 => 
         array (
           0 => 
           array (
@@ -220,16 +195,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'is_billed',
-            'comment' => '',
-            'label' => 'LBL_IS_BILLED',
-          ),
-          1 => '',
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
             'name' => 'is_eft',
             'comment' => '',
             'label' => 'LBL_IS_EFT',
@@ -241,22 +206,7 @@ array (
             'label' => 'LBL_IS_CHECKWRITING',
           ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'reinvest_interest',
-            'comment' => '',
-            'label' => 'LBL_REINVEST_INTEREST',
-          ),
-          1 => 
-          array (
-            'name' => 'reinvest_dividends',
-            'comment' => '',
-            'label' => 'LBL_REINVEST_DIVIDENDS',
-          ),
-        ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
@@ -264,12 +214,7 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_QUALIFIED_PLAN',
           ),
-          1 => 
-          array (
-            'name' => 'reinvest_capital_gains',
-            'comment' => '',
-            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
-          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
@@ -363,6 +308,31 @@ array (
             'comment' => '',
             'label' => 'LBL_TARGET_CASH',
           ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reinvest_interest',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_INTEREST',
+          ),
+          1 => 
+          array (
+            'name' => 'reinvest_capital_gains',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_CAPITAL_GAINS',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'reinvest_dividends',
+            'comment' => '',
+            'label' => 'LBL_REINVEST_DIVIDENDS',
+          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 
@@ -500,6 +470,12 @@ array (
         array (
           0 => 
           array (
+            'name' => 'is_billed',
+            'comment' => '',
+            'label' => 'LBL_IS_BILLED',
+          ),
+          1 => 
+          array (
             'name' => 'billing_policy_date',
             'comment' => '',
             'label' => 'LBL_BILLING_POLICY_DATE',
@@ -509,36 +485,33 @@ array (
         array (
           0 => 
           array (
-            'name' => 'billed_amount',
+            'name' => 'billing_policy',
             'comment' => '',
-            'label' => 'LBL_BILLED_AMOUNT',
+            'label' => 'LBL_BILLING_POLICY',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'billed_percent',
+            'name' => 'billing_exceptions',
             'comment' => '',
-            'label' => 'LBL_BILLED_PERCENT',
+            'label' => 'LBL_BILLING_EXCEPTIONS',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'billing_policy',
+            'name' => 'billed_amount',
             'comment' => '',
-            'label' => 'LBL_BILLING_POLICY',
+            'label' => 'LBL_BILLED_AMOUNT',
           ),
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'billing_exceptions',
+            'name' => 'billed_percent',
             'comment' => '',
-            'label' => 'LBL_BILLING_EXCEPTIONS',
+            'label' => 'LBL_BILLED_PERCENT',
           ),
         ),
       ),
@@ -548,15 +521,15 @@ array (
         array (
           0 => 
           array (
-            'name' => 'apr',
+            'name' => 'initial_amount',
             'comment' => '',
-            'label' => 'LBL_APR',
+            'label' => 'LBL_INITIAL_AMOUNT',
           ),
           1 => 
           array (
-            'name' => 'apy',
+            'name' => 'apr',
             'comment' => '',
-            'label' => 'LBL_APY',
+            'label' => 'LBL_APR',
           ),
         ),
         1 => 
@@ -569,9 +542,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'pmi',
+            'name' => 'term',
             'comment' => '',
-            'label' => 'LBL_PMI',
+            'label' => 'LBL_TERM',
           ),
         ),
         2 => 
@@ -584,19 +557,42 @@ array (
           ),
           1 => 
           array (
-            'name' => 'payment',
+            'name' => 'pmi',
             'comment' => '',
-            'label' => 'LBL_PAYMENT',
+            'label' => 'LBL_PMI',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'term',
+            'name' => 'payment',
             'comment' => '',
-            'label' => 'LBL_TERM',
+            'label' => 'LBL_PAYMENT',
           ),
+          1 => '',
+        ),
+      ),
+      'lbl_editview_panel10' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'apy',
+            'comment' => '',
+            'label' => 'LBL_APY',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_commission_schedules_name',
+            'label' => 'LBL_AV_COMMISSION_SCHEDULES_NAME',
+          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel6' => 
@@ -608,12 +604,6 @@ array (
             'name' => 'date_opened',
             'comment' => '',
             'label' => 'LBL_DATE_OPENED',
-          ),
-          1 => 
-          array (
-            'name' => 'initial_amount',
-            'comment' => '',
-            'label' => 'LBL_INITIAL_AMOUNT',
           ),
         ),
         1 => 
@@ -683,9 +673,10 @@ array (
         array (
           0 => 
           array (
-            'name' => 'Users_name',
+            'name' => 'users_name',
             'label' => 'LBL_USERS_NAME',
           ),
+          1 => '',
         ),
       ),
     ),

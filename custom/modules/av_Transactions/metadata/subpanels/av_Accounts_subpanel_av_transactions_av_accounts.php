@@ -1,12 +1,28 @@
 <?php
-// created: 2012-12-17 19:50:24
+// created: 2013-03-02 04:37:13
 $subpanel_layout['list_fields'] = array (
-  'name' => 
+  'transaction_date' => 
   array (
-    'vname' => 'LBL_NAME',
-    'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
+    'type' => 'date',
     'default' => true,
+    'vname' => 'LBL_TRANSACTION_DATE',
+    'width' => '10%',
+  ),
+  'type' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_TYPE',
+    'width' => '10%',
+  ),
+  'amount' => 
+  array (
+    'type' => 'currency',
+    'align' => 'right',
+    'default' => true,
+    'vname' => 'LBL_AMOUNT',
+    'currency_format' => true,
+    'width' => '10%',
   ),
   'date_modified' => 
   array (

@@ -1,6 +1,14 @@
 <?php
 $dashletData['av_AccountsDashlet']['searchFields'] = array (
-  'accounts_av_accounts_name' => 
+  'accounts_name' => 
+  array (
+    'default' => '',
+  ),
+  'name' => 
+  array (
+    'default' => '',
+  ),
+  'av_account_types_name' => 
   array (
     'default' => '',
   ),
@@ -10,6 +18,15 @@ $dashletData['av_AccountsDashlet']['searchFields'] = array (
   ),
 );
 $dashletData['av_AccountsDashlet']['columns'] = array (
+  'accounts_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNTS_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
   'name' => 
   array (
     'width' => '20%',
@@ -17,6 +34,15 @@ $dashletData['av_AccountsDashlet']['columns'] = array (
     'link' => true,
     'default' => true,
     'name' => 'name',
+  ),
+  'av_account_types_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+    'id' => 'ACCOUNT_TYPE_ID',
+    'width' => '10%',
+    'default' => true,
   ),
   'account_number' => 
   array (

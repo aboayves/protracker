@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-28 16:54:20
+// created: 2013-03-02 04:38:10
 $mod_strings = array (
   'LBL_DEPENDENT_DROPDOWN' => 'Dependent Dropdown',
   'LBL_DEPENDENT_BOOL' => 'Checkbox',
@@ -18,12 +18,25 @@ $mod_strings = array (
   'LBL_EDITVIEW_PANEL5' => 'Billing',
   'LBL_EDITVIEW_PANEL6' => 'History',
   'LBL_EDITVIEW_PANEL7' => 'Closed',
-  'LBL_EDITVIEW_PANEL8' => 'Misc',
+  'LBL_EDITVIEW_PANEL8' => 'Loan',
   'LBL_AV_TRANSACTIONS' => 'Transactions',
   'LBL_EDITVIEW_PANEL9' => 'Overview',
   'LBL_SOURCE_OF_FUNDS' => 'Source of Funds',
-  'LBL_LIST_NAME' => 'Asset Nickname',
+  'LBL_LIST_NAME' => 'Account Name',
   'LBL_OWNERSHIP_TYPE' => 'Ownership Type',
   'LBL_AV_ACCOUNT_HISTORIES' => 'Account Histories',
   'LBL_ACCOUNTS_NAME' => 'Client',
+  'LBL_NAME' => 'Account Name',
+  'LBL_IS_MARGIN' => 'Margin Account',
+  'LBL_MANAGED' => 'Managed',
+  'LBL_IS_FPOA' => 'FPOA (Custody)',
+  'LBL_IS_CLOSED' => 'Closed',
+  'LBL_EDITVIEW_PANEL10' => 'Misc',
+  'LBL_AV_COMMISSION_SCHEDULES_NAME' => 'Commission Schedule',
+  'LBL_USERS_NAME' => 'Closed By User',
+  'LBL_AV_ACCOUNT_OWNERS' => 'Account Owners',
+  'LBL_AV_BENEFICIARIES' => 'Beneficiaries',
+  'LBL_AV_POSITIONS' => 'Positions',
+  'LBL_AV_TRANSACTION_SCHEDULE' => 'Transaction Schedule',
+  'LBL_AV_TRUSTEES' => 'Trustees',
 );
