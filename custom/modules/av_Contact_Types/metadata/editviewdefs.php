@@ -20,6 +20,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -32,7 +34,13 @@ array (
         ),
         1 => 
         array (
-          0 => 
+          0 => '',
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 'description',
+          1 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -41,9 +49,20 @@ array (
             ),
           ),
         ),
-        2 => 
+        3 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),
