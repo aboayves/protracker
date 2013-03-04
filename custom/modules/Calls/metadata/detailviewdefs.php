@@ -103,7 +103,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_Activity_Types_name',
+            'name' => 'av_activity_types_name',
             'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),
@@ -136,18 +136,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'date_end',
-            'comment' => 'Date is which call is scheduled to (or did) end',
-            'label' => 'LBL_DATE_END',
+            'name' => 'email_reminder_time',
+            'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
+            'label' => 'LBL_EMAIL_REMINDER_TIME',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'duration_hours',
-            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
-            'label' => 'LBL_DURATION',
+            'name' => 'date_end',
+            'comment' => 'Date is which call is scheduled to (or did) end',
+            'label' => 'LBL_DATE_END',
           ),
           1 => 
           array (
@@ -160,9 +160,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'email_reminder_time',
-            'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
-            'label' => 'LBL_EMAIL_REMINDER_TIME',
+            'name' => 'duration_hours',
+            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
+            'label' => 'LBL_DURATION',
           ),
           1 => '',
         ),

@@ -62,6 +62,41 @@ array (
           ),
           1 => 
           array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_start',
+            'type' => 'datetimecombo',
+            'displayParams' => 
+            array (
+              'required' => true,
+              'updateCallback' => 'SugarWidgetScheduler.update_time();',
+            ),
+            'label' => 'LBL_DATE_TIME',
+          ),
+          1 => 
+          array (
             'name' => 'status',
             'displayParams' => 
             array (
@@ -80,35 +115,13 @@ array (
             ),
           ),
         ),
-        1 => 
+        3 => 
         array (
           0 => 
-          array (
-            'name' => 'date_start',
-            'type' => 'datetimecombo',
-            'displayParams' => 
-            array (
-              'required' => true,
-              'updateCallback' => 'SugarWidgetScheduler.update_time();',
-            ),
-            'label' => 'LBL_DATE_TIME',
-          ),
-          1 => 
           array (
             'name' => 'duration_hours',
             'label' => 'LBL_DURATION',
             'customCode' => '{literal}<script type="text/javascript">function isValidDuration() { form = document.getElementById(\'EditView\'); if ( form.duration_hours.value + form.duration_minutes.value <= 0 ) { alert(\'{/literal}{$MOD.NOTICE_DURATION_TIME}{literal}\'); return false; } return true; }</script>{/literal}<input id="duration_hours" name="duration_hours" tabindex="1" size="2" maxlength="2" type="text" value="{$fields.duration_hours.value}" onkeyup="SugarWidgetScheduler.update_time();"/>{$fields.duration_minutes.value}&nbsp;<span class="dateFormat">{$MOD.LBL_HOURS_MINUTES}',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'name',
             'displayParams' => 
             array (
               'required' => true,
@@ -121,7 +134,7 @@ array (
             'label' => 'LBL_REMINDER',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
