@@ -1,0 +1,57 @@
+<?php
+// created: 2013-03-04 19:41:20
+$subpanel_layout['list_fields'] = array (
+  'name' => 
+  array (
+    'vname' => 'LBL_NAME',
+    'widget_class' => 'SubPanelDetailViewLink',
+    'width' => '45%',
+    'default' => true,
+  ),
+  'status' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_STATUS',
+    'width' => '10%',
+  ),
+  'priority' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_PRIORITY',
+    'width' => '10%',
+  ),
+  'assigned_user_name' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'vname' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Users',
+    'target_record_key' => 'assigned_user_id',
+  ),
+  'date_modified' => 
+  array (
+    'vname' => 'LBL_DATE_MODIFIED',
+    'width' => '45%',
+    'default' => true,
+  ),
+  'edit_button' => 
+  array (
+    'widget_class' => 'SubPanelEditButton',
+    'module' => 'av_Groups',
+    'width' => '4%',
+    'default' => true,
+  ),
+  'remove_button' => 
+  array (
+    'widget_class' => 'SubPanelRemoveButton',
+    'module' => 'av_Groups',
+    'width' => '5%',
+    'default' => true,
+  ),
+);
