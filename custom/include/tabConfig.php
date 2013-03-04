@@ -1,5 +1,5 @@
 <?php
-// created: 2013-03-01 20:21:13
+// created: 2013-03-03 03:39:10
 $GLOBALS['tabStructure'] = array (
   'LBL_TABGROUP_ACTIVITIES' => 
   array (
@@ -13,6 +13,7 @@ $GLOBALS['tabStructure'] = array (
       4 => 'Emails',
       5 => 'av_Workflow',
       6 => 'av_Task_Template',
+      7 => 'av_Activity_Types',
     ),
   ),
   'LBL_TABGROUP_DOCUMENT_MANAGEMENT' => 
