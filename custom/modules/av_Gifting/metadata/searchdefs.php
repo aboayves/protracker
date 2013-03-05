@@ -12,6 +12,43 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'accounts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'id' => 'ACCOUNT_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'accounts_name',
+      ),
+    ),
+    'advanced_search' => 
+    array (
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'recipient' => 
+      array (
+        'type' => 'varchar',
+        'default' => true,
+        'label' => 'LBL_RECIPIENT',
+        'width' => '10%',
+        'name' => 'recipient',
+      ),
+      'value' => 
+      array (
+        'type' => 'currency',
+        'align' => 'right',
+        'default' => true,
+        'label' => 'LBL_VALUE',
+        'currency_format' => true,
+        'width' => '10%',
+        'name' => 'value',
+      ),
       'date_of_gift' => 
       array (
         'type' => 'date',
@@ -19,38 +56,6 @@ array (
         'label' => 'LBL_DATE_OF_GIFT',
         'width' => '10%',
         'name' => 'date_of_gift',
-      ),
-      'date_709_filed' => 
-      array (
-        'type' => 'date',
-        'default' => true,
-        'label' => 'LBL_DATE_709_FILED',
-        'width' => '10%',
-        'name' => 'date_709_filed',
-      ),
-    ),
-    'advanced_search' => 
-    array (
-      0 => 'name',
-      1 => 
-      array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
-        'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
-      ),
-      2 => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
       ),
     ),
   ),

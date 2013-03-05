@@ -29,11 +29,11 @@ array (
       array (
         0 => 
         array (
+          0 => 'name',
         ),
         1 => 
         array (
-          0 => 'name',
-          1 => 
+          0 => 
           array (
             'name' => 'recipient',
             'comment' => '',
@@ -41,6 +41,19 @@ array (
           ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -54,10 +67,6 @@ array (
             'comment' => '',
             'label' => 'LBL_VALUE',
           ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
         ),
         4 => 
         array (
@@ -82,18 +91,11 @@ array (
             'comment' => '',
             'label' => 'LBL_DATE_CRUMMEY_SENT',
           ),
-          1 => 'assigned_user_name',
+          1 => '',
         ),
         6 => 
         array (
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
+          0 => 'description',
         ),
         7 => 
         array (
