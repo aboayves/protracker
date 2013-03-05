@@ -31,3 +31,18 @@
 .listViewPaginationTdS1, .listViewButtons, .search_form , .tablist, .utilsLink, .button, .tabForm{
     display: none !important;
 }
+.error, .SugarActionMenu, .star{
+	display:none !important;
+}
+
+div #content{
+	margin-left:0px !important;
+}
+
+div#content > table tr td.contentPanel .contentPanelData{
+	padding: 3px !important;
+}
+
+div#content table tr td.contentPanel{
+	border-left:none !importatn;
+}
