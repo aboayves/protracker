@@ -91,7 +91,10 @@ class GroupedTabStructure
 		}
 				
         $modList = array_merge($modList,$moduleExtraMenu);
-                
+        
+		//Allowing Employees module
+		$modList["Employees"] = "Employees";
+		
         /* Only return modules which exists in the modList */
         foreach($tabStructure as $mainTab => $subModules)
         {
