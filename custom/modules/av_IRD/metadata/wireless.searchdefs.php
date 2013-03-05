@@ -12,33 +12,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'accounts_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_ACCOUNTS_NAME',
-        'id' => 'ACCOUNT_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'accounts_name',
-      ),
-      'income_date' => 
-      array (
-        'type' => 'date',
-        'default' => true,
-        'label' => 'LBL_INCOME_DATE',
-        'width' => '10%',
-        'name' => 'income_date',
-      ),
-    ),
-    'advanced_search' => 
-    array (
-      'name' => 
-      array (
-        'name' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
       'contacts_name' => 
       array (
         'type' => 'relate',
@@ -54,9 +27,9 @@ array (
         'type' => 'relate',
         'link' => true,
         'label' => 'LBL_ACCOUNTS_NAME',
+        'id' => 'ACCOUNT_ID',
         'width' => '10%',
         'default' => true,
-        'id' => 'ACCOUNT_ID',
         'name' => 'accounts_name',
       ),
       'income_date' => 
@@ -78,11 +51,14 @@ array (
         'name' => 'amount',
       ),
     ),
+    'advanced_search' => 
+    array (
+      0 => 'name',
+    ),
   ),
   'templateMeta' => 
   array (
-    'maxColumns' => '3',
-    'maxColumnsBasic' => '4',
+    'maxColumns' => '1',
     'widths' => 
     array (
       'label' => '10',

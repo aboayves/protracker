@@ -4,7 +4,7 @@ $listViewDefs [$module_name] =
 array (
   'NAME' => 
   array (
-    'width' => '15%',
+    'width' => '32%',
     'label' => 'LBL_NAME',
     'default' => true,
     'link' => true,
@@ -30,6 +30,7 @@ array (
   'AMOUNT' => 
   array (
     'type' => 'currency',
+    'align' => 'right',
     'default' => true,
     'label' => 'LBL_AMOUNT',
     'currency_format' => true,
@@ -41,14 +42,6 @@ array (
     'default' => true,
     'label' => 'LBL_INCOME_DATE',
     'width' => '10%',
-  ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '20%',
-    'default' => false,
   ),
 );
 ?>

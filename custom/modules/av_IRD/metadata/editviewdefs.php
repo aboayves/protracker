@@ -33,7 +33,16 @@ array (
         ),
         1 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
         ),
         2 => 
         array (
@@ -52,15 +61,7 @@ array (
         ),
         3 => 
         array (
-          0 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-          1 => 'assigned_user_name',
+          0 => 'description',
         ),
         4 => 
         array (
