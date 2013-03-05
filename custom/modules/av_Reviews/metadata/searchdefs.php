@@ -15,6 +15,16 @@ array (
         'default' => true,
         'name' => 'name',
       ),
+      'accounts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'id' => 'ACCOUNT_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'accounts_name',
+      ),
       'type' => 
       array (
         'type' => 'enum',
@@ -30,22 +40,6 @@ array (
         'type' => 'bool',
         'default' => true,
         'width' => '10%',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'review_date' => 
-      array (
-        'type' => 'date',
-        'default' => true,
-        'label' => 'LBL_REVIEW_DATE',
-        'width' => '10%',
-        'name' => 'review_date',
       ),
     ),
     'advanced_search' => 
@@ -59,6 +53,16 @@ array (
         'default' => true,
         'name' => 'name',
       ),
+      'accounts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'width' => '10%',
+        'default' => true,
+        'id' => 'ACCOUNT_ID',
+        'name' => 'accounts_name',
+      ),
       'type' => 
       array (
         'type' => 'enum',
@@ -67,38 +71,6 @@ array (
         'width' => '10%',
         'name' => 'type',
       ),
-      'current_user_only' => 
-      array (
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-        'name' => 'current_user_only',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'assigned_user_id' => 
-      array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
-        'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
-        'default' => true,
-        'width' => '10%',
-      ),
       'review_date' => 
       array (
         'type' => 'date',
@@ -106,6 +78,14 @@ array (
         'label' => 'LBL_REVIEW_DATE',
         'width' => '10%',
         'name' => 'review_date',
+      ),
+      'current_user_only' => 
+      array (
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+        'name' => 'current_user_only',
       ),
     ),
   ),

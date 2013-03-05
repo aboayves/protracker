@@ -31,7 +31,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'Accounts_name',
+            'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
           1 => 'assigned_user_name',
