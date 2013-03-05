@@ -1,3 +1,5 @@
+<?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -25,24 +27,29 @@
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-#dcmenutop, #dcmenu, .moduleListPanel, .modulesdrager, #header, #mass_update_table, #massupdate_form, #massupdate_header, #leftHandle, .subpanelTablist {
-    display: none !important;
-}
-.listViewPaginationTdS1, .listViewButtons, .search_form , .tablist, .utilsLink, .button, .tabForm{
-    display: none !important;
-}
-.error, .SugarActionMenu, .star{
-	display:none !important;
-}
 
-div #content{
-	margin-left:0px !important;
-}
-
-div#content > table tr td.contentPanel .contentPanelData{
-	padding: 3px !important;
-}
-
-div#content table tr td.contentPanel{
-	border-left:none !importatn;
-}
+$popupMeta = array(
+	'moduleMain' => 'User',
+	'varName' => 'USER',
+	'orderBy' => 'user_name',
+	'whereClauses' => array(
+		'first_name' => 'users.first_name',
+		'last_name' => 'users.last_name',
+		'user_name' => 'users.user_name',
+		'is_group' => 'users.is_group',
+	),
+	'whereStatement'=> " users.status = 'Active' AND users.portal_only= '0' AND users.id
+							  IN (								  
+									SELECT users.id
+									FROM users
+									RIGHT JOIN acl_roles_users ON ( acl_roles_users.user_id = users.id AND acl_roles_users.deleted =0 )
+									RIGHT JOIN acl_roles ON ( acl_roles.id = acl_roles_users.role_id AND acl_roles.deleted =0 
+								  )
+							  )",
+	'searchInputs' => array(
+		'first_name',
+		'last_name',
+		'user_name',
+		'is_group',
+	),
+);
