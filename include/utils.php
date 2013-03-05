@@ -829,6 +829,14 @@ function getUserArrayFromFullName($args, $hide_portal_users = false) {
 	    $query .= " portal_only=0 AND ";
 	}
 	$query .= $inClause;
+	$query .=  "AND users.id
+							  IN (								  
+									SELECT users.id
+									FROM users
+									RIGHT JOIN acl_roles_users ON ( acl_roles_users.user_id = users.id AND acl_roles_users.deleted =0 )
+									RIGHT JOIN acl_roles ON ( acl_roles.id = acl_roles_users.role_id AND acl_roles.deleted =0 
+								  )
+							  )";
 	$query .= " ORDER BY last_name ASC";
 
 	$r = $db->query($query);
