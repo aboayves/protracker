@@ -9,6 +9,24 @@ array (
     'default' => true,
     'link' => true,
   ),
+  'CONTACTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'CONTACT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
   'DESCRIPTION' => 
   array (
     'type' => 'text',
@@ -31,37 +49,6 @@ array (
     'default' => true,
     'label' => 'LBL_DATE_CREDIT_USED',
     'width' => '15%',
-  ),
-  'ACCOUNTS_AV_GIFT_TAX_CREDITS_1_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_GIFT_TAX_CREDITS_1_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_GIFT_TAX_CREDITS_1ACCOUNTS_IDA',
-    'width' => '15%',
-    'default' => true,
-  ),
-  'DATE_ENTERED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_ENTERED',
-    'width' => '15%',
-    'default' => true,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
-  ),
-  'CONTACT_ID' => 
-  array (
-    'type' => 'int',
-    'default' => false,
-    'label' => 'LBL_CONTACT_ID',
-    'width' => '10%',
   ),
 );
 ?>
