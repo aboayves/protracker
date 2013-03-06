@@ -154,7 +154,14 @@ class SugarController{
 	 */
 	function SugarController(){
 	}
-
+	
+	public function action_save_cstm(){
+		
+		$this->view = "";
+		$this->pre_save();		
+		$this->bean->save();
+		echo $output = json_encode(array('id'=>$this->bean->id, 'name'=>$this->bean->name));
+	}
 	/**
 	 * Called from SugarApplication and is meant to perform the setup operations
 	 * on the controller.

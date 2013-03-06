@@ -18,4 +18,5 @@ $sugar_config['http_referer']['list']['0'] = '192.168.1.59';
 $sugar_config['logger']['level'] = 'error';
 $sugar_config['logger']['file']['suffix'] = '';
 $sugar_config['stack_trace_errors'] = true;
+$sugar_config['http_referer']['actions'] =array( 'index', 'ListView', 'DetailView', 'EditView', 'oauth', 'Authenticate', 'Login', 'repair', 'index', 'ListView', 'DetailView', 'EditView', 'oauth', 'authorize', 'Authenticate', 'Login', 'SupportPortal', 'save_cstm' ); 
 /***CONFIGURATOR***/
