@@ -6,62 +6,23 @@ array (
   array (
     'basic_search' => 
     array (
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'name' => 
-      array (
-        'name' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'accounts_av_services_1_name' => 
+      'accounts_name' => 
       array (
         'type' => 'relate',
         'link' => true,
-        'label' => 'LBL_ACCOUNTS_AV_SERVICES_1_FROM_ACCOUNTS_TITLE',
-        'id' => 'ACCOUNTS_AV_SERVICES_1ACCOUNTS_IDA',
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'id' => 'ACCOUNT_ID',
         'width' => '10%',
         'default' => true,
-        'name' => 'accounts_av_services_1_name',
+        'name' => 'accounts_name',
       ),
-      'description' => 
+      'service_type' => 
       array (
-        'type' => 'text',
-        'label' => 'LBL_DESCRIPTION',
-        'sortable' => false,
-        'width' => '10%',
-        'default' => true,
-        'name' => 'description',
-      ),
-      'assigned_user_id' => 
-      array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
         'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
-        'width' => '10%',
         'default' => true,
+        'label' => 'LBL_SERVICE_TYPE',
+        'width' => '10%',
+        'name' => 'service_type',
       ),
       'frequency' => 
       array (
@@ -71,56 +32,34 @@ array (
         'width' => '10%',
         'name' => 'frequency',
       ),
-    ),
-    'advanced_search' => 
-    array (
       'current_user_only' => 
       array (
+        'name' => 'current_user_only',
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
         'default' => true,
         'width' => '10%',
-        'name' => 'current_user_only',
       ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'name' => 
-      array (
-        'name' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'accounts_av_services_1_name' => 
+    ),
+    'advanced_search' => 
+    array (
+      'accounts_name' => 
       array (
         'type' => 'relate',
         'link' => true,
-        'label' => 'LBL_ACCOUNTS_AV_SERVICES_1_FROM_ACCOUNTS_TITLE',
+        'label' => 'LBL_ACCOUNTS_NAME',
         'width' => '10%',
         'default' => true,
-        'id' => 'ACCOUNTS_AV_SERVICES_1ACCOUNTS_IDA',
-        'name' => 'accounts_av_services_1_name',
+        'id' => 'ACCOUNT_ID',
+        'name' => 'accounts_name',
       ),
-      'assigned_user_id' => 
+      'service_type' => 
       array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
         'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
         'default' => true,
+        'label' => 'LBL_SERVICE_TYPE',
         'width' => '10%',
+        'name' => 'service_type',
       ),
       'frequency' => 
       array (
@@ -138,6 +77,66 @@ array (
         'width' => '10%',
         'name' => 'report_name',
       ),
+      'report_format' => 
+      array (
+        'type' => 'varchar',
+        'default' => true,
+        'label' => 'LBL_REPORT_FORMAT',
+        'width' => '10%',
+        'name' => 'report_format',
+      ),
+      'hourly_rate' => 
+      array (
+        'type' => 'currency',
+        'align' => 'right',
+        'default' => true,
+        'label' => 'LBL_HOURLY_RATE',
+        'currency_format' => true,
+        'width' => '10%',
+        'name' => 'hourly_rate',
+      ),
+      'flat_fee' => 
+      array (
+        'type' => 'currency',
+        'align' => 'right',
+        'default' => true,
+        'label' => 'LBL_FLAT_FEE',
+        'currency_format' => true,
+        'width' => '10%',
+        'name' => 'flat_fee',
+      ),
+      'date_start' => 
+      array (
+        'type' => 'date',
+        'default' => true,
+        'label' => 'LBL_DATE_START',
+        'width' => '10%',
+        'name' => 'date_start',
+      ),
+      'date_end' => 
+      array (
+        'type' => 'date',
+        'default' => true,
+        'label' => 'LBL_DATE_END',
+        'width' => '10%',
+        'name' => 'date_end',
+      ),
+      'current_user_only' => 
+      array (
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+        'name' => 'current_user_only',
+      ),
+      'favorites_only' => 
+      array (
+        'name' => 'favorites_only',
+        'label' => 'LBL_FAVORITES_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+      ),
       'description' => 
       array (
         'type' => 'text',
@@ -146,14 +145,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'description',
-      ),
-      'report_format' => 
-      array (
-        'type' => 'varchar',
-        'default' => true,
-        'label' => 'LBL_REPORT_FORMAT',
-        'width' => '10%',
-        'name' => 'report_format',
       ),
     ),
   ),

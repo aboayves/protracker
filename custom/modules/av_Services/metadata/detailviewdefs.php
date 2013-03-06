@@ -39,14 +39,39 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'description',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'service_type',
+            'comment' => '',
+            'label' => 'LBL_SERVICE_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'frequency',
+            'comment' => '',
+            'label' => 'LBL_FREQUENCY',
+          ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'service_group',
+            'comment' => '',
+            'label' => 'LBL_SERVICE_GROUP',
+          ),
+          1 => '',
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -61,17 +86,22 @@ array (
             'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
-            'name' => 'frequency',
+            'name' => 'hourly_rate',
             'comment' => '',
-            'label' => 'LBL_FREQUENCY',
+            'label' => 'LBL_HOURLY_RATE',
           ),
-          1 => 'team_name',
+          1 => 
+          array (
+            'name' => 'flat_fee',
+            'comment' => '',
+            'label' => 'LBL_FLAT_FEE',
+          ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -86,7 +116,12 @@ array (
             'label' => 'LBL_DATE_END',
           ),
         ),
-        5 => 
+        6 => 
+        array (
+          0 => 'description',
+          1 => 'team_name',
+        ),
+        7 => 
         array (
           0 => 
           array (

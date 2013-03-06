@@ -30,14 +30,19 @@ array (
         array (
           0 => 
           array (
-            'name' => 'accounts_av_services_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_SERVICES_1_FROM_ACCOUNTS_TITLE',
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
           ),
           1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'service_type',
+            'comment' => '',
+            'label' => 'LBL_SERVICE_TYPE',
+          ),
           1 => 
           array (
             'name' => 'frequency',
@@ -47,17 +52,45 @@ array (
         ),
         2 => 
         array (
-          0 => 'description',
-          1 => 
+          0 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
+            'name' => 'service_group',
+            'comment' => '',
+            'label' => 'LBL_SERVICE_GROUP',
           ),
+          1 => '',
         ),
         3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'hourly_rate',
+            'comment' => '',
+            'label' => 'LBL_HOURLY_RATE',
+          ),
+          1 => 
+          array (
+            'name' => 'flat_fee',
+            'comment' => '',
+            'label' => 'LBL_FLAT_FEE',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_start',
+            'comment' => '',
+            'label' => 'LBL_DATE_START',
+          ),
+          1 => 
+          array (
+            'name' => 'date_end',
+            'comment' => '',
+            'label' => 'LBL_DATE_END',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -72,7 +105,19 @@ array (
             'label' => 'LBL_REPORT_FORMAT',
           ),
         ),
-        4 => 
+        6 => 
+        array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
+        ),
+        7 => 
         array (
           0 => 
           array (
