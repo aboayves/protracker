@@ -28,21 +28,19 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_av_ird_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_IRD_1_FROM_ACCOUNTS_TITLE',
-          ),
-          1 => 'name',
+          0 => 'name',
         ),
         1 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
           1 => 
           array (
-            'name' => 'income_date',
-            'comment' => '',
-            'label' => 'LBL_INCOME_DATE',
+            'name' => 'accounts_av_ird_1_name',
+            'label' => 'LBL_ACCOUNTS_AV_IRD_1_FROM_ACCOUNTS_TITLE',
           ),
         ),
         2 => 
@@ -55,26 +53,16 @@ array (
           ),
           1 => 
           array (
-            'name' => 'contacts_av_ird_1_name',
-            'label' => 'LBL_CONTACTS_AV_IRD_1_FROM_CONTACTS_TITLE',
+            'name' => 'income_date',
+            'comment' => '',
+            'label' => 'LBL_INCOME_DATE',
           ),
         ),
-      ),
-      'lbl_quickcreate_panel1' => 
-      array (
-        0 => 
+        3 => 
         array (
-          0 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-          1 => 'assigned_user_name',
+          0 => 'description',
         ),
-        1 => 
+        4 => 
         array (
           0 => 
           array (

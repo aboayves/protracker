@@ -27,22 +27,23 @@ $dashletData['av_GiftingDashlet']['columns'] = array (
     'default' => true,
     'name' => 'name',
   ),
-  'description' => 
+  'contacts_name' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '20%',
-    'default' => true,
-    'name' => 'description',
-  ),
-  'date_of_gift' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_DATE_OF_GIFT',
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'CONTACT_ID',
     'width' => '10%',
-    'name' => 'date_of_gift',
+    'default' => true,
+  ),
+  'accounts_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
+    'default' => true,
   ),
   'recipient' => 
   array (
@@ -52,21 +53,22 @@ $dashletData['av_GiftingDashlet']['columns'] = array (
     'width' => '10%',
     'name' => 'recipient',
   ),
-  'date_709_filed' => 
+  'date_of_gift' => 
   array (
     'type' => 'date',
     'default' => true,
-    'label' => 'LBL_DATE_709_FILED',
-    'width' => '15%',
-    'name' => 'date_709_filed',
-  ),
-  'is_709_required' => 
-  array (
-    'type' => 'bool',
-    'default' => true,
-    'label' => 'LBL_IS_709_REQUIRED',
+    'label' => 'LBL_DATE_OF_GIFT',
     'width' => '10%',
-    'name' => 'is_709_required',
+    'name' => 'date_of_gift',
+  ),
+  'value' => 
+  array (
+    'type' => 'currency',
+    'default' => true,
+    'label' => 'LBL_VALUE',
+    'currency_format' => true,
+    'width' => '10%',
+    'name' => 'value',
   ),
   'date_modified' => 
   array (
@@ -81,6 +83,31 @@ $dashletData['av_GiftingDashlet']['columns'] = array (
     'label' => 'LBL_CREATED',
     'name' => 'created_by',
     'default' => false,
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '20%',
+    'default' => false,
+    'name' => 'description',
+  ),
+  'is_709_required' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_IS_709_REQUIRED',
+    'width' => '10%',
+    'name' => 'is_709_required',
+  ),
+  'date_709_filed' => 
+  array (
+    'type' => 'date',
+    'default' => false,
+    'label' => 'LBL_DATE_709_FILED',
+    'width' => '15%',
+    'name' => 'date_709_filed',
   ),
   'assigned_user_name' => 
   array (
@@ -103,15 +130,6 @@ $dashletData['av_GiftingDashlet']['columns'] = array (
     'label' => 'LBL_DATE_ENTERED',
     'default' => false,
     'name' => 'date_entered',
-  ),
-  'value' => 
-  array (
-    'type' => 'currency',
-    'default' => false,
-    'label' => 'LBL_VALUE',
-    'currency_format' => true,
-    'width' => '10%',
-    'name' => 'value',
   ),
   'team_name' => 
   array (

@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -38,13 +40,40 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'contact_id',
+            'label' => 'LBL_CONTACT_ID',
+          ),
+          1 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'credit_amount',
+            'comment' => '',
+            'label' => 'LBL_CREDIT_AMOUNT',
+          ),
+          1 => 
+          array (
+            'name' => 'date_credit_used',
+            'comment' => '',
+            'label' => 'LBL_DATE_CREDIT_USED',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -58,10 +87,6 @@ array (
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
         ),
       ),
     ),

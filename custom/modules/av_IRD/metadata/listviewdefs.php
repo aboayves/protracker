@@ -2,15 +2,6 @@
 $module_name = 'av_IRD';
 $listViewDefs [$module_name] = 
 array (
-  'ACCOUNTS_AV_IRD_1_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_IRD_1_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_IRD_1ACCOUNTS_IDA',
-    'width' => '15%',
-    'default' => true,
-  ),
   'NAME' => 
   array (
     'width' => '15%',
@@ -18,12 +9,22 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'DESCRIPTION' => 
+  'CONTACTS_NAME' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '20%',
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'CONTACT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
     'default' => true,
   ),
   'AMOUNT' => 
@@ -41,20 +42,13 @@ array (
     'label' => 'LBL_INCOME_DATE',
     'width' => '10%',
   ),
-  'DATE_ENTERED' => 
+  'DESCRIPTION' => 
   array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_ENTERED',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '9%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '20%',
+    'default' => false,
   ),
 );
 ?>

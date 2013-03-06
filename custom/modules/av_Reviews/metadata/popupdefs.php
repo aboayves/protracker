@@ -5,17 +5,19 @@ $popupMeta = array (
     'orderBy' => 'av_reviews.name',
     'whereClauses' => array (
   'current_user_only' => 'av_reviews.current_user_only',
-  'favorites_only' => 'av_reviews.favorites_only',
-  'accounts_av_reviews_1_name' => 'av_reviews.accounts_av_reviews_1_name',
-  'assigned_user_id' => 'av_reviews.assigned_user_id',
   'review_date' => 'av_reviews.review_date',
+  'name' => 'av_reviews.name',
+  'accounts_name' => 'av_reviews.accounts_name',
+  'type' => 'av_reviews.type',
+  'score' => 'av_reviews.score',
 ),
     'searchInputs' => array (
   4 => 'current_user_only',
-  5 => 'favorites_only',
-  6 => 'accounts_av_reviews_1_name',
-  7 => 'assigned_user_id',
   8 => 'review_date',
+  9 => 'name',
+  10 => 'accounts_name',
+  11 => 'type',
+  12 => 'score',
 ),
     'searchdefs' => array (
   'current_user_only' => 
@@ -25,36 +27,29 @@ $popupMeta = array (
     'width' => '10%',
     'name' => 'current_user_only',
   ),
-  'favorites_only' => 
+  'name' => 
   array (
-    'name' => 'favorites_only',
-    'label' => 'LBL_FAVORITES_FILTER',
-    'type' => 'bool',
+    'type' => 'name',
+    'link' => true,
+    'label' => 'LBL_NAME',
     'width' => '10%',
+    'name' => 'name',
   ),
-  'accounts_av_reviews_1_name' => 
+  'accounts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_REVIEWS_1_FROM_ACCOUNTS_TITLE',
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
     'width' => '10%',
-    'id' => 'ACCOUNTS_AV_REVIEWS_1ACCOUNTS_IDA',
-    'name' => 'accounts_av_reviews_1_name',
+    'name' => 'accounts_name',
   ),
-  'assigned_user_id' => 
+  'type' => 
   array (
-    'name' => 'assigned_user_id',
-    'label' => 'LBL_ASSIGNED_TO',
     'type' => 'enum',
-    'function' => 
-    array (
-      'name' => 'get_user_array',
-      'params' => 
-      array (
-        0 => false,
-      ),
-    ),
+    'label' => 'LBL_TYPE',
     'width' => '10%',
+    'name' => 'type',
   ),
   'review_date' => 
   array (
@@ -62,6 +57,13 @@ $popupMeta = array (
     'label' => 'LBL_REVIEW_DATE',
     'width' => '10%',
     'name' => 'review_date',
+  ),
+  'score' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SCORE',
+    'width' => '10%',
+    'name' => 'score',
   ),
 ),
     'listviewdefs' => array (
@@ -72,6 +74,16 @@ $popupMeta = array (
     'default' => true,
     'link' => true,
     'name' => 'name',
+  ),
+  'ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'accounts_name',
   ),
   'REVIEW_DATE' => 
   array (
@@ -105,23 +117,6 @@ $popupMeta = array (
     'label' => 'LBL_SCORE',
     'width' => '10%',
     'name' => 'score',
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '9%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
-    'name' => 'assigned_user_name',
-  ),
-  'DATE_MODIFIED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_MODIFIED',
-    'width' => '8%',
-    'default' => true,
-    'name' => 'date_modified',
   ),
 ),
 );

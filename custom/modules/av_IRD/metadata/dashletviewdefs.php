@@ -1,34 +1,27 @@
 <?php
 $dashletData['av_IRDDashlet']['searchFields'] = array (
-  'date_entered' => 
+  'name' => 
   array (
     'default' => '',
   ),
-  'date_modified' => 
+  'contacts_name' => 
   array (
     'default' => '',
   ),
-  'team_id' => 
+  'description' => 
   array (
     'default' => '',
   ),
-  'assigned_user_id' => 
+  'income_date' => 
   array (
-    'type' => 'assigned_user_name',
-    'default' => 'Deb Giffen',
+    'default' => '',
+  ),
+  'amount' => 
+  array (
+    'default' => '',
   ),
 );
 $dashletData['av_IRDDashlet']['columns'] = array (
-  'accounts_av_ird_1_name' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_IRD_1_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_IRD_1ACCOUNTS_IDA',
-    'width' => '15%',
-    'default' => true,
-    'name' => 'accounts_av_ird_1_name',
-  ),
   'name' => 
   array (
     'width' => '15%',
@@ -37,14 +30,25 @@ $dashletData['av_IRDDashlet']['columns'] = array (
     'default' => true,
     'name' => 'name',
   ),
-  'description' => 
+  'contacts_name' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '20%',
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'CONTACT_ID',
+    'width' => '10%',
     'default' => true,
-    'name' => 'description',
+    'name' => 'contacts_name',
+  ),
+  'accounts_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'accounts_name',
   ),
   'income_date' => 
   array (
@@ -62,13 +66,6 @@ $dashletData['av_IRDDashlet']['columns'] = array (
     'currency_format' => true,
     'width' => '10%',
     'name' => 'amount',
-  ),
-  'date_entered' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_DATE_ENTERED',
-    'default' => true,
-    'name' => 'date_entered',
   ),
   'date_modified' => 
   array (

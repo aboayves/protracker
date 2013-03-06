@@ -29,14 +29,30 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'recipient',
             'comment' => '',
             'label' => 'LBL_RECIPIENT',
           ),
         ),
-        1 => 
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -51,17 +67,7 @@ array (
             'label' => 'LBL_VALUE',
           ),
         ),
-        2 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'date_crummey_sent',
-            'comment' => '',
-            'label' => 'LBL_DATE_CRUMMEY_SENT',
-          ),
-        ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -76,35 +82,19 @@ array (
             'label' => 'LBL_DATE_709_FILED',
           ),
         ),
-      ),
-      'lbl_quickcreate_panel1' => 
-      array (
-        0 => 
+        5 => 
         array (
           0 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
+            'name' => 'date_crummey_sent',
+            'comment' => '',
+            'label' => 'LBL_DATE_CRUMMEY_SENT',
           ),
-          1 => 'assigned_user_name',
+          1 => '',
         ),
-        1 => 
+        6 => 
         array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
+          0 => 'description',
         ),
       ),
     ),
