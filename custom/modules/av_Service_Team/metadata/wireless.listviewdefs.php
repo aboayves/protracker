@@ -8,14 +8,19 @@ array (
     'default' => true,
     'label' => 'LBL_ROLE',
     'width' => '10%',
-    'link' => true,
   ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '9%',
     'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => true,
   ),
   'ACCOUNTS_NAME' => 
@@ -24,14 +29,6 @@ array (
     'link' => true,
     'label' => 'LBL_ACCOUNTS_NAME',
     'id' => 'ACCOUNT_ID',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
     'width' => '10%',
     'default' => true,
   ),

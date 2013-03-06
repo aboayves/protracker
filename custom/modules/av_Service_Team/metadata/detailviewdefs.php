@@ -30,6 +30,8 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -37,14 +39,30 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
         ),
         1 => 
         array (
-          0 => 'team_name',
+          0 => 
+          array (
+            'name' => 'role',
+            'comment' => '',
+            'label' => 'LBL_ROLE',
+          ),
         ),
         2 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
+        3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -58,10 +76,6 @@ array (
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-        3 => 
-        array (
-          0 => 'description',
         ),
       ),
     ),

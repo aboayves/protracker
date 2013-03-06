@@ -2,11 +2,11 @@
 $module_name = 'av_Service_Team';
 $viewdefs [$module_name] = 
 array (
-  'QuickCreate' => 
+  'EditView' => 
   array (
     'templateMeta' => 
     array (
-      'maxColumns' => '2',
+      'maxColumns' => '1',
       'widths' => 
       array (
         0 => 
@@ -24,32 +24,34 @@ array (
     ),
     'panels' => 
     array (
-      'default' => 
+      0 => 
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'accounts_name',
-            'label' => 'LBL_ACCOUNTS_NAME',
-          ),
+          'name' => 'role',
+          'comment' => '',
+          'label' => 'LBL_ROLE',
         ),
-        1 => 
+      ),
+      1 => 
+      array (
+        0 => 'assigned_user_name',
+      ),
+      2 => 
+      array (
+        0 => 
         array (
-          0 => 
-          array (
-            'name' => 'role',
-            'comment' => '',
-            'label' => 'LBL_ROLE',
-          ),
+          'name' => 'accounts_name',
+          'label' => 'LBL_ACCOUNTS_NAME',
         ),
-        2 => 
+      ),
+      3 => 
+      array (
+        0 => 
         array (
-          0 => 'assigned_user_name',
-        ),
-        3 => 
-        array (
-          0 => 'description',
+          'name' => 'description',
+          'comment' => 'Full text of the note',
+          'label' => 'LBL_DESCRIPTION',
         ),
       ),
     ),
