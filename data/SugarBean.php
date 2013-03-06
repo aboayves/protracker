@@ -4334,7 +4334,7 @@ function save_relationship_changes($is_update, $exclude=array())
 
         foreach($this->field_defs as $field)
         {
-            if(0 == strcmp($field['type'],'relate') && !empty($field['module']))
+            if((0 == strcmp($field['type'],'relate') || 0 == strcmp($field['type'],'relate_cstm'))&& !empty($field['module']))
             {
                 $name = $field['name'];
                 if(empty($this->$name))
