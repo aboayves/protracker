@@ -47,7 +47,6 @@ class AccountsViewDetail extends ViewDetail
 			$min =  ($graph_data_row['managed_assets']<$min) ? $graph_data_row['managed_assets'] : $min;
 			$min =  ($graph_data_row['worth']<$min) ? $graph_data_row['worth'] : $min;
 		}
-//print '<pre>';print_r($sql);die();
 	
 		//$graph_data = array();
 		$data4graph = array();
@@ -59,8 +58,8 @@ class AccountsViewDetail extends ViewDetail
 			$year++;
 			for($i=1; $i<=12; $i++)
 			{
-				$graph_data_db[$year][$i]['worth'] =($graph_data_db[$year][$i]['worth']=='') ? $last_value: $graph_data_db[$year][$i]['worth'];
-				$graph_data_db[$year][$i]['managed_assets'] =($graph_data_db[$year][$i]['managed_assets']=='') ? $last_value_managed : $graph_data_db[$year][$i]['managed_assets'];
+				$graph_data_db[$year][$i]['worth'] =(empty($graph_data_db[$year][$i]['worth'])) ? $last_value: $graph_data_db[$year][$i]['worth'];
+				$graph_data_db[$year][$i]['managed_assets'] =(empty($graph_data_db[$year][$i]['managed_assets'])) ? $last_value_managed : $graph_data_db[$year][$i]['managed_assets'];
 				
 //				$graph_data[$year][$i] = array('worth'=>$graph_data_db[$year][$i]['worth'],'managed_assets'=>$graph_data_db[$year][$i]['managed_assets']);
 				
@@ -75,12 +74,11 @@ class AccountsViewDetail extends ViewDetail
 			}
 		
 		}
-//print '<pre>';print_r($data4graph);die();
 		$this->dv->defs['panels']['LBL_GRAPH'] = array(
 		  array(
 		  	array(
 			  'hideLabel' => true,
-			  'customCode' => '<div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
+			  'customCode' => '<input title="Print Net Worth" type="button" name="printNetWorthGraph" id="printNetWorthGraph" onclick="window.location=\'index.php?module=Accounts&action=printNetWorthGraph&accounts_id='.$this->bean->id.'\'" value="Create PDF"><div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
 			)
 		  )
 		);
