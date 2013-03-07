@@ -5,6 +5,13 @@ array (
   array (
     'templateMeta' => 
     array (
+	  'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/Opportunities/customParentTeam.js',
+        ),
+      ),
       'maxColumns' => '2',
       'widths' => 
       array (
@@ -33,7 +40,14 @@ array (
           array (
             'name' => 'name',
           ),
-          1 => 'account_name',
+          1 => 
+		  array (
+			'name' => 'account_name',
+			'displayParams' => 
+				array (
+					'call_back_function'=>'callbackParentTeam',
+				),
+		  )
         ),
         1 => 
         array (
