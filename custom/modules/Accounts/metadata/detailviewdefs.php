@@ -77,18 +77,13 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'client_salutation',
-            'comment' => '',
-            'label' => 'LBL_CLIENT_SALUTATION',
-          ),
+
           1 => 
           array (
             'name' => 'primary_contact_name',
             'label' => 'LBL_PRIMARY_CONTACT_NAME',
           ),
-          1 => 
+          2 => 
           array (
             'name' => 'secondary_contact_name',
             'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
@@ -121,7 +116,6 @@ array (
 			<span>
 				{if $fields.primary_contact_title.value}Title: {$fields.primary_contact_title.value}{/if}
 				{if $fields.primary_contact_salutation.value}</br>Salutation: {$fields.primary_contact_salutation.value}{/if}
-				{if $fields.primary_contact_birthdate.value}</br>Nick: {$fields.primary_contact_nickname.value}{/if}
 				{if $fields.primary_contact_birthdate.value}</br>DOB: {$fields.primary_contact_birthdate.value}{/if}
 				{if $fields.primary_contact_age.value}</br>Age: {$fields.primary_contact_age.value}{/if}
 				{if $fields.primary_contact_ssn.value}</br>SSN: {$fields.primary_contact_ssn.value}{/if}
@@ -152,18 +146,13 @@ array (
 				<span>
 				{if $fields.secondary_contact_title.value}Title: {$fields.secondary_contact_title.value}{/if}
 				{if $fields.secondary_contact_salutation.value}</br>Salutation: {$fields.secondary_contact_salutation.value}{/if}
-				{if $fields.secondary_contact_nickname.value}</br>Nick: {$fields.secondary_contact_nickname.value}{/if}
 				{if $fields.secondary_contact_birthdate.value}</br>DOB: {$fields.secondary_contact_birthdate.value}{/if}
 				{if $fields.secondary_contact_age.value}</br>Age: {$fields.secondary_contact_age.value}{/if}
 				{if $fields.secondary_contact_ssn.value}</br>SSN: {$fields.secondary_contact_ssn.value}{/if}
 			</span>
 				',
           ),
-          1 => 
-          array (
-            'name' => 'secondary_contact_name',
-            'label' => 'LBL_SECONDARY_CONTACT_NAME',
-          ),
+
         ),
         3 => 
         array (
