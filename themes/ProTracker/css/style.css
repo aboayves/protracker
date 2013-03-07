@@ -2861,7 +2861,7 @@ embed
 .dashletPanel .hd .hd-center .dashletToolSet {
 	width: 100%;
 	text-align: right;
-	visibility:hidden;
+/*	visibility:hidden;  for dashlet buttons always show*/
 	padding-top: 2px;
 }
 
