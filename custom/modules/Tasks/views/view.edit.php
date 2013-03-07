@@ -53,7 +53,15 @@ class TasksViewEdit extends ViewEdit {
             $this->bean->status = $this->bean->getDefaultStatus();
         } //if
         global $current_user;
-
+		$bean = BeanFactory::getBean($this->bean->workflow_parent_type, $this->bean->workflow_parent_id);
+		$this->bean->workflow_related_to = $bean->name;
+		
+		$workFlow_related_to_options = array(
+			"Accounts"=>"Client",
+			"Contacts"=>"Contact",
+			"av_Groups"=>"Group",
+		);
+		$this->ss->assign("workFlow_related_to_options", $workFlow_related_to_options);
         $isAdmin = is_admin($current_user);
         if ($this->bean->private == '1') {
             if ($this->bean->assigned_user_id == $current_user->id || $isAdmin == true || $this->bean->created_by == $current_user->id) {

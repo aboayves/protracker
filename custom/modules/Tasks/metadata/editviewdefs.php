@@ -42,6 +42,10 @@ array (
         array (
           'file' => 'include/javascript/tiny_mce/tiny_mce.js',
         ),
+		1 => 
+        array (
+          'file' => 'custom/modules/Tasks/workflow_load.js',
+        ),
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
@@ -201,7 +205,42 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
             'name' => 'team_name',
           ),
         ),
-        10 => 
+		10 => 
+        array (
+          1 => array(
+		  'name' => 'workflow_related_to',
+		  'customCode' =>'
+		  {html_options name="workflow_parent_type" id="workflow_parent_type" 
+			onchange="document.EditView.workflow_related_to.value=&quot;&quot;;document.EditView.workflow_parent_id.value=&quot;&quot;; changeParentQS(&quot;workflow_related_to&quot;); checkParentType(document.EditView.workflow_parent_type.value, document.EditView.btn_workflow_related_to);"
+			options=$workFlow_related_to_options selected=$fields.workflow_parent_type.value}
+			<input type="text" autocomplete="off" value="{$fields.workflow_related_to.value}" size="" tabindex="0" class="sqsEnabled yui-ac-input" id="workflow_related_to" name="workflow_related_to"/>
+			<div id="EditView_workflow_related_to_results" class="yui-ac-container">
+				<div class="yui-ac-content" style="display: none;">
+					<div class="yui-ac-hd" style="display: none;"></div>
+					<div class="yui-ac-bd">
+						<ul>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+							<li style="display: none;"></li>
+						</ul>
+					</div>
+					<div class="yui-ac-ft" style="display: none;"></div>
+				</div>
+			</div>
+			<input type="hidden" value="{$fields.workflow_parent_id.value}" id="workflow_parent_id" name="workflow_parent_id">
+			<span class="id-ff multiple">
+			<button onclick="work_flow_popup()" value="Select" class="button firstChild" title="Select" tabindex="0" id="btn_workflow_related_to" name="btn_workflow_related_to" type="button"><img src="themes/default/images/id-ff-select.png?v=Iqxa6IL77YUAPOoUnkCMwQ"></button><button value="Clear" onclick="this.form.workflow_related_to.value = ""; this.form.workflow_parent_id.value = "";" class="button lastChild" title="Clear" tabindex="0" id="btn_clr_workflow_related_to" name="btn_clr_workflow_related_to" type="button"><img src="themes/default/images/id-ff-clear.png?v=Iqxa6IL77YUAPOoUnkCMwQ"></button>
+			</span>'
+			),
+		),
+        11 => 
         array (
           0 => 
           array (
