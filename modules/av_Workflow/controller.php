@@ -288,7 +288,8 @@ class av_WorkflowController extends SugarController {
 				if(empty($record['assigned_user_id'])){
 					$record['assigned_user_id'] = $current_user->id;
 				}
-				
+				$record['workflow_parent_type'] = $this->bean->parent_type;
+				$record['workflow_parent_id'] = $this->bean->parent_id;
 				unset($record['assign_to']);
 				unset($record['relate_to']);
 				

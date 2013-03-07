@@ -11,6 +11,7 @@ $dictionary["av_Workflow"]["fields"]["related_to"] = array (
     'importable' => 'true',
     'duplicate_merge' => 'disabled',
     'duplicate_merge_dom_value' => '0',
+	'group'=>'parent_name',
     'audited' => false,
     'reportable' => true,
     'len' => 25,
@@ -27,17 +28,18 @@ $dictionary["av_Workflow"]["fields"]["parent_type"] = array (
 	'type' => 'parent_type',
 	'len' => '255',
     'options' => 'assign_workflow_parent_type',
+	'group'=>'parent_name',
 	'audited'=>false,
+	'dbType'=>'varchar',
 	'required'=>false,
-	'source' => 'non-db',
 	'comments' => '',
 	'studio' => 'visible',
 	);	
 $dictionary["av_Workflow"]["fields"]["parent_id"] = array (
 	'name' => 'parent_id',
     'type' => 'id',
+	'group'=>'parent_name',
     'reportable' => false,
-	'source' => 'non-db',
 	);
 
 ?>

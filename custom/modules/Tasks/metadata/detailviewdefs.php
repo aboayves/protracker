@@ -158,7 +158,11 @@ array (
           ),
           1 => 'team_name',
         ),
-        10 => 
+		10 => 
+        array (
+          1 => 'workflow_related_to',
+        ),
+        11 => 
         array (
           0 => 
           array (
