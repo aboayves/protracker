@@ -7880,3 +7880,6 @@ a.cstm_subpanel_more_button {
 	font-size:15px;
 	width:auto !important;
 }
+tr.ygtvrow{
+	background-color: #fff !important;
+}
