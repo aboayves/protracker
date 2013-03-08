@@ -5,65 +5,40 @@ $listViewDefs [$module_name] =
 array (
   'DOCUMENT_NAME' => 
   array (
-    'width' => '40%',
+    'width' => '20%',
     'label' => 'LBL_NAME',
     'link' => true,
     'default' => true,
   ),
-  'NAME' => 
+  'ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'CONTACTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'CONTACT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'FUNERAL_DESCRIPTION' => 
   array (
     'type' => 'varchar',
-    'label' => 'name',
-    'width' => '10%',
     'default' => true,
-  ),
-  'ANNUITY_COMPANY' => 
-  array (
-    'type' => 'int',
-    'default' => true,
-    'label' => 'LBL_ANNUITY_COMPANY',
-    'width' => '10%',
-  ),
-  'ANNUITY_AMOUNT' => 
-  array (
-    'type' => 'currency',
-    'default' => true,
-    'label' => 'LBL_ANNUITY_AMOUNT',
-    'currency_format' => true,
-    'width' => '10%',
-  ),
-  'CATEGORY_ID' => 
-  array (
-    'width' => '40%',
-    'label' => 'LBL_LIST_CATEGORY',
-    'default' => true,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'link' => true,
-    'type' => 'relate',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'CREATED_BY_NAME' => 
-  array (
-    'width' => '2%',
-    'label' => 'LBL_LIST_LAST_REV_CREATOR',
-    'default' => true,
-    'sortable' => false,
+    'label' => 'LBL_FUNERAL_DESCRIPTION',
+    'width' => '20%',
   ),
   'ACTIVE_DATE' => 
   array (
     'width' => '10%',
     'label' => 'LBL_LIST_ACTIVE_DATE',
-    'default' => true,
-  ),
-  'EXP_DATE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_EXP_DATE',
     'default' => true,
   ),
   'MODIFIED_BY_NAME' => 
@@ -92,6 +67,73 @@ array (
     'sortable' => false,
     'width' => '10%',
     'default' => false,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'BURIAL_INSTRUCTIONS' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_BURIAL_INSTRUCTIONS',
+    'width' => '10%',
+  ),
+  'ANNUITY_AMOUNT' => 
+  array (
+    'type' => 'currency',
+    'default' => false,
+    'label' => 'LBL_ANNUITY_AMOUNT',
+    'currency_format' => true,
+    'width' => '10%',
+  ),
+  'FUNERAL_HOME' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_FUNERAL_HOME',
+    'width' => '10%',
+  ),
+  'MEMO_LOCATION' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_MEMO_LOCATION',
+    'width' => '10%',
+  ),
+  'ON_FILE' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_ON_FILE',
+    'width' => '10%',
+  ),
+  'SOURCE_OF_PAYMENTS' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_SOURCE_OF_PAYMENTS',
+    'width' => '10%',
+  ),
+  'BODY_DISPOSITION' => 
+  array (
+    'type' => 'text',
+    'default' => false,
+    'label' => 'LBL_BODY_DISPOSITION',
+    'sortable' => false,
+    'width' => '10%',
+  ),
+  'ANNUITY_COMPANY' => 
+  array (
+    'type' => 'int',
+    'default' => false,
+    'label' => 'LBL_ANNUITY_COMPANY',
+    'width' => '10%',
   ),
   'TEAM_NAME' => 
   array (
