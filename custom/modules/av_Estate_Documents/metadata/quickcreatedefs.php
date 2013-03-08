@@ -2,7 +2,7 @@
 $module_name = 'av_Estate_Documents';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
@@ -63,11 +63,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'onchangeSetFileNameTo' => 'document_name',
-            ),
+            'name' => 'attorney',
+            'comment' => '',
+            'label' => 'LBL_ATTORNEY',
           ),
         ),
         3 => 
@@ -75,9 +73,17 @@ array (
           0 => 'active_date',
           1 => 
           array (
-            'name' => 'on_file',
-            'comment' => '',
-            'label' => 'LBL_ON_FILE',
+            'name' => 'uploadfile',
+            'customCode' => '{if $fields.id.value!=""}
+            				{assign var="type" value="hidden"}
+            		 		{else}
+            		 		{assign var="type" value="file"}
+            		  		{/if}
+            		  		<input name="uploadfile" type = {$type} size="30" maxlength="" onchange="setvalue(this);" value="{$fields.filename.value}">{$fields.filename.value}',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
           ),
         ),
         4 => 
@@ -90,9 +96,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'attorney',
+            'name' => 'on_file',
             'comment' => '',
-            'label' => 'LBL_ATTORNEY',
+            'label' => 'LBL_ON_FILE',
           ),
         ),
         5 => 
@@ -114,40 +120,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'provisions',
-            'comment' => '',
-            'label' => 'LBL_PROVISIONS',
-          ),
-          1 => 'assigned_user_name',
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
             'name' => 'description',
-          ),
-          1 => 
-          array (
-            'name' => 'team_name',
             'displayParams' => 
             array (
-              'required' => true,
+              'rows' => 10,
+              'cols' => 120,
             ),
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),
