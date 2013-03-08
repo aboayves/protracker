@@ -55,7 +55,7 @@ function addReports(jsonData){
 		},
 		passthru_data: {
 			child_field: "av_groups_contacts",
-			return_url: "index.php?module=av_Groups&action=SubPanelViewer&subpanel=av_groups_contacts&record=4a3de794-e560-bde9-e76b-4fba865d05fd&sugar_body_only=1",
+			return_url: "index.php?module=av_Groups&action=SubPanelViewer&subpanel=av_groups_contacts&record=" + document.DetailView.record.value + "&sugar_body_only=1",
 			link_field_name: "av_groups_contacts",
 			module_name: "av_groups_contacts",
 			refresh_page: "0",
