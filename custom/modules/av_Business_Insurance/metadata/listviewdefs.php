@@ -9,6 +9,7 @@ array (
     'default' => true,
     'label' => 'LBL_BUSINESS_NAME',
     'width' => '10%',
+    'link' => 'true',
   ),
   'TYPE' => 
   array (
@@ -32,6 +33,7 @@ array (
     'default' => true,
     'label' => 'LBL_POLICY_NUMBER',
     'width' => '10%',
+    'link' => 'true',
   ),
   'STATUS' => 
   array (

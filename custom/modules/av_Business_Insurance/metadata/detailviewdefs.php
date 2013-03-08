@@ -40,7 +40,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'Contacts_name',
+            'name' => 'contacts_name',
             'label' => 'LBL_CONTACTS_NAME',
           ),
         ),
@@ -57,8 +57,14 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Companies_name',
+            'name' => 'av_companies_name',
             'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'policy_number',
+            'comment' => '',
+            'label' => 'LBL_POLICY_NUMBER',
           ),
         ),
         3 => 
@@ -71,16 +77,6 @@ array (
           ),
           1 => 
           array (
-            'name' => 'policy_number',
-            'comment' => '',
-            'label' => 'LBL_POLICY_NUMBER',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 'status',
-          1 => 
-          array (
             'name' => 'uploadfile',
             'displayParams' => 
             array (
@@ -89,22 +85,17 @@ array (
             ),
           ),
         ),
-        5 => 
+        4 => 
         array (
-          0 => 
+          0 => 'status',
+          1 => 
           array (
             'name' => 'issue_date',
             'comment' => '',
             'label' => 'LBL_ISSUE_DATE',
           ),
-          1 => 
-          array (
-            'name' => 'deductible',
-            'comment' => '',
-            'label' => 'LBL_DEDUCTIBLE',
-          ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -119,16 +110,7 @@ array (
             'label' => 'LBL_END_DATE',
           ),
         ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'property',
-            'comment' => '',
-            'label' => 'LBL_PROPERTY',
-          ),
-        ),
-        8 => 
+        6 => 
         array (
           0 => 
           array (
@@ -138,12 +120,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'covered_locations',
-            'comment' => '',
-            'label' => 'LBL_COVERED_LOCATIONS',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
-        9 => 
+        7 => 
         array (
           0 => 
           array (
@@ -152,7 +133,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        10 => 
+        8 => 
         array (
           0 => 
           array (
@@ -174,6 +155,36 @@ array (
         array (
           0 => 
           array (
+            'name' => 'deductible',
+            'comment' => '',
+            'label' => 'LBL_DEDUCTIBLE',
+          ),
+          1 => 
+          array (
+            'name' => 'coverage_coinsurance',
+            'comment' => '',
+            'label' => 'LBL_COVERAGE_COINSURANCE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'property',
+            'comment' => '',
+            'label' => 'LBL_PROPERTY',
+          ),
+          1 => 
+          array (
+            'name' => 'covered_locations',
+            'comment' => '',
+            'label' => 'LBL_COVERED_LOCATIONS',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
             'name' => 'coverage_buildings',
             'comment' => '',
             'label' => 'LBL_COVERAGE_BUILDINGS',
@@ -185,28 +196,13 @@ array (
             'label' => 'LBL_COVERAGE_EMPLOYEE_DISHONESTY',
           ),
         ),
-        1 => 
+        3 => 
         array (
           0 => 
-          array (
-            'name' => 'coverage_coinsurance',
-            'comment' => '',
-            'label' => 'LBL_COVERAGE_COINSURANCE',
-          ),
-          1 => 
           array (
             'name' => 'coverage_exterior_signs',
             'comment' => '',
             'label' => 'LBL_COVERAGE_EXTERIOR_SIGNS',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'medical_payments',
-            'comment' => '',
-            'label' => 'LBL_MEDICAL_PAYMENTS',
           ),
           1 => 
           array (
@@ -215,7 +211,17 @@ array (
             'label' => 'LBL_COVERAGE_EQUIPMENT',
           ),
         ),
-        3 => 
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'loss_of_income_rents',
+            'comment' => '',
+            'label' => 'LBL_LOSS_OF_INCOME_RENTS',
+          ),
+          1 => '',
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -230,7 +236,7 @@ array (
             'label' => 'LBL_LIABILITY_BODILY_INJURY',
           ),
         ),
-        4 => 
+        6 => 
         array (
           0 => 
           array (
@@ -245,7 +251,7 @@ array (
             'label' => 'LBL_LIABILITY_COMPLETED_OPERATIONS',
           ),
         ),
-        5 => 
+        7 => 
         array (
           0 => 
           array (
@@ -260,7 +266,7 @@ array (
             'label' => 'LBL_LIABILITY_INDEPENDENT_CONTRACTORS',
           ),
         ),
-        6 => 
+        8 => 
         array (
           0 => 
           array (
@@ -275,7 +281,7 @@ array (
             'label' => 'LBL_LIABILITY_FIRE_LEGAL',
           ),
         ),
-        7 => 
+        9 => 
         array (
           0 => 
           array (
@@ -285,9 +291,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'loss_of_income_rents',
+            'name' => 'medical_payments',
             'comment' => '',
-            'label' => 'LBL_LOSS_OF_INCOME_RENTS',
+            'label' => 'LBL_MEDICAL_PAYMENTS',
           ),
         ),
       ),
