@@ -39,9 +39,22 @@ array (
       array (
         0 => 
         array (
-          0 => 'document_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
+        array (
+          0 => 'document_name',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -56,7 +69,19 @@ array (
             'label' => 'LBL_ON_FILE',
           ),
         ),
-        2 => 
+        3 => 
+        array (
+          0 => 'active_date',
+          1 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'onchangeSetFileNameTo' => 'document_name',
+            ),
+          ),
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -66,27 +91,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'tax_id',
-            'comment' => '',
-            'label' => 'LBL_TAX_ID',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'birth_certificate_on_file',
             'comment' => '',
             'label' => 'LBL_BIRTH_CERTIFICATE_ON_FILE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
-            'name' => 'bill_of_sale_date',
+            'name' => 'tax_id',
             'comment' => '',
-            'label' => 'LBL_BILL_OF_SALE_DATE',
+            'label' => 'LBL_TAX_ID',
           ),
           1 => 
           array (
@@ -97,34 +113,13 @@ array (
         ),
         6 => 
         array (
-          0 => 'active_date',
+          0 => 
+          array (
+            'name' => 'bill_of_sale_date',
+            'comment' => '',
+            'label' => 'LBL_BILL_OF_SALE_DATE',
+          ),
           1 => 'exp_date',
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'onchangeSetFileNameTo' => 'document_name',
-            ),
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
         ),
       ),
       'lbl_editview_panel1' => 
@@ -138,6 +133,33 @@ array (
             'label' => 'LBL_DRAFTING_ATTORNEY',
           ),
         ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'trustee1',
+            'comment' => '',
+            'label' => 'LBL_TRUSTEE1',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'trustee2',
+            'comment' => '',
+            'label' => 'LBL_TRUSTEE2',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'trustee3',
+            'comment' => '',
+            'label' => 'LBL_TRUSTEE3',
+          ),
+        ),
       ),
       'lbl_editview_panel2' => 
       array (
@@ -149,9 +171,36 @@ array (
             'comment' => '',
             'label' => 'LBL_PROVISIONS',
           ),
-          1 => 
+          1 => 'assigned_user_name',
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'description',
+          ),
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),
