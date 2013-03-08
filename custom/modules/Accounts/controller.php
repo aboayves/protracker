@@ -64,13 +64,7 @@
 						"aa.id, ".
 						"ah.value ".
 					"FROM ".
-						"accounts_av_accounts_c aaa ".
-					"INNER JOIN ".
 						"av_accounts aa ".
-					"ON ".
-						"aaa.accounts_av_accountsav_accounts_idb=aa.id AND ".
-						"aa.deleted=0 AND ".
-						"aa.is_closed='0' ".
 					"INNER JOIN ".
 						"av_accounts_av_account_histories_c aah ".
 					"ON ".
@@ -83,8 +77,9 @@
 						"ah.deleted='0' AND ".
 						"ah.value_date <= '" . $netWorthDate . "' ".
 					"WHERE ".
-						"aaa.deleted=0 AND ".
-						"aaa.accounts_av_accountsaccounts_ida='" . $this->bean->id . "' ".
+						"aa.deleted=0 AND ".
+						"aa.accounts_id='" . $this->bean->id . "' AND ".
+						"aa.is_closed='0' ".
 					"GROUP BY ".
 						"aa.id ".
 					"ORDER BY ".
@@ -108,11 +103,7 @@
 						"ac.name as 'Category', ".
 						"ac.is_liability ".
 					"FROM ".
-						"accounts_av_accounts_c aaa ".
-					"INNER JOIN ".
 						"av_accounts aa ".
-					"ON ".
-						"aaa.accounts_av_accountsav_accounts_idb=aa.id AND aa.deleted=0 AND aa.is_closed='0' ".
 					"LEFT JOIN ".
 						"av_accounts_av_companies_1_c aaac ".
 					"ON ".
@@ -138,10 +129,10 @@
 					"ON ".
 						"acat.av_account296eegories_ida=ac.id AND ac.deleted=0 ".
 					"WHERE ".
-						"aaa.deleted=0 AND aaa.accounts_av_accountsaccounts_ida='" . $this->bean->id . "' ".
+						"aa.deleted=0 AND aa.accounts_id='" . $this->bean->id . "' AND ".
+						"aa.is_closed='0' ".
 					"ORDER BY ".
 						"ac.report_sort ASC, ac.name ASC, at.report_sort ASC, at.name ASC, aa.name ASC";
-			
 			$res = $db->query($sql, true);
 			while($row = $db->fetchByAssoc($res)){
 				if(!isset($data['Categories'][$row['Category']])){
