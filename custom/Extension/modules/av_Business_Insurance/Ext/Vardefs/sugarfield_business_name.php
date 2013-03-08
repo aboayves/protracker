@@ -1,11 +1,11 @@
 <?php
- // created: 2013-01-15 20:29:22
+ // created: 2013-03-08 15:36:48
 $dictionary['av_Business_Insurance']['fields']['business_name']['name']='business_name';
 $dictionary['av_Business_Insurance']['fields']['business_name']['vname']='LBL_BUSINESS_NAME';
 $dictionary['av_Business_Insurance']['fields']['business_name']['type']='varchar';
 $dictionary['av_Business_Insurance']['fields']['business_name']['len']='255';
 $dictionary['av_Business_Insurance']['fields']['business_name']['audited']=0;
-$dictionary['av_Business_Insurance']['fields']['business_name']['required']=0;
+$dictionary['av_Business_Insurance']['fields']['business_name']['required']=true;
 $dictionary['av_Business_Insurance']['fields']['business_name']['comment']='';
 $dictionary['av_Business_Insurance']['fields']['business_name']['default']='';
 $dictionary['av_Business_Insurance']['fields']['business_name']['massupdate']=0;
