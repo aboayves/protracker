@@ -32,6 +32,14 @@ array (
         'default' => true,
         'name' => 'av_companies_name',
       ),
+      'policy_number' => 
+      array (
+        'type' => 'varchar',
+        'default' => true,
+        'label' => 'LBL_POLICY_NUMBER',
+        'width' => '10%',
+        'name' => 'policy_number',
+      ),
     ),
     'advanced_search' => 
     array (
