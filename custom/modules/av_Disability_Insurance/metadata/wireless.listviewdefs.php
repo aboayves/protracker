@@ -9,7 +9,6 @@ array (
     'default' => true,
     'label' => 'LBL_TYPE',
     'width' => '10%',
-    'link' => 'true',
   ),
   'AV_COMPANIES_NAME' => 
   array (
@@ -25,8 +24,7 @@ array (
     'type' => 'varchar',
     'default' => true,
     'label' => 'LBL_POLICY_NUMBER',
-    'width' => '15%',
-    'link' => 'true',
+    'width' => '10%',
   ),
   'STATUS' => 
   array (
@@ -60,44 +58,18 @@ array (
     'label' => 'LBL_ISSUE_DATE',
     'width' => '10%',
   ),
-  'ASSIGNED_USER_NAME' => 
+  'MODIFIED_BY_NAME' => 
   array (
-    'link' => true,
-    'type' => 'relate',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
     'width' => '10%',
+    'label' => 'LBL_MODIFIED_USER',
+    'module' => 'Users',
+    'id' => 'USERS_ID',
     'default' => false,
-  ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
     'sortable' => false,
-    'width' => '10%',
-    'default' => false,
-  ),
-  'PREMIUM_DUE_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => false,
-    'label' => 'LBL_PREMIUM_DUE_DATE',
-    'width' => '10%',
-  ),
-  'DEFINITION_OF_DISABILITY' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_DEFINITION_OF_DISABILITY',
-    'width' => '10%',
-  ),
-  'PREMIUM' => 
-  array (
-    'type' => 'currency',
-    'default' => false,
-    'label' => 'LBL_PREMIUM',
-    'currency_format' => true,
-    'width' => '10%',
+    'related_fields' => 
+    array (
+      0 => 'modified_user_id',
+    ),
   ),
 );
 ?>
