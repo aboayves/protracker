@@ -35,39 +35,56 @@ array (
         array (
           0 => 
           array (
-            'name' => 'document_name',
-            'label' => 'LBL_DOC_NAME',
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
         ),
         1 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        2 => 
-        array (
           0 => 
+          array (
+            'name' => 'av_companies_name',
+            'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+          1 => 
           array (
             'name' => 'policy_number',
             'comment' => '',
             'label' => 'LBL_POLICY_NUMBER',
           ),
-          1 => 
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
+          1 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'link' => 'uploadfile',
+              'id' => 'id',
+            ),
+          ),
         ),
         3 => 
         array (
-          0 => 
+          0 => 'status',
+          1 => 
           array (
             'name' => 'issue_date',
             'comment' => '',
             'label' => 'LBL_ISSUE_DATE',
           ),
-          1 => 'status',
         ),
         4 => 
         array (
@@ -94,55 +111,20 @@ array (
           ),
           1 => 
           array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
         6 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-          1 => 
-          array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
             'name' => 'description',
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
-          1 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'uploadfile',
-            'displayParams' => 
-            array (
-              'link' => 'uploadfile',
-              'id' => 'id',
-            ),
-          ),
           1 => 'team_name',
         ),
-        10 => 
+        7 => 
         array (
           0 => 
           array (
@@ -156,6 +138,64 @@ array (
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
           ),
+        ),
+      ),
+      'lbl_editview_panel6' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'copay',
+            'comment' => '',
+            'label' => 'LBL_COPAY',
+          ),
+          1 => 
+          array (
+            'name' => 'copay_office',
+            'comment' => '',
+            'label' => 'LBL_COPAY_OFFICE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'copay_er',
+            'comment' => '',
+            'label' => 'LBL_COPAY_ER',
+          ),
+          1 => 
+          array (
+            'name' => 'copay_specialist',
+            'comment' => '',
+            'label' => 'LBL_COPAY_SPECIALIST',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'copay_prescription_generic',
+            'comment' => '',
+            'label' => 'LBL_COPAY_PRESCRIPTION_GENERIC',
+          ),
+          1 => 
+          array (
+            'name' => 'copay_prescription_mailorder',
+            'comment' => '',
+            'label' => 'LBL_COPAY_PRESCRIPTION_MAILORDER',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'copay_prescription_namebrand',
+            'comment' => '',
+            'label' => 'LBL_COPAY_PRESCRIPTION_NAMEBRAND',
+          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel5' => 
@@ -212,9 +252,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'premium',
+            'name' => 'premium_frequency',
             'comment' => '',
-            'label' => 'LBL_PREMIUM',
+            'label' => 'LBL_PREMIUM_FREQUENCY',
           ),
           1 => 
           array (
@@ -227,10 +267,11 @@ array (
         array (
           0 => 
           array (
-            'name' => 'premium_frequency',
+            'name' => 'premium',
             'comment' => '',
-            'label' => 'LBL_PREMIUM_FREQUENCY',
+            'label' => 'LBL_PREMIUM',
           ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
@@ -243,20 +284,14 @@ array (
             'comment' => '',
             'label' => 'LBL_AGENT_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'agent_phone',
-            'comment' => '',
-            'label' => 'LBL_AGENT_PHONE',
-          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'agent_email',
+            'name' => 'agent_phone',
             'comment' => '',
-            'label' => 'LBL_AGENT_EMAIL',
+            'label' => 'LBL_AGENT_PHONE',
           ),
           1 => 
           array (
@@ -265,61 +300,13 @@ array (
             'label' => 'LBL_AGENT_FAX',
           ),
         ),
-      ),
-      'lbl_editview_panel4' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'copay',
-            'comment' => '',
-            'label' => 'LBL_COPAY',
-          ),
-          1 => 
-          array (
-            'name' => 'copay_office',
-            'comment' => '',
-            'label' => 'LBL_COPAY_OFFICE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'copay_er',
-            'comment' => '',
-            'label' => 'LBL_COPAY_ER',
-          ),
-          1 => 
-          array (
-            'name' => 'copay_prescription_namebrand',
-            'comment' => '',
-            'label' => 'LBL_COPAY_PRESCRIPTION_NAMEBRAND',
-          ),
-        ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'copay_prescription_generic',
+            'name' => 'agent_email',
             'comment' => '',
-            'label' => 'LBL_COPAY_PRESCRIPTION_GENERIC',
-          ),
-          1 => 
-          array (
-            'name' => 'copay_prescription_mailorder',
-            'comment' => '',
-            'label' => 'LBL_COPAY_PRESCRIPTION_MAILORDER',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'copay_specialist',
-            'comment' => '',
-            'label' => 'LBL_COPAY_SPECIALIST',
+            'label' => 'LBL_AGENT_EMAIL',
           ),
         ),
       ),

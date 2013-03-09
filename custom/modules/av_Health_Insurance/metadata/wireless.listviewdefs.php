@@ -8,8 +8,7 @@ array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_TYPE',
-    'width' => '15%',
-    'link' => 'true',
+    'width' => '10%',
   ),
   'AV_COMPANIES_NAME' => 
   array (
@@ -25,8 +24,7 @@ array (
     'type' => 'varchar',
     'default' => true,
     'label' => 'LBL_POLICY_NUMBER',
-    'width' => '15%',
-    'link' => 'true',
+    'width' => '10%',
   ),
   'STATUS' => 
   array (
@@ -53,20 +51,18 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'ISSUE_DATE' => 
+  'MODIFIED_BY_NAME' => 
   array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_ISSUE_DATE',
     'width' => '10%',
-  ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
+    'label' => 'LBL_MODIFIED_USER',
+    'module' => 'Users',
+    'id' => 'USERS_ID',
     'default' => false,
+    'sortable' => false,
+    'related_fields' => 
+    array (
+      0 => 'modified_user_id',
+    ),
   ),
 );
 ?>

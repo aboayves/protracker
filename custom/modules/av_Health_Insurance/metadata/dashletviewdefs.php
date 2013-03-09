@@ -1,17 +1,27 @@
 <?php
-$module_name = 'av_Health_Insurance';
-$OBJECT_NAME = 'AV_HEALTH_INSURANCE';
-$listViewDefs [$module_name] = 
-array (
-  'TYPE' => 
+$dashletData['av_Health_InsuranceDashlet']['searchFields'] = array (
+  'type' => 
+  array (
+    'default' => '',
+  ),
+  'av_companies_name' => 
+  array (
+    'default' => '',
+  ),
+  'policy_number' => 
+  array (
+    'default' => '',
+  ),
+);
+$dashletData['av_Health_InsuranceDashlet']['columns'] = array (
+  'type' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_TYPE',
-    'width' => '15%',
-    'link' => 'true',
+    'width' => '10%',
   ),
-  'AV_COMPANIES_NAME' => 
+  'av_companies_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -20,22 +30,21 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'POLICY_NUMBER' => 
+  'policy_number' => 
   array (
     'type' => 'varchar',
     'default' => true,
     'label' => 'LBL_POLICY_NUMBER',
-    'width' => '15%',
-    'link' => 'true',
+    'width' => '10%',
   ),
-  'STATUS' => 
+  'status' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_STATUS',
     'width' => '10%',
   ),
-  'ACCOUNTS_NAME' => 
+  'accounts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -44,7 +53,7 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'CONTACTS_NAME' => 
+  'contacts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -53,20 +62,4 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'ISSUE_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_ISSUE_DATE',
-    'width' => '10%',
-  ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
-    'default' => false,
-  ),
 );
-?>
