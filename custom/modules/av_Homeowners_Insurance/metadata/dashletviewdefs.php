@@ -1,17 +1,28 @@
 <?php
-$module_name = 'av_Homeowners_Insurance';
-$OBJECT_NAME = 'AV_HOMEOWNERS_INSURANCE';
-$listViewDefs [$module_name] = 
-array (
-  'TYPE' => 
+$dashletData['av_Homeowners_InsuranceDashlet']['searchFields'] = array (
+  'type' => 
+  array (
+    'default' => '',
+  ),
+  'av_companies_name' => 
+  array (
+    'default' => '',
+  ),
+  'policy_number' => 
+  array (
+    'default' => '',
+  ),
+);
+$dashletData['av_Homeowners_InsuranceDashlet']['columns'] = array (
+  'type' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_TYPE',
     'width' => '10%',
-    'link' => 'true',
+    'name' => 'type',
   ),
-  'AV_COMPANIES_NAME' => 
+  'av_companies_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -19,23 +30,25 @@ array (
     'id' => 'COMPANY_ID',
     'width' => '10%',
     'default' => true,
+    'name' => 'av_companies_name',
   ),
-  'POLICY_NUMBER' => 
+  'policy_number' => 
   array (
     'type' => 'varchar',
     'default' => true,
     'label' => 'LBL_POLICY_NUMBER',
     'width' => '10%',
-    'link' => 'true',
+    'name' => 'policy_number',
   ),
-  'STATUS' => 
+  'status' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_STATUS',
     'width' => '10%',
+    'name' => 'status',
   ),
-  'ACCOUNTS_NAME' => 
+  'accounts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -43,8 +56,9 @@ array (
     'id' => 'ACCOUNT_ID',
     'width' => '10%',
     'default' => true,
+    'name' => 'accounts_name',
   ),
-  'CONTACTS_NAME' => 
+  'contacts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -52,27 +66,6 @@ array (
     'id' => 'OWNER_ID',
     'width' => '10%',
     'default' => true,
-  ),
-  'ISSUE_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_ISSUE_DATE',
-    'width' => '10%',
-  ),
-  'PROPERTY' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_PROPERTY',
-    'width' => '10%',
-  ),
-  'POLICY_FORM' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_POLICY_FORM',
-    'width' => '10%',
+    'name' => 'contacts_name',
   ),
 );
-?>

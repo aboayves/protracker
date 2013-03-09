@@ -9,7 +9,6 @@ array (
     'default' => true,
     'label' => 'LBL_TYPE',
     'width' => '10%',
-    'link' => 'true',
   ),
   'AV_COMPANIES_NAME' => 
   array (
@@ -26,7 +25,6 @@ array (
     'default' => true,
     'label' => 'LBL_POLICY_NUMBER',
     'width' => '10%',
-    'link' => 'true',
   ),
   'STATUS' => 
   array (
@@ -58,20 +56,6 @@ array (
     'type' => 'date',
     'default' => true,
     'label' => 'LBL_ISSUE_DATE',
-    'width' => '10%',
-  ),
-  'PROPERTY' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_PROPERTY',
-    'width' => '10%',
-  ),
-  'POLICY_FORM' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_POLICY_FORM',
     'width' => '10%',
   ),
 );
