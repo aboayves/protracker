@@ -1,9 +1,9 @@
 <?php
-// created: 2013-03-08 15:43:12
+// created: 2013-03-09 01:43:14
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Agent',
   'LBL_EDITVIEW_PANEL3' => 'Policy Details',
-  'LBL_EDITVIEW_PANEL4' => 'Coverage',
+  'LBL_EDITVIEW_PANEL4' => 'Policy Details',
   'LBL_BUSINESS_NAME' => 'Business Name',
   'LBL_COVERAGE_BUILDINGS' => 'Buildings',
   'LBL_COVERAGE_COINSURANCE' => 'Coinsurance',
