@@ -3,109 +3,86 @@ $module_name = 'av_Life_Insurance';
 $OBJECT_NAME = 'AV_LIFE_INSURANCE';
 $listViewDefs [$module_name] = 
 array (
-  'ACCOUNTS_AV_LIFE_INSURANCE_1_NAME' => 
+  'TYPE' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_TYPE',
+    'width' => '10%',
+    'link' => 'true',
+  ),
+  'DEATH_BENEFIT' => 
+  array (
+    'type' => 'currency',
+    'align' => 'right',
+    'default' => true,
+    'label' => 'LBL_DEATH_BENEFIT',
+    'currency_format' => true,
+    'width' => '10%',
+  ),
+  'AV_COMPANIES_NAME' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_LIFE_INSURANCE_1_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_LIFE_INSURANCE_1ACCOUNTS_IDA',
-    'width' => '20%',
+    'label' => 'LBL_AV_COMPANIES_NAME',
+    'id' => 'COMPANY_ID',
+    'width' => '10%',
     'default' => true,
   ),
-  'CATEGORY_ID' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_LIST_CATEGORY',
-    'default' => true,
-  ),
-  'DESCRIPTION' => 
+  'POLICY_NUMBER' => 
   array (
     'type' => 'varchar',
     'default' => true,
-    'label' => 'LBL_DESCRIPTION',
-    'width' => '20%',
+    'label' => 'LBL_POLICY_NUMBER',
+    'width' => '10%',
+    'link' => 'true',
+  ),
+  'STATUS' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_STATUS',
+    'width' => '10%',
+  ),
+  'ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'CONTACTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'OWNER_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ISSUE_DATE' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'label' => 'LBL_ISSUE_DATE',
+    'width' => '10%',
   ),
   'FACE_VALUE' => 
   array (
     'type' => 'currency',
-    'default' => true,
+    'default' => false,
     'label' => 'LBL_FACE_VALUE',
     'currency_format' => true,
     'width' => '10%',
   ),
-  'MATURITY_DATE' => 
+  'TERM' => 
   array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_MATURITY_DATE',
-    'width' => '15%',
-  ),
-  'PREMIUM' => 
-  array (
-    'type' => 'currency',
-    'default' => true,
-    'label' => 'LBL_PREMIUM',
-    'currency_format' => true,
+    'type' => 'int',
+    'default' => false,
+    'label' => 'LBL_TERM',
     'width' => '10%',
-  ),
-  'AGENT_NAME' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_AGENT_NAME',
-    'width' => '15%',
-  ),
-  'DOCUMENT_NAME' => 
-  array (
-    'width' => '30%',
-    'label' => 'LBL_NAME',
-    'link' => true,
-    'default' => true,
-  ),
-  'MODIFIED_BY_NAME' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_MODIFIED_USER',
-    'module' => 'Users',
-    'id' => 'USERS_ID',
-    'default' => false,
-    'sortable' => false,
-    'related_fields' => 
-    array (
-      0 => 'modified_user_id',
-    ),
-  ),
-  'SUBCATEGORY_ID' => 
-  array (
-    'width' => '40%',
-    'label' => 'LBL_LIST_SUBCATEGORY',
-    'default' => false,
-  ),
-  'CREATED_BY_NAME' => 
-  array (
-    'width' => '2%',
-    'label' => 'LBL_LIST_LAST_REV_CREATOR',
-    'default' => false,
-    'sortable' => false,
-  ),
-  'EXP_DATE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_EXP_DATE',
-    'default' => false,
-  ),
-  'ACTIVE_DATE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_ACTIVE_DATE',
-    'default' => false,
-  ),
-  'TEAM_NAME' => 
-  array (
-    'width' => '2%',
-    'label' => 'LBL_LIST_TEAM',
-    'default' => false,
-    'sortable' => false,
   ),
 );
 ?>

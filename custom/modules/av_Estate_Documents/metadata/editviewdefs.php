@@ -38,7 +38,29 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+        ),
+        1 => 
+        array (
           0 => 'document_name',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
           1 => 
           array (
             'name' => 'uploadfile',
@@ -48,38 +70,17 @@ array (
             ),
           ),
         ),
-        1 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        2 => 
-        array (
-          0 => 'assigned_user_name',
-          1 => 'status_id',
-        ),
         3 => 
         array (
-          0 => 
+          0 => 'active_date',
+          1 => 
           array (
-            'name' => 'description',
+            'name' => 'on_file',
+            'comment' => '',
+            'label' => 'LBL_ON_FILE',
           ),
         ),
         4 => 
-        array (
-          0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'agent',
-            'comment' => '',
-            'label' => 'LBL_AGENT',
-          ),
-        ),
-        6 => 
         array (
           0 => 
           array (
@@ -94,26 +95,13 @@ array (
             'label' => 'LBL_ATTORNEY',
           ),
         ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-          1 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'provisions',
+            'name' => 'agent',
             'comment' => '',
-            'label' => 'LBL_PROVISIONS',
+            'label' => 'LBL_AGENT',
           ),
           1 => 
           array (
@@ -122,13 +110,21 @@ array (
             'label' => 'LBL_SUCCESSOR_AGENT',
           ),
         ),
-        9 => 
+        6 => 
         array (
           0 => 
           array (
-            'name' => 'on_file',
+            'name' => 'provisions',
             'comment' => '',
-            'label' => 'LBL_ON_FILE',
+            'label' => 'LBL_PROVISIONS',
+          ),
+          1 => 'assigned_user_name',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
           ),
           1 => 
           array (
@@ -139,7 +135,7 @@ array (
             ),
           ),
         ),
-        10 => 
+        8 => 
         array (
           0 => 
           array (

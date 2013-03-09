@@ -1,18 +1,6 @@
 <?php
 $dashletData['av_ServicesDashlet']['searchFields'] = array (
-  'accounts_av_services_1_name' => 
-  array (
-    'default' => '',
-  ),
-  'assigned_user_name' => 
-  array (
-    'default' => '',
-  ),
-  'name' => 
-  array (
-    'default' => '',
-  ),
-  'report_format' => 
+  'service_type' => 
   array (
     'default' => '',
   ),
@@ -20,40 +8,39 @@ $dashletData['av_ServicesDashlet']['searchFields'] = array (
   array (
     'default' => '',
   ),
-  'report_name' => 
+  'report_format' => 
   array (
     'default' => '',
   ),
-  'description' => 
+  'report_name' => 
   array (
     'default' => '',
   ),
 );
 $dashletData['av_ServicesDashlet']['columns'] = array (
-  'name' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_NAME',
-    'link' => true,
-    'default' => true,
-    'name' => 'name',
-  ),
-  'accounts_av_services_1_name' => 
+  'accounts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_ACCOUNTS_AV_SERVICES_1_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_AV_SERVICES_1ACCOUNTS_IDA',
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
     'width' => '10%',
     'default' => true,
-    'name' => 'accounts_av_services_1_name',
   ),
-  'assigned_user_name' => 
+  'service_type' => 
   array (
-    'width' => '8%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'name' => 'assigned_user_name',
+    'type' => 'enum',
     'default' => true,
+    'label' => 'LBL_SERVICE_TYPE',
+    'width' => '10%',
+  ),
+  'frequency' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_FREQUENCY',
+    'width' => '10%',
+    'name' => 'frequency',
   ),
   'description' => 
   array (
@@ -63,22 +50,6 @@ $dashletData['av_ServicesDashlet']['columns'] = array (
     'width' => '10%',
     'default' => true,
     'name' => 'description',
-  ),
-  'report_format' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_REPORT_FORMAT',
-    'width' => '10%',
-    'name' => 'report_format',
-  ),
-  'frequency' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'label' => 'LBL_FREQUENCY',
-    'width' => '10%',
-    'name' => 'frequency',
   ),
   'date_modified' => 
   array (
@@ -94,6 +65,14 @@ $dashletData['av_ServicesDashlet']['columns'] = array (
     'name' => 'created_by',
     'default' => false,
   ),
+  'report_format' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_REPORT_FORMAT',
+    'width' => '10%',
+    'name' => 'report_format',
+  ),
   'report_name' => 
   array (
     'type' => 'varchar',
@@ -101,6 +80,38 @@ $dashletData['av_ServicesDashlet']['columns'] = array (
     'label' => 'LBL_REPORT_NAME',
     'width' => '10%',
     'name' => 'report_name',
+  ),
+  'date_start' => 
+  array (
+    'type' => 'date',
+    'default' => false,
+    'label' => 'LBL_DATE_START',
+    'width' => '10%',
+  ),
+  'date_end' => 
+  array (
+    'type' => 'date',
+    'default' => false,
+    'label' => 'LBL_DATE_END',
+    'width' => '10%',
+  ),
+  'flat_fee' => 
+  array (
+    'type' => 'currency',
+    'align' => 'right',
+    'default' => false,
+    'label' => 'LBL_FLAT_FEE',
+    'currency_format' => true,
+    'width' => '10%',
+  ),
+  'hourly_rate' => 
+  array (
+    'type' => 'currency',
+    'align' => 'right',
+    'default' => false,
+    'label' => 'LBL_HOURLY_RATE',
+    'currency_format' => true,
+    'width' => '10%',
   ),
   'date_entered' => 
   array (

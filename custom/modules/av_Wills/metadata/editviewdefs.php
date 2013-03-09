@@ -39,9 +39,22 @@ array (
       array (
         0 => 
         array (
-          0 => 'document_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
+        array (
+          0 => 'document_name',
+        ),
+        2 => 
         array (
           0 => 'active_date',
           1 => 
@@ -53,7 +66,7 @@ array (
             ),
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -68,7 +81,7 @@ array (
             'label' => 'LBL_ON_FILE',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -83,7 +96,7 @@ array (
             'label' => 'LBL_ORGAN_DONOR',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -98,21 +111,6 @@ array (
             'label' => 'LBL_HOMESTEAD_ON_FILE',
           ),
         ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
       ),
       'lbl_editview_panel1' => 
       array (
@@ -124,12 +122,6 @@ array (
             'comment' => '',
             'label' => 'LBL_ATTORNEY',
           ),
-          1 => 
-          array (
-            'name' => 'guardian_required',
-            'comment' => '',
-            'label' => 'LBL_GUARDIAN_REQUIRED',
-          ),
         ),
         1 => 
         array (
@@ -139,16 +131,38 @@ array (
             'comment' => '',
             'label' => 'LBL_EXECUTOR',
           ),
-          1 => 
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'successor',
+            'comment' => '',
+            'label' => 'LBL_SUCCESSOR',
+          ),
+        ),
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'guardian_required',
+            'comment' => '',
+            'label' => 'LBL_GUARDIAN_REQUIRED',
+          ),
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'guardian',
             'comment' => '',
             'label' => 'LBL_GUARDIAN',
           ),
-        ),
-        2 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'guardian_backup',
             'comment' => '',
@@ -166,9 +180,36 @@ array (
             'comment' => '',
             'label' => 'LBL_PROVISIONS',
           ),
-          1 => 
+          1 => 'assigned_user_name',
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'description',
+          ),
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

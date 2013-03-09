@@ -1,11 +1,11 @@
 <?php
-// created: 2012-12-18 22:21:12
+// created: 2013-03-08 12:02:15
 $dictionary["av_Business_Insurance"]["fields"]["company_id"] = array (
 	'name' => 'company_id',
 	'rname' => 'id',
 	'vname' => 'LBL_COMPANY_ID',
 	'type' => 'id',
-	'table' => 'av_Companies',
+	'table' => 'av_companies',
 	'isnull' => 'true',
 	'module' => 'av_Companies',
 	'dbtype' => 'id',
@@ -23,9 +23,9 @@ $dictionary["av_Business_Insurance"]["fields"]["av_companies_name"] = array (
 	'type' => 'relate',
 	'rname' => 'name',
 	'id_name' => 'company_id',
-	'join_name' => 'av_Companies',
-	'link' => 'av_Companies',
-	'table' => 'av_Companies',
+	'join_name' => 'av_companies',
+	'link' => 'av_companies',
+	'table' => 'av_companies',
 	'isnull' => 'true',
 	'module' => 'av_Companies',
 );

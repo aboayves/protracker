@@ -5,44 +5,40 @@ $listViewDefs [$module_name] =
 array (
   'DOCUMENT_NAME' => 
   array (
-    'width' => '40%',
+    'width' => '20%',
     'label' => 'LBL_NAME',
     'link' => true,
     'default' => true,
   ),
-  'NAME' => 
+  'TYPE' => 
   array (
-    'type' => 'varchar',
-    'label' => 'name',
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_TYPE',
     'width' => '10%',
-    'default' => true,
   ),
-  'CATEGORY_ID' => 
-  array (
-    'width' => '40%',
-    'label' => 'LBL_LIST_CATEGORY',
-    'default' => true,
-  ),
-  'SUBCATEGORY_ID' => 
-  array (
-    'width' => '40%',
-    'label' => 'LBL_LIST_SUBCATEGORY',
-    'default' => true,
-  ),
-  'STATUS' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_DOC_STATUS',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'CONTACTS_AV_ESTATE_DOCUMENTS_1_NAME' => 
+  'ACCOUNTS_NAME' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_CONTACTS_AV_ESTATE_DOCUMENTS_1_FROM_CONTACTS_TITLE',
-    'id' => 'CONTACTS_AV_ESTATE_DOCUMENTS_1CONTACTS_IDA',
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
     'width' => '10%',
+    'default' => true,
+  ),
+  'CONTACTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'CONTACT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'ACTIVE_DATE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_ACTIVE_DATE',
     'default' => true,
   ),
   'DATE_RECORDED' => 
@@ -51,31 +47,6 @@ array (
     'default' => true,
     'label' => 'LBL_DATE_RECORDED',
     'width' => '10%',
-  ),
-  'ACTIVE_DATE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_ACTIVE_DATE',
-    'default' => true,
-  ),
-  'EXP_DATE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_EXP_DATE',
-    'default' => true,
-  ),
-  'MODIFIED_BY_NAME' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_MODIFIED_USER',
-    'module' => 'Users',
-    'id' => 'USERS_ID',
-    'default' => false,
-    'sortable' => false,
-    'related_fields' => 
-    array (
-      0 => 'modified_user_id',
-    ),
   ),
   'ON_FILE' => 
   array (
@@ -104,13 +75,6 @@ array (
     'default' => false,
     'label' => 'LBL_AGENT',
     'width' => '10%',
-  ),
-  'FILE_MIME_TYPE' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_MIME',
-    'width' => '10%',
-    'default' => false,
   ),
   'UPLOADFILE' => 
   array (

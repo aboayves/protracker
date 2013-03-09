@@ -31,6 +31,7 @@ array (
 	{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
 	{sugar_getscript file="modules/Documents/documents.js"}',
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -40,10 +41,14 @@ array (
         array (
           0 => 
           array (
-            'name' => 'Accounts_name',
+            'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
-          1 => 'assigned_user_name',
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
         array (
@@ -57,22 +62,8 @@ array (
         ),
         2 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        3 => 
-        array (
           0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        4 => 
-        array (
-          0 => 'status_id',
-          1 => '',
-        ),
-        5 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'uploadfile',
             'displayParams' => 
@@ -81,48 +72,22 @@ array (
             ),
           ),
         ),
-        6 => 
+        3 => 
         array (
           0 => 
           array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
+            'name' => 'funeral_home',
+            'comment' => '',
+            'label' => 'LBL_FUNERAL_HOME',
           ),
           1 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
+            'name' => 'on_file',
+            'comment' => '',
+            'label' => 'LBL_ON_FILE',
           ),
         ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
+        4 => 
         array (
           0 => 
           array (
@@ -130,14 +95,8 @@ array (
             'comment' => '',
             'label' => 'LBL_FUNERAL_DESCRIPTION',
           ),
-          1 => 
-          array (
-            'name' => 'funeral_home',
-            'comment' => '',
-            'label' => 'LBL_FUNERAL_HOME',
-          ),
         ),
-        1 => 
+        5 => 
         array (
           0 => 
           array (
@@ -193,11 +152,43 @@ array (
             'comment' => '',
             'label' => 'LBL_SOURCE_OF_PAYMENTS',
           ),
+        ),
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 'assigned_user_name',
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+          ),
           1 => 
           array (
-            'name' => 'on_file',
-            'comment' => '',
-            'label' => 'LBL_ON_FILE',
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),
