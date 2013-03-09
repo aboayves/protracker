@@ -1,17 +1,36 @@
 <?php
-$module_name = 'av_Life_Insurance';
-$OBJECT_NAME = 'AV_LIFE_INSURANCE';
-$listViewDefs [$module_name] = 
-array (
-  'TYPE' => 
+$dashletData['av_Life_InsuranceDashlet']['searchFields'] = array (
+  'type' => 
+  array (
+    'default' => '',
+  ),
+  'term' => 
+  array (
+    'default' => '',
+  ),
+  'death_benefit' => 
+  array (
+    'default' => '',
+  ),
+  'av_companies_name' => 
+  array (
+    'default' => '',
+  ),
+  'policy_number' => 
+  array (
+    'default' => '',
+  ),
+);
+$dashletData['av_Life_InsuranceDashlet']['columns'] = array (
+  'type' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_TYPE',
     'width' => '10%',
-    'link' => 'true',
+    'name' => 'type',
   ),
-  'DEATH_BENEFIT' => 
+  'death_benefit' => 
   array (
     'type' => 'currency',
     'align' => 'right',
@@ -20,7 +39,7 @@ array (
     'currency_format' => true,
     'width' => '10%',
   ),
-  'AV_COMPANIES_NAME' => 
+  'av_companies_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -28,32 +47,9 @@ array (
     'id' => 'COMPANY_ID',
     'width' => '10%',
     'default' => true,
+    'name' => 'av_companies_name',
   ),
-  'POLICY_NUMBER' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_POLICY_NUMBER',
-    'width' => '10%',
-    'link' => 'true',
-  ),
-  'STATUS' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'label' => 'LBL_STATUS',
-    'width' => '10%',
-  ),
-  'ACCOUNTS_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_NAME',
-    'id' => 'ACCOUNT_ID',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'CONTACTS_NAME' => 
+  'contacts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -61,28 +57,24 @@ array (
     'id' => 'OWNER_ID',
     'width' => '10%',
     'default' => true,
+    'name' => 'contacts_name',
   ),
-  'ISSUE_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_ISSUE_DATE',
-    'width' => '10%',
-  ),
-  'FACE_VALUE' => 
+  'face_value' => 
   array (
     'type' => 'currency',
+    'align' => 'right',
     'default' => false,
     'label' => 'LBL_FACE_VALUE',
     'currency_format' => true,
     'width' => '10%',
+    'name' => 'face_value',
   ),
-  'TERM' => 
+  'term' => 
   array (
     'type' => 'int',
     'default' => false,
     'label' => 'LBL_TERM',
     'width' => '10%',
+    'name' => 'term',
   ),
 );
-?>

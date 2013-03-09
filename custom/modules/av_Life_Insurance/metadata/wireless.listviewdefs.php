@@ -9,7 +9,6 @@ array (
     'default' => true,
     'label' => 'LBL_TYPE',
     'width' => '10%',
-    'link' => 'true',
   ),
   'DEATH_BENEFIT' => 
   array (
@@ -35,23 +34,6 @@ array (
     'default' => true,
     'label' => 'LBL_POLICY_NUMBER',
     'width' => '10%',
-    'link' => 'true',
-  ),
-  'STATUS' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'label' => 'LBL_STATUS',
-    'width' => '10%',
-  ),
-  'ACCOUNTS_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_NAME',
-    'id' => 'ACCOUNT_ID',
-    'width' => '10%',
-    'default' => true,
   ),
   'CONTACTS_NAME' => 
   array (
@@ -62,16 +44,10 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'ISSUE_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_ISSUE_DATE',
-    'width' => '10%',
-  ),
   'FACE_VALUE' => 
   array (
     'type' => 'currency',
+    'align' => 'right',
     'default' => false,
     'label' => 'LBL_FACE_VALUE',
     'currency_format' => true,
