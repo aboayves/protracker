@@ -1,17 +1,27 @@
 <?php
-$module_name = 'av_Long_Term_Care_Insurance';
-$OBJECT_NAME = 'AV_LONG_TERM_CARE_INSURANCE';
-$listViewDefs [$module_name] = 
-array (
-  'TYPE' => 
+$dashletData['av_Long_Term_Care_InsuranceDashlet']['searchFields'] = array (
+  'type' => 
+  array (
+    'default' => '',
+  ),
+  'av_companies_name' => 
+  array (
+    'default' => '',
+  ),
+  'policy_number' => 
+  array (
+    'default' => '',
+  ),
+);
+$dashletData['av_Long_Term_Care_InsuranceDashlet']['columns'] = array (
+  'type' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_TYPE',
     'width' => '10%',
-    'link' => 'true',
   ),
-  'AV_COMPANIES_NAME' => 
+  'av_companies_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -20,22 +30,21 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'POLICY_NUMBER' => 
+  'policy_number' => 
   array (
     'type' => 'varchar',
     'default' => true,
     'label' => 'LBL_POLICY_NUMBER',
     'width' => '10%',
-    'link' => 'true',
   ),
-  'STATUS' => 
+  'status' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_STATUS',
     'width' => '10%',
   ),
-  'ACCOUNTS_NAME' => 
+  'accounts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -44,7 +53,7 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'CONTACTS_NAME' => 
+  'contacts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -53,12 +62,4 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'ISSUE_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_ISSUE_DATE',
-    'width' => '10%',
-  ),
 );
-?>
