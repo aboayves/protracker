@@ -30,17 +30,16 @@ array (
         array (
           0 => 
           array (
-            'name' => 'accounts_av_social_security_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_SOCIAL_SECURITY_1_FROM_ACCOUNTS_TITLE',
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
-        array (
-          0 => 'name',
-          1 => 'assigned_user_name',
-        ),
-        2 => 
         array (
           0 => 
           array (
@@ -50,12 +49,7 @@ array (
           ),
           1 => '',
         ),
-        3 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        4 => 
+        2 => 
         array (
           0 => 
           array (
@@ -63,8 +57,9 @@ array (
             'comment' => '',
             'label' => 'LBL_RETIREMENT_AT_AGE_62',
           ),
+          1 => '',
         ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (
@@ -72,8 +67,9 @@ array (
             'comment' => '',
             'label' => 'LBL_RETIREMENT_AT_AGE_67',
           ),
+          1 => '',
         ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -81,15 +77,6 @@ array (
             'comment' => '',
             'label' => 'LBL_RETIREMENT_AT_AGE_70',
           ),
-        ),
-        7 => 
-        array (
-          0 => '',
-          1 => '',
-        ),
-        8 => 
-        array (
-          0 => 'description',
           1 => '',
         ),
       ),

@@ -7,8 +7,7 @@ array (
     'type' => 'int',
     'default' => true,
     'label' => 'LBL_YEAR_OF_ESTIMATE',
-    'width' => '5%',
-    'link' => 'true',
+    'width' => '10%',
   ),
   'ACCOUNTS_NAME' => 
   array (
@@ -31,6 +30,7 @@ array (
   'RETIREMENT_AT_AGE_62' => 
   array (
     'type' => 'currency',
+    'align' => 'right',
     'default' => true,
     'label' => 'LBL_RETIREMENT_AT_AGE_62',
     'currency_format' => true,
@@ -39,6 +39,7 @@ array (
   'RETIREMENT_AT_AGE_67' => 
   array (
     'type' => 'currency',
+    'align' => 'right',
     'default' => true,
     'label' => 'LBL_RETIREMENT_AT_AGE_67',
     'currency_format' => true,
@@ -47,16 +48,11 @@ array (
   'RETIREMENT_AT_AGE_70' => 
   array (
     'type' => 'currency',
+    'align' => 'right',
     'default' => true,
     'label' => 'LBL_RETIREMENT_AT_AGE_70',
     'currency_format' => true,
     'width' => '10%',
-  ),
-  'TEAM_NAME' => 
-  array (
-    'width' => '9%',
-    'label' => 'LBL_TEAM',
-    'default' => false,
   ),
 );
 ?>
