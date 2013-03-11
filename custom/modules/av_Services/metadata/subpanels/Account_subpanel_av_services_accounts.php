@@ -1,18 +1,38 @@
 <?php
-// created: 2013-02-01 05:25:26
+// created: 2013-03-06 21:45:59
 $subpanel_layout['list_fields'] = array (
-  'name' => 
+  'accounts_name' => 
   array (
-    'vname' => 'LBL_NAME',
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
+    'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
-    'default' => true,
+    'target_module' => 'Accounts',
+    'target_record_key' => 'account_id',
   ),
-  'date_modified' => 
+  'service_type' => 
   array (
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '45%',
+    'type' => 'enum',
     'default' => true,
+    'vname' => 'LBL_SERVICE_TYPE',
+    'width' => '10%',
+  ),
+  'service_group' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_SERVICE_GROUP',
+    'width' => '10%',
+  ),
+  'frequency' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_FREQUENCY',
+    'width' => '10%',
   ),
   'edit_button' => 
   array (

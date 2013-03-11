@@ -1,29 +1,22 @@
 <?php
 $dashletData['av_Service_TeamDashlet']['searchFields'] = array (
-  'date_entered' => 
+  'accounts_name' => 
   array (
     'default' => '',
   ),
-  'date_modified' => 
+  'role' => 
   array (
     'default' => '',
-  ),
-  'team_id' => 
-  array (
-    'default' => '',
-  ),
-  'assigned_user_id' => 
-  array (
-    'type' => 'assigned_user_name',
-    'default' => 'Ron Walters',
   ),
 );
 $dashletData['av_Service_TeamDashlet']['columns'] = array (
-  'assigned_user_name' => 
+  'accounts_name' => 
   array (
-    'width' => '8%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'name' => 'assigned_user_name',
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
     'default' => true,
   ),
   'role' => 
@@ -32,6 +25,14 @@ $dashletData['av_Service_TeamDashlet']['columns'] = array (
     'default' => true,
     'label' => 'LBL_ROLE',
     'width' => '10%',
+    'name' => 'role',
+  ),
+  'assigned_user_name' => 
+  array (
+    'width' => '8%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'name' => 'assigned_user_name',
+    'default' => true,
   ),
   'date_modified' => 
   array (

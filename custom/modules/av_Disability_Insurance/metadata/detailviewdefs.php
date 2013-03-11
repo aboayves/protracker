@@ -35,8 +35,36 @@ array (
         array (
           0 => 
           array (
-            'name' => 'document_name',
-            'label' => 'LBL_DOC_NAME',
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_companies_name',
+            'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'policy_number',
+            'comment' => '',
+            'label' => 'LBL_POLICY_NUMBER',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
           ),
           1 => 
           array (
@@ -48,53 +76,17 @@ array (
             ),
           ),
         ),
-        1 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_DOC_DESCRIPTION',
-          ),
-          1 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-        ),
         3 => 
         array (
-          0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'benefit_reductions',
-            'comment' => '',
-            'label' => 'LBL_BENEFIT_REDUCTIONS',
-          ),
+          0 => 'status',
           1 => 
           array (
-            'name' => 'benefits_taxable',
+            'name' => 'issue_date',
             'comment' => '',
-            'label' => 'LBL_BENEFITS_TAXABLE',
+            'label' => 'LBL_ISSUE_DATE',
           ),
         ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -109,45 +101,30 @@ array (
             'label' => 'LBL_END_DATE',
           ),
         ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
-            'name' => 'premium',
+            'name' => 'endorsements',
             'comment' => '',
-            'label' => 'LBL_PREMIUM',
+            'label' => 'LBL_ENDORSEMENTS',
           ),
           1 => 
           array (
-            'name' => 'premium_due_date',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM_DUE_DATE',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
-        8 => 
+        6 => 
         array (
           0 => 
           array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-          1 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'issue_date',
-            'comment' => '',
-            'label' => 'LBL_ISSUE_DATE',
+            'name' => 'description',
+            'label' => 'LBL_DOC_DESCRIPTION',
           ),
           1 => 'team_name',
         ),
-        10 => 
+        7 => 
         array (
           0 => 
           array (
@@ -163,75 +140,18 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel3' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'agent_name',
-            'comment' => '',
-            'label' => 'LBL_AGENT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'agent_phone',
-            'comment' => '',
-            'label' => 'LBL_AGENT_PHONE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'agent_email',
-            'comment' => '',
-            'label' => 'LBL_AGENT_EMAIL',
-          ),
-          1 => 
-          array (
-            'name' => 'agent_fax',
-            'comment' => '',
-            'label' => 'LBL_AGENT_FAX',
-          ),
-        ),
-        2 => 
-        array (
-        ),
-      ),
       'lbl_editview_panel1' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            'name' => 'policy_number',
-            'comment' => '',
-            'label' => 'LBL_POLICY_NUMBER',
-          ),
-          1 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'premium_frequency',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM_FREQUENCY',
-          ),
-          1 => 
-          array (
             'name' => 'disability_type',
             'comment' => '',
             'label' => 'LBL_DISABILITY_TYPE',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -239,7 +159,21 @@ array (
             'comment' => '',
             'label' => 'LBL_GUARANTEED_RENEWABLE',
           ),
-          1 => 'status',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'benefit_reductions',
+            'comment' => '',
+            'label' => 'LBL_BENEFIT_REDUCTIONS',
+          ),
+          1 => 
+          array (
+            'name' => 'benefits_taxable',
+            'comment' => '',
+            'label' => 'LBL_BENEFITS_TAXABLE',
+          ),
         ),
         3 => 
         array (
@@ -259,12 +193,6 @@ array (
         4 => 
         array (
           0 => 
-          array (
-            'name' => 'endorsements',
-            'comment' => '',
-            'label' => 'LBL_ENDORSEMENTS',
-          ),
-          1 => 
           array (
             'name' => 'evidence_of_insurability',
             'comment' => '',
@@ -368,6 +296,67 @@ array (
             'name' => 'waiver_of_premium',
             'comment' => '',
             'label' => 'LBL_WAIVER_OF_PREMIUM',
+          ),
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'premium_frequency',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM_FREQUENCY',
+          ),
+          1 => 
+          array (
+            'name' => 'premium_due_date',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM_DUE_DATE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'premium',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM',
+          ),
+          1 => '',
+        ),
+      ),
+      'lbl_editview_panel3' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'agent_name',
+            'comment' => '',
+            'label' => 'LBL_AGENT_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'agent_phone',
+            'comment' => '',
+            'label' => 'LBL_AGENT_PHONE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'agent_email',
+            'comment' => '',
+            'label' => 'LBL_AGENT_EMAIL',
+          ),
+          1 => 
+          array (
+            'name' => 'agent_fax',
+            'comment' => '',
+            'label' => 'LBL_AGENT_FAX',
           ),
         ),
       ),

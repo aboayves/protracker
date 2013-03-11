@@ -38,49 +38,94 @@ array (
       array (
         0 => 
         array (
-          0 => 'document_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
           1 => 
           array (
-            'name' => 'accounts_av_health_insurance_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_HEALTH_INSURANCE_1_FROM_ACCOUNTS_TITLE',
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
         ),
         1 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        2 => 
-        array (
           0 => 
+          array (
+            'name' => 'av_companies_name',
+            'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+          1 => 
           array (
             'name' => 'policy_number',
             'comment' => '',
             'label' => 'LBL_POLICY_NUMBER',
           ),
-          1 => 
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'uploadfile',
+            'customCode' => '{if $fields.id.value!=""}
+            				{assign var="type" value="hidden"}
+            		 		{else}
+            		 		{assign var="type" value="file"}
+            		  		{/if}
+            		  		<input name="uploadfile" type = {$type} size="30" maxlength="" onchange="setvalue(this);" value="{$fields.filename.value}">{$fields.filename.value}',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'issue_date',
-            'comment' => '',
-            'label' => 'LBL_ISSUE_DATE',
-          ),
-          1 => 
-          array (
             'name' => 'status',
             'comment' => '',
             'label' => 'LBL_STATUS',
           ),
+          1 => 
+          array (
+            'name' => 'issue_date',
+            'comment' => '',
+            'label' => 'LBL_ISSUE_DATE',
+          ),
         ),
         4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'start_date',
+            'comment' => '',
+            'label' => 'LBL_START_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'end_date',
+            'comment' => '',
+            'label' => 'LBL_END_DATE',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'endorsements',
+            'comment' => '',
+            'label' => 'LBL_ENDORSEMENTS',
+          ),
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -90,79 +135,6 @@ array (
               'rows' => 10,
               'cols' => 120,
             ),
-          ),
-          1 => 'assigned_user_name',
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'premium',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM',
-          ),
-          1 => 
-          array (
-            'name' => 'premium_due_date',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM_DUE_DATE',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'individual_deductible',
-            'comment' => '',
-            'label' => 'LBL_INDIVIDUAL_DEDUCTIBLE',
-          ),
-          1 => 
-          array (
-            'name' => 'family_deductible',
-            'comment' => '',
-            'label' => 'LBL_FAMILY_DEDUCTIBLE',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'agent_name',
-            'comment' => '',
-            'label' => 'LBL_AGENT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'agent_phone',
-            'comment' => '',
-            'label' => 'LBL_AGENT_PHONE',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 'active_date',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

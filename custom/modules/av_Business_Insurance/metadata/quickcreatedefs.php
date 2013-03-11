@@ -38,16 +38,56 @@ array (
       array (
         0 => 
         array (
-          0 => 'document_name',
-          1 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
+            'name' => 'business_name',
+            'comment' => '',
+            'label' => 'LBL_BUSINESS_NAME',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_companies_name',
+            'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
             'name' => 'policy_number',
             'comment' => '',
             'label' => 'LBL_POLICY_NUMBER',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'status',
+            'comment' => '',
+            'label' => 'LBL_STATUS',
           ),
           1 => 
           array (
@@ -64,7 +104,37 @@ array (
             ),
           ),
         ),
-        2 => 
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'issue_date',
+            'comment' => '',
+            'label' => 'LBL_ISSUE_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'deductible',
+            'comment' => '',
+            'label' => 'LBL_DEDUCTIBLE',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'start_date',
+            'comment' => '',
+            'label' => 'LBL_START_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'end_date',
+            'comment' => '',
+            'label' => 'LBL_END_DATE',
+          ),
+        ),
+        7 => 
         array (
           0 => 
           array (
@@ -72,109 +142,20 @@ array (
             'comment' => '',
             'label' => 'LBL_PROPERTY',
           ),
-          1 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'deductible',
-            'comment' => '',
-            'label' => 'LBL_DEDUCTIBLE',
-          ),
-          1 => 
-          array (
-            'name' => 'start_date',
-            'comment' => '',
-            'label' => 'LBL_START_DATE',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 'category_id',
-          1 => 
-          array (
-            'name' => 'accounts_av_business_insurance_1_name',
-            'label' => 'LBL_ACCOUNTS_AV_BUSINESS_INSURANCE_1_FROM_ACCOUNTS_TITLE',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'displayParams' => 
-            array (
-              'rows' => 10,
-              'cols' => 120,
-            ),
-          ),
-          1 => 'active_date',
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'business_name',
-            'comment' => '',
-            'label' => 'LBL_BUSINESS_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'agent_name',
-            'comment' => '',
-            'label' => 'LBL_AGENT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'agent_email',
-            'comment' => '',
-            'label' => 'LBL_AGENT_EMAIL',
-          ),
         ),
         8 => 
         array (
           0 => 
           array (
-            'name' => 'agent_phone',
+            'name' => 'endorsements',
             'comment' => '',
-            'label' => 'LBL_AGENT_PHONE',
+            'label' => 'LBL_ENDORSEMENTS',
           ),
           1 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'covered_locations',
+            'comment' => '',
+            'label' => 'LBL_COVERED_LOCATIONS',
           ),
         ),
       ),

@@ -35,44 +35,84 @@ array (
         array (
           0 => 
           array (
-            'name' => 'Accounts_name',
+            'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
           1 => 
           array (
-            'name' => 'Contacts_name',
+            'name' => 'contacts_name',
             'label' => 'LBL_CONTACTS_NAME',
           ),
         ),
         1 => 
         array (
-          0 => '',
-          1 => '',
+          0 => 
+          array (
+            'name' => 'av_companies_name',
+            'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'policy_number',
+            'comment' => '',
+            'label' => 'LBL_POLICY_NUMBER',
+          ),
         ),
         2 => 
         array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'uploadfile',
+            'displayParams' => 
+            array (
+              'link' => 'uploadfile',
+              'id' => 'id',
+            ),
+          ),
         ),
         3 => 
         array (
-          0 => 
+          0 => 'status',
+          1 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'issue_date',
+            'comment' => '',
+            'label' => 'LBL_ISSUE_DATE',
           ),
         ),
         4 => 
         array (
-          0 => 'active_date',
-          1 => 'exp_date',
+          0 => 
+          array (
+            'name' => 'start_date',
+            'comment' => '',
+            'label' => 'LBL_START_DATE',
+          ),
+          1 => 
+          array (
+            'name' => 'end_date',
+            'comment' => '',
+            'label' => 'LBL_END_DATE',
+          ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'status_id',
-            'label' => 'LBL_DOC_STATUS',
+            'name' => 'endorsements',
+            'comment' => '',
+            'label' => 'LBL_ENDORSEMENTS',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
         6 => 
@@ -82,12 +122,9 @@ array (
             'name' => 'description',
             'label' => 'LBL_DOC_DESCRIPTION',
           ),
+          1 => 'team_name',
         ),
         7 => 
-        array (
-          0 => 'team_name',
-        ),
-        8 => 
         array (
           0 => 
           array (
@@ -103,52 +140,9 @@ array (
           ),
         ),
       ),
-      'lbl_editview_panel2' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'agent_name',
-            'comment' => '',
-            'label' => 'LBL_AGENT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'agent_phone',
-            'comment' => '',
-            'label' => 'LBL_AGENT_PHONE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'agent_email',
-            'comment' => '',
-            'label' => 'LBL_AGENT_EMAIL',
-          ),
-          1 => 
-          array (
-            'name' => 'agent_fax',
-            'comment' => '',
-            'label' => 'LBL_AGENT_FAX',
-          ),
-        ),
-      ),
       'lbl_editview_panel1' => 
       array (
         0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
-          1 => 'status',
-        ),
-        1 => 
         array (
           0 => 
           array (
@@ -158,86 +152,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'policy_number',
-            'comment' => '',
-            'label' => 'LBL_POLICY_NUMBER',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
             'name' => 'deductible',
             'comment' => '',
             'label' => 'LBL_DEDUCTIBLE',
           ),
-          1 => 
-          array (
-            'name' => 'start_date',
-            'comment' => '',
-            'label' => 'LBL_START_DATE',
-          ),
         ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'issue_date',
-            'comment' => '',
-            'label' => 'LBL_ISSUE_DATE',
-          ),
-          1 => 
-          array (
-            'name' => 'end_date',
-            'comment' => '',
-            'label' => 'LBL_END_DATE',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'premium',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM',
-          ),
-          1 => 
-          array (
-            'name' => 'medical_payments',
-            'comment' => '',
-            'label' => 'LBL_MEDICAL_PAYMENTS',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-          1 => 
-          array (
-            'name' => 'loss_of_use',
-            'comment' => '',
-            'label' => 'LBL_LOSS_OF_USE',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'premium_due_date',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM_DUE_DATE',
-          ),
-          1 => 
-          array (
-            'name' => 'premium_frequency',
-            'comment' => '',
-            'label' => 'LBL_PREMIUM_FREQUENCY',
-          ),
-        ),
-        7 => 
+        1 => 
         array (
           0 => 
           array (
@@ -247,95 +167,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'personal_property',
+            'name' => 'year_built',
             'comment' => '',
-            'label' => 'LBL_PERSONAL_PROPERTY',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'personal_liability',
-            'comment' => '',
-            'label' => 'LBL_PERSONAL_LIABILITY',
-          ),
-          1 => 
-          array (
-            'name' => 'other_structures',
-            'comment' => '',
-            'label' => 'LBL_OTHER_STRUCTURES',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'inflation_guard',
-            'comment' => '',
-            'label' => 'LBL_INFLATION_GUARD',
-          ),
-          1 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-        ),
-        10 => 
-        array (
-          0 => 
-          array (
-            'name' => 'extended_theft',
-            'comment' => '',
-            'label' => 'LBL_EXTENDED_THEFT',
-          ),
-          1 => 
-          array (
-            'name' => 'endorsements',
-            'comment' => '',
-            'label' => 'LBL_ENDORSEMENTS',
-          ),
-        ),
-        11 => 
-        array (
-          0 => 
-          array (
-            'name' => 'contents_replacement',
-            'comment' => '',
-            'label' => 'LBL_CONTENTS_REPLACEMENT',
-          ),
-        ),
-      ),
-      'lbl_editview_panel3' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'dwelling',
-            'comment' => '',
-            'label' => 'LBL_DWELLING',
-          ),
-          1 => 
-          array (
-            'name' => 'dwelling_source_value',
-            'comment' => '',
-            'label' => 'LBL_DWELLING_SOURCE_VALUE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'dwelling_construction',
-            'comment' => '',
-            'label' => 'LBL_DWELLING_CONSTRUCTION',
-          ),
-          1 => 
-          array (
-            'name' => 'dwelling_replacement',
-            'comment' => '',
-            'label' => 'LBL_DWELLING_REPLACEMENT',
+            'label' => 'LBL_YEAR_BUILT',
           ),
         ),
         2 => 
@@ -348,9 +182,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'dwelling_80_percent',
+            'name' => 'dwelling_construction',
             'comment' => '',
-            'label' => 'LBL_DWELLING_80_PERCENT',
+            'label' => 'LBL_DWELLING_CONSTRUCTION',
           ),
         ),
         3 => 
@@ -363,18 +197,163 @@ array (
           ),
           1 => 
           array (
-            'name' => 'year_built',
+            'name' => 'loss_of_use',
             'comment' => '',
-            'label' => 'LBL_YEAR_BUILT',
+            'label' => 'LBL_LOSS_OF_USE',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
+            'name' => 'dwelling',
+            'comment' => '',
+            'label' => 'LBL_DWELLING',
+          ),
+          1 => 
+          array (
+            'name' => 'personal_liability',
+            'comment' => '',
+            'label' => 'LBL_PERSONAL_LIABILITY',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'dwelling_source_value',
+            'comment' => '',
+            'label' => 'LBL_DWELLING_SOURCE_VALUE',
+          ),
+          1 => 
+          array (
+            'name' => 'medical_payments',
+            'comment' => '',
+            'label' => 'LBL_MEDICAL_PAYMENTS',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'dwelling_80_percent',
+            'comment' => '',
+            'label' => 'LBL_DWELLING_80_PERCENT',
+          ),
+          1 => 
+          array (
+            'name' => 'inflation_guard',
+            'comment' => '',
+            'label' => 'LBL_INFLATION_GUARD',
+          ),
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'dwelling_replacement',
+            'comment' => '',
+            'label' => 'LBL_DWELLING_REPLACEMENT',
+          ),
+          1 => 
+          array (
+            'name' => 'extended_theft',
+            'comment' => '',
+            'label' => 'LBL_EXTENDED_THEFT',
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'other_structures',
+            'comment' => '',
+            'label' => 'LBL_OTHER_STRUCTURES',
+          ),
+          1 => 
+          array (
             'name' => 'living_area',
             'comment' => '',
             'label' => 'LBL_LIVING_AREA',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'contents_replacement',
+            'comment' => '',
+            'label' => 'LBL_CONTENTS_REPLACEMENT',
+          ),
+          1 => 
+          array (
+            'name' => 'personal_property',
+            'comment' => '',
+            'label' => 'LBL_PERSONAL_PROPERTY',
+          ),
+        ),
+      ),
+      'lbl_editview_panel4' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'premium_frequency',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM_FREQUENCY',
+          ),
+          1 => 
+          array (
+            'name' => 'premium_due_date',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM_DUE_DATE',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'premium',
+            'comment' => '',
+            'label' => 'LBL_PREMIUM',
+          ),
+          1 => '',
+        ),
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'agent_name',
+            'comment' => '',
+            'label' => 'LBL_AGENT_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'agent_phone',
+            'comment' => '',
+            'label' => 'LBL_AGENT_PHONE',
+          ),
+          1 => 
+          array (
+            'name' => 'agent_fax',
+            'comment' => '',
+            'label' => 'LBL_AGENT_FAX',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'agent_email',
+            'comment' => '',
+            'label' => 'LBL_AGENT_EMAIL',
           ),
         ),
       ),

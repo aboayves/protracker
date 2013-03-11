@@ -21,6 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -28,12 +29,15 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'description',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
         ),
         1 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'role',
             'comment' => '',
@@ -43,16 +47,12 @@ array (
         2 => 
         array (
           0 => 'assigned_user_name',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
         ),
         3 => 
+        array (
+          0 => 'description',
+        ),
+        4 => 
         array (
           0 => 
           array (

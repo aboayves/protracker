@@ -28,25 +28,28 @@ array (
       array (
         0 => 
         array (
-          0 => 'assigned_user_name',
-          1 => 
+          0 => 
           array (
-            'name' => 'role',
-            'comment' => '',
-            'label' => 'LBL_ROLE',
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
+            'name' => 'role',
+            'comment' => '',
+            'label' => 'LBL_ROLE',
           ),
-          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 'assigned_user_name',
+        ),
+        3 => 
+        array (
+          0 => 'description',
         ),
       ),
     ),
