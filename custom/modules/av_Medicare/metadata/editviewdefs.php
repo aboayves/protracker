@@ -29,7 +29,16 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
         array (
@@ -38,6 +47,12 @@ array (
             'name' => 'claim_number',
             'comment' => '',
             'label' => 'LBL_CLAIM_NUMBER',
+          ),
+          1 => 
+          array (
+            'name' => 'prescription_plan',
+            'comment' => '',
+            'label' => 'LBL_PRESCRIPTION_PLAN',
           ),
         ),
         2 => 
@@ -63,25 +78,29 @@ array (
             'comment' => '',
             'label' => 'LBL_PART_B_EFFECTIVE_DATE',
           ),
-          1 => 
-          array (
-            'name' => 'prescription_plan',
-            'comment' => '',
-            'label' => 'LBL_PRESCRIPTION_PLAN',
-          ),
+          1 => '',
         ),
         4 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'monthly_premium',
             'comment' => '',
             'label' => 'LBL_MONTHLY_PREMIUM',
           ),
+          1 => 'assigned_user_name',
         ),
         5 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
         ),
         6 => 
         array (

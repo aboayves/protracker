@@ -1,22 +1,23 @@
 <?php
-$popupMeta = array (
-    'moduleMain' => 'av_Medicare',
-    'varName' => 'av_Medicare',
-    'orderBy' => 'av_medicare.name',
-    'whereClauses' => array (
-  'claim_number' => 'av_medicare.claim_number',
-  'prescription_plan' => 'av_medicare.prescription_plan',
-  'accounts_name' => 'av_medicare.accounts_name',
-),
-    'searchInputs' => array (
-  4 => 'claim_number',
-  5 => 'prescription_plan',
-  6 => 'accounts_name',
-),
-    'searchdefs' => array (
+$dashletData['av_MedicareDashlet']['searchFields'] = array (
+  'claim_number' => 
+  array (
+    'default' => '',
+  ),
+  'prescription_plan' => 
+  array (
+    'default' => '',
+  ),
+  'accounts_name' => 
+  array (
+    'default' => '',
+  ),
+);
+$dashletData['av_MedicareDashlet']['columns'] = array (
   'claim_number' => 
   array (
     'type' => 'varchar',
+    'default' => true,
     'label' => 'LBL_CLAIM_NUMBER',
     'width' => '10%',
     'name' => 'claim_number',
@@ -24,6 +25,7 @@ $popupMeta = array (
   'prescription_plan' => 
   array (
     'type' => 'varchar',
+    'default' => true,
     'label' => 'LBL_PRESCRIPTION_PLAN',
     'width' => '10%',
     'name' => 'prescription_plan',
@@ -35,37 +37,10 @@ $popupMeta = array (
     'label' => 'LBL_ACCOUNTS_NAME',
     'id' => 'ACCOUNT_ID',
     'width' => '10%',
-    'name' => 'accounts_name',
-  ),
-),
-    'listviewdefs' => array (
-  'CLAIM_NUMBER' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_CLAIM_NUMBER',
-    'width' => '10%',
-    'name' => 'claim_number',
-  ),
-  'PRESCRIPTION_PLAN' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_PRESCRIPTION_PLAN',
-    'width' => '20%',
-    'name' => 'prescription_plan',
-  ),
-  'ACCOUNTS_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_NAME',
-    'id' => 'ACCOUNT_ID',
-    'width' => '10%',
     'default' => true,
     'name' => 'accounts_name',
   ),
-  'CONTACTS_NAME' => 
+  'contacts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
@@ -75,7 +50,7 @@ $popupMeta = array (
     'default' => true,
     'name' => 'contacts_name',
   ),
-  'PART_A_EFFECTIVE_DATE' => 
+  'part_a_effective_date' => 
   array (
     'type' => 'date',
     'default' => true,
@@ -83,7 +58,7 @@ $popupMeta = array (
     'width' => '10%',
     'name' => 'part_a_effective_date',
   ),
-  'PART_B_EFFECTIVE_DATE' => 
+  'part_b_effective_date' => 
   array (
     'type' => 'date',
     'default' => true,
@@ -91,5 +66,32 @@ $popupMeta = array (
     'width' => '10%',
     'name' => 'part_b_effective_date',
   ),
-),
+  'date_modified' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_DATE_MODIFIED',
+    'name' => 'date_modified',
+    'default' => false,
+  ),
+  'created_by' => 
+  array (
+    'width' => '8%',
+    'label' => 'LBL_CREATED',
+    'name' => 'created_by',
+    'default' => false,
+  ),
+  'assigned_user_name' => 
+  array (
+    'width' => '8%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'name' => 'assigned_user_name',
+    'default' => false,
+  ),
+  'team_name' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_LIST_TEAM',
+    'name' => 'team_name',
+    'default' => false,
+  ),
 );
