@@ -46,7 +46,7 @@ $(function(){
 	var href = $("#create_link").attr('href');
 	$("#edit_button").parents(":eq(2)").append("<ul class='clickMenu' ><li id='create_link_li'></li></ul>");
 	($(".listViewBody").parent().children().first().children().eq(1)).append("<ul class='clickMenu'><li id='create_link_li'></li></ul>");
-	$("#edit_button").parents(":eq(7)").children().first().children().eq(1).css('display','none');
+	($("#edit_button").parents("table:first").parent().children(".moduleTitle").children().eq(1)).css('display','none');
 	$("#CANCEL_HEADER").parent().append('<input type="button" id="create_link" value="Create New" name="create_link" onclick="window.location=\''+href+'\'" class="button">');
 	$("#CANCEL_HEADER").parents(":eq(6)").children().first().children().eq(1).remove();
 	$("#create_link").text("Create New");
