@@ -68,8 +68,10 @@ class TasksViewDetail extends ViewDetail {
 		$this->ss->assign("90_checked", isset($_SESSION['more_then_90']) && $_SESSION['more_then_90'] == '1' ? 'checked="checked"' : "");
 
 		$this->bean->description = html_entity_decode($this->bean->description);
-		$bean = BeanFactory::getBean($this->bean->workflow_parent_type, $this->bean->workflow_parent_id);
-		$this->bean->workflow_related_to = $bean->name;
+		if(!empty($this->bean->workflow_parent_type) && !empty($this->bean->workflow_parent_id)){
+			$bean = BeanFactory::getBean($this->bean->workflow_parent_type, $this->bean->workflow_parent_id);
+			$this->bean->workflow_related_to = $bean->name;
+		}
 		parent::display();
     }
 
