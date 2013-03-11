@@ -1,5 +1,5 @@
 <?php
-class DocumentHooks
+class DocumentsHook
 {
 	public function SaveDocument($bean,$event,$arguments)
 	{

@@ -1,5 +1,5 @@
 <?php
-class return_to_groups
+class ReportsHook
 {
 	function return_to_groups_popup($bean, $event, $arguments) 
 	{	

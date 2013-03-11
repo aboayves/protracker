@@ -9,7 +9,7 @@ $hook_array['before_save'][] = Array(1, 'workflow', 'include/workflow/WorkFlowHa
 
  
 $hook_array['before_save'] = Array();
-$hook_array['before_save'][] = Array(1, 'attach_to_group_id', 'custom/modules/Notes/AttachNoteToGroupId_hook.php','AttachToGroupId', 'assign_members');
+$hook_array['before_save'][] = Array(1, 'attach_to_group_id', 'custom/modules/Notes/NotesHook.php','NotesHook', 'assign_members');
 
 
 

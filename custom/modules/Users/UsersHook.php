@@ -1,6 +1,6 @@
 <?php
 include("restclient.php");
-class singleSignOnHook {
+class UsersHook {
 	function delete_or_deactivate($bean){
 		global $sugar_config, $db;
 		$parameters = array( 

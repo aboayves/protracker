@@ -1,5 +1,5 @@
 <?php
-class AttachToGroupId{
+class NotesHook{
 	function assign_members($bean, $event, $arguments){
 		if(!empty($bean->attach_to_group_id)){
 			global $db;

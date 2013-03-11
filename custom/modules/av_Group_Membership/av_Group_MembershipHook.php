@@ -1,5 +1,5 @@
 <?php
-class theHook4av_Group_Membership{
+class av_Group_MembershipHook{
 	function beforeSaveThingsToDo(&$bean, $event, $arguments){
 		global $db, $timedate;
 		

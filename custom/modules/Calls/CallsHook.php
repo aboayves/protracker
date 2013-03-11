@@ -1,5 +1,5 @@
 <?php
-class SaveCall
+class CallsHook
 {
 	public function saveCalls($bean, $event, $arguments)
 	{
@@ -30,5 +30,10 @@ class SaveCall
 			}
 		}
 	}
+	function processRecord(&$bean, $event, $arguments)
+    {
+        if( $bean->status == 'Held'){
+			$bean->date_start = "<span style='color:#000000'>".$bean->date_start."</span>";       }
+    }
 }
 ?>
