@@ -1,6 +1,6 @@
 <?php
 // created: 2013-02-28 11:50:47
-$dictionary["av_Accounts"]["fields"]["accounts_id"] = array (
+/*$dictionary["av_Accounts"]["fields"]["accounts_id"] = array (
 	'name' => 'accounts_id',
 	'rname' => 'id',
 	'vname' => 'LBL_ACCOUNTS_ID',
@@ -46,5 +46,5 @@ $dictionary["av_Accounts"]["relationships"]["av_accounts_accounts"] = array (
 	'rhs_table' => 'accounts',
 	'rhs_key' => 'id',
 	'relationship_type' => 'one-to-many',
-);
+);*/
 ?>
