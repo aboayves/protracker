@@ -29,13 +29,18 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
-        array (
-          0 => 'name',
-          1 => 'assigned_user_name',
-        ),
-        2 => 
         array (
           0 => 
           array (
@@ -43,11 +48,9 @@ array (
             'comment' => '',
             'label' => 'LBL_YEAR_OF_ESTIMATE',
           ),
+          1 => '',
         ),
-        3 => 
-        array (
-        ),
-        4 => 
+        2 => 
         array (
           0 => 
           array (
@@ -62,7 +65,7 @@ array (
             'label' => 'LBL_DISABILITY',
           ),
         ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (
@@ -77,7 +80,7 @@ array (
             'label' => 'LBL_CHILD',
           ),
         ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -92,10 +95,7 @@ array (
             'label' => 'LBL_SPOUSE',
           ),
         ),
-        7 => 
-        array (
-        ),
-        8 => 
+        5 => 
         array (
           0 => 
           array (
@@ -110,7 +110,7 @@ array (
             'label' => 'LBL_TAXED_SOCIAL_SECURITY_EARNINGS',
           ),
         ),
-        9 => 
+        6 => 
         array (
           0 => 
           array (
@@ -125,14 +125,24 @@ array (
             'label' => 'LBL_TAXED_MEDICARE_EARNINGS',
           ),
         ),
-        10 => 
+        7 => 
         array (
+          0 => '',
+          1 => 'assigned_user_name',
         ),
-        11 => 
+        8 => 
         array (
           0 => 'description',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
         ),
-        12 => 
+        9 => 
         array (
           0 => 
           array (

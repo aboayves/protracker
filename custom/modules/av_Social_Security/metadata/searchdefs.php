@@ -1,26 +1,18 @@
 <?php
-$module_name = 'av_Medicare';
+$module_name = 'av_Social_Security';
 $searchdefs [$module_name] = 
 array (
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'claim_number' => 
+      'year_of_estimate' => 
       array (
-        'type' => 'varchar',
+        'type' => 'int',
         'default' => true,
-        'label' => 'LBL_CLAIM_NUMBER',
+        'label' => 'LBL_YEAR_OF_ESTIMATE',
         'width' => '10%',
-        'name' => 'claim_number',
-      ),
-      'prescription_plan' => 
-      array (
-        'type' => 'varchar',
-        'default' => true,
-        'label' => 'LBL_PRESCRIPTION_PLAN',
-        'width' => '10%',
-        'name' => 'prescription_plan',
+        'name' => 'year_of_estimate',
       ),
       'accounts_name' => 
       array (
@@ -32,24 +24,26 @@ array (
         'default' => true,
         'name' => 'accounts_name',
       ),
+      'contacts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_CONTACTS_NAME',
+        'id' => 'CONTACT_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'contacts_name',
+      ),
     ),
     'advanced_search' => 
     array (
-      'claim_number' => 
+      'year_of_estimate' => 
       array (
-        'type' => 'varchar',
+        'type' => 'int',
         'default' => true,
-        'label' => 'LBL_CLAIM_NUMBER',
+        'label' => 'LBL_YEAR_OF_ESTIMATE',
         'width' => '10%',
-        'name' => 'claim_number',
-      ),
-      'prescription_plan' => 
-      array (
-        'type' => 'varchar',
-        'default' => true,
-        'label' => 'LBL_PRESCRIPTION_PLAN',
-        'width' => '10%',
-        'name' => 'prescription_plan',
+        'name' => 'year_of_estimate',
       ),
       'accounts_name' => 
       array (
@@ -66,26 +60,10 @@ array (
         'type' => 'relate',
         'link' => true,
         'label' => 'LBL_CONTACTS_NAME',
+        'width' => '10%',
+        'default' => true,
         'id' => 'CONTACT_ID',
-        'width' => '10%',
-        'default' => true,
         'name' => 'contacts_name',
-      ),
-      'part_a_effective_date' => 
-      array (
-        'type' => 'date',
-        'default' => true,
-        'label' => 'LBL_PART_A_EFFECTIVE_DATE',
-        'width' => '10%',
-        'name' => 'part_a_effective_date',
-      ),
-      'part_b_effective_date' => 
-      array (
-        'type' => 'date',
-        'default' => true,
-        'label' => 'LBL_PART_B_EFFECTIVE_DATE',
-        'width' => '10%',
-        'name' => 'part_b_effective_date',
       ),
     ),
   ),

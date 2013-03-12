@@ -1,5 +1,5 @@
 <?php
-$module_name = 'av_Social_Security';
+$module_name = 'av_Pensions';
 $viewdefs [$module_name] = 
 array (
   'DetailView' => 
@@ -52,87 +52,81 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'year_of_estimate',
-            'comment' => '',
-            'label' => 'LBL_YEAR_OF_ESTIMATE',
-          ),
-          1 => '',
+          0 => 'name',
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'retirement_at_age_62',
+            'name' => 'single_monthly_benefit',
             'comment' => '',
-            'label' => 'LBL_RETIREMENT_AT_AGE_62',
+            'label' => 'LBL_SINGLE_MONTHLY_BENEFIT',
           ),
           1 => 
           array (
-            'name' => 'disability',
+            'name' => 'single_annual_benefit',
             'comment' => '',
-            'label' => 'LBL_DISABILITY',
+            'label' => 'LBL_SINGLE_ANNUAL_BENEFIT',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'retirement_at_age_67',
+            'name' => 'joint_monthly_benefit',
             'comment' => '',
-            'label' => 'LBL_RETIREMENT_AT_AGE_67',
+            'label' => 'LBL_JOINT_MONTHLY_BENEFIT',
           ),
           1 => 
           array (
-            'name' => 'child',
+            'name' => 'joint_annual_benefit',
             'comment' => '',
-            'label' => 'LBL_CHILD',
+            'label' => 'LBL_JOINT_ANNUAL_BENEFIT',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'retirement_at_age_70',
+            'name' => 'benefit_start_date',
             'comment' => '',
-            'label' => 'LBL_RETIREMENT_AT_AGE_70',
+            'label' => 'LBL_BENEFIT_START_DATE',
           ),
           1 => 
           array (
-            'name' => 'spouse',
+            'name' => 'annual_increase',
             'comment' => '',
-            'label' => 'LBL_SPOUSE',
+            'label' => 'LBL_ANNUAL_INCREASE',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'retired_spouse',
+            'name' => 'statement_date',
             'comment' => '',
-            'label' => 'LBL_RETIRED_SPOUSE',
+            'label' => 'LBL_STATEMENT_DATE',
           ),
           1 => 
           array (
-            'name' => 'taxed_social_security_earnings',
+            'name' => 'period_certainty',
             'comment' => '',
-            'label' => 'LBL_TAXED_SOCIAL_SECURITY_EARNINGS',
+            'label' => 'LBL_PERIOD_CERTAINTY',
           ),
         ),
         6 => 
         array (
           0 => 
           array (
-            'name' => 'family',
+            'name' => 'other_benefits',
             'comment' => '',
-            'label' => 'LBL_FAMILY',
+            'label' => 'LBL_OTHER_BENEFITS',
           ),
           1 => 
           array (
-            'name' => 'taxed_medicare_earnings',
+            'name' => 'survivor_benefits',
             'comment' => '',
-            'label' => 'LBL_TAXED_MEDICARE_EARNINGS',
+            'label' => 'LBL_SURVIVOR_BENEFITS',
           ),
         ),
         7 => 

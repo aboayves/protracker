@@ -21,6 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -28,9 +29,22 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         1 => 
+        array (
+          0 => 'name',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -45,7 +59,7 @@ array (
             'label' => 'LBL_SINGLE_ANNUAL_BENEFIT',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -60,7 +74,7 @@ array (
             'label' => 'LBL_JOINT_ANNUAL_BENEFIT',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -75,7 +89,7 @@ array (
             'label' => 'LBL_ANNUAL_INCREASE',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -90,7 +104,7 @@ array (
             'label' => 'LBL_PERIOD_CERTAINTY',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -105,12 +119,24 @@ array (
             'label' => 'LBL_SURVIVOR_BENEFITS',
           ),
         ),
-        6 => 
+        7 => 
+        array (
+          0 => '',
+          1 => 'assigned_user_name',
+        ),
+        8 => 
         array (
           0 => 'description',
-          1 => '',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
         ),
-        7 => 
+        9 => 
         array (
           0 => 
           array (

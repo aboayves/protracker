@@ -1,6 +1,6 @@
 <?php
-// created: 2013-03-11 02:11:38
-$searchFields['av_Social_Security'] = array (
+// created: 2013-03-11 00:56:21
+$searchFields['av_Pensions'] = array (
   'name' => 
   array (
     'query_type' => 'default',
@@ -26,7 +26,7 @@ $searchFields['av_Social_Security'] = array (
     'operator' => 'subquery',
     'subquery' => 'SELECT sugarfavorites.record_id FROM sugarfavorites 
 			                    WHERE sugarfavorites.deleted=0 
-			                        and sugarfavorites.module = \'av_Social_Security\'
+			                        and sugarfavorites.module = \'av_Pensions\'
 			                        and sugarfavorites.assigned_user_id = \'{0}\'',
     'db_field' => 
     array (

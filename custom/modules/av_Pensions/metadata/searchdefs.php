@@ -1,26 +1,16 @@
 <?php
-$module_name = 'av_Medicare';
+$module_name = 'av_Pensions';
 $searchdefs [$module_name] = 
 array (
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'claim_number' => 
+      'name' => 
       array (
-        'type' => 'varchar',
+        'name' => 'name',
         'default' => true,
-        'label' => 'LBL_CLAIM_NUMBER',
         'width' => '10%',
-        'name' => 'claim_number',
-      ),
-      'prescription_plan' => 
-      array (
-        'type' => 'varchar',
-        'default' => true,
-        'label' => 'LBL_PRESCRIPTION_PLAN',
-        'width' => '10%',
-        'name' => 'prescription_plan',
       ),
       'accounts_name' => 
       array (
@@ -32,24 +22,24 @@ array (
         'default' => true,
         'name' => 'accounts_name',
       ),
+      'contacts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_CONTACTS_NAME',
+        'id' => 'CONTACT_ID',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'contacts_name',
+      ),
     ),
     'advanced_search' => 
     array (
-      'claim_number' => 
+      'name' => 
       array (
-        'type' => 'varchar',
+        'name' => 'name',
         'default' => true,
-        'label' => 'LBL_CLAIM_NUMBER',
         'width' => '10%',
-        'name' => 'claim_number',
-      ),
-      'prescription_plan' => 
-      array (
-        'type' => 'varchar',
-        'default' => true,
-        'label' => 'LBL_PRESCRIPTION_PLAN',
-        'width' => '10%',
-        'name' => 'prescription_plan',
       ),
       'accounts_name' => 
       array (
@@ -66,26 +56,27 @@ array (
         'type' => 'relate',
         'link' => true,
         'label' => 'LBL_CONTACTS_NAME',
-        'id' => 'CONTACT_ID',
         'width' => '10%',
         'default' => true,
+        'id' => 'CONTACT_ID',
         'name' => 'contacts_name',
       ),
-      'part_a_effective_date' => 
+      'description' => 
       array (
-        'type' => 'date',
-        'default' => true,
-        'label' => 'LBL_PART_A_EFFECTIVE_DATE',
+        'type' => 'text',
+        'label' => 'LBL_DESCRIPTION',
+        'sortable' => false,
         'width' => '10%',
-        'name' => 'part_a_effective_date',
+        'default' => true,
+        'name' => 'description',
       ),
-      'part_b_effective_date' => 
+      'benefit_start_date' => 
       array (
         'type' => 'date',
         'default' => true,
-        'label' => 'LBL_PART_B_EFFECTIVE_DATE',
+        'label' => 'LBL_BENEFIT_START_DATE',
         'width' => '10%',
-        'name' => 'part_b_effective_date',
+        'name' => 'benefit_start_date',
       ),
     ),
   ),
