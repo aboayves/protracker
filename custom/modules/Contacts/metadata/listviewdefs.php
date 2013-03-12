@@ -1,6 +1,17 @@
 <?php
 $listViewDefs ['Contacts'] = 
 array (
+  'FULL_NAME' => 
+  array (
+    'type' => 'fullname',
+    'studio' => 
+    array (
+      'listview' => false,
+    ),
+    'label' => 'LBL_NAME',
+    'width' => '20%',
+    'default' => false,
+  ),
   'NAME' => 
   array (
     'width' => '20%',
@@ -35,7 +46,7 @@ array (
   ),
   'ACCOUNT_NAME' => 
   array (
-    'width' => '34%',
+    'width' => '20%',
     'label' => 'LBL_LIST_ACCOUNT_NAME',
     'module' => 'Accounts',
     'id' => 'ACCOUNT_ID',
@@ -61,14 +72,6 @@ array (
     array (
       0 => 'account_id',
     ),
-  ),
-  'TYPE' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_TYPE',
-    'width' => '10%',
   ),
   'STATUS' => 
   array (
@@ -108,6 +111,13 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'FIRST_NAME' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_FIRST_NAME',
+    'width' => '10%',
+    'default' => false,
+  ),
   'LAST_NAME' => 
   array (
     'type' => 'varchar',
@@ -115,12 +125,13 @@ array (
     'width' => '10%',
     'default' => false,
   ),
-  'FIRST_NAME' => 
+  'TYPE' => 
   array (
-    'type' => 'varchar',
-    'label' => 'LBL_FIRST_NAME',
-    'width' => '10%',
+    'type' => 'enum',
     'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_TYPE',
+    'width' => '10%',
   ),
   'SALUTATION' => 
   array (
@@ -177,6 +188,34 @@ array (
     'label' => 'LBL_ANNUAL_INCOME',
     'currency_format' => true,
     'width' => '10%',
+  ),
+  'EIN' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_EIN',
+    'width' => '10%',
+  ),
+  'DO_NOT_MAIL' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_DO_NOT_MAIL',
+    'width' => '10%',
+  ),
+  'GENDER' => 
+  array (
+    'type' => 'enum',
+    'default' => false,
+    'label' => 'LBL_GENDER',
+    'width' => '10%',
+  ),
+  'LEAD_SOURCE' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_LEAD_SOURCE',
+    'width' => '10%',
+    'default' => false,
   ),
   'CAMPAIGN_NAME' => 
   array (
@@ -346,12 +385,6 @@ array (
     'default' => false,
     'sortable' => false,
   ),
-  'EMAIL_OPT_OUT' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_EMAIL_OPT_OUT',
-    'default' => false,
-  ),
   'SEND_ADV_OFFER' => 
   array (
     'type' => 'bool',
@@ -372,6 +405,14 @@ array (
     'default' => false,
     'label' => 'LBL_IS_SEC_RELATED',
     'width' => '10%',
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
   ),
   'SEND_BIRTHDAY_CARD' => 
   array (
@@ -428,6 +469,80 @@ array (
     'default' => false,
     'label' => 'LBL_RETIREMENT_DATE',
     'width' => '10%',
+  ),
+  'AGE' => 
+  array (
+    'type' => 'function',
+    'studio' => 'visible',
+    'label' => 'LBL_AGE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'CITIZENSHIP' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_CITIZENSHIP',
+    'width' => '10%',
+  ),
+  'AV_CONTACT_TYPES_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+    'id' => 'CONTACT_TYPE_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_OF_DEATH' => 
+  array (
+    'type' => 'date',
+    'default' => false,
+    'label' => 'LBL_DATE_OF_DEATH',
+    'width' => '10%',
+  ),
+  'DOCUMENT_PATH' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_DOCUMENT_PATH',
+    'width' => '10%',
+  ),
+  'EMPLOYER' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_EMPLOYER',
+    'width' => '10%',
+  ),
+  'EMPLOYMENT_STATUS' => 
+  array (
+    'type' => 'enum',
+    'default' => false,
+    'label' => 'LBL_EMPLOYMENT_STATUS',
+    'width' => '10%',
+  ),
+  'SOURCE_DATE' => 
+  array (
+    'type' => 'date',
+    'default' => false,
+    'label' => 'LBL_SOURCE_DATE',
+    'width' => '10%',
+  ),
+  'SPOUSE_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_SPOUSE_NAME',
+    'id' => 'SPOUSE_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'EMAIL_OPT_OUT' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_EMAIL_OPT_OUT',
+    'default' => false,
   ),
 );
 ?>

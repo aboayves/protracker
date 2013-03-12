@@ -31,34 +31,22 @@ array (
         array (
           0 => 
           array (
-            'name' => 'Accounts_name',
+            'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
           1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'name',
-          1 => 
+          0 => 
           array (
             'name' => 'score_date',
             'comment' => '',
             'label' => 'LBL_SCORE_DATE',
           ),
+          1 => 'name',
         ),
         2 => 
-        array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-        ),
-        3 => 
         array (
           0 => 
           array (
@@ -68,18 +56,33 @@ array (
           ),
           1 => 
           array (
-            'name' => 'net_worth',
+            'name' => 'secondary_client_profile',
             'comment' => '',
-            'label' => 'LBL_NET_WORTH',
+            'label' => 'LBL_SECONDARY_CLIENT_PROFILE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'portfolio_value',
+            'comment' => '',
+            'label' => 'LBL_PORTFOLIO_VALUE',
+          ),
+          1 => 
+          array (
+            'name' => 'ideal_client_match',
+            'comment' => '',
+            'label' => 'LBL_IDEAL_CLIENT_MATCH',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'secondary_client_profile',
+            'name' => 'net_worth',
             'comment' => '',
-            'label' => 'LBL_SECONDARY_CLIENT_PROFILE',
+            'label' => 'LBL_NET_WORTH',
           ),
           1 => 
           array (
@@ -92,24 +95,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'ideal_client_match',
-            'comment' => '',
-            'label' => 'LBL_IDEAL_CLIENT_MATCH',
-          ),
-          1 => 
-          array (
             'name' => 'percent_of_aum',
             'comment' => '',
             'label' => 'LBL_PERCENT_OF_AUM',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'client_age',
-            'comment' => '',
-            'label' => 'LBL_CLIENT_AGE',
           ),
           1 => 
           array (
@@ -118,37 +106,37 @@ array (
             'label' => 'LBL_FUTURE_AUM_POTENTIAL',
           ),
         ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'profitability',
+            'comment' => '',
+            'label' => 'LBL_PROFITABILITY',
+          ),
+          1 => 
+          array (
+            'name' => 'profitability_potential',
+            'comment' => '',
+            'label' => 'LBL_PROFITABILITY_POTENTIAL',
+          ),
+        ),
         7 => 
         array (
           0 => 
           array (
-            'name' => 'source_of_client',
+            'name' => 'referral_history',
             'comment' => '',
-            'label' => 'LBL_SOURCE_OF_CLIENT',
+            'label' => 'LBL_REFERRAL_HISTORY',
           ),
           1 => 
           array (
-            'name' => 'outside_investments',
+            'name' => 'referral_potential',
             'comment' => '',
-            'label' => 'LBL_OUTSIDE_INVESTMENTS',
+            'label' => 'LBL_REFERRAL_POTENTIAL',
           ),
         ),
         8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'time_with_firm',
-            'comment' => '',
-            'label' => 'LBL_TIME_WITH_FIRM',
-          ),
-          1 => 
-          array (
-            'name' => 'portfolio_value',
-            'comment' => '',
-            'label' => 'LBL_PORTFOLIO_VALUE',
-          ),
-        ),
-        9 => 
         array (
           0 => 
           array (
@@ -158,42 +146,42 @@ array (
           ),
           1 => 
           array (
-            'name' => 'profitability',
+            'name' => 'hassle_factor',
             'comment' => '',
-            'label' => 'LBL_PROFITABILITY',
+            'label' => 'LBL_HASSLE_FACTOR',
+          ),
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'time_with_firm',
+            'comment' => '',
+            'label' => 'LBL_TIME_WITH_FIRM',
+          ),
+          1 => 
+          array (
+            'name' => 'time_spent',
+            'comment' => '',
+            'label' => 'LBL_TIME_SPENT',
           ),
         ),
         10 => 
         array (
           0 => 
           array (
-            'name' => 'time_spent',
+            'name' => 'client_age',
             'comment' => '',
-            'label' => 'LBL_TIME_SPENT',
+            'label' => 'LBL_CLIENT_AGE',
           ),
           1 => 
           array (
-            'name' => 'profitability_potential',
+            'name' => 'source_of_client',
             'comment' => '',
-            'label' => 'LBL_PROFITABILITY_POTENTIAL',
+            'label' => 'LBL_SOURCE_OF_CLIENT',
           ),
         ),
         11 => 
-        array (
-          0 => 
-          array (
-            'name' => 'hassle_factor',
-            'comment' => '',
-            'label' => 'LBL_HASSLE_FACTOR',
-          ),
-          1 => 
-          array (
-            'name' => 'referral_history',
-            'comment' => '',
-            'label' => 'LBL_REFERRAL_HISTORY',
-          ),
-        ),
-        12 => 
         array (
           0 => 
           array (
@@ -203,16 +191,24 @@ array (
           ),
           1 => 
           array (
-            'name' => 'referral_potential',
+            'name' => 'outside_investments',
             'comment' => '',
-            'label' => 'LBL_REFERRAL_POTENTIAL',
+            'label' => 'LBL_OUTSIDE_INVESTMENTS',
+          ),
+        ),
+        12 => 
+        array (
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
           ),
         ),
         13 => 
-        array (
-          0 => '',
-        ),
-        14 => 
         array (
           0 => 
           array (

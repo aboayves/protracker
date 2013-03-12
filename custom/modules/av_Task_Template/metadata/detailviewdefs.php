@@ -9,10 +9,10 @@ array (
       'form' => 
       array (
         'hidden' => 
-		array(
-			0 => '<input type="hidden" name="av_Workflow_id" id="av_Workflow_id" value="{$fields.av_Workflow_id.value}">',
-		),
-		'buttons' => 
+        array (
+          0 => '<input type="hidden" name="av_Workflow_id" id="av_Workflow_id" value="{$fields.av_Workflow_id.value}">',
+        ),
+        'buttons' => 
         array (
           0 => 'EDIT',
           1 => 'DUPLICATE',
@@ -40,13 +40,13 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
-	  'includes' => 
+      'includes' => 
       array (
         0 => 
         array (
           'file' => 'modules/av_Task_Template/tree.js',
         ),
-		1 => 
+        1 => 
         array (
           'file' => 'modules/av_Task_Template/delete.js',
         ),
@@ -58,52 +58,43 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 
+          0 => 
           array (
             'name' => 'subject',
             'label' => 'LBL_SUBJECT',
           ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => array(
-		  	'name' => 'description',
-            'customCode' => '<div> {$fields.description.value} <div>',
-		  ),
-          1 => 'team_name',
-        ),
-        2 => 
-        array (
           0 => 
-          array (
-            'name' => 'task_category',
-            'studio' => 'visible',
-            'label' => 'LBL_TASK_CATEGORY',
-          ),
-          1 => 
           array (
             'name' => 'relate_to',
             'studio' => 'visible',
             'label' => 'LBL_RELATE_TO',
           ),
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'assign_to',
             'studio' => 'visible',
             'label' => 'LBL_ASSIGN_TO',
           ),
-          1 => 'assigned_user_name',
         ),
-        4 => 
+        2 => 
         array (
           0 => 
           array (
-            'name' => 'notify_child_completion',
-            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
+          1 => 'name',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'days_out',
+            'label' => 'LBL_DAYS_OUT',
           ),
           1 => 
           array (
@@ -112,7 +103,7 @@ array (
             'label' => 'LBL_PRIORITY',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -126,7 +117,7 @@ array (
             'label' => 'LBL_PARENT_TASKS',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -136,9 +127,14 @@ array (
           ),
           1 => 
           array (
-            'name' => 'days_out',
-            'label' => 'LBL_DAYS_OUT',
+            'name' => 'notify_child_completion',
+            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
           ),
+        ),
+        6 => 
+        array (
+          0 => '',
+          1 => 'on_task_list',
         ),
         7 => 
         array (
@@ -147,27 +143,33 @@ array (
             'name' => 'assigned_to_client',
             'label' => 'LBL_ASSIGNED_TO_CLIENT',
           ),
-          1 => 'on_task_list',
-        ),
-		8 => 
-        array (
-		  0 => '',
           1 => 'client_task',
         ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'customCode' => '<div> {$fields.description.value} <div>',
+          ),
+          1 => 'team_name',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
       ),
-	  'LBL_TREE_VIEW' =>
-	  array(
-		0 =>
-		array(
-			0 =>
-			array(
-				'name' => 'tree',
-				'label' => 'LBL_TREE',
-				'customCode' => '<div id="tree_plotting_div"></div>',
-				'hideLabel' => true,
-			),
-		),    
-	  ),
     ),
   ),
 );
