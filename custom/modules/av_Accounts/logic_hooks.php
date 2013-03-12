@@ -6,5 +6,5 @@ $hook_version = 1;
 $hook_array['after_save'][] = Array(1, 'stampIt', 'custom/modules/av_Accounts/av_AccountsHook.php', 'av_AccountsHook', 'stampIt');
 
 $hook_array['process_record'] = Array(); 
-$hook_array['process_record'][] = Array(1, 'change date color in listveiw', 'custom/modules/Tasks/av_AccountsHook.php','av_AccountsHook', 'processRecord');
+$hook_array['process_record'][] = Array(1, 'change date color in listveiw', 'custom/modules/av_Accounts/av_AccountsHook.php','av_AccountsHook', 'processRecord');
 ?>
