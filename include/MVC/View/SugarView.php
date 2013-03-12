@@ -939,6 +939,7 @@ EOHTML;
 			 $bottomLinkList['print'] = array($app_strings['LNK_PRINT'] => getPrintLink());
 		}
 		$bottomLinkList['backtotop'] = array($app_strings['LNK_BACKTOTOP'] => 'javascript:SUGAR.util.top();');
+		$bottomLinkList['help'] = array('Help' => 'javascript:window.open(\'http://protrackersoftware.net/?'.$GLOBALS['request_string'].'\');');
 
 		$bottomLinksStr = "";
 		foreach($bottomLinkList as $key => $value) {
