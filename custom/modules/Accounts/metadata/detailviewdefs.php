@@ -114,11 +114,11 @@ array (
 			{/if}
 			
 			<span>
-				{if $fields.primary_contact_title.value}Title: {$fields.primary_contact_title.value}{/if}
-				{if $fields.primary_contact_salutation.value}</br>Salutation: {$fields.primary_contact_salutation.value}{/if}
+				{if $fields.primary_contact_salutation.value}<b>{$fields.primary_contact_salutation.value}</b>{/if}
 				{if $fields.primary_contact_birthdate.value}</br>DOB: {$fields.primary_contact_birthdate.value}{/if}
 				{if $fields.primary_contact_age.value}</br>Age: {$fields.primary_contact_age.value}{/if}
 				{if $fields.primary_contact_ssn.value}</br>SSN: {$fields.primary_contact_ssn.value}{/if}
+				{if $fields.primary_contact_employer.value}</br>Employer: {$fields.primary_contact_employer.value}{/if}
 
 			</span>
 			',
@@ -144,11 +144,11 @@ array (
 				{/if}
 
 				<span>
-				{if $fields.secondary_contact_title.value}Title: {$fields.secondary_contact_title.value}{/if}
-				{if $fields.secondary_contact_salutation.value}</br>Salutation: {$fields.secondary_contact_salutation.value}{/if}
+				{if $fields.secondary_contact_salutation.value}<b>{$fields.secondary_contact_salutation.value}</b>{/if}
 				{if $fields.secondary_contact_birthdate.value}</br>DOB: {$fields.secondary_contact_birthdate.value}{/if}
 				{if $fields.secondary_contact_age.value}</br>Age: {$fields.secondary_contact_age.value}{/if}
 				{if $fields.secondary_contact_ssn.value}</br>SSN: {$fields.secondary_contact_ssn.value}{/if}
+				{if $fields.secondary_contact_employer.value}</br>Employer: {$fields.secondary_contact_employer.value}{/if}
 			</span>
 				',
           ),
