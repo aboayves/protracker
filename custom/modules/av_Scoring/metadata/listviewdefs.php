@@ -2,13 +2,6 @@
 $module_name = 'av_Scoring';
 $listViewDefs [$module_name] = 
 array (
-  'NAME' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_NAME',
-    'default' => true,
-    'link' => true,
-  ),
   'SCORE_DATE' => 
   array (
     'type' => 'date',
@@ -16,18 +9,49 @@ array (
     'label' => 'LBL_SCORE_DATE',
     'width' => '10%',
   ),
-  'ASSIGNED_USER_NAME' => 
+  'ACCOUNTS_NAME' => 
   array (
-    'width' => '12%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'NAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
+  ),
+  'IDEAL_CLIENT_MATCH' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_IDEAL_CLIENT_MATCH',
+    'width' => '10%',
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => true,
   ),
   'TEAM_NAME' => 
   array (
     'width' => '9%',
     'label' => 'LBL_TEAM',
+    'default' => false,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '12%',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
     'default' => false,
   ),
   'PRIMARY_CLIENT_PROFILE' => 
@@ -76,14 +100,6 @@ array (
     'width' => '10%',
     'default' => false,
   ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
-    'default' => false,
-  ),
   'CLIENT_AGE' => 
   array (
     'type' => 'enum',
@@ -124,13 +140,6 @@ array (
     'type' => 'enum',
     'default' => false,
     'label' => 'LBL_TIME_SPENT',
-    'width' => '10%',
-  ),
-  'IDEAL_CLIENT_MATCH' => 
-  array (
-    'type' => 'enum',
-    'default' => false,
-    'label' => 'LBL_IDEAL_CLIENT_MATCH',
     'width' => '10%',
   ),
   'INFLUENCE_POTENTIAL' => 
