@@ -16,6 +16,8 @@ $pdf->AddPage();
 
 // print html formated text
 $pdf->writeHtml($html);
+$pdf->SetFont('times', 'B', 12);
+$pdf->Text(120, 32,"Client Net Worth History Graph");
 $pdf->Image('cache/images/clientNetWorthHistory.png', 15, 33, 0, 156);
 //Close and output PDF document
 $pdf->Output('clientNetWorthHistory.pdf', 'D');

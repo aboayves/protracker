@@ -33,7 +33,7 @@
         public function LineChart($width = 600, $height = 250) {
             parent::BarChart($width, $height);
 
-            $this->plot->setGraphPadding(new Padding(5, 30, 50, 50));
+            $this->plot->setGraphPadding(new Padding(5, 123, 50, 100));
         }
 
         /**
@@ -65,11 +65,10 @@
             // Vertical axis
             for ($value = $minValue; $value <= $maxValue; $value += $stepValue) {
                 $y = $graphArea->y2 - ($value - $minValue) * ($graphArea->y2 - $graphArea->y1) / ($this->axis->displayDelta);
-
                 imagerectangle($img, $graphArea->x1 - 3, $y, $graphArea->x1 - 2, $y + 1, $palette->axisColor[0]->getColor($img));
                 imagerectangle($img, $graphArea->x1 - 1, $y, $graphArea->x1, $y + 1, $palette->axisColor[1]->getColor($img));
 
-                $text->printText($img, $graphArea->x1 - 5, $y, $this->plot->getTextColor(), $value, $text->fontCondensed, $text->HORIZONTAL_RIGHT_ALIGN | $text->VERTICAL_CENTER_ALIGN);
+                $text->printText($img, $graphArea->x1 - 5, $y, $this->plot->getTextColor(), format_number($value,NULL,0), $text->fontCondensed, $text->HORIZONTAL_RIGHT_ALIGN | $text->VERTICAL_CENTER_ALIGN);
             }
 
             // Get first serie of a list
