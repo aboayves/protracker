@@ -3,7 +3,7 @@
 <script type='text/javascript' src='custom/include/js/jquery/jqxdata.js'></script>
 <script type='text/javascript' src='modules/av_Accounts/Dashlets/clientNetWorthHistoryDashlet/clientNetWorthHistoryDashlet.js'></script>
 
-<div id='chartContainer' style="width:800px; height:400px; text-align:center"/>
+<div id='chartContainer' style="width:100%; height:400px; text-align:center"/>
 <script type="text/javascript">
 	var min = {$min};
 	var max = {$max};
@@ -51,7 +51,7 @@
 							  ]
 				});
 			}
-$('#svgChart>g>g:nth-child(7)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(7)>text').attr('x'))-25);	         
+$('#svgChart>g>g:nth-child(7)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(7)>text').attr('x'))-33);	         
 
     </script>
 {/literal}
