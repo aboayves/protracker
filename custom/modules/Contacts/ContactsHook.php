@@ -9,7 +9,19 @@ class ContactsHook
 				$bean->fetched_row['preferred_communication'] != $bean->preferred_communication ||
 				$bean->fetched_row['preferred_calling_time'] != $bean->preferred_calling_time ||
 				$bean->fetched_row['preferred_meeting_time'] != $bean->preferred_meeting_time ||
-				$bean->fetched_row['preferred_document_submittal'] != $bean->preferred_document_submittal
+				$bean->fetched_row['preferred_document_submittal'] != $bean->preferred_document_submittal ||
+				$bean->fetched_row['phone_home'] != $bean->phone_home ||
+				$bean->fetched_row['phone_mobile'] != $bean->phone_mobile ||
+				$bean->fetched_row['primary_address_street'] != $bean->primary_address_street ||
+				$bean->fetched_row['primary_address_city'] != $bean->primary_address_city ||
+				$bean->fetched_row['primary_address_state'] != $bean->primary_address_state ||
+				$bean->fetched_row['primary_address_postalcode'] != $bean->primary_address_postalcode ||
+				$bean->fetched_row['primary_address_country'] != $bean->primary_address_country ||
+				$bean->fetched_row['work_address_street'] != $bean->work_address_street ||
+				$bean->fetched_row['work_address_city'] != $bean->work_address_city ||
+				$bean->fetched_row['work_address_state'] != $bean->work_address_state ||
+				$bean->fetched_row['work_address_postalcode'] != $bean->work_address_postalcode ||
+				$bean->fetched_row['work_address_country'] != $bean->work_address_country
 			   )
 			{	
 				global $db;
@@ -20,7 +32,21 @@ class ContactsHook
 						 AND accounts_contacts.contact_id='{$bean->id}'
 						 AND accounts_contacts.account_id=accounts.id
 						 )
-					  SET phone_office='{$bean->phone_work}', phone_fax='{$bean->phone_fax}',
+					  SET 
+						  phone_fax='{$bean->phone_fax}',
+						  phone_home='{$bean->phone_home}',
+						  phone_work='{$bean->phone_work}', 
+						  phone_mobile='{$bean->phone_mobile}',
+						  mailing_address_street='{$bean->primary_address_street}',
+						  mailing_address_city='{$bean->primary_address_city}',
+						  mailing_address_state='{$bean->primary_address_state}', 
+						  mailing_address_postalcode='{$bean->primary_address_postalcode}', 
+						  mailing_address_country='{$bean->primary_address_country}',
+						  billing_address_street='{$bean->work_address_street}',
+						  billing_address_city='{$bean->work_address_city}',
+						  billing_address_state='{$bean->work_address_state}', 
+						  billing_address_postalcode='{$bean->work_address_postalcode}', 
+						  billing_address_country='{$bean->work_address_country}',
 						  preferred_communication='{$bean->preferred_communication}',
 						  preferred_calling_time='{$bean->preferred_calling_time}',
 						  preferred_meeting_time='{$bean->preferred_meeting_time}',
