@@ -200,7 +200,7 @@ class AccountsViewDetail extends ViewDetail
 	* show images against primary and secondary
 	*/
 	public function showPrimarySecondaryImage(){
-		global $db;
+		global $db, $timedate;
 		if(!empty($this->bean->primary_contact_id) || !empty($this->bean->secondary_contact_id)){
 			$sql = "SELECT id, picture FROM contacts WHERE deleted=0 and id ='{$this->bean->primary_contact_id}' OR id ='{$this->bean->secondary_contact_id}'";
 			$res = $db->query($sql);
@@ -213,7 +213,7 @@ class AccountsViewDetail extends ViewDetail
 						{
 							$this->bean->primary_contact_age = floor((strtotime("now")-strtotime($this->bean->primary_contact_birthdate))/3600/24/365);
 						}
-						$this->bean->primary_contact_birthdate = date("m/d/Y", strtotime($this->bean->primary_contact_birthdate));
+						$this->bean->primary_contact_birthdate =  $timedate->to_display_date($this->bean->primary_contact_birthdate);
 					}
 				}
 				else if($row['id'] == $this->bean->secondary_contact_id){
@@ -224,7 +224,7 @@ class AccountsViewDetail extends ViewDetail
 						{
 							$this->bean->secondary_contact_age = floor((strtotime("now")-strtotime($this->bean->secondary_contact_birthdate))/3600/24/365);
 						}
-						$this->bean->secondary_contact_birthdate = date("m/d/Y", strtotime($this->bean->secondary_contact_birthdate));
+						$this->bean->secondary_contact_birthdate = $timedate->to_display_date($this->bean->secondary_contact_birthdate);
 					}
 				}
 			}
