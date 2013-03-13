@@ -14,6 +14,9 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
+          4 => array(
+            'customCode' =>  '<input title="Help" type="button" name="help_button" id="help_button" onclick="window.location=\'http://protrackersoftware.net/?module='.$module_name.'\';" value="Help">',
+          ),
         ),
       ),
       'maxColumns' => '2',

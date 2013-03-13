@@ -21,7 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
-      'syncDetailEditViews' => false,
+      'syncDetailEditViews' => true,
       'includes' => 
       array (
         0 => 
@@ -57,14 +57,6 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_Activity_Types_name',
-            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
             'name' => 'assign_to',
             'studio' => 'visible',
             'label' => 'LBL_ASSIGN_TO',
@@ -73,14 +65,22 @@ array (
               'javascript' => 'onchange="customHide(this.value);"',
             ),
           ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_Activity_Types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+          ),
           1 => 'name',
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'notify_child_completion',
-            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
+            'name' => 'days_out',
+            'label' => 'LBL_DAYS_OUT',
           ),
           1 => 
           array (
@@ -113,8 +113,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'days_out',
-            'label' => 'LBL_DAYS_OUT',
+            'name' => 'notify_child_completion',
+            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
           ),
         ),
         6 => 

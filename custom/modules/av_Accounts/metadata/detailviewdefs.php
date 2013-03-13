@@ -50,9 +50,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_number',
+            'name' => 'category',
             'comment' => '',
-            'label' => 'LBL_ACCOUNT_NUMBER',
+            'label' => 'LBL_CATEGORY',
           ),
           1 => 
           array (
@@ -78,9 +78,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'custodian',
+            'name' => 'account_number',
             'comment' => '',
-            'label' => 'LBL_CUSTODIAN',
+            'label' => 'LBL_ACCOUNT_NUMBER',
           ),
           1 => 
           array (
@@ -90,6 +90,21 @@ array (
           ),
         ),
         4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'asset_class',
+            'comment' => '',
+            'label' => 'LBL_ASSET_CLASS',
+          ),
+          1 => 
+          array (
+            'name' => 'custodian',
+            'comment' => '',
+            'label' => 'LBL_CUSTODIAN',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -104,12 +119,12 @@ array (
             'label' => 'LBL_VALUE_DATE',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 'description',
           1 => 'team_name',
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (

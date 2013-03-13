@@ -48,14 +48,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
         ),
       ),
     ),
