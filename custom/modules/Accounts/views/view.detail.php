@@ -13,13 +13,13 @@ class AccountsViewDetail extends ViewDetail
 	$sql = "SELECT *
 			FROM
 			(	
-			SELECT YEAR(av_net_worth.date_entered) AS year, MONTH(av_net_worth.date_entered) AS month, DAY(av_net_worth.date_entered) AS day,  av_net_worth.grand_total AS worth, av_net_worth.managed_assets
+			SELECT YEAR(av_net_worth.net_worth_date) AS year, MONTH(av_net_worth.net_worth_date) AS month, DAY(av_net_worth.net_worth_date) AS day,  av_net_worth.grand_total AS worth, av_net_worth.managed_assets
 			FROM av_net_worth
 			WHERE 
 				av_net_worth.deleted=0 
 				AND 
 				av_net_worth.accounts_id = '{$this->bean->id}'
-			  ORDER BY av_net_worth.date_entered DESC
+			  ORDER BY av_net_worth.net_worth_date DESC
 			) AS a1
 			GROUP BY a1.month, a1.year
 			ORDER BY a1.year DESC

@@ -1,11 +1,9 @@
 <?php
 // created: 2013-02-28 18:52:40
 $subpanel_layout['list_fields'] = array (
-  'grand_total' => 
+  'grand_total_formated' => 
   array (
-    'type' => 'currency',
     'vname' => 'LBL_GRAND_TOTAL',
-    'currency_format' => true,
     'width' => '15%',
     'default' => true,
   ),
@@ -16,11 +14,9 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_NET_WORTH_DATE',
     'width' => '15%',
   ),
-  'managed_assets' => 
+  'managed_assets_formated' => 
   array (
-    'type' => 'currency',
     'vname' => 'LBL_MANAGED_ASSETS',
-    'currency_format' => true,
     'width' => '20%',
     'default' => true,
   ),

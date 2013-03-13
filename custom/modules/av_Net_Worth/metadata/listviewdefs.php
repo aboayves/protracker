@@ -12,11 +12,11 @@ array (
   ),
   'GRAND_TOTAL' => 
   array (
-    'type' => 'currency',
+    'type' => 'text',
     'label' => 'LBL_GRAND_TOTAL',
-    'currency_format' => true,
     'width' => '15%',
     'default' => true,
+	'customCode' =>format_number('{$GRAND_TOTAL}', NULL, 0),
   ),
   'NET_WORTH_DATE' => 
   array (
@@ -27,9 +27,8 @@ array (
   ),
   'MANAGED_ASSETS' => 
   array (
-    'type' => 'currency',
+    'type' => 'text',
     'label' => 'LBL_MANAGED_ASSETS',
-    'currency_format' => true,
     'width' => '15%',
     'default' => true,
   ),

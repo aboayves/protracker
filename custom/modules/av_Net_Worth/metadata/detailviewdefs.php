@@ -56,11 +56,13 @@ array (
           array (
             'name' => 'grand_total',
             'label' => 'LBL_GRAND_TOTAL',
+			'type' => 'text',
           ),
           1 => 
           array (
             'name' => 'managed_assets',
             'label' => 'LBL_MANAGED_ASSETS',
+			'type' => 'text',
           ),
         ),
         2 => 

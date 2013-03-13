@@ -61,13 +61,12 @@ class av_AccountsHook {
 		$net_worth_history = $db->fetchByAssoc($net_worth_history);
 		// if its not a duplicate
 		if($net_worth_history['managed_assets'] != $client_assets['managed_assets'] || $net_worth_history['grand_total'] != $client_assets['current_net_worth'])
-		{
-			$networth_bean = new av_Net_Worth;
-			$networth_bean->name = 'Net Worth History';
-			$networth_bean->grand_total = $client_assets['current_net_worth'];
-			$networth_bean->managed_assets = $client_assets['managed_assets'];
-			$networth_bean->accounts_id = $bean->accounts_id;
-			$networth_bean->save();
+		{   
+			$id=create_guid();
+			$sql = "INSERT INTO av_net_worth (id, name, grand_total, managed_assets, net_worth_date, accounts_id)
+					VALUES('{$id}', 'Net Worth History', '{$client_assets['current_net_worth']}', 
+						  '{$client_assets['managed_assets']}', '{$bean->date_modified}', '{$bean->accounts_id}')";
+			$db->query($sql, true);
 		}
 	}
 	function processRecord($bean, $event, $arguments)
