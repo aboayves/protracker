@@ -41,7 +41,16 @@
 {$SUGAR_JS}
 {literal}
 <script type="text/javascript">
+
 $(function(){
+	($(".listViewBody").parent().children().first().children().eq(1)).children().eq(0).attr("id","create_image");
+	($(".listViewBody").parent().children().first().children().eq(1)).children().eq(1).attr("id","create_link");
+	var str = $(".moduleTitle").children().eq(0).text();
+	if(str.search("Save") != -1){
+		$(".moduleTitle").children().eq(1).append("<ul class='clickMenu' ><li id='create_link_li'></li></ul>");
+		$(".moduleTitle").children().eq(1).children().eq(0).attr("id","create_image");
+		$(".moduleTitle").children().eq(1).children().eq(1).attr("id","create_link");
+	}
 	$("#create_image").remove();
 	var href = $("#create_link").attr('href');
 	$("#edit_button").parents(":eq(2)").append("<ul class='clickMenu' ><li id='create_link_li'></li></ul>");
