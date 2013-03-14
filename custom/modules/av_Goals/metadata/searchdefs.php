@@ -6,50 +6,56 @@ array (
   array (
     'basic_search' => 
     array (
-   /*   'accounts_av_goals_1_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_ACCOUNTS_AV_GOALS_1_FROM_ACCOUNTS_TITLE',
-        'id' => 'ACCOUNTS_AV_GOALS_1ACCOUNTS_IDA',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'accounts_av_goals_1_name',
-      ),
-     */ 'name' => 
+      'name' => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'current_user_only' => 
+      'type' => 
       array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
+        'type' => 'enum',
         'default' => true,
+        'label' => 'LBL_TYPE',
         'width' => '10%',
+        'name' => 'type',
       ),
-      'favorites_only' => 
+      'accounts_name' => 
       array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'id' => 'ACCOUNT_ID',
         'width' => '10%',
+        'default' => true,
+        'name' => 'accounts_name',
       ),
     ),
     'advanced_search' => 
     array (
-      'accounts_av_goals_1_name' => 
+      'name' => 
+      array (
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'type' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_TYPE',
+        'width' => '10%',
+        'name' => 'type',
+      ),
+      'accounts_name' => 
       array (
         'type' => 'relate',
         'link' => true,
-        'label' => 'LBL_ACCOUNTS_AV_GOALS_1_FROM_ACCOUNTS_TITLE',
+        'label' => 'LBL_ACCOUNTS_NAME',
         'width' => '10%',
         'default' => true,
-        'id' => 'ACCOUNTS_AV_GOALS_1ACCOUNTS_IDA',
-        'name' => 'accounts_av_goals_1_name',
+        'id' => 'ACCOUNT_ID',
+        'name' => 'accounts_name',
       ),
       'amount' => 
       array (
@@ -68,12 +74,6 @@ array (
         'width' => '10%',
         'name' => 'progress',
       ),
-      'name' => 
-      array (
-        'name' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
       'target_date' => 
       array (
         'type' => 'date',
@@ -81,39 +81,6 @@ array (
         'label' => 'LBL_TARGET_DATE',
         'width' => '10%',
         'name' => 'target_date',
-      ),
-      'type' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'label' => 'LBL_TYPE',
-        'width' => '10%',
-        'name' => 'type',
-      ),
-      'description' => 
-      array (
-        'type' => 'text',
-        'label' => 'LBL_DESCRIPTION',
-        'sortable' => false,
-        'width' => '10%',
-        'default' => true,
-        'name' => 'description',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'current_user_only' => 
-      array (
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-        'name' => 'current_user_only',
       ),
     ),
   ),
