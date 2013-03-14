@@ -1,7 +1,7 @@
 <?php
-// created: 2012-06-01 17:49:30
+// created: 2013-03-13 13:16:11
 $mod_strings = array (
-  'LBL_GRAND_TOTAL' => 'Grand Total',
+  'LBL_GRAND_TOTAL' => 'Net Worth',
   'LBL_AV_NET_WORTH_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE' => 'Accounts',
   'LNK_NEW_RECORD' => 'Create Net Worth History',
   'LNK_LIST' => 'View Net Worth History',
@@ -14,4 +14,5 @@ $mod_strings = array (
   'LBL_MODULE_NAME' => 'Net Worth History',
   'LBL_MODULE_TITLE' => 'Net Worth History',
   'LBL_NEW_FORM_TITLE' => 'New Net Worth History',
+  'LBL_NET_WORTH_DATE' => 'As Of',
 );
