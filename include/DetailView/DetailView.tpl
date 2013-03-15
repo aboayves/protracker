@@ -84,6 +84,7 @@ class="yui-navset detailview_tabs"
 			{counter name="fieldsUsed"}
 			{{if empty($colData.field.hideLabel)}}
 			<td width='{{$def.templateMeta.widths[$smarty.foreach.colIteration.index].label}}%' scope="col">
+            	<label>
 				{{if !empty($colData.field.name)}}
 				    {if !$fields.{{$colData.field.name}}.hidden}
                 {{/if}}
@@ -115,6 +116,7 @@ class="yui-navset detailview_tabs"
                 {/if}
                 {{/if}}
                 {{/if}}
+                </label>
 			</td>
 			<td width='{{$def.templateMeta.widths[$smarty.foreach.colIteration.index].field}}%' {{if $colData.colspan}}colspan='{{$colData.colspan}}'{{/if}} {{if isset($fields[$colData.field.name].type) && $fields[$colData.field.name].type == 'phone'}}class="phone"{{/if}}>
 			    {{if !empty($colData.field.name)}}

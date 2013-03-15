@@ -7883,3 +7883,13 @@ a.cstm_subpanel_more_button {
 tr.ygtvrow{
 	background-color: #fff !important;
 }
+
+.edit.view td[scope="col"] label,
+.detail tr td[scope="col"] label{
+	display:block;
+	width:150px;
+}
+
+.detail tr td[scope="col"]{
+	width:150px;
+}
