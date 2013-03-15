@@ -10,8 +10,17 @@ function set_location_querystring(popup_reply_data)
 	
 	var valid=0;
 	$("#MAILING_address_fieldset input[type=text], textarea").each(function(){
-	  if($(this).val() != "") valid+=1;
+	  if($(this).val() != "") valid=1;
 	});
+	$("#BILLING_address_fieldset input[type=text], textarea").each(function(){
+	  if($(this).val() != "") valid=1;
+	});
+	var $groupSelection = $('#phone_home, #phone_work, #phone_mobile, #preferred_communication, #preferred_calling_time, #Accounts0emailAddress0, #phone_fax, #preferred_document_submittal, #preferred_meeting_time');
+	$groupSelection.each(function(){
+	  if($(this).val() != "") valid=1;
+	});
+	
+	//alert(valid);
 	
 	if(valid==0)
 	{
@@ -19,7 +28,7 @@ function set_location_querystring(popup_reply_data)
 		return;
 	}
 	
-	var conf = confirm("Do you want to replace the Mailing Address from the new primary contact's Mailing Address ?");
+	var conf = confirm("Do you want to replace the Address and Communication fields from the new primary contact's  Address and Communication ?");
 	if(conf)
 	{
 	    get_account_email(contactId);
@@ -27,7 +36,7 @@ function set_location_querystring(popup_reply_data)
 	else
 	{
 		return;	
-	}
+	} 
 }
 
 function populateEmail()
@@ -37,7 +46,14 @@ function populateEmail()
 	
 	var valid=0;
 	$("#MAILING_address_fieldset input[type=text], textarea").each(function(){
-	  if($(this).val() != "") valid+=1;
+	  if($(this).val() != "") valid=1;
+	});
+	$("#BILLING_address_fieldset input[type=text], textarea").each(function(){
+	  if($(this).val() != "") valid=1;
+	});
+	var $groupSelection = $('#phone_home, #phone_work, #phone_mobile, #preferred_communication, #preferred_calling_time, #Accounts0emailAddress0, #phone_fax, #preferred_document_submittal, #preferred_meeting_time');
+	$groupSelection.each(function(){
+	  if($(this).val() != "") valid=1;
 	});
 	
 	if(valid==0)
@@ -46,7 +62,7 @@ function populateEmail()
 		return;
 	}
 	
-	var conf = confirm("Do you want to replace the Mailing Address from the new primary contact's Mailing Address ?");
+	var conf = confirm("Do you want to replace the Address and Communication fields from the new primary contact's  Address and Communication ?");
 	if(conf)
 	{
 	    get_account_email(contactId);
@@ -71,6 +87,24 @@ function get_account_email(contactId)
 			$('#mailing_address_state').val(msg['primary_address_state']);
 			$('#mailing_address_postalcode').val(msg['primary_address_postalcode']);
 			$('#mailing_address_country').val(msg['primary_address_country']);
+
+			$('#billing_address_street').val(msg['work_address_street']);
+			$('#billing_address_city').val(msg['work_address_city']);
+			$('#billing_address_state').val(msg['work_address_state']);
+			$('#billing_address_postalcode').val(msg['work_address_postalcode']);
+			$('#billing_address_country').val(msg['work_address_country']);
+
+			$('#phone_home').val(msg['phone_home']);
+			$('#phone_work').val(msg['phone_work']);
+			$('#phone_mobile').val(msg['phone_mobile']);
+			$('#preferred_communication').val(msg['preferred_communication']);
+			$('#preferred_calling_time').val(msg['preferred_calling_time']);
+			$('#Accounts0emailAddress0').val(msg['email1']);
+			$('#phone_fax').val(msg['phone_fax']);
+			$('#preferred_document_submittal').val(msg['preferred_document_submittal']);
+			$('#preferred_meeting_time').val(msg['preferred_meeting_time']);
+			
+			
 			});
 		request.fail(function(jqXHR, textStatus) {
 		alert( "Request failed: " + textStatus );
