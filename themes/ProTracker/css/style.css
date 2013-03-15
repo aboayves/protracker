@@ -88,7 +88,11 @@ input[type="submit"] {
 }
 
 input[type=text].sqsEnabled{
-	width:auto !important;
+	width:262px !important;
+}
+
+.date_input {
+    width: auto !important;
 }
 
 input[type=text],input[type=password],textarea{
@@ -7892,4 +7896,7 @@ tr.ygtvrow{
 
 .detail tr td[scope="col"]{
 	width:150px;
+}
+.dateTime > tbody > tr > td > input[type="text"] {
+	width:auto !important;
 }
