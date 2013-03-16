@@ -29,8 +29,8 @@ $dictionary["Contact"]["fields"]["referral_name"] = array (
 	'isnull' => 'true',
 	'module' => 'Contacts',
 );
-$dictionary["Contact"]["fields"]["contacts"] = array (
-	'name' => 'contacts',
+$dictionary["Contact"]["fields"]["contacts_referral_id"] = array (
+	'name' => 'contacts_referral_id',
 	'type' => 'link',
 	'relationship' => 'contact_referrals',
 	'module' => 'Contacts',

@@ -746,8 +746,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'Referral_name',
-            'label' => 'LBL_Referral_name',
+            'name' => 'referral_name',
+            'label' => 'LBL_REFERRAL_NAME',
           ),
           1 => 
           array (

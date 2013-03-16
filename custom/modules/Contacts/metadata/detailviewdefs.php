@@ -22,7 +22,7 @@ array (
             'customCode' => '<input title="{$MOD.LBL_NAME}" accessKey="{$MOD.LBL_NAME}" class="button" onclick="this.form.return_module.value=\'Contacts\'; this.form.return_action.value=\'DetailView\';this.form.action.value=\'Export\'; this.form.return_id.value=\'{$fields.id.value}\'" type="submit" name="button" value="Export">',
           ),
           6 => array(
-            'customCode' =>  '<input title="Quick Merge" type="button" name="quick_merge_button" id="quick_merge_button" onclick="window.location=\'include/QuickMerge.php?module=Contacts&id={$fields.id.value}\';" value="Quick Merge">',
+            'customCode' =>  '<input title="Quick Merge" type="button" name="quick_merge_button" id="quick_merge_button" onclick="window.location=\'index.php?entryPoint=QuickMerge&module=Contacts&id={$fields.id.value}&template=contact_report.docx\';" value="Quick Merge">',
           ),
         ),
       ),
