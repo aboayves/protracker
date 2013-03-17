@@ -18,13 +18,6 @@ array (
     'width' => '12%',
     'default' => true,
   ),
-  'ACCOUNT_NUMBER' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_ACCOUNT_NUMBER',
-    'width' => '10%',
-  ),
   'AV_ACCOUNT_TYPES_NAME' => 
   array (
     'type' => 'relate',
@@ -33,6 +26,13 @@ array (
     'id' => 'ACCOUNT_TYPE_ID',
     'width' => '10%',
     'default' => true,
+  ),
+  'ACCOUNT_NUMBER' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_ACCOUNT_NUMBER',
+    'width' => '10%',
   ),
   'OWNERSHIP_TYPE' => 
   array (
@@ -48,6 +48,13 @@ array (
     'label' => 'LBL_CUSTODIAN',
     'width' => '10%',
   ),
+  'VALUE_DATE' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'label' => 'LBL_VALUE_DATE',
+    'width' => '10%',
+  ),
   'VALUE' => 
   array (
     'type' => 'currency',
@@ -55,13 +62,6 @@ array (
     'currency_format' => true,
     'width' => '10%',
     'default' => true,
-  ),
-  'VALUE_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_VALUE_DATE',
-    'width' => '10%',
   ),
   'ASSIGNED_USER_NAME' => 
   array (
@@ -215,6 +215,15 @@ array (
     'currency_format' => true,
     'width' => '10%',
   ),
+  'CONTACTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'OWNER_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
   'PAYMENT' => 
   array (
     'type' => 'currency',
@@ -237,15 +246,6 @@ array (
     'default' => false,
     'label' => 'LBL_IS_CLOSED',
     'width' => '10%',
-  ),
-  'CONTACTS_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_CONTACTS_NAME',
-    'id' => 'OWNER_ID',
-    'width' => '10%',
-    'default' => false,
   ),
   'MATURITY_DATE' => 
   array (

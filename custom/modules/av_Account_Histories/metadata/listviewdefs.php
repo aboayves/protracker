@@ -2,6 +2,29 @@
 $module_name = 'av_Account_Histories';
 $listViewDefs [$module_name] = 
 array (
+  'IS_CLOSED' => 
+  array (
+    'type' => 'bool',
+    'default' => true,
+    'label' => 'LBL_IS_CLOSED',
+    'width' => '7%',
+  ),
+  'ACCOUNT_NUMBER' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_ACCOUNT_NUMBER',
+    'width' => '12%',
+  ),
+  'AV_ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNTS_NAME',
+    'id' => 'ASSET_ID',
+    'width' => '20%',
+    'default' => true,
+  ),
   'VALUE_DATE' => 
   array (
     'type' => 'date',
@@ -26,6 +49,13 @@ array (
     'id' => 'MODIFIED_USER_ID',
     'width' => '10%',
     'default' => false,
+  ),
+  'NAME' => 
+  array (
+    'width' => '32%',
+    'label' => 'LBL_NAME',
+    'default' => false,
+    'link' => true,
   ),
   'CREATED_BY_NAME' => 
   array (

@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-28 02:41:56
+// created: 2013-03-15 15:08:58
 $subpanel_layout['list_fields'] = array (
   'review_date' => 
   array (
@@ -13,7 +13,7 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'name',
     'link' => true,
     'vname' => 'LBL_NAME',
-    'width' => '10%',
+    'width' => '30%',
     'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
     'target_module' => NULL,
@@ -31,7 +31,7 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'text',
     'vname' => 'LBL_DESCRIPTION',
     'sortable' => false,
-    'width' => '55%',
+    'width' => '30%',
     'default' => true,
   ),
   'edit_button' => 

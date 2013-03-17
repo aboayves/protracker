@@ -37,7 +37,7 @@ array (
   array (
     'type' => 'datetime',
     'label' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
+    'width' => '17%',
     'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 
