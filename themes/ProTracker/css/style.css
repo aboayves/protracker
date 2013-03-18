@@ -88,7 +88,7 @@ input[type="submit"] {
 }
 
 input[type=text].sqsEnabled{
-	width:262px !important;
+	width:85% !important;
 }
 
 .date_input {
@@ -96,7 +96,7 @@ input[type=text].sqsEnabled{
 }
 
 input[type=text],input[type=password],textarea{
-    width: 300px;
+    width: 95%;
 }
 
 input[type=checkbox],input[type=radio] {
@@ -7901,4 +7901,7 @@ tr.ygtvrow{
 .emailaddresses > tbody > tr > td > input[type="text"]
  {
 	width:auto !important;
+}
+#EditView_team_name_input_div_0 > input {
+    width: 262px !important;
 }
