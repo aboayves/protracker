@@ -24,6 +24,9 @@ array (
           array (
             'customCode' => '<input type="button"  title="View Net Worth Statement" value="View Net Worth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
           ),
+		  6 => array(
+            'customCode' =>  '<input title="Send to LaserApp" type="button" name="laserapp_button" id="laserapp_button" onclick="window.location=\'index.php?entryPoint=LaserApp&module=Accounts&id={$fields.id.value}\';" value="Send to LaserApp">',
+          ),
         ),
       ),
       'maxColumns' => '2',

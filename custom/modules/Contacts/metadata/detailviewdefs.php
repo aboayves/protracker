@@ -21,6 +21,15 @@ array (
           array (
             'customCode' => '<input title="{$MOD.LBL_NAME}" accessKey="{$MOD.LBL_NAME}" class="button" onclick="this.form.return_module.value=\'Contacts\'; this.form.return_action.value=\'DetailView\';this.form.action.value=\'Export\'; this.form.return_id.value=\'{$fields.id.value}\'" type="submit" name="button" value="Export">',
           ),
+          6 => array(
+            'customCode' =>  '<input title="Quick Envelope" type="button" name="quick_envelope_button" id="quick_envelope_button" onclick="window.location=\'index.php?entryPoint=QuickMerge&module=Contacts&id={$fields.id.value}&template=contact_envelope.docx\';" value="Quick Envelope">',
+          ),
+		  7 => array(
+            'customCode' =>  '<input title="Quick Letter" type="button" name="quick_letter_button" id="quick_letter_button" onclick="window.location=\'index.php?entryPoint=QuickMerge&module=Contacts&id={$fields.id.value}&template=contact_letter.docx\';" value="Quick Letter">',
+          ),
+		  8 => array(
+            'customCode' =>  '<input title="Mail Merge" type="button" name="mail_merge_button" id="mail_merge_button" onclick="window.location=\'index.php?module=MailMerge&action=index&mailmerge_module=Contacts&uid={$fields.id.value}\';" value="Mail Merge">',
+          ),
         ),
       ),
       'maxColumns' => '2',

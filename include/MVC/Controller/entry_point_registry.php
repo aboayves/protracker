@@ -64,5 +64,7 @@ $entry_point_registry = array(
     'getYUIComboFile' => array('file' => 'include/javascript/getYUIComboFile.php', 'auth' => false),
     'UploadFileCheck' => array('file' => 'modules/Configurator/UploadFileCheck.php', 'auth' => true),
     'SAML'=>  array('file' => 'modules/Users/authentication/SAMLAuthenticate/index.php', 'auth' => false),
+    'QuickMerge' => array('file' => 'include/QuickMerge.php', 'auth' => true),
+	'LaserApp' => array('file' => 'include/LaserApp.php', 'auth' => true),
 );
 ?>

@@ -46,7 +46,7 @@ array (
   ),
   'ACCOUNT_NAME' => 
   array (
-    'width' => '20%',
+    'width' => '15%',
     'label' => 'LBL_LIST_ACCOUNT_NAME',
     'module' => 'Accounts',
     'id' => 'ACCOUNT_ID',
@@ -536,12 +536,6 @@ array (
     'label' => 'LBL_SPOUSE_NAME',
     'id' => 'SPOUSE_ID',
     'width' => '10%',
-    'default' => false,
-  ),
-  'EMAIL_OPT_OUT' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_EMAIL_OPT_OUT',
     'default' => false,
   ),
 );

@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-28 18:18:42
+// created: 2013-03-13 13:14:25
 $subpanel_layout['list_fields'] = array (
   'account_number' => 
   array (
@@ -46,13 +46,13 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'currency',
     'vname' => 'LBL_VALUE',
     'currency_format' => true,
-    'width' => '10%',
+    'width' => '13%',
     'default' => true,
   ),
   'date_modified' => 
   array (
     'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
+    'width' => '13%',
     'default' => true,
   ),
   'edit_button' => 

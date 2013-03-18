@@ -83,6 +83,7 @@ class PHPWord_Template {
     public function setValue($search, $replace) {
         if(substr($search, 0, 2) !== '${' && substr($search, -1) !== '}') {
             $search = '${'.$search.'}';
+			//$search = '«'.$search.'»';
         }
         
         if(!is_array($replace)) {

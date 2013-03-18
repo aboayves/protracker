@@ -29,8 +29,8 @@ $dictionary["Contact"]["fields"]["spouse_name"] = array (
 	'isnull' => 'true',
 	'module' => 'Contacts',
 );
-$dictionary["Contact"]["fields"]["contacts"] = array (
-	'name' => 'contacts',
+$dictionary["Contact"]["fields"]["contacts_spouse_id"] = array (
+	'name' => 'contacts_spouse_id',
 	'type' => 'link',
 	'relationship' => 'contact_spouses',
 	'module' => 'Contacts',

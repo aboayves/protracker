@@ -2,10 +2,19 @@
 $module_name = 'av_Goals';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'DetailView' => 
   array (
     'templateMeta' => 
     array (
+      'form' => 
+      array (
+        'buttons' => 
+        array (
+          0 => 'EDIT',
+          1 => 'DUPLICATE',
+          2 => 'DELETE',
+        ),
+      ),
       'maxColumns' => '1',
       'widths' => 
       array (
