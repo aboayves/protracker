@@ -2,7 +2,7 @@
 
 $hook_version = 1;
 
-//$hook_array['before_save'][] = Array(1, 'account_history', 'custom/modules/av_Accounts/av_AccountsHook.php', 'av_AccountsHook', 'checkChange');
+$hook_array['before_save'][] = Array(1, 'account_history', 'custom/modules/av_Accounts/av_AccountsHook.php', 'av_AccountsHook', 'checkChange');
 $hook_array['after_save'][] = Array(1, 'stampIt', 'custom/modules/av_Accounts/av_AccountsHook.php', 'av_AccountsHook', 'stampIt');
 
 $hook_array['process_record'] = Array(); 

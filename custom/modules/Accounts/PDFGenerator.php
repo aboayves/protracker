@@ -188,7 +188,7 @@ class PDFGenerator extends TCPDF{
 		
 		$y_pos += 0.6;
 		$this->Line($line_offset, $y_pos, 270, $y_pos, $this->style_simple_line);
-		
+		ob_clean();
 		$this->Output("Networth Statement ".date("m-d-y"), 'I');
 	}
 }

@@ -66,14 +66,9 @@
 					"FROM ".
 						"av_accounts aa ".
 					"INNER JOIN ".
-						"av_accounts_av_account_histories_c aah ".
-					"ON ".
-						"aa.id=aah.av_accounts_av_account_historiesav_accounts_ida AND ".
-						"aah.deleted='0' ".
-					"INNER JOIN ".
 						"av_account_histories ah ".
 					"ON ".
-						"aah.av_accounts_av_account_historiesav_account_histories_idb=ah.id AND ".
+						"ah.av_accounts_id=aa.id AND ".
 						"ah.deleted='0' AND ".
 						"ah.value_date <= '" . $netWorthDate . "' ".
 					"WHERE ".
@@ -130,6 +125,7 @@
 						"acat.av_account296eegories_ida=ac.id AND ac.deleted=0 ".
 					"WHERE ".
 						"aa.deleted=0 AND aa.accounts_id='" . $this->bean->id . "' AND ".
+						"aa.value_date <= '" . $netWorthDate . "' AND ".
 						"aa.is_closed='0' ".
 					"ORDER BY ".
 						"ac.report_sort ASC, ac.name ASC, at.report_sort ASC, at.name ASC, aa.name ASC";

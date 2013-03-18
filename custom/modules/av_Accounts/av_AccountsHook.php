@@ -3,7 +3,7 @@
 class av_AccountsHook {
 	function checkChange($bean, $event, $arguments) 
 	{
-
+		global $db;
 		$key_fields = array_keys($bean->fetched_row);
 		$key_fields_skip = array('id_c', );
 		$exempt_fields = array("date_entered");
@@ -13,23 +13,27 @@ class av_AccountsHook {
 		}
 		$changed_fields = array();
 		foreach($key_fields as $key_field){
-			if(!in_array($key_field, $key_fields_skip) && $bean->$key_field != $bean->fetched_row[$key_field]){
+			if(!in_array($key_field, $key_fields_skip) && isset($bean->$key_field) && $bean->$key_field != $bean->fetched_row[$key_field]){
 			  array_push($changed_fields, 1);
 			}
-		}
+		} 
 		if (array_sum($changed_fields) > 0) {
-		  require_once("modules/av_Account_Histories/av_Account_Histories.php");
-		  require_once("data/SugarBean.php");
-		  $history = new av_Account_Histories();
-		  foreach($key_fields as $key_field){
-			$history->$key_field = $bean->fetched_row[$key_field];
-		  }
-		  $history->id = create_guid();
-		  $history->load_relationship('av_accounts_av_account_histories');
-		  $history->av_accounts_av_account_histories->add($bean->id);
-		  $history->db->insert($history);
-		  $history->save(FALSE);
-		  $GLOBALS['log']->info("History save called");
+			$history = new av_Account_Histories();
+			$record = array();
+			foreach($key_fields as $key_field){
+			if(isset($history->field_defs[$key_field])){
+				$record[$key_field] = $bean->fetched_row[$key_field];
+			}
+			}
+			$record['id'] = create_guid();
+			$record['av_accounts_id'] = $bean->id;
+			$keys = implode(',' , array_keys($record));
+			$values = implode("','" , array_values($record));
+			if(!empty($values)){
+				$values = "'" . $values . "'";
+			}
+			$sql = "INSERT INTO av_account_histories (" . $keys . ") VALUES (" . $values . ")";
+			$db->query($sql, true);
 		}
 	}
 	function stampIt($bean, $event, $arguments)
