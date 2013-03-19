@@ -64,6 +64,13 @@ array (
 </script>',
       'useTabs' => false,
       'syncDetailEditViews' => true,
+	  'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/include/js/inherit_parent_team.js',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -88,7 +95,14 @@ array (
         ),
         2 => 
         array (
-          0 => 'account_name',
+          0 => 
+		  array (
+				'name' => 'account_name',
+				'displayParams' => 
+				array (
+					'call_back_function'=>'call_back_account_team',
+				),
+			),
           1 => 
           array (
             'name' => 'end_date',

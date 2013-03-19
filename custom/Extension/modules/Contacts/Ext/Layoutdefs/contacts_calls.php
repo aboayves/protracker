@@ -12,7 +12,7 @@ $layout_defs["Contacts"]["subpanel_setup"]["calls_contacts"] = array (
   array (
     0 => 
     array (
-      'widget_class' => 'SubPanelTopButtonQuickCreate',
+      'widget_class' => 'SubPanelTopButtonQuickCreateCustom',
     ),
     1 => 
     array (

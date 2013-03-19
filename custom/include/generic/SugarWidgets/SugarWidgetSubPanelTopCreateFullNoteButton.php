@@ -62,7 +62,9 @@ class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopB
 				}
 			}
 		}
-
+		//Inheriting team members from parent
+		if(isset($defines['focus']->team_id))$additionalFormFields['team_id'] = $defines['focus']->team_id;
+		if(isset($defines['focus']->team_set_id))$additionalFormFields['team_set_id'] = $defines['focus']->team_set_id;
 		if(!empty($this->module))
 		{
 			$defines['child_module_name'] = $this->module;

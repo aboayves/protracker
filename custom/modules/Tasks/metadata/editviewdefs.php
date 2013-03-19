@@ -46,6 +46,10 @@ array (
         array (
           'file' => 'custom/modules/Tasks/workflow_load.js',
         ),
+		3 => 
+        array (
+          'file' => 'custom/include/js/inherit_parent_team.js',
+        ),
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
@@ -76,6 +80,10 @@ array (
           array (
             'name' => 'parent_name',
             'label' => 'LBL_LIST_RELATED_TO',
+			'displayParams' => 
+			array (
+				'call_back_function'=>'set_return',
+			),
           ),
           1 => 
           array (

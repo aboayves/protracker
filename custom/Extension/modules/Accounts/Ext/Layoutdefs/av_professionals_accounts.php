@@ -10,7 +10,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_professionals_accounts"] = array 
 	array (
 		0 => 
 		array (
-			'widget_class' => 'SubPanelTopButtonQuickCreate',
+			'widget_class' => 'SubPanelTopButtonQuickCreateCustom',
 		),
 		1 => 
 		array (

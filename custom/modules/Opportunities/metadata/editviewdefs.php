@@ -9,7 +9,7 @@ array (
       array (
         0 => 
         array (
-          'file' => 'custom/modules/Opportunities/customParentTeam.js',
+          'file' => 'custom/include/js/inherit_parent_team.js',
         ),
       ),
       'maxColumns' => '2',
@@ -45,7 +45,7 @@ array (
 			'name' => 'account_name',
 			'displayParams' => 
 				array (
-					'call_back_function'=>'callbackParentTeam',
+					'call_back_function'=>'call_back_account_team',
 				),
 		  )
         ),

@@ -10,7 +10,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_health_insurance_accounts"] = arr
 	array (
 		0 => 
 		array (
-			'widget_class' => 'SubPanelTopButtonQuickCreate',
+			'widget_class' => 'SubPanelTopButtonQuickCreateCustom',
 		),
 		1 => 
 		array (
