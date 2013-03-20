@@ -33,6 +33,25 @@ function save_settings(){
 		complete: function(resp)
 		{
 			SUGAR.mySugar.retrieveDashlet(id,'predefined_chart');
+			alignAxisTextRight();
 		}
 	});
+}
+function alignAxisTextRight(){
+	var digit_length1 = ($("#svgChart").children().eq(5).children().first()).text().length;
+	var digit_length2 = ($("#svgChart").children().eq(6).children().first()).text().length;
+	var digit_length3 = ($("#svgChart").children().eq(7).children().first()).text().length;
+	var digit_length4 = ($("#svgChart").children().eq(8).children().first()).text().length;
+	var digit_length5 = ($("#svgChart").children().eq(9).children().first()).text().length;
+	var digit_length6 = ($("#svgChart").children().eq(10).children().first()).text().length;
+	var x1 = (digit_length1-digit_length2)*3;
+	var x2 = (digit_length1-digit_length3)*3;
+	var x3 = (digit_length1-digit_length4)*3;
+	var x4 = (digit_length1-digit_length5)*3;
+	var x5 = (digit_length1-digit_length6)*3;
+	($("#svgChart").children().eq(6).children().first()).attr("x", parseInt($("#svgChart").children().eq(6).children().first().attr('x'))+x1);
+	($("#svgChart").children().eq(7).children().first()).attr("x", parseInt($("#svgChart").children().eq(7).children().first().attr('x'))+x2);
+	($("#svgChart").children().eq(8).children().first()).attr("x", parseInt($("#svgChart").children().eq(8).children().first().attr('x'))+x3);
+	($("#svgChart").children().eq(9).children().first()).attr("x", parseInt($("#svgChart").children().eq(9).children().first().attr('x'))+x4);
+	($("#svgChart").children().eq(10).children().first()).attr("x", parseInt($("#svgChart").children().eq(10).children().first().attr('x'))+x5);
 }

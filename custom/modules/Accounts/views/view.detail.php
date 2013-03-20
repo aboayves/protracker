@@ -78,7 +78,7 @@ class AccountsViewDetail extends ViewDetail
 		  array(
 		  	array(
 			  'hideLabel' => true,
-			  'customCode' => '<input title="Print Net Worth" type="button" name="printNetWorthGraph" id="printNetWorthGraph" onclick="window.location=\'index.php?module=Accounts&action=printNetWorthGraph&accounts_id='.$this->bean->id.'\'" value="Create PDF"><div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
+			  'customCode' => '<input title="Print Net Worth" type="button" name="printNetWorthGraph" id="printNetWorthGraph" onclick="window.location=\'index.php?module=Accounts&action=printNetWorthGraph&accounts_id='.$this->bean->id.'\'" value="Create PDF"><div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');alignTextRight();"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
 			)
 		  )
 		);
@@ -143,8 +143,24 @@ class AccountsViewDetail extends ViewDetail
 						});
 			
 		Accounts_detailview_tabs.selectTab(0);
-		$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);	
-		
+		$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);
+		//doing axis text right align
+		function alignTextRight(){
+			var digit_length1 = ($('#svgChart').children().eq(5).children().first()).text().length;
+			var digit_length2 = ($('#svgChart').children().eq(6).children().first()).text().length;
+			var digit_length3 = ($('#svgChart').children().eq(7).children().first()).text().length;
+			var digit_length4 = ($('#svgChart').children().eq(8).children().first()).text().length;
+			var digit_length5 = ($('#svgChart').children().eq(9).children().first()).text().length;
+			var x1 = (digit_length1-digit_length2)*3;
+			var x2 = (digit_length1-digit_length3)*3;
+			var x3 = (digit_length1-digit_length4)*3;
+			var x4 = (digit_length1-digit_length5)*3;
+			($('#svgChart').children().eq(6).children().first()).attr('x', parseInt($('#svgChart').children().eq(6).children().first().attr('x'))+x1);
+			($('#svgChart').children().eq(7).children().first()).attr('x', parseInt($('#svgChart').children().eq(7).children().first().attr('x'))+x2);
+			($('#svgChart').children().eq(8).children().first()).attr('x', parseInt($('#svgChart').children().eq(8).children().first().attr('x'))+x3);
+			($('#svgChart').children().eq(9).children().first()).attr('x', parseInt($('#svgChart').children().eq(9).children().first().attr('x'))+x4);
+		}
+		alignTextRight();
 		</script>";
 		echo "<style>";
 			".jqx-chart-axis-text{text-align:right !important;}";
