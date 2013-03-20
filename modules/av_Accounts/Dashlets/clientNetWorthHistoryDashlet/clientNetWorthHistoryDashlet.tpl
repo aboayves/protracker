@@ -51,7 +51,7 @@
 							  ]
 				});
 			}
-$('#svgChart>g>g:nth-child(7)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(7)>text').attr('x'))-33);	         
-
+		$('#svgChart>g>g:nth-child(7)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(7)>text').attr('x'))-33);	         
+		alignAxisTextRight();
     </script>
 {/literal}
