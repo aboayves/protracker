@@ -43,7 +43,7 @@ class="yui-navset"
     <ul class="yui-nav">
     {{foreach name=section from=$sectionPanels key=label item=panel}}
         {{counter name="tabCount" print=false}}
-        <li class="selected"><a id="tab{{$tabCount}}" href="javascript:void({{$tabCount}})"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
+        <li class="selected"><a id="tab{{$tabCount}}" href="javascript:void({{$tabCount}});" onclick="setTabCookie('{{$module}}', {{$tabCount}});"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
     {{/foreach}}
     </ul>
     {{/if}}
@@ -259,7 +259,10 @@ class="yui-navset"
 {sugar_getscript file="cache/include/javascript/sugar_grp_yui_widgets.js"}
 <script type="text/javascript">
 var {{$form_name}}_tabs = new YAHOO.widget.TabView("{{$form_name}}_tabs");
-{{$form_name}}_tabs.selectTab(0);
+//{{$form_name}}_tabs.selectTab(0);
+var selectedTab=getTabCookie('{{$module}}');
+selectedTab = isNaN(selectedTab) ? 0 : selectedTab;
+{{$form_name}}_tabs.selectTab(selectedTab);
 </script>
 {{/if}}
 <script type="text/javascript">
