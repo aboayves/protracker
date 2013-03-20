@@ -10,6 +10,8 @@ class AccountsViewDetail extends ViewDetail
 	}
 	function display() 
 	{
+	global $tabStructure;
+	$tabStructure['LBL_TABGROUP_ACTIVITIES']['modules'][8] = 'activities';
 	$sql = "SELECT *
 			FROM
 			(	

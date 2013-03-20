@@ -1,7 +1,7 @@
 <?php
 // created: 2012-09-03 07:22:23
 $layout_defs["Contacts"]["subpanel_setup"]["meetings_contacts"] = array (
-  'order' => 100,
+  'order' => 8,
   'module' => 'Meetings',
   'subpanel_name' => 'default',
   'sort_order' => 'asc',
