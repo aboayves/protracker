@@ -142,7 +142,7 @@ class AccountsViewDetail extends ViewDetail
 							  ]
 						});
 			
-		Accounts_detailview_tabs.selectTab(0);
+		Accounts_detailview_tabs.selectTab(selectedTab);
 		$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);
 		//doing axis text right align
 		function alignTextRight(){

@@ -50,6 +50,35 @@ if (SUGAR.ajaxUI && !SUGAR.ajaxUI.hist_loaded)
 }
 
 </script>
+<script type='text/javascript'>
+function setTabCookie(cookieName, cookieValue, nDays) {
+	cookieName+='_selectedTab';
+	var today = new Date();
+	var expire = new Date();
+
+	if (nDays==null || nDays==0)
+		nDays=10;
+
+	expire.setTime(today.getTime() + 3600000*24*nDays);
+	document.cookie = cookieName+"="+escape(cookieValue) + ";expires="+expire.toGMTString();
+}
+
+function getTabCookie(cookieName)
+{
+	cookieName+='_selectedTab';
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	for (i=0;i<ARRcookies.length;i++)
+	{
+	  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+	  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+	  x=x.replace(/^\s+|\s+$/g,"");
+	  if (x==cookieName)
+		{
+		return unescape(y);
+		}
+	  }
+}
+</script>
 {/literal}
 
 {literal}
