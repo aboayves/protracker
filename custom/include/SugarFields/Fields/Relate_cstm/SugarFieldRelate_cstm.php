@@ -120,13 +120,7 @@ class SugarFieldRelate_cstm extends SugarFieldRelate {
         $this->setup($parentFieldArray, $vardef, $displayParams, $tabindex);
         return $this->fetch($this->findTemplate('EditView'));
     }
-	public function sm_print_r($smaty)
-	{
-		echo "ali";
-		print_r($smaty);
-		die("ali");
-	}
- 	
+
 	
 	
 /*	function createQuickSearchCode($vardef, $vardef, $formName = 'EditView', $module){

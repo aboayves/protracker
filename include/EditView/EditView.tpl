@@ -29,7 +29,7 @@
 *}
 {{include file=$headerTpl}}
 {sugar_include include=$includes}
-
+<script type="text/JavaScript" src="custom/include/js/validation_for_cstm_relate.js"></script>
 <span id='tabcounterJS'><script>SUGAR.TabFields=new Array();//this will be used to track tabindexes for references</script></span>
 
 <div id="{{$form_name}}_tabs"

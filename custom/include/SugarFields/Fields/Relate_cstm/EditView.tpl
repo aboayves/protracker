@@ -1,13 +1,11 @@
-
-<script type="text/javascript" src="custom/include/js/relate_cstm_quickCreate.js"></script>
-<script type='text/javascript'>
-var val_{{$idname}} = '';
-</script>
 {{capture name=idname assign=idname}}{{sugarvar key='name'}}{{/capture}}
 {{if !empty($displayParams.idName)}}
     {{assign var=idname value=$displayParams.idName}}
 {{/if}}
-<input type="text" name="{{$idname}}" class={{if empty($displayParams.class) }}"sqsEnabled sqsNoAutofill"{{else}} "{{$displayParams.class}}" {{/if}} tabindex="{{$tabindex}}" id="{{$idname}}" size="{{$displayParams.size}}" value="{{sugarvar key='value'}}" title='{{$vardef.help}}' autocomplete="off" {{$displayParams.readOnly}} {{$displayParams.field}}	{{if !empty($displayParams.accesskey)}} accesskey='{{$displayParams.accesskey}}' {{/if}} onblur="val_{{$idname}}=this.value;setTimeout('isNewValue();',50);" onchange="val_{{$idname}}=this.value;setTimeout('isNewValue();',50);" onkeyup="setTimeout('val_{{$idname}}=$(&quot;#{{$idname}}&quot;).val();isNewValue();',1000);" >
+<script type='text/javascript'>
+var val_{{$idname}} = '';
+</script>
+<input type="text" name="{{$idname}}" class={{if empty($displayParams.class) }}"cstm_relate_field_validation sqsEnabled sqsNoAutofill"{{else}} "{{$displayParams.class}}" {{/if}} tabindex="{{$tabindex}}" id="{{$idname}}" size="{{$displayParams.size}}" value="{{sugarvar key='value'}}" title='{{$vardef.help}}' autocomplete="off" {{$displayParams.readOnly}} {{$displayParams.field}}	{{if !empty($displayParams.accesskey)}} accesskey='{{$displayParams.accesskey}}' {{/if}} onblur="val_{{$idname}}=this.value;setTimeout('isNewValue();',50);" onchange="val_{{$idname}}=this.value;setTimeout('isNewValue();',50);" onkeyup="setTimeout('val_{{$idname}}=$(&quot;#{{$idname}}&quot;).val();isNewValue();',1000);" >
 <input type="hidden" name="{{if !empty($displayParams.idNameHidden)}}{{$displayParams.idNameHidden}}{{/if}}{{sugarvar key='id_name'}}" 
 	id="{{if !empty($displayParams.idNameHidden)}}{{$displayParams.idNameHidden}}{{/if}}{{sugarvar key='id_name'}}" 
 	{{if !empty($vardef.id_name)}}value="{{sugarvar memberName='vardef.id_name' key='value'}}"{{/if}}>
@@ -34,6 +32,7 @@ onclick="SUGAR.clearRelateField(this.form, '{{$idname}}', '{{if !empty($displayP
 {{if !empty($displayParams.allowNewValue) }}
 <input type="hidden" name="{{$idname}}_allow_new_value" id="{{$idname}}_allow_new_value" value="true">
 {{/if}}
+<span class ="show_cstm_relate_errors" style="display:none;color:#FF0000">Please create specific record.</span>
 <div id="dialogForURL" style="display:none"><br/><br/></div>
 
 {literal}
