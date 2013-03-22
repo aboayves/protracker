@@ -44,7 +44,12 @@ array (
         ),
         1 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
           1 => '',
         ),
         2 => 

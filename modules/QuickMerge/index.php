@@ -35,7 +35,7 @@ $bean = BeanFactory::getBean($module_name, $id);
 // exit;
 
 // load PHP Word library
-require_once('PHPWord.php');
+require_once('include/PHPWord.php');
 $PHPWord = new PHPWord();
 
 // select template

@@ -1,0 +1,31 @@
+<!-- BEGIN: main -->
+
+
+			<form enctype="multipart/form-data" name="PreciseFP" method="POST" action="index.php" onsubmit='return false'>
+			<input type="hidden" name="module" value="PreciseFP">
+			<input type="hidden" name="step" id="step" value="{STEP}">
+			<input type="hidden" name="action" value="index">
+			
+<p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+<td>
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<th align="left" scope="row" colspan="2"><h4 class="">{MAIL_MERGE_HEADER_STEP_2}</h4></th>
+	</tr>
+	
+</table>
+</td>
+</tr>
+<tr><td>{PRECISEFP_FILE}</td></tr>
+</table>
+</p>
+<p><table width="100%" cellpadding="2" cellspacing="0" border="0"><tr> 
+	<td align="left"><input id="prevButton" title="{MOD.LBL_BACK}"  class="button" type="submit" name="button" value="  {MOD.LBL_BACK}  "  onclick="this.form.step.value='1'; return submit_form();"></td>
+	<td align="right"><input id="nextButton" title="{MOD.LBL_NEXT}"  class="button" type="submit" name="button" value="  {MOD.LBL_NEXT}  "  onclick="set_selected_items();return validateForm();"></td>
+</tr>
+</table>  </p>
+	</form>
+
+<!-- END: main -->

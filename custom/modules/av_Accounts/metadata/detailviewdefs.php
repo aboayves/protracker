@@ -376,6 +376,7 @@ array (
             'name' => 'cash_balance_high_percent',
             'comment' => '',
             'label' => 'LBL_CASH_BALANCE_HIGH_PERCENT',
+			'customCode' => '{$fields.cash_balance_high_percent.value}%',
           ),
         ),
         2 => 
@@ -391,6 +392,7 @@ array (
             'name' => 'cash_balance_low_percent',
             'comment' => '',
             'label' => 'LBL_CASH_BALANCE_LOW_PERCENT',
+			'customCode' => '{$fields.cash_balance_low_percent.value}%',
           ),
         ),
       ),
@@ -523,6 +525,7 @@ array (
             'name' => 'billed_percent',
             'comment' => '',
             'label' => 'LBL_BILLED_PERCENT',
+			'customCode' => '{$fields.billed_percent.value}%',
           ),
         ),
       ),

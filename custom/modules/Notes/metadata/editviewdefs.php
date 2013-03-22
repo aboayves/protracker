@@ -100,6 +100,14 @@ function deleteAttachmentCallBack(text)
         ),
         4 => 
         array (
+          0 => '',
+          1 => 
+          array (
+            'name' => 'team_name',
+          ),
+        ),
+        5 => 
+        array (
           0 => 
           array (
             'name' => 'description',
@@ -118,12 +126,8 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
             'label' => 'LBL_NOTE_STATUS',
           ),
-          1 => 
-          array (
-            'name' => 'team_name',
-          ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (

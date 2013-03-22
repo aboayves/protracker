@@ -19,6 +19,7 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'vname' => 'LBL_SERVICE_TYPE',
     'width' => '10%',
+	'link' => true,
   ),
   'service_group' => 
   array (

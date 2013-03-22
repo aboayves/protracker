@@ -60,6 +60,7 @@ array (
             'name' => 'year_of_estimate',
             'comment' => '',
             'label' => 'LBL_YEAR_OF_ESTIMATE',
+			'disable_num_format' => '1',
           ),
           1 => '',
         ),

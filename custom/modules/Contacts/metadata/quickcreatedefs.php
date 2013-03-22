@@ -40,12 +40,7 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'salutation',
-            'comment' => 'Contact salutation (e.g., Mr, Ms)',
-            'label' => 'LBL_SALUTATION',
-          ),
+          0 => 'report_salutation',
           1 => 
           array (
             'name' => 'picture',
@@ -131,10 +126,16 @@ array (
             'name' => 'email1',
           ),
         ),
-		7 =>
-		array (
-			0 => 'report_salutation',
-		),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'salutation',
+            'comment' => 'Contact salutation (e.g., Mr, Ms)',
+            'label' => 'LBL_SALUTATION',
+          ),
+          1 => '',
+        ),
       ),
       'lbl_editview_panel5' => 
       array (
