@@ -9,6 +9,7 @@ array (
     'label' => 'LBL_YEAR_OF_ESTIMATE',
     'width' => '5%',
     'link' => 'true',
+	'disable_num_format' => '1',
   ),
   'ACCOUNTS_NAME' => 
   array (
