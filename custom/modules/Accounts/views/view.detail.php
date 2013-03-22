@@ -10,9 +10,9 @@ class AccountsViewDetail extends ViewDetail
 	}
 	function display() 
 	{
-	global $tabStructure;
-	$tabStructure['LBL_TABGROUP_ACTIVITIES']['modules'][8] = 'activities';
-	$sql = "SELECT *
+		global $tabStructure;
+		$tabStructure['LBL_TABGROUP_ACTIVITIES']['modules'][8] = 'activities';
+		$sql = "SELECT *
 			FROM
 			(	
 			SELECT YEAR(av_net_worth.net_worth_date) AS year, MONTH(av_net_worth.net_worth_date) AS month, DAY(av_net_worth.net_worth_date) AS day,  av_net_worth.grand_total AS worth, av_net_worth.managed_assets
@@ -27,162 +27,167 @@ class AccountsViewDetail extends ViewDetail
 			ORDER BY a1.year DESC
 		";
 		
-	$sql_result = $this->bean->db->query($sql);
-	if($sql_result->num_rows >0)
-	{
-		$graph_data_db = array();
-		$min = INF;
-		$max = -INF;
-		$year = 0;
-		while($graph_data_row = $this->bean->db->fetchByAssoc($sql_result))
+		$sql_result = $this->bean->db->query($sql);
+		if($sql_result->num_rows >0)
 		{
-			
-			
-			$graph_data_db[$graph_data_row['year']][$graph_data_row['month']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
-			if($year == 0)
-			{	
-				$year = $graph_data_row['year']-5;
-		
-			}
-			$max = ($graph_data_row['worth']>=$max) ? $graph_data_row['worth'] : $max;
-			$max = ($graph_data_row['managed_assets']>=$max) ? $graph_data_row['managed_assets'] : $max;
-			$min =  ($graph_data_row['managed_assets']<$min) ? $graph_data_row['managed_assets'] : $min;
-			$min =  ($graph_data_row['worth']<$min) ? $graph_data_row['worth'] : $min;
-		}
-	
-		//$graph_data = array();
-		$data4graph = array();
-		$k=0;
-		$last_value = 0;
-		$last_value_managed = 0;
-		for($j=1; $j<=5; $j++)
-		{
-			$year++;
-			for($i=1; $i<=12; $i++)
+			$graph_data_db = array();
+			$min = INF;
+			$max = -INF;
+			$year = 0;
+			while($graph_data_row = $this->bean->db->fetchByAssoc($sql_result))
 			{
-				$graph_data_db[$year][$i]['worth'] =(empty($graph_data_db[$year][$i]['worth'])) ? $last_value: $graph_data_db[$year][$i]['worth'];
-				$graph_data_db[$year][$i]['managed_assets'] =(empty($graph_data_db[$year][$i]['managed_assets'])) ? $last_value_managed : $graph_data_db[$year][$i]['managed_assets'];
-				
-//				$graph_data[$year][$i] = array('worth'=>$graph_data_db[$year][$i]['worth'],'managed_assets'=>$graph_data_db[$year][$i]['managed_assets']);
-				
-				$data4graph[$k]['year'] = ($i==1) ? $year : '';
 				
 				
-				$data4graph[$k]['worth'] = $graph_data_db[$year][$i]['worth'];
-					$data4graph[$k]['managed_assets'] = $graph_data_db[$year][$i]['managed_assets'];
-					$k++;
-				$last_value = $graph_data_db[$year][$i]['worth'];
-				$last_value_managed = $graph_data_db[$year][$i]['managed_assets'];
+				$graph_data_db[$graph_data_row['year']][$graph_data_row['month']] = array('worth'=>$graph_data_row['worth'],'managed_assets'=>$graph_data_row['managed_assets']);
+				if($year == 0)
+				{	
+					$year = $graph_data_row['year']-5;
+			
+				}
+				$max = ($graph_data_row['worth']>=$max) ? $graph_data_row['worth'] : $max;
+				$max = ($graph_data_row['managed_assets']>=$max) ? $graph_data_row['managed_assets'] : $max;
+				$min =  ($graph_data_row['managed_assets']<$min) ? $graph_data_row['managed_assets'] : $min;
+				$min =  ($graph_data_row['worth']<$min) ? $graph_data_row['worth'] : $min;
 			}
 		
-		}
-		$this->dv->defs['panels']['LBL_GRAPH'] = array(
-		  array(
-		  	array(
-			  'hideLabel' => true,
-			  'customCode' => '<input title="Print Net Worth" type="button" name="printNetWorthGraph" id="printNetWorthGraph" onclick="window.location=\'index.php?module=Accounts&action=printNetWorthGraph&accounts_id='.$this->bean->id.'\'" value="Create PDF"><div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');alignTextRight();"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
-			)
-		  )
-		);
-		$this->showPrimarySecondaryImage();
-	
-		parent::display();
-
-		$min = ($min>0) ? $min : 0;
-		$interval = round(($max - $min)/4);
-		
-		if($interval >= 10000)
-		{
-			$min = round($min / 10000) * 10000;
-			$interval = round($interval / 10000) * 10000;		
-		}
-		else if($interval >= 5000)
-		{
-			$min = round($min / 5000) * 5000;
-			$interval = round($interval / 5000) * 5000;					
-		}
-		//the javascript things for the graphs go here...
-		echo "
-		<script type='text/javascript' src='custom/include/js/jquery/jqxcore.js'></script>
-		<script type='text/javascript' src='custom/include/js/jquery/jqxchart.js'></script>	
-		<script type='text/javascript' src='custom/include/js/jquery/jqxdata.js'></script>	
-
-		<script type='text/javascript'>
-		Accounts_detailview_tabs.selectTab(5);
-
-				$('#divForGraph').jqxChart( {
-							  source: ".json_encode($data4graph).",															  
-							  title: 'Net Worth',
-							  categoryAxis:
-							  {
-								  dataField: 'year',
-								  lineWidth: 40, 
-								  textRotationAngle: -90
-							  },
-							  colorScheme: 'scheme05',
-							  seriesGroups:
-							  [
-								{
-								  type: 'line',
-								  valueAxis:
-								  {
-									unitInterval: ".$interval.",
-									minValue: 0,
-									maxValue: ".$max.",
-									formatSettings:
-									  {
-										 thousandsSeparator : ','
-									 
-									  }
-								  },
-								  
-								  series: [
-									{ dataField: 'worth', displayText: 'Net Worth' },
-									{ dataField: 'managed_assets', displayText: 'Managed Assets' }
-								  ]
-								}
-							  ]
-						});
+			//$graph_data = array();
+			$data4graph = array();
+			$k=0;
+			$last_value = 0;
+			$last_value_managed = 0;
+			for($j=1; $j<=5; $j++)
+			{
+				$year++;
+				for($i=1; $i<=12; $i++)
+				{
+					$graph_data_db[$year][$i]['worth'] =(empty($graph_data_db[$year][$i]['worth'])) ? $last_value: $graph_data_db[$year][$i]['worth'];
+					$graph_data_db[$year][$i]['managed_assets'] =(empty($graph_data_db[$year][$i]['managed_assets'])) ? $last_value_managed : $graph_data_db[$year][$i]['managed_assets'];
+					
+	//				$graph_data[$year][$i] = array('worth'=>$graph_data_db[$year][$i]['worth'],'managed_assets'=>$graph_data_db[$year][$i]['managed_assets']);
+					
+					$data4graph[$k]['year'] = ($i==1) ? $year : '';
+					
+					
+					$data4graph[$k]['worth'] = $graph_data_db[$year][$i]['worth'];
+						$data4graph[$k]['managed_assets'] = $graph_data_db[$year][$i]['managed_assets'];
+						$k++;
+					$last_value = $graph_data_db[$year][$i]['worth'];
+					$last_value_managed = $graph_data_db[$year][$i]['managed_assets'];
+				}
 			
-		Accounts_detailview_tabs.selectTab(selectedTab);
-		$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);
-		//doing axis text right align
-		function alignTextRight(){
-			var digit_length1 = ($('#svgChart').children().eq(5).children().first()).text().length;
-			var digit_length2 = ($('#svgChart').children().eq(6).children().first()).text().length;
-			var digit_length3 = ($('#svgChart').children().eq(7).children().first()).text().length;
-			var digit_length4 = ($('#svgChart').children().eq(8).children().first()).text().length;
-			var digit_length5 = ($('#svgChart').children().eq(9).children().first()).text().length;
-			var x1 = (digit_length1-digit_length2)*3;
-			var x2 = (digit_length1-digit_length3)*3;
-			var x3 = (digit_length1-digit_length4)*3;
-			var x4 = (digit_length1-digit_length5)*3;
-			($('#svgChart').children().eq(6).children().first()).attr('x', parseInt($('#svgChart').children().eq(6).children().first().attr('x'))+x1);
-			($('#svgChart').children().eq(7).children().first()).attr('x', parseInt($('#svgChart').children().eq(7).children().first().attr('x'))+x2);
-			($('#svgChart').children().eq(8).children().first()).attr('x', parseInt($('#svgChart').children().eq(8).children().first().attr('x'))+x3);
-			($('#svgChart').children().eq(9).children().first()).attr('x', parseInt($('#svgChart').children().eq(9).children().first().attr('x'))+x4);
+			}
+			$this->dv->defs['panels']['LBL_GRAPH'] = array(
+			  array(
+				array(
+				  'hideLabel' => true,
+				  'customCode' => '<input title="Print Net Worth" type="button" name="printNetWorthGraph" id="printNetWorthGraph" onclick="window.location=\'index.php?module=Accounts&action=printNetWorthGraph&accounts_id='.$this->bean->id.'\'" value="Create PDF"><div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');alignTextRight();"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
+				)
+			  )
+			);
+			$this->showPrimarySecondaryImage();
+		
+			parent::display();
+
+			$min = ($min>0) ? $min : 0;
+			$interval = round(($max - $min)/4);
+			
+			if($interval >= 10000)
+			{
+				$min = round($min / 10000) * 10000;
+				$interval = round($interval / 10000) * 10000;		
+			}
+			else if($interval >= 5000)
+			{
+				$min = round($min / 5000) * 5000;
+				$interval = round($interval / 5000) * 5000;					
+			}
+			//the javascript things for the graphs go here...
+			echo "
+				<script type='text/javascript' src='custom/include/js/jquery/jqxcore.js'></script>
+				<script type='text/javascript' src='custom/include/js/jquery/jqxchart.js'></script>	
+				<script type='text/javascript' src='custom/include/js/jquery/jqxdata.js'></script>
+				";	
+			if(isset($_REQUEST['print']) && $_REQUEST['print'] =='true'){
+				echo "<script type='text/javascript'>";
+			}else{
+				echo "<script type='text/javascript'>Accounts_detailview_tabs.selectTab(5);";
+			}
+			echo "$('#divForGraph').jqxChart( {
+						  source: ".json_encode($data4graph).",															  
+						  title: 'Net Worth',
+						  categoryAxis:
+						  {
+							  dataField: 'year',
+							  lineWidth: 40, 
+							  textRotationAngle: -90
+						  },
+						  colorScheme: 'scheme05',
+						  seriesGroups:
+						  [
+							{
+							  type: 'line',
+							  valueAxis:
+							  {
+								unitInterval: ".$interval.",
+								minValue: 0,
+								maxValue: ".$max.",
+								formatSettings:
+								  {
+									 thousandsSeparator : ','
+								 
+								  }
+							  },
+							  
+							  series: [
+								{ dataField: 'worth', displayText: 'Net Worth' },
+								{ dataField: 'managed_assets', displayText: 'Managed Assets' }
+							  ]
+							}
+						  ]
+				})</script>";
+			if(isset($_REQUEST['print']) && $_REQUEST['print'] =='true'){
+				echo "<script type='text/javascript'>";
+			}else{
+				echo "<script type='text/javascript'>Accounts_detailview_tabs.selectTab(selectedTab);";
+			}	
+			echo "$('#svgChart>g>g:nth-child(6)>text').attr('x', parseInt($('#svgChart>g>g:nth-child(6)>text').attr('x'))-12);
+			//doing axis text right align
+			function alignTextRight(){
+				var digit_length1 = ($('#svgChart').children().eq(5).children().first()).text().length;
+				var digit_length2 = ($('#svgChart').children().eq(6).children().first()).text().length;
+				var digit_length3 = ($('#svgChart').children().eq(7).children().first()).text().length;
+				var digit_length4 = ($('#svgChart').children().eq(8).children().first()).text().length;
+				var digit_length5 = ($('#svgChart').children().eq(9).children().first()).text().length;
+				var x1 = (digit_length1-digit_length2)*3;
+				var x2 = (digit_length1-digit_length3)*3;
+				var x3 = (digit_length1-digit_length4)*3;
+				var x4 = (digit_length1-digit_length5)*3;
+				($('#svgChart').children().eq(6).children().first()).attr('x', parseInt($('#svgChart').children().eq(6).children().first().attr('x'))+x1);
+				($('#svgChart').children().eq(7).children().first()).attr('x', parseInt($('#svgChart').children().eq(7).children().first().attr('x'))+x2);
+				($('#svgChart').children().eq(8).children().first()).attr('x', parseInt($('#svgChart').children().eq(8).children().first().attr('x'))+x3);
+				($('#svgChart').children().eq(9).children().first()).attr('x', parseInt($('#svgChart').children().eq(9).children().first().attr('x'))+x4);
+			}
+			alignTextRight();
+			</script>";
+			echo "<style>";
+				".jqx-chart-axis-text{text-align:right !important;}";
+			echo "</style>";
+	   }
+	   else
+	   {
+			$theData = "<div id='divForGraph' style='width:100%; height:50px;' align='center'><br/>Insufficient data. Please add some Net Worth history.</div>";
+			$this->dv->ss->assign('theGraph', $theData);
+			$this->dv->defs['panels']['LBL_GRAPH'] = array(
+			  array(
+				array(
+				  'hideLabel' => true,
+				  'customCode' => '{$theGraph}',
+				)
+			  )
+			);
+			$this->showPrimarySecondaryImage();
+			parent::display();
 		}
-		alignTextRight();
-		</script>";
-		echo "<style>";
-			".jqx-chart-axis-text{text-align:right !important;}";
-		echo "</style>";
-   }
-   else
-   {
-		$theData = "<div id='divForGraph' style='width:100%; height:50px;' align='center'><br/>Insufficient data. Please add some Net Worth history.</div>";
-		$this->dv->ss->assign('theGraph', $theData);
-		$this->dv->defs['panels']['LBL_GRAPH'] = array(
-		  array(
-		  	array(
-			  'hideLabel' => true,
-			  'customCode' => '{$theGraph}',
-			)
-		  )
-		);
-		$this->showPrimarySecondaryImage();
-		parent::display();
-	}
 		echo "<script>		
 		window.onload=function(){
 			$('#primary_contact_image').closest('td').prev('td').text('');

@@ -86,6 +86,9 @@ class ViewDetail extends SugarView
 				$this->dv->defs['templateMeta']['form']['hideAudit'] = true;
 			}
 		}
+		if(isset($_REQUEST['print']) && $_REQUEST['print'] =='true'){
+			$this->dv->defs['templateMeta']['useTabs'] = false;
+		}
         $this->dv->process();
         echo $this->dv->display();
     }
