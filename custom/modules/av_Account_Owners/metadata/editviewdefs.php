@@ -37,9 +37,17 @@ array (
         ),
         1 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         2 => 
+        array (
+          0 => 'name',
+        ),
+        3 => 
         array (
           0 => 
           array (
@@ -48,11 +56,11 @@ array (
             'label' => 'LBL_OWNERSHIP_PERCENT',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'description',
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (

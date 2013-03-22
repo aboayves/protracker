@@ -47,22 +47,31 @@ array (
         ),
         1 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
         ),
         2 => 
+        array (
+          0 => 'name',
+        ),
+        3 => 
         array (
           0 => 
           array (
             'name' => 'ownership_percent',
             'comment' => '',
             'label' => 'LBL_OWNERSHIP_PERCENT',
+			'customCode' => '{$fields.ownership_percent.value}%',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'description',
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
