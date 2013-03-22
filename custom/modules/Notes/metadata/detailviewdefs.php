@@ -78,14 +78,18 @@ array (
         ),
         4 => 
         array (
+          0 => '',
+          1 => 'team_name',
+        ),
+        5 => 
+        array (
           0 => 
           array (
             'name' => 'description',
             'label' => 'LBL_NOTE_STATUS',
           ),
-          1 => 'team_name',
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
