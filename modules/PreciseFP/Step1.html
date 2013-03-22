@@ -1,0 +1,35 @@
+<!-- BEGIN: main -->
+
+
+			<form enctype="multipart/form-data" name="PreciseFP" method="POST" action="index.php">
+			<input type="hidden" name="module" value="PreciseFP">
+			<input type="hidden" name="step" id="step" value="{STEP}">
+			<input type="hidden" name="action" value="index">			
+<p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+<tr>
+<td>
+	<table border="0"  width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+	<th align="left" scope="row" colspan="5"><h4 class="">{MOD.LBL_STEP_1}</h4></th>
+	</tr>
+	<td>
+	<label for="userfile">Select file:</label> <input type="hidden" /><input size="20" id="userfile" name="userfile" type="file"/> 
+	</td>
+	<!--<tr><td>
+	<input title="Upload"  class="button" type="submit" name="button" value="  Upload  " id="gonext">
+	</td></tr>-->
+	</table>
+
+</td>
+</tr>
+</table>
+</p>
+
+<p><table width="100%" cellpadding="2" cellspacing="0" border="0"><tr> 
+	<td align="right">
+	<input title="{MOD.LBL_NEXT}"  class="button" type="submit" id="btnNext" name="button" value="  {MOD.LBL_NEXT}" onClick="return validateForm();" {DISABLE_NEXT_BUTTON}></td>
+</tr>
+</table> </p>
+	</form>
+<!-- END: main -->
