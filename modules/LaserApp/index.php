@@ -52,8 +52,8 @@ $ContactElement = $xml->addChild('ContactRecord');
 $temp = $ContactElement->addChild('CLIENT_ID', $id);
 $temp->addAttribute("xml:space", 'preserve');  
 
-$temp = $ContactElement->addChild('ClientFirstName', 'FirstName');
-$temp = $ContactElement->addChild('ClientLastName', 'LastName');
+$temp = $ContactElement->addChild('ClientFirstName', '');
+$temp = $ContactElement->addChild('ClientLastName', $row['name']);
 $temp = $ContactElement->addChild('ClientAddress', str_replace("&", "&amp;",$row['mailing_address_street'])); //str_replace necessary because simplexml does not handle "&" encoding properly
 $temp = $ContactElement->addChild('ClientCity', str_replace("&", "&amp;",$row['mailing_address_city']));
 $temp = $ContactElement->addChild('ClientState', $row['mailing_address_state']);
