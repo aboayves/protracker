@@ -34,6 +34,16 @@ array (
         ),
         1 => 
         array (
+          0 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
           0 => 'description',
           1 => 
           array (
@@ -44,7 +54,7 @@ array (
             ),
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
