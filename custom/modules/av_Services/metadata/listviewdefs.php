@@ -17,6 +17,7 @@ array (
     'default' => true,
     'label' => 'LBL_SERVICE_TYPE',
     'width' => '10%',
+	'link' => true,
   ),
   'FREQUENCY' => 
   array (
