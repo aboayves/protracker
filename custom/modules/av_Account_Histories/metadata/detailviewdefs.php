@@ -41,7 +41,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Accounts_name',
+            'name' => 'av_accounts_name',
             'label' => 'LBL_AV_ACCOUNTS_NAME',
           ),
         ),
