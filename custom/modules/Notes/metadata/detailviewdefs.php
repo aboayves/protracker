@@ -19,7 +19,7 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
@@ -30,8 +30,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
-            'label' => 'LBL_SUBJECT',
+            'name' => 'parent_name',
+            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
           1 => 'assigned_user_name',
         ),
@@ -39,8 +39,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+            'name' => 'name',
+            'label' => 'LBL_SUBJECT',
           ),
           1 => 
           array (
@@ -52,15 +52,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'on_meeting_agenda',
-            'comment' => '',
-            'label' => 'LBL_ON_MEETING_AGENDA',
-          ),
-          1 => 
-          array (
-            'name' => 'on_report_card',
-            'comment' => '',
-            'label' => 'LBL_ON_REPORT_CARD',
+            'name' => 'description',
+            'label' => 'LBL_NOTE_STATUS',
           ),
         ),
         3 => 
@@ -75,21 +68,9 @@ array (
               'link' => 'filename',
             ),
           ),
-        ),
-        4 => 
-        array (
-          0 => '',
           1 => 'team_name',
         ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_NOTE_STATUS',
-          ),
-        ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -101,6 +82,54 @@ array (
             'name' => 'date_modified',
             'label' => 'LBL_DATE_MODIFIED',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+          1 => 
+          array (
+            'name' => 'embed_flag',
+            'comment' => 'Embed flag indicator determines if note embedded in email',
+            'label' => 'LBL_EMBED_FLAG',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
+          1 => 
+          array (
+            'name' => 'portal_flag',
+            'comment' => 'Portal flag indicator determines if note created via portal',
+            'label' => 'LBL_PORTAL_FLAG',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_financial_plan',
+            'comment' => '',
+            'label' => 'LBL_ON_FINANCIAL_PLAN',
+          ),
+          1 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
           ),
         ),
       ),

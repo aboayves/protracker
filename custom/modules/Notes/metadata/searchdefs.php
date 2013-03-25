@@ -5,27 +5,27 @@ array (
   array (
     'basic_search' => 
     array (
+      'date_entered' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_ENTERED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_entered',
+      ),
+      'parent_name' => 
+      array (
+        'type' => 'parent',
+        'label' => 'LBL_RELATED_TO',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'parent_name',
+      ),
       'name' => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
-      ),
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'width' => '10%',
-        'default' => true,
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'width' => '10%',
-        'default' => true,
       ),
     ),
     'advanced_search' => 
@@ -44,14 +44,6 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      /*'created_by_name' => 
-      array (
-        'type' => 'relate',
-        'label' => 'LBL_CREATED_BY',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'created_by_name',
-      ),*/
       'created_user_id' => 
       array (
         'type' => 'assigned_user_name',

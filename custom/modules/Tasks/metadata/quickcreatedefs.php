@@ -52,6 +52,19 @@ array (
         array (
           0 => 
           array (
+            'name' => 'parent_name',
+            'label' => 'LBL_LIST_RELATED_TO',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'name',
             'displayParams' => 
             array (
@@ -60,82 +73,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'status',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_start',
-            'type' => 'datetimecombo',
-            'displayParams' => 
-            array (
-              'showNoneCheckbox' => true,
-              'showFormats' => true,
-            ),
-          ),
-          1 => 
-          array (
-            'name' => 'priority',
-            'displayParams' => 
-            array (
-              'required' => true,
-            ),
+            'name' => 'av_activity_types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),
         2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'on_task_list',
-            'label' => 'LBL_ON_TASK_LIST',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_due',
-            'type' => 'datetimecombo',
-            'displayParams' => 
-            array (
-              'showNoneCheckbox' => true,
-              'showFormats' => true,
-            ),
-          ),
-          1 => 
-          array (
-            'name' => 'parent_tasks_name',
-            'label' => 'LBL_PARENT_TASKS',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'parent_name',
-            'label' => 'LBL_LIST_RELATED_TO',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'closed_status',
-            'label' => 'LBL_CLOSED_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'contact_name',
-            'label' => 'LBL_CONTACT_NAME',
-          ),
-        ),
-        6 => 
         array (
           0 => 
           array (
@@ -157,6 +99,27 @@ else {    document.getElementById(\'description_tasks\').style.width = \'100%\';
             array (
               'rows' => 8,
               'cols' => 60,
+            ),
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_due',
+            'type' => 'datetimecombo',
+            'displayParams' => 
+            array (
+              'showNoneCheckbox' => true,
+              'showFormats' => true,
+            ),
+          ),
+          1 => 
+          array (
+            'name' => 'priority',
+            'displayParams' => 
+            array (
+              'required' => true,
             ),
           ),
         ),

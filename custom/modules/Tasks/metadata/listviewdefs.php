@@ -13,13 +13,6 @@ array (
       0 => 'status',
     ),
   ),
-  'NAME' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_LIST_SUBJECT',
-    'link' => true,
-    'default' => true,
-  ),
   'DATE_DUE' => 
   array (
     'width' => '8%',
@@ -29,7 +22,7 @@ array (
   ),
   'PARENT_NAME' => 
   array (
-    'width' => '15%',
+    'width' => '10%',
     'label' => 'LBL_LIST_RELATED_TO',
     'dynamic_module' => 'PARENT_TYPE',
     'id' => 'PARENT_ID',
@@ -43,20 +36,20 @@ array (
       1 => 'parent_type',
     ),
   ),
-  'STATUS' => 
+  'NAME' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_LIST_STATUS',
-    'link' => false,
+    'width' => '25%',
+    'label' => 'LBL_LIST_SUBJECT',
+    'link' => true,
     'default' => true,
   ),
-  'PARENT_TASKS_NAME' => 
+  'AV_ACTIVITY_TYPES_NAME' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_PARENT_TASKS',
-    'id' => 'PARENT_TASKS_ID',
-    'width' => '15%',
+    'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+    'id' => 'ACTIVITY_TYPE_ID',
+    'width' => '10%',
     'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 
@@ -66,13 +59,6 @@ array (
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
     'default' => true,
-  ),
-  'PERCENT_COMPLETE' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'label' => 'LBL_PERCENT_COMPLETE',
-    'width' => '8%',
   ),
   'TEAM_NAME' => 
   array (
@@ -107,6 +93,13 @@ array (
     'default' => false,
     'label' => 'LBL_RESULTS',
     'width' => '10%',
+  ),
+  'PRIORITY' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_PRIORITY',
+    'width' => '10%',
+    'default' => false,
   ),
   'PRIVATE' => 
   array (
@@ -193,6 +186,29 @@ array (
     'label' => 'LBL_ON_FINANCIAL_PLAN',
     'width' => '10%',
   ),
+  'PERCENT_COMPLETE' => 
+  array (
+    'type' => 'enum',
+    'default' => false,
+    'label' => 'LBL_PERCENT_COMPLETE',
+    'width' => '8%',
+  ),
+  'STATUS' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_LIST_STATUS',
+    'link' => false,
+    'default' => false,
+  ),
+  'PARENT_TASKS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_PARENT_TASKS',
+    'id' => 'PARENT_TASKS_ID',
+    'width' => '15%',
+    'default' => false,
+  ),
   'DATE_START' => 
   array (
     'width' => '5%',
@@ -230,13 +246,6 @@ array (
     'link' => true,
     'label' => 'LBL_MODIFIED_NAME',
     'id' => 'MODIFIED_USER_ID',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'PRIORITY' => 
-  array (
-    'type' => 'enum',
-    'label' => 'LBL_PRIORITY',
     'width' => '10%',
     'default' => false,
   ),

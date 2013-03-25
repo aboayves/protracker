@@ -5,6 +5,14 @@ array (
   array (
     'basic_search' => 
     array (
+      'date_start' => 
+      array (
+        'type' => 'datetimecombo',
+        'label' => 'LBL_DATE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_start',
+      ),
       'name' => 
       array (
         'name' => 'name',
@@ -18,56 +26,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'parent_name',
-      ),
-      'av_activity_types_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
-        'id' => 'ACTIVITY_TYPE_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'av_activity_types_name',
-      ),
-      'contact_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'studio' => 
-        array (
-          'required' => false,
-          'listview' => true,
-          'visible' => false,
-        ),
-        'label' => 'LBL_CONTACT_NAME',
-        'id' => 'CONTACT_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'contact_name',
-      ),
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'open_only' => 
-      array (
-        'name' => 'open_only',
-        'label' => 'LBL_OPEN_ITEMS',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
       ),
     ),
     'advanced_search' => 

@@ -84,8 +84,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
-            'label' => 'LBL_SUBJECT',
+            'name' => 'parent_name',
+            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
           1 => 
           array (
@@ -98,8 +98,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+            'name' => 'name',
+            'label' => 'LBL_SUBJECT',
           ),
           1 => 
           array (

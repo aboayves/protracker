@@ -13,19 +13,16 @@ array (
       0 => 'status',
     ),
   ),
-  'STATUS' => 
+  'DATE_START' => 
   array (
-    'width' => '10%',
-    'label' => 'LBL_STATUS',
+    'width' => '12%',
+    'label' => 'LBL_LIST_DATE',
     'link' => false,
     'default' => true,
-  ),
-  'NAME' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_SUBJECT',
-    'link' => true,
-    'default' => true,
+    'related_fields' => 
+    array (
+      0 => 'time_start',
+    ),
   ),
   'PARENT_NAME' => 
   array (
@@ -43,16 +40,19 @@ array (
       1 => 'parent_type',
     ),
   ),
-  'DATE_START' => 
+  'NAME' => 
   array (
-    'width' => '12%',
-    'label' => 'LBL_LIST_DATE',
+    'width' => '20%',
+    'label' => 'LBL_LIST_SUBJECT',
+    'link' => true,
+    'default' => true,
+  ),
+  'STATUS' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_STATUS',
     'link' => false,
     'default' => true,
-    'related_fields' => 
-    array (
-      0 => 'time_start',
-    ),
   ),
   'DIRECTION' => 
   array (
@@ -76,13 +76,6 @@ array (
     'label' => 'LBL_LIST_ASSIGNED_TO_NAME',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
-  ),
-  'DATE_MODIFIED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
     'default' => true,
   ),
   'TEAM_NAME' => 
@@ -109,6 +102,13 @@ array (
   array (
     'width' => '15%',
     'label' => 'LBL_DATE_ENTERED',
+    'default' => false,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
+    'width' => '10%',
     'default' => false,
   ),
   'DESCRIPTION' => 

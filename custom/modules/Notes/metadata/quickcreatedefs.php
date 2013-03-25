@@ -49,6 +49,19 @@ function deleteAttachmentCallBack(text)
         array (
           0 => 
           array (
+            'name' => 'parent_name',
+            'label' => 'LBL_RELATED_TO',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
             'name' => 'name',
             'label' => 'LBL_SUBJECT',
             'displayParams' => 
@@ -62,15 +75,6 @@ function deleteAttachmentCallBack(text)
             'name' => 'av_activity_types_notes_1_name',
             'label' => 'LBL_AV_ACTIVITY_TYPES_NOTES_1_FROM_AV_ACTIVITY_TYPES_TITLE',
           ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'parent_name',
-            'label' => 'LBL_RELATED_TO',
-          ),
-          1 => '',
         ),
         2 => 
         array (

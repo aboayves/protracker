@@ -5,33 +5,25 @@ array (
   array (
     'basic_search' => 
     array (
+      'date_start' => 
+      array (
+        'type' => 'datetimecombo',
+        'label' => 'LBL_DATE',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_start',
+      ),
+      'parent_name' => 
+      array (
+        'type' => 'parent',
+        'label' => 'LBL_LIST_RELATED_TO',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'parent_name',
+      ),
       'name' => 
       array (
         'name' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'open_only' => 
-      array (
-        'name' => 'open_only',
-        'label' => 'LBL_OPEN_ITEMS',
-        'type' => 'bool',
         'default' => true,
         'width' => '10%',
       ),
