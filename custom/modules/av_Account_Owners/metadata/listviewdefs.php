@@ -4,9 +4,33 @@ $listViewDefs [$module_name] =
 array (
   'AV_ACCOUNTS_NAME' => 
   array (
+<<<<<<< HEAD
     'type' => 'relate',
     'label' => 'LBL_AV_ACCOUNTS_NAME',
     'width' => '20%',
+=======
+    'type' => 'currency',
+    'default' => true,
+    'label' => 'LBL_OWNERSHIP_PERCENT',
+    'currency_format' => true,
+    'width' => '10%',
+  ),
+  'AV_ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNTS_NAME',
+    'id' => 'ASSET_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
+>>>>>>> problem editing listview layout for relate field in Account Owners
     'default' => true,
   ),
   'CONTACTS_NAME' => 
