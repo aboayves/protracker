@@ -31,6 +31,7 @@
 							  [
 								{
 								  type: 'line',
+								  toolTipFormatSettings: { thousandsSeparator: ',' },
 								  valueAxis:
 								  {
 									unitInterval: interval,

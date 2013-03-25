@@ -126,6 +126,7 @@ class AccountsViewDetail extends ViewDetail
 						  [
 							{
 							  type: 'line',
+							  toolTipFormatSettings: { thousandsSeparator: ',' },
 							  valueAxis:
 							  {
 								unitInterval: ".$interval.",
