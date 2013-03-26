@@ -596,7 +596,11 @@ class SugarView
 		$topTabList['av_Groups'] = $app_list_strings['moduleList']['av_Groups'];
 		$topTabList['Accounts'] = $app_list_strings['moduleList']['Accounts'];
 		$topTabList['Contacts'] = $app_list_strings['moduleList']['Contacts'];
-		
+		$topTabList['Calls'] = $app_list_strings['moduleList']['Calls'];
+		$topTabList['Emails'] = $app_list_strings['moduleList']['Emails'];
+		$topTabList['Meetings'] = $app_list_strings['moduleList']['Meetings'];
+		$topTabList['Notes'] = $app_list_strings['moduleList']['Notes'];
+		$topTabList['Tasks'] = $app_list_strings['moduleList']['Tasks'];
         if ( isset($topTabList) && is_array($topTabList) ) {
             // Adding shortcuts array to menu array for displaying shortcuts associated with each module
             $shortcutTopMenu = array();

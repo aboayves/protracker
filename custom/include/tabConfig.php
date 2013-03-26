@@ -6,14 +6,8 @@ $GLOBALS['tabStructure'] = array (
     'label' => 'LBL_TABGROUP_ACTIVITIES',
     'modules' => 
     array (
-      0 => 'Meetings',
-      1 => 'Notes',
-      2 => 'Tasks',
-      3 => 'Calls',
-      4 => 'Emails',
-      5 => 'av_Workflow',
-      6 => 'av_Task_Template',
-      7 => 'av_Activity_Types',
+      0 => 'av_Workflow',
+      1 => 'av_Task_Template',
     ),
   ),
   'LBL_TABGROUP_DOCUMENT_MANAGEMENT' => 
