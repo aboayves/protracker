@@ -83,7 +83,7 @@
 				</li>
 			</ul>
         </li>
-		        <li class="{$homeClass}"><a href="index.php?module=Accounts&action=index" module="Accounts" class="sf-with-ul">Clients</a>
+		<li class="{$homeClass}"><a href="index.php?module=Accounts&action=index" module="Accounts" class="sf-with-ul">Clients</a>
         	<ul class="megamenu">
 				<li>
 					<div class="megawrapper">
@@ -333,7 +333,8 @@
 					</div>
 				</li>
 			</ul>
-        </li>	<li class="{$homeClass}"><a href="index.php?module=Notes&action=index" module="Notes" class="sf-with-ul">Notes</a>
+        </li>	
+		<li class="{$homeClass}"><a href="index.php?module=Notes&action=index" module="Notes" class="sf-with-ul">Notes</a>
         	<ul class="megamenu">
 				<li>
 					<div class="megawrapper">
