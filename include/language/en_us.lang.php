@@ -1002,6 +1002,155 @@ $app_list_strings = array (
     'tentative' => 'Tentative',
     'none'      => 'None',
   ),
+          'dataset_output_default_dom' =>
+    array (
+    'table' => 'Table',
+  ),
+    'report_maker_status_dom' =>
+    array (
+    'Single Module' => 'Single Module',
+    'Multi Module' => 'Multi Module',
+  ),
+  'report_align_dom' =>
+    array (
+    'left' => 'Left',
+    'center' => 'Center',
+    'right' => 'Right',
+  ),
+
+    'width_type_dom' =>
+    array (
+    '%' => 'Percent (%)',
+    'px' => 'Pixels (px)',
+  ),
+    'report_color_dom' =>
+    array (
+    '' => 'Default',
+    'black' => 'Black',
+    'green' => 'Green',
+    'blue' => 'Blue',
+    'red' => 'Red',
+    'white' => 'White',
+    'DarkGreen' => 'Dark Green',
+    'LightGray' => 'Light Gray',
+    'DodgerBlue' => 'Dodger Blue',
+    'LightBlue' => 'Light Blue',
+  ),
+    'font_size_dom' =>
+    array (
+    '-5' => 'Smaller (-5)',
+    '-4' => 'Smaller (-4)',
+    '-3' => 'Smaller (-3)',
+    '-2' => 'Smaller (-2)',
+    '-1' => 'Smaller (-1)',
+    'Default' => 'Default',
+    '1' => 'Larger (+1)',
+    '2' => 'Larger (+2)',
+    '3' => 'Larger (+3)',
+    '4' => 'Larger (+4)',
+    '5' => 'Larger (+5)',
+  ),
+        'query_type_dom' =>
+    array (
+    'Main Query' => 'Main Query',
+//  'Sub Query' => 'Sub Query',
+//  'Reverse Sub Query' => 'Reverse Sub Query',
+  ),
+        'query_column_type_dom' =>
+    array (
+    'Display' => 'Display',
+//  'Group By' => 'Group By',
+    'Calculation' => 'Calculation',
+  ),
+        'query_display_type_dom' =>
+    array (
+    'Default' => 'Default',
+    'Custom' => 'Custom',
+    'Hidden' => 'Hidden',
+  ),
+
+            'query_groupby_qualifier_dom' =>
+    array (
+    'Day' => 'Day',
+    'Week' => 'Week',
+    'Month' => 'Month',
+    'Quarter' => 'Quarter',
+    'Year' => 'Year',
+  ),
+
+            'query_groupby_qualifier_qty_dom' =>
+    array (
+    '1' => '1',
+    '2' => '2',
+    '3' => '3',
+    '4' => '4',
+    '5' => '5',
+    '6' => '6',
+    '7' => '7',
+    '8' => '8',
+    '9' => '9',
+    '10' => '10',
+    '12' => '12',
+    '18' => '18',
+    '24' => '24',
+  ),
+
+            'query_groupby_qualifier_start_dom' =>
+    array (
+    '0' => 'Now',
+    '-1' => '-1',
+    '-2' => '-2',
+    '-3' => '-3',
+    '-4' => '-4',
+    '-5' => '-5',
+    '-6' => '-6',
+    '-7' => '-7',
+    '-8' => '-8',
+    '-9' => '-9',
+    '-10' => '-10',
+    '12' => '-12',
+    '-18' => '-18',
+    '-24' => '-24',
+  ),
+            'query_groupby_calc_type_dom' =>
+    array (
+    'SUM' => 'SUM',
+    'AVG' => 'AVG',
+    'COUNT' => 'Count',
+    'STDDEV' => 'Standard Deviation',
+    'VARIANCE' => 'Variance',
+//  'Custom' => 'Custom',
+  ),
+            'query_groupby_type_dom' =>
+    array (
+    'Field' => 'Standard Field',
+    'Time' => 'Time Interval',
+//  'Custom' => 'Custom Group By',
+  ),
+
+  'query_groupby_axis_dom' =>
+    array (
+    'Rows' => 'Rows (Y-Axis)',
+    'Columns' => 'Columns (X-Axis)',
+  ),
+
+  'query_calc_calc_type_dom' =>
+    array (
+    'SUM' => 'Sum (Total)',
+    'AVG' => 'Average',
+    'MAX' => 'Maximum',
+    'MIN' => 'Minimum',
+    'COUNT' => 'Count',
+    'STDDEV' => 'Standard Deviation',
+    'VARIANCE' => 'Variance',
+  ),
+  'query_calc_type_dom' =>
+    array (
+    'Standard' => 'Standard',
+//  'Sub-Query' => 'Sub Query',
+    'Math' => 'Math Calc',
+  ),
+  
   'query_calc_oper_dom' =>
       array (
     '+' => '(+) Plus',

@@ -175,7 +175,9 @@ $beanList['ContractTypes']  = 'ContractType';
 $beanList['Holidays'] = 'Holiday';
 $beanList['ProjectResources'] = 'ProjectResource';
 
-
+$beanList['CustomQueries']  = 'CustomQuery';
+$beanList['DataSets']  = 'DataSet';
+$beanList['ReportMaker']  = 'ReportMaker';
 
 
 // this list defines all of the files that contain the SugarBean class definitions from $beanList
@@ -290,7 +292,9 @@ $beanFiles['KBContent'] = 'modules/KBContents/KBContent.php';
 $beanFiles['ContractType']  = 'modules/ContractTypes/ContractType.php';
 $beanFiles['ProjectResource'] = 'modules/ProjectResources/ProjectResource.php';
 $beanFiles['Holiday'] = 'modules/Holidays/Holiday.php';
-
+$beanFiles['CustomQuery']= 'modules/CustomQueries/CustomQuery.php';
+$beanFiles['DataSet']= 'modules/DataSets/DataSet.php';
+$beanFiles['ReportMaker']= 'modules/ReportMaker/ReportMaker.php';
 
 
 // TODO: Remove the Library module, it is an example.
@@ -336,6 +340,9 @@ $adminOnlyList = array(
                     'Schedulers' => array('all' => 1),
                     );
 
+$modInvisList[] = 'CustomQueries';
+$modInvisList[] = 'DataSets';
+$modInvisList[] = 'ReportMaker';
 
 //$modInvisList[] = 'QueryBuilder';
 $modInvisList[] = 'WorkFlow';
@@ -393,6 +400,8 @@ $GLOBALS['moduleTabMap'] = array(
     'SugarFeed' => 'Administration',
     'DocumentRevisions' => 'Documents',
     'EmailTemplates' => 'Emails',
+	'DataSets' => 'ReportMaker',
+    'CustomQueries' => 'ReportMaker',
     'EmailMarketing' => 'Campaigns',
     'Quotas' => 'Forecasts',
     'TeamNotices' => 'Teams',
