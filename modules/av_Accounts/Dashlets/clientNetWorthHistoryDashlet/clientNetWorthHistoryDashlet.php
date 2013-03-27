@@ -107,7 +107,8 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 		$select_option = array (
 								'current_user' => 'Current User', 
 								'specific_company' => 'Select Company',
-								'specific_user' => 'Select User'
+								'specific_user' => 'Select User',
+								'for_all' => 'All'
 								);
 		$query ="SELECT id, name FROM av_offices where deleted=0";
 		$result = $db->query($query);
@@ -156,9 +157,19 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 			$dashletDefs[$this->id]['options']['selected_type'] =='specific_company'
 		   )
 		{
-			$custom_and = " accounts.office_id='{$dashletDefs[$this->id]['options']['selected_value']}' ";
+			$custom_and = " AND accounts.office_id='{$dashletDefs[$this->id]['options']['selected_value']}' ";
 			$this->graph_for = BeanFactory::getBean('av_Offices', $dashletDefs[$this->id]['options']['selected_value'])->name;
-		}else{
+		}
+		elseif(
+			isset($dashletDefs[$this->id]['options']['selected_type']) &&
+			$dashletDefs[$this->id]['options']['selected_type'] =='for_all'
+			)
+		{
+			$custom_and =" ";
+			$this->graph_for = 'All';
+		}
+		else
+		{
 			if (
 			   isset($dashletDefs[$this->id]['options']['selected_type']) &&
 			   $dashletDefs[$this->id]['options']['selected_type'] == 'specific_user'
@@ -168,7 +179,7 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 			}else{
 				$user_id = $current_user->id;
 			}
-			$custom_and = " accounts.assigned_user_id='{$user_id}' ";
+			$custom_and = " AND accounts.assigned_user_id='{$user_id}' ";
 			$users_array = get_user_array(); 
 			$this->graph_for = $users_array[$user_id];
 		}
@@ -176,14 +187,13 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 					FROM(
 						SELECT YEAR(av_net_worth.net_worth_date) as year, MONTH(av_net_worth.net_worth_date) AS month, DAY(av_net_worth.net_worth_date) AS day, av_net_worth.grand_total AS worth, av_net_worth.managed_assets 
 						FROM av_net_worth 
-						RIGHT JOIN accounts ON(accounts.deleted=0 AND ".$custom_and." AND accounts.id=av_net_worth.accounts_id) 
+						RIGHT JOIN accounts ON(accounts.deleted=0 ".$custom_and." AND accounts.id=av_net_worth.accounts_id) 
 						WHERE av_net_worth.deleted=0 
 						ORDER BY av_net_worth.net_worth_date DESC
 					) AS net_worth_history 
 					GROUP BY net_worth_history.month
 					ORDER BY net_worth_history.year DESC, net_worth_history.month DESC
 					LIMIT 6";
-	
 		return $sql;
 	}
 	function monthName($month_int) {

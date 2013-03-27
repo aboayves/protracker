@@ -21,9 +21,9 @@ function save_settings(){
 	}else if($("#select_option").val() == 'specific_user' && $("#selected_user").val() != ''){
 		selected_value=$("#selected_user").val();
 		selected_type = "specific_user";
-	}else{
+	}else if($("#select_option").val() == 'for_all'){
 		selected_value=$("#select_option").val();
-		selected_type = "current_user";
+		selected_type = "for_all";
 	}
 	var parameters="id="+id+"&selected_type="+selected_type+"&selected_value="+selected_value;
 	$.ajax({
