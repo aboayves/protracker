@@ -23,6 +23,7 @@ array (
     'label' => 'LBL_AV_ACCOUNTS_NAME',
     'id' => 'ASSET_ID',
     'width' => '20%',
+	'related_fields' => array('asset_id'), 
     'default' => true,
   ),
   'VALUE_DATE' => 

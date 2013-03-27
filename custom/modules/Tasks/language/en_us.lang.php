@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-23 17:54:33
+// created: 2013-03-25 00:36:56
 $mod_strings = array (
   'LBL_DD1' => 'Dropdown 1',
   'LBL_DD2' => 'Dropdown 2',
@@ -10,7 +10,7 @@ $mod_strings = array (
   'LBL_DETAILVIEW_PANEL1' => 'New Panel 1',
   'LBL_PARENT_TASKS' => 'Waiting for',
   'LBL_CHILD_TASKS' => 'Dependent Tasks',
-  'LBL_EDITVIEW_PANEL1' => 'Flags',
+  'LBL_EDITVIEW_PANEL1' => 'Settings',
   'LBL_DESCRIPTION' => 'Task Description',
   'LBL_ALOW_ASIGNE_TO_MODIFY' => 'User Modifiable',
   'LBL_ASSIGNED_TO_NAME' => 'Assigned to',

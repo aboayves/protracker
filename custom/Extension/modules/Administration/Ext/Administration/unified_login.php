@@ -90,7 +90,13 @@ $admin_role_options = array(
 				translate('Import', 'LBL_MODULE_NAME'),
 				'Import Wizard',
 				'./index.php?module=Import&action=step1&import_module=Administration'
-			),			
+			),	
+			"Import_Orion_PV"=>array(
+				'Import',
+				'Orion Import',
+				'Import Orion AdvisorLynx Portfolio Values',
+				'./index.php?module=Import&action=step1&import_module=av_Account_Histories&source=reserved_orion_import_pv'
+			),
 		),
 		"reserved_professional"=>array(
 			"av_Account_Types"=>array(
@@ -135,6 +141,12 @@ $admin_role_options = array(
 				translate('Import', 'LBL_MODULE_NAME'),
 				'Import Wizard',
 				'./index.php?module=Import&action=step1&import_module=Administration'
+			),
+			"Import_Orion_PV"=>array(
+				'Import',
+				'Orion Import',
+				'Import Orion AdvisorLynx Portfolio Values',
+				'./index.php?module=Import&action=step1&import_module=av_Account_Histories&source=reserved_orion_import_pv'
 			),
 			"av_Custom_Fields"=>array(
 				'av_Custom_Fields',
@@ -209,6 +221,12 @@ $admin_role_options = array(
 				translate('Import', 'LBL_MODULE_NAME'),
 				'Import Wizard',
 				'./index.php?module=Import&action=step1&import_module=Administration'
+			),
+			"Import_Orion_PV"=>array(
+				'Import',
+				'Orion Import',
+				'Import Orion AdvisorLynx Portfolio Values',
+				'./index.php?module=Import&action=step1&import_module=av_Account_Histories&source=reserved_orion_import_pv'
 			),
 			"av_Custom_Fields"=>array(
 				'av_Custom_Fields',
@@ -306,6 +324,7 @@ $option_module_groups = array(
 		"av_Client_Types"=>"Administration",
 		"ContractTypes"=>"Administration",
 		"Import"=>"Administration",
+		"Import_Orion_PV"=>"Administration",
 		"av_Custom_Fields"=>"Administration",
 		"SugarFeed"=>"Administration",
 		"Configurator"=>"Administration",

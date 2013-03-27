@@ -70,9 +70,9 @@ array (
 function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration()){ldelim}SUGAR.ajaxUI.submitForm("EditView");{rdelim}{rdelim}</script>',
       'useTabs' => false,
       'syncDetailEditViews' => true,
-	  'includes' => 
+      'includes' => 
       array (
-		0 => 
+        0 => 
         array (
           'file' => 'custom/include/js/inherit_parent_team.js',
         ),
@@ -86,7 +86,12 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
         array (
           0 => 
           array (
-            'name' => 'name',
+            'name' => 'parent_name',
+            'label' => 'LBL_LIST_RELATED_TO',
+            'displayParams' => 
+            array (
+              'call_back_function' => 'set_return',
+            ),
           ),
           1 => 
           array (
@@ -98,12 +103,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\') && isValidDuration
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'label' => 'LBL_LIST_RELATED_TO',
-			'displayParams' => 
-			array (
-				'call_back_function'=>'set_return',
-			),
+            'name' => 'name',
           ),
           1 => 
           array (

@@ -73,7 +73,7 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
@@ -84,8 +84,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
-            'label' => 'LBL_SUBJECT',
+            'name' => 'parent_name',
+            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
           ),
           1 => 
           array (
@@ -97,8 +97,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'customLabel' => '{sugar_translate label=\'LBL_MODULE_NAME\' module=$fields.parent_type.value}',
+            'name' => 'name',
+            'label' => 'LBL_SUBJECT',
           ),
           1 => 
           array (
@@ -132,6 +132,11 @@ array (
         ),
         4 => 
         array (
+          0 => 'description',
+          1 => 'team_name',
+        ),
+        5 => 
+        array (
           0 => 
           array (
             'name' => 'duration',
@@ -145,35 +150,11 @@ array (
             'label' => 'LBL_EMAIL_REMINDER_TIME',
           ),
         ),
-        5 => 
-        array (
-          0 => 'location',
-          1 => 
-          array (
-            'name' => 'on_meeting_agenda',
-            'comment' => '',
-            'label' => 'LBL_ON_MEETING_AGENDA',
-          ),
-        ),
         6 => 
         array (
-          0 => 
-          array (
-            'name' => 'report_sort',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SORT',
-          ),
-          1 => 
-          array (
-            'name' => 'password',
-          ),
+          0 => 'location',
         ),
         7 => 
-        array (
-          0 => 'description',
-          1 => 'team_name',
-        ),
-        8 => 
         array (
           0 => 
           array (
@@ -185,6 +166,32 @@ array (
             'name' => 'date_modified',
             'label' => 'LBL_DATE_MODIFIED',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
+          1 => 'type',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+          1 => 
+          array (
+            'name' => 'password',
           ),
         ),
       ),

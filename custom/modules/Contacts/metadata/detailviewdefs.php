@@ -21,14 +21,17 @@ array (
           array (
             'customCode' => '<input title="{$MOD.LBL_NAME}" accessKey="{$MOD.LBL_NAME}" class="button" onclick="this.form.return_module.value=\'Contacts\'; this.form.return_action.value=\'DetailView\';this.form.action.value=\'Export\'; this.form.return_id.value=\'{$fields.id.value}\'" type="submit" name="button" value="Export">',
           ),
-          6 => array(
-            'customCode' =>  '<input title="Quick Envelope" type="button" name="quick_envelope_button" id="quick_envelope_button" onclick="window.location=\'index.php?entryPoint=QuickMerge&module=Contacts&id={$fields.id.value}&template=contact_envelope.docx\';" value="Quick Envelope">',
+          6 => 
+          array (
+            'customCode' => '<input title="Quick Envelope" type="button" name="quick_envelope_button" id="quick_envelope_button" onclick="window.location=\'index.php?entryPoint=QuickMerge&module=Contacts&id={$fields.id.value}&template=contact_envelope.docx\';" value="Quick Envelope">',
           ),
-		  7 => array(
-            'customCode' =>  '<input title="Quick Letter" type="button" name="quick_letter_button" id="quick_letter_button" onclick="window.location=\'index.php?entryPoint=QuickMerge&module=Contacts&id={$fields.id.value}&template=contact_letter.docx\';" value="Quick Letter">',
+          7 => 
+          array (
+            'customCode' => '<input title="Quick Letter" type="button" name="quick_letter_button" id="quick_letter_button" onclick="window.location=\'index.php?entryPoint=QuickMerge&module=Contacts&id={$fields.id.value}&template=contact_letter.docx\';" value="Quick Letter">',
           ),
-		  8 => array(
-            'customCode' =>  '<input title="Mail Merge" type="button" name="mail_merge_button" id="mail_merge_button" onclick="window.location=\'index.php?module=MailMerge&action=index&mailmerge_module=Contacts&uid={$fields.id.value}\';" value="Mail Merge">',
+          8 => 
+          array (
+            'customCode' => '<input title="Mail Merge" type="button" name="mail_merge_button" id="mail_merge_button" onclick="window.location=\'index.php?module=MailMerge&action=index&mailmerge_module=Contacts&uid={$fields.id.value}&return_module=Contacts&return_action=DetailView&return_id={$fields.id.value}\';" value="Mail Merge">',
           ),
         ),
       ),
@@ -64,17 +67,23 @@ array (
         array (
           0 => 
           array (
-            'name' => 'full_name',
-            'label' => 'LBL_NAME',
-            'displayParams' => 
-            array (
-              'enableConnectors' => true,
-              'module' => 'Contacts',
-              'connectors' => 
-              array (
-                0 => 'ext_rest_twitter',
-              ),
-            ),
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'nickname',
+            'comment' => '',
+            'label' => 'LBL_NICKNAME',
           ),
           1 => 
           array (
@@ -82,13 +91,13 @@ array (
             'label' => 'LBL_PICTURE_FILE',
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'comment' => 'First name of the contact',
-            'label' => 'LBL_FIRST_NAME',
+            'name' => 'title',
+            'comment' => 'The title of the contact',
+            'label' => 'LBL_TITLE',
           ),
           1 => 
           array (
@@ -99,7 +108,22 @@ array (
             ),
           ),
         ),
-        2 => 
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'first_name',
+            'comment' => 'First name of the contact',
+            'label' => 'LBL_FIRST_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
+          ),
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -113,7 +137,7 @@ array (
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
-        3 => 
+        5 => 
         array (
           0 => 
           array (
@@ -123,11 +147,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'av_Contact_Types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
           ),
         ),
-        4 => 
+        6 => 
         array (
           0 => 
           array (
@@ -137,52 +161,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_Contact_Types_name',
-            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
             'name' => 'status',
             'studio' => 'visible',
             'label' => 'LBL_STATUS',
           ),
+        ),
+        7 => 
+        array (
+          0 => '',
           1 => 
           array (
             'name' => 'contact_priority',
             'label' => 'LBL_CONTACT_PRIORITY',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'nickname',
-            'comment' => '',
-            'label' => 'LBL_NICKNAME',
-          ),
-          1 => 
-          array (
-            'name' => 'annual_household_income',
-            'comment' => '',
-            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'document_path',
-            'comment' => '',
-            'label' => 'LBL_DOCUMENT_PATH',
-          ),
-          1 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
           ),
         ),
         8 => 
@@ -194,12 +184,22 @@ array (
           ),
           1 => 
           array (
-            'name' => 'report_salutation',
+            'name' => 'annual_household_income',
             'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
+            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
           ),
         ),
         9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'document_path',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_PATH',
+          ),
+          1 => '',
+        ),
+        10 => 
         array (
           0 => 
           array (
@@ -209,7 +209,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -402,27 +402,23 @@ array (
             'comment' => 'The birthdate of the contact',
             'label' => 'LBL_BIRTHDATE',
           ),
+          1 => 'age',
         ),
         1 => 
         array (
-          0 => 'age',
-          1 => 'year_end_age',
-        ),
-        2 => 
-        array (
           0 => 
-          array (
-            'name' => 'ssn',
-            'label' => 'LBL_SSN',
-          ),
-          1 => 
           array (
             'name' => 'birthplace',
             'comment' => '',
             'label' => 'LBL_BIRTHPLACE',
           ),
+          1 => 
+          array (
+            'name' => 'ssn',
+            'label' => 'LBL_SSN',
+          ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -437,7 +433,7 @@ array (
             'label' => 'LBL_MARITAL_STATUS',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -451,7 +447,7 @@ array (
             'label' => 'LBL_ANNIVERSARY_DATE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -466,7 +462,7 @@ array (
             'label' => 'LBL_DATE_OF_DEATH',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -480,6 +476,11 @@ array (
             'comment' => '',
             'label' => 'LBL_CHILDREN',
           ),
+        ),
+        6 => 
+        array (
+          0 => '',
+          1 => '',
         ),
         7 => 
         array (
@@ -726,12 +727,7 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
-          1 => 
-          array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
-          ),
+          1 => '',
         ),
         1 => 
         array (
@@ -752,8 +748,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'Referral_name',
-            'label' => 'LBL_Referral_name',
+            'name' => 'referral_name',
+            'label' => 'LBL_REFERRAL_NAME',
           ),
           1 => 
           array (

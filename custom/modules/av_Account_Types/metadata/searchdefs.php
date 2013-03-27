@@ -22,46 +22,6 @@ array (
         'default' => true,
         'name' => 'av_account_categories_name',
       ),
-      'retirement_plan_type' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'label' => 'LBL_RETIREMENT_PLAN_TYPE',
-        'width' => '10%',
-        'name' => 'retirement_plan_type',
-      ),
-      'schedule' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'label' => 'LBL_SCHEDULE',
-        'width' => '10%',
-        'name' => 'schedule',
-      ),
-      'is_beneficiary_required' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_IS_BENEFICIARY_REQUIRED',
-        'width' => '10%',
-        'name' => 'is_beneficiary_required',
-      ),
-      'current_user_only' => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
     ),
     'advanced_search' => 
     array (

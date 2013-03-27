@@ -19,13 +19,13 @@ array (
           'field' => '30',
         ),
       ),
-	  'includes' => 
+      'includes' => 
       array (
-		  0 => 
-		  array (
-			'file' => 'custom/modules/Users/populate_email.js',
-		  ),
-		),
+        0 => 
+        array (
+          'file' => 'custom/modules/Users/populate_email.js',
+        ),
+      ),
       'form' => 
       array (
         'headerTpl' => 'modules/Users/tpls/EditViewHeader.tpl',
@@ -48,11 +48,7 @@ array (
               'required' => true,
             ),
           ),
-          1 => 'first_name',
-        ),
-        1 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'status',
             'customCode' => '{if $IS_ADMIN}@@FIELD@@{else}{$STATUS_READONLY}{/if}',
@@ -61,15 +57,19 @@ array (
               'required' => true,
             ),
           ),
-          1 => 'last_name',
         ),
-        2 => 
+        1 => 
         array (
-          0 => 
+          0 => 'first_name',
+          1 => 
           array (
             'name' => 'UserType',
             'customCode' => '{if $IS_ADMIN}{$USER_TYPE_DROPDOWN}{else}{$USER_TYPE_READONLY}{/if}',
           ),
+        ),
+        2 => 
+        array (
+          0 => 'last_name',
           1 => 
           array (
             'name' => 'relationship_listing',
@@ -90,11 +90,6 @@ array (
             ),
             'label' => 'LBL_DEFAULT_TEAM',
           ),
-        ),
-        4 => 
-        array (
-          0 => '',
-          1 => '',
         ),
       ),
       'LBL_EMPLOYEE_INFORMATION' => 
@@ -151,58 +146,22 @@ array (
         ),
         7 => 
         array (
+          0 => 'address_city',
+          1 => 'address_state',
+        ),
+        8 => 
+        array (
+          0 => 'address_country',
+          1 => 'address_postalcode',
+        ),
+        9 => 
+        array (
           0 => 'description',
         ),
       ),
       'lbl_editview_panel2' => 
       array (
         0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'product_level',
-            'comment' => '',
-            'label' => 'LBL_PRODUCT_LEVEL',
-          ),
-          1 => 
-          array (
-            'name' => 'authenticate_id',
-            'studio' => 
-            array (
-              'listview' => false,
-              'searchview' => false,
-              'related' => false,
-            ),
-            'label' => 'LBL_AUTHENTICATE_ID',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'user_hash',
-            'studio' => 
-            array (
-              'no_duplicate' => true,
-              'listview' => false,
-              'searchview' => false,
-              'related' => false,
-              'formula' => false,
-              'rollup' => false,
-            ),
-            'label' => 'LBL_USER_HASH',
-          ),
-          1 => 
-          array (
-            'name' => 'pwd_last_changed',
-            'studio' => 
-            array (
-              'formula' => false,
-            ),
-            'label' => 'LBL_PSW_MODIFIED',
-          ),
-        ),
-        2 => 
         array (
           0 => 
           array (
@@ -217,17 +176,17 @@ array (
           ),
           1 => 
           array (
-            'name' => 'sugar_login',
+            'name' => 'is_group',
             'studio' => 
             array (
               'listview' => false,
               'searchview' => false,
               'formula' => false,
             ),
-            'label' => 'LBL_SUGAR_LOGIN',
+            'label' => 'LBL_GROUP_USER',
           ),
         ),
-        3 => 
+        1 => 
         array (
           0 => 
           array (

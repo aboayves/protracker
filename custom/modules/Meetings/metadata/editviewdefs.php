@@ -65,9 +65,9 @@ array (
 {sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
 <script>toggle_portal_flag();function toggle_portal_flag()  {ldelim} {$TOGGLE_JS} {rdelim} 
 function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.EditView.submit();{rdelim}{rdelim}</script>',
-      'useTabs' => false,
+      'useTabs' => true,
       'syncDetailEditViews' => true,
-	   'includes' => 
+      'includes' => 
       array (
         0 => 
         array (
@@ -83,7 +83,12 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         array (
           0 => 
           array (
-            'name' => 'name',
+            'name' => 'parent_name',
+            'label' => 'LBL_LIST_RELATED_TO',
+            'displayParams' => 
+            array (
+              'call_back_function' => 'set_return',
+            ),
           ),
           1 => 
           array (
@@ -95,12 +100,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'label' => 'LBL_LIST_RELATED_TO',
-			'displayParams' => 
-			array (
-				'call_back_function'=>'set_return',
-			),
+            'name' => 'name',
           ),
           1 => 
           array (
@@ -155,6 +155,16 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         array (
           0 => 
           array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
+          1 => 'team_name',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
             'name' => 'duration',
             'customCode' => '
                 @@FIELD@@
@@ -179,7 +189,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'label' => 'LBL_EMAIL_REMINDER_TIME',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -187,34 +197,8 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'comment' => 'Meeting location',
             'label' => 'LBL_LOCATION',
           ),
-          1 => 
-          array (
-            'name' => 'on_meeting_agenda',
-            'comment' => '',
-            'label' => 'LBL_ON_MEETING_AGENDA',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'report_sort',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SORT',
-          ),
-          1 => 'password',
         ),
         7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'comment' => 'Full text of the note',
-            'label' => 'LBL_DESCRIPTION',
-          ),
-          1 => 'team_name',
-        ),
-        8 => 
         array (
           0 => 
           array (
@@ -228,6 +212,29 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
           ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
+          1 => 'type',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+          1 => 'password',
         ),
       ),
     ),

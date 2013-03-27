@@ -43,7 +43,7 @@ function deleteAttachmentCallBack(text)
 {literal} } {/literal} 
 </script>
 <script>toggle_portal_flag(); function toggle_portal_flag()  {literal} { {/literal} {$TOGGLE_JS} {literal} } {/literal} </script>{$tiny}',
-      'useTabs' => false,
+      'useTabs' => true,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
@@ -54,11 +54,8 @@ function deleteAttachmentCallBack(text)
         array (
           0 => 
           array (
-            'name' => 'name',
-            'displayParams' => 
-            array (
-              'size' => 60,
-            ),
+            'name' => 'parent_name',
+            'label' => 'LBL_RELATED_TO',
           ),
           1 => 
           array (
@@ -70,8 +67,11 @@ function deleteAttachmentCallBack(text)
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'label' => 'LBL_RELATED_TO',
+            'name' => 'name',
+            'displayParams' => 
+            array (
+              'size' => 60,
+            ),
           ),
           1 => 
           array (
@@ -80,33 +80,6 @@ function deleteAttachmentCallBack(text)
           ),
         ),
         2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'on_meeting_agenda',
-            'comment' => '',
-            'label' => 'LBL_ON_MEETING_AGENDA',
-          ),
-          1 => 
-          array (
-            'name' => 'on_report_card',
-            'comment' => '',
-            'label' => 'LBL_ON_REPORT_CARD',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 'filename',
-        ),
-        4 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'team_name',
-          ),
-        ),
-        5 => 
         array (
           0 => 
           array (
@@ -127,7 +100,15 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
             'label' => 'LBL_NOTE_STATUS',
           ),
         ),
-        6 => 
+        3 => 
+        array (
+          0 => 'filename',
+          1 => 
+          array (
+            'name' => 'team_name',
+          ),
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -140,6 +121,58 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
             'name' => 'date_modified',
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+          1 => 
+          array (
+            'name' => 'embed_flag',
+            'comment' => 'Embed flag indicator determines if note embedded in email',
+            'label' => 'LBL_EMBED_FLAG',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
+          1 => 
+          array (
+            'name' => 'portal_flag',
+            'displayParams' => 
+            array (
+              'required' => false,
+            ),
+            'label' => 'LBL_PORTAL_FLAG',
+            'hideIf' => 'empty($PORTAL_ENABLED)',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_financial_plan',
+            'comment' => '',
+            'label' => 'LBL_ON_FINANCIAL_PLAN',
+          ),
+          1 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
           ),
         ),
       ),

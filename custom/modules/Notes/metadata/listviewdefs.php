@@ -1,20 +1,11 @@
 <?php
 $listViewDefs ['Notes'] = 
 array (
-  'AV_ACTIVITY_TYPES_NOTES_1_NAME' => 
+  'DATE_ENTERED' => 
   array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_AV_ACTIVITY_TYPES_NOTES_1_FROM_AV_ACTIVITY_TYPES_TITLE',
-    'id' => 'AV_ACTIVITY_TYPES_NOTES_1AV_ACTIVITY_TYPES_IDA',
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_ENTERED',
     'width' => '10%',
-    'default' => true,
-  ),
-  'NAME' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_SUBJECT',
-    'link' => true,
     'default' => true,
   ),
   'PARENT_NAME' => 
@@ -33,37 +24,21 @@ array (
       1 => 'parent_type',
     ),
   ),
-  'ASSIGNED_USER_NAME' => 
+  'NAME' => 
   array (
+    'width' => '20%',
+    'label' => 'LBL_LIST_SUBJECT',
     'link' => true,
+    'default' => true,
+  ),
+  'AV_ACTIVITY_TYPES_NAME' => 
+  array (
     'type' => 'relate',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
+    'link' => true,
+    'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+    'id' => 'ACTIVITY_TYPE_ID',
     'width' => '10%',
     'default' => true,
-  ),
-  'DATE_MODIFIED' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_DATE_MODIFIED',
-    'link' => false,
-    'default' => true,
-  ),
-  'FILENAME' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_LIST_FILENAME',
-    'default' => true,
-    'type' => 'file',
-    'related_fields' => 
-    array (
-      0 => 'file_url',
-      1 => 'id',
-    ),
-    'displayParams' => 
-    array (
-      'module' => 'Notes',
-    ),
   ),
   'FILE_URL' => 
   array (
@@ -93,12 +68,51 @@ array (
       0 => 'contact_id',
     ),
   ),
+  'PORTAL_FLAG' => 
+  array (
+    'type' => 'bool',
+    'label' => 'LBL_PORTAL_FLAG',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'FILENAME' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_LIST_FILENAME',
+    'default' => false,
+    'type' => 'file',
+    'related_fields' => 
+    array (
+      0 => 'file_url',
+      1 => 'id',
+    ),
+    'displayParams' => 
+    array (
+      'module' => 'Notes',
+    ),
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
   'ON_MEETING_AGENDA' => 
   array (
     'type' => 'bool',
     'default' => false,
     'label' => 'LBL_ON_MEETING_AGENDA',
     'width' => '10%',
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_MODIFIED',
+    'link' => false,
+    'default' => false,
   ),
   'ON_REPORT_CARD' => 
   array (
@@ -111,13 +125,6 @@ array (
   array (
     'width' => '2%',
     'label' => 'LBL_LIST_TEAM',
-    'default' => false,
-  ),
-  'DATE_ENTERED' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_ENTERED',
-    'width' => '10%',
     'default' => false,
   ),
   'CREATED_BY_NAME' => 

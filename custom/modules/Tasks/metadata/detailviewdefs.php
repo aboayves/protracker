@@ -65,8 +65,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
-            'label' => 'LBL_SUBJECT',
+            'name' => 'parent_name',
+            'customLabel' => 'Related to:',
           ),
           1 => 'assigned_user_name',
         ),
@@ -74,8 +74,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'parent_name',
-            'customLabel' => 'Related to:',
+            'name' => 'name',
+            'label' => 'LBL_SUBJECT',
           ),
           1 => 
           array (
@@ -87,23 +87,32 @@ array (
         array (
           0 => 
           array (
+            'name' => 'description',
+            'label' => 'LBL_DESCRIPTION',
+            'customCode' => '<div> {$fields.description.value} <div>',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
             'name' => 'project',
             'studio' => 'visible',
             'label' => 'LBL_PROJECT',
           ),
           1 => 'status',
         ),
-        3 => 
+        4 => 
         array (
           0 => '',
           1 => 'priority',
         ),
-        4 => 
+        5 => 
         array (
           0 => 'date_start',
           1 => 'date_due',
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -117,7 +126,7 @@ array (
             'label' => 'LBL_PERCENT_COMPLETE',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 'client_task',
           1 => 
@@ -126,7 +135,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO_CLIENT',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -139,15 +148,6 @@ array (
             'label' => 'LBL_DTE_CMP',
           ),
         ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'description',
-            'label' => 'LBL_DESCRIPTION',
-            'customCode' => '<div> {$fields.description.value} <div>',
-          ),
-        ),
         9 => 
         array (
           0 => 
@@ -158,9 +158,10 @@ array (
           ),
           1 => 'team_name',
         ),
-		10 => 
+        10 => 
         array (
-          1 => 'workflow_related_to',
+          0 => 'workflow_related_to',
+          1 => '',
         ),
         11 => 
         array (
@@ -182,13 +183,13 @@ array (
       array (
         0 => 
         array (
-          0 => 'private',
-          1 => 
+          0 => 
           array (
             'name' => 'on_meeting_agenda',
             'comment' => '',
             'label' => 'LBL_ON_MEETING_AGENDA',
           ),
+          1 => '',
         ),
         1 => 
         array (
@@ -208,29 +209,29 @@ array (
         array (
           0 => 
           array (
-            'name' => 'notify_child_completion',
-            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
+            'name' => 'on_financial_plan',
+            'comment' => '',
+            'label' => 'LBL_ON_FINANCIAL_PLAN',
           ),
           1 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'on_report_card',
             'comment' => '',
             'label' => 'LBL_ON_REPORT_CARD',
           ),
-        ),
-      ),
-	  'lbl_tree_View' => 
-        array( 
-		0=>
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'tree',
-			'hideLabel' => true,
-            'customCode' => '<div> <div>'.
-			                '<input type="checkbox" id="pending_only" {$pending_checked} onclick="disable_ajax=0;generateTree();" /> Hide Pending tasks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
-							'<input type="checkbox" id="more_then_90" {$90_checked} onclick="disable_ajax=0;generateTree();" /> Hide tasks greater than 90 days out <br /><br /><br />'.
-							'</div><div id="tree_panel3"></div></div>',
+            'name' => 'notify_child_completion',
+            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
           ),
         ),
       ),

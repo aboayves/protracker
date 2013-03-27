@@ -20,26 +20,16 @@ array (
     'width' => '3%',
     'default' => true,
   ),
-  'JOIN_MEETING' => 
+  'DATE_START' => 
   array (
-    'width' => '2%',
-    'label' => 'LBL_LIST_JOIN_MEETING',
-    'link' => true,
-    'sortable' => false,
+    'width' => '12%',
+    'label' => 'LBL_LIST_DATE',
+    'link' => false,
     'default' => true,
     'related_fields' => 
     array (
-      0 => 'join_url',
-      1 => 'host_url',
+      0 => 'time_start',
     ),
-    'noHeader' => true,
-  ),
-  'NAME' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_SUBJECT',
-    'link' => true,
-    'default' => true,
   ),
   'PARENT_NAME' => 
   array (
@@ -57,16 +47,21 @@ array (
       1 => 'parent_type',
     ),
   ),
-  'DATE_START' => 
+  'NAME' => 
   array (
-    'width' => '12%',
-    'label' => 'LBL_LIST_DATE',
-    'link' => false,
+    'width' => '20%',
+    'label' => 'LBL_LIST_SUBJECT',
+    'link' => true,
     'default' => true,
-    'related_fields' => 
-    array (
-      0 => 'time_start',
-    ),
+  ),
+  'AV_ACTIVITY_TYPES_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+    'id' => 'ACTIVITY_TYPE_ID',
+    'width' => '10%',
+    'default' => true,
   ),
   'LOCATION' => 
   array (
@@ -75,26 +70,40 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'TEAM_NAME' => 
+  array (
+    'width' => '2%',
+    'label' => 'LBL_LIST_TEAM',
+    'default' => false,
+  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '10%',
     'label' => 'LBL_LIST_ASSIGNED_TO_NAME',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
+    'default' => false,
   ),
   'DATE_MODIFIED' => 
   array (
     'type' => 'datetime',
     'label' => 'LBL_DATE_MODIFIED',
     'width' => '10%',
-    'default' => true,
+    'default' => false,
   ),
-  'TEAM_NAME' => 
+  'JOIN_MEETING' => 
   array (
     'width' => '2%',
-    'label' => 'LBL_LIST_TEAM',
+    'label' => 'LBL_LIST_JOIN_MEETING',
+    'link' => true,
+    'sortable' => false,
     'default' => false,
+    'related_fields' => 
+    array (
+      0 => 'join_url',
+      1 => 'host_url',
+    ),
+    'noHeader' => true,
   ),
   'DIRECTION' => 
   array (

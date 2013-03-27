@@ -31,7 +31,7 @@ array (
           'field' => '30',
         ),
       ),
-      'syncDetailEditViews' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -39,7 +39,12 @@ array (
       array (
         0 => 
         array (
-          0 => 'picture',
+          0 => 
+          array (
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
+          ),
           1 => 
           array (
             'name' => 'assigned_user_name',
@@ -47,6 +52,16 @@ array (
           ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'nickname',
+            'comment' => '',
+            'label' => 'LBL_NICKNAME',
+          ),
+          1 => 'picture',
+        ),
+        2 => 
         array (
           0 => 
           array (
@@ -69,7 +84,7 @@ array (
             ),
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -78,11 +93,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_Contact_Types_name',
-            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -92,12 +108,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
+            'name' => 'av_Offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -105,11 +120,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'contact_priority',
-            'label' => 'LBL_CONTACT_PRIORITY',
+            'name' => 'av_Contact_Types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -119,33 +134,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_Offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
           ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'salutation',
-            'comment' => 'Contact salutation (e.g., Mr, Ms)',
-            'label' => 'LBL_SALUTATION',
-          ),
-          1 => '',
         ),
         7 => 
         array (
-          0 => 
-          array (
-            'name' => 'nickname',
-            'comment' => '',
-            'label' => 'LBL_NICKNAME',
-          ),
+          0 => '',
           1 => 
           array (
-            'name' => 'annual_household_income',
-            'comment' => '',
-            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
           ),
         ),
         8 => 
@@ -157,22 +157,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'report_name',
+            'name' => 'annual_household_income',
             'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
+            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
           ),
         ),
         9 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'report_salutation',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
-          ),
-        ),
-        10 => 
         array (
           0 => 
           array (
@@ -180,8 +170,9 @@ array (
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
           ),
+          1 => '',
         ),
-        11 => 
+        10 => 
         array (
           0 => 
           array (
@@ -190,7 +181,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (

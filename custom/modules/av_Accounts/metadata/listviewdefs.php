@@ -62,6 +62,7 @@ array (
     'currency_format' => true,
     'width' => '10%',
     'default' => true,
+	'align' => 'right'
   ),
   'ASSIGNED_USER_NAME' => 
   array (
