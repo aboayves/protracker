@@ -588,9 +588,20 @@ class SugarView
 
                 $groupTabs[$tabIdx]['modules'] = $topTabs;
                 $groupTabs[$tabIdx]['extra'] = $extraTabs;
+				$groupTabs[$tabIdx]['type'] = 'group';
             }
         }
 		
+		//hard code area for sorting menus
+		
+		$fixed_modules = array("Tasks","Calls","Reports","Clients","Contacts","Meetings","Calendar",
+								"Notes", "Groups","Emails");
+		foreach($fixed_modules as $data){
+			$groupTabs[$data]['type'] = 'non-group';
+			$groupTabs[$data]['path'] = "_header".$data.".tpl";
+		
+		}
+
 		//Hardcoding modules
 		$topTabList['av_Companies'] = $app_list_strings['moduleList']['av_Companies'];
 		$topTabList['av_Groups'] = $app_list_strings['moduleList']['av_Groups'];

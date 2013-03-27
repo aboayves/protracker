@@ -47,12 +47,13 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
             {include file="_headerFixedModuleList.tpl" theme_template=true}
 
               {foreach from=$groupTabs item=module key=group name=groupList}
+			  {if $module.type =="group"}
                   {if $group != "All"}
 				  {php}
                       $group = str_replace(" ", "_", $this->get_template_vars('group'));
                       $this->assign('group_id', $group);
                   {/php}
-              <li {if $tabGroupName eq $group}class="selected"{/if}><a href="#" class="{if $tabGroupName eq $group}selected{/if}">{$group}</a>
+              <li  {if $tabGroupName eq $group}class="selected"{/if}><a href="#" class="{if $tabGroupName eq $group}selected{/if}">{$group}</a>
 				
                 
 			{* tab groups *}
@@ -209,7 +210,15 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
                        
           </li>
 		  {/if}
+		  {else}
+			{assign var='themePath' value="themes/ProTracker/tpls/"}
+			{assign var='tplpath' value=$themePath|cat:$module.path}
+
+			{include file=$tplpath}
+			
+		  {/if}
           {/foreach}
+		 
         </ul>
     
     
