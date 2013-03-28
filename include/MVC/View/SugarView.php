@@ -678,6 +678,19 @@ class SugarView
 			require_once('include/DashletContainer/DCFactory.php');
             require_once('include/SugarSearchEngine/SugarSearchEngineFactory.php');
 			$dcm = DCFactory::getContainer(null, 'DCMenu');
+			//Non upgrade safe changes for quick menu create.
+			$quickMenuItems = $dcm->getMenus();
+			$updated_menus =array();
+			foreach($quickMenuItems as $data){
+				$pieces = explode(" ", $data['createRecordTitle']);
+				$data['createRecordTitle'] = $pieces[1];
+				$updated_menus[] = $data;
+			}
+			array_unshift($updated_menus,$updated_menus[6],$updated_menus[7]);
+			$updated_menus[8] = $updated_menus[10];
+			$updated_menus[9] = $updated_menus[11];
+			unset($updated_menus[10]);
+			unset($updated_menus[11]);
 			$notifData = $dcm->getNotifications();
 			$dcjs = getVersionedScript('include/DashletContainer/Containers/DCMenu.js');
 			$ss->assign('NOTIFCLASS', $notifData['class']);
@@ -685,7 +698,7 @@ class SugarView
 			$ss->assign('NOTIFICON', $notifData['icon']);
 			$ss->assign('DCSCRIPT', $dcm->getScript());
 			$ss->assign('ICONSEARCH', $dcm->getSearchIcon());
-			$ss->assign('DCACTIONS',$dcm->getMenus());
+			$ss->assign('DCACTIONS',$updated_menus);
 			$ss->assign('PICTURE', $current_user->picture);
             $ftsAutocompleteEnable = TRUE;
             $searchEngine = SugarSearchEngineFactory::getInstance();
