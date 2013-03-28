@@ -199,8 +199,29 @@ array (
             'name' => 'objective',
             'label' => 'LBL_CAMPAIGN_OBJECTIVE',
           ),
+          1 => 
+          array (
+            'name' => 'target',
+            'comment' => '',
+            'label' => 'LBL_TARGET',
+          ),
         ),
         7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'strategy',
+            'comment' => '',
+            'label' => 'LBL_STRATEGY',
+          ),
+          1 => 
+          array (
+            'name' => 'results',
+            'comment' => '',
+            'label' => 'LBL_RESULTS',
+          ),
+        ),
+        8 => 
         array (
           0 => 
           array (
@@ -208,7 +229,7 @@ array (
             'label' => 'LBL_CAMPAIGN_CONTENT',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -217,7 +238,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
