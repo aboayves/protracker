@@ -47,6 +47,16 @@ array (
         ),
         1 => 
         array (
+          0 => 'document_name',
+          1 => 
+          array (
+            'name' => 'year',
+            'comment' => '',
+            'label' => 'LBL_YEAR',
+          ),
+        ),
+        2 => 
+        array (
           0 => 
           array (
             'name' => 'uploadfile',
@@ -62,16 +72,6 @@ array (
             ),
           ),
           1 => 'active_date',
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'year',
-            'comment' => '',
-            'label' => 'LBL_YEAR',
-          ),
-          1 => '',
         ),
         3 => 
         array (
@@ -106,6 +106,69 @@ array (
             'name' => 'date_modified',
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+      ),
+      'lbl_quickcreate_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'income_per_month',
+            'comment' => '',
+            'label' => 'LBL_INCOME_PER_MONTH',
+          ),
+          1 => 
+          array (
+            'name' => 'income_per_year',
+            'comment' => '',
+            'label' => 'LBL_INCOME_PER_YEAR',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'savings_per_month',
+            'comment' => '',
+            'label' => 'LBL_SAVINGS_PER_MONTH',
+          ),
+          1 => 
+          array (
+            'name' => 'savings_per_year',
+            'comment' => '',
+            'label' => 'LBL_SAVINGS_PER_YEAR',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fixed_expenses_per_month',
+            'comment' => '',
+            'label' => 'LBL_FIXED_EXPENSES_PER_MONTH',
+          ),
+          1 => 
+          array (
+            'name' => 'fixed_expenses_per_year',
+            'comment' => '',
+            'label' => 'LBL_FIXED_EXPENSES_PER_YEAR',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'variable_expenses_per_month',
+            'comment' => '',
+            'label' => 'LBL_VARIABLE_EXPENSES_PER_MONTH',
+          ),
+          1 => 
+          array (
+            'name' => 'variable_expenses_per_year',
+            'comment' => '',
+            'label' => 'LBL_VARIABLE_EXPENSES_PER_YEAR',
           ),
         ),
       ),
