@@ -30,8 +30,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_accounts_av_beneficiaries_1_name',
-            'label' => 'LBL_AV_ACCOUNTS_AV_BENEFICIARIES_1_FROM_AV_ACCOUNTS_TITLE',
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+          1 => 'name',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_accounts_name',
+            'label' => 'LBL_AV_ACCOUNTS_NAME',
           ),
           1 => 
           array (
@@ -39,15 +48,6 @@ array (
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'contacts_av_beneficiaries_1_name',
-            'label' => 'LBL_CONTACTS_AV_BENEFICIARIES_1_FROM_CONTACTS_TITLE',
-          ),
-          1 => 'name',
         ),
         2 => 
         array (
