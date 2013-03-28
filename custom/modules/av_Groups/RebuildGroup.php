@@ -13,7 +13,7 @@ $db->query($sql);
 $sql = "
 SELECT reports_id, saved_reports.module 
 FROM av_groups_reports 
-LEFT JOIN saved_reports ON (saved_reports.id=reports_id AND saved_reports.deleted=0) 
+RIGHT JOIN saved_reports ON (saved_reports.id=reports_id AND saved_reports.deleted=0) 
 WHERE av_groups_id='{$id}' AND av_groups_reports.deleted=0";
 $result = $db->query($sql);
 $updated_date = $timedate->to_display_date_time($now);
@@ -21,6 +21,7 @@ $ajaxData=array('updated_date'=>$updated_date);
 $saved = new SavedReport();
 $membership_data_obj = new MembershipData();
 $saved->disable_row_level_security = true;
+$report_result_set = array();
 while($report = $db->fetchByAssoc($result))
 {
 	$saved->retrieve($report['reports_id'], false);
@@ -29,7 +30,7 @@ while($report = $db->fetchByAssoc($result))
 	$sql = $report->query_list[0];
 	$result1 = $report->db->query($sql);
 	$group_bean = BeanFactory::getBean('av_Groups', $_REQUEST['record']);
-	$report_result_set = array();
+	
 	while($row = $report->db->fetchByAssoc($result1))
 	{
 		$member_bean = BeanFactory::getBean($saved->module, $row['primaryid']);
@@ -38,21 +39,35 @@ while($report = $db->fetchByAssoc($result))
 		$membership_data['parent_type'] = $saved->module;
 		$membership_data['parent_id'] = $row['primaryid'];
 		$membership_data['av_groups_id'] = $group_bean->id;
-		$report_result_set[] = $membership_data;
-	}
-	$keys = implode(',' , array_keys($report_result_set[0]));
-			
-	$query = "INSERT INTO av_group_membership (" . $keys . ") VALUES";
-	foreach($report_result_set as $member){
-		$values = implode("','" , array_values($member));
-		if(!empty($values)){
-			$values = "'" . $values . "'";
+		$i=0;
+		foreach($report_result_set as $report_data){
+			if(
+				isset($report_data['parent_type']) && 
+				isset($report_data['parent_id']) && 
+				$report_data['parent_type'] == $membership_data['parent_type'] &&
+				$report_data['parent_id'] == $membership_data['parent_id']
+			)
+			{
+				$i=1;
+			}
 		}
-		$query .= "(" . $values . "),";
+		if($i==0){
+			$report_result_set[] = $membership_data;
+		}
 	}
-	$query = rtrim($query, ",");
-	$db->query($query, true);
 }
+$keys = implode(',' , array_keys($report_result_set[0]));
+		
+$query = "INSERT INTO av_group_membership (" . $keys . ") VALUES";
+foreach($report_result_set as $member){
+	$values = implode("','" , array_values($member));
+	if(!empty($values)){
+		$values = "'" . $values . "'";
+	}
+	$query .= "(" . $values . "),";
+}
+$query = rtrim($query, ",");
+$db->query($query, true);
 ob_clean();
 echo json_encode($ajaxData);
 die();

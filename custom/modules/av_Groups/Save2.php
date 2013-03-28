@@ -271,6 +271,8 @@ if(isset($_REQUEST['child_field']) && ($_REQUEST['child_field'] == 'av_groups_co
 	$date_modified=$timedate->nowDb();
 	$sql="UPDATE av_groups SET lastupdated='{$date_modified}' WHERE id='{$_REQUEST['record']}' AND deleted=0";
 	$db->query($sql, true);
+	$sql = "DELETE FROM av_groups_reports WHERE av_groups_id='{$_REQUEST['record']}' AND reports_id='{$_REQUEST['subpanel_id']}' AND deleted=0";
+	$db->query($sql, true);
 	$sql="INSERT INTO av_groups_reports(id, date_modified, av_groups_id, reports_id)
 		  VALUES('{$newID}', '{$date_modified}', '{$_REQUEST['record']}', '{$_REQUEST['subpanel_id']}')";
 	$db->query($sql, true);
