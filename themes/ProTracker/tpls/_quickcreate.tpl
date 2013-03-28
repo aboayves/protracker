@@ -32,7 +32,7 @@
 <ul class="clickMenu" id="quickCreateUL">
     <li>
         <ul class="subnav iefixed showLess" id="quickCreateULSubnav">
-         <li><a style="cursor:default" href="#" id="{$action.module}_quickcreate">Create New:</a></li>
+         <li><a style="cursor:default" href="javascript:void(0)" id="{$action.module}_quickcreate">Create New:</a></li>
             {foreach from=$DCACTIONS item=action name=quickCreate}
                 <li><a href="javascript: if ( DCMenu.menu ) DCMenu.menu('{$action.module}','{$action.createRecordTitle}', true);" id="{$action.module}_quickcreate">{$action.createRecordTitle}</a></li>
 
