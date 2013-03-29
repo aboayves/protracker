@@ -38,18 +38,17 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'account_name',
+          0 => 'account_name',
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'currency_id',
-            'comment' => 'Currency used for display purposes',
-            'label' => 'LBL_CURRENCY',
-          ),
-          1 => 'date_closed',
+          0 => 'name',
+          1 => 'campaign_name',
         ),
         2 => 
         array (
@@ -68,16 +67,17 @@ array (
         4 => 
         array (
           0 => 'probability',
-          1 => 'campaign_name',
+          1 => 'date_closed',
         ),
         5 => 
         array (
-          0 => 
+          0 => 'next_step',
+          1 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'name' => 'competitors',
+            'comment' => '',
+            'label' => 'LBL_COMPETITORS',
           ),
-          1 => 'next_step',
         ),
         6 => 
         array (
