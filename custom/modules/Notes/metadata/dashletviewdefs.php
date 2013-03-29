@@ -12,20 +12,16 @@ $dashletData['NotesDashlet']['searchFields'] = array (
   array (
     'default' => '',
   ),
-  'date_modified' => 
-  array (
-    'default' => '',
-  ),
-  'modified_by_name' => 
-  array (
-    'default' => '',
-  ),
-  'team_name' => 
-  array (
-    'default' => '',
-  ),
 );
 $dashletData['NotesDashlet']['columns'] = array (
+  'date_entered' => 
+  array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_ENTERED',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'date_entered',
+  ),
   'parent_name' => 
   array (
     'width' => '20%',
@@ -43,15 +39,6 @@ $dashletData['NotesDashlet']['columns'] = array (
     ),
     'name' => 'parent_name',
   ),
-  'av_activity_types_notes_1_name' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_AV_ACTIVITY_TYPES_NOTES_1_FROM_AV_ACTIVITY_TYPES_TITLE',
-    'id' => 'AV_ACTIVITY_TYPES_NOTES_1AV_ACTIVITY_TYPES_IDA',
-    'width' => '10%',
-    'default' => true,
-  ),
   'name' => 
   array (
     'width' => '40%',
@@ -60,50 +47,24 @@ $dashletData['NotesDashlet']['columns'] = array (
     'default' => true,
     'name' => 'name',
   ),
-  'filename' => 
-  array (
-    'width' => '20%',
-    'label' => 'LBL_LIST_FILENAME',
-    'default' => true,
-    'type' => 'file',
-    'related_fields' => 
-    array (
-      0 => 'file_url',
-      1 => 'id',
-      2 => 'doc_id',
-      3 => 'doc_type',
-    ),
-    'displayParams' => 
-    array (
-      'module' => 'Notes',
-    ),
-    'name' => 'filename',
-  ),
-  'modified_by_name' => 
+  'av_activity_types_notes_1_name' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_MODIFIED_BY',
-    'id' => 'MODIFIED_USER_ID',
+    'label' => 'LBL_AV_ACTIVITY_TYPES_NOTES_1_FROM_AV_ACTIVITY_TYPES_TITLE',
+    'id' => 'AV_ACTIVITY_TYPES_NOTES_1AV_ACTIVITY_TYPES_IDA',
     'width' => '10%',
     'default' => true,
-    'name' => 'modified_by_name',
+    'name' => 'av_activity_types_notes_1_name',
   ),
-  'date_modified' => 
+  'assigned_user_name' => 
   array (
-    'width' => '20%',
-    'label' => 'LBL_DATE_MODIFIED',
-    'link' => false,
-    'default' => true,
-    'name' => 'date_modified',
-  ),
-  'date_entered' => 
-  array (
-    'type' => 'datetime',
-    'label' => 'LBL_DATE_ENTERED',
+    'link' => true,
+    'type' => 'relate',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
     'width' => '10%',
-    'default' => false,
-    'name' => 'date_entered',
+    'default' => true,
   ),
   'team_name' => 
   array (
@@ -119,6 +80,43 @@ $dashletData['NotesDashlet']['columns'] = array (
     'width' => '10%',
     'default' => false,
     'name' => 'created_by_name',
+  ),
+  'filename' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_LIST_FILENAME',
+    'default' => false,
+    'type' => 'file',
+    'related_fields' => 
+    array (
+      0 => 'file_url',
+      1 => 'id',
+      2 => 'doc_id',
+      3 => 'doc_type',
+    ),
+    'displayParams' => 
+    array (
+      'module' => 'Notes',
+    ),
+    'name' => 'filename',
+  ),
+  'date_modified' => 
+  array (
+    'width' => '20%',
+    'label' => 'LBL_DATE_MODIFIED',
+    'link' => false,
+    'default' => false,
+    'name' => 'date_modified',
+  ),
+  'modified_by_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_MODIFIED_BY',
+    'id' => 'MODIFIED_USER_ID',
+    'width' => '10%',
+    'default' => false,
+    'name' => 'modified_by_name',
   ),
   'contact_name' => 
   array (
@@ -141,6 +139,7 @@ $dashletData['NotesDashlet']['columns'] = array (
     'default' => false,
     'label' => 'LBL_ON_MEETING_AGENDA',
     'width' => '10%',
+    'name' => 'on_meeting_agenda',
   ),
   'on_report_card' => 
   array (
@@ -148,5 +147,6 @@ $dashletData['NotesDashlet']['columns'] = array (
     'default' => false,
     'label' => 'LBL_ON_REPORT_CARD',
     'width' => '10%',
+    'name' => 'on_report_card',
   ),
 );
