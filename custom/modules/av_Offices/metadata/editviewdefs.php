@@ -51,22 +51,21 @@ array (
             'comment' => '',
             'label' => 'LBL_OFFICE_NAME',
           ),
-          1 => 'ticker_symbol',
+          1 => 'name',
         ),
         1 => 
         array (
-          0 => 'name',
-          1 => 'industry',
+          0 => 'phone_office',
+          1 => 'phone_alternate',
         ),
         2 => 
         array (
-          0 => 'av_offices_type',
-          1 => 'employees',
+          0 => 'email1',
+          1 => 'phone_fax',
         ),
         3 => 
         array (
-          0 => 'ownership',
-          1 => 'rating',
+          0 => 'website',
         ),
         4 => 
         array (
@@ -94,28 +93,6 @@ array (
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
           ),
-        ),
-      ),
-      'lbl_editview_panel3' => 
-      array (
-        0 => 
-        array (
-          0 => 'phone_office',
-          1 => 'phone_alternate',
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'email',
-            'comment' => '',
-            'label' => 'LBL_EMAIL',
-          ),
-          1 => 'phone_fax',
-        ),
-        2 => 
-        array (
-          0 => 'website',
         ),
       ),
       'lbl_editview_panel2' => 

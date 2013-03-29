@@ -10,27 +10,6 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'OFFICE_NAME' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_OFFICE_NAME',
-    'width' => '10%',
-  ),
-  'OFFICE_ADDRESS_CITY' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_OFFICE_ADDRESS_CITY',
-    'width' => '10%',
-  ),
-  'OFFICE_ADDRESS_STATE' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_OFFICE_ADDRESS_STATE',
-    'width' => '10%',
-  ),
   'PHONE_OFFICE' => 
   array (
     'width' => '10%',
@@ -45,11 +24,14 @@ array (
   ),
   'EMAIL1' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_EMAIL_ADDRESS',
-    'sortable' => false,
-    'link' => true,
-    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
+    'type' => 'varchar',
+    'studio' => 
+    array (
+      'editField' => true,
+      'searchview' => false,
+    ),
+    'label' => 'LBL_EMAIL',
+    'width' => '10%',
     'default' => true,
   ),
   'RT_OFFICES_TYPE' => 
@@ -58,39 +40,28 @@ array (
     'label' => 'LBL_TYPE',
     'default' => false,
   ),
-  'ANNUAL_REVENUE' => 
+  'BILLING_ADDRESS_CITY' => 
   array (
     'width' => '10%',
-    'label' => 'LBL_ANNUAL_REVENUE',
+    'label' => 'LBL_CITY',
     'default' => false,
   ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '2%',
     'label' => 'LBL_ASSIGNED_USER',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
     'default' => false,
   ),
-  'DESCRIPTION' => 
+  'TEAM_NAME' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
+    'width' => '2%',
+    'label' => 'LBL_TEAM',
     'default' => false,
   ),
   'BILLING_ADDRESS_STREET' => 
   array (
     'width' => '15%',
     'label' => 'LBL_BILLING_ADDRESS_STREET',
-    'default' => false,
-  ),
-  'RATING' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_RATING',
-    'width' => '10%',
     'default' => false,
   ),
   'BILLING_ADDRESS_STATE' => 
@@ -105,23 +76,10 @@ array (
     'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
     'default' => false,
   ),
-  'EMAIL' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_EMAIL',
-    'width' => '10%',
-  ),
   'BILLING_ADDRESS_COUNTRY' => 
   array (
     'width' => '10%',
     'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-    'default' => false,
-  ),
-  'BILLING_ADDRESS_CITY' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_CITY',
     'default' => false,
   ),
   'SHIPPING_ADDRESS_STREET' => 
@@ -166,10 +124,22 @@ array (
     'label' => 'LBL_WEBSITE',
     'default' => false,
   ),
-  'TEAM_NAME' => 
+  'OWNERSHIP' => 
   array (
-    'width' => '2%',
-    'label' => 'LBL_TEAM',
+    'width' => '10%',
+    'label' => 'LBL_OWNERSHIP',
+    'default' => false,
+  ),
+  'EMPLOYEES' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_EMPLOYEES',
+    'default' => false,
+  ),
+  'TICKER_SYMBOL' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_TICKER_SYMBOL',
     'default' => false,
   ),
 );

@@ -46,62 +46,63 @@ array (
         array (
           0 => 
           array (
+            'name' => 'office_name',
+            'comment' => '',
+            'label' => 'LBL_OFFICE_NAME',
+          ),
+          1 => 
+          array (
             'name' => 'name',
             'displayParams' => 
             array (
               'required' => true,
             ),
           ),
-          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'website',
-          1 => 'phone_fax',
-        ),
-        2 => 
-        array (
-          0 => 'industry',
-          1 => 
+          0 => 
           array (
             'name' => 'phone_office',
           ),
+          1 => 
+          array (
+            'name' => 'phone_alternate',
+            'comment' => 'An alternate phone number',
+            'label' => 'LBL_PHONE_ALT',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 'email1',
+          1 => 'phone_fax',
         ),
         3 => 
         array (
-          0 => 'av_offices_type',
-          1 => 'annual_revenue',
+          0 => 'website',
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'description',
-            'comment' => 'Full text of the note',
-            'label' => 'LBL_DESCRIPTION',
+            'name' => 'office_address_city',
+            'comment' => '',
+            'label' => 'LBL_OFFICE_ADDRESS_CITY',
           ),
           1 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
+            'name' => 'office_address_state',
+            'comment' => '',
+            'label' => 'LBL_OFFICE_ADDRESS_STATE',
           ),
         ),
         5 => 
         array (
           0 => 
           array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
           ),
         ),
       ),
