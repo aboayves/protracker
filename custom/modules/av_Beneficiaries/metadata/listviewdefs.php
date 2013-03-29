@@ -2,12 +2,21 @@
 $module_name = 'av_Beneficiaries';
 $listViewDefs [$module_name] = 
 array (
-  'AV_ACCOUNTS_AV_BENEFICIARIES_1_NAME' => 
+  'AV_ACCOUNTS_NAME' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_AV_ACCOUNTS_AV_BENEFICIARIES_1_FROM_AV_ACCOUNTS_TITLE',
-    'id' => 'AV_ACCOUNTS_AV_BENEFICIARIES_1AV_ACCOUNTS_IDA',
+    'label' => 'LBL_AV_ACCOUNTS_NAME',
+    'id' => 'ASSET_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
+  'CONTACTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'BENEFICIARY_ID',
     'width' => '10%',
     'default' => true,
   ),
@@ -18,34 +27,11 @@ array (
     'label' => 'LBL_TYPE',
     'width' => '10%',
   ),
-  'CONTACTS_AV_BENEFICIARIES_1_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_CONTACTS_AV_BENEFICIARIES_1_FROM_CONTACTS_TITLE',
-    'id' => 'CONTACTS_AV_BENEFICIARIES_1CONTACTS_IDA',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'NAME' => 
-  array (
-    'width' => '32%',
-    'label' => 'LBL_NAME',
-    'default' => true,
-    'link' => true,
-  ),
   'PERCENT' => 
   array (
     'type' => 'int',
     'default' => true,
     'label' => 'LBL_PERCENT',
-    'width' => '10%',
-  ),
-  'PER_STIRPES' => 
-  array (
-    'type' => 'bool',
-    'default' => true,
-    'label' => 'LBL_PER_STIRPES',
     'width' => '10%',
   ),
   'DATE_VERIFIED' => 
@@ -55,10 +41,33 @@ array (
     'label' => 'LBL_DATE_VERIFIED',
     'width' => '10%',
   ),
+  'NAME' => 
+  array (
+    'width' => '32%',
+    'label' => 'LBL_NAME',
+    'default' => false,
+    'link' => true,
+  ),
+  'PER_STIRPES' => 
+  array (
+    'type' => 'bool',
+    'default' => false,
+    'label' => 'LBL_PER_STIRPES',
+    'width' => '10%',
+  ),
   'TEAM_NAME' => 
   array (
     'width' => '9%',
     'label' => 'LBL_TEAM',
+    'default' => false,
+  ),
+  'AV_ACCOUNTS_AV_BENEFICIARIES_1_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNTS_AV_BENEFICIARIES_1_FROM_AV_ACCOUNTS_TITLE',
+    'id' => 'AV_ACCOUNTS_AV_BENEFICIARIES_1AV_ACCOUNTS_IDA',
+    'width' => '10%',
     'default' => false,
   ),
   'DATE_ENTERED' => 

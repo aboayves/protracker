@@ -145,8 +145,29 @@ function ConvertItems(id)  {ldelim}
               'cols' => 80,
             ),
           ),
+          1 => 
+          array (
+            'name' => 'target',
+            'comment' => '',
+            'label' => 'LBL_TARGET',
+          ),
         ),
         7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'strategy',
+            'comment' => '',
+            'label' => 'LBL_STRATEGY',
+          ),
+          1 => 
+          array (
+            'name' => 'results',
+            'comment' => '',
+            'label' => 'LBL_RESULTS',
+          ),
+        ),
+        8 => 
         array (
           0 => 
           array (
@@ -158,7 +179,7 @@ function ConvertItems(id)  {ldelim}
             ),
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -174,7 +195,7 @@ function ConvertItems(id)  {ldelim}
             ),
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (

@@ -35,8 +35,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'document_name',
-            'label' => 'LBL_DOC_NAME',
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
           ),
           1 => 
           array (
@@ -48,11 +48,15 @@ array (
         array (
           0 => 
           array (
+            'name' => 'document_name',
+            'label' => 'LBL_DOC_NAME',
+          ),
+          1 => 
+          array (
             'name' => 'year',
             'comment' => '',
             'label' => 'LBL_YEAR',
           ),
-          1 => 'active_date',
         ),
         2 => 
         array (
@@ -65,6 +69,7 @@ array (
               'id' => 'id',
             ),
           ),
+          1 => 'active_date',
         ),
         3 => 
         array (

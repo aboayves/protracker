@@ -1,51 +1,32 @@
 <?php
 $dashletData['av_BeneficiariesDashlet']['searchFields'] = array (
-  'date_entered' => 
+  'av_accounts_name' => 
   array (
     'default' => '',
   ),
-  'date_modified' => 
+  'contacts_name' => 
   array (
     'default' => '',
-  ),
-  'team_id' => 
-  array (
-    'default' => '',
-  ),
-  'assigned_user_id' => 
-  array (
-    'type' => 'assigned_user_name',
-    'default' => 'Kathy Grant',
   ),
 );
 $dashletData['av_BeneficiariesDashlet']['columns'] = array (
-  'av_accounts_av_beneficiaries_1_name' => 
+  'av_accounts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_AV_ACCOUNTS_AV_BENEFICIARIES_1_FROM_AV_ACCOUNTS_TITLE',
-    'id' => 'AV_ACCOUNTS_AV_BENEFICIARIES_1AV_ACCOUNTS_IDA',
+    'label' => 'LBL_AV_ACCOUNTS_NAME',
+    'id' => 'ASSET_ID',
     'width' => '10%',
     'default' => true,
-    'name' => 'av_accounts_av_beneficiaries_1_name',
   ),
-  'contacts_av_beneficiaries_1_name' => 
+  'contacts_name' => 
   array (
     'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_CONTACTS_AV_BENEFICIARIES_1_FROM_CONTACTS_TITLE',
-    'id' => 'CONTACTS_AV_BENEFICIARIES_1CONTACTS_IDA',
+    'label' => 'LBL_CONTACTS_NAME',
+    'id' => 'BENEFICIARY_ID',
     'width' => '10%',
     'default' => true,
-    'name' => 'contacts_av_beneficiaries_1_name',
-  ),
-  'name' => 
-  array (
-    'width' => '40%',
-    'label' => 'LBL_LIST_NAME',
-    'link' => true,
-    'default' => true,
-    'name' => 'name',
   ),
   'type' => 
   array (
@@ -54,6 +35,14 @@ $dashletData['av_BeneficiariesDashlet']['columns'] = array (
     'label' => 'LBL_TYPE',
     'width' => '10%',
     'name' => 'type',
+  ),
+  'percent' => 
+  array (
+    'type' => 'int',
+    'default' => true,
+    'label' => 'LBL_PERCENT',
+    'width' => '10%',
+    'name' => 'percent',
   ),
   'date_verified' => 
   array (
@@ -87,6 +76,16 @@ $dashletData['av_BeneficiariesDashlet']['columns'] = array (
     'default' => false,
     'name' => 'date_entered',
   ),
+  'contacts_av_beneficiaries_1_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CONTACTS_AV_BENEFICIARIES_1_FROM_CONTACTS_TITLE',
+    'id' => 'CONTACTS_AV_BENEFICIARIES_1CONTACTS_IDA',
+    'width' => '10%',
+    'default' => false,
+    'name' => 'contacts_av_beneficiaries_1_name',
+  ),
   'created_by' => 
   array (
     'width' => '8%',
@@ -110,14 +109,6 @@ $dashletData['av_BeneficiariesDashlet']['columns'] = array (
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'name' => 'assigned_user_name',
     'default' => false,
-  ),
-  'percent' => 
-  array (
-    'type' => 'int',
-    'default' => false,
-    'label' => 'LBL_PERCENT',
-    'width' => '10%',
-    'name' => 'percent',
   ),
   'team_name' => 
   array (

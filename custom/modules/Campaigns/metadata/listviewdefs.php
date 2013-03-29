@@ -30,12 +30,16 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'CONTENT' => 
+  'CAMPAIGN_TYPE' => 
   array (
-    'type' => 'text',
-    'label' => 'LBL_CAMPAIGN_CONTENT',
-    'sortable' => false,
     'width' => '10%',
+    'label' => 'LBL_LIST_TYPE',
+    'default' => true,
+  ),
+  'STATUS' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_STATUS',
     'default' => true,
   ),
   'FREQUENCY' => 
@@ -45,24 +49,12 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'BUDGET' => 
+  'CONTENT' => 
   array (
-    'type' => 'currency',
-    'label' => 'LBL_CAMPAIGN_BUDGET',
-    'currency_format' => true,
+    'type' => 'text',
+    'label' => 'LBL_CAMPAIGN_CONTENT',
+    'sortable' => false,
     'width' => '10%',
-    'default' => true,
-  ),
-  'STATUS' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_STATUS',
-    'default' => true,
-  ),
-  'CAMPAIGN_TYPE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_TYPE',
     'default' => true,
   ),
   'START_DATE' => 
@@ -78,19 +70,33 @@ array (
     'label' => 'LBL_LIST_END_DATE',
     'default' => true,
   ),
-  'ASSIGNED_USER_NAME' => 
+  'RESULTS' => 
   array (
-    'width' => '8%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_RESULTS',
+    'width' => '10%',
   ),
   'DATE_ENTERED' => 
   array (
     'width' => '10%',
     'label' => 'LBL_DATE_ENTERED',
-    'default' => true,
+    'default' => false,
+  ),
+  'BUDGET' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_CAMPAIGN_BUDGET',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'STRATEGY' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_STRATEGY',
+    'width' => '10%',
   ),
   'DATE_MODIFIED' => 
   array (
@@ -98,6 +104,13 @@ array (
     'label' => 'LBL_DATE_MODIFIED',
     'width' => '10%',
     'default' => false,
+  ),
+  'TARGET' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_TARGET',
+    'width' => '10%',
   ),
   'TRACKER_KEY' => 
   array (
@@ -108,6 +121,14 @@ array (
     ),
     'label' => 'LBL_TRACKER_KEY',
     'width' => '10%',
+    'default' => false,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '8%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
     'default' => false,
   ),
   'TRACKER_COUNT' => 

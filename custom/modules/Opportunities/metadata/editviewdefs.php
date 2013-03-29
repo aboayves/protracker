@@ -5,7 +5,7 @@ array (
   array (
     'templateMeta' => 
     array (
-	  'includes' => 
+      'includes' => 
       array (
         0 => 
         array (
@@ -38,28 +38,21 @@ array (
         array (
           0 => 
           array (
-            'name' => 'name',
+            'name' => 'account_name',
+            'displayParams' => 
+            array (
+              'call_back_function' => 'call_back_account_team',
+            ),
           ),
-          1 => 
-		  array (
-			'name' => 'account_name',
-			'displayParams' => 
-				array (
-					'call_back_function'=>'call_back_account_team',
-				),
-		  )
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'currency_id',
-            'label' => 'LBL_CURRENCY',
+            'name' => 'name',
           ),
-          1 => 
-          array (
-            'name' => 'date_closed',
-          ),
+          1 => 'campaign_name',
         ),
         2 => 
         array (
@@ -77,12 +70,20 @@ array (
         4 => 
         array (
           0 => 'probability',
-          1 => 'campaign_name',
+          1 => 
+          array (
+            'name' => 'date_closed',
+          ),
         ),
         5 => 
         array (
-          0 => 'assigned_user_name',
-          1 => 'next_step',
+          0 => 'next_step',
+          1 => 
+          array (
+            'name' => 'competitors',
+            'comment' => '',
+            'label' => 'LBL_COMPETITORS',
+          ),
         ),
         6 => 
         array (

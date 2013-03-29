@@ -1,5 +1,5 @@
 <?php
- // created: 2013-01-25 18:25:15
+ // created: 2013-03-28 01:01:24
 $dictionary['av_Cashflow']['fields']['year']['name']='year';
 $dictionary['av_Cashflow']['fields']['year']['vname']='LBL_YEAR';
 $dictionary['av_Cashflow']['fields']['year']['type']='int';

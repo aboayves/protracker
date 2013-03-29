@@ -1,16 +1,22 @@
 <?php
 $listViewDefs ['Opportunities'] = 
 array (
+  'DATE_CLOSED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_DATE_CLOSED',
+    'default' => true,
+  ),
   'NAME' => 
   array (
-    'width' => '30%',
+    'width' => '20%',
     'label' => 'LBL_LIST_OPPORTUNITY_NAME',
     'link' => true,
     'default' => true,
   ),
   'ACCOUNT_NAME' => 
   array (
-    'width' => '20%',
+    'width' => '12%',
     'label' => 'LBL_LIST_ACCOUNT_NAME',
     'id' => 'ACCOUNT_ID',
     'module' => 'Accounts',
@@ -57,30 +63,32 @@ array (
     'default' => true,
     'currency_format' => true,
   ),
-  'DATE_CLOSED' => 
+  'DATE_MODIFIED' => 
   array (
+    'type' => 'datetime',
+    'label' => 'LBL_DATE_MODIFIED',
     'width' => '10%',
-    'label' => 'LBL_LIST_DATE_CLOSED',
-    'default' => true,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '5%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
-  ),
-  'DATE_ENTERED' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_DATE_ENTERED',
-    'default' => true,
+    'default' => false,
   ),
   'OPPORTUNITY_TYPE' => 
   array (
     'width' => '15%',
     'label' => 'LBL_TYPE',
+    'default' => false,
+  ),
+  'COMPETITORS' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_COMPETITORS',
+    'width' => '10%',
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => false,
   ),
   'LEAD_SOURCE' => 
@@ -89,10 +97,41 @@ array (
     'label' => 'LBL_LEAD_SOURCE',
     'default' => false,
   ),
+  'CAMPAIGN_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CAMPAIGN',
+    'id' => 'CAMPAIGN_ID',
+    'width' => '10%',
+    'default' => false,
+  ),
   'NEXT_STEP' => 
   array (
     'width' => '10%',
     'label' => 'LBL_NEXT_STEP',
+    'default' => false,
+  ),
+  'AMOUNT' => 
+  array (
+    'type' => 'currency',
+    'label' => 'LBL_AMOUNT',
+    'currency_format' => true,
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_ENTERED',
+    'default' => false,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
     'default' => false,
   ),
   'CREATED_BY_NAME' => 

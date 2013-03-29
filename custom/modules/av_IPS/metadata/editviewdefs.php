@@ -39,6 +39,15 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 'assigned_user_name',
+        ),
+        1 => 
+        array (
           0 => 'document_name',
           1 => 
           array (
@@ -49,7 +58,7 @@ array (
             ),
           ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -64,43 +73,12 @@ array (
             'label' => 'LBL_QUESTIONNAIRE_DATE',
           ),
         ),
-        2 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
         3 => 
-        array (
-          0 => 'assigned_user_name',
-          1 => 'status_id',
-        ),
-        4 => 
-        array (
-          0 => 'active_date',
-          1 => 'exp_date',
-        ),
-        5 => 
         array (
           0 => 
           array (
             'name' => 'description',
           ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'file_ext',
-            'label' => 'LBL_FILE_EXTENSION',
-          ),
-          1 => 
-          array (
-            'name' => 'file_mime_type',
-            'label' => 'LBL_MIME',
-          ),
-        ),
-        7 => 
-        array (
           1 => 
           array (
             'name' => 'team_name',
@@ -110,7 +88,7 @@ array (
             ),
           ),
         ),
-        8 => 
+        4 => 
         array (
           0 => 
           array (

@@ -39,21 +39,34 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'gift_date',
-            'comment' => '',
-            'label' => 'LBL_GIFT_DATE',
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
           1 => 
           array (
-            'name' => 'value',
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 'name',
+          1 => 
+          array (
+            'name' => 'gift_date',
             'comment' => '',
-            'label' => 'LBL_VALUE',
+            'label' => 'LBL_GIFT_DATE',
           ),
         ),
         3 => 
@@ -61,6 +74,16 @@ array (
           0 => 'description',
         ),
         4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'value',
+            'comment' => '',
+            'label' => 'LBL_VALUE',
+          ),
+          1 => 'team_name',
+        ),
+        5 => 
         array (
           0 => 
           array (

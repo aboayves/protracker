@@ -84,7 +84,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Activity_Types_name',
+            'name' => 'av_activity_types_name',
             'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
           1 => 'name',
@@ -152,9 +152,12 @@ array (
             'name' => 'description',
             'customCode' => '<div> {$fields.description.value} <div>',
           ),
-          1 => 'team_name',
         ),
         9 => 
+        array (
+          0 => 'team_name',
+        ),
+        10 => 
         array (
           0 => 
           array (

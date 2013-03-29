@@ -6,62 +6,6 @@ array (
   array (
     'basic_search' => 
     array (
-      0 => 'name',
-      1 => 
-      array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
-      ),
-      2 => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-      ),
-    ),
-    'advanced_search' => 
-    array (
-      'name' => 
-      array (
-        'name' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'contacts_av_office_gifts_1_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_CONTACTS_AV_OFFICE_GIFTS_1_FROM_CONTACTS_TITLE',
-        'id' => 'CONTACTS_AV_OFFICE_GIFTS_1CONTACTS_IDA',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'contacts_av_office_gifts_1_name',
-      ),
-      'assigned_user_id' => 
-      array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
-        'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
-        'default' => true,
-        'width' => '10%',
-      ),
       'gift_date' => 
       array (
         'type' => 'date',
@@ -70,14 +14,15 @@ array (
         'width' => '10%',
         'name' => 'gift_date',
       ),
-      'value' => 
+      'accounts_name' => 
       array (
-        'type' => 'currency',
-        'default' => true,
-        'label' => 'LBL_VALUE',
-        'currency_format' => true,
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'id' => 'ACCOUNT_ID',
         'width' => '10%',
-        'name' => 'value',
+        'default' => true,
+        'name' => 'accounts_name',
       ),
       'description' => 
       array (
@@ -88,47 +33,60 @@ array (
         'default' => true,
         'name' => 'description',
       ),
-      'date_entered' => 
+    ),
+    'advanced_search' => 
+    array (
+      'gift_date' => 
       array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_ENTERED',
-        'width' => '10%',
+        'type' => 'date',
         'default' => true,
-        'name' => 'date_entered',
-      ),
-      'date_modified' => 
-      array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_MODIFIED',
+        'label' => 'LBL_GIFT_DATE',
         'width' => '10%',
-        'default' => true,
-        'name' => 'date_modified',
+        'name' => 'gift_date',
       ),
-      'accounts_av_office_gifts_1_name' => 
+      'accounts_name' => 
       array (
         'type' => 'relate',
         'link' => true,
-        'label' => 'LBL_ACCOUNTS_AV_OFFICE_GIFTS_1_FROM_ACCOUNTS_TITLE',
-        'id' => 'ACCOUNTS_AV_OFFICE_GIFTS_1ACCOUNTS_IDA',
+        'label' => 'LBL_ACCOUNTS_NAME',
         'width' => '10%',
         'default' => true,
-        'name' => 'accounts_av_office_gifts_1_name',
+        'id' => 'ACCOUNT_ID',
+        'name' => 'accounts_name',
       ),
-      'created_by' => 
+      'contacts_name' => 
       array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_CREATED',
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_CONTACTS_NAME',
+        'id' => 'CONTACT_ID',
         'width' => '10%',
         'default' => true,
-        'name' => 'created_by',
+        'name' => 'contacts_name',
       ),
-      'modified_user_id' => 
+      'name' => 
       array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_MODIFIED',
+        'name' => 'name',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'label' => 'LBL_DESCRIPTION',
+        'sortable' => false,
         'width' => '10%',
         'default' => true,
-        'name' => 'modified_user_id',
+        'name' => 'description',
+      ),
+      'value' => 
+      array (
+        'type' => 'currency',
+        'default' => true,
+        'label' => 'LBL_VALUE',
+        'currency_format' => true,
+        'width' => '10%',
+        'name' => 'value',
       ),
     ),
   ),

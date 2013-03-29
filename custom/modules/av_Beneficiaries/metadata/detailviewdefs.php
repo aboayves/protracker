@@ -41,21 +41,16 @@ array (
         array (
           0 => 
           array (
-            'name' => 'Contacts_name',
+            'name' => 'contacts_name',
             'label' => 'LBL_CONTACTS_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'type',
-            'comment' => '',
-            'label' => 'LBL_TYPE',
-          ),
+          1 => 'name',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'av_Accounts_name',
+            'name' => 'av_accounts_name',
             'label' => 'LBL_AV_ACCOUNTS_NAME',
           ),
           1 => 
@@ -67,8 +62,18 @@ array (
         ),
         2 => 
         array (
-          0 => 'name',
-          1 => '',
+          0 => 
+          array (
+            'name' => 'type',
+            'comment' => '',
+            'label' => 'LBL_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'per_stirpes',
+            'comment' => '',
+            'label' => 'LBL_PER_STIRPES',
+          ),
         ),
         3 => 
         array (
@@ -78,12 +83,7 @@ array (
             'comment' => '',
             'label' => 'LBL_PERCENT',
           ),
-          1 => 
-          array (
-            'name' => 'per_stirpes',
-            'comment' => '',
-            'label' => 'LBL_PER_STIRPES',
-          ),
+          1 => '',
         ),
         4 => 
         array (

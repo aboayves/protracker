@@ -39,18 +39,22 @@ array (
       array (
         0 => 
         array (
-          0 => 'document_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
           1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 
+          0 => 'document_name',
+          1 => 
           array (
             'name' => 'year',
             'comment' => '',
             'label' => 'LBL_YEAR',
           ),
-          1 => 'active_date',
         ),
         2 => 
         array (
@@ -62,6 +66,7 @@ array (
               'onchangeSetFileNameTo' => 'document_name',
             ),
           ),
+          1 => 'active_date',
         ),
         3 => 
         array (
