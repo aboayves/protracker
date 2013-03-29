@@ -70,7 +70,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_Activity_Types_name',
+            'name' => 'av_activity_types_name',
             'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
           1 => 'name',
@@ -134,7 +134,10 @@ array (
         8 => 
         array (
           0 => 'description',
-          1 => 
+        ),
+        9 => 
+        array (
+          0 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -143,7 +146,7 @@ array (
             ),
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
