@@ -296,6 +296,7 @@ $app_list_strings = array (
     'Negotiation/Review' => 'Negotiation/Review',
     'Closed Won' => 'Closed Won',
     'Closed Lost' => 'Closed Lost',
+	'Inactive' => 'Inactive',
   ),
   'in_total_group_stages' => array (
     'Draft' => 'Draft',
