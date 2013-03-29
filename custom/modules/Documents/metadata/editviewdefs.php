@@ -71,27 +71,9 @@ array (
             'name' => 'revision',
             'customCode' => '<input name="revision" type="text" value="{$fields.revision.value}" {$DISABLED}>',
           ),
-          1 => 
-          array (
-            'name' => 'contract_name',
-            'label' => 'LBL_CONTRACT_NAME',
-          ),
+          1 => '',
         ),
         3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'selected_revision_name',
-            'label' => 'LBL_SELECTED_REVISION_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'attach_to_group_id',
-            'comment' => 'Used as hidden field',
-            'label' => 'LBL_ATTACH_TO_GROUP_ID',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (
@@ -104,7 +86,7 @@ array (
             'label' => 'LBL_DET_IS_TEMPLATE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -112,11 +94,12 @@ array (
           ),
           1 => 'exp_date',
         ),
-        6 => 
+        5 => 
         array (
           0 => 'doc_type',
+          1 => '',
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -129,40 +112,27 @@ array (
             'customCode' => '<select name="related_doc_rev_id" id="related_doc_rev_id" {$RELATED_DOCUMENT_REVISION_DISABLED}>{$RELATED_DOCUMENT_REVISION_OPTIONS}</select>',
           ),
         ),
-        8 => 
+        7 => 
         array (
-          0 => 
+          0 => 'category_id',
+          1 => 
           array (
             'name' => 'document_number',
             'comment' => '',
             'label' => 'LBL_DOCUMENT_NUMBER',
           ),
-          1 => 
-          array (
-            'name' => 'latest_revision_name',
-            'label' => 'LBL_LASTEST_REVISION_NAME',
-          ),
         ),
-        9 => 
+        8 => 
         array (
-          0 => 
+          0 => 'subcategory_id',
+          1 => 
           array (
             'name' => 'keywords',
             'comment' => '',
             'label' => 'LBL_KEYWORDS',
           ),
-          1 => 
-          array (
-            'name' => 'document_revision_id',
-            'label' => 'LBL_LATEST_REVISION',
-          ),
         ),
-        10 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        11 => 
+        9 => 
         array (
           0 => 
           array (
@@ -177,7 +147,7 @@ array (
             ),
           ),
         ),
-        12 => 
+        10 => 
         array (
           0 => 
           array (
