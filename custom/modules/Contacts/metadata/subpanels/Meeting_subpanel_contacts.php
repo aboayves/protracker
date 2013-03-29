@@ -1,13 +1,6 @@
 <?php
-// created: 2012-11-15 21:37:43
+// created: 2013-03-29 19:08:44
 $subpanel_layout['list_fields'] = array (
-  'accept_status_name' => 
-  array (
-    'vname' => 'LBL_LIST_ACCEPT_STATUS',
-    'width' => '11%',
-    'sortable' => false,
-    'default' => true,
-  ),
   'full_name' => 
   array (
     'type' => 'fullname',
@@ -17,6 +10,13 @@ $subpanel_layout['list_fields'] = array (
     ),
     'vname' => 'LBL_NAME',
     'width' => '10%',
+    'default' => true,
+  ),
+  'accept_status_name' => 
+  array (
+    'vname' => 'LBL_LIST_ACCEPT_STATUS',
+    'width' => '11%',
+    'sortable' => false,
     'default' => true,
   ),
   'account_name' => 
@@ -40,11 +40,25 @@ $subpanel_layout['list_fields'] = array (
     'sortable' => false,
     'default' => true,
   ),
+  'phone_home' => 
+  array (
+    'type' => 'phone',
+    'vname' => 'LBL_HOME_PHONE',
+    'width' => '10%',
+    'default' => true,
+  ),
   'phone_work' => 
   array (
     'name' => 'phone_work',
     'vname' => 'LBL_LIST_PHONE',
     'width' => '15%',
+    'default' => true,
+  ),
+  'phone_mobile' => 
+  array (
+    'type' => 'phone',
+    'vname' => 'LBL_MOBILE_PHONE',
+    'width' => '10%',
     'default' => true,
   ),
   'edit_button' => 

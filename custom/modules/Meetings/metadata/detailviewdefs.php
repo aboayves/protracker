@@ -119,42 +119,47 @@ array (
         array (
           0 => 
           array (
+            'name' => 'duration',
+            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
+            'label' => 'LBL_DURATION',
+          ),
+          1 => 'location',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
             'name' => 'date_end',
             'comment' => 'Date meeting ends',
             'label' => 'LBL_DATE_END',
           ),
-          1 => 
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => 'description',
+        ),
+        6 => 
+        array (
+          0 => 
           array (
             'name' => 'reminder_time',
             'customCode' => '{include file="modules/Meetings/tpls/reminders.tpl"}',
             'label' => 'LBL_REMINDER',
           ),
-        ),
-        4 => 
-        array (
-          0 => 'description',
           1 => 'team_name',
         ),
-        5 => 
+        7 => 
         array (
           0 => 
-          array (
-            'name' => 'duration',
-            'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
-            'label' => 'LBL_DURATION',
-          ),
-          1 => 
           array (
             'name' => 'email_reminder_time',
             'comment' => 'Specifies when a email reminder alert should be issued; -1 means no alert; otherwise the number of seconds prior to the start',
             'label' => 'LBL_EMAIL_REMINDER_TIME',
           ),
+          1 => 'type',
         ),
-        6 => 
-        array (
-          0 => 'location',
-        ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -175,23 +180,19 @@ array (
         array (
           0 => 
           array (
-            'name' => 'report_sort',
+            'name' => 'on_meeting_agenda',
             'comment' => '',
-            'label' => 'LBL_REPORT_SORT',
+            'label' => 'LBL_ON_MEETING_AGENDA',
           ),
-          1 => 'type',
+          1 => '',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'on_meeting_agenda',
+            'name' => 'report_sort',
             'comment' => '',
-            'label' => 'LBL_ON_MEETING_AGENDA',
-          ),
-          1 => 
-          array (
-            'name' => 'password',
+            'label' => 'LBL_REPORT_SORT',
           ),
         ),
       ),
