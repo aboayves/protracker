@@ -35,8 +35,8 @@ require_once('include/generic/SugarWidgets/SugarWidgetSubPanelTopButton.php');
 class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopButton
 {
 	function __construct(&$layout_manager) {
-		$this->title = 'Create Note or Attachment';
-		$this->form_value = '  Create Note or Attachment';
+		$this->title = 'Create Note';
+		$this->form_value = '  Create Note';
 		parent::SugarWidget($layout_manager);
 	}
 	function &_get_form($defines, $additionalFormFields = null)

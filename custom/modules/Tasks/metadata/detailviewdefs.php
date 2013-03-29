@@ -104,7 +104,16 @@ array (
         ),
         4 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'filename',
+            'type' => 'file',
+            'displayParams' => 
+            array (
+              'id' => 'id',
+              'link' => 'filename',
+            ),
+          ),
           1 => 'priority',
         ),
         5 => 

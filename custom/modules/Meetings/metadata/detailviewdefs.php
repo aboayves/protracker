@@ -168,6 +168,19 @@ array (
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
           ),
         ),
+		8 => 
+        array (
+            0 => 
+          array (
+            'name' => 'filename',
+            'type' => 'file',
+            'displayParams' => 
+            array (
+              'id' => 'id',
+              'link' => 'filename',
+            ),
+          ),
+        ),
       ),
       'lbl_editview_panel1' => 
       array (

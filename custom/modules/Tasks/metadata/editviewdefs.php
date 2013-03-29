@@ -7,6 +7,7 @@ array (
     array (
       'form' => 
       array (
+	  'enctype'=> 'multipart/form-data',
         'hidden' => 
         array (
           0 => '<input type="hidden" name="isSaveAndNew" value="false">',
@@ -131,7 +132,7 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
         ),
         4 => 
         array (
-          0 => '',
+          0 => 'filename',
           1 => 
           array (
             'name' => 'priority',

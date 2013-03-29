@@ -22,6 +22,7 @@ $mod_strings = array (
   'LBL_SUGAR_ENTERPRISE' => "Enterprise",
   'LBL_POWERED_BY_SUGAR' => 'ProTrackerWeb' /*for 508 compliance fix*/,
   'LBL_DASHLET_SUGAR_NEWS' => 'Protracker News',
+  'LNK_NEW_NOTE' => 'Create Note',
 );
 
 

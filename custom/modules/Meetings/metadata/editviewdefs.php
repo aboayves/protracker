@@ -8,6 +8,7 @@ array (
       'maxColumns' => '2',
       'form' => 
       array (
+		'enctype'=> 'multipart/form-data',
         'hidden' => 
         array (
           0 => '<input type="hidden" name="isSaveAndNew" value="false">',
@@ -212,6 +213,10 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'comment' => 'Date record last modified',
             'label' => 'LBL_DATE_MODIFIED',
           ),
+        ),
+		8 => 
+        array (
+          0 => 'filename',
         ),
       ),
       'lbl_editview_panel1' => 

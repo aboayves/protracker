@@ -164,7 +164,16 @@ array (
             'customCode' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV}&nbsp;',
             'label' => 'LBL_DURATION',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'filename',
+            'type' => 'file',
+            'displayParams' => 
+            array (
+              'id' => 'id',
+              'link' => 'filename',
+            ),
+          ),
         ),
         6 => 
         array (
