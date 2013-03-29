@@ -39,11 +39,19 @@ class="yui-navset"
 >
     {{if $useTabs}}
     {* Generate the Tab headers *}
+	{{counter name="tabCount" start=-1 print=false assign="tabCount"}}
+	<script type='text/javascript'>
+	var tabs_array=Array();
+	{{foreach name=section from=$sectionPanels key=label item=panel}}
+        {{counter name="tabCount" print=false}}
+		tabs_array[{{$tabCount}}]='{sugar_translate label='{{$label}}' module='{{$module}}'}';
+	{{/foreach}}
+	</script>
     {{counter name="tabCount" start=-1 print=false assign="tabCount"}}
     <ul class="yui-nav">
     {{foreach name=section from=$sectionPanels key=label item=panel}}
         {{counter name="tabCount" print=false}}
-        <li class="selected"><a id="tab{{$tabCount}}" href="javascript:void({{$tabCount}});" onclick="setTabCookie('{{$module}}', {{$tabCount}});"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
+        <li class="selected"><a id="tab{{$tabCount}}" href="javascript:void({{$tabCount}});" onclick="setTabCookie('{{$module}}', '{sugar_translate label='{{$label}}' module='{{$module}}'}');"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
     {{/foreach}}
     </ul>
     {{/if}}
@@ -261,7 +269,8 @@ class="yui-navset"
 var {{$form_name}}_tabs = new YAHOO.widget.TabView("{{$form_name}}_tabs");
 //{{$form_name}}_tabs.selectTab(0);
 var selectedTab=getTabCookie('{{$module}}');
-selectedTab = isNaN(selectedTab) ? 0 : selectedTab;
+selectedTab = tabs_array.indexOf(selectedTab);
+selectedTab = (isNaN(selectedTab)||(selectedTab=='-1')) ? 0 : selectedTab;
 {{$form_name}}_tabs.selectTab(selectedTab);
 </script>
 {{/if}}
