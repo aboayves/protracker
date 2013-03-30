@@ -67,7 +67,7 @@ if ($max_count > 0)
 		$temp_tags_id=$row['id'];	
 		$temp_name=$row['name'];		
 		$temp_count=$row['count'];			
-		$href_flat=$sugar_config['site_url']."/index.php?action=DetailView&module=Tags&record=$temp_tags_id";				
+		$href_flat=$sugar_config['site_url']."/index.php?module=Tags&action=DetailView&record=$temp_tags_id";				
 			
 			
 		$diviseur=($max_count - $min_count);
