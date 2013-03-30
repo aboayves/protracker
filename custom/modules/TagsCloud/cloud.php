@@ -28,7 +28,7 @@ global $db, $sugar_config;
 
 
 //redirect to tags module in full window
-if ($_REQUEST['open_tag_id']<>'')
+if (isset($_REQUEST['open_tag_id']) && $_REQUEST['open_tag_id']<>'')
 {
 	
 	$url = $sugar_config['site_url']."/index.php?action=DetailView&module=Tags&record=".$_REQUEST['open_tag_id'];
