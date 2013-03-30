@@ -31,7 +31,7 @@ global $db, $sugar_config;
 if (isset($_REQUEST['open_tag_id']) && $_REQUEST['open_tag_id']<>'')
 {
 	
-	$url = $sugar_config['site_url']."/index.php?action=DetailView&module=Tags&record=".$_REQUEST['open_tag_id'];
+	$url = $sugar_config['site_url']."/index.php?module=Tags&action=DetailView&record=".$_REQUEST['open_tag_id'];
 	
 	echo '<script type="text/javascript">
 			<!--
@@ -44,6 +44,8 @@ if (isset($_REQUEST['open_tag_id']) && $_REQUEST['open_tag_id']<>'')
 
 
 $limit_tags_display=200;
+$min_matches=2;
+
 
 $flat_cloud="";
 	
@@ -56,7 +58,7 @@ $max_count=$row['max_count'];
 	
 if ($max_count > 0)
 {
-	$sql="SELECT * FROM tags WHERE deleted = '0' AND count>1 ORDER BY name limit 0,$limit_tags_display";
+	$sql="SELECT * FROM tags WHERE deleted = '0' AND count>=$min_matches ORDER BY name limit 0,$limit_tags_display";
 	$result=$db->query($sql);
 		
 	while ($row = $db->fetchByAssoc($result) )
