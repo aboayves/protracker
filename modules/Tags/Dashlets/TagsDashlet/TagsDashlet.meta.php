@@ -25,7 +25,7 @@ global $app_strings;
 
 $dashletMeta['TagsDashlet'] = array('module'		=> 'Tags',
 										  'title'       => translate('LBL_HOMEPAGE_TITLE', 'Tags'), 
-                                          'description' => 'Tags Cloud',
+                                          'description' => 'Tag Cloud',
                                           'icon'        => 'themes/default/images/icon_Tags_32.gif',
                                           'category'    => 'Module Views');
 ?>

@@ -32,7 +32,7 @@ function merge_tags($current_id)
 	
 	$return_id=$current_id;
 	
-	$GLOBALS['log']->debug("[CARRENET]Workflow merge_tags");
+	//$GLOBALS['log']->debug("Workflow merge_tags");
 	
 	$now_sql=date("Y-m-d H:i:s");
 	
@@ -102,7 +102,7 @@ function clean_links()
 	global $db;
 	global $app_list_strings;
 	
-	$GLOBALS['log']->debug("[CARRENET]Workflow merge_tags");
+	////$GLOBALS['log']->debug("Workflow merge_tags");
 	
 	$now_sql=date("Y-m-d H:i:s");
 	
@@ -220,7 +220,7 @@ function refresh_count_elements_tags()
 			$temp_count=$row['count'];		
 			
 			$tags_array["$temp_tags_id"]['count'] = $temp_count;
-			$GLOBALS['log']->debug("[CARRENET]count tags contacts $temp_tags_id = {$tags_array["$temp_tags_id"]['count']} ");
+			//$GLOBALS['log']->debug("[CARRENET]count tags contacts $temp_tags_id = {$tags_array["$temp_tags_id"]['count']} ");
 		}
 			
 	//accounts tags
@@ -233,7 +233,7 @@ function refresh_count_elements_tags()
 		$temp_count=$row['count'];		
 		
 		$tags_array["$temp_tags_id"]['count'] = $tags_array["$temp_tags_id"]['count'] + $temp_count;
-		$GLOBALS['log']->debug("[CARRENET]count tags accounts  $temp_tags_id = {$tags_array["$temp_tags_id"]['count']} ");
+		//$GLOBALS['log']->debug("[CARRENET]count tags accounts  $temp_tags_id = {$tags_array["$temp_tags_id"]['count']} ");
 	}
 			
 	//leads tags
@@ -246,7 +246,7 @@ function refresh_count_elements_tags()
 		$temp_count=$row['count'];		
 		
 		$tags_array["$temp_tags_id"]['count'] = $tags_array["$temp_tags_id"]['count'] + $temp_count;
-		$GLOBALS['log']->debug("[CARRENET]count tags leads $temp_tags_id = {$tags_array["$temp_tags_id"]['count']} ");
+		//$GLOBALS['log']->debug("[CARRENET]count tags leads $temp_tags_id = {$tags_array["$temp_tags_id"]['count']} ");
 	}
 	
 	//opportunities tags
@@ -259,7 +259,7 @@ function refresh_count_elements_tags()
 		$temp_count=$row['count'];		
 		
 		$tags_array["$temp_tags_id"]['count'] = $tags_array["$temp_tags_id"]['count'] + $temp_count;
-		$GLOBALS['log']->debug("[CARRENET]count tags leads $temp_tags_id = {$tags_array["$temp_tags_id"]['count']} ");
+		//$GLOBALS['log']->debug("[CARRENET]count tags leads $temp_tags_id = {$tags_array["$temp_tags_id"]['count']} ");
 	}
 	
 	//Update count of elements
@@ -268,7 +268,7 @@ function refresh_count_elements_tags()
 		$sql="UPDATE tags SET count = '{$value['count']}' WHERE id = '$key' ";
 		$db->query("$sql");	
 		
-		$GLOBALS['log']->debug("[CARRENET]count tags $sql ");
+		//$GLOBALS['log']->debug("[CARRENET]count tags $sql ");
 	}
 				
 }
@@ -288,7 +288,7 @@ class Tags_before_save
 		
 		$now_sql=date("Y-m-d H:i:s");
 		
-		$GLOBALS['log']->debug("[CARRENET]Workflow Tags_before_save");
+		//$GLOBALS['log']->debug("[CARRENET]Workflow Tags_before_save");
 		
 		//replace ; by ,
 		$tags_name=$bean->name;
@@ -321,7 +321,7 @@ class Tags_before_save
 					//call from a subpanel ?
 					if ($_POST['relate_to'] != 'Tags')
 					{
-						$GLOBALS['log']->debug("[CARRENET]Workflow tags creation call from subpanel");
+						//$GLOBALS['log']->debug("[CARRENET]Workflow tags creation call from subpanel");
 						
 						$relate_module=strtolower($_POST['relate_to']);
 						$relate_record=$_POST['relate_id'];
@@ -351,7 +351,7 @@ class Tags_after_save
 {
 	function Tags_after_save(&$bean, $event, $arguments)
 	{
-		$GLOBALS['log']->debug("[CARRENET]Workflow Tags_after_save - Tags_after_save");		
+		//$GLOBALS['log']->debug("[CARRENET]Workflow Tags_after_save - Tags_after_save");		
 		$bean->id=merge_tags($bean->id);
 		clean_links();
 		refresh_count_elements_tags();
@@ -364,7 +364,7 @@ class Tags_before_retrieve
 {
 	function Tags_before_retrieve(&$bean, $event, $arguments)
 	{	
-		$GLOBALS['log']->debug("[CARRENET]Workflow Tags_before_retrieve - Tags_before_retrieve");		
+		//$GLOBALS['log']->debug("[CARRENET]Workflow Tags_before_retrieve - Tags_before_retrieve");		
 		clean_links();
 		refresh_count_elements_tags();		
 	}
