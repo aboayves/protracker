@@ -43,7 +43,7 @@ if (isset($_REQUEST['open_tag_id']) && $_REQUEST['open_tag_id']<>'')
 }
 
 
-$limit_tags_display=50;
+$limit_tags_display=200;
 
 $flat_cloud="";
 	
@@ -56,7 +56,7 @@ $max_count=$row['max_count'];
 	
 if ($max_count > 0)
 {
-	$sql="SELECT * FROM tags WHERE deleted = '0' ORDER BY name limit 0,$limit_tags_display";
+	$sql="SELECT * FROM tags WHERE deleted = '0' AND count>1 ORDER BY name limit 0,$limit_tags_display";
 	$result=$db->query($sql);
 		
 	while ($row = $db->fetchByAssoc($result) )
@@ -86,7 +86,7 @@ if ($max_count > 0)
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>CARRENET Tags Cloud</title>
+		<title>Tag Cloud</title>
 		<meta http-equiv="Content-Type" content="text/html" />
 	<style>	
 		.tags ul{
