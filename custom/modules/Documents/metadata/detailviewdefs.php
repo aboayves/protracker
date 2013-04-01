@@ -70,27 +70,9 @@ array (
             'name' => 'revision',
             'label' => 'LBL_DOC_VERSION',
           ),
-          1 => 
-          array (
-            'name' => 'contract_name',
-            'label' => 'LBL_CONTRACT_NAME',
-          ),
+          1 => '',
         ),
         3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'selected_revision_name',
-            'label' => 'LBL_SELECTED_REVISION_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'attach_to_group_id',
-            'comment' => 'Used as hidden field',
-            'label' => 'LBL_ATTACH_TO_GROUP_ID',
-          ),
-        ),
-        4 => 
         array (
           0 => 
           array (
@@ -103,12 +85,12 @@ array (
             'label' => 'LBL_DET_IS_TEMPLATE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 'active_date',
           1 => 'exp_date',
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -123,46 +105,34 @@ array (
             ),
             'label' => 'LBL_DOC_TYPE',
           ),
+          1 => '',
         ),
-        7 => 
+        6 => 
         array (
           0 => 'related_doc_name',
           1 => 'related_doc_rev_number',
         ),
-        8 => 
+        7 => 
         array (
-          0 => 
+          0 => 'category_id',
+          1 => 
           array (
             'name' => 'document_number',
             'comment' => '',
             'label' => 'LBL_DOCUMENT_NUMBER',
           ),
-          1 => 
-          array (
-            'name' => 'latest_revision_name',
-            'label' => 'LBL_LASTEST_REVISION_NAME',
-          ),
         ),
-        9 => 
+        8 => 
         array (
-          0 => 
+          0 => 'subcategory_id',
+          1 => 
           array (
             'name' => 'keywords',
             'comment' => '',
             'label' => 'LBL_KEYWORDS',
           ),
-          1 => 
-          array (
-            'name' => 'document_revision_id',
-            'label' => 'LBL_LATEST_REVISION',
-          ),
         ),
-        10 => 
-        array (
-          0 => 'category_id',
-          1 => 'subcategory_id',
-        ),
-        11 => 
+        9 => 
         array (
           0 => 
           array (
@@ -175,7 +145,7 @@ array (
             'label' => 'LBL_TEAM',
           ),
         ),
-        12 => 
+        10 => 
         array (
           0 => 
           array (

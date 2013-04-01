@@ -31,6 +31,13 @@ array (
       0 => 'time_start',
     ),
   ),
+  'DURATION' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_DURATION',
+    'width' => '10%',
+    'default' => true,
+  ),
   'PARENT_NAME' => 
   array (
     'width' => '15%',
@@ -165,13 +172,6 @@ array (
     'link' => true,
     'label' => 'LBL_CREATED',
     'id' => 'CREATED_BY',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'DURATION' => 
-  array (
-    'type' => 'enum',
-    'label' => 'LBL_DURATION',
     'width' => '10%',
     'default' => false,
   ),

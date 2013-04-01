@@ -67,9 +67,17 @@ array (
         array (
           0 => 
           array (
-            'name' => 'report_salutation',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
+            'name' => 'full_name',
+            'label' => 'LBL_NAME',
+            'displayParams' => 
+            array (
+              'enableConnectors' => true,
+              'module' => 'Contacts',
+              'connectors' => 
+              array (
+                0 => 'ext_rest_twitter',
+              ),
+            ),
           ),
           1 => 
           array (
@@ -87,77 +95,32 @@ array (
           ),
           1 => 
           array (
-            'name' => 'picture',
-            'label' => 'LBL_PICTURE_FILE',
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'title',
-            'comment' => 'The title of the contact',
-            'label' => 'LBL_TITLE',
+            'name' => 'picture',
+            'label' => 'LBL_PICTURE_FILE',
           ),
           1 => 
           array (
-            'name' => 'account_name',
-            'label' => 'LBL_ACCOUNT_NAME',
-            'displayParams' => 
-            array (
-            ),
+            'name' => 'av_contact_types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'comment' => 'First name of the contact',
-            'label' => 'LBL_FIRST_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'middle_name',
-            'comment' => '',
-            'label' => 'LBL_MIDDLE_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'av_Offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'last_name',
-            'comment' => 'Last name of the contact',
-            'label' => 'LBL_LAST_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'av_Contact_Types_name',
-            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'suffix',
-            'comment' => '',
-            'label' => 'LBL_SUFFIX',
+            'name' => 'account_name',
+            'label' => 'LBL_ACCOUNT_NAME',
+            'displayParams' => 
+            array (
+            ),
           ),
           1 => 
           array (
@@ -166,16 +129,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        7 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'contact_priority',
-            'label' => 'LBL_CONTACT_PRIORITY',
-          ),
-        ),
-        8 => 
+        4 => 
         array (
           0 => 
           array (
@@ -184,22 +138,36 @@ array (
           ),
           1 => 
           array (
-            'name' => 'annual_household_income',
-            'comment' => '',
-            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
           ),
         ),
-        9 => 
+        5 => 
         array (
           0 => 
+          array (
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
+          ),
+          1 => 
           array (
             'name' => 'document_path',
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
           ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
+          ),
           1 => '',
         ),
-        10 => 
+        7 => 
         array (
           0 => 
           array (
@@ -209,7 +177,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        11 => 
+        8 => 
         array (
           0 => 
           array (

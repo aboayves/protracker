@@ -10,22 +10,37 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'BILLING_ADDRESS_CITY' => 
+  'OFFICE_NAME' => 
   array (
-    'width' => '10%',
-    'label' => 'LBL_CITY',
+    'type' => 'varchar',
     'default' => true,
+    'label' => 'LBL_OFFICE_NAME',
+    'width' => '10%',
   ),
-  'INDUSTRY' => 
+  'OFFICE_ADDRESS_CITY' => 
   array (
-    'width' => '10%',
-    'label' => 'LBL_INDUSTRY',
+    'type' => 'varchar',
     'default' => true,
+    'label' => 'LBL_OFFICE_ADDRESS_CITY',
+    'width' => '10%',
+  ),
+  'OFFICE_ADDRESS_STATE' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_OFFICE_ADDRESS_STATE',
+    'width' => '10%',
   ),
   'PHONE_OFFICE' => 
   array (
     'width' => '10%',
     'label' => 'LBL_PHONE',
+    'default' => true,
+  ),
+  'PHONE_FAX' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_PHONE_FAX',
     'default' => true,
   ),
   'EMAIL1' => 
@@ -35,13 +50,6 @@ array (
     'sortable' => false,
     'link' => true,
     'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
-    'default' => true,
-  ),
-  'AV_OFFICES_TYPE' => 
-  array (
-    'type' => 'enum',
-    'label' => 'LBL_TYPE',
-    'width' => '10%',
     'default' => true,
   ),
   'RT_OFFICES_TYPE' => 
@@ -54,12 +62,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_ANNUAL_REVENUE',
-    'default' => false,
-  ),
-  'PHONE_FAX' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_PHONE_FAX',
     'default' => false,
   ),
   'ASSIGNED_USER_NAME' => 
@@ -116,6 +118,12 @@ array (
     'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
     'default' => false,
   ),
+  'BILLING_ADDRESS_CITY' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CITY',
+    'default' => false,
+  ),
   'SHIPPING_ADDRESS_STREET' => 
   array (
     'width' => '15%',
@@ -156,24 +164,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_WEBSITE',
-    'default' => false,
-  ),
-  'OWNERSHIP' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_OWNERSHIP',
-    'default' => false,
-  ),
-  'EMPLOYEES' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_EMPLOYEES',
-    'default' => false,
-  ),
-  'TICKER_SYMBOL' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_TICKER_SYMBOL',
     'default' => false,
   ),
   'TEAM_NAME' => 
