@@ -3,12 +3,13 @@
 $dictionary["Contact"]["fields"]["ssn"] = array (
 	'name' => 'ssn',
 	'vname' => 'LBL_SSN',
-	'type' => 'varchar',
+	'type' => 'maskedinput',
+	'dbType' => 'varchar',
 	'len' => '255',
 	'audited' => 0,
 	'required' => 0,
 	'comment' => '',
-	'default' => '',
+	'default' => '###-##-####',
 	'massupdate' => True,
 	'reportable' => True,
 	'importable' => True,
@@ -16,6 +17,7 @@ $dictionary["Contact"]["fields"]["ssn"] = array (
 	'duplicate_merge_dom_value' => True,
 	'help' => '',
 	'group' => '',
+	'ext1' => '###-##-####',
 	'unified_search' => true,
 );
 ?>
