@@ -32,7 +32,7 @@ onclick="SUGAR.clearRelateField(this.form, '{{$idname}}', '{{if !empty($displayP
 {{if !empty($displayParams.allowNewValue) }}
 <input type="hidden" name="{{$idname}}_allow_new_value" id="{{$idname}}_allow_new_value" value="true">
 {{/if}}
-<span class ="show_cstm_relate_errors" style="display:none;color:#FF0000">This field doesn't exist, click '+' to create.</span>
+<span class ="show_cstm_relate_errors" style="display:none;color:#FF0000">This value doesn't exist, click '+' to create.</span>
 <div id="dialogForURL" style="display:none"><br/><br/></div>
 
 {literal}
