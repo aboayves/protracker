@@ -82,6 +82,13 @@ class ContactsHook
 		$result = $db->query($sql);
 		while($row = $db->fetchByAssoc($result)){
 			$email_addr_bean_rel_id = create_guid();
+			$sql ="UPDATE email_addr_bean_rel 
+				   SET deleted=1
+				   WHERE bean_id='{$row['account_id']}'
+						 AND bean_module='Accounts'
+						 AND primary_address='1'
+						 AND deleted='0'";
+			$db->query($sql);
 			$sql = "INSERT INTO email_addr_bean_rel(id, email_address_id, bean_id, bean_module, primary_address) 
 					VALUES ('{$email_addr_bean_rel_id}', '{$email_address_id}', '{$row['account_id']}', 'Accounts', '1')";
 			$db->query($sql, true);

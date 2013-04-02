@@ -66,6 +66,13 @@ class AccountsHook
 		else
 			$email_address_id = $row['id'];
 		$email_addr_bean_rel_id = create_guid();
+		$sql ="UPDATE email_addr_bean_rel 
+			   SET deleted=1
+			   WHERE bean_id='{$bean->primary_contact_id}'
+					 AND bean_module='Contacts'
+					 AND primary_address='1'
+					 AND deleted='0'";
+		$db->query($sql);
 		$sql = "INSERT INTO email_addr_bean_rel(id, email_address_id, bean_id, bean_module, primary_address) 
 				VALUES ('{$email_addr_bean_rel_id}', '{$email_address_id}', '{$bean->primary_contact_id}', 'Contacts', '1')";
 		$db->query($sql, true);
@@ -73,6 +80,22 @@ class AccountsHook
 	
 	function delete_multiple_record($bean, $event, $arguments) {
 			$bean->delete_multiple_check = "<input id='delete_multiple_check' name='delete_multiple_check' value='{$bean->id}' type='checkbox' class='checkbox'>";
+	}
+	function setFirstContactToPrimary($bean, $event, $arguments){
+		if(isset($arguments['related_module']) && $arguments['related_module'] =='Contacts'){
+			global $db;
+			$sql = "SELECT count(*) as pk_contact_count from accounts_contacts where account_id='{$bean->id}' AND contact_type='primary' AND deleted=0";
+			$result = $db->query($sql);
+			$row = $db->fetchByAssoc($result);
+			if($row['pk_contact_count'] == '0'){
+				$sql="UPDATE accounts_contacts
+					  SET contact_type='primary'
+					  WHERE contact_id='{$arguments['related_id']}' AND
+							account_id='{$bean->id}' AND
+							deleted=0";
+				$db->query($sql);
+			}
+		}
 	}
 }
 
