@@ -40,10 +40,26 @@ array (
     'width' => '10%',
     'default' => true,
   ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'link' => true,
+    'type' => 'relate',
+    'label' => 'LBL_ASSIGNED_TO_NAME',
+    'id' => 'ASSIGNED_USER_ID',
+    'width' => '10%',
+    'default' => true,
+  ),
   'FILE_URL' => 
   array (
     'type' => 'function',
     'label' => 'LBL_FILE_URL',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'PARENT_TYPE' => 
+  array (
+    'type' => 'parent_type',
+    'label' => 'LBL_PARENT_TYPE',
     'width' => '10%',
     'default' => false,
   ),
@@ -52,6 +68,20 @@ array (
     'type' => 'bool',
     'default' => false,
     'label' => 'LBL_ON_FINANCIAL_PLAN',
+    'width' => '10%',
+  ),
+  'CONTACT_PHONE' => 
+  array (
+    'type' => 'phone',
+    'label' => 'LBL_PHONE',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'REPORT_SORT' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_REPORT_SORT',
     'width' => '10%',
   ),
   'CONTACT_NAME' => 
@@ -90,15 +120,6 @@ array (
     array (
       'module' => 'Notes',
     ),
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'link' => true,
-    'type' => 'relate',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
-    'width' => '10%',
-    'default' => false,
   ),
   'ON_MEETING_AGENDA' => 
   array (

@@ -25,18 +25,28 @@ array (
     ),
     'panels' => 
     array (
-      'default' => 
+      'lbl_editview_panel1' => 
       array (
         0 => 
         array (
           0 => 
           array (
-            'name' => 'Accounts_name',
+            'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
           1 => 'assigned_user_name',
         ),
         1 => 
+        array (
+          0 => 'name',
+          1 => 
+          array (
+            'name' => 'fact_finder_date',
+            'comment' => '',
+            'label' => 'LBL_FACT_FINDER_DATE',
+          ),
+        ),
+        2 => 
         array (
           0 => 'description',
           1 => 
@@ -48,7 +58,7 @@ array (
             ),
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -63,7 +73,10 @@ array (
             'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
-        3 => 
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
@@ -72,7 +85,7 @@ array (
             'label' => 'LBL_QUESTION01',
           ),
         ),
-        4 => 
+        1 => 
         array (
           0 => 
           array (
@@ -87,7 +100,7 @@ array (
             'label' => 'LBL_SCORE01',
           ),
         ),
-        5 => 
+        2 => 
         array (
           0 => 
           array (
@@ -96,7 +109,7 @@ array (
             'label' => 'LBL_QUESTION02',
           ),
         ),
-        6 => 
+        3 => 
         array (
           0 => 
           array (
@@ -111,7 +124,7 @@ array (
             'label' => 'LBL_SCORE02',
           ),
         ),
-        7 => 
+        4 => 
         array (
           0 => 
           array (
@@ -120,7 +133,7 @@ array (
             'label' => 'LBL_QUESTION03',
           ),
         ),
-        8 => 
+        5 => 
         array (
           0 => 
           array (
@@ -135,7 +148,7 @@ array (
             'label' => 'LBL_SCORE03',
           ),
         ),
-        9 => 
+        6 => 
         array (
           0 => 
           array (
@@ -144,7 +157,7 @@ array (
             'label' => 'LBL_QUESTION04',
           ),
         ),
-        10 => 
+        7 => 
         array (
           0 => 
           array (
@@ -159,7 +172,7 @@ array (
             'label' => 'LBL_SCORE04',
           ),
         ),
-        11 => 
+        8 => 
         array (
           0 => 
           array (
@@ -168,7 +181,7 @@ array (
             'label' => 'LBL_QUESTION05',
           ),
         ),
-        12 => 
+        9 => 
         array (
           0 => 
           array (
@@ -183,7 +196,7 @@ array (
             'label' => 'LBL_SCORE05',
           ),
         ),
-        13 => 
+        10 => 
         array (
           0 => 
           array (
@@ -192,7 +205,7 @@ array (
             'label' => 'LBL_QUESTION06',
           ),
         ),
-        14 => 
+        11 => 
         array (
           0 => 
           array (
@@ -207,7 +220,7 @@ array (
             'label' => 'LBL_SCORE06',
           ),
         ),
-        15 => 
+        12 => 
         array (
           0 => 
           array (
@@ -216,7 +229,7 @@ array (
             'label' => 'LBL_QUESTION07',
           ),
         ),
-        16 => 
+        13 => 
         array (
           0 => 
           array (
@@ -231,7 +244,7 @@ array (
             'label' => 'LBL_SCORE07',
           ),
         ),
-        17 => 
+        14 => 
         array (
           0 => 
           array (
@@ -240,7 +253,7 @@ array (
             'label' => 'LBL_QUESTION08',
           ),
         ),
-        18 => 
+        15 => 
         array (
           0 => 
           array (
@@ -255,7 +268,7 @@ array (
             'label' => 'LBL_SCORE08',
           ),
         ),
-        19 => 
+        16 => 
         array (
           0 => 
           array (
@@ -264,7 +277,7 @@ array (
             'label' => 'LBL_QUESTION09',
           ),
         ),
-        20 => 
+        17 => 
         array (
           0 => 
           array (
@@ -279,7 +292,7 @@ array (
             'label' => 'LBL_SCORE09',
           ),
         ),
-        21 => 
+        18 => 
         array (
           0 => 
           array (
@@ -288,7 +301,7 @@ array (
             'label' => 'LBL_QUESTION10',
           ),
         ),
-        22 => 
+        19 => 
         array (
           0 => 
           array (

@@ -175,6 +175,21 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
             'label' => 'LBL_REPORT_SORT',
           ),
         ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_group_name',
+            'studio' => 'visible',
+            'label' => 'LBL_AV_GROUPS_TITLE',
+          ),
+          1 => 
+          array (
+            'name' => 'attach_to_group_id',
+            'comment' => 'Note Attach To Group',
+            'label' => 'LBL_ATTACH_TO_GROUP_ID_NOTES',
+          ),
+        ),
       ),
     ),
   ),

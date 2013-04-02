@@ -41,9 +41,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'report_salutation',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
+            'name' => 'full_name',
+            'studio' => 
+            array (
+              'listview' => false,
+            ),
+            'label' => 'LBL_NAME',
           ),
           1 => 
           array (
@@ -59,17 +62,24 @@ array (
             'comment' => '',
             'label' => 'LBL_NICKNAME',
           ),
-          1 => 'picture',
+          1 => 
+          array (
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
+          ),
         ),
         2 => 
         array (
-          0 => 
-          array (
-            'name' => 'title',
-            'comment' => 'The title of the contact',
-            'label' => 'LBL_TITLE',
-          ),
+          0 => 'picture',
           1 => 
+          array (
+            'name' => 'av_contact_types_name',
+            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'account_name',
             'displayParams' => 
@@ -83,55 +93,6 @@ array (
               ),
             ),
           ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
-          ),
-          1 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'middle_name',
-            'comment' => '',
-            'label' => 'LBL_MIDDLE_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'av_Offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'last_name',
-          ),
-          1 => 
-          array (
-            'name' => 'av_Contact_Types_name',
-            'label' => 'LBL_AV_CONTACT_TYPES_NAME',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'suffix',
-            'comment' => '',
-            'label' => 'LBL_SUFFIX',
-          ),
           1 => 
           array (
             'name' => 'status',
@@ -139,16 +100,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        7 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'contact_priority',
-            'label' => 'LBL_CONTACT_PRIORITY',
-          ),
-        ),
-        8 => 
+        4 => 
         array (
           0 => 
           array (
@@ -157,22 +109,36 @@ array (
           ),
           1 => 
           array (
-            'name' => 'annual_household_income',
-            'comment' => '',
-            'label' => 'LBL_ANNUAL_HOUSEHOLD_INCOME',
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
           ),
         ),
-        9 => 
+        5 => 
         array (
           0 => 
+          array (
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
+          ),
+          1 => 
           array (
             'name' => 'document_path',
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
           ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
+          ),
           1 => '',
         ),
-        10 => 
+        7 => 
         array (
           0 => 
           array (
@@ -181,7 +147,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        11 => 
+        8 => 
         array (
           0 => 
           array (

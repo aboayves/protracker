@@ -1,7 +1,7 @@
 <?php
-// created: 2012-11-26 20:43:42
+// created: 2013-03-29 17:49:32
 $mod_strings = array (
-  'LBL_ACCOUNT_NAME' => 'Company Name',
+  'LBL_ACCOUNT_NAME' => 'Short Name',
   'LBL_ANNUAL_REVENUE' => 'Annual Revenue',
   'LBL_ASSIGNED_USER' => 'Assigned to',
   'LBL_BILLING_ADDRESS' => 'Billing Address',
@@ -22,9 +22,19 @@ $mod_strings = array (
   'LBL_TYPE' => 'Type',
   'LBL_WEBSITE' => 'Website',
   'LBL_EDITVIEW_PANEL1' => 'New Panel 1',
-  'LBL_DESCRIPTION_INFORMATION' => 'Billing Information',
-  'LBL_EDITVIEW_PANEL2' => 'Primary Address',
+  'LBL_DESCRIPTION_INFORMATION' => 'Billing Address',
+  'LBL_EDITVIEW_PANEL2' => 'Physical Address',
   'LBL_EDITVIEW_PANEL3' => 'Office Communications',
   'LBL_ADDRESS_INFORMATION' => 'Mailing Address',
   'LBL_EMAIL_ADDRESSES' => 'Shipping Address',
+  'LBL_NAME' => 'Short Name',
+  'LBL_OFFICE_NAME' => 'Office Name',
+  'LBL_OFFICE_ADDRESS_CITY' => 'City',
+  'LBL_OFFICE_ADDRESS_STATE' => 'State',
+  'LBL_PHONE_FAX' => 'Fax',
+  'LBL_ACCOUNT' => 'Clients',
+  'LBL_AV_GROUPS' => 'Groups',
+  'LBL_AV_OFFICES_AV_GROUPS_FROM_AV_GROUPS_TITLE' => 'Groups',
+  'LBL_AV_OFFICE_GIFTS' => 'Office Gifts',
+  'LBL_CONTACT' => 'Contact',
 );

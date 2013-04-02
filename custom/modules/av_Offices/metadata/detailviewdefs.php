@@ -46,22 +46,29 @@ array (
             'comment' => '',
             'label' => 'LBL_OFFICE_NAME',
           ),
-          1 => 'ticker_symbol',
+          1 => 'name',
         ),
         1 => 
         array (
-          0 => 'name',
-          1 => 'industry',
+          0 => 'phone_office',
+          1 => 
+          array (
+            'name' => 'phone_alternate',
+            'label' => 'LBL_OTHER_PHONE',
+          ),
         ),
         2 => 
         array (
-          0 => 'av_offices_type',
-          1 => 'employees',
+          0 => 'email1',
+          1 => 'phone_fax',
         ),
         3 => 
         array (
-          0 => 'ownership',
-          1 => 'rating',
+          0 => 
+          array (
+            'name' => 'website',
+            'type' => 'link',
+          ),
         ),
         4 => 
         array (
@@ -80,36 +87,6 @@ array (
             'name' => 'date_modified',
             'label' => 'LBL_DATE_MODIFIED',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-          ),
-        ),
-      ),
-      'lbl_editview_panel3' => 
-      array (
-        0 => 
-        array (
-          0 => 'phone_office',
-          1 => 
-          array (
-            'name' => 'phone_alternate',
-            'label' => 'LBL_OTHER_PHONE',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'email',
-            'comment' => '',
-            'label' => 'LBL_EMAIL',
-          ),
-          1 => 'phone_fax',
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'website',
-            'type' => 'link',
           ),
         ),
       ),

@@ -1,30 +1,14 @@
 <?php
 $dashletData['MeetingsDashlet']['searchFields'] = array (
-  'name' => 
-  array (
-    'default' => '',
-  ),
   'date_start' => 
   array (
     'default' => '',
   ),
-  'av_activity_types_meetings_1_name' => 
+  'av_activity_types_name' => 
   array (
     'default' => '',
   ),
-  'description' => 
-  array (
-    'default' => '',
-  ),
-  'location' => 
-  array (
-    'default' => '',
-  ),
-  'status' => 
-  array (
-    'default' => '',
-  ),
-  'date_entered' => 
+  'name' => 
   array (
     'default' => '',
   ),
@@ -43,18 +27,29 @@ $dashletData['MeetingsDashlet']['columns'] = array (
     ),
     'name' => 'set_complete',
   ),
-  'join_meeting' => 
+  'date_start' => 
   array (
-    'width' => '1%',
-    'label' => 'LBL_LIST_JOIN_MEETING',
+    'width' => '15%',
+    'label' => 'LBL_DATE',
     'default' => true,
-    'sortable' => false,
-    'noHeader' => true,
     'related_fields' => 
     array (
-      0 => 'host_url',
+      0 => 'time_start',
     ),
-    'name' => 'join_meeting',
+    'name' => 'date_start',
+  ),
+  'duration' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_DURATION',
+    'sortable' => false,
+    'related_fields' => 
+    array (
+      0 => 'duration_hours',
+      1 => 'duration_minutes',
+    ),
+    'name' => 'duration',
+    'default' => true,
   ),
   'parent_name' => 
   array (
@@ -81,41 +76,30 @@ $dashletData['MeetingsDashlet']['columns'] = array (
     'default' => true,
     'name' => 'name',
   ),
-  'date_start' => 
+  'join_meeting' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_DATE',
-    'default' => true,
+    'width' => '1%',
+    'label' => 'LBL_LIST_JOIN_MEETING',
+    'default' => false,
+    'sortable' => false,
+    'noHeader' => true,
     'related_fields' => 
     array (
-      0 => 'time_start',
+      0 => 'host_url',
     ),
-    'name' => 'date_start',
+    'name' => 'join_meeting',
   ),
   'set_accept_links' => 
   array (
     'width' => '10%',
     'label' => 'LBL_ACCEPT_THIS',
     'sortable' => false,
-    'default' => true,
+    'default' => false,
     'related_fields' => 
     array (
       0 => 'status',
     ),
     'name' => 'set_accept_links',
-  ),
-  'duration' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_DURATION',
-    'sortable' => false,
-    'related_fields' => 
-    array (
-      0 => 'duration_hours',
-      1 => 'duration_minutes',
-    ),
-    'name' => 'duration',
-    'default' => false,
   ),
   'status' => 
   array (

@@ -107,6 +107,7 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'av_Cashflow',
       1 => 'av_Goals',
+	  2 => 'av_Fact_Finder',
     ),
   ),
   'LBL_TABGROUP_ESTATE_PLANNING' => 

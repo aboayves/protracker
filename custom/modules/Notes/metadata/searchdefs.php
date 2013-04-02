@@ -30,6 +30,22 @@ array (
     ),
     'advanced_search' => 
     array (
+      'date_entered' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_ENTERED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_entered',
+      ),
+      'created_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_user_id',
+      ),
       'name' => 
       array (
         'name' => 'name',
@@ -44,21 +60,14 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'created_user_id' => 
+      'av_activity_types_name' => 
       array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_CREATED',
+        'type' => 'relate_cstm',
+        'link' => 'av_activity_types',
+        'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
         'width' => '10%',
         'default' => true,
-        'name' => 'created_user_id',
-      ),
-      'modified_user_id' => 
-      array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_MODIFIED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'modified_user_id',
+        'name' => 'av_activity_types_name',
       ),
       'assigned_user_name' => 
       array (
@@ -70,32 +79,6 @@ array (
         'default' => true,
         'name' => 'assigned_user_name',
       ),
-      'date_entered' => 
-      array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_ENTERED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'date_entered',
-      ),
-      'date_modified' => 
-      array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_MODIFIED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'date_modified',
-      ),
-      'team_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_TEAMS',
-        'id' => 'TEAM_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'team_name',
-      ),
       'current_user_only' => 
       array (
         'label' => 'LBL_CURRENT_USER_FILTER',
@@ -103,14 +86,6 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'current_user_only',
-      ),
-      'favorites_only' => 
-      array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
-        'width' => '10%',
-        'default' => true,
       ),
     ),
   ),
