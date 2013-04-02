@@ -13,13 +13,6 @@ array (
       0 => 'status',
     ),
   ),
-  'SET_ACCEPT_LINKS' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_ACCEPT_LINK',
-    'width' => '3%',
-    'default' => true,
-  ),
   'DATE_START' => 
   array (
     'width' => '12%',
@@ -76,6 +69,13 @@ array (
     'label' => 'LBL_LOCATION',
     'width' => '10%',
     'default' => true,
+  ),
+  'SET_ACCEPT_LINKS' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_ACCEPT_LINK',
+    'width' => '3%',
+    'default' => false,
   ),
   'TEAM_NAME' => 
   array (
