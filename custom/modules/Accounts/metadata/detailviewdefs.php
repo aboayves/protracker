@@ -54,6 +54,10 @@ array (
         array (
           'file' => 'include/javascript/tiny_mce/tiny_mce.js',
         ),
+		2 => 
+        array (
+          'file' => 'custom/modules/Accounts/copy_primary_contact_address.js',
+        ),
       ),
       'syncDetailEditViews' => true,
     ),

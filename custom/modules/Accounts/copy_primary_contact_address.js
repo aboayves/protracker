@@ -28,7 +28,7 @@ function set_location_querystring(popup_reply_data)
 		return;
 	}
 	
-	var conf = confirm("Do you want to replace the Address and Communication fields from the new primary contact's  Address and Communication ?");
+	var conf = confirm("Do you want to reset the client mailing address with the mailing address from the new primary contact?");
 	if(conf)
 	{
 	    get_account_email(contactId);
@@ -62,7 +62,7 @@ function populateEmail()
 		return;
 	}
 	
-	var conf = confirm("Do you want to replace the Address and Communication fields from the new primary contact's  Address and Communication ?");
+	var conf = confirm("Do you want to reset the client mailing address with the mailing address from the new primary contact?");
 	if(conf)
 	{
 	    get_account_email(contactId);
@@ -110,4 +110,30 @@ function get_account_email(contactId)
 		alert( "Request failed: " + textStatus );
    	    });
 	
+}
+
+function set_return_and_save_primary_contact(collection, field_id){
+	if(typeof(collection) !='undefined' && typeof(collection.passthru_data) !='undefined' && typeof(collection.passthru_data.populate_pk) !='undefined' && collection.passthru_data.populate_pk=='yes')
+	{
+		var conf = confirm("Do you want to reset the client mailing address with the mailing address from the new primary contact?");
+		if(conf)
+		{
+			var contact_id;
+			if(typeof(collection) !='undefined' && typeof(collection.name_to_value_array) !='undefined' && typeof(collection.name_to_value_array['subpanel_id']) !='undefined'){
+				contact_id = collection.name_to_value_array['subpanel_id'];
+			}
+			else{
+				contact_id = collection.selection_list.ID_1;
+			}
+			$.ajax({
+				type: 'POST',
+				url:'index.php?module=Contacts&action=copy_primary_contact_address',
+				data: "record="+contact_id+"&account_id="+document.DetailView.record.value+"&select_from_subpanel=true",
+				complete: function(resp)
+				{
+				}
+			});
+		}
+	}
+	set_return_and_save_background(collection, field_id);
 }

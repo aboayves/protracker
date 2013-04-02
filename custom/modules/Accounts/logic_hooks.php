@@ -5,4 +5,6 @@ $hook_array['before_save'] = Array();
 $hook_array['before_save'][] = Array(1, ' sync communicaton tab', 'custom/modules/Accounts/AccountsHook.php', 'AccountsHook', 'sync_communicaton_tab');
 $hook_array['after_save'] = Array();
 $hook_array['after_save'][] = Array(1, ' sync email address', 'custom/modules/Accounts/AccountsHook.php', 'AccountsHook', 'sync_email_address');
+$hook_array['after_relationship_add'] = Array();
+$hook_array['after_relationship_add'][] = Array(1, 'set first contact to primary', 'custom/modules/Accounts/AccountsHook.php', 'AccountsHook', 'setFirstContactToPrimary');
 ?>
