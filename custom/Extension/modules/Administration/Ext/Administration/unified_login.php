@@ -84,7 +84,18 @@ $admin_role_options = array(
 				'Manage Contact Types',
 				'./index.php?module=av_Contact_Types&action=index'
 			),
-			
+			"av_Tax_Rates"=>array(
+				'av_Tax_Rates',
+				translate('av_Tax_Rates', 'LBL_MODULE_NAME'),
+				'Manage Tax Rates',
+				'./index.php?module=av_Tax_Rates&action=index'
+			),
+			"av_Tax_Forms"=>array(
+				'av_Tax_Forms',
+				translate('av_Tax_Forms', 'LBL_MODULE_NAME'),
+				'Manage Tax Forms',
+				'./index.php?module=av_Tax_Forms&action=index'
+			),
 			"Import"=>array(
 				'Import',
 				translate('Import', 'LBL_MODULE_NAME'),
@@ -135,6 +146,18 @@ $admin_role_options = array(
 				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
 				'Manage Contact Types',
 				'./index.php?module=av_Contact_Types&action=index'
+			),
+			"av_Tax_Rates"=>array(
+				'av_Tax_Rates',
+				translate('av_Tax_Rates', 'LBL_MODULE_NAME'),
+				'Manage Tax Rates',
+				'./index.php?module=av_Tax_Rates&action=index'
+			),
+			"av_Tax_Forms"=>array(
+				'av_Tax_Forms',
+				translate('av_Tax_Forms', 'LBL_MODULE_NAME'),
+				'Manage Tax Forms',
+				'./index.php?module=av_Tax_Forms&action=index'
 			),
 			"Import"=>array(
 				'Import',
@@ -215,6 +238,18 @@ $admin_role_options = array(
 				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
 				'Manage Contact Types',
 				'./index.php?module=av_Contact_Types&action=index'
+			),
+			"av_Tax_Rates"=>array(
+				'av_Tax_Rates',
+				translate('av_Tax_Rates', 'LBL_MODULE_NAME'),
+				'Manage Tax Rates',
+				'./index.php?module=av_Tax_Rates&action=index'
+			),
+			"av_Tax_Forms"=>array(
+				'av_Tax_Forms',
+				translate('av_Tax_Forms', 'LBL_MODULE_NAME'),
+				'Manage Tax Forms',
+				'./index.php?module=av_Tax_Forms&action=index'
 			),
 			"Import"=>array(
 				'Import',
