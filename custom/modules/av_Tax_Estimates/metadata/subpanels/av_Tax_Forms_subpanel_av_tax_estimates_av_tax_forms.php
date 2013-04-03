@@ -7,6 +7,11 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'vname' => 'LBL_TAX_YEAR',
     'width' => '10%',
+	'link' => true,
+	'disable_num_format' => true,
+	'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'av_Tax_Estimates',
+    'target_record_key' => 'id',
   ),
   'accounts_name' => 
   array (
