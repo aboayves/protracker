@@ -31,7 +31,9 @@
 							  [
 								{
 								  type: 'line',
-								  toolTipFormatSettings: { thousandsSeparator: ',' },
+								  toolTipFormatFunction: function(value){
+									return new_currency_formater(value);
+								  },
 								  valueAxis:
 								  {
 									unitInterval: interval,

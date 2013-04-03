@@ -1,8 +1,9 @@
 <?php 
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point'); 
 require_once('include/json_config.php'); 
-require_once('include/MVC/View/views/view.detail.php'); 
-class AccountsViewDetail extends ViewDetail 
+require_once('custom/include/MVC/View/views/view.detail.php'); 
+require_once('custom/modules/Accounts/lib/currencyHelper.php'); 
+class AccountsViewDetail extends CustomViewDetail 
 { 
     function AccountsViewDetail() 
 	{ 
@@ -11,6 +12,7 @@ class AccountsViewDetail extends ViewDetail
 	function display() 
 	{
 		global $tabStructure;
+		
 		$tabStructure['LBL_TABGROUP_ACTIVITIES']['modules'][8] = 'activities';
 		$sql = "SELECT *
 			FROM
@@ -119,14 +121,16 @@ class AccountsViewDetail extends ViewDetail
 						  {
 							  dataField: 'year',
 							  lineWidth: 40, 
-							  textRotationAngle: -90
+							  textRotationAngle: -90,
 						  },
 						  colorScheme: 'scheme05',
 						  seriesGroups:
 						  [
 							{
 							  type: 'line',
-							  toolTipFormatSettings: { thousandsSeparator: ',' },
+							  toolTipFormatFunction: function(value){
+								return new_currency_formater(value);
+							  },
 							  valueAxis:
 							  {
 								unitInterval: ".$interval.",
@@ -219,7 +223,12 @@ class AccountsViewDetail extends ViewDetail
 					'weekNumbers:false'.
 				'});'.
 			'</script>';
-}
+		//setting condition for copying mailing addresses from primary contact through subpanel.
+		echo "<script>var populate_pc=0;</script>";
+		if(!isset($this->bean->primary_contact_id) || empty($this->bean->primary_contact_id)){
+			echo "<script>populate_pc=1;</script>";
+		}
+	}
 	/***
 	* show images against primary and secondary
 	*/
@@ -257,4 +266,6 @@ class AccountsViewDetail extends ViewDetail
 		
 	}
 } 
+
 ?>
+

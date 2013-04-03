@@ -4,6 +4,7 @@ if(!defined('sugarEntry') ||!sugarEntry) die('Not A Valid Entry Point');
  
 require_once('include/Dashlets/DashletGenericChart.php');
 require_once('include/Sugar_Smarty.php');
+require_once('custom/modules/Accounts/lib/currencyHelper.php'); 
  
 class clientNetWorthHistoryDashlet extends DashletGenericChart{
     public $graph_for;
