@@ -53,6 +53,12 @@ $admin_role_options = array(
 				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
 			),
+			"av_Prices"=>array(
+				'av_Prices',
+				translate('av_Prices', 'LBL_MODULE_NAME'),
+				'Manage Prices',
+				'./index.php?module=av_Prices&action=index'
+			),
 			"av_Activity_Types"=>array(
 				'av_Activity_Types',
 				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
@@ -115,6 +121,12 @@ $admin_role_options = array(
 				translate('av_Account_Types', 'LBL_MODULE_NAME'),
 				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Prices"=>array(
+				'av_Prices',
+				translate('av_Prices', 'LBL_MODULE_NAME'),
+				'Manage Prices',
+				'./index.php?module=av_Prices&action=index'
 			),
 			"av_Activity_Types"=>array(
 				'av_Activity_Types',
@@ -208,6 +220,12 @@ $admin_role_options = array(
 				translate('av_Account_Types', 'LBL_MODULE_NAME'),
 				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
+			),
+			"av_Prices"=>array(
+				'av_Prices',
+				translate('av_Prices', 'LBL_MODULE_NAME'),
+				'Manage Prices',
+				'./index.php?module=av_Prices&action=index'
 			),
 			"av_Activity_Types"=>array(
 				'av_Activity_Types',
