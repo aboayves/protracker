@@ -24,6 +24,7 @@ class AccountsHook
 			$bean->fetched_row['billing_address_postalcode'] != $bean->billing_address_postalcode ||
 			$bean->fetched_row['billing_address_country'] != $bean->billing_address_country
 		   )
+		  )
 		{
 			$focus = new Contact();
 			$focus->retrieve($bean->primary_contact_id);
