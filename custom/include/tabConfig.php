@@ -167,7 +167,6 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'Contracts',
       1 => 'av_Payments',
-      2 => 'av_Accounts',
     ),
   ),
 );
