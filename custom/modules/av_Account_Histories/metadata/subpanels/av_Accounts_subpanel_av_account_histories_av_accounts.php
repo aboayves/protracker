@@ -1,12 +1,12 @@
 <?php
-// created: 2013-02-25 18:12:42
+// created: 2013-04-04 17:00:31
 $subpanel_layout['list_fields'] = array (
   'value_date' => 
   array (
     'type' => 'date',
     'default' => true,
     'vname' => 'LBL_VALUE_DATE',
-    'width' => '10%',
+    'width' => '5%',
   ),
   'value' => 
   array (
@@ -15,7 +15,7 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'vname' => 'LBL_VALUE',
     'currency_format' => true,
-    'width' => '10%',
+    'width' => '5%',
   ),
   'edit_button' => 
   array (

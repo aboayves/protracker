@@ -50,6 +50,11 @@ array (
         array (
           0 => 
           array (
+            'name' => 'av_account_types_name',
+            'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+          ),
+          1 => 
+          array (
             'name' => 'ownership_type',
             'comment' => '',
             'label' => 'LBL_OWNERSHIP_TYPE',
@@ -59,8 +64,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_account_types_name',
-            'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+            'name' => 'account_number',
+            'comment' => '',
+            'label' => 'LBL_ACCOUNT_NUMBER',
           ),
           1 => 
           array (
@@ -72,33 +78,12 @@ array (
         array (
           0 => 
           array (
-            'name' => 'account_number',
-            'comment' => '',
-            'label' => 'LBL_ACCOUNT_NUMBER',
+            'name' => 'custodian_id_name',
+            'label' => 'LBL_CUSTODIAN_ID_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'ownership',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP',
-          ),
+          1 => '',
         ),
         4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'asset_class',
-            'comment' => '',
-            'label' => 'LBL_ASSET_CLASS',
-          ),
-          1 => 
-          array (
-            'name' => 'custodian',
-            'comment' => '',
-            'label' => 'LBL_CUSTODIAN',
-          ),
-        ),
-        5 => 
         array (
           0 => 
           array (
@@ -113,12 +98,12 @@ array (
             'label' => 'LBL_VALUE_DATE',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 'description',
           1 => 'team_name',
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
