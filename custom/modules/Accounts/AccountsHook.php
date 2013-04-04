@@ -4,7 +4,8 @@ class AccountsHook
 {
 	function sync_communicaton_tab($bean, $event, $arguments) {
 		if (
-			$bean->fetched_row['phone_work'] != $bean->phone_work ||
+			isset($bean->primary_contact_id) && !empty($bean->primary_contact_id) &&
+			($bean->fetched_row['phone_work'] != $bean->phone_work ||
 			$bean->fetched_row['phone_home'] != $bean->phone_home ||
 			$bean->fetched_row['phone_mobile'] != $bean->phone_mobile ||
 			$bean->fetched_row['phone_fax'] != $bean->phone_fax ||
