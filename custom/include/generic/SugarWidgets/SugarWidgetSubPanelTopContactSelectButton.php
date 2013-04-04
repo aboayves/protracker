@@ -93,10 +93,6 @@ class SugarWidgetSubPanelTopContactSelectButton extends SugarWidgetSubPanelTopSe
 				'refresh_page'=>$refresh_page,
 			),
 		);
-		$account_bean = BeanFactory::getBean('Accounts', $widget_data['focus']->id);
-		if(!isset($account_bean->primary_contact_id) || empty($account_bean->primary_contact_id)){
-			$popup_request_data['passthru_data']['populate_pk'] = 'yes';
-		}
 		if (is_array($this->button_properties) && !empty($this->button_properties['add_to_passthru_data'])) {
 			$popup_request_data['passthru_data']= array_merge($popup_request_data['passthru_data'],$this->button_properties['add_to_passthru_data']);
 		}

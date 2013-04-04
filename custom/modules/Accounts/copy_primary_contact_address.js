@@ -113,12 +113,10 @@ function get_account_email(contactId)
 }
 
 function set_return_and_save_primary_contact(collection, field_id){
-	if(typeof(collection) !='undefined' && typeof(collection.passthru_data) !='undefined' && typeof(collection.passthru_data.populate_pk) !='undefined' && collection.passthru_data.populate_pk=='yes')
-	{
-		var conf = confirm("Do you want to reset the client mailing address with the mailing address from the new primary contact?");
-		if(conf)
-		{
+	if(typeof(populate_pc) !='undefined' && populate_pc=='1'){
+		if(confirm("Do you want to reset the client mailing address with the mailing address from the new primary contact?")){
 			var contact_id;
+			collection.passthru_data.refresh_page = '1';
 			if(typeof(collection) !='undefined' && typeof(collection.name_to_value_array) !='undefined' && typeof(collection.name_to_value_array['subpanel_id']) !='undefined'){
 				contact_id = collection.name_to_value_array['subpanel_id'];
 			}
