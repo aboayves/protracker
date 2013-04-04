@@ -29,8 +29,8 @@ if (!defined('sugarEntry') || !sugarEntry)
  * governing these rights and limitations under the License.  Portions created
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  * ****************************************************************************** */
-
-class TasksViewEdit extends ViewEdit {
+require_once('custom/include/MVC/View/views/view.edit.php');
+class TasksViewEdit extends CustomViewEdit {
 
     /**
      * @see SugarView::preDisplay()

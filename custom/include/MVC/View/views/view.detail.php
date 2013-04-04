@@ -1,6 +1,4 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -28,26 +26,36 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
-
-require_once('custom/include/MVC/View/views/view.detail.php');
-
-class ContactsViewDetail extends CustomViewDetail
+require_once('include/MVC/View/views/view.detail.php');
+class  CustomViewDetail extends ViewDetail
 {
- 	/**
- 	 * @see SugarView::display()
-	 *
- 	 * We are overridding the display method to manipulate the portal information.
- 	 * If portal is not enabled then don't show the portal fields.
- 	 */
- 	public function display()
- 	{
-        $admin = new Administration();
-        $admin->retrieveSettings();
-        if(isset($admin->settings['portal_on']) && $admin->settings['portal_on']) {
-           $this->ss->assign("PORTAL_ENABLED", true);
-        }
-		global $tabStructure;
-		$tabStructure['LBL_TABGROUP_ACTIVITIES']['modules'][8] = 'activities';
- 		parent::display();
- 	}
+ 
+    public function preDisplay()
+    {
+ 	    $metadataFile = $this->getMetaDataFile();
+ 	    $this->dv = new DetailView2();
+ 	    $this->dv->ss =&  $this->ss;
+ 	    $this->dv->setup($this->module, $this->bean, $metadataFile, 'custom/include/DetailView/DetailView.tpl'); 		
+    } 	
+ 	
+    /**
+     * @see SugarView::display()
+     */
+    public function display()
+    {	
+		global $current_user;
+		$acl_role_obj = new ACLRole();
+		$user_roles = $acl_role_obj->getUserRoles($current_user->id); 
+		foreach($user_roles as $user_role)
+		{
+			if(!($user_role == 'Enterprise Edition' || ($user_role != 'Professional Edition' && $user_role != 'Standard Edition' && $current_user->is_admin)))
+			{
+				$this->dv->defs['templateMeta']['form']['hideAudit'] = true;
+			}
+		}
+		if(isset($_REQUEST['print']) && $_REQUEST['print'] =='true'){
+			$this->dv->defs['templateMeta']['useTabs'] = false;
+		}
+        parent::display();
+    }
 }

@@ -1,7 +1,7 @@
 <?php 
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point'); 
-require_once('include/MVC/View/views/view.detail.php'); 
-class av_Net_WorthViewDetail extends ViewDetail 
+require_once('custom/include/MVC/View/views/view.detail.php'); 
+class av_Net_WorthViewDetail extends CustomViewDetail 
 { 
     function av_Net_WorthViewDetail() 
 	{ 

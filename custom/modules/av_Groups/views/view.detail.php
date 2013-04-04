@@ -1,7 +1,7 @@
 <?php
-require_once('include/DetailView/DetailView2.php');
+require_once('custom/include/DetailView/DetailView2.php');
 require_once('include/MassUpdate.php');
-class Customav_GroupsViewDetail extends ViewDetail
+class Customav_GroupsViewDetail extends CustomViewDetail
 {	 var $multi_select_popup=false;
 
     public function massupdate()

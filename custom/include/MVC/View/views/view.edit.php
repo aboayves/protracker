@@ -1,6 +1,4 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
 /*********************************************************************************
  * The contents of this file are subject to the SugarCRM Master Subscription
  * Agreement ("License") which can be viewed at
@@ -28,26 +26,36 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
  ********************************************************************************/
 
+/*
+ * Created on Apr 13, 2007
+ *
+ * To change the template for this generated file go to
+ * Window - Preferences - PHPeclipse - PHP - Code Templates
+ */
 
-require_once('custom/include/MVC/View/views/view.detail.php');
+require_once('include/MVC/View/views/view.edit.php');
+ class CustomViewEdit extends ViewEdit{
 
-class ContactsViewDetail extends CustomViewDetail
-{
- 	/**
- 	 * @see SugarView::display()
-	 *
- 	 * We are overridding the display method to manipulate the portal information.
- 	 * If portal is not enabled then don't show the portal fields.
- 	 */
- 	public function display()
- 	{
-        $admin = new Administration();
-        $admin->retrieveSettings();
-        if(isset($admin->settings['portal_on']) && $admin->settings['portal_on']) {
-           $this->ss->assign("PORTAL_ENABLED", true);
-        }
-		global $tabStructure;
-		$tabStructure['LBL_TABGROUP_ACTIVITIES']['modules'][8] = 'activities';
- 		parent::display();
+    public function preDisplay()
+    {
+        $metadataFile = $this->getMetaDataFile();
+        $this->ev = $this->getEditView();
+        $this->ev->ss =& $this->ss;
+        $this->ev->setup($this->module, $this->bean, $metadataFile, 'custom/include/EditView/EditView.tpl');
+    }
+
+ 	function display(){
+		global $current_user;
+		$acl_role_obj = new ACLRole();
+		$user_roles = $acl_role_obj->getUserRoles($current_user->id); 
+		foreach($user_roles as $user_role)
+		{
+			if(!($user_role == 'Enterprise Edition' || ($user_role != 'Professional Edition' && $user_role != 'Standard Edition' && $current_user->is_admin)))
+			{
+				$this->ev->defs['templateMeta']['form']['hideAudit'] = true;
+			}
+		}
+		parent::display();
  	}
 }
+

@@ -1,9 +1,9 @@
 <?php 
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point'); 
 require_once('include/json_config.php'); 
-require_once('include/MVC/View/views/view.detail.php'); 
+require_once('custom/include/MVC/View/views/view.detail.php'); 
 require_once('custom/modules/Accounts/lib/currencyHelper.php'); 
-class AccountsViewDetail extends ViewDetail 
+class AccountsViewDetail extends CustomViewDetail 
 { 
     function AccountsViewDetail() 
 	{ 
