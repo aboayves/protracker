@@ -123,13 +123,21 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'status',
             'label' => 'LBL_CAMPAIGN_STATUS',
           ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -138,7 +146,7 @@ array (
           ),
           1 => 'campaign_type',
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -152,7 +160,7 @@ array (
             'customLabel' => '{if $fields.campaign_type.value == "NewsLetter"}<div style=\'none\' id=\'freq_label\'>{$MOD.LBL_CAMPAIGN_FREQUENCY}</div>{/if}&nbsp;',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -166,7 +174,7 @@ array (
             'label' => 'LBL_CAMPAIGN_IMPRESSIONS',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -179,7 +187,7 @@ array (
             'label' => '{$MOD.LBL_CAMPAIGN_EXPECTED_COST} ({$CURRENCY})',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -192,7 +200,7 @@ array (
             'label' => '{$MOD.LBL_CAMPAIGN_EXPECTED_REVENUE} ({$CURRENCY})',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -206,7 +214,7 @@ array (
             'label' => 'LBL_TARGET',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -221,20 +229,12 @@ array (
             'label' => 'LBL_RESULTS',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
             'name' => 'content',
             'label' => 'LBL_CAMPAIGN_CONTENT',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
           ),
           1 => 'team_name',
         ),

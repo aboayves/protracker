@@ -77,12 +77,20 @@ function ConvertItems(id)  {ldelim}
           array (
             'name' => 'name',
           ),
-          1 => 
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'status',
           ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -102,7 +110,7 @@ function ConvertItems(id)  {ldelim}
             ),
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -119,22 +127,22 @@ function ConvertItems(id)  {ldelim}
             'customLabel' => '<div style=\'none\' id=\'freq_label\'>{$MOD.LBL_CAMPAIGN_FREQUENCY}</div>',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'currency_id',
           1 => 'impressions',
         ),
-        4 => 
+        5 => 
         array (
           0 => 'budget',
           1 => 'expected_cost',
         ),
-        5 => 
+        6 => 
         array (
           0 => 'actual_cost',
           1 => 'expected_revenue',
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -152,7 +160,7 @@ function ConvertItems(id)  {ldelim}
             'label' => 'LBL_TARGET',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -167,7 +175,7 @@ function ConvertItems(id)  {ldelim}
             'label' => 'LBL_RESULTS',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -177,14 +185,6 @@ function ConvertItems(id)  {ldelim}
               'rows' => 8,
               'cols' => 80,
             ),
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
           ),
           1 => 
           array (
