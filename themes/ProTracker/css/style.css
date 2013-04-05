@@ -7892,7 +7892,6 @@ tr.ygtvrow{
 
 .edit.view td[scope="col"] label,
 .detail tr td[scope="col"] label{
-	display:block;
 	width:150px;
 }
 
