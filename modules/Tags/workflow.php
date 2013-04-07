@@ -324,10 +324,12 @@ class Tags_before_save
 						//$GLOBALS['log']->debug("[CARRENET]Workflow tags creation call from subpanel");
 						
 						$relate_module=strtolower($_POST['relate_to']);
-						$relate_record=$_POST['relate_id'];
+						$relate_record=str_replace('tags_','',$_POST['relate_id']);
 						
 						
-						$temp_table="tags_".$relate_module;
+						//$temp_table="tags_".$relate_module;
+						$temp_table=$relate_module;
+						
 						$temp_id_link=create_guid();
 						$sql="INSERT INTO $temp_table (id, date_modified,deleted,tags_id,".$relate_module."_id) VALUES ('$temp_id_link','$now_sql','0','$temp_id_tags','$relate_record')";						
 						$result=$db->query($sql);
