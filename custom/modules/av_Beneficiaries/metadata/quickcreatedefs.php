@@ -30,26 +30,36 @@ array (
         array (
           0 => 
           array (
-            'name' => 'contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
+            'name' => 'av_accounts_name',
+            'label' => 'LBL_AV_ACCOUNTS_NAME',
           ),
-          1 => 'name',
+          1 => '',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'av_accounts_name',
-            'label' => 'LBL_AV_ACCOUNTS_NAME',
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
-          1 => 
+          1 => 'name',
+        ),
+        2 => 
+        array (
+          0 => 
           array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
+          1 => 
+          array (
+            'name' => 'date_verified',
+            'comment' => '',
+            'label' => 'LBL_DATE_VERIFIED',
+          ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -64,15 +74,9 @@ array (
             'label' => 'LBL_PER_STIRPES',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'date_verified',
-            'comment' => '',
-            'label' => 'LBL_DATE_VERIFIED',
-          ),
         ),
       ),
     ),

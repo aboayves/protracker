@@ -1,5 +1,5 @@
 <?php
-// created: 2013-03-02 04:37:13
+// created: 2013-04-07 02:56:37
 $subpanel_layout['list_fields'] = array (
   'transaction_date' => 
   array (
@@ -15,6 +15,13 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_TYPE',
     'width' => '10%',
   ),
+  'related_account' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'vname' => 'LBL_RELATED_ACCOUNT',
+    'width' => '10%',
+  ),
   'amount' => 
   array (
     'type' => 'currency',
@@ -24,11 +31,14 @@ $subpanel_layout['list_fields'] = array (
     'currency_format' => true,
     'width' => '10%',
   ),
-  'date_modified' => 
+  'net_amount' => 
   array (
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '45%',
+    'type' => 'currency',
+    'align' => 'right',
     'default' => true,
+    'vname' => 'LBL_NET_AMOUNT',
+    'currency_format' => true,
+    'width' => '10%',
   ),
   'edit_button' => 
   array (

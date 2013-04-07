@@ -53,6 +53,12 @@ $admin_role_options = array(
 				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
 			),
+			"av_Prices"=>array(
+				'av_Prices',
+				translate('av_Prices', 'LBL_MODULE_NAME'),
+				'Manage Prices',
+				'./index.php?module=av_Prices&action=index'
+			),
 			"av_Activity_Types"=>array(
 				'av_Activity_Types',
 				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
@@ -84,7 +90,18 @@ $admin_role_options = array(
 				'Manage Contact Types',
 				'./index.php?module=av_Contact_Types&action=index'
 			),
-			
+			"av_Tax_Rates"=>array(
+				'av_Tax_Rates',
+				translate('av_Tax_Rates', 'LBL_MODULE_NAME'),
+				'Manage Tax Rates',
+				'./index.php?module=av_Tax_Rates&action=index'
+			),
+			"av_Tax_Forms"=>array(
+				'av_Tax_Forms',
+				translate('av_Tax_Forms', 'LBL_MODULE_NAME'),
+				'Manage Tax Forms',
+				'./index.php?module=av_Tax_Forms&action=index'
+			),
 			"Import"=>array(
 				'Import',
 				translate('Import', 'LBL_MODULE_NAME'),
@@ -105,6 +122,12 @@ $admin_role_options = array(
 				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
 			),
+			"av_Prices"=>array(
+				'av_Prices',
+				translate('av_Prices', 'LBL_MODULE_NAME'),
+				'Manage Prices',
+				'./index.php?module=av_Prices&action=index'
+			),
 			"av_Activity_Types"=>array(
 				'av_Activity_Types',
 				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
@@ -135,6 +158,18 @@ $admin_role_options = array(
 				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
 				'Manage Contact Types',
 				'./index.php?module=av_Contact_Types&action=index'
+			),
+			"av_Tax_Rates"=>array(
+				'av_Tax_Rates',
+				translate('av_Tax_Rates', 'LBL_MODULE_NAME'),
+				'Manage Tax Rates',
+				'./index.php?module=av_Tax_Rates&action=index'
+			),
+			"av_Tax_Forms"=>array(
+				'av_Tax_Forms',
+				translate('av_Tax_Forms', 'LBL_MODULE_NAME'),
+				'Manage Tax Forms',
+				'./index.php?module=av_Tax_Forms&action=index'
 			),
 			"Import"=>array(
 				'Import',
@@ -186,6 +221,12 @@ $admin_role_options = array(
 				'Manage Account Types',
 				'./index.php?module=av_Account_Types&action=index'
 			),
+			"av_Prices"=>array(
+				'av_Prices',
+				translate('av_Prices', 'LBL_MODULE_NAME'),
+				'Manage Prices',
+				'./index.php?module=av_Prices&action=index'
+			),
 			"av_Activity_Types"=>array(
 				'av_Activity_Types',
 				translate('av_Activity_Types', 'LBL_MODULE_NAME'),
@@ -215,6 +256,18 @@ $admin_role_options = array(
 				translate('av_Contact_Types', 'LBL_MODULE_NAME'),
 				'Manage Contact Types',
 				'./index.php?module=av_Contact_Types&action=index'
+			),
+			"av_Tax_Rates"=>array(
+				'av_Tax_Rates',
+				translate('av_Tax_Rates', 'LBL_MODULE_NAME'),
+				'Manage Tax Rates',
+				'./index.php?module=av_Tax_Rates&action=index'
+			),
+			"av_Tax_Forms"=>array(
+				'av_Tax_Forms',
+				translate('av_Tax_Forms', 'LBL_MODULE_NAME'),
+				'Manage Tax Forms',
+				'./index.php?module=av_Tax_Forms&action=index'
 			),
 			"Import"=>array(
 				'Import',

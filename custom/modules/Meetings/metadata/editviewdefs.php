@@ -8,7 +8,7 @@ array (
       'maxColumns' => '2',
       'form' => 
       array (
-		'enctype'=> 'multipart/form-data',
+        'enctype' => 'multipart/form-data',
         'hidden' => 
         array (
           0 => '<input type="hidden" name="isSaveAndNew" value="false">',
@@ -206,21 +206,6 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
         ),
         8 => 
         array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-		8 => 
-        array (
           0 => 'filename',
         ),
       ),
@@ -244,6 +229,7 @@ function formSubmitCheck(){ldelim}if(check_form(\'EditView\')){ldelim}document.E
             'comment' => '',
             'label' => 'LBL_REPORT_SORT',
           ),
+          1 => '',
         ),
       ),
     ),

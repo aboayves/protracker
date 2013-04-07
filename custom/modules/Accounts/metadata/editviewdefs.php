@@ -384,9 +384,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'billed_custodian',
-            'comment' => '',
-            'label' => 'LBL_BILLED_CUSTODIAN',
+            'name' => 'billed_custodian_id_name',
+            'label' => 'LBL_BILLED_CUSTODIAN_ID_NAME',
           ),
         ),
         2 => 

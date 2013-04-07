@@ -1,5 +1,5 @@
 <?php
-// created: 2013-03-27 19:32:34
+// created: 2013-04-05 19:49:13
 $GLOBALS['tabStructure'] = array (
   'LBL_TABGROUP_ACTIVITIES' => 
   array (
@@ -80,6 +80,7 @@ $GLOBALS['tabStructure'] = array (
       3 => 'av_Service_Team',
       4 => 'av_Services',
       5 => 'av_Commissions',
+      6 => 'Tags',
     ),
   ),
   'LBL_TABGROUP_ACCOUNT_MANAGEMENT' => 
@@ -107,7 +108,6 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'av_Cashflow',
       1 => 'av_Goals',
-	  2 => 'av_Fact_Finder',
     ),
   ),
   'LBL_TABGROUP_ESTATE_PLANNING' => 
@@ -167,7 +167,6 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'Contracts',
       1 => 'av_Payments',
-      2 => 'av_Accounts',
     ),
   ),
 );

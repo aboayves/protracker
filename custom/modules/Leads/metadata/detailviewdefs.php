@@ -25,7 +25,7 @@ array (
         'headerTpl' => 'modules/Leads/tpls/DetailViewHeader.tpl',
       ),
       'maxColumns' => '2',
-      'useTabs' => true,
+      'useTabs' => false,
       'widths' => 
       array (
         0 => 
@@ -46,6 +46,7 @@ array (
           'file' => 'modules/Leads/Lead.js',
         ),
       ),
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -55,36 +56,75 @@ array (
         array (
           0 => 
           array (
-            'name' => 'full_name',
-            'label' => 'LBL_NAME',
-            'displayParams' => 
-            array (
-            ),
+            'name' => 'first_name',
+            'comment' => 'First name of the contact',
+            'label' => 'LBL_FIRST_NAME',
           ),
-          1 => 'phone_work',
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
         1 => 
         array (
-          0 => 'title',
-          1 => 'phone_mobile',
-        ),
-        2 => 
-        array (
-          0 => 'department',
-          1 => 'phone_fax',
-        ),
-        3 => 
-        array (
           0 => 
+          array (
+            'name' => 'last_name',
+            'comment' => 'Last name of the contact',
+            'label' => 'LBL_LAST_NAME',
+          ),
+          1 => 
           array (
             'name' => 'account_name',
             'displayParams' => 
             array (
             ),
           ),
+        ),
+        2 => 
+        array (
+          0 => 'description',
+          1 => 'team_name',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'label' => 'LBL_DATE_MODIFIED',
+            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 'phone_mobile',
+          1 => 'phone_work',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_home',
+            'comment' => 'Home phone number of the contact',
+            'label' => 'LBL_HOME_PHONE',
+          ),
+          1 => 'phone_fax',
+        ),
+        2 => 
+        array (
+          0 => 'email1',
           1 => 'website',
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -107,13 +147,31 @@ array (
             ),
           ),
         ),
-        5 => 
+      ),
+      'lbl_editview_panel2' => 
+      array (
+        0 => 
         array (
-          0 => 'email1',
+          0 => 
+          array (
+            'name' => 'av_companies_name',
+            'label' => 'LBL_AV_COMPANIES_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'report_to_name',
+            'label' => 'LBL_REPORTS_TO',
+          ),
         ),
-        6 => 
+        1 => 
         array (
-          0 => 'description',
+          0 => 
+          array (
+            'name' => 'profession',
+            'comment' => '',
+            'label' => 'LBL_PROFESSION',
+          ),
+          1 => 'department',
         ),
       ),
       'LBL_PANEL_ADVANCED' => 
@@ -130,10 +188,24 @@ array (
         ),
         2 => 
         array (
+          0 => 
+          array (
+            'name' => 'opportunity_name',
+            'comment' => 'Opportunity name associated with lead',
+            'label' => 'LBL_OPPORTUNITY_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'accept_status_name',
+            'label' => 'LBL_LIST_ACCEPT_STATUS',
+          ),
+        ),
+        3 => 
+        array (
           0 => 'opportunity_amount',
           1 => 'refered_by',
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -141,32 +213,6 @@ array (
             'label' => 'LBL_CAMPAIGN',
           ),
           1 => 'do_not_call',
-        ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'label' => 'LBL_DATE_MODIFIED',
-            'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 'team_name',
-          1 => 
-          array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
-          ),
         ),
       ),
     ),

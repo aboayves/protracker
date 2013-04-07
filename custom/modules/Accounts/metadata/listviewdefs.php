@@ -8,11 +8,11 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'AV_CLIENT_TYPES_NAME' =>
-  array(
-	'width' => '10%',
-	'label' => 'LBL_AV_CLIENT_TYPES_NAME',
-	'default' => true,
+  'AV_CLIENT_TYPES_NAME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_AV_CLIENT_TYPES_NAME',
+    'default' => true,
   ),
   'STATUS' => 
   array (
@@ -38,14 +38,6 @@ array (
     'id' => 'ASSIGNED_USER_ID',
     'default' => true,
   ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
-    'default' => true,
-  ),
   'DATE_MODIFIED' => 
   array (
     'width' => '5%',
@@ -68,6 +60,14 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_PHONE_FAX',
+    'default' => false,
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => false,
   ),
   'PHONE_OFFICE' => 

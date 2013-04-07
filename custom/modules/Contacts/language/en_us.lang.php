@@ -1,5 +1,5 @@
 <?php
-// created: 2013-03-18 13:50:18
+// created: 2013-04-05 20:20:59
 $mod_strings = array (
   'LBL_OTHER_ADDRESS_STREET' => 'Other Address Street',
   'LBL_OTHER_ADDRESS_CITY' => 'Other Address City',
@@ -88,4 +88,5 @@ $mod_strings = array (
   'LBL_SECRELATED' => 'Sec Related',
   'LBL_AV_OFFICES_NAME' => 'Office',
   'LBL_CONTACT_PRIORITY' => 'Priority',
+  'LBL_TAGS_CONTACTS_FROM_TAGS_TITLE' => 'Tags',
 );

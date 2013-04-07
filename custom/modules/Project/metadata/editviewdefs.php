@@ -31,7 +31,7 @@ array (
           ),
         ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
@@ -41,32 +41,32 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 'status',
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          0 => 'priority',
-          1 => 'estimated_start_date',
-        ),
-        2 => 
-        array (
-          0 => 'description',
-          1 => 'estimated_end_date',
-        ),
-        3 => 
-        array (
           0 => 
+          array (
+            'name' => 'project_number',
+            'comment' => '',
+            'label' => 'LBL_PROJECT_NUMBER',
+          ),
+          1 => 
           array (
             'name' => 'project_manager_c',
             'studio' => 'visible',
             'label' => 'LBL_PROJECT_MANAGER',
           ),
-          1 => 
-          array (
-            'name' => 'billing_type_c',
-            'studio' => 'visible',
-            'label' => 'LBL_BILLING_TYPE',
-          ),
+        ),
+        2 => 
+        array (
+          0 => 'priority',
+          1 => 'status',
+        ),
+        3 => 
+        array (
+          0 => 'estimated_start_date',
+          1 => 'estimated_end_date',
         ),
         4 => 
         array (
@@ -75,6 +75,12 @@ array (
             'name' => 'service_c',
             'studio' => 'visible',
             'label' => 'LBL_SERVICE',
+          ),
+          1 => 
+          array (
+            'name' => 'billing_type_c',
+            'studio' => 'visible',
+            'label' => 'LBL_BILLING_TYPE',
           ),
         ),
         5 => 
@@ -89,6 +95,26 @@ array (
             'name' => 'is_template',
             'comment' => 'Should be checked if the project is a template',
             'label' => 'LBL_IS_TEMPLATE',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 'description',
+          1 => 'team_name',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
           ),
         ),
       ),

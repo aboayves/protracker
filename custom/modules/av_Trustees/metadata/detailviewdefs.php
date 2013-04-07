@@ -39,13 +39,23 @@ array (
       array (
         0 => 
         array (
+          0 => 
+          array (
+            'name' => 'av_accounts_name',
+            'label' => 'LBL_AV_ACCOUNTS_NAME',
+          ),
           1 => 'assigned_user_name',
         ),
-        2 => 
+        1 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+          1 => 'name',
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -60,7 +70,7 @@ array (
             'label' => 'LBL_DATE_VERIFIED',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -75,7 +85,7 @@ array (
             'label' => 'LBL_CC_MAIL',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -90,11 +100,12 @@ array (
             'label' => 'LBL_OK_TO_SPEAK_TO',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 'description',
+          1 => 'team_name',
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
