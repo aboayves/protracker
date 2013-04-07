@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-04 15:23:00
+// created: 2013-04-07 18:05:08
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -81,7 +81,7 @@ $mod_strings = array (
   'LBL_AV_GIFT_TAX_CREDITS' => 'Gift Tax Credits',
   'LBL_AV_FINAL_ARRANGEMENTS' => 'Final Arrangements',
   'LBL_NAME' => 'Client Name',
-  'LBL_AV_RELATIVES' => 'Family',
+  'LBL_AV_RELATIVES' => 'Relatives',
   'LBL_AV_FACT_FINDER' => 'Questionnaires',
   'LBL_AV_LIFE_INSURANCE' => 'Life Insurance',
   'LBL_AV_SERVICES' => 'Services',
@@ -100,4 +100,5 @@ $mod_strings = array (
   'LBL_CURRENT_NET_WORTH' => 'Net Worth',
   'LBL_BILLED_CUSTODIAN_ID_NAME' => 'Billed Custodian',
   'LBL_MAILING_ADDRESS_STREET' => 'Mailing Address',
+  'LBL_TAGS_ACCOUNTS_FROM_TAGS_TITLE' => 'Tags',
 );
