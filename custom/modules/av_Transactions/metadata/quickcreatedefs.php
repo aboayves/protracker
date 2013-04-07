@@ -2,7 +2,7 @@
 $module_name = 'av_Transactions';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
@@ -21,7 +21,6 @@ array (
         ),
       ),
       'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -83,36 +82,6 @@ array (
         ),
         4 => 
         array (
-          0 => 'description',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
-        ),
-      ),
-      'lbl_editview_panel2' => 
-      array (
-        0 => 
-        array (
           0 => 
           array (
             'name' => 'amount',
@@ -126,7 +95,7 @@ array (
             'label' => 'LBL_DISTRIBUTION_TYPE',
           ),
         ),
-        1 => 
+        5 => 
         array (
           0 => 
           array (
@@ -134,14 +103,9 @@ array (
             'comment' => '',
             'label' => 'LBL_FEDERAL_WITHHOLDING_AMOUNT',
           ),
-          1 => 
-          array (
-            'name' => 'federal_withholding_percent',
-            'comment' => '',
-            'label' => 'LBL_FEDERAL_WITHHOLDING_PERCENT',
-          ),
+          1 => '',
         ),
-        2 => 
+        6 => 
         array (
           0 => 
           array (
@@ -151,37 +115,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'state_withholding_percent',
-            'comment' => '',
-            'label' => 'LBL_STATE_WITHHOLDING_PERCENT',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'advisor_fee',
-            'comment' => '',
-            'label' => 'LBL_ADVISOR_FEE',
-          ),
-          1 => 
-          array (
             'name' => 'state',
             'comment' => '',
             'label' => 'LBL_STATE',
           ),
         ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'custodian_fee',
-            'comment' => '',
-            'label' => 'LBL_CUSTODIAN_FEE',
-          ),
-          1 => '',
-        ),
-        5 => 
+        7 => 
         array (
           0 => 
           array (
@@ -189,12 +128,14 @@ array (
             'comment' => '',
             'label' => 'LBL_NET_AMOUNT',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'is_address_of_record',
+            'comment' => '',
+            'label' => 'LBL_IS_ADDRESS_OF_RECORD',
+          ),
         ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
+        8 => 
         array (
           0 => 
           array (
@@ -209,7 +150,7 @@ array (
             'label' => 'LBL_IS_CONTRIBUTION',
           ),
         ),
-        1 => 
+        9 => 
         array (
           0 => 
           array (
@@ -217,12 +158,7 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_RMD_WITHDRAWAL',
           ),
-          1 => 
-          array (
-            'name' => 'is_address_of_record',
-            'comment' => '',
-            'label' => 'LBL_IS_ADDRESS_OF_RECORD',
-          ),
+          1 => '',
         ),
       ),
     ),
