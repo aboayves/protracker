@@ -2,7 +2,7 @@
 $module_name = 'av_Trustees';
 $viewdefs [$module_name] = 
 array (
-  'EditView' => 
+  'QuickCreate' => 
   array (
     'templateMeta' => 
     array (
@@ -21,7 +21,6 @@ array (
         ),
       ),
       'useTabs' => false,
-      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -34,7 +33,7 @@ array (
             'name' => 'av_accounts_name',
             'label' => 'LBL_AV_ACCOUNTS_NAME',
           ),
-          1 => 'assigned_user_name',
+          1 => '',
         ),
         1 => 
         array (
@@ -64,58 +63,35 @@ array (
         array (
           0 => 
           array (
-            'name' => 'cc_statements',
+            'name' => 'ok_to_speak_to',
             'comment' => '',
-            'label' => 'LBL_CC_STATEMENTS',
+            'label' => 'LBL_OK_TO_SPEAK_TO',
           ),
           1 => 
           array (
-            'name' => 'cc_mail',
+            'name' => 'cc_reports',
             'comment' => '',
-            'label' => 'LBL_CC_MAIL',
+            'label' => 'LBL_CC_REPORTS',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'cc_reports',
+            'name' => 'cc_mail',
             'comment' => '',
-            'label' => 'LBL_CC_REPORTS',
+            'label' => 'LBL_CC_MAIL',
           ),
           1 => 
           array (
-            'name' => 'ok_to_speak_to',
+            'name' => 'cc_statements',
             'comment' => '',
-            'label' => 'LBL_OK_TO_SPEAK_TO',
+            'label' => 'LBL_CC_STATEMENTS',
           ),
         ),
         5 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
-          ),
         ),
       ),
     ),
