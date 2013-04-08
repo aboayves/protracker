@@ -5,7 +5,7 @@ $listViewDefs [$module_name] =
 array (
   'NAME' => 
   array (
-    'width' => '20%',
+    'width' => '40%',
     'label' => 'LBL_ACCOUNT_NAME',
     'link' => true,
     'default' => true,
@@ -24,11 +24,14 @@ array (
   ),
   'EMAIL1' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_EMAIL_ADDRESS',
-    'sortable' => false,
-    'link' => true,
-    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
+    'type' => 'varchar',
+    'studio' => 
+    array (
+      'editField' => true,
+      'searchview' => false,
+    ),
+    'label' => 'LBL_EMAIL',
+    'width' => '10%',
     'default' => true,
   ),
   'SHIPPING_ADDRESS_CITY' => 
@@ -43,17 +46,22 @@ array (
     'label' => 'LBL_SHIPPING_ADDRESS_STATE',
     'default' => true,
   ),
-  'SHORT_NAME' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_SHORT_NAME',
-    'width' => '15%',
-  ),
-  'PHONE_FAX' => 
+  'BILLING_ADDRESS_CITY' => 
   array (
     'width' => '10%',
-    'label' => 'LBL_PHONE_FAX',
+    'label' => 'LBL_CITY',
+    'default' => false,
+  ),
+  'TEAM_NAME' => 
+  array (
+    'width' => '2%',
+    'label' => 'LBL_TEAM',
+    'default' => false,
+  ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '2%',
+    'label' => 'LBL_ASSIGNED_USER',
     'default' => false,
   ),
   'ANNUAL_REVENUE' => 
@@ -62,16 +70,16 @@ array (
     'label' => 'LBL_ANNUAL_REVENUE',
     'default' => false,
   ),
+  'PHONE_FAX' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_PHONE_FAX',
+    'default' => false,
+  ),
   'BILLING_ADDRESS_STREET' => 
   array (
     'width' => '15%',
     'label' => 'LBL_BILLING_ADDRESS_STREET',
-    'default' => false,
-  ),
-  'BILLING_ADDRESS_CITY' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_CITY',
     'default' => false,
   ),
   'BILLING_ADDRESS_STATE' => 
@@ -86,53 +94,16 @@ array (
     'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
     'default' => false,
   ),
-  'DESCRIPTION' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
-    'default' => false,
-  ),
   'BILLING_ADDRESS_COUNTRY' => 
   array (
     'width' => '10%',
     'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
     'default' => false,
   ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '2%',
-    'label' => 'LBL_ASSIGNED_USER',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
-    'default' => false,
-  ),
   'SHIPPING_ADDRESS_STREET' => 
   array (
     'width' => '15%',
     'label' => 'LBL_SHIPPING_ADDRESS_STREET',
-    'default' => false,
-  ),
-  'EMAIL' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_EMAIL',
-    'width' => '10%',
-  ),
-  'MASTER_ACCOUNT' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_MASTER_ACCOUNT',
-    'width' => '10%',
-  ),
-  'RATING' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_RATING',
-    'width' => '10%',
     'default' => false,
   ),
   'SHIPPING_ADDRESS_POSTALCODE' => 
@@ -175,12 +146,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_TICKER_SYMBOL',
-    'default' => false,
-  ),
-  'TEAM_NAME' => 
-  array (
-    'width' => '2%',
-    'label' => 'LBL_TEAM',
     'default' => false,
   ),
 );
