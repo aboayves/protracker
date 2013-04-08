@@ -46,11 +46,6 @@ array (
       array (
         0 => 
         array (
-          0 => '',
-          1 => '',
-        ),
-        1 => 
-        array (
           0 => 
           array (
             'name' => 'first_name',
@@ -63,7 +58,7 @@ array (
             'label' => 'LBL_PICTURE_FILE',
           ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -72,7 +67,7 @@ array (
           ),
           1 => 'employee_status',
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -86,102 +81,14 @@ array (
             'label' => 'LBL_REPORTS_TO_NAME',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
-          array (
-            'name' => 'phone_other',
-            'label' => 'LBL_OTHER',
-          ),
-          1 => 
-          array (
-            'name' => 'relationship_listing',
-            'label' => 'LBL_RELATIONSHIP_LISTING',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'title',
-            'label' => 'LBL_TITLE',
-          ),
-          1 => 
           array (
             'name' => 'description',
             'label' => 'LBL_NOTES',
           ),
-        ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'default_team',
-            'studio' => 
-            array (
-              'listview' => false,
-              'searchview' => false,
-              'formula' => false,
-            ),
-            'label' => 'LBL_DEFAULT_TEAM',
-          ),
-          1 => 
-          array (
-            'name' => 'show_on_employees',
-            'studio' => 
-            array (
-              'formula' => false,
-            ),
-            'label' => 'LBL_SHOW_ON_EMPLOYEES',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'accept_status_name',
-            'studio' => 
-            array (
-              'listview' => false,
-              'searchview' => false,
-              'formula' => false,
-            ),
-            'label' => 'LBL_LIST_ACCEPT_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'is_group',
-            'studio' => 
-            array (
-              'listview' => false,
-              'searchview' => false,
-              'formula' => false,
-            ),
-            'label' => 'LBL_GROUP_USER',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'pwd_last_changed',
-            'studio' => 
-            array (
-              'formula' => false,
-            ),
-            'label' => 'LBL_PSW_MODIFIED',
-          ),
-          1 => 
-          array (
-            'name' => 'external_auth_only',
-            'studio' => 
-            array (
-              'listview' => false,
-              'searchview' => false,
-              'related' => false,
-            ),
-            'label' => 'LBL_EXT_AUTHENTICATE',
-          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel1' => 
@@ -229,19 +136,14 @@ array (
         array (
           0 => 
           array (
-            'name' => 'email1',
-            'label' => 'LBL_EMAIL',
-          ),
-          1 => '',
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
             'name' => 'address_street',
             'label' => 'LBL_PRIMARY_ADDRESS',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'email1',
+            'label' => 'LBL_EMAIL',
+          ),
         ),
       ),
       'lbl_editview_panel2' => 
@@ -261,9 +163,14 @@ array (
           ),
           1 => 
           array (
-            'name' => 'product_level',
-            'comment' => '',
-            'label' => 'LBL_PRODUCT_LEVEL',
+            'name' => 'portal_only',
+            'studio' => 
+            array (
+              'listview' => false,
+              'searchview' => false,
+              'formula' => false,
+            ),
+            'label' => 'LBL_PORTAL_ONLY_USER',
           ),
         ),
         1 => 
@@ -279,27 +186,7 @@ array (
             ),
             'label' => 'LBL_IS_ADMIN',
           ),
-          1 => 
-          array (
-            'name' => 'is_mobile_user',
-            'comment' => '',
-            'label' => 'LBL_IS_MOBILE_USER',
-          ),
-        ),
-        2 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'portal_only',
-            'studio' => 
-            array (
-              'listview' => false,
-              'searchview' => false,
-              'formula' => false,
-            ),
-            'label' => 'LBL_PORTAL_ONLY_USER',
-          ),
+          1 => '',
         ),
       ),
     ),
