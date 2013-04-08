@@ -18,13 +18,6 @@ array (
     'label' => 'LBL_TRANSACTION_TYPE',
     'width' => '10%',
   ),
-  'TRANSACTION_FREQUENCY' => 
-  array (
-    'type' => 'int',
-    'default' => true,
-    'label' => 'LBL_TRANSACTION_FREQUENCY',
-    'width' => '10%',
-  ),
   'NEXT_TRANSACTION_DATE' => 
   array (
     'type' => 'date',
@@ -48,19 +41,12 @@ array (
     'currency_format' => true,
     'width' => '10%',
   ),
-  'ASSIGNED_USER_NAME' => 
+  'TRANSACTION_FREQUENCY' => 
   array (
-    'width' => '9%',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
+    'type' => 'enum',
     'default' => false,
-  ),
-  'TEAM_NAME' => 
-  array (
-    'width' => '9%',
-    'label' => 'LBL_TEAM',
-    'default' => false,
+    'label' => 'LBL_TRANSACTION_FREQUENCY',
+    'width' => '10%',
   ),
 );
 ?>
