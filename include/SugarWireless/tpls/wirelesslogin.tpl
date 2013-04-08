@@ -45,6 +45,6 @@
 	{/foreach}
 </form>
 <p>
-<a href="index.php?module=Users&action=Login&mobile=0">{$LBL_NORMAL_LOGIN}</a>
+<a href="index.php?module=Users&action=Login&mobile=0"><img src="custom/themes/default/images/desktop.png">&nbsp;{$LBL_NORMAL_LOGIN}</a>
 </p>
 </div>

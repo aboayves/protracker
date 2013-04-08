@@ -78,6 +78,9 @@ function getTabCookie(cookieName)
 		}
 	  }
 }
+$(function(){
+	$(".login_more").parent().prepend('<div style=""><a href="index.php?module=Users&action=Login&mobile=1"><u><img src="custom/themes/default/images/mobile.png">Switch to Mobile View</u><a></div>');
+});
 </script>
 {/literal}
 
