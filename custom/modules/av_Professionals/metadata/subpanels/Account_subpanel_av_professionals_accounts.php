@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-27 14:29:49
+// created: 2013-04-08 00:18:12
 $subpanel_layout['list_fields'] = array (
   'contacts_name' => 
   array (
@@ -19,12 +19,6 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'vname' => 'LBL_TYPE',
     'width' => '15%',
-  ),
-  'date_modified' => 
-  array (
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
-    'default' => true,
   ),
   'edit_button' => 
   array (

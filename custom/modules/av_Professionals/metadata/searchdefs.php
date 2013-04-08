@@ -37,6 +37,16 @@ array (
     ),
     'advanced_search' => 
     array (
+      'accounts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'width' => '10%',
+        'default' => true,
+        'id' => 'ACCOUNT_ID',
+        'name' => 'accounts_name',
+      ),
       'contacts_name' => 
       array (
         'type' => 'relate',
@@ -47,6 +57,15 @@ array (
         'id' => 'PROFESSIONAL_ID',
         'name' => 'contacts_name',
       ),
+      'name' => 
+      array (
+        'type' => 'name',
+        'link' => true,
+        'label' => 'LBL_NAME',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'name',
+      ),
       'type' => 
       array (
         'type' => 'varchar',
@@ -55,15 +74,13 @@ array (
         'width' => '10%',
         'name' => 'type',
       ),
-      'accounts_name' => 
+      'ok_to_speak_to' => 
       array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_ACCOUNTS_NAME',
-        'width' => '10%',
+        'type' => 'bool',
         'default' => true,
-        'id' => 'ACCOUNT_ID',
-        'name' => 'accounts_name',
+        'label' => 'LBL_OK_TO_SPEAK_TO',
+        'width' => '10%',
+        'name' => 'ok_to_speak_to',
       ),
     ),
   ),
