@@ -24,9 +24,8 @@ array (
           array (
             'customCode' => '<input type="button"  title="View Net Worth Statement" value="View Net Worth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
           ),
-          6 => 
-          array (
-            'customCode' => '<input title="Send to LaserApp" type="button" name="laserapp_button" id="laserapp_button" onclick="window.location=\'index.php?entryPoint=LaserApp&module=Accounts&id={$fields.id.value}\';" value="Send to LaserApp">',
+		  6 => array(
+            'customCode' =>  '<input title="Send to LaserApp" type="button" name="laserapp_button" id="laserapp_button" onclick="window.location=\'index.php?entryPoint=LaserApp&module=Accounts&id={$fields.id.value}\';" value="Send to LaserApp">',
           ),
         ),
       ),
@@ -85,30 +84,82 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'client_salutation',
-            'comment' => '',
-            'label' => 'LBL_CLIENT_SALUTATION',
-          ),
+
           1 => 
           array (
             'name' => 'primary_contact_name',
             'label' => 'LBL_PRIMARY_CONTACT_NAME',
+          ),
+          2 => 
+          array (
+            'name' => 'secondary_contact_name',
+            'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'av_offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
+            'name' => 'primary_contact_image',
+            'label' => '',
+            'displayParams' => 
+            array (
+              'trimColon' => 1,
+            ),
+            'customCode' => '
+			{if $fields.primary_contact_image.value}
+			<input type="hidden" value="$fields.primary_contact_image.value" id="primary_contact_image" class="sugar_field">
+				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_primary_contact_image\').src)">
+				<img style="
+				border: 1px solid black; 
+				width: auto;
+				height: 132px;
+				float:left;
+				margin-right: 5px;
+				" src="index.php?entryPoint=download&amp;id={$fields.primary_contact_image.value}&amp;type=SugarFieldImage&amp;isTempFile=1" name="img_primary_contact_image" id="img_primary_contact_image">
+				</a>
+			{/if}
+			
+			<span>
+				{if $fields.primary_contact_salutation.value}<b>{$fields.primary_contact_salutation.value}</b>{/if}
+				{if $fields.primary_contact_birthdate.value}</br>DOB: {$fields.primary_contact_birthdate.value}{/if}
+				{if $fields.primary_contact_age.value}</br>Age: {$fields.primary_contact_age.value}{/if}
+				{if $fields.primary_contact_ssn.value}</br>SSN: {$fields.primary_contact_ssn.value}{/if}
+				{if $fields.primary_contact_employer.value}</br>Employer: {$fields.primary_contact_employer.value}{/if}
+
+			</span>
+			',
           ),
           1 => 
           array (
-            'name' => 'secondary_contact_name',
-            'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
+            'name' => 'secondary_contact_image',
+            'label' => ' ',
+            'customCode' => '
+			{if $fields.secondary_contact_image.value}
+			<input id="secondary_contact_image" class="sugar_field" type="hidden" value="$fields.secondary_contact_image.value">
+				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_secondary_contact_image\').src)">
+				<img 
+				id="img_secondary_contact_image" 
+				style=" 
+				border: 1px solid black;
+				width: auto;
+				height: 132px;
+				float:left;
+				margin-right: 5px;
+				" src="index.php?entryPoint=download&id={$fields.secondary_contact_image.value}&type=SugarFieldImage&isTempFile=1" name="img_secondary_contact_image">
+					</a>
+				{/if}
+
+				<span>
+				{if $fields.secondary_contact_salutation.value}<b>{$fields.secondary_contact_salutation.value}</b>{/if}
+				{if $fields.secondary_contact_birthdate.value}</br>DOB: {$fields.secondary_contact_birthdate.value}{/if}
+				{if $fields.secondary_contact_age.value}</br>Age: {$fields.secondary_contact_age.value}{/if}
+				{if $fields.secondary_contact_ssn.value}</br>SSN: {$fields.secondary_contact_ssn.value}{/if}
+				{if $fields.secondary_contact_employer.value}</br>Employer: {$fields.secondary_contact_employer.value}{/if}
+			</span>
+				',
           ),
+
         ),
         3 => 
         array (
@@ -150,7 +201,11 @@ array (
         ),
         6 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
+          ),
           1 => 
           array (
             'name' => 'client_number',
@@ -384,8 +439,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'billed_custodian_id_name',
-            'label' => 'LBL_BILLED_CUSTODIAN_ID_NAME',
+            'name' => 'billed_custodian',
+            'comment' => '',
+            'label' => 'LBL_BILLED_CUSTODIAN',
           ),
         ),
         2 => 
