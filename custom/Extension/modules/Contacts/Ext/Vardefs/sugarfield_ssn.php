@@ -18,6 +18,8 @@ $dictionary["Contact"]["fields"]["ssn"] = array (
 	'help' => '',
 	'group' => '',
 	'ext1' => '###-##-####',
+	'ext3' => '***',
+	'ext4' => '********',
 	'unified_search' => true,
 );
 ?>
