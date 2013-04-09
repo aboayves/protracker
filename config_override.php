@@ -38,7 +38,7 @@ $sugar_config['http_referer']['actions']['16'] = 'SupportPortal';
 $sugar_config['http_referer']['actions']['17'] = 'save_cstm';
 $sugar_config['logger']['level'] = 'error';
 $sugar_config['logger']['file']['suffix'] = '';
-$sugar_config['stack_trace_errors'] = true;
+$sugar_config['stack_trace_errors'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['slow_query_time_msec'] = '500';
 /***CONFIGURATOR***/
