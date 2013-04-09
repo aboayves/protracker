@@ -2,6 +2,15 @@
 $module_name = 'av_Beneficiaries';
 $listViewDefs [$module_name] = 
 array (
+  'AV_ACCOUNTS_AV_BENEFICIARIES_1_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNTS_AV_BENEFICIARIES_1_FROM_AV_ACCOUNTS_TITLE',
+    'id' => 'AV_ACCOUNTS_AV_BENEFICIARIES_1AV_ACCOUNTS_IDA',
+    'width' => '10%',
+    'default' => true,
+  ),
   'AV_ACCOUNTS_NAME' => 
   array (
     'type' => 'relate',
@@ -19,6 +28,13 @@ array (
     'id' => 'BENEFICIARY_ID',
     'width' => '10%',
     'default' => true,
+  ),
+  'NAME' => 
+  array (
+    'width' => '32%',
+    'label' => 'LBL_NAME',
+    'default' => true,
+    'link' => true,
   ),
   'TYPE' => 
   array (
@@ -41,13 +57,6 @@ array (
     'label' => 'LBL_DATE_VERIFIED',
     'width' => '10%',
   ),
-  'NAME' => 
-  array (
-    'width' => '32%',
-    'label' => 'LBL_NAME',
-    'default' => false,
-    'link' => true,
-  ),
   'PER_STIRPES' => 
   array (
     'type' => 'bool',
@@ -59,15 +68,6 @@ array (
   array (
     'width' => '9%',
     'label' => 'LBL_TEAM',
-    'default' => false,
-  ),
-  'AV_ACCOUNTS_AV_BENEFICIARIES_1_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_AV_ACCOUNTS_AV_BENEFICIARIES_1_FROM_AV_ACCOUNTS_TITLE',
-    'id' => 'AV_ACCOUNTS_AV_BENEFICIARIES_1AV_ACCOUNTS_IDA',
-    'width' => '10%',
     'default' => false,
   ),
   'DATE_ENTERED' => 

@@ -11,6 +11,31 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'av_client_types_name' => 
+      array (
+        'type' => 'relate_cstm',
+        'link' => 'av_client_types',
+        'default' => true,
+        'width' => '10%',
+        'label' => 'LBL_AV_CLIENT_TYPES_NAME',
+        'name' => 'av_client_types_name',
+      ),
+      'assigned_user_id' => 
+      array (
+        'name' => 'assigned_user_id',
+        'type' => 'enum',
+        'label' => 'LBL_ASSIGNED_TO',
+        'function' => 
+        array (
+          'name' => 'get_user_array',
+          'params' => 
+          array (
+            0 => false,
+          ),
+        ),
+        'default' => true,
+        'width' => '10%',
+      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -27,16 +52,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'team_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_TEAM',
-        'id' => 'TEAM_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'team_name',
-      ),
     ),
     'advanced_search' => 
     array (
@@ -46,9 +61,9 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'website' => 
+      'av_client_types_name' => 
       array (
-        'name' => 'website',
+        'name' => 'av_client_types_name',
         'default' => true,
         'width' => '10%',
       ),
@@ -76,51 +91,6 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'address_city' => 
-      array (
-        'name' => 'address_city',
-        'label' => 'LBL_CITY',
-        'type' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'address_state' => 
-      array (
-        'name' => 'address_state',
-        'label' => 'LBL_STATE',
-        'type' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'address_postalcode' => 
-      array (
-        'name' => 'address_postalcode',
-        'label' => 'LBL_POSTAL_CODE',
-        'type' => 'name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'billing_address_country' => 
-      array (
-        'name' => 'billing_address_country',
-        'label' => 'LBL_COUNTRY',
-        'type' => 'name',
-        'options' => 'countries_dom',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'av_client_types_name' => 
-      array (
-        'name' => 'av_client_types_name',
-        'default' => true,
-        'width' => '10%',
-      ),
-      'industry' => 
-      array (
-        'name' => 'industry',
-        'default' => true,
-        'width' => '10%',
-      ),
       'assigned_user_id' => 
       array (
         'name' => 'assigned_user_id',
@@ -137,12 +107,21 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'current_user_only' => 
+      array (
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+        'name' => 'current_user_only',
+      ),
       'favorites_only' => 
       array (
         'name' => 'favorites_only',
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
     ),
   ),

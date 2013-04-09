@@ -14,21 +14,32 @@ array (
     'label' => 'LBL_AV_CLIENT_TYPES_NAME',
     'default' => true,
   ),
-  'STATUS' => 
+  'PRIMARY_CONTACT_NAME' => 
   array (
-    'type' => 'enum',
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_PRIMARY_CONTACT_NAME',
+    'id' => 'PRIMARY_CONTACT_ID',
+    'width' => '10%',
     'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_STATUS',
-    'width' => '8%',
   ),
-  'PRIORITY' => 
+  'SECONDARY_CONTACT_NAME' => 
   array (
-    'type' => 'enum',
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
+    'id' => 'SECONDARY_CONTACT_ID',
+    'width' => '10%',
     'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_PRIORITY',
-    'width' => '8%',
+  ),
+  'EMAIL1' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_EMAIL_ADDRESS',
+    'sortable' => false,
+    'link' => true,
+    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
+    'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 
   array (
@@ -36,12 +47,6 @@ array (
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
-    'default' => true,
-  ),
-  'DATE_MODIFIED' => 
-  array (
-    'width' => '5%',
-    'label' => 'LBL_DATE_MODIFIED',
     'default' => true,
   ),
   'TEAM_NAME' => 
@@ -55,6 +60,28 @@ array (
     'width' => '10%',
     'label' => 'LBL_LIST_CITY',
     'default' => false,
+  ),
+  'STATUS' => 
+  array (
+    'type' => 'enum',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_STATUS',
+    'width' => '8%',
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_DATE_MODIFIED',
+    'default' => false,
+  ),
+  'PRIORITY' => 
+  array (
+    'type' => 'enum',
+    'default' => false,
+    'studio' => 'visible',
+    'label' => 'LBL_PRIORITY',
+    'width' => '8%',
   ),
   'PHONE_FAX' => 
   array (
@@ -80,15 +107,6 @@ array (
   array (
     'width' => '5%',
     'label' => 'LBL_DATE_ENTERED',
-    'default' => false,
-  ),
-  'EMAIL1' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_EMAIL_ADDRESS',
-    'sortable' => false,
-    'link' => true,
-    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
     'default' => false,
   ),
   'BILLING_ADDRESS_COUNTRY' => 
