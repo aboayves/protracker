@@ -1,42 +1,19 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-/*********************************************************************************
-
- * Description: TODO:  To be written.
- * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
- * All Rights Reserved.
- * Contributor(s): ______________________________________..
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('include/SugarObjects/templates/person/Person.php');
-
 
 // User is used to store customer information.
 class User extends Person {
@@ -521,17 +498,17 @@ class User extends Person {
 		}
 
 
+		// set some default preferences when creating a new user
+		$setNewUserPreferences = empty($this->id) || !empty($this->new_with_id);
 
 
-		//this code is meant to allow for the team widget to set the team_id as the 'Primary' team and
-		//then b/c Users uses the default_team field we can map it back when committing the user to the database.
-		if(!empty($this->team_id)){
-			$this->default_team = $this->team_id;
-		}else{
-			$this->team_id = $this->default_team;
-		}
-
-
+		// If the 'Primary' team changed then the team widget has set 'team_id' to a new value and we should
+		// assign the same value to default_team because User module uses it for setting the 'Primary' team
+		if (!empty($this->team_id))
+		{
+            $this->default_team = $this->team_id;
+        }
+        
 
 		parent::save($check_notify);
 
@@ -558,6 +535,12 @@ class User extends Person {
             }
 		}
 
+		// set some default preferences when creating a new user
+		if ( $setNewUserPreferences ) {
+	        if(!$this->getPreference('calendar_publish_key')) {
+		        $this->setPreference('calendar_publish_key', create_guid());
+	        }
+		}
 
         $this->savePreferencesToDB();
         return $this->id;
@@ -680,7 +663,7 @@ class User extends Person {
 
 		select id from users where id in ( SELECT  er.bean_id AS id FROM email_addr_bean_rel er,
 			email_addresses ea WHERE ea.id = er.email_address_id
-		    AND ea.deleted = 0 AND er.deleted = 0 AND er.bean_module = 'Users' AND email_address_caps IN ('{$email}') )
+		    AND ea.deleted = 0 AND er.deleted = 0 AND er.bean_module = 'Users' AND email_address_caps IN ('{$email1}') )
 EOQ;
 
 
@@ -857,9 +840,9 @@ EOQ;
 	/**
 	 * Verify that the current password is correct and write the new password to the DB.
 	 *
-	 * @param string $user name - Must be non null and at least 1 character.
 	 * @param string $user_password - Must be non null and at least 1 character.
 	 * @param string $new_password - Must be non null and at least 1 character.
+     * @param string $system_generated
 	 * @return boolean - If passwords pass verification and query succeeds, return true, else return false.
 	 */
 	function change_password($user_password, $new_password, $system_generated = '0')
@@ -948,6 +931,9 @@ EOQ;
 	}
 
 	function fill_in_additional_detail_fields() {
+        // jmorais@dri Bug #56269
+        parent::fill_in_additional_detail_fields();
+        // ~jmorais@dri
 		global $locale;
 
 		$query = "SELECT u1.first_name, u1.last_name from users  u1, users  u2 where u1.id = u2.reports_to_id AND u2.id = '$this->id' and u1.deleted=0";
@@ -960,30 +946,26 @@ EOQ;
 		} else {
 			$this->reports_to_name = '';
 		}
-		$query = "SELECT team_id, teams.name, teams.name_2 FROM team_memberships rel RIGHT JOIN teams ON (rel.team_id = teams.id) WHERE rel.user_id = '{$this->id}' AND rel.team_id = '{$this->default_team}'";
-		$result = $this->db->query($query, false, "Error retrieving team name: ");
 
-		//rrs bug: 31277 - this tempDefaultTeam works in conjunction with the 'if' stmt below/
-		//what was happening was that if the user was an admin user and they did not have team membership to their primary team
-		//then this query would not return anything and the default_team would be set to empty, which is fine, but
-		//we need to ensure that the team_id is not empty for team set widget purposes.
-		$tempDefaultTeam = $this->default_team;
+        
+        // Must set team_id for team widget purposes (default_team is primary team id)
+        if (empty($this->team_id))
+        {
+            $this->team_id = $this->default_team;
+        }
 
-		$row = $this->db->fetchByAssoc($result);
-		if (!empty ($row['team_id'])) {
-			$this->default_team = $row['team_id'];
-			$this->default_team_name = Team::getDisplayName($row['name'], $row['name_2'], $this->showLastNameFirst());
-		} else {
-			$this->default_team = '';
-			$this->default_team_name = '';
-			$this->team_set_id = '';
-		}
-
-		if(!empty($this->is_admin) && empty($this->default_team)){
-			$this->team_id = $tempDefaultTeam;
-		}else{
-			$this->team_id = $this->default_team;
-		}
+        //set the team info if the team id has already been set.
+        //running only if team class exists will prevent breakage during upgrade/flavor conversions
+        if (class_exists('Team') ) {
+            // Set default_team_name for Campaigns WebToLeadCreation
+            $this->default_team_name = Team::getTeamName($this->team_id);
+        } else {
+            //if no team id exists, set the team info to blank
+            $this->default_team = '';
+            $this->default_team_name = '';
+            $this->team_set_id = '';
+        }
+        
 
 		$this->_create_proper_name_field();
 	}
@@ -1071,11 +1053,10 @@ EOQ;
 
 	function get_list_view_data() {
 
-		global $current_user, $mod_strings;
-        // Bug #48555 Not User Name Format of User's locale.
-        $this->_create_proper_name_field();
+		global $mod_strings;
 
-		$user_fields = $this->get_list_view_array();
+		$user_fields = parent::get_list_view_data();
+
 		if ($this->is_admin)
 			$user_fields['IS_ADMIN_IMAGE'] = SugarThemeRegistry::current()->getImage('check_inline', '',null,null,'.gif',$mod_strings['LBL_CHECKMARK']);
 		elseif (!$this->is_admin) $user_fields['IS_ADMIN'] = '';
@@ -1111,7 +1092,6 @@ EOQ;
 				$user_fields['UPLINE'] = translate('LBL_TEAM_UPLINE_EXPLICIT','Users');
 			}
 		}
-		$user_fields['EMAIL1'] = $this->emailAddress->getPrimaryAddress($this);
 
 		return $user_fields;
 	}
@@ -1199,6 +1179,22 @@ EOQ;
         asort($result);
         return $result;
     }
+
+    /**
+     * getActiveUsers
+     *
+     * Returns all active users
+     * @return Array of active users in the system
+     */
+
+    public static function getActiveUsers()
+    {
+        $active_users = get_user_array(FALSE);
+        asort($active_users);
+        return $active_users;
+    }
+
+
 
 	function create_export_query($order_by, $where) {
 		include('modules/Users/field_arrays.php');
@@ -1706,6 +1702,10 @@ EOQ;
      * @return bool
      */
     public function isDeveloperForAnyModule() {
+        if(empty($this->id)) {
+            // empty user is no developer
+            return false;
+        }
         if ($this->isAdmin()) {
             return true;
         }
@@ -1733,6 +1733,10 @@ EOQ;
      * @return bool
      */
     public function isDeveloperForModule($module) {
+        if(empty($this->id)) {
+            // empty user is no developer
+            return false;
+        }
         if ($this->isAdmin()) {
             return true;
         }
@@ -1765,6 +1769,10 @@ EOQ;
      * @return bool
      */
     public function isAdminForModule($module) {
+        if(empty($this->id)) {
+            // empty user is no admin
+            return false;
+        }
         if ($this->isAdmin()) {
             return true;
         }
@@ -1793,53 +1801,6 @@ EOQ;
         	return true;
         }
 	}
-
-	function preprocess_fields_on_save(){
-		parent::preprocess_fields_on_save();
-        require_once('include/upload_file.php');
-		$upload_file = new UploadFile("picture");
-
-		//remove file
-		if (isset($_REQUEST['remove_imagefile_picture']) && $_REQUEST['remove_imagefile_picture'] == 1)
-		{
-			$upload_file->unlink_file($this->picture);
-			$this->picture="";
-		}
-
-		//uploadfile
-		if (isset($_FILES['picture']) && !empty($_FILES['picture']["name"]))
-		{
-			//confirm only image file type can be uploaded
-			$imgType = array('image/gif', 'image/png', 'image/bmp', 'image/jpeg', 'image/jpg', 'image/pjpeg');
-			if (in_array($_FILES['picture']["type"], $imgType))
-			{
-				if ($upload_file->confirm_upload())
-				{
-					$this->picture = create_guid().".png";
-					$upload_file->final_move( $this->picture);
-					$path=$upload_file->get_upload_path($this->picture);
-					if(!verify_image_file($path)) {
-					    $this->picture = '';
-					}
-				}
-			} else {
-				$this->picture = create_guid().".png";
-				$file = "include/images/default-profile.png";
-				$newfile = "upload://$this->picture";
-				if (!copy($file, $newfile)) {
-		   			global $app_strings;
-		        	$GLOBALS['log']->fatal(string_format($app_strings['ERR_FILE_NOT_FOUND'], array($file)));
-
-				}
-			}
-		}
-
-		//duplicate field handling (in the event the Duplicate button was pressed)
-		if(empty($this->picture) && !empty($_REQUEST['picture_duplicate'])) {
-           $this->picture = $_REQUEST['picture_duplicate'];
-		}
-	}
-
 
    function create_new_list_query($order_by, $where,$filter=array(),$params=array(), $show_deleted = 0,$join_type='', $return_array = false,$parentbean=null, $singleSelect = false)
    {	//call parent method, specifying for array to be returned

@@ -1,35 +1,26 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
 
-global $sugar_config,$db;
+global $sugar_config, $db, $app_strings;
+if (isset($sugar_config['default_language']) == false)
+{
+    $sugar_config['default_language'] = $GLOBALS['current_language'];
+}
+$app_strings = return_application_language($GLOBALS['current_language']);
 
 if( !isset( $install_script ) || !$install_script ){
     die($mod_strings['ERR_NO_DIRECT_SCRIPT']);
@@ -371,7 +362,10 @@ if( $memory_limit == "" ){          // memory_limit disabled at compile time, no
     $memory_limit_int = intval($num);
     $SUGARCRM_MIN_MEM = (int) constant('SUGARCRM_MIN_MEM');
     if( $memory_limit_int < constant('SUGARCRM_MIN_MEM') ){
-        $memory_msg = "<span class='stop'><b>$memory_limit{$mod_strings['ERR_CHECKSYS_MEM_LIMIT_1']}" . constant('SUGARCRM_MIN_MEM') . "{$mod_strings['ERR_CHECKSYS_MEM_LIMIT_2']}</b></span>";
+        // Bug59667: The string ERR_CHECKSYS_MEM_LIMIT_2 already has 'M' in it,
+        // so we divide the constant by 1024*1024.
+        $min_mem_in_megs = constant('SUGARCRM_MIN_MEM')/(1024*1024);
+        $memory_msg = "<span class='stop'><b>$memory_limit{$mod_strings['ERR_CHECKSYS_MEM_LIMIT_1']}" . $min_mem_in_megs . "{$mod_strings['ERR_CHECKSYS_MEM_LIMIT_2']}</b></span>";
         $memory_msg = str_replace('$memory_limit', $mem_display, $memory_msg);
     } else {
         $memory_msg = "{$mod_strings['LBL_CHECKSYS_OK']} ({$memory_limit})";
@@ -477,7 +471,22 @@ if( $memory_limit == "" ){          // memory_limit disabled at compile time, no
             <td  >'.$spriteSupportStatus.'</td>
           </tr>';
 
-
+        // Suhosin allow to use upload://
+        if (UploadStream::getSuhosinStatus() == true || (strpos(ini_get('suhosin.perdir'), 'e') !== false && strpos($_SERVER["SERVER_SOFTWARE"],'Microsoft-IIS') === false))
+        {
+            $suhosinStatus = "{$mod_strings['LBL_CHECKSYS_OK']}";
+        }
+        else
+        {
+            $suhosinStatus = "<span class='stop'><b>{$app_strings['ERR_SUHOSIN']}</b></span>";
+        }
+        $envString .= '
+        <tr>
+            <td></td>
+            <td><strong>PHP allows to use stream (' . UploadStream::STREAM_NAME . '://)</strong></td>
+            <td>' . $suhosinStatus . '</td>
+        </tr>
+        ';
 
 // PHP.ini
 $phpIniLocation = get_cfg_var("cfg_file_path");
@@ -615,5 +624,3 @@ function togglePass(){
 
 EOQ;
 echo $out;
-
-?>

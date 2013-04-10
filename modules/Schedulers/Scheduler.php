@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once 'modules/SchedulersJobs/SchedulersJob.php';
@@ -84,37 +70,43 @@ class Scheduler extends SugarBean {
     protected function getUser()
     {
         if(empty($this->user)) {
-            $this->initUser();
+            $this->user = Scheduler::initUser();
         }
         return $this->user;
     }
 
-    protected function initUser()
+    /**
+     * Function returns an Admin user for running Schedulers or false if no admin users are present in the system
+     * (which means the Scheduler Jobs which need admin rights will fail to execute)
+     */
+    public static function initUser()
     {
         $user = new User();
-        //check is default admin exists
-        $adminId = $this->db->getOne(
-            'SELECT id FROM users WHERE id='.$this->db->quoted('1').' AND is_admin=1 AND deleted=0 AND status='.$this->db->quoted('Active'),
+        $db = DBManagerFactory::getInstance();
+        
+        //Check is default admin exists
+        $adminId = $db->getOne(
+            'SELECT id FROM users WHERE id = ' . $db->quoted('1') . ' AND is_admin = 1 AND deleted = 0 AND status = ' . $db->quoted('Active'),
             true,
             'Error retrieving Admin account info'
         );
-        if (false === $adminId) {//retrive another admin
-            $adminId = $this->db->getOne(
-                'SELECT id FROM users WHERE is_admin=1 AND deleted=0 AND status='.$this->db->quoted('Active'),
+        
+        if ($adminId === false) {// Retrieve another admin if default admin doesn't exist
+            $adminId = $db->getOne(
+                'SELECT id FROM users WHERE is_admin = 1 AND deleted = 0 AND status = ' . $db->quoted('Active'),
                 true,
                 'Error retrieving Admin account info'
             );
-            if ($adminId) {
+            if ($adminId) {// Get admin user
                 $user->retrieve($adminId);
-            } else {
+            } else {// Return false and log error
                 $GLOBALS['log']->fatal('No Admin account found!');
                 return false;
             }
-
-        } else {
-            $user->retrieve('1'); // Scheduler jobs run as default Admin
+        } else {// Scheduler jobs run as default Admin
+            $user->retrieve('1'); 
         }
-        $this->user = $user;
+        return $user;
     }
 
 
@@ -798,7 +790,7 @@ class Scheduler extends SugarBean {
 	 * ones.
 	 */
 	function rebuildDefaultSchedulers() {
-		global $mod_strings;
+		$mod_strings = return_module_language($GLOBALS['current_language'], 'Schedulers');
 		// truncate scheduler-related tables
 		$this->db->query('DELETE FROM schedulers');
 
@@ -911,6 +903,17 @@ class Scheduler extends SugarBean {
         $sched12->catch_up           = '0';
         $sched12->save();
 
+        $sched13 = new Scheduler();
+        $sched13->name               = $mod_strings['LBL_OOTB_CLEANUP_QUEUE'];
+        $sched13->job                = 'function::cleanJobQueue';
+        $sched13->date_time_start    = create_date(2012,1,1) . ' ' . create_time(0,0,1);
+        $sched13->date_time_end      = create_date(2030,12,31) . ' ' . create_time(23,59,59);
+        $sched13->job_interval       = '0::5::*::*::*';
+        $sched13->status             = 'Active';
+        $sched13->created_by         = '1';
+        $sched13->modified_user_id   = '1';
+        $sched13->catch_up           = '0';
+        $sched13->save();
 	}
 
 	////	END SCHEDULER HELPER FUNCTIONS

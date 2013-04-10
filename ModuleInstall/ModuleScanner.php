@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 class ModuleScanner{
@@ -47,6 +33,13 @@ class ModuleScanner{
 			'post_execute'=>'post_execute',
 
 	);
+
+	/**
+	 * config settings
+	 * @var array
+	 */
+	private $config = array();
+	private $config_hash;
 
 	private $blackListExempt = array();
 	private $classBlackListExempt = array();
@@ -77,11 +70,8 @@ class ModuleScanner{
     'proc_close',
     'proc_get_status',
     'proc_nice',
-    'basename',
 	'passthru',
     'clearstatcache',
-    'delete',
-    'dirname',
     'disk_free_space',
     'disk_total_space',
     'diskfreespace',
@@ -126,6 +116,7 @@ class ModuleScanner{
     'set_file_buffer',
     'tmpfile',
     'umask',
+    'ini_set',
 	'eval',
 	'exec',
 	'system',
@@ -152,8 +143,10 @@ class ModuleScanner{
 	'linkinfo',
 	'lstat',
 	'mkdir',
+    'mkdir_recursive',
 	'parse_ini_file',
 	'rmdir',
+    'rmdir_recursive',
 	'stat',
 	'tempnam',
 	'touch',
@@ -166,6 +159,7 @@ class ModuleScanner{
 
 	//mutliple files per function call
 	'copy',
+    'copy_recursive',
 	'link',
 	'rename',
 	'symlink',
@@ -367,6 +361,7 @@ class ModuleScanner{
         'xml_set_start_namespace_decl_handler',
         'xml_set_unparsed_entity_decl_handler',
 );
+    private $methodsBlackList = array('setlevel');
 
 	public function printToWiki(){
 		echo "'''Default Extensions'''<br>";
@@ -383,20 +378,24 @@ class ModuleScanner{
 	}
 
 	public function __construct(){
-		if(!empty($GLOBALS['sugar_config']['moduleInstaller']['blackListExempt'])){
-			$this->blackListExempt = array_merge($this->blackListExempt, $GLOBALS['sugar_config']['moduleInstaller']['blackListExempt']);
+	    if(!empty($GLOBALS['sugar_config']['moduleInstaller'])) {
+	        $this->config = $GLOBALS['sugar_config']['moduleInstaller'];
+	    }
+
+		if(!empty($this->config['blackListExempt'])){
+			$this->blackListExempt = array_merge($this->blackListExempt, $this->config['blackListExempt']);
 		}
-		if(!empty($GLOBALS['sugar_config']['moduleInstaller']['blackList'])){
-			$this->blackList = array_merge($this->blackList, $GLOBALS['sugar_config']['moduleInstaller']['blackList']);
+		if(!empty($this->config['blackList'])){
+			$this->blackList = array_merge($this->blackList, $this->config['blackList']);
 		}
-        if(!empty($GLOBALS['sugar_config']['moduleInstaller']['classBlackListExempt'])){
-            $this->classBlackListExempt = array_merge($this->classBlackListExempt, $GLOBALS['sugar_config']['moduleInstaller']['classBlackListExempt']);
+        if(!empty($this->config['classBlackListExempt'])){
+            $this->classBlackListExempt = array_merge($this->classBlackListExempt, $this->config['classBlackListExempt']);
         }
-        if(!empty($GLOBALS['sugar_config']['moduleInstaller']['classBlackList'])){
-            $this->classBlackList = array_merge($this->classBlackList, $GLOBALS['sugar_config']['moduleInstaller']['classBlackList']);
+        if(!empty($this->config['classBlackList'])){
+            $this->classBlackList = array_merge($this->classBlackList, $this->config['classBlackList']);
         }
-	  if(!empty($GLOBALS['sugar_config']['moduleInstaller']['validExt'])){
-			$this->validExt = array_merge($this->validExt, $GLOBALS['sugar_config']['moduleInstaller']['validExt']);
+	  if(!empty($this->config['validExt'])){
+			$this->validExt = array_merge($this->validExt, $this->config['validExt']);
 		}
 
 	}
@@ -521,14 +520,21 @@ class ModuleScanner{
                             if(!in_array($lastToken[1], $this->classBlackList))break;
                             if(in_array($lastToken[1], $this->classBlackListExempt))break;
                         } else {
-                            if(!in_array($token[1], $this->blackList))break;
-                            if(in_array($token[1], $this->blackListExempt))break;
-
+                            //if nothing else fit, lets check the last token to see if this is a possible method call
                             if ($lastToken !== false &&
                             ($lastToken[0] == T_OBJECT_OPERATOR ||  $lastToken[0] == T_DOUBLE_COLON))
                             {
+                                //this is a method call, check the black list
+                                if(in_array($token[1], $this->methodsBlackList)){
+                                    $issues[]= translate('ML_INVALID_METHOD') . ' ' .$token[1].  '()';
+                                }
                                 break;
                             }
+
+
+                            if(!in_array($token[1], $this->blackList))break;
+                            if(in_array($token[1], $this->blackListExempt))break;
+
                         }
 					case T_VARIABLE:
 						$checkFunction = true;
@@ -587,12 +593,16 @@ class ModuleScanner{
 		if(!empty($fileIssues)){
 			return $fileIssues;
 		}
-		include($manifestPath);
-
+		$this->lockConfig();
+		list($manifest, $installdefs) = MSLoadManifest($manifestPath);
+		$fileIssues = $this->checkConfig($manifestPath);
+		if(!empty($fileIssues)){
+			return $fileIssues;
+		}
 
 		//scan for disabled actions
-		if(isset($GLOBALS['sugar_config']['moduleInstaller']['disableActions'])){
-			foreach($GLOBALS['sugar_config']['moduleInstaller']['disableActions'] as $action){
+		if(isset($this->config['disableActions'])){
+			foreach($this->config['disableActions'] as $action){
 				if(isset($installdefs[$this->manifestMap[$action]])){
 					$issues[] = translate('ML_INVALID_ACTION_IN_MANIFEST') . $this->manifestMap[$action];
 				}
@@ -600,7 +610,7 @@ class ModuleScanner{
 		}
 
 		//now lets scan for files that will override our files
-		if(empty($GLOBALS['sugar_config']['moduleInstaller']['disableRestrictedCopy']) && isset($installdefs['copy'])){
+		if(empty($this->config['disableRestrictedCopy']) && isset($installdefs['copy'])){
 			foreach($installdefs['copy'] as $copy){
 				$from = str_replace('<basepath>', $this->pathToModule, $copy['from']);
 				$to = $copy['to'];
@@ -674,7 +684,7 @@ class ModuleScanner{
 	public function scanPackage($path){
 		$this->pathToModule = $path;
 		$this->scanManifest($path . '/manifest.php');
-		if(empty($GLOBALS['sugar_config']['moduleInstaller']['disableFileScan'])){
+		if(empty($this->config['disableFileScan'])){
 			$this->scanDir($path);
 		}
 	}
@@ -710,8 +720,43 @@ class ModuleScanner{
 
 	}
 
+	/**
+	 * Lock config settings
+	 */
+	public function lockConfig()
+	{
+	    if(empty($this->config_hash)) {
+	        $this->config_hash = md5(serialize($GLOBALS['sugar_config']));
+	    }
+	}
+
+	/**
+	 * Check if config was modified. Return
+	 * @param string $file
+	 * @return array Errors if something wrong, false if no problems
+	 */
+	public function checkConfig($file)
+	{
+	    $config_hash_after = md5(serialize($GLOBALS['sugar_config']));
+	    if($config_hash_after != $this->config_hash) {
+	        $this->issues['file'][$file] = array(translate('ML_CONFIG_OVERRIDE'));
+	        return $this->issues;
+	    }
+	    return false;
+	}
 
 }
 
+/**
+ * Load manifest file
+ * Outside of the class to isolate the context
+ * @param string $manifest_file
+ * @return array
+ */
+function MSLoadManifest($manifest_file)
+{
+	include( $manifest_file );
+	return array($manifest, $installdefs);
+}
 
 ?>

@@ -1,30 +1,16 @@
 <?php
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -341,6 +327,12 @@ function threeWayMerge(){
 ////	END UTILITIES THAT MUST BE LOCAL :(
 ///////////////////////////////////////////////////////////////////////////////
 
+//Bug 52872. Dies if the request does not come from CLI.
+$sapi_type = php_sapi_name();
+if (substr($sapi_type, 0, 3) != 'cli') {
+    die("This is command-line only script");
+}
+//End of #52872
 
 // only run from command line
 if(isset($_SERVER['HTTP_USER_AGENT'])) {
@@ -646,9 +638,7 @@ if(function_exists('initialize_session_vars')){
 if(!didThisStepRunBefore('preflight')){
 	set_upgrade_progress('preflight','in_progress');
 	//Quickcreatedefs on the basis of editviewdefs
-    if(substr($sugar_version,0,1) >= 5){
-    	updateQuickCreateDefs();
-	}
+    updateQuickCreateDefs();
 	set_upgrade_progress('preflight','done');
 }
 ////////////////COMMIT PROCESS BEGINS///////////////////////////////////////////////////////////////
@@ -716,10 +706,8 @@ if(!didThisStepRunBefore('commit')){
 	 }
 	require_once(clean_path($unzip_dir.'/scripts/upgrade_utils.php'));
 	$new_sugar_version = getUpgradeVersion();
-    $origVersion = substr(preg_replace("/[^0-9]/", "", $sugar_version),0,3);
-    $destVersion = substr(preg_replace("/[^0-9]/", "", $new_sugar_version),0,3);
-    $siv_varset_1 = setSilentUpgradeVar('origVersion', $origVersion);
-    $siv_varset_2 = setSilentUpgradeVar('destVersion', $destVersion);
+    $siv_varset_1 = setSilentUpgradeVar('origVersion', $sugar_version);
+    $siv_varset_2 = setSilentUpgradeVar('destVersion', $new_sugar_version);
     $siv_write    = writeSilentUpgradeVars();
     if(!$siv_varset_1 || !$siv_varset_2 || !$siv_write){
         logThis("Error with silent upgrade variables: origVersion write success is ({$siv_varset_1}) ".
@@ -832,10 +820,14 @@ if(!didThisStepRunBefore('commit')){
             $errors[] = 'Could not write config.php!';
         }
 
-		logThis('Upgrade the sugar_version', $path);
-		$sugar_config['sugar_version'] = $sugar_version;
-		if($destVersion == $origVersion)
-			require('config.php');
+        if (version_compare($new_sugar_version, $sugar_version, '='))
+        {
+            require('config.php');
+        }
+        //upgrade the sugar version prior to writing config file.
+        logThis('Upgrade the sugar_version', $path);
+        $sugar_config['sugar_version'] = $sugar_version;
+
         if( !write_array_to_file( "sugar_config", $sugar_config, "config.php" ) ) {
             logThis('*** ERROR: could not write config.php! - upgrade will fail!', $path);
             $errors[] = 'Could not write config.php!';
@@ -1019,7 +1011,8 @@ if($ce_to_pro_ent)
 
 //Also set the tracker settings if  flavor conversion ce->pro or ce->ent
 if(isset($_SESSION['current_db_version']) && isset($_SESSION['target_db_version'])){
-	if($_SESSION['current_db_version'] == $_SESSION['target_db_version']){
+    if (version_compare($_SESSION['current_db_version'], $_SESSION['target_db_version'], '='))
+    {
 	    $_REQUEST['upgradeWizard'] = true;
 	    ob_start();
 			include('include/Smarty/internals/core.write_file.php');
@@ -1128,6 +1121,3 @@ function repairTableDictionaryExtFile()
 		} //if
 	}
 }
-
-
-?>

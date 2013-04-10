@@ -1,78 +1,53 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Tevékenységek',
   'LBL_ASSIGNED_TO_ID' => 'Felelős felhasználói azonosító',
   'LBL_ASSIGNED_TO_NAME' => 'Felelős',
-  'LBL_ID' => 'Azonosító',
-  'LBL_DATE_ENTERED' => 'Dátum hozzáadva a kedvencekhez',
-  'LBL_DATE_MODIFIED' => 'Dátum módosítva',
-  'LBL_MODIFIED' => 'Módosította',
-  'LBL_MODIFIED_ID' => 'Módosította (azonosító szerint)',
-  'LBL_MODIFIED_NAME' => 'Módosította (név szerint)',
   'LBL_CREATED' => 'Létrehozta',
-  'LBL_CREATED_ID' => 'Létrehozta (azonosító szerint)',
-  'LBL_DESCRIPTION' => 'Leírás',
-  'LBL_DELETED' => 'Törölve',
-  'LBL_NAME' => 'Név',
+  'LBL_CREATED_ID' => 'Létrehozói azonosító',
   'LBL_CREATED_USER' => 'Létrehozó felhasználó',
-  'LBL_MODIFIED_USER' => 'Módosító felhasználó',
-  'LBL_TAG' => 'Címke',
-  'LBL_LIST_FORM_TITLE' => 'Kedvencek listája',
-  'LBL_MODULE_NAME' => 'Kedvencek',
-  'LBL_MODULE_TITLE' => 'Kedvencek',
-  'LBL_HOMEPAGE_TITLE' => 'Kedvenc tételeim',
-  'LNK_NEW_RECORD' => 'Kedvencek létrehozása',
-  'LNK_LIST' => 'Kedvencek',
-  'LBL_SEARCH_FORM_TITLE' => 'Kedvencek keresése',
+  'LBL_DATE_ENTERED' => 'Dátum hozzáadva a kedvencekhez',
+  'LBL_DATE_MODIFIED' => 'Módosítás dátuma',
+  'LBL_DELETED' => 'Törölve',
+  'LBL_DESCRIPTION' => 'Leírás',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'Előzmények megtekintése',
-  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Tevékenységek',
-  'LBL_SUGAR_FAVORITES_SUBPANEL_TITLE' => 'Kedvencek',
-  'LBL_NEW_FORM_TITLE' => 'Új kedvenc',
-  'LBL_MODULE' => 'modul',
-  'LBL_RECORD_ID' => 'rekord azonosító',
+  'LBL_HOMEPAGE_TITLE' => 'Kedvenc tételeim',
+  'LBL_ID' => 'Azonosító',
+  'LBL_LIST_FORM_TITLE' => 'Kedvencek listája',
   'LBL_LIST_MODULE' => 'Modul neve',
+  'LBL_MODIFIED' => 'Módosította',
+  'LBL_MODIFIED_ID' => 'Módosítói azonosító',
+  'LBL_MODIFIED_NAME' => 'Módosító neve',
+  'LBL_MODIFIED_USER' => 'Módosító felhasználó',
+  'LBL_MODULE' => 'modul',
+  'LBL_MODULE_NAME' => 'Kedvencek',
+  'LBL_MODULE_NAME_SINGULAR' => 'Kedvenc',
+  'LBL_MODULE_TITLE' => 'Kedvencek',
+  'LBL_NAME' => 'Név',
+  'LBL_NEW_FORM_TITLE' => 'Új kedvenc',
+  'LBL_RECORD_ID' => 'rekord azonosító',
+  'LBL_SEARCH_FORM_TITLE' => 'Kedvencek keresése',
+  'LBL_SUGAR_FAVORITES_SUBPANEL_TITLE' => 'Kedvencek',
+  'LBL_TAG' => 'Címke',
+  'LNK_LIST' => 'Kedvencek',
+  'LNK_NEW_RECORD' => 'Kedvencek létrehozása',
 );
 

@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -48,6 +34,26 @@ class JitReports extends Jit {
 		return $total;
 	}	
 	
+    /**
+     * Method checks is our dataset from currency field or not
+     *
+     * @param array $dataset of chart
+     * @return bool is currency
+     */
+    public function isCurrencyReportGroupTotal(array $dataset)
+    {
+        $isCurrency = true;
+        foreach ($dataset as $value)
+        {
+            if (empty($value['numerical_is_currency']))
+            {
+                $isCurrency = false;
+                break;
+            }
+        }
+        return $isCurrency;
+    }
+
 	function processReportData($dataset, $level=1, $first=false){
 		$data = '';
 		
@@ -125,7 +131,9 @@ class JitReports extends Jit {
 		return $data;
 	}
 	
-	function xmlDataReportChart(){
+    function xmlDataReportChart()
+    {
+        global $app_strings;
 		$data = '';
 		// correctly process the first row
 		$first = true;	
@@ -133,12 +141,26 @@ class JitReports extends Jit {
 			
 			$total = $this->calculateReportGroupTotal($dataset);
 			$this->checkYAxis($total);
-			
+
 			$data .= $this->tab('<group>', 2);
 			$data .= $this->tabValue('title',$key, 3);
 			$data .= $this->tabValue('value',$total, 3);
-			$data .= $this->tabValue('label',$total, 3);				
-			$data .= $this->tab('<subgroups>', 3);
+
+            $label = $total;
+            if ($this->isCurrencyReportGroupTotal($dataset))
+            {;
+                $label = currency_format_number($total, array(
+                    'currency_symbol' => $this->currency_symbol,
+                    'decimals' => ($this->chart_properties['thousands'] ? 0 : null)
+                ));
+            }
+            if ($this->chart_properties['thousands'])
+            {
+                $label .= $app_strings['LBL_THOUSANDS_SYMBOL'];
+            }
+            $data .= $this->tabValue('label', $label, 3);
+
+            $data .= $this->tab('<subgroups>', 3);
 			
 			if ((isset($dataset[$total]) && $total != $dataset[$total]['numerical_value']) || !array_key_exists($key, $dataset)){
 					$data .= $this->processReportData($dataset, 4, $first);
@@ -211,7 +233,7 @@ class JitReports extends Jit {
 		parent::display($name, $xmlFile, $width, $height, $resize=false);			
 		
 		return $this->ss->fetch('include/SugarCharts/Jit/tpls/chart.tpl');	
+		
+		
 	}
 }
-
-?>

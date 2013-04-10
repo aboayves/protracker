@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -207,6 +193,10 @@ $mod_strings = array (
   'LBL_CHECK_REPORTS' => '检查报表',
   'LBL_CHECK_REPORTS_DESC' => '检查是否报表仍然有效在升级后并列出检查中查找到的无效报表',
   'LBL_CHECK_REPORTS_TEXT' => '这个工具润许您检查是否所有您的报表都有效。',
+  'LBL_CLEAR_ADDITIONAL_CACHE_DELETING' => '删除额外的缓存文件中...',
+  'LBL_CLEAR_ADDITIONAL_CACHE_DESC' => '删除缓存文件，使用额外的资源（API等）',
+  'LBL_CLEAR_ADDITIONAL_CACHE_FINDING' => '查找文件中...',
+  'LBL_CLEAR_ADDITIONAL_CACHE_TITLE' => '删除额外的缓存',
   'LBL_CLEAR_CHART_DATA_CACHE_DELETING1' => '正删除图表缓存文件...',
   'LBL_CLEAR_CHART_DATA_CACHE_DELETING2' => '正删除：',
   'LBL_CLEAR_CHART_DATA_CACHE_DESC' => '移除图表使用的缓存数据',
@@ -366,8 +356,10 @@ $mod_strings = array (
   'LBL_FTS_CONN_FAILURE_SHORT' => '无法设置索引操作.',
   'LBL_FTS_CONN_SUCCESS' => '连接成功. 您需要使用全文搜索应用系统索引使启用模块和模块字段生效.',
   'LBL_FTS_CONN_SUCCESS_SHORT' => '一个系统索引操作已被设置并在接下来的几分钟内运行.',
+  'LBL_FTS_DISABLED' => '全文本搜索已被禁用因为系统无法连接到搜索引擎。',
   'LBL_FTS_HOST' => '主机',
   'LBL_FTS_HOST_HELP' => '输入包含全文搜索引擎的主机名称.',
+  'LBL_FTS_INDEXING_DONE' => '全文搜索索引完成。',
   'LBL_FTS_INDEX_BUTTON' => '索引',
   'LBL_FTS_NO_MODULES' => '选择至少一个模块来搜索.',
   'LBL_FTS_NO_MODULES_FOR_SCHED' => '选择至少一个模块来设置.',
@@ -452,6 +444,7 @@ $mod_strings = array (
   'LBL_LICENSE_KEY' => '下载密匙',
   'LBL_LICENSE_NUM_LIC_OC' => '离线客户端许可证数',
   'LBL_LICENSE_NUM_PORTAL_USERS' => '门户网站用户数',
+  'LBL_LICENSE_UNAUTHORIZED_ACCESS' => '未授权访问软件授权配置',
   'LBL_LICENSE_USERS' => '用户数',
   'LBL_LICENSE_VALIDATION' => '许可证验证n',
   'LBL_LICENSE_VALIDATION_END' => '验证密钥有效期',
@@ -653,6 +646,8 @@ $mod_strings = array (
   'LBL_PASSWORD_USER_EXPIRATION' => '用户设定密码过期',
   'LBL_PASSWORD_USER_RESET' => '用户重设密码',
   'LBL_PATCH_UPGRADES' => '补丁更新',
+  'LBL_PDFMANAGER_SETTINGS' => 'PDF管理',
+  'LBL_PDFMANAGER_SETTINGS_DESC' => '管理模版生成PDF文件',
   'LBL_PERFORM_UPDATE' => '执行更新',
   'LBL_PLUGINS' => '获取插件和其它Sugar Suite扩展。',
   'LBL_PLUGINS_TITLE' => 'Sugar 整合',
@@ -700,6 +695,7 @@ $mod_strings = array (
   'LBL_QR_CLEARTEMPLATE' => '清除模板文件从缓存中',
   'LBL_QR_CLEARTHEMECACHE' => '清除主题缓存...完成',
   'LBL_QR_CLEARVADEFS' => '清除数据定义从缓存中...完成',
+  'LBL_QR_CLEAR_ADD_CACHE' => '清除额外的缓存文件...完成',
   'LBL_QR_CLEAR_EXT_API' => '清除外部 API 缓存文件...完成',
   'LBL_QR_CREATING_TABLE' => '创建表中',
   'LBL_QR_NOT_AUDIT_ENABLED' => '审计无效..<br/>',
@@ -1052,6 +1048,7 @@ $mod_strings = array (
   'MSG_MAKE_CONFIG_FILE_WRITABLE' => '请启动配置文件的写入权限，系统才能够进行更新。',
   'MSG_REBUILD_EXTENSIONS' => '请到<a href="index.php?module=Administration&action=Upgrade">修复</a>界面，点击“重建关系”',
   'MSG_REBUILD_RELATIONSHIPS' => '请到<a href="index.php?module=Administration&action=Upgrade">修复</a>界面，点击“重建关系”。',
+  'MSG_RECONNECT_LOTUSLIVE' => '您目前没有连接到IBM SmartCloud。在您的档案中连接到IBM SmartCloud才可以访问IBM SmartCloud会议和文件。',
   'Manufacturers' => '制造商',
   'NO_ENABLED_OFFLINE_CLIENTS' => '当前没有可用的离线客户端。',
   'NTC_DISABLE_OFFLINE_CLIENT_ALERT' => '您确定要禁用这个离线客户端吗?',

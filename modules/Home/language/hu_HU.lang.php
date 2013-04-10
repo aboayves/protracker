@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -102,6 +88,7 @@ $mod_strings = array (
   'LBL_MODULES' => 'Modulok',
   'LBL_MODULES_TO_SEARCH' => 'Modulok keresése',
   'LBL_MODULE_NAME' => 'Főoldal',
+  'LBL_MODULE_NAME_SINGULAR' => 'Főoldal',
   'LBL_MORE_DETAIL' => 'Részletek',
   'LBL_MY_CLOSED_OPPORTUNITIES_GAUGE' => 'Lezárt, sikeres lehetőségeim mutatója',
   'LBL_MY_FAVORITE_REPORT_CHARTS' => 'Kedvenc jelentéseim',
@@ -137,31 +124,47 @@ $mod_strings = array (
   'LBL_SEARCH' => 'Keresés',
   'LBL_SEARCH_RESULTS' => 'Keresés eredménye',
   'LBL_SEARCH_RESULTS_IN' => 'A',
+  'LBL_SOURCE_ASYNC' => 'Async - Async segédprogramok böngészőhöz.',
+  'LBL_SOURCE_BACKBONE' => 'Backbone.js - MVC keretrendszer JavaScript-súlyos alkalmazásokhoz.',
+  'LBL_SOURCE_BOOTSTRAP' => 'Twitterbootstrap - HTML, CSS, és JS eszköztár a Twittertől.',
+  'LBL_SOURCE_CHOSEN' => 'Chosen - könyvtár, amely a nagy formátumú szövegdobozok kezelésére hivatott.',
   'LBL_SOURCE_CODE' => 'Forráskód',
   'LBL_SOURCE_CRYPT_BLOWFISH' => 'Crypt_Blowfish - lehetővé teszi a kétirányú szimmetrikus blokkrejtjel titkosítást anélkül, hogy megkövetelné a MCrypt PHP bővítést.',
   'LBL_SOURCE_CSSMIN' => 'CssMin - css szintaktikai elemző.',
   'LBL_SOURCE_EXT' => 'Ext - felhasználó oldali JavaSceipt keretrendszer webes alkalmazások készítéséhez.',
   'LBL_SOURCE_FLASHCANVAS' => 'FlashCanvas - egy olyan JavaScript könyvtár, amely HTML5 Canvas támogatást ad Internet Exprorer-hez. A Flash rajzoló API segítségével legenerálja a görbéket és a képeket. Támogatja az összes Canvas API-t, és a legtöbb esetben jóval gyorsabb, mint a hasonló VML vagy Silverlight megoldásokat használó könyvtár.',
+  'LBL_SOURCE_HANDLEBARS' => 'Handlebars - szemantikus sablonok építésére használt sablonkezelő motor.',
   'LBL_SOURCE_HTMLPURIFIER' => 'HTML Purifier - előírásoknak megfelelő HTML szűrő könyvtár.',
   'LBL_SOURCE_HTTP_WEBDAV_SERVER' => 'HTTP-WebDAV_Server - WebDAV szerver megvalósítás PHP-ben',
   'LBL_SOURCE_ISCROLL' => 'iScroll - Túlcsordulás: scroll mobil csomaghoz. Natív görgetési lehetőség fix szélességű/magasságú elemen belül.',
+  'LBL_SOURCE_JASMINE' => 'Jasmine - JavaScript kód tesztelésére hivatott keretrendszer.',
   'LBL_SOURCE_JIT' => 'JavaScript InfoVis Toolkit - ez a csomag a weben megjelenő interaktív adat vizualizációk létrehozásához nyújt támogatást.',
+  'LBL_SOURCE_JQUERY' => 'jQuery - gyors webfejlesztéshez szükséges JavaScript könyvtár, amely nagymértékben egyszerűsíti a HTML dokumentumok kezelését.',
+  'LBL_SOURCE_JQUERYUI' => 'jQuery UI - a hivatalos jQuery interfész könyvtár.',
+  'LBL_SOURCE_JQUERY_IFRAME' => 'jquery.iframe-transport.js - jQuery Ajax plug-in, amely a rejtett iframen keresztüli fájlfeltöltést támogatja.',
   'LBL_SOURCE_JSCALENDAR' => 'JS Calendar - naptár a dátumok beviteléhez, Mihai Bazon ötlete alapján',
   'LBL_SOURCE_JSHRINK' => 'JShrink - PHP kódban megírt Javascript alkalmazás',
+  'LBL_SOURCE_LESSPHP' => 'lessphp - PHP-ben írt LESS fordító program.',
   'LBL_SOURCE_NUSOAP' => 'NuSOAP - PHP készletek, amelyek a NuSphere Corporation és Dietrich Ayala által kialakított webes szolgáltatások használatát és kibővítését teszik lehetővé a fejlesztők számára',
   'LBL_SOURCE_PARSECSV' => 'parseCSV - CSV adatelemző PHP-hoz',
   'LBL_SOURCE_PCLZIP' => 'PcIZip - könyvtár tömörítő és kicsomagoló funkciókkal ZIP formátumú mentésekhez, Vincent Blavet fejlesztése alapján',
+  'LBL_SOURCE_PHPEXCEL' => 'PHPExcel - egyszerű PHP könyvtár, amely a táblázatok olvasásához és bővítéséhez használható.',
   'LBL_SOURCE_PHPJS' => 'php.js - PHP funkciók használata JavaScript-ben',
   'LBL_SOURCE_PHPMAILER' => 'PHPMailer - mindenre kiterjedő email továbbítás PHP-hez',
   'LBL_SOURCE_PHPPDF' => 'PHP PDF - könyvtár PDF dokumentumok készítéséhez, Wayne Munro ötlete alapján',
   'LBL_SOURCE_PHPSAML' => 'PHP-SAML - egyszerű SAML eszközrendszer PHP-hez',
   'LBL_SOURCE_PHPSQL' => 'PHP SQL elemző',
+  'LBL_SOURCE_PLACEHOLDER' => 'jQuery-Placeholder - HTML5 placeholder támogatás a böngészőkhöz.',
   'LBL_SOURCE_RECAPTCHA' => 'reCAPTCHA - ingyenes CAPTCHA szervíz könyvek, újságok és régi rádiós műsorok digitalizálásához.',
+  'LBL_SOURCE_SINON' => 'sinon.js - JavaScript tesztelő alkalmazások.',
   'LBL_SOURCE_SMARTY' => 'Smarty - sablon motor PHP-hez',
+  'LBL_SOURCE_STASH' => 'Stash - JavaScript könyvtár az offline tárolás könnyebbé tételéhez.',
   'LBL_SOURCE_SUGAR' => 'Sugar - a világ legnépszerűbb Sales Force Automation alkalmazása a SugarCRM Inc. fejlesztésében.',
   'LBL_SOURCE_SWFOBJECT' => 'SWFObject - Javascript Flash Player parancsfájlok felismerése és beágyazása.',
   'LBL_SOURCE_TCPDF' => 'TCPDF - PHP gyűjtemény PDF dokumentumok készítéséhez.',
+  'LBL_SOURCE_TIMEAGO' => 'jquery timeago - jQuery plug-in, amely az időbélyegzőket kezeli.',
   'LBL_SOURCE_TINYMCE' => 'TinyMCE - WYSIWYG szerkesztő azon böngészőkhöz, amelyek lehetővé teszik a felhasználónak a HTML tartalmak szerkesztését.',
+  'LBL_SOURCE_XHPROF' => 'XHProf - funkció-hierarchikus php profilozó.',
   'LBL_SOURCE_XML_HTMLSAX3' => 'XML_HTMLSax3 - SAX szintaktikai elemző HTML-hez és hibásan formázott XML dokumentumokhoz',
   'LBL_SOURCE_XTEMPLATE' => 'XTemplate - sablon motor PHP-ben Debreceni Barnabás fejlesztése alapján',
   'LBL_SOURCE_YAHOO_UI_LIB' => 'Yahoo! User Interface Library - könyvtár a gazdag kliensoldali funkciók megvalósításához.',

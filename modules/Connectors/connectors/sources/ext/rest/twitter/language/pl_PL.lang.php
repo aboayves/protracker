@@ -1,42 +1,34 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
+* Description:
+* Portions created by SugarCRM are Copyright (C) SugarCRM, Inc. All Rights
+* Reserved. Contributor(s): contact@synolia.com - www.synolia.com
+* *******************************************************************************/
 
-	
 
 $connector_strings = array (
-  'LBL_LICENSING_INFO' => 'Uzyskaj Klucz konsumenta i aplikację "Secret" z Twitter© tworząc aplikację dla instancji Sugar.<br />Kroki prowadzące do rejestracji twojego przypadku:<br />1. Idź do następującego adresu Twitter©: http://dev.twitter.com/apps/new.<br />2. Zaloguj się do Twitter© używając konta, na którym chciałbyś zarejestrować aplikację.<br />3. W ramach formy rejestracyjnej, wprowadź nazwę dla aplikacji. Jest to nazwa widoczna dla użytkowników podczas uwierzytelniania ich kont Twitter© w ramach "Sugar".<br />4. Wprowadź opis.<br />5. Wpisz adres URL aplikacji.<br />6. Wybierz "Przeglądarka" dla typu aplikacji. <br />7. Po wyborze "Przeglądarka", wprowadź URL Callback.<br />8. Wprowadź słowa bezpieczeństwa.<br />9. Kliknij "Zarejestruj aplikację".<br />10. Zaakceptuj warunki usługi API Twitter.<br />11. W ramach strony aplikacji, znajdź klucz konsumenta i aplikację "Secret" kosnumenta. Wprowadź klucz i "Secret" aplikacji poniżej.',
-  'company_url' => 'URL',
-  'LBL_NAME' => 'Nazwa użytkownika Twittera',
-  'LBL_ID' => 'Nazwa użytkownika Twittera',
-  'oauth_consumer_key' => 'Klucz konsumenta',
-  'oauth_consumer_secret' => 'Sekret konsumenta',
+    'LBL_LICENSING_INFO' => '<table border="0" cellspacing="1"><tr><td valign="top" width="35%" class="dataLabel">Zdobądź Poufny klucz klienta z Twitter&#169; poprzez zarejestrowanie swojej instancji Sugar jako nowej aplikacji.<br/><br>Aby zarejestrować swoją instancję:<br/><br/><ol><li>Przejdź do strony programistów Twitter&#169;: <a href=\'http://dev.twitter.com/apps/new\' target=\'_blank\'>http://dev.twitter.com/apps/new</a>.</li><li>Zaloguj się na konto Twitter, pod którym chcesz zarejestrować aplikację.</li><li>W formularzy rejestracji wprowadź nazwę dla aplikacji. Nazwa ta będzie widoczna dla użytkowników podczas autoryzacji kont Twitter z poziomu SugarCRM.</li><li>Wprowadź opis.</li><li>Wprowadź adres strony internetowej aplikacji (może być jakikolwiek).</li><li>/Jako typ aplikacji wybierz “Przeglądarka”.</li><li> wprowadź  URL wywołania (może być dowolny, ponieważ kontrola odbywa się na poziomie uwierzytelnienia. Przykład: Wprowadź URL katalogu głównego Sugar).</li><li>Wprowadź słowa zabezpieczające.</li><li>Kliknij “Zarejestruj aplikację”.</li><li>Zaakceptuj Warunki usług Twitter API.</li><li>Na stronie aplikacji znajdź Unikalny klucz licencyjny i  Poufny klucz klienta. Wprowadź je poniżej.</li></ol></td></tr></table>',
+	'LBL_NAME' => 'Nazwa użytkownika Twitter',
+	'LBL_ID' => 'Nazwa użytkownika Twitter',
+	'company_url' => 'Adres URL',
+    'oauth_consumer_key' => 'Unikalny klucz licencyjny',
+    'oauth_consumer_secret' => 'Poufny klucz klienta',
 );
 
+?>

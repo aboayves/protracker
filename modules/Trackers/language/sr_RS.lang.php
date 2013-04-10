@@ -3,51 +3,51 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
+  'LBL_ENABLE' => 'Omogućeno',
+  'LBL_MODULE_NAME' => 'Sistemi za praćenje',
+  'LBL_MODULE_NAME_SINGULAR' => 'Sistem za praćenje',
+  'LBL_MODULE_NAME_TITLE' => 'Sistemi za praćenje',
+  'LBL_TRACKER_DESC' => 'Akcije sistema za praćenje',
+  'LBL_TRACKER_HELP' => 'Prati preglede korisničke strane (module i zapise kojima je pristupano) i čuvanje zapisa',
+  'LBL_TRACKER_PERF_DESC' => 'Performanse sistema za praćenje',
   'LBL_TRACKER_PERF_HELP' => 'Prati promene u bazi, pristupe fajlovima i iskorišćenost memorije.',
-  'item_id' => 'ID broj',
+  'LBL_TRACKER_PRUNE_INTERVAL' => 'Broj dana koliko će se čuvati podaci sistema za praćenje kada Planer očisti tabele',
+  'LBL_TRACKER_PRUNE_RANGE' => 'Broj dana',
+  'LBL_TRACKER_QUERIES_DESC' => 'Upiti za sisteme praćenja',
+  'LBL_TRACKER_QUERIES_HELP' => 'Pratite SQL izraze kada je opcija "Loguj spore upite" omogućena i kada izvršenje upita prevaziđe vrednost "Vremenski prag sporog upita"',
+  'LBL_TRACKER_SESSIONS_DESC' => 'Sesije sistema za praćenje',
+  'LBL_TRACKER_SESSIONS_HELP' => 'Prati aktivne korisnike i informacije o sesiji korisnika',
+  'LBL_TRACKER_SETTINGS' => 'Podešavanja sistema za praćenje',
   'ShowActiveUsers' => 'Prikaži aktivne korisnike',
   'ShowLastModifiedRecords' => 'Poslednjih 10 izmenjenih zapisa',
-  'ShowTopUser' => 'Glavni korisnik',
+  'ShowLoggedInUserCount' => 'Broj aktivnih korisnika',
+  'ShowMyCumulativeLoggedInTime' => 'Moje kumulativno vreme logovanja (ove nedelje)',
   'ShowMyModuleUsage' => 'Moji podaci o korišćenju modula',
   'ShowMyWeeklyActivities' => 'Moje nedeljne aktivnosti',
   'ShowTop3ModulesUsed' => 'Moja 3 najviše korišćena modula',
-  'ShowLoggedInUserCount' => 'Broj aktivnih korisnika',
-  'ShowMyCumulativeLoggedInTime' => 'Moje kumulativno vreme logovanja (ove nedelje)',
+  'ShowTopUser' => 'Glavni korisnik',
   'ShowUsersCumulativeLoggedInTime' => 'Kumulativno vreme logovanja korisnika (ove nedelje)',
   'action' => 'Akcija',
   'active_users' => 'Broj aktivnih korisnika',
   'date_modified' => 'Datum poslednje akcije',
   'different_modules_accessed' => 'Broj modula kojima je pristupano',
   'first_name' => 'Ime',
+  'item_id' => 'ID broj',
   'item_summary' => 'Naziv',
   'last_action' => 'Datum/vreme poslednje akcije',
   'last_name' => 'Prezime:',
@@ -58,18 +58,5 @@ $mod_strings = array (
   'total_login_time' => 'Vreme (hh:mm:ss)',
   'user_name' => 'Korisničko ime',
   'users' => 'Korisnici',
-  'LBL_ENABLE' => 'Omogućeno',
-  'LBL_MODULE_NAME_TITLE' => 'Sistemi za praćenje',
-  'LBL_MODULE_NAME' => 'Sistemi za praćenje',
-  'LBL_TRACKER_SETTINGS' => 'Podešavanja sistema za praćenje',
-  'LBL_TRACKER_QUERIES_DESC' => 'Upiti za sisteme praćenja',
-  'LBL_TRACKER_QUERIES_HELP' => 'Pratite SQL izraze kada je opcija "Loguj spore upite" omogućena i kada izvršenje upita prevaziđe vrednost "Vremenski prag sporog upita"',
-  'LBL_TRACKER_PERF_DESC' => 'Performanse sistema za praćenje',
-  'LBL_TRACKER_SESSIONS_DESC' => 'Sesije sistema za praćenje',
-  'LBL_TRACKER_SESSIONS_HELP' => 'Prati aktivne korisnike i informacije o sesiji korisnika',
-  'LBL_TRACKER_DESC' => 'Akcije sistema za praćenje',
-  'LBL_TRACKER_HELP' => 'Prati preglede korisničke strane (module i zapise kojima je pristupano) i čuvanje zapisa',
-  'LBL_TRACKER_PRUNE_INTERVAL' => 'Broj dana koliko će se čuvati podaci sistema za praćenje kada Planer očisti tabele',
-  'LBL_TRACKER_PRUNE_RANGE' => 'Broj dana',
 );
 

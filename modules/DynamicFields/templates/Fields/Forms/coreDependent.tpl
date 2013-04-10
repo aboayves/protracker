@@ -1,29 +1,15 @@
 {*
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -33,24 +19,18 @@
 {if $vardef.type != 'enum' && $vardef.type != 'address'
  && $vardef.type != 'multienum' && $vardef.type != 'radioenum'
  && $vardef.type != 'html' && $vardef.type != 'relate'
- && $vardef.type != 'url' && $vardef.type != 'iframe' && $vardef.type != 'parent'  && $vardef.type != 'image'}
+ && $vardef.type != 'url' && $vardef.type != 'iframe' && $vardef.type != 'parent'  && $vardef.type != 'image'
+ && empty($vardef.function) && (!isset($vardef.studio.calculated) || $vardef.studio.calculated != false)
+}
+
 <tr><td class='mbLBL'>{sugar_translate module="DynamicFields" label="LBL_CALCULATED"}:</td>
     <td style="line-height:1em"><input type="checkbox" name="calculated" id="calculated" value="1" onclick ="ModuleBuilder.toggleCF()"
         {if !empty($vardef.calculated) && !empty($vardef.formula)}CHECKED{/if} {if $hideLevel > 5}disabled{/if}/>
 		{if $hideLevel > 5}
             <input type="hidden" name="calculated" value="{$vardef.calculated}">
         {/if}
-		{sugar_getimage alt=$mod_strings.LBL_HELP name="helpInline" ext=".gif" other_attributes='id="calcToolTipIcon" '}
+		{sugar_help text=$mod_strings.LBL_POPHELP_CALCULATED FIXX=250 FIXY=80}
 		<input type="hidden" name="enforced" id="enforced" value="{$vardef.enforced}">
-		<script>
-			if (!ModuleBuilder.cfToolTip)
-			     ModuleBuilder.cfToolTip = new YAHOO.widget.Tooltip("cfToolTip", {ldelim}
-				    context:"calcToolTipIcon", text:SUGAR.language.get("ModuleBuilder", "LBL_POPHELP_CALCULATED")
-				 {rdelim});
-		    else if (ModuleBuilder.cfToolTip)
-			    ModuleBuilder.cfToolTip.cfg.setProperty("context", "calcToolTipIcon");
-			ModuleBuilder.toggleCF({if empty($vardef.calculated) || empty($vardef.formula)}false{else}{$vardef.calculated}{/if})
-		</script>
     </td>
 </tr>
 <tr id='formulaRow' {if empty($vardef.formula)}style="display:none"{/if}>
@@ -68,18 +48,7 @@
 <tr id='depCheckboxRow'><td class='mbLBL'>{sugar_translate module="DynamicFields" label="LBL_DEPENDENT"}:</td>
     <td><input type="checkbox" name="dependent" id="dependent" value="1" onclick ="ModuleBuilder.toggleDF(null, '#popup_form_id .toggleDep')"
         {if !empty($vardef.dependency)}CHECKED{/if} {if $hideLevel > 5}disabled{/if}/>
-        {sugar_getimage alt=$mod_strings.LBL_HELP name="helpInline" ext=".gif" other_attributes='id="depToolTipIcon" '}
-        <script>
-			if (!ModuleBuilder.dfToolTip)
-			     ModuleBuilder.dfToolTip = new YAHOO.widget.Tooltip("dfToolTip", {ldelim}
-                        context:"depToolTipIcon", text:SUGAR.language.get("ModuleBuilder", "LBL_POPHELP_DEPENDENT")
-				 {rdelim});
-		    else if (ModuleBuilder.cfToolTip)
-			    ModuleBuilder.cfToolTip.cfg.setProperty("context", "depToolTipIcon");
-		    else
-			    ModuleBuilder.dfToolTip.cfg.setProperty("context", "depToolTipIcon");
-			ModuleBuilder.toggleCF({if empty($vardef.calculated) || empty($vardef.formula)}false{else}{$vardef.calculated}{/if})
-		</script>
+        {sugar_help text=$mod_strings.LBL_POPHELP_DEPENDENT FIXX=250 FIXY=80}
     </td>
 </tr>
 <tr id='visFormulaRow' {if empty($vardef.dependency)}style="display:none"{/if}><td class='mbLBL'>{sugar_translate module="DynamicFields" label="LBL_VISIBLE_IF"}:</td> 

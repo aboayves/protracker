@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('include/SugarSearchEngine/SugarSearchEngineAbstractBase.php');
@@ -32,6 +18,9 @@ require_once('include/SugarSearchEngine/Elastic/SugarSearchEngineElasticResultSe
 require_once('include/SugarSearchEngine/SugarSearchEngineMetadataHelper.php');
 require_once('include/SugarSearchEngine/SugarSearchEngineHighlighter.php');
 
+/**
+ * Engine implementation for ElasticSearch
+ */
 class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
 {
     private $_config = array();
@@ -55,24 +44,57 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
             $this->_config['timeout'] = 15;
         }
         $this->_client = new Elastica_Client($this->_config);
+        parent::__construct();
     }
 
+    /**
+     * Check if this is an Elastic client exception, disable FTS if it is
+     * @param $e Exception
+     * @return boolean tru if it's an Elastic client exception, false otherwise
+     */
+    protected function checkException($e)
+    {
+        if ($e instanceof Elastica_Exception_Client)
+        {
+            $error = $e->getError();
+            switch ($error) {
+                case CURLE_UNSUPPORTED_PROTOCOL:
+                case CURLE_FAILED_INIT:
+                case CURLE_URL_MALFORMAT:
+                case CURLE_COULDNT_RESOLVE_PROXY:
+                case CURLE_COULDNT_RESOLVE_HOST:
+                case CURLE_COULDNT_CONNECT:
+                case CURLE_OPERATION_TIMEOUTED:
+                    $this->disableFTS();
+                    return true;
+            }
+        }
+        return false;
+    }
 
+    /**
+     * Either index single bean or add the record to be indexed into _documents for later batch indexing,
+     * depending on the $batch parameter
+     *
+     * @param $bean SugarBean object to be indexed
+     * @param $batch boolean whether to do batch index
+     */
     public function indexBean($bean, $batch = TRUE)
     {
         if(!$this->isModuleFtsEnabled($bean->module_dir) )
             return;
 
-        if(!$batch)
+        if(!$batch) {
+            if (self::isSearchEngineDown())
+            {
+                $this->addRecordsToQueue(array('bean_id'=>$bean->id, 'bean_module'=>get_class($bean)));
+                return;
+            }
             $this->indexSingleBean($bean);
+        }
         else
         {
-            $GLOBALS['log']->info("Adding bean to doc list with id: {$bean->id}");
-
-            //Group our beans by index type for bulk insertion
-            $indexType = $this->getIndexType($bean);
-            if(! isset($this->_documents[$indexType]) )
-                $this->_documents = array();
+            $this->logger->info("Adding bean to doc list with id: {$bean->id}");
 
             //Create and store our document index which will be bulk inserted later, do not store beans as they are heavy.
             $this->_documents[] = $this->createIndexDocument($bean);
@@ -95,6 +117,11 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
             return self::DEFAULT_INDEX_TYPE;
     }
 
+    /**
+     *
+     * @param SugarBean $bean
+     * @return String owner, or null if no owner found
+     */
     protected function getOwnerField($bean)
     {
         // when running full indexing, $bean may be a stdClass and not a SugarBean
@@ -145,7 +172,7 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         $ownerField = $this->getOwnerField($bean);
         if ($ownerField)
         {
-            $keyValues['doc_owner'] = strval($ownerField);
+            $keyValues['doc_owner'] = str_replace('-', '', strval($ownerField));
         }
 
         if( empty($keyValues) )
@@ -154,9 +181,13 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
             return new Elastica_Document($bean->id, $keyValues, $this->getIndexType($bean));
     }
 
+    /**
+     * This indexes one single bean to Elastic Search engine
+     * @param SugarBean $bean
+     */
     protected function indexSingleBean($bean)
     {
-        $GLOBALS['log']->info("Preforming single bean index");
+        $this->logger->info("Preforming single bean index");
         try
         {
             $index = new Elastica_Index($this->_client, $this->_indexName);
@@ -167,34 +198,56 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         }
         catch(Exception $e)
         {
-            $GLOBALS['log']->fatal("Unable to index bean with error: {$e->getMessage()}");
+            $this->reportException("Unable to index bean", $e);
+            if ($this->checkException($e))
+            {
+                $recordsToBeQueued = $this->getRecordsFromDocs(array($doc));
+                $this->addRecordsToQueue($recordsToBeQueued);
+            }
         }
 
     }
 
+    /**
+     * (non-PHPdoc)
+     * @see SugarSearchEngineInterface::delete()
+     */
     public function delete(SugarBean $bean)
     {
+        if (self::isSearchEngineDown())
+        {
+            return;
+        }
         if(empty($bean->id))
             return;
 
         try
         {
-            $GLOBALS['log']->info("Going to delete {$bean->id}");
+            $this->logger->info("Going to delete {$bean->id}");
             $index = new Elastica_Index($this->_client, $this->_indexName);
             $type = new Elastica_Type($index, $this->getIndexType($bean));
             $type->deleteById($bean->id);
         }
         catch(Exception $e)
         {
-            $GLOBALS['log']->fatal("Unable to delete index: {$e->getMessage()}");
+            $this->reportException("Unable to delete index", $e);
+            $this->checkException($e);
         }
     }
 
     /**
-     *
+     * (non-PHPdoc)
+     * @see SugarSearchEngineInterface::bulkInsert()
      */
     public function bulkInsert(array $docs)
     {
+        if (self::isSearchEngineDown())
+        {
+            $recordsToBeQueued = $this->getRecordsFromDocs($docs);
+            $this->addRecordsToQueue($recordsToBeQueued);
+            return false;
+        }
+
         try
         {
             $index = new Elastica_Index($this->_client, $this->_indexName);
@@ -223,9 +276,34 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         }
         catch(Exception $e)
         {
-            $GLOBALS['log']->fatal("Error performing bulk update operation: {$e->getMessage()}");
+            $this->reportException("Error performing bulk update operation", $e);
+            if ($this->checkException($e))
+            {
+                $recordsToBeQueued = $this->getRecordsFromDocs($batchedDocs);
+                $this->addRecordsToQueue($recordsToBeQueued);
+            }
+            return false;
         }
 
+        return true;
+    }
+
+    /**
+     * Given an array of documents, this constructs an array of records that can be saved to FTS queue.
+     * @param SugarBean $bean
+     * @return array
+     */
+    protected function getRecordsFromDocs($docs)
+    {
+        $records = array();
+        $i = 0;
+        foreach ($docs as $doc)
+        {
+            $records[$i]['bean_id'] = $doc->getId();
+            $records[$i]['bean_module'] = BeanFactory::getBeanName($doc->getType());
+            $i++;
+        }
+        return $records;
     }
 
     /**
@@ -250,7 +328,7 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         }
         catch(Exception $e)
         {
-            $GLOBALS['log']->fatal("Unable to get server status with error: {$e->getMessage()}");
+            $this->reportException("Unable to get server status", $e);
             $displayText = $e->getMessage();
         }
         //Reset previous timeout value.
@@ -258,6 +336,11 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         return array('valid' => $isValid, 'status' => $displayText);
     }
 
+    /**
+     * This function returns an array of fields that can be passed to search engine.
+     * @param Array $options
+     * @return Array array of fields
+     */
     protected function getSearchFields($options)
     {
         $fields = array();
@@ -284,6 +367,13 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         return $fields;
     }
 
+    /**
+     * Given fields and options, this function constructs and returns a highlight array that can be passed to
+     * search engine.
+     * @param SugarBean $bean
+     * @param $searchFields
+     * @return Elastica_Document|null
+     */
     protected function constructHighlightArray($fields, $options)
     {
         if (isset($options['preTags']))
@@ -337,6 +427,12 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         return $highlighArray;
     }
 
+    /**
+     * This function determines whether we should append wildcard to search string.
+     *
+     * @param String $queryString
+     * @return Boolean
+     */
     protected function canAppendWildcard($queryString)
     {
         $queryString = trim(html_entity_decode($queryString, ENT_QUOTES));
@@ -378,6 +474,11 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
          {"term":{"team_set_id":"West"}}]
        }
     */
+    /**
+     * This function constructs and returns team filter for elasticsearch query.
+     *
+     * @return Elastica_Filter_Or
+     */
     protected function constructTeamFilter()
     {
         $teamFilter = new Elastica_Filter_Or();
@@ -398,6 +499,11 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         return $teamFilter;
     }
 
+    /**
+     * This function constructs and returns type term filter for elasticsearch query.
+     *
+     * @return Elastica_Filter_Term
+     */
     protected function getTypeTermFilter($module)
     {
         $typeTermFilter = new Elastica_Filter_Term();
@@ -406,14 +512,24 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         return $typeTermFilter;
     }
 
+    /**
+     * This function constructs and returns owner term filter for elasticsearch query.
+     *
+     * @return Elastica_Filter_Term
+     */
     protected function getOwnerTermFilter()
     {
         $ownerTermFilter = new Elastica_Filter_Term();
-        $ownerTermFilter->setTerm('doc_owner', $GLOBALS['current_user']->id);
+        $ownerTermFilter->setTerm('doc_owner', str_replace('-', '', $GLOBALS['current_user']->id));
 
         return $ownerTermFilter;
     }
 
+    /**
+     * This function constructs and returns module level filter for elasticsearch query.
+     *
+     * @return Elastica_Filter_And
+     */
     protected function constructModuleLevelFilter($module)
     {
         $requireOwner = ACLController::requireOwner($module, 'list');
@@ -468,6 +584,11 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         return $moduleFilter;
     }
 
+    /**
+     * This function constructs and returns main filter for elasticsearch query.
+     *
+     * @return Elastica_Filter_Or
+     */
     protected function constructMainFilter($finalTypes)
     {
         $mainFilter = new Elastica_Filter_Or();
@@ -488,6 +609,11 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
      */
     public function search($queryString, $offset = 0, $limit = 20, $options = array())
     {
+        if (self::isSearchEngineDown())
+        {
+            return null;
+        }
+
         $appendWildcard = false;
         if( !empty($options['append_wildcard']) && $this->canAppendWildcard($queryString) )
         {
@@ -495,7 +621,7 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         }
         $queryString = sql_like_string($queryString, self::WILDCARD_CHAR, self::WILDCARD_CHAR, $appendWildcard);
 
-        $GLOBALS['log']->info("Going to search with query $queryString");
+        $this->logger->info("Going to search with query $queryString");
         $results = null;
         try
         {
@@ -503,10 +629,11 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
             $queryObj = new Elastica_Query_QueryString($qString);
             $queryObj->setAnalyzeWildcard(true);
             $queryObj->setAutoGeneratePhraseQueries(false);
-            if( !empty($options['append_wildcard']) )
+            if( !empty($options['append_wildcard']) ) {
                 // see https://github.com/elasticsearch/elasticsearch/issues/1186 for details
                 $queryObj->setRewrite('top_terms_5');
-            
+            }
+
             // set query string fields
             $fields = $this->getSearchFields($options);
             $queryObj->setFields($fields);
@@ -579,7 +706,8 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         }
         catch(Exception $e)
         {
-            $GLOBALS['log']->fatal("Unable to perform search with error: {$e->getMessage()}");
+            $this->reportException("Unable to perform search", $e);
+            $this->checkException($e);
             return null;
         }
 
@@ -597,8 +725,15 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         return str_replace("-", "", $teamSetID);
     }
 
+    /**
+     * This function loads the desired file/class from Elastic directory.
+     *
+     * @param $teamSetID
+     * @return mixed
+     */
     protected function loader($className)
     {
+        // FIXME: convert to use autoloader
         $fileName = str_replace('_', '/', $className);
         $path = 'include/SugarSearchEngine/Elastic/' . $fileName . '.php';
         if( file_exists($path) )
@@ -615,6 +750,11 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
      */
     public function createIndex($recreate = false)
     {
+        if (self::isSearchEngineDown())
+        {
+            return;
+        }
+
         try
         {
             // create an elastic index
@@ -628,16 +768,25 @@ class SugarSearchEngineElastic extends SugarSearchEngineAbstractBase
         }
         catch(Exception $e)
         {
-            $GLOBALS['log']->error("Unable to create index with error: {$e->getMessage()}");
+            $this->reportException("Unable to create index", $e);
+            $this->checkException($e);
         }
 
     }
 
+    /**
+     * Get Elastica client
+     * @return Elastica_Client
+     */
     public function getClient()
     {
         return $this->_client;
     }
 
+    /**
+     * Get the name of the index
+     * @return string
+     */
     public function getIndexName()
     {
         return $this->_indexName;

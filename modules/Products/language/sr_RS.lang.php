@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -37,11 +23,13 @@ $mod_strings = array (
   'LBL_ACCOUNT_NAME' => 'Naziv kompanije:',
   'LBL_ASSET_NUMBER' => 'Broj sredstva:',
   'LBL_ASSIGNED_TO_NAME' => 'Dodeljeno',
+  'LBL_BEST_CASE' => 'Najbolji slučaj',
   'LBL_BOOK_VALUE' => 'Knjigovodstvena vrednost',
   'LBL_BOOK_VALUE_DATE' => 'Datum knjigovodstvene vrednosti',
   'LBL_BOOK_VALUE_USDOLLAR' => 'Knjigovodstvena vrednost (Američki dolar)',
   'LBL_CATEGORY' => 'Kategorija:',
   'LBL_CATEGORY_NAME' => 'Naziv kategorije:',
+  'LBL_COMMIT_STAGE' => 'Faza Izvršenja',
   'LBL_CONTACT' => 'Kontakt',
   'LBL_CONTACT_ID' => 'ID broj kontakta:',
   'LBL_CONTACT_NAME' => 'Ime kontakta:',
@@ -51,7 +39,11 @@ $mod_strings = array (
   'LBL_COST_USDOLLAR' => 'Cena (Američki dolar)',
   'LBL_CREATED_USER' => 'Kreirao',
   'LBL_CURRENCY' => 'Valuta:',
+  'LBL_CURRENCY_ID' => 'ID broj valute',
+  'LBL_CURRENCY_RATE' => 'Kursna Lista',
   'LBL_CURRENCY_SYMBOL_NAME' => 'Simbol valute',
+  'LBL_DATE_CLOSED' => 'Očekivani datum zatvaranja',
+  'LBL_DATE_CLOSED_TIMESTAMP' => 'Očekivani Datum Zatvaranja - Vremenski pečat',
   'LBL_DATE_PURCHASED' => 'Kupljeno:',
   'LBL_DATE_SUPPORT_EXPIRES' => 'Podrška ističe:',
   'LBL_DATE_SUPPORT_STARTS' => 'Podrška počinje:',
@@ -68,7 +60,11 @@ $mod_strings = array (
   'LBL_DISCOUNT_USDOLLAR' => 'Jedinična cena (Američki dolar)',
   'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Dokumenta',
   'LBL_EDITLAYOUT' => 'Izmeni raspored',
+  'LBL_EXPERT_ID' => 'Ekspert za proizvod',
   'LBL_EXPORT_CURRENCY_ID' => 'ID broj valute',
+  'LBL_EXT_PRICE' => 'Procenjena cena',
+  'LBL_FORECAST' => 'Uključi u Prognozu',
+  'LBL_LIKELY_CASE' => 'Verovatni slučaj',
   'LBL_LIST_ACCOUNT_NAME' => 'Naziv kompanije:',
   'LBL_LIST_CONTACT_NAME' => 'Ime kontakta:',
   'LBL_LIST_COST_PRICE' => 'Trošak',
@@ -90,12 +86,16 @@ $mod_strings = array (
   'LBL_MFT_PART_NUM' => 'Broj dela proizvođača:',
   'LBL_MODIFIED_USER' => 'Promenio',
   'LBL_MODULE_NAME' => 'Proizvodi',
+  'LBL_MODULE_NAME_SINGULAR' => 'Proizvod',
   'LBL_MODULE_TITLE' => 'Proizvodi: Početna strana',
   'LBL_NAME' => 'Proizvod:',
   'LBL_NEW_FORM_TITLE' => 'Kreiraj proizvod',
   'LBL_NOTES_SUBPANEL_TITLE' => 'Beleške',
+  'LBL_OPPORTUNITY' => 'Prodajna prilika',
+  'LBL_OPPORTUNITY_ID' => 'ID broj prodajne prilike',
   'LBL_PRICING_FACTOR' => 'Cenovni faktor',
   'LBL_PRICING_FORMULA' => 'Cenovna formula:',
+  'LBL_PROBABILITY' => 'Verovatnoća (%)',
   'LBL_PRODUCT' => 'Proizvod:',
   'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Proizvodi',
   'LBL_PRODUCT_CATEGORIES' => 'Kategorije proizvoda',
@@ -122,6 +122,7 @@ $mod_strings = array (
   'LBL_VENDOR_PART_NUM' => 'Broj dela prodavca:',
   'LBL_WEBSITE' => 'Web stranica',
   'LBL_WEIGHT' => 'Težina:',
+  'LBL_WORST_CASE' => 'Najgori slučaj',
   'LNK_IMPORT_PRODUCTS' => 'Uvezi proizvode',
   'LNK_NEW_PRODUCT' => 'Kreiraj proizvod',
   'LNK_PRODUCT_LIST' => 'Pregledaj proizvode',

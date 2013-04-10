@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -56,9 +42,7 @@ $(document).ready(function(){
 });
 
 SUGAR.themes = SUGAR.namespace("themes");
-if(Get_Cookie("sugar_theme_menu_load") == null) {
-	Set_Cookie('sugar_theme_menu_load','false',30,'/','','');
-}
+
 SUGAR.append(SUGAR.themes, {
     setRightMenuTab: function(el, params) {
 
@@ -80,6 +64,12 @@ SUGAR.append(SUGAR.themes, {
     },
     setCurrentTab: function(params) {
         var el = '#moduleTab_'+ sugar_theme_gm_current + params.module;
+
+        // Sometimes the current module is picked with CSS used
+        // for the "More" tab, so the sub menu appears to the right of it
+        // Clear the 'top' and 'left' attributes
+        $(el).parent().children('ul').css({'top' : '', 'left' : ''});
+
         if ($(el) && $(el).parent()) {
             SUGAR.themes.setRightMenuTab(el, params);
             var currActiveTab = "#themeTabGroupMenu_"+sugar_theme_gm_current+" li.current";
@@ -360,7 +350,7 @@ SUGAR.append(SUGAR.themes, {
             _ie_adjustment = 10,
             menuItems = currentModuleList.children("li"),
             menuLength = menuItems.length;
-        if(isRTL && $.browser.msie && !SUGAR.themes.menuItemsWidth) {
+        if($.browser.msie) {
             menuItemsWidth = 0;
             menuItems.each(function(){
                 menuItemsWidth += $(this).width();
@@ -449,7 +439,7 @@ SUGAR.append(SUGAR.themes, {
 
     },
     globalToolTips: function () {
-    	$("#moduleList .home a").tipTip({maxWidth: "auto", edgeOffset: 10});
+    	// $("#moduleList .home a").tipTip({maxWidth: "auto", edgeOffset: 10});
 		$("#arrow").tipTip({maxWidth: "auto", edgeOffset: 10});
 		$("#logo").tipTip({maxWidth: "auto", edgeOffset: 10});
 		$("#quickCreateUL span").tipTip({maxWidth: "auto", edgeOffset: 10, content: SUGAR.language.translate('', 'LBL_QUICK_CREATE_TITLE')});
@@ -459,6 +449,7 @@ SUGAR.append(SUGAR.themes, {
         }
 
 		$("#sugar_spot_search").tipTip({maxWidth: "auto", edgeOffset: 10});
+        $("#glblSearchBtn").tipTip({maxWidth: "auto", edgeOffset: 10});
 		//setup tool tips for partner integrations
 		$("#partner").children("a").each(
             function (index) {

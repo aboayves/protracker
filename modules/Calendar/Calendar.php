@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -45,6 +31,7 @@ class Calendar {
 	
 	public $show_tasks = true;
 	public $show_calls = true;
+	public $show_completed = true;
 	public $enable_repeat = true;	
 
 	public $time_step = 60; // time step of each slot in minutes
@@ -74,7 +61,7 @@ class Calendar {
 	 * @param array $time_arr 
 	 */	
 	function __construct($view = "day", $time_arr = array()){
-		global $current_user, $timedate;	
+		global $current_user, $timedate, $current_language;
 		
 		$this->view = $view;		
 
@@ -96,8 +83,8 @@ class Calendar {
 
 		if (!empty($_REQUEST['year'])){
 			if ($_REQUEST['year'] > 2037 || $_REQUEST['year'] < 1970){
-				print("Sorry, calendar cannot handle the year you requested");
-				print("<br>Year must be between 1970 and 2037");
+                $calendarStrings = return_module_language($current_language, 'Calendar');
+                print($calendarStrings['ERR_YEAR_BETWEEN']);
 				exit;
 			}
 			$date_arr['year'] = $_REQUEST['year'];
@@ -124,17 +111,25 @@ class Calendar {
 		
 		$current_date_db = $date_arr['year']."-".str_pad($date_arr['month'],2,"0",STR_PAD_LEFT)."-".str_pad($date_arr['day'],2,"0",STR_PAD_LEFT);
 		$this->date_time = $GLOBALS['timedate']->fromString($current_date_db);	
-				
+        
 		$this->show_tasks = $current_user->getPreference('show_tasks');
 		if(is_null($this->show_tasks))
-			$this->show_tasks = SugarConfig::getInstance()->get('calendar.show_tasks_by_default',true);		
+			$this->show_tasks = SugarConfig::getInstance()->get('calendar.show_tasks_by_default',true);
+        
 		$this->show_calls = $current_user->getPreference('show_calls');
 		if(is_null($this->show_calls))
 			$this->show_calls = SugarConfig::getInstance()->get('calendar.show_calls_by_default',true);
-			
+        
+		// Show completed Meetings, Calls, Tasks
+        $this->show_completed = $current_user->getPreference('show_completed');
+        if(is_null($this->show_completed))
+        {
+            $this->show_completed = SugarConfig::getInstance()->get('calendar.show_completed_by_default', true);
+        }
+        
 		$this->enable_repeat = SugarConfig::getInstance()->get('calendar.enable_repeat',true);	
 
-		if(in_array($this->view,array('month','shared','year'))){
+		if(in_array($this->view,array('month','year'))){
 			$this->style = "basic";	
 		}else{
 			$displayTimeslots = $GLOBALS['current_user']->getPreference('calendar_display_timeslots');
@@ -210,7 +205,7 @@ class Calendar {
 					if($item['detail'] == 1){
 						if(isset($field_list[$item['module_name']])){
 							foreach($field_list[$item['module_name']] as $field){
-								if(!isset($item[$field])){
+								if(!isset($item[$field]) && isset($act->sugar_bean->$field)){
 									$item[$field] = $act->sugar_bean->$field;
 									if(empty($item[$field]))
 										$item[$field] = "";
@@ -218,7 +213,16 @@ class Calendar {
 							}					
 						}				
 					}
-					
+
+                    if (!empty($act->sugar_bean->parent_type) && !empty($act->sugar_bean->parent_id)) {
+                        $focus = BeanFactory::getBean($act->sugar_bean->parent_type, $act->sugar_bean->parent_id);
+                        // If the bean wasn't loaded, e.g. insufficient permissions
+                        if (!empty($focus))
+                        {
+                            $item['related_to'] = $focus->name;
+                        }
+                    }
+
 					if(!isset($item['duration_hours']) || empty($item['duration_hours']))
 						$item['duration_hours'] = 0;
 					if(!isset($item['duration_minutes']) || empty($item['duration_minutes']))
@@ -309,10 +313,13 @@ class Calendar {
 		$start_date_time = $start_date_time->get("-5 days"); // 5 days step back to fetch multi-day activities that
 
 		$acts_arr = array();
-	    	if($type == 'vfb'){
+	    	if($type == 'vfb')
+	    	{
 				$acts_arr = CalendarActivity::get_freebusy_activities($user, $start_date_time, $end_date_time);
-	    	}else{
-				$acts_arr = CalendarActivity::get_activities($user->id, $this->show_tasks, $start_date_time, $end_date_time, $this->view,$this->show_calls);
+	    	}
+	    	else
+	    	{
+				$acts_arr = CalendarActivity::get_activities($user->id, $this->show_tasks, $start_date_time, $end_date_time, $this->view, $this->show_calls, $this->show_completed);
 	    	}
 	    	
 	    	$this->acts_arr[$user->id] = $acts_arr;	 
@@ -339,7 +346,8 @@ class Calendar {
 		}else if($this->view == 'year'){
             		$day = $this->date_time->get($sign."1 year")->get_day_begin();
 		}else{
-			return "get_neighbor_date_str: notdefined for this view";
+            $calendarStrings = return_module_language($GLOBALS['current_language'], 'Calendar');
+            return $calendarStrings['ERR_NEIGHBOR_DATE'];
 		}
 		return $day->get_date_str();
 	}

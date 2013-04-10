@@ -1,5 +1,5 @@
 <?php
-// created: 2012-07-03 09:43:36
+// created: 2013-04-10 13:54:26
 $viewdefs['Tasks']['EditView'] = array (
   'templateMeta' => 
   array (
@@ -35,6 +35,14 @@ $viewdefs['Tasks']['EditView'] = array (
     ),
     'useTabs' => false,
     'syncDetailEditViews' => true,
+    'tabDefs' => 
+    array (
+      'LBL_TASK_INFORMATION' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+    ),
   ),
   'panels' => 
   array (

@@ -1,32 +1,28 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 function loadSugarChart(chartId,jsonFilename,css,chartConfig){if(document.getElementById(chartId)==null){return false;}
 var labelType,useGradients,nativeTextSupport,animate;(function(){var ua=navigator.userAgent,typeOfCanvas=typeof HTMLCanvasElement,nativeCanvasSupport=(typeOfCanvas=='object'||typeOfCanvas=='function'),textSupport=nativeCanvasSupport&&(typeof document.createElement('canvas').getContext('2d').fillText=='function');labelType='Native';nativeTextSupport=labelType=='Native';useGradients=nativeCanvasSupport;animate=false;})();var delay=500;switch(chartConfig["chartType"]){case"barChart":var handleFailure=function(o){alert('fail');if(o.responseText!==undefined){alert('failed');}}
-var handleSuccess=function(o){if(o.responseText!==undefined&&o.responseText!="No Data"){var json=eval('('+o.responseText+')');var properties=$jit.util.splat(json.properties)[0];var marginBottom=(chartConfig["orientation"]=='vertical'&&json.values.length>8)?20*4:20;var barChart=new $jit.BarChart({injectInto:chartId,animate:false,nodeCount:json.values.length,renderBackground:chartConfig['imageExportType']=="jpg"?true:false,backgroundColor:'rgb(255,255,255)',colorStop1:'rgba(255,255,255,.8)',colorStop2:'rgba(255,255,255,0)',shadow:{enable:true,size:2},orientation:chartConfig["orientation"],hoveredColor:false,Title:{text:properties['title'],size:16,color:'#444444',offset:20},Subtitle:{text:properties['subtitle'],size:11,color:css["color"],offset:20},Ticks:{enable:true,color:css["gridLineColor"]},barsOffset:(chartConfig["orientation"]=="vertical")?30:20,Margin:{top:20,left:30,right:20,bottom:marginBottom},ScrollNote:{text:(chartConfig["scroll"]&&SUGAR.util.isTouchScreen())?"Use two fingers to scroll":"",size:12},Events:{enable:true,onClick:function(node){if(!node||SUGAR.util.isTouchScreen())return;if(node.link=='undefined'||node.link=='')return;window.location.href=node.link;}},labelOffset:5,type:useGradients?chartConfig["barType"]+':gradient':chartConfig["barType"],showAggregates:true,showLabels:true,Label:{type:labelType,size:12,family:css["font-family"],color:css["color"],colorAlt:"#ffffff"},Tips:{enable:true,onShow:function(tip,elem){if(elem.link!='undefined'&&elem.link!=''){drillDown=(SUGAR.util.isTouchScreen())?"<br><a href='"+elem.link+"'>Click to drilldown</a>":"<br>Click to drilldown";}else{drillDown="";}
+var handleSuccess=function(o){if(o.responseText!==undefined&&o.responseText!="No Data"){var json=eval('('+o.responseText+')');var properties=$jit.util.splat(json.properties)[0];var marginBottom=(chartConfig["orientation"]=='vertical'&&json.values.length>8)?20*4:20;if(chartConfig["orientation"]=='vertical')
+{function fixChartContainer(event,itemsCount)
+{var region=YAHOO.util.Dom.getRegion('content');if(region&&region.width)
+{var realWidth=itemsCount*40;if(realWidth>region.width)
+{var chartCanvas=YAHOO.util.Dom.getElementsByClassName('chartCanvas','div');var chartContainer=YAHOO.util.Dom.getElementsByClassName('chartContainer','div');if(chartContainer.length>0&&chartCanvas.length>0)
+{chartContainer=YAHOO.util.Dom.get(chartContainer[0])
+YAHOO.util.Dom.setStyle(chartContainer,'width',region.width+'px')
+chartCanvas=YAHOO.util.Dom.get(chartCanvas[0]);YAHOO.util.Dom.setStyle(chartCanvas,'width',realWidth+'px');if(!event)
+{YAHOO.util.Event.addListener(window,"resize",fixChartContainer,json.values.length);}}}}}
+fixChartContainer(null,json.values.length);}
+var barChart=new $jit.BarChart({injectInto:chartId,animate:false,nodeCount:json.values.length,renderBackground:chartConfig['imageExportType']=="jpg"?true:false,backgroundColor:'rgb(255,255,255)',colorStop1:'rgba(255,255,255,.8)',colorStop2:'rgba(255,255,255,0)',shadow:{enable:true,size:2},orientation:chartConfig["orientation"],hoveredColor:false,Title:{text:properties['title'],size:16,color:'#444444',offset:20},Subtitle:{text:properties['subtitle'],size:11,color:css["color"],offset:20},Ticks:{enable:true,color:css["gridLineColor"]},barsOffset:(chartConfig["orientation"]=="vertical")?30:20,Margin:{top:20,left:30,right:20,bottom:marginBottom},ScrollNote:{text:(chartConfig["scroll"]&&SUGAR.util.isTouchScreen())?"Use two fingers to scroll":"",size:12},Events:{enable:true,onClick:function(node){if(!node||SUGAR.util.isTouchScreen())return;if(node.link=='undefined'||node.link=='')return;window.location.href=node.link;}},labelOffset:5,type:useGradients?chartConfig["barType"]+':gradient':chartConfig["barType"],showAggregates:true,showLabels:true,Label:{type:labelType,size:12,family:css["font-family"],color:css["color"],colorAlt:"#ffffff"},Tips:{enable:true,onShow:function(tip,elem){if(elem.link!='undefined'&&elem.link!=''){drillDown=(SUGAR.util.isTouchScreen())?"<br><a href='"+elem.link+"'>Click to drilldown</a>":"<br>Click to drilldown";}else{drillDown="";}
 if(elem.valuelabel!='undefined'&&elem.valuelabel!=undefined&&elem.valuelabel!=''){value="elem.valuelabel";}else{value="elem.value";}
 eval("tip.innerHTML = '<b>' + elem."+chartConfig["tip"]+" + '</b>: ' + "+value+" + ' - ' + elem.percentage + '%' + drillDown");}}});barChart.loadJSON(json);var list=$jit.id('legend'+chartId);var legend=barChart.getLegend(),cols=(typeof SUGAR=='undefined'||typeof SUGAR.mySugar=='undefined')?8:4,rows=Math.ceil(legend["name"].length/cols),table="<table cellpadding='0' cellspacing='0' align='left'>";var j=0;for(i=0;i<rows;i++){table+="<tr>";for(td=0;td<cols;td++){table+='<td width=\'16\' valign=\'top\'>';if(legend["name"][j]!=undefined){table+='<div class=\'query-color\' style=\'background-color:'
 +legend["color"][j]+'\'>&nbsp;</div>';}

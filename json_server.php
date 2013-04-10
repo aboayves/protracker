@@ -1,29 +1,15 @@
 <?php if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -134,6 +120,9 @@ function json_query($request_id, $params) {
 		$list_arr[$i]['module']= $list_return[$i]->object_name;
 
 		foreach($args['field_list'] as $field) {
+		    if(!empty($list_return[$i]->field_name_map[$field]['sensitive'])) {
+		        continue;
+		    }
 			// handle enums
 			if(	(isset($list_return[$i]->field_name_map[$field]['type']) && $list_return[$i]->field_name_map[$field]['type'] == 'enum') ||
 				(isset($list_return[$i]->field_name_map[$field]['custom_type']) && $list_return[$i]->field_name_map[$field]['custom_type'] == 'enum')) {
@@ -228,7 +217,8 @@ function authenticate() {
 	return $result;
 }
 
-function construct_where(&$query_obj, $table='',$module=null) {
+function construct_where(&$query_obj, $table='',$module=null)
+{
 	if(! empty($table)) {
 		$table .= ".";
 	}
@@ -239,7 +229,9 @@ function construct_where(&$query_obj, $table='',$module=null) {
 	}
 
 	foreach($query_obj['conditions'] as $condition) {
-
+        if($condition['name'] == 'user_hash') {
+            continue;
+        }
 		if ($condition['name']=='email1' or $condition['name']=='email2') {
 
 			$email1_value=strtoupper($condition['value']);
@@ -251,16 +243,16 @@ function construct_where(&$query_obj, $table='',$module=null) {
 		}
 		else {
 			if($condition['op'] == 'contains') {
-				$cond_arr[] = $GLOBALS['db']->quote($table.$condition['name'])." like '%".$GLOBALS['db']->quote($condition['value'])."%'";
+				$cond_arr[] = $table.$GLOBALS['db']->getValidDBName($condition['name'])." like '%".$GLOBALS['db']->quote($condition['value'])."%'";
 			}
 			if($condition['op'] == 'like_custom') {
 				$like = '';
 				if(!empty($condition['begin'])) $like .= $GLOBALS['db']->quote($condition['begin']);
 				$like .= $GLOBALS['db']->quote($condition['value']);
 				if(!empty($condition['end'])) $like .= $GLOBALS['db']->quote($condition['end']);
-				$cond_arr[] = $GLOBALS['db']->quote($table.$condition['name'])." like '$like'";
+				$cond_arr[] = $table.$GLOBALS['db']->getValidDBName($condition['name'])." like '$like'";
 			} else { // starts_with
-				$cond_arr[] = $GLOBALS['db']->quote($table.$condition['name'])." like '".$GLOBALS['db']->quote($condition['value'])."%'";
+				$cond_arr[] = $table.$GLOBALS['db']->getValidDBName($condition['name'])." like '".$GLOBALS['db']->quote($condition['value'])."%'";
 			}
 		}
 	}
@@ -268,8 +260,12 @@ function construct_where(&$query_obj, $table='',$module=null) {
 	if($table == 'users.') {
 		$cond_arr[] = $table."status='Active'";
 	}
+	$group = strtolower(trim($query_obj['group']));
+	if($group != "and" && $group != "or") {
+	    $group = "and";
+	}
 
-	return implode(" {$query_obj['group']} ",$cond_arr);
+	return implode(" $group ",$cond_arr);
 }
 
 ////	END UTILS
@@ -279,7 +275,7 @@ function construct_where(&$query_obj, $table='',$module=null) {
 ///////////////////////////////////////////////////////////////////////////////
 ////	JSON SERVER HANDLER LOGIC
 //ignore notices
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
 ob_start();
 insert_charset_header();
 global $sugar_config;

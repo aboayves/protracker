@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 SUGAR.expressions.initFormulaBuilder = function() {
@@ -277,6 +263,22 @@ SUGAR.expressions.validateCurrExpression = function(silent, matchType)
      */
 SUGAR.expressions.saveCurrentExpression = function(target, returnType)
 {
+    var expression = YAHOO.lang.trim(Dom.get('formulaInput').value);
+
+       /* Remove all blanks in expression that are not part of a string */
+    var res="";
+    var quote=0;
+    for (var i=0; i<expression.length; i++) {
+        var ch = expression.substr(i,1);
+        if (ch=='"') {
+            quote++;
+        }
+        if ((quote % 2) || ch != " ") {
+            res += ch;
+        }
+    }
+    Dom.get('formulaInput').value=res;
+
 	if (!SUGAR.expressions.validateCurrExpression(true, returnType))
 		return false;
 	if (YAHOO.lang.isString(target))
@@ -651,18 +653,31 @@ SUGAR.expressions.GridToolTip = {
      * This section sets up the formula builder autocomplete
      */
 
-    //Insert the wrapper html
-    if($("#fb_ac_wrapper").length == 0){
+    // Find the max z-index and use it for the autocomplete popup/tooltip
+    var maxZ = Math.max.apply(
+            null,
+            // Apply a function to all elements of body to return z-index
+            $.map(
+                $('body > *'),
+                function(element, index)
+                {
+                    return parseInt($(element).css('z-index')) || 1;	
+                }
+            )
+        );
+
+    // Create the auto-complete wrapper
+    if ($("#fb_ac_wrapper").length == 0)
+    {
         $("body").append(
-            "<input id='fb_ac_input' style='display:none;z-index:50;position:relative'>" +
+            "<input id='fb_ac_input' style='display: none; z-index: " + maxZ + "; position: relative'>" +
             "<div id='fb_ac_wrapper' style='position: absolute;'>" +
                 "<div id='fb_ac_spacer'></div>" +
             "</div>"
         )
-        $("#fb_ac_wrapper").position({ my : "left top", at: "left top", of: "#formulaInput"});
+        $("#fb_ac_wrapper").position({ my: "left top", at: "left top", of: "#formulaInput" });
     }
-
-
+    
     var fb_ac_open = false;
     /**
      * Gets the index of the first character in the current formula component (function or variable)
@@ -889,14 +904,23 @@ SUGAR.expressions.GridToolTip = {
         $("#fb_ac_wrapper ul.ui-autocomplete").before(html);
     }
 
-    //create the autcomplete help text div
-    $('body').append("<div id='fb_ac_help' class='fb_ac_help'></div>'");
+    // Use (maxZInput + 2) so that we guarantee that the help tooltip will be on top
+    // because one more element is generated using the #fb_ac_input z-index + 1
+    var maxZTooltip = maxZ + 2;
+    
+    // Create the auto-complete tooltip
+    if ($("#fb_ac_help").length == 0)
+    {
+        $('body').append("<div id='fb_ac_help' style='z-index: " + maxZTooltip + ";' class='fb_ac_help'></div>'");
+    }
 
-    var hideACHelp = function(){
+    var hideACHelp = function()
+    {
         $("#fb_ac_help").css("visibility", "hidden");
     };
 
-    var showACHelp = function(func){
+    var showACHelp = function(func)
+    {
         var ggt = SUGAR.expressions.GridToolTip,
             cache = ggt.tipCache,
             div = $("#fb_ac_help");

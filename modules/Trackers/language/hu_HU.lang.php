@@ -3,43 +3,44 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
+  'LBL_ENABLE' => 'Engedélyezett',
+  'LBL_MODULE_NAME' => 'Követők',
+  'LBL_MODULE_NAME_SINGULAR' => 'Követő',
+  'LBL_MODULE_NAME_TITLE' => 'Követők',
+  'LBL_TRACKER_DESC' => 'Követési feladatok',
+  'LBL_TRACKER_HELP' => 'Felhasználók által látogatott oldalak (modul és rekord hozzáférések) továbbá rekord mentések követése',
+  'LBL_TRACKER_PERF_DESC' => 'Követő teljesítmény',
+  'LBL_TRACKER_PERF_HELP' => 'Adatbázis útvonalak, fájl hozzáférések és memória használat követése',
+  'LBL_TRACKER_PRUNE_INTERVAL' => 'A Nyomkövető adatok napjainak a száma tárolható, amikor a Feladatütemező részekre osztja a táblázatokat',
+  'LBL_TRACKER_PRUNE_RANGE' => 'Napok száma',
+  'LBL_TRACKER_QUERIES_DESC' => 'Követő várólisták',
+  'LBL_TRACKER_QUERIES_HELP' => 'Ha a "Lassú lekérdezések" engedélyezve van, a Track SQL utasítások és a lekérdezés végrehajtási idő meghaladja a "Lassú lekérdezés időintervallum" értéket',
+  'LBL_TRACKER_SESSIONS_DESC' => 'Követő munkamenet',
+  'LBL_TRACKER_SESSIONS_HELP' => 'Az aktív felhasználók és munkafolyamat információk követése',
+  'LBL_TRACKER_SETTINGS' => 'Követés beállításai',
   'ShowActiveUsers' => 'Aktív felhasználók mutatása',
   'ShowLastModifiedRecords' => 'Utolsó 10 módosított rekord',
-  'ShowTopUser' => 'Top felhasználó',
+  'ShowLoggedInUserCount' => 'Aktív felhasználók száma',
+  'ShowMyCumulativeLoggedInTime' => 'Összes bejelentkezve töltött időm (heti)',
   'ShowMyModuleUsage' => 'Általam használt modulok',
   'ShowMyWeeklyActivities' => 'Heti aktivitásom',
   'ShowTop3ModulesUsed' => '3 legtöbbet használt modulom',
-  'ShowLoggedInUserCount' => 'Aktív felhasználók száma',
-  'ShowMyCumulativeLoggedInTime' => 'Összes bejelentkezve töltött időm (heti)',
+  'ShowTopUser' => 'Top felhasználó',
   'ShowUsersCumulativeLoggedInTime' => 'Felhasználók összes bejelentkezve töltött ideje (heti)',
   'action' => 'Feladat',
   'active_users' => 'Aktív felhasználók száma',
@@ -57,19 +58,5 @@ $mod_strings = array (
   'total_login_time' => 'Idő (óó:pp:mp)',
   'user_name' => 'Felhasználónév',
   'users' => 'Felhasználók',
-  'LBL_ENABLE' => 'Engedélyezett',
-  'LBL_MODULE_NAME_TITLE' => 'Követők',
-  'LBL_MODULE_NAME' => 'Követők',
-  'LBL_TRACKER_SETTINGS' => 'Követés beállításai',
-  'LBL_TRACKER_QUERIES_DESC' => 'Követő várólisták',
-  'LBL_TRACKER_QUERIES_HELP' => 'Ha a "Lassú lekérdezések" engedélyezve van, a Track SQL utasítások és a lekérdezés végrehajtási idő meghaladja a "Lassú lekérdezés időintervallum" értéket',
-  'LBL_TRACKER_PERF_DESC' => 'Követő teljesítmény',
-  'LBL_TRACKER_PERF_HELP' => 'Adatbázis útvonalak, fájl hozzáférések és memória használat követése',
-  'LBL_TRACKER_SESSIONS_DESC' => 'Követő munkamenet',
-  'LBL_TRACKER_SESSIONS_HELP' => 'Az aktív felhasználók és munkafolyamat információk követése',
-  'LBL_TRACKER_DESC' => 'Követési feladatok',
-  'LBL_TRACKER_HELP' => 'Felhasználók által látogatott oldalak (modul és rekord hozzáférések) továbbá rekord mentések követése',
-  'LBL_TRACKER_PRUNE_INTERVAL' => 'A Figyelő adatok napjainak a száma tárolható, amikor a Feladatütemező részekre osztja a táblázatokat',
-  'LBL_TRACKER_PRUNE_RANGE' => 'Napok száma',
 );
 

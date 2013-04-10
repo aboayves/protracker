@@ -2,30 +2,16 @@
 if (! defined ( 'sugarEntry' ) || ! sugarEntry)
     die ( 'Not A Valid Entry Point' ) ;
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -159,6 +145,52 @@ class GridLayoutMetaDataParser extends AbstractMetaDataParser implements MetaDat
             }
         }
         return $viewdefs ;
+    }
+
+    /*
+    * Return the tab definitions for tab/panel combo
+    */
+    function getTabDefs ()
+    {
+      $tabDefs = array();
+      $this->setUseTabs( false );
+      foreach ( $this->_viewdefs [ 'panels' ] as $panelID => $panel )
+      {
+
+        $tabDefs [ strtoupper($panelID) ] = array();
+
+        // panel or tab setting
+        if ( isset($this->_viewdefs [ 'templateMeta' ] [ 'tabDefs' ] [ strtoupper($panelID) ] [ 'newTab' ])
+        && is_bool($this->_viewdefs [ 'templateMeta' ] [ 'tabDefs' ] [ strtoupper($panelID) ] [ 'newTab' ]))
+        {
+          $tabDefs [ strtoupper($panelID) ] [ 'newTab' ] = $this->_viewdefs [ 'templateMeta' ] [ 'tabDefs' ] [ strtoupper($panelID) ] [ 'newTab' ];
+          if ($tabDefs [ strtoupper($panelID) ] [ 'newTab' ] == true)
+              $this->setUseTabs( true );
+        }
+        else
+        {
+          $tabDefs [ strtoupper($panelID) ] [ 'newTab' ] = false;
+        }
+
+        // collapsed panels
+        if ( isset($this->_viewdefs [ 'templateMeta' ] [ 'tabDefs' ] [ strtoupper($panelID) ] [ 'panelDefault' ])
+        && $this->_viewdefs [ 'templateMeta' ] [ 'tabDefs' ] [ strtoupper($panelID) ] [ 'panelDefault' ] == 'collapsed' )
+        {
+          $tabDefs [ strtoupper($panelID) ] [ 'panelDefault' ] = 'collapsed';
+        }
+        else
+        {
+          $tabDefs [ strtoupper($panelID) ] [ 'panelDefault' ] = 'expanded';
+        }
+      }
+      return $tabDefs;
+    }
+
+    /*
+     * Set tab definitions
+     */
+    function setTabDefs($tabDefs) {
+      $this->_viewdefs [ 'templateMeta' ] [ 'tabDefs' ] = $tabDefs;
     }
 
     function getMaxColumns ()
@@ -444,7 +476,8 @@ class GridLayoutMetaDataParser extends AbstractMetaDataParser implements MetaDat
 
         	}
         }
-        
+
+/*
         //Set the tabs setting
         if (isset($_REQUEST['panels_as_tabs']))
         {
@@ -453,7 +486,39 @@ class GridLayoutMetaDataParser extends AbstractMetaDataParser implements MetaDat
         	else
         	   $this->setUseTabs( true );
         }
-        
+*/
+
+        //Set the tab definitions
+        $tabDefs = array();
+        $this->setUseTabs( false );
+        foreach ( $this->_viewdefs [ 'panels' ] as $panelID => $panel )
+        {
+          // panel or tab setting
+          $tabDefs [ strtoupper($panelID) ] = array();
+          if ( isset($_REQUEST['tabDefs_'.$panelID.'_newTab']) )
+          {
+            $tabDefs [ strtoupper($panelID) ] [ 'newTab' ] = ( $_REQUEST['tabDefs_'.$panelID.'_newTab'] == '1' ) ? true : false;
+            if ($tabDefs [ strtoupper($panelID) ] [ 'newTab' ] == true)
+                $this->setUseTabs( true );
+          }
+          else
+          {
+            $tabDefs [ strtoupper($panelID) ] [ 'newTab' ] = false;
+          }
+
+          // collapse panel
+          if ( isset($_REQUEST['tabDefs_'.$panelID.'_panelDefault']) )
+          {
+            $tabDefs [ strtoupper($panelID) ] [ 'panelDefault' ] = ( $_REQUEST['tabDefs_'.$panelID.'_panelDefault'] == 'collapsed' ) ? 'collapsed' : 'expanded';
+          }
+          else
+          {
+            $tabDefs [ strtoupper($panelID) ] [ 'panelDefault' ] = 'expanded';
+          }
+
+        }
+        $this->setTabDefs($tabDefs);
+
     	//bug: 38232 - Set the sync detail and editview settings
         if (isset($_REQUEST['sync_detail_and_edit']))
         {
@@ -531,16 +596,18 @@ class GridLayoutMetaDataParser extends AbstractMetaDataParser implements MetaDat
                 $newRow = array ( ) ;
                 foreach ( $row as $colID => $fieldname )
                 {
-                	if ($fieldname == null || !isset($fielddefs[$fieldname]))
+                	if ($fieldname == null )
                 	   continue;
-                    
                     //Backwards compatibility and a safeguard against multiple calls to _convertToCanonicalForm
-                	   if(is_array($fieldname))
+                    if(is_array($fieldname))
                     {
+
                     	$newRow [ $colID - $offset ] = $fieldname;
                     	continue;
-                    }
-                	
+                    }else if(!isset($fielddefs[$fieldname])){
+                       continue;
+                     }
+
                 	//Replace (filler) with the empty string
                 	if ($fieldname == $this->FILLER[ 'name' ]) {
                         $newRow [ $colID - $offset ] = '' ;

@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -63,7 +49,7 @@ abstract class SugarRelationship
      * @abstract
      * @param  $lhs SugarBean
      * @param  $rhs SugarBean
-     * @return void
+     * @return boolean
      */
     public abstract function remove($lhs, $rhs);
 
@@ -107,12 +93,14 @@ abstract class SugarRelationship
 
     /**
      * @param  $link Link2 removes all the beans associated with this link from the relationship
-     * @return void
+     * @return boolean     true if all beans were successfully removed or there
+     *                     were not related beans, false otherwise
      */
     public function removeAll($link)
     {
         $focus = $link->getFocus();
         $related = $link->getBeans();
+        $result = true;
         foreach($related as $relBean)
         {
             if (empty($relBean->id)) {
@@ -120,10 +108,18 @@ abstract class SugarRelationship
             }
 
             if ($link->getSide() == REL_LHS)
-                $this->remove($focus, $relBean);
+            {
+                $sub_result = $this->remove($focus, $relBean);
+            }
             else
-                $this->remove($relBean, $focus);
+            {
+                $sub_result = $this->remove($relBean, $focus);
+            }
+
+            $result = $result && $sub_result;
         }
+
+        return $result;
     }
 
     /**
@@ -176,7 +172,7 @@ abstract class SugarRelationship
 
     /**
      * @param array $row values to be inserted into the relationship
-     * @return bool|void null if new row was inserted and true if an exesting row was updated
+     * @return bool|void null if new row was inserted and true if an existing row was updated
      */
     protected function addRow($row)
     {
@@ -326,6 +322,19 @@ abstract class SugarRelationship
     }
 
     /**
+     * Call the before add logic hook for a given link
+     * @param  SugarBean $focus base bean the hooks is triggered from
+     * @param  SugarBean $related bean being added/removed/updated from relationship
+     * @param string $link_name name of link being triggerd
+     * @return void
+     */
+    protected function callBeforeAdd($focus, $related, $link_name="")
+    {
+        $custom_logic_arguments = $this->getCustomLogicArguments($focus, $related, $link_name);
+        $focus->call_custom_logic('before_relationship_add', $custom_logic_arguments);
+    }
+
+    /**
      * Call the after add logic hook for a given link
      * @param  SugarBean $focus base bean the hooks is triggered from
      * @param  SugarBean $related bean being added/removed/updated from relationship
@@ -336,6 +345,18 @@ abstract class SugarRelationship
     {
         $custom_logic_arguments = $this->getCustomLogicArguments($focus, $related, $link_name);
         $focus->call_custom_logic('after_relationship_add', $custom_logic_arguments);
+    }
+
+    /**
+     * @param  SugarBean $focus
+     * @param  SugarBean $related
+     * @param string $link_name
+     * @return void
+     */
+    protected function callBeforeDelete($focus, $related, $link_name="")
+    {
+        $custom_logic_arguments = $this->getCustomLogicArguments($focus, $related, $link_name);
+        $focus->call_custom_logic('before_relationship_delete', $custom_logic_arguments);
     }
 
     /**
@@ -398,6 +419,14 @@ abstract class SugarRelationship
                 if (empty($bean->deleted) && empty($bean->in_save))
                 {
                     $bean->save();
+                }
+                else
+                {
+                    // Bug 55942 save the in-save id which will be used to send workflow alert later
+                    if (isset($bean->id) && !empty($_SESSION['WORKFLOW_ALERTS']))
+                    {
+                        $_SESSION['WORKFLOW_ALERTS']['id'] = $bean->id;
+                    }
                 }
             }
         }

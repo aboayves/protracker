@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('include/SugarFields/Fields/Base/SugarFieldBase.php');
@@ -173,6 +159,58 @@ class SugarFieldDatetimecombo extends SugarFieldBase {
                 $bean->$field = $timedate->to_db_date($inputData[$prefix.$field]);
             }
         }
+    }
+
+    /**
+     * @see SugarFieldBase::importSanitize()
+     */
+    public function importSanitize(
+        $value,
+        $vardef,
+        $focus,
+        ImportFieldSanitize $settings
+        )
+    {
+        global $timedate;
+
+        $format = $timedate->merge_date_time($settings->dateformat, $settings->timeformat);
+
+        if ( !$timedate->check_matching_format($value, $format) ) {
+            $parts = $timedate->split_date_time($value);
+            if(empty($parts[0])) {
+               $datepart = $timedate->getNow()->format($settings->dateformat);
+            }
+            else {
+               $datepart = $parts[0];
+            }
+            if(empty($parts[1])) {
+                $timepart = $timedate->fromTimestamp(0)->format($settings->timeformat);
+            } else {
+                $timepart = $parts[1];
+                // see if we can get by stripping the seconds
+                if(strpos($settings->timeformat, 's') === false) {
+                    $sep = $timedate->timeSeparatorFormat($settings->timeformat);
+                    // We are assuming here seconds are the last component, which
+                    // is kind of reasonable - no sane time format puts seconds first
+                    $timeparts = explode($sep, $timepart);
+                    if(!empty($timeparts[2])) {
+                        $timepart = join($sep, array($timeparts[0], $timeparts[1]));
+                    }
+                }
+            }
+
+            $value = $timedate->merge_date_time($datepart, $timepart);
+            if ( !$timedate->check_matching_format($value, $format) ) {
+                return false;
+            }
+        }
+
+        try {
+            $date = SugarDateTime::createFromFormat($format, $value, new DateTimeZone($settings->timezone));
+        } catch(Exception $e) {
+            return false;
+        }
+        return $date->asDb();
     }
 }
 ?>

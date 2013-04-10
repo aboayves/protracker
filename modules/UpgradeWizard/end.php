@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -202,22 +188,19 @@ add_custom_modules_favorites_search();
 logThis("Complete: Update custom module built using module builder to add favorites", $path);
 
 if(isset($_SESSION['current_db_version']) && isset($_SESSION['target_db_version'])){
-	if($_SESSION['current_db_version'] != $_SESSION['target_db_version']){
+    if (version_compare($_SESSION['current_db_version'], $_SESSION['target_db_version'], '!='))
+    {
 		logThis("Adding Saved Report Chart Types", $path);
 		if(file_exists("$unzip_dir/scripts/upgrade_homepage.php")) {
             require_once("$unzip_dir/scripts/upgrade_homepage.php");
 		    add_report_chart_types();
 		}
-		logThis("Upgrading multienum data", $path);
-        if(file_exists("$unzip_dir/scripts/upgrade_multienum_data.php")) {
-            require_once("$unzip_dir/scripts/upgrade_multienum_data.php");
-            upgrade_multienum_data();
-        }
 	 }
 
 
 	 //keeping separate. making easily visible and readable
-	 if($_SESSION['current_db_version'] == $_SESSION['target_db_version']){
+     if (version_compare($_SESSION['current_db_version'], $_SESSION['target_db_version'], '='))
+     {
 	    $_REQUEST['upgradeWizard'] = true;
 	    ob_start();
 			include('modules/ACL/install_actions.php');
@@ -279,35 +262,15 @@ logThis('Begin upgrade_connectors', $path);
 upgrade_connectors();
 logThis('End upgrade_connectors', $path);
 
-
-// Enable the InsideView connector by default
-if($_SESSION['current_db_version'] < '621' && function_exists('upgradeEnableInsideViewConnector')) {
-    upgradeEnableInsideViewConnector();
-}
-
-/*
-if ($_SESSION['current_db_version'] < '620' && ($sugar_config['dbconfig']['db_type'] == 'mssql' || $sugar_config['dbconfig']['db_type'] == 'oci8'))
+if (version_compare($_SESSION['current_db_version'], '6.5.0', '<'))
 {
-    repair_long_relationship_names($path);
+    // Bug 53650 - Workflow Type Templates not saving Type upon upgrade to 6.5.0, usable as Email Templates
+    $db->query("UPDATE email_templates SET type = 'workflow' WHERE
+        coalesce(" . $db->convert("base_module", "length") . ",0) > 0
+        AND
+        coalesce(" . $db->convert("type", "length") . ",0) = 0
+    ");
 }
-*/
-
-//Global search support
-/*
-if($_SESSION['current_db_version'] < '620' && function_exists('add_unified_search_to_custom_modules_vardefs'))
-{
-   logThis('Add global search for custom modules start .', $path);
-   add_unified_search_to_custom_modules_vardefs();
-   logThis('Add global search for custom modules finished .', $path);
-}
-*/
-
-//Upgrade system displayed tabs and subpanels
-if(function_exists('upgradeDisplayedTabsAndSubpanels'))
-{
-	upgradeDisplayedTabsAndSubpanels($_SESSION['current_db_version']);
-}
-
 
 //Unlink files that have been removed
 if(function_exists('unlinkUpgradeFiles'))
@@ -321,7 +284,7 @@ if(function_exists('rebuildSprites') && function_exists('imagecreatetruecolor'))
 }
 
 //Run repairUpgradeHistoryTable
-if($_SESSION['current_db_version'] < '650' && function_exists('repairUpgradeHistoryTable'))
+if (version_compare($_SESSION['current_db_version'], '6.5.0', '<') && function_exists('repairUpgradeHistoryTable'))
 {
     repairUpgradeHistoryTable();
 }
@@ -330,14 +293,6 @@ require_once('modules/Administration/upgrade_custom_relationships.php');
 upgrade_custom_relationships();
 
 require_once('modules/UpgradeWizard/uw_utils.php');
-
-/*
-if($_SESSION['current_db_version'] < '620')
-{
-	upgradeDateTimeFields($path);
-	upgradeDocumentTypeFields($path);
-}
-*/
 
 //Update the license
 logThis('Start Updating the license ', $path);

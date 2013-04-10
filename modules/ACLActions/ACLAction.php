@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('modules/ACLActions/actiondefs.php');
@@ -46,7 +32,7 @@ class ACLAction  extends SugarBean{
     * @param STRING $category - the category (e.g module name - Accounts, Contacts)
     * @param STRING $type - the type (e.g. 'module', 'field')
     */
-    function addActions($category, $type='module'){
+    static function addActions($category, $type='module'){
         global $ACLActions;
         $db = DBManagerFactory::getInstance();
         if(isset($ACLActions[$type])){
@@ -82,7 +68,7 @@ class ACLAction  extends SugarBean{
     * @param STRING $category - the category (e.g module name - Accounts, Contacts)
     * @param STRING $type - the type (e.g. 'module', 'field')
     */
-    function removeActions($category, $type='module'){
+    public static function removeActions($category, $type='module'){
         global $ACLActions;
         $db = DBManagerFactory::getInstance();
         if(isset($ACLActions[$type])){
@@ -110,7 +96,7 @@ class ACLAction  extends SugarBean{
     * @param INT $access - the access level you want the color for
     * @return the color either name or hex representation or false if the level does not exist
     */
-    function AccessColor($access){
+    protected static function AccessColor($access){
         global $ACLActionAccessLevels;
         if(isset($ACLActionAccessLevels[$access])){
 
@@ -128,7 +114,7 @@ class ACLAction  extends SugarBean{
     * @param INT $access - the access level you want the color for
     * @return the translated access level name or false if the level does not exist
     */
-    function AccessName($access){
+    static function AccessName($access){
         global $ACLActionAccessLevels;
         if(isset($ACLActionAccessLevels[$access])){
             return translate($ACLActionAccessLevels[$access]['label'], 'ACLActions');
@@ -145,7 +131,7 @@ class ACLAction  extends SugarBean{
      * @param INT $access - the access level you want the color for
      * @return the access level label or false if the level does not exist
      */
-    function AccessLabel($access){
+    protected static function AccessLabel($access){
         global $ACLActionAccessLevels;
         if(isset($ACLActionAccessLevels[$access])){
             $label=preg_replace('/(LBL_ACCESS_)(.*)/', '$2', $ACLActionAccessLevels[$access]['label']);
@@ -161,7 +147,7 @@ class ACLAction  extends SugarBean{
     * this is used for building select boxes
     * @return array containg access levels (ints) as keys and access names as values
     */
-    function getAccessOptions( $action, $type='module'){
+    protected static function getAccessOptions( $action, $type='module'){
         global $ACLActions;
         $options = array();
 
@@ -179,7 +165,7 @@ class ACLAction  extends SugarBean{
     *
     *
     */
-    function getDefaultActions($type='module', $action=''){
+    public static function getDefaultActions($type='module', $action=''){
         $query = "SELECT * FROM acl_actions WHERE deleted=0 ";
         if(!empty($type)){
             $query .= " AND acltype='$type'";
@@ -211,7 +197,7 @@ class ACLAction  extends SugarBean{
     * @return ARRAY of ACLActionsArray
     */
 
-    function getUserActions($user_id,$refresh=false, $category='',$type='', $action=''){
+    static function getUserActions($user_id,$refresh=false, $category='',$type='', $action=''){
         //check in the session if we already have it loaded
         if(!$refresh && !empty($_SESSION['ACL'][$user_id])){
             if(empty($category) && empty($action)){
@@ -296,8 +282,23 @@ class ACLAction  extends SugarBean{
             }
             }
         }
+        
+        // Sort by translated categories
+        uksort($selected_actions, "ACLAction::langCompare");
         return $selected_actions;
     }
+    
+    private static function langCompare($a, $b) 
+    {
+        global $app_list_strings;
+        // Fallback to array key if translation is empty
+        $a = empty($app_list_strings['moduleList'][$a]) ? $a : $app_list_strings['moduleList'][$a];
+        $b = empty($app_list_strings['moduleList'][$b]) ? $b : $app_list_strings['moduleList'][$b];
+        if ($a == $b)
+            return 0;
+        return ($a < $b) ? -1 : 1;
+    }
+    
     /**
     * (static/ non-static)function hasAccess($is_owner= false , $access = 0)
     * checks if a user has access to this acl if the user is an owner it will check if owners have access
@@ -307,9 +308,10 @@ class ACLAction  extends SugarBean{
     * @param int $access
     * @return true or false
     */
-    function hasAccess($is_owner=false, $access = 0){
+    static function hasAccess($is_owner=false, $access = 0){
 
         if($access != 0 && $access == ACL_ALLOW_ALL || ($is_owner && $access == ACL_ALLOW_OWNER))return true;
+       //if this exists, then this function is not static, so check the aclaccess parameter
         if(isset($this) && isset($this->aclaccess)){
             if($this->aclaccess == ACL_ALLOW_ALL || ($is_owner && $this->aclaccess == ACL_ALLOW_OWNER))
             return true;
@@ -333,7 +335,7 @@ class ACLAction  extends SugarBean{
     * @param STRING $action the action of that category you would like to check access for
     * @param BOOLEAN OPTIONAL $is_owner if the object is owned by the user you are checking access for
     */
-    function userHasAccess($user_id, $category, $action,$type='module', $is_owner = false){
+    public static function userHasAccess($user_id, $category, $action,$type='module', $is_owner = false){
        global $current_user;
        if($current_user->isAdminForModule($category)&& !isset($_SESSION['ACL'][$user_id][$category][$type][$action]['aclaccess'])){
         return true;
@@ -361,12 +363,17 @@ class ACLAction  extends SugarBean{
     * @param STRING $type
     * @return INT (ACCESS LEVEL)
     */
-    function getUserAccessLevel($user_id, $category, $action,$type='module'){
+    public static function getUserAccessLevel($user_id, $category, $action,$type='module'){
         if(empty($_SESSION['ACL'][$user_id][$category][$type][$action])){
             ACLAction::getUserActions($user_id, false);
 
         }
         if(!empty($_SESSION['ACL'][$user_id][$category][$type][$action])){
+            if (!empty($_SESSION['ACL'][$user_id][$category][$type]['admin']) && $_SESSION['ACL'][$user_id][$category][$type]['admin']['aclaccess'] >= ACL_ALLOW_ADMIN)
+            {
+                // If you have admin access for a module, all ACL's are allowed
+                return $_SESSION['ACL'][$user_id][$category][$type]['admin']['aclaccess'];
+            }            
             return  $_SESSION['ACL'][$user_id][$category][$type][$action]['aclaccess'];
         }
     }
@@ -381,7 +388,7 @@ class ACLAction  extends SugarBean{
     * @param STRING $type
     * @return boolean
     */
-    function userNeedsOwnership($user_id, $category, $action,$type='module'){
+    public static function userNeedsOwnership($user_id, $category, $action,$type='module'){
         //check if we don't have it set in the cache if not lets reload the cache
 
         if(empty($_SESSION['ACL'][$user_id][$category][$type][$action])){
@@ -403,7 +410,7 @@ class ACLAction  extends SugarBean{
     *
     * @param unknown_type $categories
     */
-    function setupCategoriesMatrix(&$categories){
+    public static function setupCategoriesMatrix(&$categories){
         global $ACLActions, $current_user;
         $names = array();
         $disabled = array();
@@ -493,6 +500,3 @@ class ACLAction  extends SugarBean{
 
 
 }
-
-
-?>

@@ -1,61 +1,50 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-  'LBL_LIST_STATUS' => 'StavStav:',
-  'LBL_STATUS' => 'Stav:',
-  'LBL_MODULE_NAME' => 'Daňové sazby',
-  'LBL_MODULE_TITLE' => 'Daňové sazby: Hlavní stránka',
-  'LBL_SEARCH_FORM_TITLE' => 'Vyhledání daňových sazeb',
+  'ERR_DELETE_RECORD' => 'Musíte vybrat číslo záznamu pro smazání daňové taxy',
+  'LBL_CREATED_ID' => 'Vytvořeno podle ID',
+  'LBL_EDITLAYOUT' => 'Úprava rozvržení',
+  'LBL_EXPORT_CREATED_BY' => 'Vytvořeno podle ID',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'ID upravovaného uživatele',
   'LBL_LIST_FORM_TITLE' => 'Výpis daňových sazeb',
-  'LBL_NEW_FORM_TITLE' => 'Nová daňová sazba',
-  'LBL_TAXRATE' => 'Daňová sazba:',
-  'LBL_LIST_NAME' => 'Jméno daňové sazby',
-  'LBL_NAME' => 'Jméno daňové sazby:',
   'LBL_LIST_LIST_ORDER' => 'Nabídka',
+  'LBL_LIST_NAME' => 'Jméno daňové sazby',
   'LBL_LIST_ORDER' => 'Nabídka:',
+  'LBL_LIST_STATUS' => 'StavStav:',
   'LBL_LIST_VALUE' => 'Procentní',
+  'LBL_MODIFIED_ID' => 'Upraveno podle ID',
+  'LBL_MODULE_NAME' => 'Daňové sazby',
+  'LBL_MODULE_NAME_SINGULAR' => 'Daň%',
+  'LBL_MODULE_TITLE' => 'Daňové sazby: Hlavní stránka',
+  'LBL_NAME' => 'Jméno daňové sazby:',
+  'LBL_NEW_FORM_TITLE' => 'Nová daňová sazba',
+  'LBL_SEARCH_FORM_TITLE' => 'Vyhledání daňových sazeb',
+  'LBL_STATUS' => 'Stav:',
+  'LBL_TAXRATE' => 'Daňová sazba:',
   'LBL_VALUE' => 'Procentní(%):',
+  'LNK_IMPORT_TAXRATES' => 'Import Daňových sazeb',
   'LNK_NEW_SHIPPER' => 'List dodavatelů',
   'LNK_NEW_TAXRATE' => 'List daňových sazeb',
-  'LNK_IMPORT_TAXRATES' => 'Import Daňových sazeb',
   'NTC_DELETE_CONFIRMATION' => 'Jste si jist, že chcete odebrat tento záznam?',
-  'ERR_DELETE_RECORD' => 'Musíte vybrat číslo záznamu pro smazání daňové taxy',
-  'NTC_STATUS' => 'Nastavte status na NEAKTIVNÍ pro odstranení daňové sazby',
   'NTC_LIST_ORDER' => 'Nastavte, která taxa se bude objevovat ve výběrovém poli.',
+  'NTC_STATUS' => 'Nastavte status na NEAKTIVNÍ pro odstranení daňové sazby',
   'taxrate_status_dom' => 
   array (
     'Active' => 'Aktivní',

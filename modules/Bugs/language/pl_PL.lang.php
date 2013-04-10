@@ -3,99 +3,96 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LNK_IMPORT_BUGS' => 'Importuj usterki',
-  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Dokumenty',
-  'LBL_BUG_INFORMATION' => 'Przegląd usterek',
-  'LBL_STATUS' => 'Status:',
-  'LBL_LIST_NUMBER' => 'Num.',
-  'LBL_LIST_STATUS' => 'Status',
-  'LBL_MODULE_NAME' => 'Śledzenie błędów',
-  'LBL_MODULE_TITLE' => 'Śledzenie błędów: Strona główna',
-  'LBL_MODULE_ID' => 'Błedy',
-  'LBL_SEARCH_FORM_TITLE' => 'Szukanie błedu',
-  'LBL_LIST_FORM_TITLE' => 'Lista błędów',
-  'LBL_NEW_FORM_TITLE' => 'Nowy błąd',
-  'LBL_CONTACT_BUG_TITLE' => 'Błąd - kontakt:',
-  'LBL_SUBJECT' => 'Temat:',
+  'ERR_DELETE_RECORD' => 'Proszę podać numer rekordu, z którego ma zostać usunięty błąd.',
+  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Kontrahenci',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Wydarzenia',
+  'LBL_ASSIGNED_TO_NAME' => 'Przydzielono do',
   'LBL_BUG' => 'Błąd:',
+  'LBL_BUG_INFORMATION' => 'Informacje ogólne',
   'LBL_BUG_NUMBER' => 'Numer błędu:',
-  'LBL_NUMBER' => 'Numer:',
-  'LBL_PRIORITY' => 'Priorytet:',
-  'LBL_DESCRIPTION' => 'Opis:',
-  'LBL_CONTACT_NAME' => 'Nazwa kontaktu:',
   'LBL_BUG_SUBJECT' => 'Temat błędu:',
-  'LBL_CONTACT_ROLE' => 'Zależność:',
-  'LBL_LIST_SUBJECT' => 'Temat',
-  'LBL_LIST_PRIORITY' => 'Priotytet',
-  'LBL_LIST_RELEASE' => 'Wydanie',
-  'LBL_LIST_RESOLUTION' => 'Rozdzielnik',
-  'LBL_LIST_LAST_MODIFIED' => 'Ostatnia modyfikacja',
-  'LBL_INVITEE' => 'Kontakty',
-  'LBL_TYPE' => 'Typ:',
-  'LBL_LIST_TYPE' => 'Typ',
-  'LBL_RESOLUTION' => 'Rozdzielczość:',
-  'LBL_RELEASE' => 'Wydanie:',
-  'LNK_NEW_BUG' => 'Zgłoś błąd',
-  'LNK_BUG_LIST' => 'Błedy',
-  'NTC_REMOVE_INVITEE' => 'Czy na pewno chcesz usunąć ten kontakt z tego błedu?',
-  'NTC_REMOVE_ACCOUNT_CONFIRMATION' => 'Czy na pewno chcesz usunąć ten błąd z tego klienta?',
-  'ERR_DELETE_RECORD' => 'Musisz podać numer rekordu, z którego chcesz usunąć błąd.',
-  'LBL_LIST_MY_BUGS' => 'Moje znalezione błędy',
-  'LBL_FOUND_IN_RELEASE' => 'Znalezione w wydaniu:',
-  'LBL_FIXED_IN_RELEASE' => 'Naprawione w wydaniu:',
-  'LBL_LIST_FIXED_IN_RELEASE' => 'Naprawione w wydaniu',
-  'LBL_WORK_LOG' => 'Dziennik prac:',
-  'LBL_SOURCE' => 'Źródło:',
-  'LBL_PRODUCT_CATEGORY' => 'Kategoria:',
+  'LBL_CASES_SUBPANEL_TITLE' => 'Zgłoszenia',
+  'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakty',
+  'LBL_CONTACT_BUG_TITLE' => 'Błąd - kontakt:',
+  'LBL_CONTACT_NAME' => 'Nazwa kontaktu:',
+  'LBL_CONTACT_ROLE' => 'Rola:',
   'LBL_CREATED_BY' => 'Utworzone przez:',
   'LBL_DATE_CREATED' => 'Data utworzenia:',
-  'LBL_MODIFIED_BY' => 'Ostatnio modyfikowane przez:',
   'LBL_DATE_LAST_MODIFIED' => 'Data modyfikacji:',
-  'LBL_LIST_EMAIL_ADDRESS' => 'Adres email',
-  'LBL_LIST_CONTACT_NAME' => 'Nazwa kontaktu',
-  'LBL_LIST_ACCOUNT_NAME' => 'Nazwa klienta',
-  'LBL_LIST_PHONE' => 'Telefon',
-  'NTC_DELETE_CONFIRMATION' => 'Czy na pewno chcesz usunąć ten kontakt z tego błedu?',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Śledzenie błędów',
-  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Działania',
+  'LBL_DESCRIPTION' => 'Opis:',
+  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Dokumenty',
+  'LBL_EXPORT_ASSIGNED_USER_ID' => 'ID przydzielonego użytkownika',
+  'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Nazwa przydzielonego użytkownika',
+  'LBL_EXPORT_CREATED_BY' => 'Stworzone przez ID',
+  'LBL_EXPORT_FIXED_IN_RELEASE_NAMR' => 'Naprawiony w wydaniu',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'ID osoby modyfikującej',
+  'LBL_FIXED_IN_RELEASE' => 'Naprawione w wydaniu:',
+  'LBL_FOUND_IN_RELEASE' => 'Odnalezione w wydaniu:',
+  'LBL_FOUND_IN_RELEASE_NAME' => 'Odnaleziony w wydaniu',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'Historia',
-  'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakty',
-  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Klienci',
-  'LBL_CASES_SUBPANEL_TITLE' => 'Sprawy',
-  'LBL_PROJECTS_SUBPANEL_TITLE' => 'Projekty',
-  'LBL_SYSTEM_ID' => 'ID Systemu',
+  'LBL_INVITEE' => 'Kontakty',
+  'LBL_LIST_ACCOUNT_NAME' => 'Nazwa kontrahenta',
   'LBL_LIST_ASSIGNED_TO_NAME' => 'Przydzielony użytkownik',
-  'LBL_ASSIGNED_TO_NAME' => 'Przydzielone do',
+  'LBL_LIST_CONTACT_NAME' => 'Nazwa kontaktu',
+  'LBL_LIST_EMAIL_ADDRESS' => 'Adres e-mail',
+  'LBL_LIST_FIXED_IN_RELEASE' => 'Naprawione w wydaniu',
+  'LBL_LIST_FORM_TITLE' => 'Lista błędów',
+  'LBL_LIST_LAST_MODIFIED' => 'Ostatnia modyfikacja',
+  'LBL_LIST_MY_BUGS' => 'Moje przypisane błędy',
+  'LBL_LIST_NUMBER' => 'Nr',
+  'LBL_LIST_PHONE' => 'Telefon',
+  'LBL_LIST_PRIORITY' => 'Priotytet',
+  'LBL_LIST_RELEASE' => 'Wydanie',
+  'LBL_LIST_RESOLUTION' => 'Wynik analizy',
+  'LBL_LIST_STATUS' => 'Status',
+  'LBL_LIST_SUBJECT' => 'Temat',
+  'LBL_LIST_TYPE' => 'Typ',
+  'LBL_MODIFIED_BY' => 'Ostatnio modyfikowane przez:',
+  'LBL_MODULE_ID' => 'Błędy',
+  'LBL_MODULE_NAME' => 'Błędów',
+  'LBL_MODULE_NAME_SINGULAR' => 'Błąd',
+  'LBL_MODULE_TITLE' => 'Śledzenie błędów: Strona główna',
+  'LBL_NEW_FORM_TITLE' => 'Zgłoś błąd',
+  'LBL_NUMBER' => 'Numer:',
+  'LBL_PORTAL_VIEWABLE' => 'Widoczny Portal',
+  'LBL_PRIORITY' => 'Priorytet:',
+  'LBL_PRODUCT_CATEGORY' => 'Kategoria:',
+  'LBL_PROJECTS_SUBPANEL_TITLE' => 'Projekty',
+  'LBL_RELEASE' => 'Wydanie:',
+  'LBL_RESOLUTION' => 'Wynik analizy:',
+  'LBL_SEARCH_FORM_TITLE' => 'Szukanie błędu',
+  'LBL_SHOW_IN_PORTAL' => 'Pokaż w Portalu',
+  'LBL_SHOW_MORE' => 'Pokaż więcej błędów',
+  'LBL_SOURCE' => 'Źródło wykrycia:',
+  'LBL_STATUS' => 'Status:',
+  'LBL_SUBJECT' => 'Temat:',
+  'LBL_SYSTEM_ID' => 'ID systemu',
+  'LBL_TYPE' => 'Typ:',
+  'LBL_WORK_LOG' => 'Dziennik prac:',
+  'LNK_BUG_LIST' => 'Błędy',
   'LNK_BUG_REPORTS' => 'Raporty błędów',
-  'LBL_SHOW_IN_PORTAL' => 'Pokaż na portalu',
+  'LNK_CREATE' => 'Zgłoś błąd',
+  'LNK_CREATE_WHEN_EMPTY' => 'Zgłoś teraz błąd.',
+  'LNK_IMPORT_BUGS' => 'Importuj błędy',
+  'LNK_NEW_BUG' => 'Zgłoś błąd',
+  'NTC_DELETE_CONFIRMATION' => 'Czy na pewno chcesz usunąć ten kontakt z tego błędu?',
+  'NTC_REMOVE_ACCOUNT_CONFIRMATION' => 'Czy na pewno chcesz usunąć ten błąd z tego kontrahenta?',
+  'NTC_REMOVE_INVITEE' => 'Czy na pewno chcesz usunąć ten kontakt z błędu?',
 );
 

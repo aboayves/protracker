@@ -1,142 +1,151 @@
 <?php
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-$viewdefs['Products']['EditView'] = array(
-    'templateMeta' => array('maxColumns' => '2',
-                            'widths' => array(
-                                            array('label' => '10', 'field' => '30'),
-                                            array('label' => '10', 'field' => '30')
-                                            ),
-    'javascript' => '{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
-{sugar_getscript file="modules/Products/EditView.js"}'
-),
-
-'panels' =>array (
-  'default' =>
+// created: 2013-04-10 13:54:26
+$viewdefs['Products']['EditView'] = array (
+  'templateMeta' => 
   array (
-
+    'maxColumns' => '2',
+    'widths' => 
     array (
-      array('name'=>'name',
-            'displayParams'=>array('required'=>true),
-            'customCode'=>'<input name="name" id="name" type="text" value="{$fields.name.value}">'.
-                          '<input name="product_template_id" id="product_template_id" type="hidden" value="{$fields.product_template_id.value}">'.
-                          '&nbsp;<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" type="button" class="button" value="{$APP.LBL_SELECT_BUTTON_LABEL}" onclick=\'return get_popup_product("{$form_name}");\'>' .
-            		      '&nbsp;<input tabindex="1" title="{$LBL_CLEAR_BUTTON_TITLE}" class="button" onclick="this.form.product_template_id.value = \'\'; this.form.name.value = \'\';" type="button" value="{$APP.LBL_CLEAR_BUTTON_LABEL}">',
+      0 => 
+      array (
+        'label' => '10',
+        'field' => '30',
       ),
-      'status'
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
     ),
-
+    'javascript' => '{sugar_getscript file="cache/include/javascript/sugar_grp_jsolait.js"}
+{sugar_getscript file="modules/Products/EditView.js"}',
+    'tabDefs' => 
     array (
-      'account_name',
-      'contact_name',
-    ),
-
-    array (
-      array('name'=>'quantity','displayParams'=>array('size'=>5)),
-      'date_purchased',
-    ),
-
-    array (
-      'serial_number',
-      'date_support_starts',
-    ),
-
-    array (
-      'asset_number',
-      'date_support_expires',
+      'DEFAULT' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+      1 => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
     ),
   ),
-
+  'panels' => 
   array (
-
+    'default' => 
     array (
-      'currency_id',
-      '',
+      0 => 
+      array (
+        0 => 
+        array (
+          'name' => 'name',
+          'displayParams' => 
+          array (
+            'required' => true,
+          ),
+          'customCode' => '<input name="name" id="name" type="text" value="{$fields.name.value}"><input name="product_template_id" id="product_template_id" type="hidden" value="{$fields.product_template_id.value}">&nbsp;<input title="{$APP.LBL_SELECT_BUTTON_TITLE}" type="button" class="button" value="{$APP.LBL_SELECT_BUTTON_LABEL}" onclick=\'return get_popup_product("{$form_name}");\'>&nbsp;<input tabindex="1" title="{$LBL_CLEAR_BUTTON_TITLE}" class="button" onclick="this.form.product_template_id.value = \'\'; this.form.name.value = \'\';" type="button" value="{$APP.LBL_CLEAR_BUTTON_LABEL}">',
+        ),
+        1 => 'status',
+      ),
+      1 => 
+      array (
+        0 => 'account_name',
+        1 => 'contact_name',
+      ),
+      2 => 
+      array (
+        0 => 
+        array (
+          'name' => 'quantity',
+          'displayParams' => 
+          array (
+            'size' => 5,
+          ),
+        ),
+        1 => 'date_purchased',
+      ),
+      3 => 
+      array (
+        0 => 'serial_number',
+        1 => 'date_support_starts',
+      ),
+      4 => 
+      array (
+        0 => 'asset_number',
+        1 => 'date_support_expires',
+      ),
     ),
-
+    0 => 
     array (
-      'cost_price',
-      '',
+      0 => 
+      array (
+        0 => 'currency_id',
+        1 => '',
+      ),
+      1 => 
+      array (
+        0 => 'cost_price',
+        1 => '',
+      ),
+      2 => 
+      array (
+        0 => 'list_price',
+        1 => 'book_value',
+      ),
+      3 => 
+      array (
+        0 => 'discount_price',
+        1 => 'book_value_date',
+      ),
+      4 => 
+      array (
+        0 => 'discount_amount',
+        1 => 'discount_select',
+      ),
     ),
-
+    1 => 
     array (
-      'list_price',
-      'book_value',
-    ),
-
-    array (
-      'discount_price',
-      'book_value_date',
-    ),
-    array (
-      'discount_amount',
-      'discount_select',
+      0 => 
+      array (
+        0 => 
+        array (
+          'name' => 'website',
+          'type' => 'Link',
+        ),
+        1 => 'tax_class',
+      ),
+      1 => 
+      array (
+        0 => 'manufacturer_id',
+        1 => 'weight',
+      ),
+      2 => 
+      array (
+        0 => 'mft_part_num',
+        1 => 'category_id',
+      ),
+      3 => 
+      array (
+        0 => 'vendor_part_num',
+        1 => 'type_id',
+      ),
+      4 => 
+      array (
+        0 => 'description',
+      ),
+      5 => 
+      array (
+        0 => 'support_name',
+        1 => 'support_contact',
+      ),
+      6 => 
+      array (
+        0 => 'support_description',
+        1 => 'support_term',
+      ),
     ),
   ),
-
-  array (
-
-    array (
-      array('name'=>'website', 'type'=>'Link'),
-      'tax_class',
-    ),
-
-    array (
-      'manufacturer_id',
-      'weight',
-    ),
-
-    array (
-      'mft_part_num',
-      'category_id',
-    ),
-
-    array (
-      'vendor_part_num',
-      'type_id',
-    ),
-
-    array (
-      'description',
-    ),
-
-    array (
-      'support_name',
-      'support_contact',
-    ),
-
-    array (
-      'support_description',
-      'support_term',
-    ),
-  ),
-)
-
-
 );
-?>

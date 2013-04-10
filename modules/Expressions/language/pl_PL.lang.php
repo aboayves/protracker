@@ -3,65 +3,52 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_LIST_EVAL' => 'Ocena:',
-  'LBL_SHOW_PAST' => 'Modyfikuj przeszłą wartość:',
-  'LBL_MODULE_NAME' => 'Wyrażenia',
-  'LBL_MODULE_TITLE' => 'Wyzwalacze WorkFlow: Strona główna',
-  'LBL_SEARCH_FORM_TITLE' => 'Wyszukiwanie wyzwalaczy Work Flow',
-  'LBL_LIST_FORM_TITLE' => 'Lista zadań',
-  'LBL_NEW_FORM_TITLE' => 'Utwórz wyzwalacz',
-  'LBL_LIST_NAME' => 'Nazwa wyzwalacza:',
-  'LBL_LIST_TYPE' => 'Typ:',
-  'LBL_LIST_FIELD' => 'Obszar:',
-  'LBL_NAME' => 'Nazwa wyzwalacza:',
-  'LBL_FIELD' => 'Obszar:',
-  'LBL_TYPE' => 'Typ:',
-  'LBL_EVAL' => 'Ocena wyzwalacza:',
-  'LNK_NEW_TRIGGER' => 'Utwórz wyzwalacz',
-  'LNK_TRIGGER' => 'Wyzwalacze Work Flow',
-  'LBL_TIME_PAST' => 'temu',
-  'LBL_TIME_FUTURE' => 'od teraz',
-  'LBL_ACTION_UPDATE' => 'Aktualizuj pola w wywołanym',
-  'LBL_ACTION_UPDATE_REL' => 'Aktualizuj pola w powiązanym',
   'LBL_ACTION_NEW' => 'Utwórz nowy',
-  'LBL_RECORD' => 'Rekord',
+  'LBL_ACTION_UPDATE' => 'Aktualizuj pola w module głównym',
+  'LBL_ACTION_UPDATE_REL' => 'Aktualizuj pola w module powiązanym',
+  'LBL_ASSOCIATED_WITH' => 'powiązane z modułem zależnym',
+  'LBL_EVAL' => 'Ocena warunku:',
+  'LBL_FIELD' => 'Pole:',
+  'LBL_LIST_ACTION_DESCRIPTION' => 'Akcje:',
+  'LBL_LIST_EVAL' => 'Ocena:',
+  'LBL_LIST_FIELD' => 'Pole:',
+  'LBL_LIST_FORM_TITLE' => 'Lista akcji',
+  'LBL_LIST_NAME' => 'Nazwa warunku:',
+  'LBL_LIST_TYPE' => 'Typ:',
+  'LBL_MODULE_NAME' => 'Wyrażenia',
+  'LBL_MODULE_NAME_SINGULAR' => 'Wyrażenie',
+  'LBL_MODULE_TITLE' => 'Warunki procesów Workflow: Strona główna',
+  'LBL_NAME' => 'Nazwa warunku:',
+  'LBL_NEW_FORM_TITLE' => 'Utwórz warunek',
   'LBL_NEXT_BUTTON' => 'Następny',
+  'LBL_PLEASE_SELECT' => 'Wybierz',
+  'LBL_PLEASE_SEL_TARGET' => 'Wybierz docelowy moduł',
   'LBL_PREVIOUS_BUTTON' => 'Poprzedni',
-  'LBL_LIST_ACTION_DESCRIPTION' => 'Akcje do wykonania:',
-  'LBL_PLEASE_SELECT' => 'Proszę wybierz',
-  'LBL_TIME_INT' => 'przez przynajmniej',
-  'LBL_REL1' => 'Powiązany moduł:',
-  'LBL_REL2' => 'Powiązany moduł modułu:',
-  'LBL_PLEASE_SEL_TARGET' => 'Proszę wybierz docelowy moduł',
-  'LBL_ASSOCIATED_WITH' => 'związany z powiązanym',
+  'LBL_RECORD' => 'Rekord',
+  'LBL_REL1' => 'Powiązane moduły:',
+  'LBL_REL2' => 'Powiązane moduły:',
+  'LBL_SEARCH_FORM_TITLE' => 'Warunki procesów Workflow: Wyszukiwanie',
+  'LBL_SHOW_PAST' => 'Zmień poprzednią wartość:',
+  'LBL_TIME_FUTURE' => 'od teraz',
+  'LBL_TIME_INT' => 'od co najmniej',
+  'LBL_TIME_PAST' => 'temu',
+  'LBL_TYPE' => 'Typ:',
+  'LNK_NEW_TRIGGER' => 'Utwórz warunki',
+  'LNK_TRIGGER' => 'Warunki procesów Workflow',
 );
 

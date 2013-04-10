@@ -3,54 +3,42 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_SUBJECT' => 'Temat:',
-  'LBL_STATUS' => 'Status:',
+  'LBL_ASSIGNED_TO_ID' => 'Przydzielono do:',
+  'LBL_ASSIGNED_TO_NAME' => 'Użytkownik:',
+  'LBL_ASSIGNED_USER' => 'Przydzielony użytkownik:',
+  'LBL_CREATED_BY' => 'Utworzono przez:',
+  'LBL_DATE_CREATED' => 'Data utworzenia:',
+  'LBL_DATE_ENTERED' => 'Data wprowadzenia:',
+  'LBL_DATE_MODIFIED' => 'Zmodyfikowano:',
+  'LBL_DESCRIPTION' => 'Opis:',
+  'LBL_EDIT_BUTTON' => 'Edytuj',
+  'LBL_LAST_MODIFIED' => 'Ostatnio zmodyfikowany',
+  'LBL_MODIFIED_BY' => 'Ostatnio zmodyfikowane przez:',
   'LBL_NAME' => 'Nazwa',
   'LBL_NUMBER' => 'Numer:',
   'LBL_PRIORITY' => 'Priorytet:',
-  'LBL_DESCRIPTION' => 'Opis:',
-  'LBL_RESOLUTION' => 'Rozdzielnik',
-  'LBL_LAST_MODIFIED' => 'Ostatnio zmodyfikowany',
-  'LBL_ASSIGNED_TO_ID' => 'Przydzielony do (ID):',
-  'LBL_ASSIGNED_TO_NAME' => 'Przydzielony do:',
-  'LBL_WORK_LOG' => 'Dziennik pracy:',
-  'LBL_CREATED_BY' => 'Stworzony przez:',
-  'LBL_DATE_CREATED' => 'Stworzony (data):',
-  'LBL_DATE_ENTERED' => 'Wprowadzony:',
-  'LBL_DATE_MODIFIED' => 'Zmodyfikowany:',
-  'LBL_MODIFIED_BY' => 'Ostatnia modyfikacja przez:',
-  'LBL_ASSIGNED_USER' => 'Przydzielony użytkownik:',
+  'LBL_REMOVE' => 'Usuń',
+  'LBL_RESOLUTION' => 'Wynik analizy',
+  'LBL_STATUS' => 'Status:',
+  'LBL_SUBJECT' => 'Temat:',
   'LBL_SYSTEM_ID' => 'ID systemu:',
   'LBL_TEAM_NAME' => 'Nazwa zespołu:',
   'LBL_TYPE' => 'Typ:',
+  'LBL_WORK_LOG' => 'Dziennik pracy:',
 );
 

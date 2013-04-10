@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -101,7 +87,7 @@ if(!$hasUserPreferences){
                                          'module' => 'Home',
                                          'forceColumn' => 1,
                                          'fileLocation' => $dashletsFiles['iFrameDashlet']['file'],
-                                         'options' => array('title' => translate('LBL_DASHLET_SUGAR_NEWS','Home'),
+                                         'options' => array('titleLabel' => 'LBL_DASHLET_SUGAR_NEWS',
                                                             'url' => 'http://www.sugarcrm.com/crm/product/news',
                                                             'height' => 315,
                                              ));
@@ -403,32 +389,32 @@ if (empty($pages)){
 	$pageIndex = 0;
 	$pages[0]['columns'] = $columns;
 	$pages[0]['numColumns'] = '2';
-	$pages[0]['pageTitle'] = $mod_strings['LBL_HOME_PAGE_1_NAME'];	// "My Sugar"
+	$pages[0]['pageTitleLabel'] = 'LBL_HOME_PAGE_1_NAME';	// "My Sugar"
 	$pageIndex++;
 
 	$pages[$pageIndex]['columns'] = $salesColumns;
 	$pages[$pageIndex]['numColumns'] = '2';
-	$pages[$pageIndex]['pageTitle'] = $mod_strings['LBL_HOME_PAGE_2_NAME'];	// "Sales Page"
+	$pages[$pageIndex]['pageTitleLabel'] = 'LBL_HOME_PAGE_2_NAME';	// "Sales Page"
 	$pageIndex++;
 
 	if(ACLController::checkAccess('Leads', 'view', false)){
 		$pages[$pageIndex]['columns'] = $marketingColumns;
 		$pages[$pageIndex]['numColumns'] = '2';
-		$pages[$pageIndex]['pageTitle'] = $mod_strings['LBL_HOME_PAGE_6_NAME'];	// "Marketing Page"
+		$pages[$pageIndex]['pageTitleLabel'] = 'LBL_HOME_PAGE_6_NAME';	// "Marketing Page"
 		$pageIndex++;
 	}
 
 	if(ACLController::checkAccess('Cases', 'view', false)){
 		$pages[$pageIndex]['columns'] = $supportColumns;
 		$pages[$pageIndex]['numColumns'] = '2';
-		$pages[$pageIndex]['pageTitle'] = $mod_strings['LBL_HOME_PAGE_3_NAME'];	// "Support Page"
+		$pages[$pageIndex]['pageTitleLabel'] = 'LBL_HOME_PAGE_3_NAME';	// "Support Page"
 		$pageIndex++;
 	}
 
 	if(ACLController::checkAccess('Trackers', 'view', false, 'Tracker')){
 		$pages[$pageIndex]['columns'] = $trackingColumns;
 		$pages[$pageIndex]['numColumns'] = '2';
-		$pages[$pageIndex]['pageTitle'] = $mod_strings['LBL_HOME_PAGE_4_NAME'];	// "Tracker"
+		$pages[$pageIndex]['pageTitleLabel'] = 'LBL_HOME_PAGE_4_NAME';	// "Tracker"
 		$pageIndex++;
 	}
 
@@ -468,7 +454,12 @@ foreach($pages as $pageNum => $page){
     if($pageNum != $activePage)
         $divPages[] = $pageNum;
 
-    $pageData[$pageNum]['pageTitle'] = $page['pageTitle'];
+    // If it's one of the default tabs (has 'pageTitleLabel' defined) pick translated value
+    if (!empty($page['pageTitleLabel']) && empty($page['pageTitle'])) {
+    	$pageData[$pageNum]['pageTitle'] = to_html($mod_strings[$page['pageTitleLabel']], ENT_QUOTES);
+    } else {
+        $pageData[$pageNum]['pageTitle'] = to_html($page['pageTitle'], ENT_QUOTES);
+	}
 
     if($pageNum == $activePage){
         $pageData[$pageNum]['tabClass'] = 'current';
@@ -597,7 +588,16 @@ $resources = $sugarChart->getChartResources();
 $mySugarResources = $sugarChart->getMySugarChartResources();
 $sugar_smarty->assign('chartResources', $resources);
 $sugar_smarty->assign('mySugarChartResources', $mySugarResources);
-echo $sugar_smarty->fetch('include/MySugar/tpls/MySugar.tpl');
+$viewed_tour = $current_user->getPreference('viewed_tour');
+if((empty($viewed_tour) || $viewed_tour == 'false') && $theme != "Sugar5") {
+    $sugar_smarty->assign('view_tour', true);
+}
+if (file_exists("custom/include/MySugar/tpls/MySugar.tpl")) {
+	echo $sugar_smarty->fetch('custom/include/MySugar/tpls/MySugar.tpl');
+} else {
+	echo $sugar_smarty->fetch('include/MySugar/tpls/MySugar.tpl');
+}
+
 //init the quickEdit listeners after the dashlets have loaded on home page the first time
 echo"<script>if(typeof(qe_init) != 'undefined'){qe_init();}</script>";
 ?>

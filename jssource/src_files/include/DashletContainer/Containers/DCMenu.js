@@ -1,33 +1,19 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
 //Use loader to grab the modules needed
-var DCMenu = YUI({combine: true, timeout: 10000, base:"include/javascript/yui3/build/", comboBase:"index.php?entryPoint=getYUIComboFile&"}).use('event', 'dd-plugin', 'anim', 'cookie', 'json', 'node-menunav', 'io-base','io-form', 'io-upload-iframe', "overlay", function(Y) {
+var DCMenu = YUI({debug:false,combine: true, timeout: 10000, base:"include/javascript/yui3/build/", comboBase:"index.php?entryPoint=getYUIComboFile&"}).use('event', 'dd-plugin', 'anim', 'cookie', 'json', 'node-menunav', 'io-base','io-form', 'io-upload-iframe', "overlay", function(Y) {
     //Make this an Event Target so we can bubble to it
     var requests = {};
     var overlays = [];
@@ -318,7 +304,7 @@ var DCMenu = YUI({combine: true, timeout: 10000, base:"include/javascript/yui3/b
 		overlay.set('y', 90);
 	}
 	DCMenu.history = function(q){
-		quickRequest('spot', 'index.php?to_pdf=1&module=' + this.module + '&action=modulelistmenu', spotResults);
+		quickRequest('spot', 'index.php?append_wildcard=true&to_pdf=1&module=' + this.module + '&action=modulelistmenu', spotResults);
 	}
     DCMenu.startSearch = function(e){
         if (window.event) { e = window.event; }
@@ -333,15 +319,15 @@ var DCMenu = YUI({combine: true, timeout: 10000, base:"include/javascript/yui3/b
             return;
         DCMenu.closeQView();
 	    ajaxStatus.showStatus(SUGAR.language.get('app_strings', 'LBL_LOADING'));
-		quickRequest('spot', 'index.php?to_pdf=1&module=' + this.module + '&action=spot&record=' + this.record + '&q=' + encodeURIComponent(q), spotResults);
+		quickRequest('spot', 'index.php?append_wildcard=true&to_pdf=1&module=' + this.module + '&action=spot&record=' + this.record + '&q=' + encodeURIComponent(q), spotResults);
 	}
         Y.spotFull = function(q){
         DCMenu.closeQView();
             ajaxStatus.showStatus(SUGAR.language.get('app_strings', 'LBL_LOADING'));
-                quickRequest('spot', 'index.php?to_pdf=1&module=' + this.module + '&action=spot&full=true&ajax=true&record=' + this.record + '&q=' + encodeURIComponent(q), fullResults);
+                quickRequest('spot', 'index.php?append_wildcard=true&to_pdf=1&module=' + this.module + '&action=spot&full=true&ajax=true&record=' + this.record + '&q=' + encodeURIComponent(q), fullResults);
         }
 	DCMenu.spotZoom = function(q, module, offset){
-		quickRequest('spot', 'index.php?to_pdf=1&module=' + this.module + '&action=spot&record=' + this.record + '&q=' + encodeURIComponent(q) + '&zoom=' + module + '&offset=' + offset,  spotResults);
+		quickRequest('spot', 'index.php?append_wildcard=true&to_pdf=1&module=' + this.module + '&action=spot&record=' + this.record + '&q=' + encodeURIComponent(q) + '&zoom=' + module + '&offset=' + offset,  spotResults);
 	}
         fullResults = function(id, data){
             var resultsDiv = document.getElementById('sugar_full_search_results');
@@ -423,9 +409,26 @@ var DCMenu = YUI({combine: true, timeout: 10000, base:"include/javascript/yui3/b
             p.setBody("<script type='text/javascript'>DCMenu.jsEvalled = true</script>" + r.html);
             if (!DCMenu.jsEvalled)
                 SUGAR.util.evalScript(r.html);
-            DCMenu.qePanel.center();
+            DCMenu.centerQEPanel();
         }
 	}
+    DCMenu.centerQEPanel = function()
+    {
+        var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+        var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+        var viewPortWidth = YAHOO.util.Dom.getClientWidth();
+        var viewPortHeight = YAHOO.util.Dom.getClientHeight();
+        var elementWidth = DCMenu.qePanel.element.offsetWidth;
+        var elementHeight = DCMenu.qePanel.element.offsetHeight;
+        var x = (viewPortWidth / 2) - (elementWidth / 2) + scrollX;
+        // Bug #50757 : Dashlet quick edit form issue in Chrome
+        // if height of panel is more than height of window display panel on top of window
+        var y = ( elementHeight + 10 >= viewPortHeight ) ? 10 + scrollY : (viewPortHeight / 2) - (elementHeight / 2) + scrollY;
+        DCMenu.qePanel.element.style.left = parseInt(x, 10) + "px";
+        DCMenu.qePanel.element.style.top = parseInt(y, 10) + "px";
+        DCMenu.qePanel.syncPosition();
+        DCMenu.qePanel.cfg.refireEvent("iframe");
+    }
     DCMenu.hideQEPanel = function(){
         if (DCMenu.qePanel)
         {
@@ -527,7 +530,7 @@ var DCMenu = YUI({combine: true, timeout: 10000, base:"include/javascript/yui3/b
             			var dcmenuSugarCube = Y.one('#dcmenuSugarCube');
 			    		var dcboxbody = Y.one('#dcboxbody');
 
-						var dcmenuSugarCubeX = dcmenuSugarCube.get('offsetLeft');
+						var dcmenuSugarCubeX = (dcmenuSugarCube)?dcmenuSugarCube.get('offsetLeft'):0;
 						var dcboxbodyWidth = dcboxbody.get('offsetWidth');
 
 						setTimeout(function() {
@@ -601,12 +604,6 @@ var DCMenu = YUI({combine: true, timeout: 10000, base:"include/javascript/yui3/b
 		var dcmenuSugarCubeWidth = dcmenuSugarCube.get('offsetWidth');
 		var dcboxbodyWidth = dcboxbody.get('offsetWidth');
 		overlay.set('x',(dcmenuSugarCubeX + dcmenuSugarCubeWidth) - dcboxbodyWidth);
-		
-		
-		if(isRTL) {
-			overlay.set('x',(dcmenuSugarCubeX + dcmenuSugarCubeWidth) - dcboxbodyWidth);
-		}
-
 	}
 	DCMenu.viewMiniNotification = function(id) {
 	    quickRequest('notifications', 'index.php?to_pdf=1&module=Notifications&action=quickView&record='+id, notificationDisplay );

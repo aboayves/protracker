@@ -1,114 +1,122 @@
 <?php
-$module_name = 'av_Groups';
-$viewdefs [$module_name] = 
-array (
-  'DetailView' => 
+// created: 2013-04-10 13:54:26
+$viewdefs['av_Groups']['DetailView'] = array (
+  'templateMeta' => 
   array (
-    'templateMeta' => 
+    'form' => 
     array (
-      'form' => 
+      'buttons' => 
       array (
-        'buttons' => 
-        array (
-          0 => 'EDIT',
-          1 => 'DUPLICATE',
-          2 => 'DELETE',
-          3 => 'FIND_DUPLICATES',
-        ),
+        0 => 'EDIT',
+        1 => 'DUPLICATE',
+        2 => 'DELETE',
+        3 => 'FIND_DUPLICATES',
       ),
-      'maxColumns' => '2',
-      'widths' => 
-      array (
-        0 => 
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
-        1 => 
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
-      ),
-      'useTabs' => true,
-      'syncDetailEditViews' => true,
     ),
-    'panels' => 
+    'maxColumns' => '2',
+    'widths' => 
     array (
-      'default' => 
+      0 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+    ),
+    'useTabs' => true,
+    'syncDetailEditViews' => true,
+    'tabDefs' => 
+    array (
+      'DEFAULT' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_EDITVIEW_PANEL1' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+    ),
+  ),
+  'panels' => 
+  array (
+    'default' => 
+    array (
+      0 => 
+      array (
+        0 => 'name',
+        1 => 'assigned_user_name',
+      ),
+      1 => 
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'assigned_user_name',
+          'name' => 'office_c',
+          'studio' => 'visible',
+          'label' => 'LBL_OFFICE',
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'office_c',
-            'studio' => 'visible',
-            'label' => 'LBL_OFFICE',
-          ),
-          1 => 
-          array (
-            'name' => 'category_c',
-            'studio' => 'visible',
-            'label' => 'LBL_CATEGORY',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'status_c',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
-          ),
-          1 => 
-          array (
-            'name' => 'last_checked_c',
-            'label' => 'LBL_LAST_CHECKED',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'priority_c',
-            'studio' => 'visible',
-            'label' => 'LBL_PRIORITY',
-          ),
-          1 => 
-          array (
-            'name' => 'broadcast_group_c',
-            'label' => 'LBL_BROADCAST_GROUP',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 'description',
+          'name' => 'category_c',
+          'studio' => 'visible',
+          'label' => 'LBL_CATEGORY',
         ),
       ),
-      'lbl_editview_panel1' => 
+      2 => 
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'leader_c',
-            'studio' => 'visible',
-            'label' => 'LBL_LEADER',
-          ),
-          1 => 
-          array (
-            'name' => 'alternate_leader_c',
-            'studio' => 'visible',
-            'label' => 'LBL_ALTERNATE_LEADER',
-          ),
+          'name' => 'status_c',
+          'studio' => 'visible',
+          'label' => 'LBL_STATUS',
+        ),
+        1 => 
+        array (
+          'name' => 'last_checked_c',
+          'label' => 'LBL_LAST_CHECKED',
+        ),
+      ),
+      3 => 
+      array (
+        0 => 
+        array (
+          'name' => 'priority_c',
+          'studio' => 'visible',
+          'label' => 'LBL_PRIORITY',
+        ),
+        1 => 
+        array (
+          'name' => 'broadcast_group_c',
+          'label' => 'LBL_BROADCAST_GROUP',
+        ),
+      ),
+      4 => 
+      array (
+        0 => 'description',
+      ),
+    ),
+    'lbl_editview_panel1' => 
+    array (
+      0 => 
+      array (
+        0 => 
+        array (
+          'name' => 'leader_c',
+          'studio' => 'visible',
+          'label' => 'LBL_LEADER',
+        ),
+        1 => 
+        array (
+          'name' => 'alternate_leader_c',
+          'studio' => 'visible',
+          'label' => 'LBL_ALTERNATE_LEADER',
         ),
       ),
     ),
   ),
 );
-?>

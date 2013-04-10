@@ -1,29 +1,15 @@
 <!--
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -134,7 +120,7 @@
 		</tr>
 		<tr>
 			<td valign="top" scope="row" width="15%" NOWRAP>
-				<slot><span>{MOD.LBL_SSL}:&nbsp;<span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_SSL_DESC}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span></span></slot>
+				<slot><span>{MOD.LBL_SSL}:&nbsp;{TIPS.LBL_SSL_DESC}</span></slot>
 			</td>
 			<td valign="top"  width="35%">
 				<slot>
@@ -172,7 +158,7 @@
 		<tr>
 			<td valign="top" scope="row" width="15%" NOWRAP>
 				<slot>
-				{MOD.LBL_ASSIGN_TEAM}:<span span name="teamSpanRequired" id="teamSpanRequired" class="required">{APP.LBL_REQUIRED_SYMBOL}</span><span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_ASSIGN_TO_TEAM_DESC}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span>
+				{MOD.LBL_ASSIGN_TEAM}:<span span name="teamSpanRequired" id="teamSpanRequired" class="required">{APP.LBL_REQUIRED_SYMBOL}</span>{TIPS.LBL_ASSIGN_TO_TEAM_DESC}
 				&nbsp;</slot></td>
 
 			<td valign="top"  width="35%">
@@ -186,19 +172,19 @@
 		</tr>
 		<tr>
 			<td valign="top" scope="row" width="15%" NOWRAP>
-			<slot><span style="{AUTO_IMPORT_STYLE}">{MOD.LBL_ENABLE_AUTO_IMPORT}:&nbsp;<span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_ASSIGN_TO_GROUP_FOLDER_DESC}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span></span></slot>&nbsp;
+			<slot><span style="{AUTO_IMPORT_STYLE}">{MOD.LBL_ENABLE_AUTO_IMPORT}:&nbsp;{TIPS.LBL_ASSIGN_TO_GROUP_FOLDER_DESC}</span></slot>&nbsp;
 			</td>
 			<td valign="top"  width="15%" NOWRAP>
 			 <input name='is_auto_import' style="{AUTO_IMPORT_STYLE}" id='is_auto_import' onclick="showWarningsIfChaningAutoImport();"tabindex='45' type='checkbox' {IS_AUTO_IMPORT}>
 			</td>
 			<td valign="top" scope="row" width="15%" NOWRAP>
-				<slot>{MOD.LBL_FROM_ADDR}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span><span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_FROM_ADDR_DESC}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span></slot></td>
+				<slot>{MOD.LBL_FROM_ADDR}:<span class="required">{APP.LBL_REQUIRED_SYMBOL}</span>{TIPS.LBL_FROM_ADDR_DESC}</slot></td>
 			<td valign="top"  width="35%">
 				<slot><input tabindex="310" name="from_addr" id="from_addr" value="{FROM_ADDR}" {IE_DISABLED}></slot></td>
 		</tr>
 		<tr>
 			<td valign="top" scope="row">
-				<slot style="{MAILBOX_TYPE_STYLE}">{MOD.LBL_CREATE_CASE}:&nbsp;<span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_CREATE_CASE_HELP}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span></slot></td>
+				<slot style="{MAILBOX_TYPE_STYLE}">{MOD.LBL_CREATE_CASE}:&nbsp;{TIPS.LBL_CREATE_CASE_HELP}</slot></td>
 			<td valign="top"  width="35%"><slot style="{MAILBOX_TYPE_STYLE}">
 			     <input name='is_create_case' id='is_create_case' onclick="showCreateCaseRow();"tabindex='45' type='checkbox' {IS_CREATE_CASE} {IE_DISABLED}></slot></td>
 			<td valign="top" scope="row" width="15%" NOWRAP>
@@ -220,7 +206,7 @@
 		</tr>
 		<tr id="createCaseRow1" style="{CREATE_CASE_ROW_STYLE}">
 			<td valign="top" scope="row" width="15%" NOWRAP >
-				<slot>{MOD.LBL_CREATE_CASE_REPLY_TEMPLATE}:&nbsp;<span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_CREATE_CASE_REPLY_TEMPLATE_HELP}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span></slot></td>
+				<slot>{MOD.LBL_CREATE_CASE_REPLY_TEMPLATE}:&nbsp;{TIPS.LBL_CREATE_CASE_REPLY_TEMPLATE_HELP}</slot></td>
 			<td colspan="3" valign="top"  width="35%">
 				<slot>
 					<select tabindex='330' id="create_case_template_id" name='create_case_template_id' onchange="show_edit_template_link(this, 'create_case_edit_template');" {IE_DISABLED}>{CREATE_CASE_EMAIL_TEMPLATE_OPTIONS}</select>
@@ -247,9 +233,7 @@
 			<td valign="top"  width="35%"><slot>
 				&nbsp;</slot></td>
 			<td valign="top" scope="row" width="15%" >
-			 <slot style="{MAILBOX_TYPE_STYLE}">{MOD.LBL_ALLOW_OUTBOUND_GROUP_USAGE}:&nbsp;
-				<span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_ALLOW_OUTBOUND_GROUP_USAGE_DESC}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span>
-			</slot>
+			 <slot style="{MAILBOX_TYPE_STYLE}">{MOD.LBL_ALLOW_OUTBOUND_GROUP_USAGE}:&nbsp;{TIPS.LBL_ALLOW_OUTBOUND_GROUP_USAGE_DESC}</slot>
 		  </td>
 			<td valign="top"  width="35%">
 			 <slot style="{MAILBOX_TYPE_STYLE}"><input name='allow_outbound_group_usage' id='allow_outbound_group_usage' tabindex='45' value='1' type='checkbox' {ALLOW_OUTBOUND_USAGE} ></slot>
@@ -257,7 +241,7 @@
 		</tr>
 		<tr>
 			<td valign="top" scope="row" width="15%" NOWRAP>
-				<slot style="{CREATE_GROUP_FOLDER_STYLE}">{MOD.LBL_AUTOREPLY}:&nbsp;<span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_AUTOREPLY_HELP}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span></slot></td>
+				<slot style="{CREATE_GROUP_FOLDER_STYLE}">{MOD.LBL_AUTOREPLY}:&nbsp;{TIPS.LBL_AUTOREPLY_HELP}</slot></td>
 			<td colspan="3" valign="top"  width="35%">
 				<slot style="{CREATE_GROUP_FOLDER_STYLE}">
 					<select tabindex='251' id="template_id" name='template_id' onchange="show_edit_template_link(this, 'edit_template');" {IE_DISABLED}>{EMAIL_TEMPLATE_OPTIONS}</select>
@@ -268,11 +252,11 @@
 		</tr>
 		<tr>
 			<td valign="top" scope="row" width="18%" NOWRAP>
-				<slot style="{CREATE_GROUP_FOLDER_STYLE}">{MOD.LBL_FILTER_DOMAIN}:&nbsp;<span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_FILTER_DOMAIN_DESC}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span></slot></td>
+				<slot style="{CREATE_GROUP_FOLDER_STYLE}">{MOD.LBL_FILTER_DOMAIN}:&nbsp;{TIPS.LBL_FILTER_DOMAIN_DESC}</slot></td>
 			<td valign="top"  width="35%">
 				<slot style="{CREATE_GROUP_FOLDER_STYLE}"><input tabindex="270" name="filter_domain" value="{FILTER_DOMAIN}" {IE_DISABLED}></slot></td>
 			<td valign="top" scope="row">
-				<slot><span style="{CREATE_GROUP_FOLDER_STYLE}">{MOD.LBL_MAX_AUTO_REPLIES}:&nbsp;<span valign="bottom" onmouseout="return nd();" onmouseover="return overlib('{MOD.LBL_MAX_AUTO_REPLIES_DESC}', FGCLASS, 'olFgClass', CGCLASS, 'olCgClass', BGCLASS, 'olBgClass', TEXTFONTCLASS, 'olFontClass', CAPTIONFONTCLASS, 'olCapFontClass', CLOSEFONTCLASS, 'olCloseFontClass' );">&nbsp;<img src="index.php?entryPoint=getImage&themeName={THEME}&imageName=helpInline.gif"></span></span></slot></td>
+				<slot><span style="{CREATE_GROUP_FOLDER_STYLE}">{MOD.LBL_MAX_AUTO_REPLIES}:&nbsp;{TIPS.LBL_MAX_AUTO_REPLIES_DESC}</span></slot></td>
 			<td valign="top"  width="35%">
 				<slot><input tabindex="271" style="{CREATE_GROUP_FOLDER_STYLE}" name="email_num_autoreplies_24_hours" value="{EMAIL_NUM_AUTOREPLIES_24_HOURS}"></slot></td>
 		</tr>

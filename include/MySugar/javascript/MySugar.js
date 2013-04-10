@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 initMySugar=function(){SUGAR.mySugar=function(){var originalLayout=null;var configureDashletId=null;var currentDashlet=null;var leftColumnInnerHTML=null;var leftColObj=null;var maxCount;var warningLang;var closeDashletsDialogTimer=null;var num_pages=numPages;var activeTab=activePage;var current_user=current_user_id;var module=moduleName;var cookiePageIndex;var charts=new Object();if(module=='Dashboard'){cookiePageIndex=current_user+"_activeDashboardPage";}
 else{cookiePageIndex=current_user+"_activePage";}
@@ -37,7 +23,7 @@ else if(newTitleValue!=currentTitleValue)
 {ajaxStatus.showStatus(SUGAR.language.get('app_strings','LBL_SAVING_PAGE_TITLE'));url='index.php?DynamicAction=savePageTitle&action=DynamicAction&module='+module+'&to_pdf=1&newPageTitle='+YAHOO.lang.JSON.stringify(newTitleValue)+'&pageId='+pageNum;var setPageTitle=function(data)
 {var pageTextSpan=document.getElementById('pageNum_'+pageNum+'_title_text');pageTextSpan.innerHTML=data.responseText;document.getElementById('pageNum_'+pageNum+'_name_input').value=data.responseText;document.getElementById('pageNum_'+pageNum+'_name_hidden_input').value=data.responseText;loadedPages.splice(pageNum,1);ajaxStatus.hideStatus();}
 var cObj=YAHOO.util.Connect.asyncRequest('GET',url,{success:setPageTitle,failure:setPageTitle},null);}
-var pageTextSpan=document.getElementById('pageNum_'+pageNum+'_title_text');pageTextSpan.innerHTML=newTitleValue;SUGAR.mySugar.toggleSpansForRename(pageNum);},pageIsLoaded:function(pageDivId){for(var count=0;count<loadedPages.length;count++)
+var pageTextSpan=document.getElementById('pageNum_'+pageNum+'_title_text');pageTextSpan.innerHTML=YAHOO.lang.escapeHTML(newTitleValue);SUGAR.mySugar.toggleSpansForRename(pageNum);},pageIsLoaded:function(pageDivId){for(var count=0;count<loadedPages.length;count++)
 {if(loadedPages[count]==pageDivId)
 return true;}
 return false;},retrieveChartDashlet:function(name,xmlFile,width,height){var chartDiv=document.getElementById(name+'_div');chartDiv.style.width=width;chartDiv.style.height=height;},retrievePage:function(pageNum){if(document.getElementById('loading_c'))

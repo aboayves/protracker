@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -62,16 +48,20 @@ else {
 	$check_notify = FALSE;
 }
 
-$focus->tax = 0;
-$focus->total = 0;
-$focus->subtotal = 0;
-$focus->deal_tot = 0;
-$focus->new_sub = 0;
-$focus->shipping = 0;
-$focus->tax_usdollar = 0;
-$focus->total_usdollar = 0;
-$focus->subtotal_usdollar = 0;
-$focus->shipping_usdollar = 0;
+//bug55337 - Inline edit to different stage, cause total amount to display 0
+if(!isset($_REQUEST['from_dcmenu']))
+{
+    $focus->tax = 0;
+    $focus->total = 0;
+    $focus->subtotal = 0;
+    $focus->deal_tot = 0;
+    $focus->new_sub = 0;
+    $focus->shipping = 0;
+    $focus->tax_usdollar = 0;
+    $focus->total_usdollar = 0;
+    $focus->subtotal_usdollar = 0;
+    $focus->shipping_usdollar = 0;
+}
 
 if(empty($_REQUEST['calc_grand_total'])){
 	$focus->calc_grand_total = 0;
@@ -135,14 +125,14 @@ if(isset($_REQUEST['duplicateSave']) && isset($_REQUEST['relate_id'])){
 		$pb->bundle_stage = $_REQUEST['bundle_stage'][$total_keys[$k]];
 		$pb->name = $_REQUEST['bundle_name'][$total_keys[$k]];
 
-		if(key_exists($pb->bundle_stage, $in_total_group_stages)){
+            // Bug 54931. Grand Total for custom groups too.
 			$focus->tax += $pb->tax;
 			$focus->shipping += $pb->shipping;
 			$focus->subtotal += $pb->subtotal;
 			$focus->deal_tot += $pb->deal_tot;
 			$focus->new_sub += $pb->new_sub;
 			$focus->total += $pb->total;
-		}
+
 		$product_bundels[$total_keys[$k]] = $pb->save();
 		if(substr_count($total_keys[$k], 'group_') > 0){
 		    // Base new index on last saved bundle's index +1
@@ -184,7 +174,7 @@ if(isset($_REQUEST['duplicateSave']) && isset($_REQUEST['relate_id'])){
 			$GLOBALS['log']->debug("deleting product id ".$_POST['delete'][$i]);
 			$product->mark_deleted($_POST['delete'][$i]);
 		// delete a comment row
-		} else if (isset($_POST['comment_delete'][$i]) && $_POST['comment_delete'][$i] != '1') {
+		} else if (isset($_POST['comment_delete'][$i]) && $_POST['comment_delete'][$i] != '1' && !isset($_REQUEST['duplicateSave'])) {
 			$product_bundle_note = new ProductBundleNote();
 			$GLOBALS['log']->debug("Deleting Product Bundle Note Id: ".$_POST['comment_delete'][$i]);
 			$product_bundle_note->mark_deleted($_POST['comment_delete'][$i]);
@@ -247,7 +237,7 @@ if(isset($_REQUEST['duplicateSave']) && isset($_REQUEST['relate_id'])){
 		// insert comment row
 		else if (!empty($_POST['comment_index'][$i]) && !empty($_POST['parent_group'][$i])) {
 			$product_bundle_note = new ProductBundleNote();
-			if (!empty($_POST['comment_id'][$i])) {
+			if (!empty($_POST['comment_id'][$i]) && !isset($_REQUEST['duplicateSave'])) {
 				$product_bundle_note->id = $_POST['comment_id'][$i];
 			}
 			$product_bundle_note->description = $_POST['comment_description'][$i];

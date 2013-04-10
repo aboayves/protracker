@@ -3,93 +3,106 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Dokumenty',
-  'LNK_IMPORT_CASES' => 'Importuj sprawy',
-  'LBL_PROJECT_SUBPANEL_TITLE' => 'Projekty',
-  'LBL_CASE_INFORMATION' => 'Przegląd spraw',
-  'LBL_STATUS' => 'Status:',
-  'LBL_LIST_STATUS' => 'Status',
   'ERR_DELETE_RECORD' => 'Musi być podany numer rekordu, aby usunąć to konto.',
-  'LBL_ACCOUNT_ID' => 'ID Klienta',
-  'LBL_ACCOUNT_NAME' => 'Nazwa klienta:',
-  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Klienci',
-  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Działania',
+  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Kontrahenci',
+  'LBL_ACCOUNT_ID' => 'ID kontrahenta',
+  'LBL_ACCOUNT_NAME' => 'Nazwa kontrahenta:',
+  'LBL_ACCOUNT_NAME_MOD' => 'Mod nazwa kontrahenta',
+  'LBL_ACCOUNT_NAME_OWNER' => 'Właściciel nazwa kontrahenta',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Wydarzenia',
+  'LBL_ASSIGNED_TO_NAME' => 'Przydzielono do',
+  'LBL_ASSIGNED_USER_NAME_MOD' => 'Mod przypisany do',
+  'LBL_ASSIGNED_USER_NAME_OWNER' => 'Właściciel przypisany do',
   'LBL_ATTACH_NOTE' => 'Załącz notatkę',
   'LBL_BUGS_SUBPANEL_TITLE' => 'Błędy',
-  'LBL_CASE_NUMBER' => 'Numer sprawy:',
-  'LBL_CASE_SUBJECT' => 'Temat sprawy:',
-  'LBL_CASE' => 'Sprawa:',
-  'LBL_CONTACT_CASE_TITLE' => 'Sprawa - osoba kont.:',
-  'LBL_CONTACT_NAME' => 'Osoba kont.:',
-  'LBL_CONTACT_ROLE' => 'Funkcja:',
+  'LBL_CASE' => 'Zgłoszenie:',
+  'LBL_CASE_INFORMATION' => 'Informacje',
+  'LBL_CASE_NUMBER' => 'Numer zgłoszenia:',
+  'LBL_CASE_SUBJECT' => 'Temat zgłoszenia:',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakty',
-  'LBL_DEFAULT_SUBPANEL_TITLE' => 'Zdarzenia',
+  'LBL_CONTACT_CASE_TITLE' => 'Zgłoszenie - kontakt:',
+  'LBL_CONTACT_HISTORY_SUBPANEL_TITLE' => 'Wiadomości e-mail powiązanych kontaktów',
+  'LBL_CONTACT_NAME' => 'Nazwa kontaktu:',
+  'LBL_CONTACT_ROLE' => 'Rola:',
+  'LBL_CREATED_BY_NAME_MOD' => 'Mod stworzone przez',
+  'LBL_CREATED_BY_NAME_OWNER' => 'Właściciel stworzone przez',
+  'LBL_CREATED_USER' => 'Utworzony użytkownik',
+  'LBL_CREATE_KB_DOCUMENT' => 'Utwórz artykuł',
+  'LBL_DEFAULT_SUBPANEL_TITLE' => 'Zgłoszenia',
   'LBL_DESCRIPTION' => 'Opis:',
+  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Dokumenty',
+  'LBL_EXPORT_ASSIGNED_USER_ID' => 'Przydzielony do',
+  'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Przypisany do',
+  'LBL_EXPORT_CREATED_BY' => 'Utworzony przez',
+  'LBL_EXPORT_CREATED_BY_NAME' => 'Utworzony przez',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'Zmodyfikowany przez',
+  'LBL_EXPORT_TEAM_COUNT' => 'Liczebność zespołu',
   'LBL_FILENANE_ATTACHMENT' => 'Plik załącznika',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'Historia',
-  'LBL_INVITEE' => 'Osoby kontaktowe',
-  'LBL_MEMBER_OF' => 'Klient',
-  'LBL_MODULE_NAME' => 'Sprawy',
-  'LBL_MODULE_TITLE' => 'Sprawy: Strona główna',
-  'LBL_NEW_FORM_TITLE' => 'Nowa sprawa',
+  'LBL_INVITEE' => 'Kontakty',
+  'LBL_LIST_ACCOUNT_NAME' => 'Nazwa kontrahenta',
+  'LBL_LIST_ASSIGNED' => 'Przydzielono do',
+  'LBL_LIST_ASSIGNED_TO_NAME' => 'Przydzielono do',
+  'LBL_LIST_CLOSE' => 'Zamknij',
+  'LBL_LIST_DATE_CREATED' => 'Data utworzenia',
+  'LBL_LIST_FORM_TITLE' => 'Lista zgłoszeń',
+  'LBL_LIST_LAST_MODIFIED' => 'Ostatnio zmodyfikowano',
+  'LBL_LIST_MY_CASES' => 'Bieżące zgłoszenia',
+  'LBL_LIST_NUMBER' => 'Nr',
+  'LBL_LIST_PRIORITY' => 'Priorytet',
+  'LBL_LIST_STATUS' => 'Status',
+  'LBL_LIST_SUBJECT' => 'Temat',
+  'LBL_MEMBER_OF' => 'Kontrahent',
+  'LBL_MODIFIED_BY_NAME_MOD' => 'Zmodyfikowano przez',
+  'LBL_MODIFIED_BY_NAME_OWNER' => 'Zmodyfikowano przez',
+  'LBL_MODIFIED_USER' => 'Zmodyfikowany użytkownik',
+  'LBL_MODIFIED_USER_NAME' => 'Zmodfikowane przez',
+  'LBL_MODIFIED_USER_NAME_MOD' => 'Mod zmodyfikowane przez',
+  'LBL_MODIFIED_USER_NAME_OWNER' => 'Właściciel zmodyfikowane przez',
+  'LBL_MODULE_NAME' => 'Zgłoszenia',
+  'LBL_MODULE_NAME_SINGULAR' => 'Zgłoszenie',
+  'LBL_MODULE_TITLE' => 'Zgłoszenia: Strona główna',
+  'LBL_NEW_FORM_TITLE' => 'Utwórz zgłoszenie',
   'LBL_NUMBER' => 'Numer:',
+  'LBL_PORTAL_VIEWABLE' => 'Portal widoczny',
   'LBL_PRIORITY' => 'Priorytet:',
   'LBL_PROJECTS_SUBPANEL_TITLE' => 'Projekty',
-  'LBL_RESOLUTION' => 'Decyzja:',
-  'LBL_SEARCH_FORM_TITLE' => 'Wyszukaj',
+  'LBL_PROJECT_SUBPANEL_TITLE' => 'Projekty',
+  'LBL_RESOLUTION' => 'Stan:',
+  'LBL_SEARCH_FORM_TITLE' => 'Wyszukiwanie',
+  'LBL_SHOW_IN_PORTAL' => 'Pokaż w Portalu',
+  'LBL_SHOW_MORE' => 'Pokaż więcej zgłoszeń',
+  'LBL_STATUS' => 'Status:',
   'LBL_SUBJECT' => 'Temat:',
   'LBL_SYSTEM_ID' => 'ID systemu',
-  'LBL_LIST_ASSIGNED_TO_NAME' => 'Przydzielone do',
-  'LBL_LIST_ACCOUNT_NAME' => 'Nazwa klienta',
-  'LBL_LIST_ASSIGNED' => 'Przydzielone do',
-  'LBL_LIST_CLOSE' => 'Zamknięte',
-  'LBL_LIST_FORM_TITLE' => 'Lista spraw',
-  'LBL_LIST_LAST_MODIFIED' => 'Modyfikowano',
-  'LBL_LIST_MY_CASES' => 'Bieżące sprawy',
-  'LBL_LIST_NUMBER' => 'Numer',
-  'LBL_LIST_PRIORITY' => 'Priorytet',
-  'LBL_LIST_SUBJECT' => 'Temat',
-  'LNK_CASE_LIST' => 'Sprawy',
-  'LNK_NEW_CASE' => 'Utwórz sprawę',
-  'NTC_REMOVE_FROM_BUG_CONFIRMATION' => 'Czy na pewno chcesz usunąć tę sprawę z tego błędu?',
-  'NTC_REMOVE_INVITEE' => 'Czy na pewno chcesz usunąć wizytówkę z tej sprawy?',
-  'LBL_LIST_DATE_CREATED' => 'Data utworzenia',
-  'LBL_ASSIGNED_TO_NAME' => 'Przydzielone do',
+  'LBL_TEAM_COUNT_MOD' => 'Mod Liczebność zespołu',
+  'LBL_TEAM_COUNT_OWNER' => 'Właściciel Liczebność zespołu',
+  'LBL_TEAM_NAME_MOD' => 'Mod nazwa zespołu',
+  'LBL_TEAM_NAME_OWNER' => 'Właściciel nazwa zespołu',
   'LBL_TYPE' => 'Typ',
   'LBL_WORK_LOG' => 'Dziennik pracy',
-  'LNK_CASE_REPORTS' => 'Raporty spraw',
-  'LBL_SHOW_IN_PORTAL' => 'Pokaż na portalu',
-  'LBL_CREATE_KB_DOCUMENT' => 'Utwórz artykół',
-  'LBL_CREATED_USER' => 'Użytkownik tworzący',
-  'LBL_MODIFIED_USER' => 'Użytkownik modyfikujący',
+  'LNK_CASE_LIST' => 'Zgłoszenia',
+  'LNK_CASE_REPORTS' => 'Raporty zgłoszeń',
+  'LNK_CREATE' => 'Utwórz zgłoszenie',
+  'LNK_CREATE_WHEN_EMPTY' => 'Utwórz teraz zgłoszenie.',
+  'LNK_IMPORT_CASES' => 'Importuj zgłoszenia',
+  'LNK_NEW_CASE' => 'Utwórz zgłoszenie',
+  'NTC_REMOVE_FROM_BUG_CONFIRMATION' => 'Czy na pewno chcesz usunąć to zgłoszenie z błędu?',
+  'NTC_REMOVE_INVITEE' => 'Czy na pewno chcesz usunąć ten kontakt ze zgłoszenia?',
 );
 

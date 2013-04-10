@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -52,6 +38,7 @@ $mod_strings = array (
   'LBL_DISCOUNT_USDOLLAR' => 'Cena sa popustom (Američki dolar):',
   'LBL_EXPORT_ASSIGNED_USER_ID' => 'ID broj dodeljenog korisnika',
   'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Ime dodeljenog korisnika',
+  'LBL_EXPORT_COST_PRICE' => 'Cena koštanja',
   'LBL_EXPORT_CREATED_BY' => 'ID broj osobe koja je kreirala',
   'LBL_EXPORT_CURRENCY' => 'Valuta',
   'LBL_EXPORT_CURRENCY_ID' => 'ID broj valute',
@@ -73,11 +60,13 @@ $mod_strings = array (
   'LBL_LIST_TYPE_ID' => 'Tip:',
   'LBL_LIST_USDOLLAR' => 'Cena (Američki dolar):',
   'LBL_MANUFACTURER' => 'Proizvođač:',
+  'LBL_MANUFACTURERS' => 'Proizvođači',
   'LBL_MANUFACTURER_ID' => 'ID broj proizvođača:',
   'LBL_MANUFACTURER_NAME' => 'Naziv proizvođača:',
   'LBL_MFT_PART_NUM' => 'Broj dela proizvođača:',
   'LBL_MODULE_ID' => 'Šabloni proizvoda',
   'LBL_MODULE_NAME' => 'Katalog proizvoda',
+  'LBL_MODULE_NAME_SINGULAR' => 'Katalog proizvoda:',
   'LBL_MODULE_TITLE' => 'Katalog proizvoda: Početna strana',
   'LBL_NAME' => 'Naziv proizvoda:',
   'LBL_NEW_FORM_TITLE' => 'Kreiraj atikal',
@@ -86,7 +75,10 @@ $mod_strings = array (
   'LBL_PRICING_FACTOR' => 'Cenovni faktor',
   'LBL_PRICING_FORMULA' => 'Podrazumevana cenovna formula:',
   'LBL_PRODUCT' => 'Proizvod:',
+  'LBL_PRODUCT_CATEGORIES' => 'Kategorije proizvoda',
   'LBL_PRODUCT_ID' => 'ID broj proizvoda:',
+  'LBL_PRODUCT_TYPES' => 'Tipovi proizvoda',
+  'LBL_QTY_IN_STOCK' => 'Količina zaliha',
   'LBL_QUANTITY' => 'Raspoloživa količina:',
   'LBL_RELATED_PRODUCTS' => 'Povezani proizvod',
   'LBL_SEARCH_FORM_TITLE' => 'Pretraga kataloga proizvoda',
@@ -97,6 +89,7 @@ $mod_strings = array (
   'LBL_SUPPORT_TERM' => 'Uslovi podrške:',
   'LBL_TAX_CLASS' => 'Poreska stopa:',
   'LBL_TYPE' => 'Tip',
+  'LBL_TYPE_ID' => 'ID tipa',
   'LBL_TYPE_NAME' => 'Naziv tipa',
   'LBL_URL' => 'URL proizvoda:',
   'LBL_VENDOR_PART_NUM' => 'Broj dela prodavca:',

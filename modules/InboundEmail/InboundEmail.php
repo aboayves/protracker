@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -224,8 +210,10 @@ class InboundEmail extends SugarBean {
 	 */
 	function mark_deleted($id) {
 		parent::mark_deleted($id);
-		$q = "update inbound_email set groupfolder_id = null WHERE id = '{$id}'";
-		$r = $this->db->query($q);
+
+		//bug52021  we need to keep the reference to the folders table in order for emails module to function properly
+		//$q = "update inbound_email set groupfolder_id = null WHERE id = '{$id}'";
+		//$r = $this->db->query($q);
 		$this->deleteCache();
 	}
 
@@ -381,6 +369,7 @@ class InboundEmail extends SugarBean {
 
 				if(!empty($line)) {
 					$key = trim(substr($line, 0, strpos($line, ":")));
+					$key = strip_tags($key);
 					$value = trim(substr($line, strpos($line, ":") + 1));
 					$value = to_html($value);
 
@@ -864,7 +853,7 @@ class InboundEmail extends SugarBean {
 						case "mailsize":
 						case "senddate":
 						case "mbox":
-                        case "ie_id":
+						case "ie_id":
 						break;
 
 						default:
@@ -2499,8 +2488,8 @@ class InboundEmail extends SugarBean {
 			$alerts = '';
 			$GLOBALS['log']->debug($l.': I-E testing string: '.$serviceTest);
 
-			// open the connection and try the test string
-			$this->conn = imap_open($serviceTest, $login, $passw);
+            // open the connection and try the test string
+            $this->conn = $this->getImapConnection($serviceTest, $login, $passw);
 
 			if(($errors = imap_last_error()) || ($alerts = imap_alerts())) {
 				if($errors == 'Too many login failures' || $errors == '[CLOSED] IMAP connection broken (server response)') { // login failure means don't bother trying the rest
@@ -3508,12 +3497,12 @@ class InboundEmail extends SugarBean {
 				// we will take either 'attachments' or 'inline'
 				if(strtolower($part->disposition) == 'attachment' || ((strtolower($part->disposition) == 'inline') && $part->type != 0)) {
 					$attach = $this->getNoteBeanForAttachment($emailId);
-					$fname = $this->handleEncodedFilename($this->retrieveAttachmentNameFromStructure($part->dparameters));
+					$fname = $this->handleEncodedFilename($this->retrieveAttachmentNameFromStructure($part));
 
 					if(!empty($fname)) {//assign name to attachment
 						$attach->name = $fname;
 					} else {//if name is empty, default to filename
-						$attach->name = urlencode($this->retrieveAttachmentNameFromStructure($part->dparameters));
+						$attach->name = urlencode($this->retrieveAttachmentNameFromStructure($part));
 					}
 					$attach->filename = $attach->name;
 					if (empty($attach->filename)) {
@@ -3606,17 +3595,16 @@ class InboundEmail extends SugarBean {
 	}
 
 	/**
-	 * Return the filename of the attachment by examining the dparameters returned from imap_fetch_structure which
-	 * represet the content-disposition of the MIME header.
-	 *
-	 * @param array $dparamaters
+	 * Return the filename of the attachment by examining the dparameters or parameters returned from imap_fetch_structure
+     *
+	 * @param object $part
 	 * @return string
 	 */
-	function retrieveAttachmentNameFromStructure($dparamaters)
+	function retrieveAttachmentNameFromStructure($part)
 	{
 	   $result = "";
 
-	   foreach ($dparamaters as $k => $v)
+	   foreach ($part->dparameters as $k => $v)
 	   {
 	       if( strtolower($v->attribute) == 'filename')
 	       {
@@ -3625,6 +3613,15 @@ class InboundEmail extends SugarBean {
 	       }
 	   }
 
+		if (empty($result)) {
+			foreach ($part->parameters as $k => $v) {
+				if (strtolower($v->attribute) == 'name') {
+					$result = $v->value;
+					break;
+				}
+			}
+		}
+		
 	   return $result;
 
     }
@@ -4075,10 +4072,13 @@ class InboundEmail extends SugarBean {
 			// handle UTF-8/charset encoding in the ***headers***
 			global $db;
 			$email->name			= $this->handleMimeHeaderDecode($header->subject);
-			$email->date_start = (!empty($unixHeaderDate)) ? $timedate->asUserDate($unixHeaderDate) : "";
-			$email->time_start = (!empty($unixHeaderDate)) ? $timedate->asUserTime($unixHeaderDate) : "";
 			$email->type = 'inbound';
-			$email->date_created = (!empty($unixHeaderDate)) ? $timedate->asUser($unixHeaderDate) : "";
+			if(!empty($unixHeaderDate)) {
+			    $email->date_sent = $timedate->asUser($unixHeaderDate);
+			    list($email->date_start, $email->time_start) = $timedate->split_date_time($email->date_sent);
+			} else {
+			    $email->date_start = $email->time_start = $email->date_sent = "";
+			}
 			$email->status = 'unread'; // this is used in Contacts' Emails SubPanel
 			if(!empty($header->toaddress)) {
 				$email->to_name	 = $this->handleMimeHeaderDecode($header->toaddress);
@@ -4630,17 +4630,17 @@ eoq;
 				if (!empty($emailAddressString)) {
 					$emailAddressString .= ",";
 				}
-				$emailAddressString .= 	"'" . $emailAddress. "'";
+				$emailAddressString .= $this->db->quoted(trim($emailAddress));
 			} // foreach
 			$email = $emailAddressString;
 		} else {
-			$email = "'" . $email . "'";
+			$email = $this->db->quoted($email);
 		} // else
-		$module = ucfirst($module);
+		$module = $this->db->quoted(ucfirst($module));
 
 		$q = "SELECT bean_id FROM email_addr_bean_rel eabr
 				JOIN email_addresses ea ON (eabr.email_address_id = ea.id)
-				WHERE bean_module = '{$module}' AND ea.email_address_caps in ( {$email} ) AND eabr.deleted=0";
+				WHERE bean_module = $module AND ea.email_address_caps in ( {$email} ) AND eabr.deleted=0";
 
 		$r = $this->db->query($q, true);
 
@@ -4764,12 +4764,12 @@ eoq;
 
 		// final test
 		if(!is_resource($this->conn) && !$test) {
-			$this->conn = imap_open($connectString, $this->email_user, $this->email_password, CL_EXPUNGE);
+            $this->conn = $this->getImapConnection($connectString, $this->email_user, $this->email_password, CL_EXPUNGE);
 		}
 
 		if($test) {
 			if ($opts == false && !is_resource($this->conn)) {
-				$this->conn = imap_open($connectString, $this->email_user, $this->email_password, CL_EXPUNGE);
+                $this->conn = $this->getImapConnection($connectString, $this->email_user, $this->email_password, CL_EXPUNGE);
 			}
 			$errors = '';
 			$alerts = '';
@@ -4823,8 +4823,10 @@ eoq;
 			imap_close($this->conn);
 			return $msg;
 		} elseif(!is_resource($this->conn)) {
+            $GLOBALS['log']->info('Couldn\'t connect to mail server id: ' . $this->id);
 			return "false";
 		} else {
+            $GLOBALS['log']->info('Connected to mail server id: ' . $this->id);
 			return "true";
 		}
 	}
@@ -4853,6 +4855,42 @@ eoq;
 			<br>';
 		}
 	}
+
+    /**
+     * Attempt to create an IMAP connection using passed in parameters
+     * return either the connection resource or false if unable to connect
+     *
+     * @param  string  $mailbox  Mailbox to be used to create imap connection
+     * @param  string  $username The user name
+     * @param  string  $password The password associated with the username
+     * @param  integer $options  Bitmask for options parameter to the imap_open function
+     *
+     * @return resource|boolean  Connection resource on success, FALSE on failure
+     */
+    protected function getImapConnection($mailbox, $username, $password, $options = 0)
+    {
+        // if php is prior to 5.3.2, then return call without disable parameters as they are not supported yet
+        if (version_compare(phpversion(), '5.3.2', '<')) {
+            return imap_open($mailbox, $username, $password, $options);
+        }
+
+        $connection = null;
+        $authenticators = array('', 'GSSAPI', 'NTLM');
+
+        while (!$connection && ($authenticator = array_shift($authenticators)) !== null) {
+            if ($authenticator) {
+                $params = array(
+                    'DISABLE_AUTHENTICATOR' => $authenticator,
+                );
+            } else {
+                $params = array();
+            }
+
+            $connection = imap_open($mailbox, $username, $password, $options, 0, $params);
+        }
+
+        return $connection;
+    }
 
 	/**
 	 * retrieves an array of I-E beans based on the group_id
@@ -5190,8 +5228,15 @@ eoq;
 					if ($fromSugarFolder->is_dynamic && $toSugarFolder->is_group) {
 						$email->team_id = $toSugarFolder->team_id;
 						$email->team_set_id = $toSugarFolder->team_set_id;
+                        // Bug 50972 - assigned_user_id set to empty string not true null
+                        // Modifying the field defs in just this one place to allow
+                        // a true null since this is what is expected when reading
+                        // inbox folders
+                        $email->setFieldNullable('assigned_user_id');
 						$email->assigned_user_id = "";
 						$email->save();
+                        $email->revertFieldNullable('assigned_user_id');
+                        // End fix 50972
 						$email->getNotes($id);
                         if(!empty($email->attachments)) {
                             foreach($email->attachments as $note) {
@@ -5379,15 +5424,15 @@ eoq;
 			if (empty($trashFolder)) {
 				$trashFolder = "INBOX.Trash";
 			}
-			foreach($uids as $uid) {
-		        if($this->moveEmails($this->id, $this->mailbox, $this->id, $trashFolder, $uid))
-	                $GLOBALS['log']->debug("INBOUNDEMAIL: MoveEmail to {$trashFolder} successful.");
-	            else {
-	                $GLOBALS['log']->debug("INBOUNDEMAIL: MoveEmail to {$trashFolder} FAILED - trying hard delete for message: $uid");
-	                imap_delete($this->conn, $uid, FT_UID);
-					$return = true;
-	            }
-	        }
+			$uidsToMove = implode('::;::', $uids);
+			if($this->moveEmails($this->id, $this->mailbox, $this->id, $trashFolder, $uidsToMove))
+				$GLOBALS['log']->debug("INBOUNDEMAIL: MoveEmail to {$trashFolder} successful.");
+			else {
+				$GLOBALS['log']->debug("INBOUNDEMAIL: MoveEmail to {$trashFolder} FAILED - trying hard delete for message: $uid");
+				$uidsToDelete = implode(',', $uids);
+				imap_delete($this->conn, $uidsToDelete, FT_UID);
+				$return = true;
+			}
 		}
         else {
             $msgnos = array();
@@ -6463,6 +6508,82 @@ eoq;
         return $result;
     }
 
+    /**
+     * Import new messages from given account.
+     */
+    public function importMessages()
+    {
+        $protocol = $this->isPop3Protocol() ? 'pop3' : 'imap';
+        switch ($protocol) {
+            case 'pop3':
+                $this->importMailboxMessages($protocol);
+                break;
+            case 'imap':
+                $mailboxes = $this->getMailboxes(true);
+                foreach ($mailboxes as $mailbox) {
+                    $this->importMailboxMessages($protocol, $mailbox);
+                }
+                imap_expunge($this->conn);
+                imap_close($this->conn);
+                break;
+        }
+    }
+
+    /**
+     * Import messages from specified mailbox
+     *
+     * @param string      $protocol Mailing protocol
+     * @param string|null $mailbox  Mailbox (if applied to protocol)
+     */
+    protected function importMailboxMessages($protocol, $mailbox = null)
+    {
+        switch ($protocol) {
+            case 'pop3':
+                $msgNumbers = $this->getPop3NewMessagesToDownload();
+                break;
+            case 'imap':
+                $this->mailbox = $mailbox;
+                $this->connectMailserver();
+                $msgNumbers = $this->getNewMessageIds();
+                if (!$msgNumbers) {
+                    $msgNumbers = array();
+                }
+                break;
+            default:
+                $msgNumbers = array();
+                break;
+        }
+
+        foreach ($msgNumbers as $msgNumber) {
+            $uid = $this->getMessageUID($msgNumber, $protocol);
+            $GLOBALS['log']->info('Importing message no: ' . $msgNumber);
+            $this->importOneEmail($msgNumber, $uid, false, false);
+        }
+    }
+
+    /**
+     * Retrieves message UID by it's number
+     *
+     * @param int     $msgNumber Number of the message in current sequence
+     * @param string  $protocol  Mailing protocol
+     * @return string
+     */
+    protected function getMessageUID($msgNumber, $protocol)
+    {
+        switch ($protocol) {
+            case 'pop3':
+                $uid = $this->getUIDLForMessage($msgNumber);
+                break;
+            case 'imap':
+                $uid = imap_uid($this->conn, $msgNumber);
+                break;
+            default:
+                $uid = null;
+                break;
+        }
+
+        return $uid;
+    }
 } // end class definition
 
 

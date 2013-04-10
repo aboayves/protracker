@@ -1,152 +1,171 @@
 <?php
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-$viewdefs['Products']['DetailView'] = array(
-'templateMeta' => array('maxColumns' => '2', 
-                        'widths' => array(
-                                        array('label' => '10', 'field' => '30'), 
-                                        array('label' => '10', 'field' => '30')
-                                        ),
-                        ),
-'panels' =>array (
-  'default' =>array(
+// created: 2013-04-10 13:54:26
+$viewdefs['Products']['DetailView'] = array (
+  'templateMeta' => 
   array (
-    'name',
-    'status',
-  ),
-  
-  array (
-    'quote_name',
-    'contact_name',
-  ),
-  
-  array (
-    'account_name',
-  ),
-  
-  array (
-    'quantity',
-    'date_purchased',
-  ),
-  
-  array (
-    'serial_number',
-    'date_support_starts',
-  ),
-  
-  array (
-    'asset_number',
-    'date_support_expires',
-  ),
-
-  ),
-array(
-    
-  array (
-    'currency_id',
-  ),
-  
-  array (    
+    'maxColumns' => '2',
+    'form' => 
     array (
-      'name' => 'cost_price',
-      'label' => '{$MOD.LBL_COST_PRICE|strip_semicolon} ({$CURRENCY})',
+      'buttons' => 
+      array (
+        0 => 'EDIT',
+        1 => 'DUPLICATE',
+        2 => 'DELETE',
+        3 => 'AUDIT',
+      ),
     ),
-    ''
-  ),
-  
-  array (
-    
+    'widths' => 
     array (
-      'name' => 'list_price',
-      'label' => '{$MOD.LBL_LIST_PRICE|strip_semicolon} ({$CURRENCY})',
+      0 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
     ),
-    
+    'tabDefs' => 
     array (
-      'name' => 'book_value',
-      'label' => '{$MOD.LBL_BOOK_VALUE|strip_semicolon} ({$CURRENCY})',
+      'DEFAULT' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+      1 => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
     ),
   ),
-  
+  'panels' => 
   array (
-    
+    'default' => 
     array (
-      'name' => 'discount_price',
-      'label' => '{$MOD.LBL_DISCOUNT_PRICE|strip_semicolon} ({$CURRENCY})',
+      0 => 
+      array (
+        0 => 'name',
+        1 => 'status',
+      ),
+      1 => 
+      array (
+        0 => 'quote_name',
+        1 => 'contact_name',
+      ),
+      2 => 
+      array (
+        0 => 'account_name',
+      ),
+      3 => 
+      array (
+        0 => 'quantity',
+        1 => 'date_purchased',
+      ),
+      4 => 
+      array (
+        0 => 'serial_number',
+        1 => 'date_support_starts',
+      ),
+      5 => 
+      array (
+        0 => 'asset_number',
+        1 => 'date_support_expires',
+      ),
     ),
-    'book_value_date',
-  ),
-  
-  array (    
+    0 => 
     array (
-      'name' => 'discount_amount',
-      'customCode' => '{if $fields.discount_select.value}{sugar_number_format var=$fields.discount_amount.value}%{else}{$fields.currency_symbol.value}{sugar_number_format var=$fields.discount_amount.value}{/if}',
+      0 => 
+      array (
+        0 => 'currency_id',
+      ),
+      1 => 
+      array (
+        0 => 
+        array (
+          'name' => 'cost_price',
+          'label' => '{$MOD.LBL_COST_PRICE|strip_semicolon} ({$CURRENCY})',
+        ),
+        1 => '',
+      ),
+      2 => 
+      array (
+        0 => 
+        array (
+          'name' => 'list_price',
+          'label' => '{$MOD.LBL_LIST_PRICE|strip_semicolon} ({$CURRENCY})',
+        ),
+        1 => 
+        array (
+          'name' => 'book_value',
+          'label' => '{$MOD.LBL_BOOK_VALUE|strip_semicolon} ({$CURRENCY})',
+        ),
+      ),
+      3 => 
+      array (
+        0 => 
+        array (
+          'name' => 'discount_price',
+          'label' => '{$MOD.LBL_DISCOUNT_PRICE|strip_semicolon} ({$CURRENCY})',
+        ),
+        1 => 'book_value_date',
+      ),
+      4 => 
+      array (
+        0 => 
+        array (
+          'name' => 'discount_amount',
+          'customCode' => '{if $fields.discount_select.value}{sugar_number_format var=$fields.discount_amount.value}%{else}{$fields.currency_symbol.value}{sugar_number_format var=$fields.discount_amount.value}{/if}',
+        ),
+        1 => '',
+      ),
     ),
-    ''
+    1 => 
+    array (
+      0 => 
+      array (
+        0 => 
+        array (
+          'name' => 'website',
+          'type' => 'link',
+        ),
+        1 => 'tax_class',
+      ),
+      1 => 
+      array (
+        0 => 'manufacturer_name',
+        1 => 'weight',
+      ),
+      2 => 
+      array (
+        0 => 'mft_part_num',
+        1 => 
+        array (
+          'name' => 'category_name',
+          'type' => 'text',
+        ),
+      ),
+      3 => 
+      array (
+        0 => 'vendor_part_num',
+        1 => 'type_name',
+      ),
+      4 => 
+      array (
+        0 => 'description',
+      ),
+      5 => 
+      array (
+        0 => 'support_name',
+        1 => 'support_contact',
+      ),
+      6 => 
+      array (
+        0 => 'support_description',
+        1 => 'support_term',
+      ),
+    ),
   ),
-),
-array(
-  array (
-    array('name'=>'website', 'type'=>'link'),
-    'tax_class',
-  ),
-  
-  array (
-    'manufacturer_name',
-    'weight',
-  ),
-  
-  array (
-    'mft_part_num',
-     array('name'=>'category_name', 'type'=>'text'),
-  ),
-  
-  array (
-    'vendor_part_num',
-  	'type_name',
-  ),
-  
-  array (
-    'description',
-  ),
-      
-  array (
-    'support_name',
-    'support_contact',
-  ),
-  
-  array (
-    'support_description',
-    'support_term',
-  ),
-),
-),
-
-
-   
 );
-?>

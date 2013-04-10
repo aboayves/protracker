@@ -1,33 +1,20 @@
 {*
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 *}
 
+{{assign var="selectRelation" value=$selectFields[$module]}}
 <span class="color">{$ERROR}</span>
 {{foreach name=section from=$sectionPanels key=label item=panel}}
 {{counter name="panelCount" print=false}}
@@ -46,17 +33,24 @@
 {{$field}}   
 {{/foreach}}
 {{/if}}
-{if !$def.required || !empty($def.select)}
-<input class="checkbox" type="checkbox" name="new{{$module}}" id="new{{$module}}" onclick="toggleDisplay('create{{$module}}');if (typeof(addRemoveDropdownElement) == 'function') addRemoveDropdownElement('{{$module}}');{{if !empty($def.select)}}toggle{{$module}}Select();{{/if}}">
+{if $def.required }
 <script type="text/javascript">
- {{if !empty($def.select)}}
+mod_array.push('{{$module}}');//Bug#50590 add all required modules to mod_array
+</script>
+{/if}
+{if !$def.required || !empty($def.select)}
+<input class="checkbox" type="checkbox" name="new{{$module}}" id="new{{$module}}" onclick="toggleDisplay('create{{$module}}');if (typeof(addRemoveDropdownElement) == 'function') addRemoveDropdownElement('{{$module}}');{if !empty($def.select)}toggle{{$module}}Select();{/if}">
+<script type="text/javascript">
+{{if !empty($selectRelation)}}
+{if !empty($def.select)}
  toggle{{$module}}Select = function(){ldelim} 
     var inputs = document.getElementById('select{{$module}}').getElementsByTagName('input');
 	for(var i in inputs) {ldelim}inputs[i].disabled = !inputs[i].disabled;{rdelim}
 	var buttons = document.getElementById('select{{$module}}').getElementsByTagName('button');
     for(var i in buttons) {ldelim}buttons[i].disabled = !buttons[i].disabled;{rdelim}
  {rdelim}
- {{/if}}
+{/if}
+{{/if}}
  {if !empty($def.default_action) && $def.default_action == "create"}
      {if $lead_conv_activity_opt == 'move' || $lead_conv_activity_opt == 'copy' || $lead_conv_activity_opt == ''}
         YAHOO.util.Event.onContentReady('lead_conv_ac_op_sel', function(){ldelim}
@@ -67,9 +61,11 @@
 		document.getElementById('new{{$module}}').checked = true;
                 if (typeof(addRemoveDropdownElement) == 'function')
                     addRemoveDropdownElement('{{$module}}');
-		{{if !empty($def.select)}}
+        {{if !empty($selectRelation)}}
+        {if !empty($def.select)}
 		toggle{{$module}}Select();
-		{{/if}}
+        {/if}
+        {{/if}}
 	{rdelim});
  {/if}
 {/if}
@@ -77,28 +73,30 @@
 </td><td>
 {sugar_translate label='{{$label}}' module='Leads'}
 </td><td>
-{{if !empty($def.select)}}
+{{if !empty($selectRelation)}}
+{if !empty($def.select)}
     {sugar_translate label='LNK_SELECT_{{$module|strtoupper}}' module='Leads'}
     {if $def.required }
         <span class="required">{{$APP.LBL_REQUIRED_SYMBOL}}</span>
     {/if}
 </td><td id ="select{{$module}}">
-{{sugar_field parentFieldArray='contact_def' vardef=$contact_def[$def.select] displayType='EditView' formName=$form_name call_back_function='set_return_lead_conv'}}
+{{sugar_field parentFieldArray='contact_def' vardef=$contact_def[$selectRelation] displayType='EditView' displayParams=$displayParams formName=$form_name call_back_function='set_return_lead_conv'}}
 <script>
 if (typeof(sqs_objects) == "undefined") sqs_objects = [];
-sqs_objects['{{$form_name}}_{{$def.select}}'] = {ldelim}
+sqs_objects['{{$form_name}}_{$selectFields.{{$module}}}'] = {ldelim}
     form          : '{{$form_name}}',
     method        : 'query',
     modules       : ['{{$module}}'],
     group         : 'or',
     field_list    : ['name', 'id'],
-    populate_list : ['{{$def.select}}', '{{$contact_def[$def.select].id_name}}'],
+    populate_list : ['{$selectFields.{{$module}}}', '{$contact_def[$selectFields.{{$module}}].id_name}'],
     conditions    : [{ldelim}'name':'name','op':'like','end':'%','value':''{rdelim}],
-    required_list : ['{{$contact_def[$def.select].id_name}}'],
+    required_list : ['{$contact_def[$selectFields.{{$module}}].id_name}'],
     order         : 'name',
     limit         : '10'
 {rdelim}
 </script>
+{/if}
 {{/if}}
 </td></tr></table>
 </h4>

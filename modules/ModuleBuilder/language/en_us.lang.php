@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -346,7 +332,7 @@ $mod_strings = array(
 'LBL_HOME' => 'Home',
 'LBL_NONE'=>'-None-',
 'LBL_DEPLOYE_COMPLETE'=>'Deploy complete',
-'LBL_DEPLOY_FAILED'   =>'An error has occured during deploy process, your package may not have installed correctly',
+'LBL_DEPLOY_FAILED'   =>'An error has occurred during deploy process, your package may not have installed correctly',
 'LBL_ADD_FIELDS'=>'Add Custom Fields',
 'LBL_AVAILABLE_SUBPANELS'=>'Available Subpanels',
 'LBL_ADVANCED'=>'Advanced',
@@ -412,8 +398,15 @@ $mod_strings = array(
 'LBL_ADD_DROPDOWN' => 'Add a new Global Dropdown',
 'LBL_BLANK' => '-blank-',
 'LBL_TAB_ORDER' => 'Tab Order',
-'LBL_TAB_PANELS' => 'Display panels as tabs',
-'LBL_TAB_PANELS_HELP' => 'Display each panel as its own tab instead of having them all appear on one screen',
+'LBL_TAB_PANELS' => 'Enable tabs',
+'LBL_TAB_PANELS_HELP' => 'When tabs are enabled, use the "type" dropdown box<br />for each section to define how it will be displayed (tab or panel)',
+'LBL_TABDEF_TYPE' => 'Display Type',
+'LBL_TABDEF_TYPE_HELP' => 'Select how this section should be displayed. This option only has effect if you have enabled tabs on this view.',
+'LBL_TABDEF_TYPE_OPTION_TAB' => 'Tab',
+'LBL_TABDEF_TYPE_OPTION_PANEL' => 'Panel',
+'LBL_TABDEF_TYPE_OPTION_HELP' => 'Select Panel to have this panel display within the view of the layout. Select Tab to have this panel displayed within a separate tab within the layout. When Tab is specified for a panel, subsequent panels set to display as Panel will be displayed within the tab. <br/>A new Tab will be started for the next panel for which Tab is selected. If Tab is selected for a panel below the first panel, the first panel will necessarily be a Tab.',
+'LBL_TABDEF_COLLAPSE' => 'Collapse',
+'LBL_TABDEF_COLLAPSE_HELP' => 'Select to make the default state of this panel collapsed.',
 'LBL_DROPDOWN_TITLE_NAME' => 'Name',
 'LBL_DROPDOWN_LANGUAGE' => 'Language',
 'LBL_DROPDOWN_ITEMS' => 'List Items',
@@ -424,6 +417,9 @@ $mod_strings = array(
 'LBL_SYNC_TO_DETAILVIEW_NOTICE' => 'This DetailView is sync\'d with the corresponding EditView.<br> Fields and field placement in this DetailView reflect the fields and field placement in the EditView.<br> Changes to the DetailView cannot be saved or deployed within this page. Make changes or un-sync the layouts in the EditView. ',
 'LBL_COPY_FROM_EDITVIEW' => 'Copy from EditView',
 'LBL_DROPDOWN_BLANK_WARNING' => 'Values are required for both the Item Name and the Display Label. To add a blank item, click Add without entering any values for the Item Name and the Display Label.',
+'LBL_DROPDOWN_KEY_EXISTS' => 'Key already exists in list',
+'LBL_NO_SAVE_ACTION' => 'Could not find the save action for this view.',
+'LBL_BADLY_FORMED_DOCUMENT' => 'Studio2:establishLocation: badly formed document',
 
 'LBL_WIRELESSLAYOUTS'=>'Mobile Layouts',
 'LBL_WIRELESSEDITVIEW'=>'Mobile EditView',
@@ -582,7 +578,7 @@ $mod_strings = array(
 'ERROR_INVALID_KEY_VALUE'=> "Error: Invalid Key Value: [']",
 'ERROR_NO_HISTORY' => 'No history files found',
 'ERROR_MINIMUM_FIELDS' => 'The layout must contain at least one field',
-'ERROR_GENERIC_TITLE' => 'An error has occured',
+'ERROR_GENERIC_TITLE' => 'An error has occurred',
 'ERROR_REQUIRED_FIELDS' => 'Are you sure you wish to continue? The following required fields are missing from the layout:  ',
 'ERROR_ARE_YOU_SURE' => 'Are you sure you wish to continue?',
 

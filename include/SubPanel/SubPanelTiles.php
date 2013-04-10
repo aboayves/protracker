@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -289,8 +275,16 @@ if(document.DetailView != null &&
 			$div_display = $default_div_display;
 			$cookie_name =   $tab . '_v';
 
+			if (isset($thisPanel->_instance_properties['collapsed']) && $thisPanel->_instance_properties['collapsed'])
+			{
+				$div_display = 'none';
+			}
+				
 			if(isset($div_cookies[$cookie_name])){
-				$div_display = 	$div_cookies[$cookie_name];
+				//If defaultSubPanelExpandCollapse is set, ignore the cookie that remembers whether the panel is expanded or collapsed.
+				//To be used with the above 'collapsed' metadata setting so they will always be set the same when the page is loaded.
+				if(!isset($sugar_config['defaultSubPanelExpandCollapse']) || $sugar_config['defaultSubPanelExpandCollapse'] == false)
+					$div_display = 	$div_cookies[$cookie_name];
 			}
 			if(!empty($sugar_config['hide_subpanels'])){
 				$div_display = 'none';
@@ -312,7 +306,7 @@ if(document.DetailView != null &&
 
 			if (empty($this->show_tabs))
 			{
-				$show_icon_html = SugarThemeRegistry::current()->getImage( 'advanced_search', 'border="0 align="absmiddle""',null,null,'.gif',translate('LBL_SHOW'));
+				$show_icon_html = SugarThemeRegistry::current()->getImage( 'advanced_search', 'border="0" align="absmiddle"',null,null,'.gif',translate('LBL_SHOW'));
 				$hide_icon_html = SugarThemeRegistry::current()->getImage( 'basic_search', 'border="0" align="absmiddle"',null,null,'.gif',translate('LBL_HIDE'));
 
  		 		$max_min = "<a name=\"$tab\"> </a><span id=\"show_link_".$tab."\" style=\"display: $opp_display\"><a href='#' class='utilsLink' onclick=\"current_child_field = '".$tab."';showSubPanel('".$tab."',null,null,'".$layout_def_key."');document.getElementById('show_link_".$tab."').style.display='none';document.getElementById('hide_link_".$tab."').style.display='';return false;\">"
@@ -426,13 +420,15 @@ EOQ;
         //for action button at the top of each subpanel
         // bug#51275: smarty widget to help provide the action menu functionality as it is currently sprinkled throughout the app with html
         $buttons = array();
+        $widget_contents = '';
 		foreach($subpanel_def as $widget_data)
 		{
-            $widget_data['query']=urlencode($panel_query);
-            $widget_data['action'] = $_REQUEST['action'];
-            $widget_data['module'] = $thisPanel->get_inst_prop_value('module');
-            $widget_data['focus'] = $this->focus;
-            $widget_data['subpanel_definition'] = $thisPanel;
+
+			$widget_data['action'] = $_REQUEST['action'];
+			$widget_data['module'] =  $thisPanel->get_inst_prop_value('module');
+			$widget_data['focus'] = $this->focus;
+			$widget_data['subpanel_definition'] = $thisPanel;
+			$widget_contents .= '<td class="buttons">' . "\n";
 
 			if(empty($widget_data['widget_class']))
 			{

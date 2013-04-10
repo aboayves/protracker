@@ -3,56 +3,50 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_NAME' => 'ID',
-  'LBL_TP_NAME' => 'Periode',
-  'LBL_TP_START_DATE' => 'Begindatum',
-  'LBL_TP_END_DATE' => 'Einddatum',
-  'LBL_TP_FISCAL_YEAR' => 'Fiscaal Jaar',
-  'LBL_MODULE_NAME' => 'Periode',
-  'LBL_MODULE_TITLE' => 'Perioden: Start',
-  'LBL_SEARCH_FORM_TITLE' => 'Periode Zoeken',
-  'LBL_LIST_FORM_TITLE' => 'Perioden',
-  'LBL_NEW_FORM_TITLE' => 'Nieuwe Periode',
-  'LNK_NEW_TIMEPERIOD' => 'Nieuwe Periode',
-  'LNK_TIMEPERIOD_LIST' => 'Perioden',
-  'LBL_TP_IS_FISCAL_YEAR' => 'Is Fiscaal Jaar?',
-  'LBL_PARENT_ID' => 'Bovenliggende-Id',
+  'ERR_TIME_PERIOD_DATE_RANGE' => 'De periode van de einddatum zou later moeten zijn dan de startdatum.',
   'LBL_CREATED_BY' => 'Gemaakt door',
   'LBL_DATE_ENTERED' => 'Datum Ingevoerd',
-  'LBL_DATE_MODIFIED' => 'Laatste wijziging',
+  'LBL_DATE_MODIFIED' => 'Datum gewijzigd',
   'LBL_DELETED' => 'Verwijderd',
-  'LBL_SEARCH_TP_NAME' => 'Periode',
-  'LBL_SEARCH_TP_START_DATE' => 'Begindatum',
+  'LBL_EDITLAYOUT' => 'Wijzig Lay-out',
+  'LBL_LIST_FORM_TITLE' => 'Perioden',
+  'LBL_LIST_WARNING' => 'Let op: Wijzigingen die gemaakt worden in deze module, zouden de functionaliteit van de {0} module kapot kunnen maken. De wijzigingen gerelateerd aan {1} moeten gemaakt worden via de <a style="text-decoration:none;" href="index.php?module=Forecasts&action=#config">{0} Instellingen</a>.',
+  'LBL_MODULE_NAME' => 'Perioden',
+  'LBL_MODULE_NAME_SINGULAR' => 'Periode',
+  'LBL_MODULE_TITLE' => 'Perioden: Home',
+  'LBL_NAME' => 'ID',
+  'LBL_NEW_FORM_TITLE' => 'Nieuwe Periode',
+  'LBL_PARENT_ID' => 'Bovenliggende Id',
+  'LBL_SEARCH_FORM_TITLE' => 'Perioden Zoeken',
   'LBL_SEARCH_TP_END_DATE' => 'Einddatum',
-  'ERR_TIME_PERIOD_DATE_RANGE' => 'De periode van de einddatum zou later moeten zijn dan de begindatum.',
+  'LBL_SEARCH_TP_NAME' => 'Periode',
+  'LBL_SEARCH_TP_START_DATE' => 'Startdatum',
+  'LBL_TP_END_DATE' => 'Einddatum',
+  'LBL_TP_END_DATE_TIMESTAMP' => 'Einddatum Timestamp',
+  'LBL_TP_FISCAL_YEAR' => 'Fiscaal Jaar',
+  'LBL_TP_IS_FISCAL' => 'Is Fiscal Time Span?',
+  'LBL_TP_IS_FISCAL_YEAR' => 'Is Fiscaal Jaar?',
+  'LBL_TP_IS_LEAF' => 'Is Leaf?',
+  'LBL_TP_NAME' => 'Periode',
+  'LBL_TP_START_DATE' => 'Startdatum',
+  'LBL_TP_START_DATE_TIMESTAMP' => 'Startdatum Timestamp',
+  'LBL_TP_TYPE' => 'Periode type',
+  'LNK_NEW_TIMEPERIOD' => 'Nieuwe Periode',
+  'LNK_TIMEPERIOD_LIST' => 'Perioden',
 );
 

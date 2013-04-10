@@ -1,29 +1,15 @@
 {*
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 *}
@@ -39,17 +25,34 @@ class="yui-navset detailview_tabs"
     {{counter name="tabCount" start=-1 print=false assign="tabCount"}}
     <ul class="yui-nav">
     {{foreach name=section from=$sectionPanels key=label item=panel}}
-        {{counter name="tabCount" print=false}}
-        <li><a id="tab{{$tabCount}}" href="javascript:void(0)"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
+        {{capture name=label_upper assign=label_upper}}{{$label|upper}}{{/capture}}
+        {* override from tab definitions *}
+        {{if (isset($tabDefs[$label_upper].newTab) && $tabDefs[$label_upper].newTab == true)}}
+            {{counter name="tabCount" print=false}}
+            <li><a id="tab{{$tabCount}}" href="javascript:void(0)"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
+        {{/if}}
     {{/foreach}}
     </ul>
     {{/if}}
     <div {{if $useTabs}}class="yui-content"{{/if}}>
 {{* Loop through all top level panels first *}}
 {{counter name="panelCount" print=false start=0 assign="panelCount"}}
+{{counter name="tabCount" start=-1 print=false assign="tabCount"}}
 {{foreach name=section from=$sectionPanels key=label item=panel}}
 {{assign var='panel_id' value=$panelCount}}
-<div id='{{$label}}' class='detail view  detail508'>
+{{capture name=label_upper assign=label_upper}}{{$label|upper}}{{/capture}}
+  {{if (isset($tabDefs[$label_upper].newTab) && $tabDefs[$label_upper].newTab == true)}}
+    {{counter name="tabCount" print=false}}
+    {{if $tabCount != 0}}</div>{{/if}}
+    <div id='tabcontent{{$tabCount}}'>
+  {{/if}}
+
+    {{if ( isset($tabDefs[$label_upper].panelDefault) && $tabDefs[$label_upper].panelDefault == "collapsed" && isset($tabDefs[$label_upper].newTab) && $tabDefs[$label_upper].newTab == false) }}
+        {{assign var='panelState' value=$tabDefs[$label_upper].panelDefault}}
+    {{else}}
+        {{assign var='panelState' value="expanded"}}
+    {{/if}}
+<div id='detailpanel_{{$smarty.foreach.section.iteration}}' class='detail view  detail508 {{$panelState}}'>
 {counter name="panelFieldCount" start=0 print=false assign="panelFieldCount"}
 {{* Print out the panel title if one exists*}}
 
@@ -59,11 +62,27 @@ class="yui-navset detailview_tabs"
     {sugar_include type='php' file='{{$panel}}'}
 {{else}}
 
-	{{if !empty($label) && !is_int($label) && $label != 'DEFAULT' && !$useTabs}}
-	<h4>{sugar_translate label='{{$label}}' module='{{$module}}'}</h4>
-	{{/if}}
+    {{if !empty($label) && !is_int($label) && $label != 'DEFAULT' && (!isset($tabDefs[$label_upper].newTab) || (isset($tabDefs[$label_upper].newTab) && $tabDefs[$label_upper].newTab == false))}}
+    <h4>
+      <a href="javascript:void(0)" class="collapseLink" onclick="collapsePanel({{$smarty.foreach.section.iteration}});">
+      <img border="0" id="detailpanel_{{$smarty.foreach.section.iteration}}_img_hide" src="{sugar_getimagepath file="basic_search.gif"}"></a>
+      <a href="javascript:void(0)" class="expandLink" onclick="expandPanel({{$smarty.foreach.section.iteration}});">
+      <img border="0" id="detailpanel_{{$smarty.foreach.section.iteration}}_img_show" src="{sugar_getimagepath file="advanced_search.gif"}"></a>
+      {sugar_translate label='{{$label}}' module='{{$module}}'}
+    {{if isset($panelState) && $panelState == 'collapsed'}}
+    <script>
+      document.getElementById('detailpanel_{{$smarty.foreach.section.iteration}}').className += ' collapsed';
+    </script>
+    {{else}}
+    <script>
+      document.getElementById('detailpanel_{{$smarty.foreach.section.iteration}}').className += ' expanded';
+    </script>
+    {{/if}}
+    </h4>
+
+    {{/if}}
 	{{* Print out the table data *}}
-	<table id='detailpanel_{{$smarty.foreach.section.iteration}}' cellspacing='{$gridline}'>
+  <table id='{{$label}}' class="panelContainer" cellspacing='{$gridline}'>
 
 
 
@@ -167,14 +186,22 @@ class="yui-navset detailview_tabs"
 	{/if}
 	{{/foreach}}
 	</table>
+    {{if !empty($label) && !is_int($label) && $label != 'DEFAULT' && (!isset($tabDefs[$label_upper].newTab) || (isset($tabDefs[$label_upper].newTab) && $tabDefs[$label_upper].newTab == false))}}
+    <script type="text/javascript">SUGAR.util.doWhen("typeof initPanel == 'function'", function() {ldelim} initPanel({{$smarty.foreach.section.iteration}}, '{{$panelState}}'); {rdelim}); </script>
+    {{/if}}
 {{/if}}
 </div>
-{if $panelFieldCount == 0 && !$useTabs}
+{if $panelFieldCount == 0}
 
 <script>document.getElementById("{{$label}}").style.display='none';</script>
 {/if}
 {{/foreach}}
-</div></div>
+{{if $useTabs}}
+  </div>
+{{/if}}
+
+</div>
+</div>
 {{include file=$footerTpl}}
 {{if $useTabs}}
 <script type='text/javascript' src='{sugar_getjspath file='include/javascript/popup_helper.js'}'></script>

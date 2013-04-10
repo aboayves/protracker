@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -36,13 +22,13 @@ require_once 'modules/Calendar/Calendar.php';
 
 require_once 'include/HTTP_WebDAV_Server/Server.php';
 
-    
+
     /**
      * Filesystem access using WebDAV
      *
      * @access public
      */
-    class HTTP_WebDAV_Server_vCal extends HTTP_WebDAV_Server 
+    class HTTP_WebDAV_Server_vCal extends HTTP_WebDAV_Server
     {
         /**
          * Root directory for WebDAV access
@@ -69,14 +55,14 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
          * Serve a webdav request
          *
          * @access public
-         * @param  string  
+         * @param  string
          */
-        function ServeRequest($base = false) 
+        function ServeRequest($base = false)
         {
 
             global $sugar_config,$current_language;
 
-            if (!empty($sugar_config['session_dir'])) 
+            if (!empty($sugar_config['session_dir']))
             {
                session_save_path($sugar_config['session_dir']);
             }
@@ -101,7 +87,7 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
 */
 
             // set root directory, defaults to webserver document root if not set
-            if ($base) { 
+            if ($base) {
                 $this->base = realpath($base); // TODO throw if not a directory
             } else if(!$this->base) {
                 $this->base = $_SERVER['DOCUMENT_ROOT'];
@@ -155,8 +141,8 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
             // select user by email
             if ( ! empty($query_arr['email']))
             {
-            	
-            
+
+
               // clean the string!
               $query_arr['email'] = clean_string($query_arr['email']);
               //get user info
@@ -182,7 +168,10 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
             // if we haven't found a user, then return 404
             if ( empty($this->user_focus->id) || $this->user_focus->id == -1)
             {
-                $this->http_status("404 Not Found");
+                $this->http_status('401 Unauthorized');
+                if (!isset($query_arr['noAuth'])) {
+                    header('WWW-Authenticate: Basic realm="'.($this->http_auth_realm).'"');
+                }
                 return;
             }
 
@@ -190,7 +179,7 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
 //            {
                      $this->user_focus->loadPreferences();
 //            }
-                
+
             // let the base class do all the work
             parent::ServeRequest();
         }
@@ -204,9 +193,16 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
          * @param  string  Password
          * @return bool    true on successful authentication
          */
-        function check_auth($type, $user, $pass) 
+        function check_auth($type, $user, $pass)
         {
-            return true;
+            if(isset($_SESSION['authenticated_user_id'])) {
+                // allow logged in users access to freebusy info
+                return true;
+            }
+            if(!empty($this->publish_key) && !empty($this->user_focus) && $this->user_focus->getPreference('calendar_publish_key' ) == $this->publish_key) {
+                return true;
+            }
+            return false;
         }
 
 
@@ -229,7 +225,7 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
            if ($this->vcal_type == 'vfb')
            {
              $this->http_status("200 OK");
-             echo $this->vcal_focus->get_vcal_freebusy($this->user_focus); 
+             echo $this->vcal_focus->get_vcal_freebusy($this->user_focus);
            } else {
              $this->http_status("404 Not Found");
            }
@@ -321,22 +317,22 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
             }
 
             // DO AUTHORIZATION for publishing Free/busy to Sugar:
-            if ( $this->user_focus->getPreference('calendar_publish_key') && 
+            if ( empty($this->publish_key) ||
                 $this->publish_key != $this->user_focus->getPreference('calendar_publish_key' ))
             {
                     $this->http_status("401 not authorized");
                     return;
-                
+
             }
 
             // retrieve
             $arr = array('user_id'=>$this->user_focus->id,'type'=>'vfb','source'=>$this->source);
-            $this->vcal_focus->retrieve_by_string_fields($arr); 
+            $this->vcal_focus->retrieve_by_string_fields($arr);
 
             $isUpdate  = false;
 
-            if ( ! empty($this->vcal_focus->user_id ) && 
-                $this->vcal_focus->user_id != -1 ) 
+            if ( ! empty($this->vcal_focus->user_id ) &&
+                $this->vcal_focus->user_id != -1 )
             {
               $isUpdate  = true;
             }
@@ -346,7 +342,7 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
             $content = '';
 
             // read in input stream
-            while (!feof($options["stream"])) 
+            while (!feof($options["stream"]))
             {
                $content .= fread($options["stream"], 4096);
             }
@@ -369,11 +365,11 @@ require_once 'include/HTTP_WebDAV_Server/Server.php';
 
         /**
          * PUT method handler
-         * 
+         *
          * @param  array  parameter passing array
          * @return bool   true on success
          */
-        function PUT(&$options) 
+        function PUT(&$options)
         {
 
         }

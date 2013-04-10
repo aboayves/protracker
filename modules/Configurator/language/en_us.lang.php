@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -108,7 +94,9 @@ $mod_strings = array (
 	'LBL_USE_REAL_NAMES_DESC'			=> 'Display users\' full names instead of their User Names in assignment fields.',
     'LBL_DISALBE_CONVERT_LEAD' => 'Disable convert lead action for converted leads',
     'LBL_DISALBE_CONVERT_LEAD_DESC' => 'If a lead has already been converted, enabling this option will remove the convert lead action.',
-	'LIST_ENTRIES_PER_LISTVIEW'=>'Listview items per page',
+    'LBL_ENABLE_ACTION_MENU' => 'Display actions within menus',
+    'LBL_ENABLE_ACTION_MENU_DESC' => 'Select to display DetailView and subpanel actions within a dropdown menu. If un-selected, the actions will display as separate buttons.',
+    'LIST_ENTRIES_PER_LISTVIEW'=>'Listview items per page',
 	'LIST_ENTRIES_PER_SUBPANEL'=>'Subpanel items per page',
 	'LBL_WIRELESS_LIST_ENTRIES' => 'Listview items per page',
     'LBL_WIRELESS_SERVER_URL' => 'Sugar Mobile Plus server',
@@ -120,6 +108,7 @@ $mod_strings = array (
     'CURRENT_LOGO_HELP'=>'This logo is displayed in the left-hand corner of the footer of the Sugar application.',
     'NEW_LOGO'=>'Select Logo:',
 	'NEW_LOGO_HELP'=>'The image file format can be either .png or .jpg. The maximum height is 17px, and the maximum width is 450px. Any image uploaded that is larger in any direction will be scaled to these max dimensions.',
+    'NEW_LOGO_HELP_NO_SPACE'=>'The image file format can be either .png or .jpg. The maximum height is 17px, and the maximum width is 450px. Any image uploaded that is larger in any direction will be scaled to these max dimensions. Image file name must not contain a space character.',
     'NEW_QUOTE_LOGO'=>'Upload new Quotes logo',
     'NEW_QUOTE_LOGO_HELP'=>'The required image file format is .jpg.<BR>The recommended size is 867x74 px.',
     'QUOTES_CURRENT_LOGO'=>'Quotes logo',

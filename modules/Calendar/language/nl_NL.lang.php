@@ -1,91 +1,176 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-  'LBL_MODULE_ACTION' => 'Bekijk',
-  'LBL_WEEK' => 'Week',
   'LBL_AM' => 'AM',
-  'LBL_PM' => 'PM',
+  'LBL_APPLY_BUTTON' => 'Toepassen',
+  'LBL_ASSIGNED_TO_NAME' => 'Toegewezen aan',
+  'LBL_BUSY' => 'Bezet',
+  'LBL_CANCEL_BUTTON' => 'Annuleren',
+  'LBL_CLOSE_BUTTON' => 'Sluiten',
+  'LBL_CONFIRM_REMOVE' => 'Weet u het zeker dat u dit record wilt verwijderen?',
+  'LBL_CONFIRM_REMOVE_ALL_RECURRING' => 'Weet u het zeker dat u alle records in de reeks wilt verwijderen?',
   'LBL_CONFLICT' => 'Conflict',
+  'LBL_CREATE_CALL' => 'Nieuw Telefoongesprek',
+  'LBL_CREATE_MEETING' => 'Afspraak maken',
+  'LBL_CREATE_NEW_RECORD' => 'Nieuwe Activiteit',
+  'LBL_DATE' => 'Startdatum en -tijd',
+  'LBL_DATE_END_ERROR' => 'Einddatum ligt voor de Startdatum',
+  'LBL_DATE_TIME' => 'Datum en Tijd',
+  'LBL_DAY' => 'Dag',
+  'LBL_DELETE_BUTTON' => 'Verwijder',
+  'LBL_DURATION' => 'Duur',
+  'LBL_EDIT_ALL_RECURRENCES' => 'Wijzig alle Herhalingen',
+  'LBL_EDIT_RECORD' => 'Wijzig Activiteit',
+  'LBL_EDIT_USERLIST' => 'Gebruikerslijst',
+  'LBL_ERROR_LOADING' => 'Fout tijdens laden',
+  'LBL_ERROR_SAVING' => 'Fout tijdens oplsaan',
+  'LBL_FILTER_BY_TEAM' => 'Filter gebruikerslijst op team:',
+  'LBL_GENERAL_TAB' => 'Details',
+  'LBL_GOTO_DATE' => 'Ga naar datum',
+  'LBL_HOURS_ABBREV' => 'u',
+  'LBL_INFO_DESC' => 'Omschrijving',
+  'LBL_INFO_DUE_DT' => 'Einddatum',
+  'LBL_INFO_DURATION' => 'Duur',
+  'LBL_INFO_NAME' => 'Onderwerp',
+  'LBL_INFO_RELATED_TO' => 'Gerelateerd aan',
+  'LBL_INFO_START_DT' => 'Startdatum',
+  'LBL_INFO_TITLE' => 'Aanvullende gegevens',
+  'LBL_LOADING' => 'Bezig met laden ......',
+  'LBL_MINS_ABBREV' => 'min',
   'LBL_MODULE_NAME' => 'Agenda',
+  'LBL_MODULE_NAME_SINGULAR' => 'Agenda',
   'LBL_MODULE_TITLE' => 'Agenda',
-  'LNK_NEW_CALL' => 'Nieuw Telefoongesprek',
-  'LNK_NEW_MEETING' => 'Nieuwe Afspraak',
-  'LNK_NEW_APPOINTMENT' => 'Nieuwe Afspraak',
-  'LNK_NEW_TASK' => 'Nieuwe Taak',
+  'LBL_MONTH' => 'Maand',
+  'LBL_NEXT_DAY' => 'Volgende Dag',
+  'LBL_NEXT_MONTH' => 'Volgende Maand',
+  'LBL_NEXT_SHARED' => 'Volgende',
+  'LBL_NEXT_WEEK' => 'Volgende Week',
+  'LBL_NEXT_YEAR' => 'Volgend Jaar',
+  'LBL_NO' => 'Nee',
+  'LBL_NO_USER' => 'Geen overeenkomst gevonden voor veld: Toegewezen aan',
+  'LBL_PARTICIPANTS_TAB' => 'Genodigden',
+  'LBL_PM' => 'PM',
+  'LBL_PREVIOUS_DAY' => 'Vorige Dag',
+  'LBL_PREVIOUS_MONTH' => 'Vorige Maand',
+  'LBL_PREVIOUS_SHARED' => 'Vorige',
+  'LBL_PREVIOUS_WEEK' => 'Vorige Week',
+  'LBL_PREVIOUS_YEAR' => 'Vorig Jaar',
+  'LBL_RECURRING_LIMIT_ERROR' => 'Deze herhaalde $moduleTitle kan niet opgeslagen worden, omdat het maximale toegestane aantal ($limit) herhaalde afspraken overschreven wordt.',
+  'LBL_REFRESH' => 'Ververs',
+  'LBL_REMOVE_ALL_RECURRENCES' => 'Verwijder alle Herhalingen',
+  'LBL_REPEAT_COUNT' => 'Aantal Herhalingen',
+  'LBL_REPEAT_DOW' => 'Op',
+  'LBL_REPEAT_END' => 'Einde',
+  'LBL_REPEAT_END_AFTER' => 'Na',
+  'LBL_REPEAT_END_BY' => 'Door',
+  'LBL_REPEAT_INTERVAL' => 'Elke',
+  'LBL_REPEAT_OCCURRENCES' => 'Herhahlingen',
+  'LBL_REPEAT_TAB' => 'Herhaling',
+  'LBL_REPEAT_TYPE' => 'Herhalen',
+  'LBL_REPEAT_UNTIL' => 'Herhalen tot',
+  'LBL_SAVE_BUTTON' => 'Opslaan',
+  'LBL_SAVING' => 'Opslaan ...',
+  'LBL_SCHEDULED' => 'Gepland',
+  'LBL_SELECT_USERS' => 'Selecteer Gebruikers voor Agenda',
+  'LBL_SENDING_INVITES' => 'Opslaan & Versturen Uitnodigingen',
+  'LBL_SEND_INVITES' => 'Verstuur Uitnodigingen',
+  'LBL_SETTINGS' => 'Instellingen',
+  'LBL_SETTINGS_CALLS_SHOW' => 'Toon Telefoongesprekken:',
+  'LBL_SETTINGS_DISPLAY_TIMESLOTS' => 'Toon tijd in Dag en Week views:',
+  'LBL_SETTINGS_TASKS_SHOW' => 'Toon Taken:',
+  'LBL_SETTINGS_TIME_ENDS' => 'Eindtijd:',
+  'LBL_SETTINGS_TIME_STARTS' => 'Starttijd:',
+  'LBL_SETTINGS_TITLE' => 'Instellingen',
+  'LBL_SHARED' => 'Gedeeld',
+  'LBL_SHARED_CAL_TITLE' => 'Gedeelde Agenda',
+  'LBL_STATUS' => 'Status',
+  'LBL_STYLE_ADVANCED' => 'Geavanceerd',
+  'LBL_STYLE_BASIC' => 'Normaal',
+  'LBL_SUBJECT' => 'Onderwerp',
+  'LBL_USERS' => 'Gebruiker',
+  'LBL_USER_CALENDARS' => 'Gebruikersagendas',
+  'LBL_WEEK' => 'Week',
+  'LBL_YEAR' => 'Jaar',
+  'LBL_YES' => 'Ja',
   'LNK_CALL_LIST' => 'Telefoongesprekken',
-  'LNK_MEETING_LIST' => 'Afspraken',
-  'LNK_TASK_LIST' => 'Taken',
-  'LNK_VIEW_CALENDAR' => 'Vandaag',
   'LNK_IMPORT_CALLS' => 'Importeer Gesprekken',
   'LNK_IMPORT_MEETINGS' => 'Importeer Afspraken',
   'LNK_IMPORT_TASKS' => 'Importeer Taken',
-  'LBL_MONTH' => 'Maand',
-  'LBL_DAY' => 'Dag',
-  'LBL_YEAR' => 'Jaar',
-  'LBL_PREVIOUS_MONTH' => 'Vorige Maand',
-  'LBL_PREVIOUS_DAY' => 'Vorige Dag',
-  'LBL_PREVIOUS_YEAR' => 'Vorig Jaar',
-  'LBL_PREVIOUS_WEEK' => 'Vorige Week',
-  'LBL_NEXT_MONTH' => 'Volgende Maand',
-  'LBL_NEXT_DAY' => 'Volgende Dag',
-  'LBL_NEXT_YEAR' => 'Volgend Jaar',
-  'LBL_NEXT_WEEK' => 'Volgende Week',
-  'LBL_SCHEDULED' => 'Gepland',
-  'LBL_BUSY' => 'Bezet',
-  'LBL_USER_CALENDARS' => 'Gebruikersagendas',
-  'LBL_SHARED' => 'Gedeeld',
-  'LBL_PREVIOUS_SHARED' => 'Vorige',
-  'LBL_NEXT_SHARED' => 'Volgende',
-  'LBL_SHARED_CAL_TITLE' => 'Gedeelde Kalender',
-  'LBL_USERS' => 'Gebruiker',
-  'LBL_REFRESH' => 'Ververs',
-  'LBL_EDIT' => 'Wijzigen',
-  'LBL_SELECT_USERS' => 'Selecteer Gebruikers voor Kalender',
-  'LBL_FILTER_BY_TEAM' => 'Filter gebruikerslijst op team:',
-  'LBL_ASSIGNED_TO_NAME' => 'Toegewezen aan',
-  'LBL_DATE' => 'Startdatum en -tijd',
+  'LNK_MEETING_LIST' => 'Afspraken',
+  'LNK_NEW_APPOINTMENT' => 'Nieuwe Afspraak',
+  'LNK_NEW_CALL' => 'Nieuw Telefoongesprek',
+  'LNK_NEW_MEETING' => 'Nieuwe Afspraak',
+  'LNK_NEW_TASK' => 'Nieuwe Taak',
+  'LNK_TASK_LIST' => 'Taken',
+  'LNK_VIEW_CALENDAR' => 'Vandaag',
+  'NOTICE_DURATION_TIME' => 'Tijdsduur moet groter zijn dan 0',
+);
+
+$mod_list_strings = array (
+  'dom_cal_month' => 
+  array (
+    1 => 'Jan',
+    2 => 'Feb',
+    3 => 'Mrt',
+    4 => 'Apr',
+    5 => 'Mei',
+    6 => 'Jun',
+    7 => 'Jul',
+    8 => 'Aug',
+    9 => 'Sep',
+    10 => 'Okt',
+    11 => 'Nov',
+    12 => 'Dec',
+  ),
+  'dom_cal_month_long' => 
+  array (
+    1 => 'Januari',
+    2 => 'Februari',
+    3 => 'Maart',
+    4 => 'April',
+    5 => 'Mei',
+    6 => 'Juni',
+    7 => 'Juli',
+    8 => 'Augustus',
+    9 => 'September',
+    10 => 'Oktober',
+    11 => 'November',
+    12 => 'December',
+  ),
+  'dom_cal_weekdays' => 
+  array (
+    1 => 'Ma',
+    2 => 'Di',
+    3 => 'Wo',
+    4 => 'Do',
+    5 => 'Vr',
+    6 => 'Za',
+  ),
+  'dom_cal_weekdays_long' => 
+  array (
+    1 => 'Maandag',
+    2 => 'Dinsdag',
+    3 => 'Woensdag',
+    4 => 'Donderdag',
+    5 => 'Vrijdag',
+    6 => 'Zaterdag',
+  ),
 );
 

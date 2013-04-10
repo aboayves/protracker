@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -38,17 +24,26 @@ $mod_strings = array (
   'LBL_BUSY' => 'Zauzeto',
   'LBL_CANCEL_BUTTON' => 'Otkaži',
   'LBL_CLOSE_BUTTON' => 'Zatvori',
+  'LBL_CONFIRM_REMOVE' => 'Da li ste sigurni da želite uklonite ovaj zapis?',
+  'LBL_CONFIRM_REMOVE_ALL_RECURRING' => 'Da li ste sigurni da želite da uklonite ponavljajuće zapise?',
   'LBL_CONFLICT' => 'Sukob',
   'LBL_CREATE_CALL' => 'Evidentiraj poziv',
   'LBL_CREATE_MEETING' => 'Zakaži sastanak',
+  'LBL_CREATE_NEW_RECORD' => 'Kreiraj aktivnost',
   'LBL_DATE' => 'Datum i vreme početka:',
+  'LBL_DATE_END_ERROR' => 'Datum kraja je pre datuma početka',
   'LBL_DATE_TIME' => 'Datum i vreme',
   'LBL_DAY' => 'Dan',
   'LBL_DELETE_BUTTON' => 'Obriši',
   'LBL_DURATION' => 'Trajanje',
+  'LBL_EDIT_ALL_RECURRENCES' => 'Uredi sva ponavljanja',
+  'LBL_EDIT_RECORD' => 'Uredi aktivnost',
   'LBL_EDIT_USERLIST' => 'Lista korisnika',
+  'LBL_ERROR_LOADING' => 'Greška pri učitavanju',
+  'LBL_ERROR_SAVING' => 'Greška pri čuvanju',
   'LBL_FILTER_BY_TEAM' => 'Filtriraj listu korisnika po timovima:',
   'LBL_GENERAL_TAB' => 'Detalji',
+  'LBL_GOTO_DATE' => 'Idi na datum',
   'LBL_HOURS_ABBREV' => 's',
   'LBL_INFO_DESC' => 'Opis',
   'LBL_INFO_DUE_DT' => 'Datum završetka',
@@ -60,6 +55,7 @@ $mod_strings = array (
   'LBL_LOADING' => 'Učitavanje ...',
   'LBL_MINS_ABBREV' => 'm',
   'LBL_MODULE_NAME' => 'Kalendar',
+  'LBL_MODULE_NAME_SINGULAR' => 'Kalendar',
   'LBL_MODULE_TITLE' => 'Kalendar',
   'LBL_MONTH' => 'Mesec',
   'LBL_NEXT_DAY' => 'Sledeći dan',
@@ -68,6 +64,7 @@ $mod_strings = array (
   'LBL_NEXT_WEEK' => 'Sledeća nedelja',
   'LBL_NEXT_YEAR' => 'Sledeća godina',
   'LBL_NO' => 'Ne',
+  'LBL_NO_USER' => 'Nema rezultata za polje: Dodeljeno',
   'LBL_PARTICIPANTS_TAB' => 'Pozvani',
   'LBL_PM' => 'Po podne',
   'LBL_PREVIOUS_DAY' => 'Prethodni dan',
@@ -75,16 +72,31 @@ $mod_strings = array (
   'LBL_PREVIOUS_SHARED' => 'Prethodni',
   'LBL_PREVIOUS_WEEK' => 'Prethodna nedelja',
   'LBL_PREVIOUS_YEAR' => 'Prethodna godina',
+  'LBL_RECURRING_LIMIT_ERROR' => 'Nije moguće zakazati ponavljajući $moduleTitle zato što prelazi maksimalni broj ponavljanja - $limit',
   'LBL_REFRESH' => 'Osveži',
+  'LBL_REMOVE_ALL_RECURRENCES' => 'Obriši sva ponavljanja',
+  'LBL_REPEAT_COUNT' => 'Broj ponavljanja',
   'LBL_REPEAT_DOW' => 'Na',
   'LBL_REPEAT_END' => 'Kraj',
   'LBL_REPEAT_END_AFTER' => 'Posle',
+  'LBL_REPEAT_END_BY' => 'Od',
   'LBL_REPEAT_INTERVAL' => 'Svaki',
+  'LBL_REPEAT_OCCURRENCES' => 'ponavljanja',
+  'LBL_REPEAT_TAB' => 'Ponavljanje',
+  'LBL_REPEAT_TYPE' => 'Ponavlja se',
+  'LBL_REPEAT_UNTIL' => 'Ponavlja se do',
   'LBL_SAVE_BUTTON' => 'Sačuvaj',
   'LBL_SAVING' => 'Čuvanje ...',
   'LBL_SCHEDULED' => 'Zakazan',
   'LBL_SELECT_USERS' => 'Odaberi korisnike za prikaz kalendara',
+  'LBL_SENDING_INVITES' => 'Čuvanje i slanje pozivnica',
+  'LBL_SEND_INVITES' => 'Pošalji pozvanima',
   'LBL_SETTINGS' => 'Podešavanja',
+  'LBL_SETTINGS_CALLS_SHOW' => 'Prikaži pozive:',
+  'LBL_SETTINGS_DISPLAY_TIMESLOTS' => 'Prikaži vremenske slotove u pogledima dana i nedelje:',
+  'LBL_SETTINGS_TASKS_SHOW' => 'Prikaži zadatke:',
+  'LBL_SETTINGS_TIME_ENDS' => 'Vreme završetka:',
+  'LBL_SETTINGS_TIME_STARTS' => 'Vreme početka:',
   'LBL_SETTINGS_TITLE' => 'Podešavanja',
   'LBL_SHARED' => 'Zajednički',
   'LBL_SHARED_CAL_TITLE' => 'Zajednički kalendar',
@@ -112,5 +124,53 @@ $mod_strings = array (
 );
 
 $mod_list_strings = array (
+  'dom_cal_month' => 
+  array (
+    1 => 'Jan',
+    2 => 'Feb',
+    3 => 'Mar',
+    4 => 'Apr',
+    5 => 'Maj',
+    6 => 'Jun',
+    7 => 'Jul',
+    8 => 'Avg',
+    9 => 'Sep',
+    10 => 'Okt',
+    11 => 'Nov',
+    12 => 'Dec',
+  ),
+  'dom_cal_month_long' => 
+  array (
+    1 => 'Januar',
+    2 => 'Februar',
+    3 => 'Mart',
+    4 => 'April',
+    5 => 'Maj',
+    6 => 'Jun',
+    7 => 'Jul',
+    8 => 'Avgust',
+    9 => 'Septembar',
+    10 => 'Oktobar',
+    11 => 'Novembar',
+    12 => 'Decembar',
+  ),
+  'dom_cal_weekdays' => 
+  array (
+    1 => 'Pon',
+    2 => 'Uto',
+    3 => 'Sre',
+    4 => 'Čet',
+    5 => 'Pet',
+    6 => 'Sub',
+  ),
+  'dom_cal_weekdays_long' => 
+  array (
+    1 => 'Ponedeljak',
+    2 => 'Utorak',
+    3 => 'Sreda',
+    4 => 'Četvrtak',
+    5 => 'Petak',
+    6 => 'Subota',
+  ),
 );
 

@@ -1,38 +1,23 @@
 <?php
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-$viewdefs['Campaigns']['EditView'] = array(
-    'templateMeta' => array('maxColumns' => '2',
-                            'widths' => array(
-                                            array('label' => '10', 'field' => '30'),
-                                            array('label' => '10', 'field' => '30')
-                                            ),
- 'javascript' => '<script type="text/javascript" src="' . getJSPath('include/javascript/popup_parent_helper.js') . '"></script>
+// created: 2013-04-10 13:54:26
+$viewdefs['Campaigns']['EditView'] = array (
+  'templateMeta' => 
+  array (
+    'maxColumns' => '2',
+    'widths' => 
+    array (
+      0 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+    ),
+    'javascript' => '<script type="text/javascript" src="include/javascript/popup_parent_helper.js?v=7FcWlXas-nOW9MWeYUL5LQ"></script>
 <script type="text/javascript">
 function type_change() {ldelim}
 	type = document.getElementsByName(\'campaign_type\');
@@ -77,69 +62,130 @@ function ConvertItems(id)  {ldelim}
 	actual_cost.value = formatNumber(actual_cost.value, num_grp_sep, dec_sep);
  {rdelim}
 </script>',
-),
- 'panels' =>array (
-  'lbl_campaign_information' =>
-  array (
-
+    'tabDefs' => 
     array (
-      array('name'=>'name'),
-      array('name' => 'status'),
-    ),
-
-    array (
-       array('name'=>'start_date', 'displayParams'=>array('required'=>false, 'showFormats'=>true)),
-       array('name'=>'campaign_type',
-            'displayParams'=>array('javascript'=>'onchange="type_change();"'),
-       ),
-    ),
-
-    array (
-      array('name'=>'end_date', 'displayParams'=>array('showFormats'=>true)),
+      'LBL_CAMPAIGN_INFORMATION' => 
       array (
- 		  'name' => 'frequency',
-	      'customCode' => '<div style=\'none\' id=\'freq_field\'>{html_options name="frequency" options=$fields.frequency.options selected=$fields.frequency.value}</div></TD>',
-	      'customLabel' => '<div style=\'none\' id=\'freq_label\'>{$MOD.LBL_CAMPAIGN_FREQUENCY}</div>',
-	  ),
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_PANEL_ASSIGNMENT' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
     ),
-
-   array (
-      'currency_id',
-      'impressions',
-    ),
-
-    array (
-        'budget',
-    	'expected_cost',
-    ),
-
-    array (
-    	'actual_cost',
-        'expected_revenue',
-    ),
-
-    array (
-      array('name'=>'objective','displayParams'=>array('rows'=>8,'cols'=>80)),
-    ),
-
-    array (
-      array('name'=>'content','displayParams'=>array('rows'=>8, 'cols'=>80)),
-    ),
-
   ),
-  'LBL_PANEL_ASSIGNMENT' => array(
+  'panels' => 
+  array (
+    'lbl_campaign_information' => 
+    array (
+      0 => 
+      array (
+        0 => 
         array (
+          'name' => 'name',
+        ),
+        1 => 
+        array (
+          'name' => 'status',
+        ),
+      ),
+      1 => 
+      array (
+        0 => 
+        array (
+          'name' => 'start_date',
+          'displayParams' => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO',
+            'required' => false,
+            'showFormats' => true,
           ),
-		  array (
-		    'name'=>'team_name', 'displayParams'=>array('display'=>true),
-		  ),
-        ),  
+        ),
+        1 => 
+        array (
+          'name' => 'campaign_type',
+          'displayParams' => 
+          array (
+            'javascript' => 'onchange="type_change();"',
+          ),
+        ),
+      ),
+      2 => 
+      array (
+        0 => 
+        array (
+          'name' => 'end_date',
+          'displayParams' => 
+          array (
+            'showFormats' => true,
+          ),
+        ),
+        1 => 
+        array (
+          'name' => 'frequency',
+          'customCode' => '<div style=\'none\' id=\'freq_field\'>{html_options name="frequency" options=$fields.frequency.options selected=$fields.frequency.value}</div></TD>',
+          'customLabel' => '<div style=\'none\' id=\'freq_label\'>{$MOD.LBL_CAMPAIGN_FREQUENCY}</div>',
+        ),
+      ),
+      3 => 
+      array (
+        0 => 'currency_id',
+        1 => 'impressions',
+      ),
+      4 => 
+      array (
+        0 => 'budget',
+        1 => 'expected_cost',
+      ),
+      5 => 
+      array (
+        0 => 'actual_cost',
+        1 => 'expected_revenue',
+      ),
+      6 => 
+      array (
+        0 => 
+        array (
+          'name' => 'objective',
+          'displayParams' => 
+          array (
+            'rows' => 8,
+            'cols' => 80,
+          ),
+        ),
+      ),
+      7 => 
+      array (
+        0 => 
+        array (
+          'name' => 'content',
+          'displayParams' => 
+          array (
+            'rows' => 8,
+            'cols' => 80,
+          ),
+        ),
+      ),
+    ),
+    'LBL_PANEL_ASSIGNMENT' => 
+    array (
+      0 => 
+      array (
+        0 => 
+        array (
+          'name' => 'assigned_user_name',
+          'label' => 'LBL_ASSIGNED_TO',
+        ),
+        1 => 
+        array (
+          'name' => 'team_name',
+          'displayParams' => 
+          array (
+            'display' => true,
+          ),
+        ),
+      ),
+    ),
   ),
-)
-
-
 );
-?>

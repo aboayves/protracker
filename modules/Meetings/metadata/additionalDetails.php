@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -37,7 +23,10 @@ function additionalDetailsMeeting($fields) {
 		
 	$overlib_string = '';
 	
-	//Modify by jchi 6/27/2008 1515pm china time , bug 20626.
+    if(!empty($fields['NAME'])) {
+          	$overlib_string .= '<b>'. $mod_strings['LBL_SUBJECT'] . '</b> ' . $fields['NAME'];
+          	$overlib_string .= '<br>';
+    }
 	if(!empty($fields['DATE_START'])) 
 		$overlib_string .= '<b>'. $mod_strings['LBL_DATE_TIME'] . '</b> ' . $fields['DATE_START'] . ' <br>';
 	if(isset($fields['DURATION_HOURS']) || isset($fields['DURATION_MINUTES'])) {
@@ -50,11 +39,25 @@ function additionalDetailsMeeting($fields) {
         }
         $overlib_string .=  '<br>';
 	}
-	if(!empty($fields['DESCRIPTION'])) { 
+    if (!empty($fields['PARENT_ID']))
+    {
+         $overlib_string .= "<b>". $mod_strings['LBL_RELATED_TO'] . "</b> ".
+   	               "<a href='index.php?module=".$fields['PARENT_TYPE']."&action=DetailView&record=".$fields['PARENT_ID']."'>".
+   	               $fields['PARENT_NAME'] . "</a>";
+   	       $overlib_string .= '<br>';
+    }
+
+    if(!empty($fields['STATUS'])) {
+  	    $overlib_string .= '<b>'. $mod_strings['LBL_STATUS'] . '</b> ' . $fields['STATUS'];
+  	    $overlib_string .= '<br>';
+      }
+
+    if(!empty($fields['DESCRIPTION'])) {
 		$overlib_string .= '<b>'. $mod_strings['LBL_DESCRIPTION'] . '</b> ' . substr($fields['DESCRIPTION'], 0, 300);
 		if(strlen($fields['DESCRIPTION']) > 300) $overlib_string .= '...';
 		$overlib_string .= '<br>';
 	}
+
 	
 	$editLink = "index.php?action=EditView&module=Meetings&record={$fields['ID']}"; 
 	$viewLink = "index.php?action=DetailView&module=Meetings&record={$fields['ID']}";	

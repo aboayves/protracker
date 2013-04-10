@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -96,15 +82,13 @@ class ProspectList extends SugarBean {
 
 	function create_list_query($order_by, $where, $show_deleted = 0)
 	{
-		$custom_join = $this->custom_fields->getJOIN();
+        $custom_join = $this->getCustomJoin();
 		
 		$query = "SELECT ";
 		$query .= "users.user_name as assigned_user_name, ";
 		$query .= "prospect_lists.*";
 
-		if($custom_join){
-			$query .= $custom_join['select'];
-		}	    
+        $query .= $custom_join['select'];
         $query .= ", teams.name as team_name";
 		$query .= " FROM prospect_lists ";
 
@@ -114,10 +98,8 @@ class ProspectList extends SugarBean {
 					ON prospect_lists.assigned_user_id=users.id ";
 		$query .= "LEFT JOIN teams ON prospect_lists.team_id=teams.id ";
 
-		if($custom_join){
-			$query .= $custom_join['join'];
-		}
-		
+        $query .= $custom_join['join'];
+
 			$where_auto = '1=1';
 				if($show_deleted == 0){
                 	$where_auto = "$this->table_name.deleted=0";
@@ -353,6 +335,12 @@ FROM prospect_lists_prospects plp
 		return parent::save($check_notify);
 
 	}
+
+    function mark_deleted($id){
+        $query = "UPDATE prospect_lists_prospects SET deleted = 1 WHERE prospect_list_id = '{$id}' ";
+        $this->db->query($query);
+        return parent::mark_deleted($id);
+    }
 	
 	 function bean_implements($interface){
 		switch($interface){

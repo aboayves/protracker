@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*
@@ -90,7 +76,7 @@ class SugarApplication
 		// Double check the server's unique key is in the session.  Make sure this is not an attempt to hijack a session
 		$user_unique_key = (isset($_SESSION['unique_key'])) ? $_SESSION['unique_key'] : '';
 		$server_unique_key = (isset($sugar_config['unique_key'])) ? $sugar_config['unique_key'] : '';
-		$allowed_actions = (!empty($this->controller->allowed_actions)) ? $this->controller->allowed_actions : $allowed_actions = array('Authenticate', 'Login',);
+		$allowed_actions = (!empty($this->controller->allowed_actions)) ? $this->controller->allowed_actions : $allowed_actions = array('Authenticate', 'Login', 'LoggedOut');
 
 		if(($user_unique_key != $server_unique_key) && (!in_array($this->controller->action, $allowed_actions)) &&
 		   (!isset($_SESSION['login_error'])))
@@ -366,10 +352,10 @@ class SugarApplication
  	function checkDatabaseVersion($dieOnFailure = true)
  	{
  	    $row_count = sugar_cache_retrieve('checkDatabaseVersion_row_count');
- 	    if ( empty($row_count) ) {
-            global $sugar_db_version;
+ 	    if ( empty($row_count) )
+ 	    {
             $version_query = "SELECT count(*) as the_count FROM config WHERE category='info' AND name='sugar_version' AND ".
-            	$GLOBALS['db']->convert('value', 'text2char')." = ".$GLOBALS['db']->quoted($sugar_db_version);
+            $GLOBALS['db']->convert('value', 'text2char')." = ".$GLOBALS['db']->quoted($GLOBALS['sugar_db_version']);
 
             $result = $GLOBALS['db']->query($version_query);
             $row = $GLOBALS['db']->fetchByAssoc($result);
@@ -377,12 +363,20 @@ class SugarApplication
             sugar_cache_put('checkDatabaseVersion_row_count', $row_count);
         }
 
-		if($row_count == 0 && empty($GLOBALS['sugar_config']['disc_client'])){
-			$sugar_version = $GLOBALS['sugar_version'];
+		if ($row_count == 0 && empty($GLOBALS['sugar_config']['disc_client']))
+		{
 			if ( $dieOnFailure )
-				sugar_die("Sugar CRM $sugar_version Files May Only Be Used With A Sugar CRM $sugar_db_version Database.");
+			{
+				$replacementStrings = array(
+					0 => $GLOBALS['sugar_version'],
+					1 => $GLOBALS['sugar_db_version'],
+				);
+				sugar_die(string_format($GLOBALS['app_strings']['ERR_DB_VERSION'], $replacementStrings));
+			}
 			else
+			{
 			    return false;
+			}
 		}
 
 		return true;
@@ -575,9 +569,7 @@ class SugarApplication
 	    if(isset($_REQUEST['MSID'])) {
 			session_id($_REQUEST['MSID']);
 			session_start();
-			if(isset($_SESSION['user_id']) && isset($_SESSION['seamless_login'])){
-				unset ($_SESSION['seamless_login']);
-			}else{
+            if(!isset($_SESSION['user_id'])){
 				if(isset($_COOKIE['PHPSESSID'])){
 	       			self::setCookie('PHPSESSID', '', time()-42000, '/');
         		}
@@ -767,6 +759,9 @@ class SugarApplication
         }
         if(isset($_REQUEST['mobile'])) {
             $ret['mobile'] = $_REQUEST['mobile'];
+        }
+        if(isset($_REQUEST['no_saml'])) {
+            $ret['no_saml'] = $_REQUEST['no_saml'];
         }
         if(empty($ret)) return '';
         return "&".http_build_query($ret);

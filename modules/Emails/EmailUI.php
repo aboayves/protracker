@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -1402,9 +1388,15 @@ eoq;
 
 			$from = (isset($email->from_name) && !empty($email->from_name)) ? $email->from_name : $email->from_addr;
 
-			if(isset($_REQUEST['sugarEmail']) && !empty($_REQUEST['sugarEmail']))
-               	$from = (isset($email->to_addrs_names) && !empty($email->to_addrs_names)) ? $email->to_addrs_names : $email->to_addrs;
-
+            if(isset($_REQUEST['sugarEmail']) && !empty($_REQUEST['sugarEmail']))
+            {
+                if($email->status == "sent")
+                {
+                    $from = (isset($email->to_addrs_names) && !empty($email->to_addrs_names)) ? $email->to_addrs_names : $email->to_addrs;
+                }else{
+                    $from = (isset($email->from_name) && !empty($email->from_name)) ? $email->from_name : $email->from_addr_name;
+                }
+            }
 
 			$name = explode(" ", trim($from));
 
@@ -1722,6 +1714,14 @@ eoq;
 				$email = new Email();
 				$email->retrieve($id);
 
+                // BUG FIX BEGIN
+                // Bug 50973 - marking unread in group inbox removes message
+                if (empty($email->assigned_user_id))
+                {
+                    $email->setFieldNullable('assigned_user_id');
+                }
+                // BUG FIX END
+
 				switch($type) {
 					case "unread":
 						$email->status = 'unread';
@@ -1748,6 +1748,14 @@ eoq;
 					break;
 
 				}
+
+                // BUG FIX BEGIN
+                // Bug 50973 - reset assigned_user_id field defs
+                if (empty($email->assigned_user_id))
+                {
+                    $email->revertFieldNullable('assigned_user_id');
+                }
+                // BUG FIX END
 			}
 		} else {
 			/* dealing with IMAP email, uids are IMAP uids */
@@ -2167,6 +2175,10 @@ eoq;
 		$ret['parent_type'] = $email->parent_type;
 		$ret['parent_id'] = $email->parent_id;
 
+       if ($email->type == 'draft') {
+            $ret['cc'] = from_html($ccAddresses);
+            $ret['bcc'] = $bccAddresses;
+        }
 		// reply all
 		if(isset($_REQUEST['composeType']) && $_REQUEST['composeType'] == 'replyAll') {
 		    $ret['cc'] = from_html($ccAddresses);
@@ -2577,7 +2589,7 @@ eoq;
 				$archived->team_set_id = $team_set_id;
 				$archived->save();
 
-				// set flag to show that this was run
+			// set flag to show that this was run
 			$user->setPreference("email2Preflight", true, 1, "Emails");
 		}
 	}
@@ -3000,7 +3012,10 @@ eoq;
 	function getCacheValue($ieId, $type, $file, $key) {
 		global $sugar_config;
 
-		$cacheFilePath = sugar_cached("modules/Emails/{$ieId}/{$type}/{$file}");
+		$cleanIeId = cleanDirName($ieId);
+		$cleanType = cleanDirName($type);
+		$cleanFile = cleanFileName($file);
+		$cacheFilePath = sugar_cached("modules/Emails/{$cleanIeId}/{$cleanType}/{$cleanFile}");
 		$cacheFile = array();
 
 		if(file_exists($cacheFilePath)) {
@@ -3079,7 +3094,10 @@ eoq;
 	function writeCacheFile($key, $var, $ieId, $type, $file) {
 		global $sugar_config;
 
-		$the_file = sugar_cached("/modules/Emails/{$ieId}/{$type}/{$file}");
+		$cleanIeId = cleanDirName($ieId);
+		$cleanType = cleanDirName($type);
+		$cleanFile = cleanFileName($file);
+		$the_file = sugar_cached("modules/Emails/{$cleanIeId}/{$cleanType}/{$cleanFile}");
 		$timestamp = strtotime('now');
 		$array = array();
 		$array['timestamp'] = $timestamp;

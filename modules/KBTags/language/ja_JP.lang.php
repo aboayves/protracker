@@ -3,64 +3,51 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_MODULE_NAME' => '記事のタグ',
-  'LBL_MODULE_TITLE' => '記事のタグ',
-  'LNK_NEW_TAG' => '記事のタグを作成',
-  'LNK_KBTAG_LIST' => '記事のタグ一覧',
-  'LBL_SEARCH_FORM_TITLE' => '記事のタグを検索',
-  'LBL_LIST_FORM_TITLE' => '記事のタグ一覧',
-  'LBL_KBTAGS_ID' => 'タグID:',
-  'LBL_PARENT_TAG_ID' => '親ID:',
-  'LBL_ROOT_TAG' => 'ルート:',
-  'LBL_TAG_NAME' => 'タグ名',
+  'LBL_ARTICLES_IN_TREE_HOVER' => '記事',
+  'LBL_ARTICLE_IN_TREE_HOVER' => '記事',
+  'LBL_CHILD_TAGS_IN_TREE_HOVER' => '子タグ',
+  'LBL_CHILD_TAG_IN_TREE_HOVER' => '子タグ',
+  'LBL_CREATED' => '作成者',
   'LBL_CREATED_BY' => '作成者',
-  'LBL_DATE_ENTERED' => '入力日',
+  'LBL_DATE_ENTERED' => '作成日',
   'LBL_DATE_MODIFIED' => '更新日',
   'LBL_DELETED' => '削除済み',
+  'LBL_FAQ_TAG_CAN_NOT_BE_DELETED' => 'タグ: 削除できません',
+  'LBL_KBTAGS_ID' => 'タグID:',
+  'LBL_LIST_FORM_TITLE' => '記事のタグ一覧',
   'LBL_MODIFIED' => '更新者ID',
   'LBL_MODIFIED_USER' => '更新者',
-  'LBL_CREATED' => '作成者',
-  'LBL_CHILD_TAG_IN_TREE_HOVER' => '子タグ',
-  'LBL_CHILD_TAGS_IN_TREE_HOVER' => '子タグ',
-  'LBL_ARTICLE_IN_TREE_HOVER' => '記事',
-  'LBL_ARTICLES_IN_TREE_HOVER' => '記事',
-  'LBL_THIS_TAG_CONTAINS_TREE_HOVER' => 'このタグが含むもの:',
-  'LBL_TAGS_ROOT_LABEL' => 'タグ',
-  'LBL_ROOT_TAG_CAN_NOT_BE_RENAMED' => 'ルートタグの名前は変更できません',
-  'LBL_SOURCE_AND_TARGET_TAGS_ARE_SAME' => 'ソースとターゲットのタグが同じです',
+  'LBL_MODULE_NAME' => '記事のタグ',
+  'LBL_MODULE_NAME_SINGULAR' => '記事のタグ',
+  'LBL_MODULE_TITLE' => '記事のタグ',
   'LBL_NO_MATHING_TAG_FOUND' => '一致するタグが見つかりません',
-  'LBL_TYPE_TAG_NAME_TO_SEARCH' => '検索するタグ名を入力',
+  'LBL_PARENT_TAG_ID' => '親ID:',
+  'LBL_ROOT_TAG' => 'ルート:',
+  'LBL_ROOT_TAG_CAN_NOT_BE_RENAMED' => 'ルートタグの名前は変更できません',
+  'LBL_SEARCH_FORM_TITLE' => '記事のタグを検索',
+  'LBL_SOURCE_AND_TARGET_TAGS_ARE_SAME' => 'ソースとターゲットのタグが同じです',
   'LBL_TAGS_CHILD_TAGS_WITH_ARTICLE_CAN_NOT_BE_DELETED' => '記事に付けられたタグおよび子タグは削除できません',
-  'LBL_FAQ_TAG_CAN_NOT_BE_DELETED' => 'タグ: 削除できません',
+  'LBL_TAGS_ROOT_LABEL' => 'タグ',
+  'LBL_TAG_NAME' => 'タグ名',
+  'LBL_THIS_TAG_CONTAINS_TREE_HOVER' => 'このタグが含むもの:',
+  'LBL_TYPE_TAG_NAME_TO_SEARCH' => '検索するタグ名を入力',
   'LBL_UNTAGGED_ARTICLES_NODE' => 'タグ付けされていない記事',
+  'LNK_KBTAG_LIST' => '記事のタグ一覧',
+  'LNK_NEW_TAG' => '記事のタグを作成',
 );
 

@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -379,6 +365,10 @@ function get_name_value_list($value, $returnDomValue = false){
 				}elseif(strcmp($type, 'enum') == 0 && !empty($var['options']) && $returnDomValue){
 					$val = $app_list_strings[$var['options']][$val];
 				}
+				elseif(strcmp($type, 'currency') == 0){
+					$params = array( 'currency_symbol' => false );
+					$val = currency_format_number($val, $params);
+				}
 
 				$list[$var['name']] = get_name_value($var['name'], $val);
 			}
@@ -507,6 +497,7 @@ function get_return_value_for_fields($value, $module, $fields) {
 	if($module == 'Users' && $value->id != $current_user->id){
 		$value->user_hash = '';
 	}
+	$value = clean_sensitive_data($value->field_defs, $value);
 	return Array('id'=>$value->id,
 				'module_name'=> $module,
 				'name_value_list'=>get_name_value_list_for_fields($value, $fields)
@@ -561,6 +552,7 @@ function get_return_value_for_link_fields($bean, $module, $link_name_to_value_fi
 	if($module == 'Users' && $bean->id != $current_user->id){
 		$bean->user_hash = '';
 	}
+	$bean = clean_sensitive_data($value->field_defs, $bean);
 
 	if (empty($link_name_to_value_fields_array) || !is_array($link_name_to_value_fields_array)) {
 		return array();
@@ -772,6 +764,7 @@ function get_return_value($value, $module, $returnDomValue = false){
 	if($module == 'Users' && $value->id != $current_user->id){
 		$value->user_hash = '';
 	}
+	$value = clean_sensitive_data($value->field_defs, $value);
 	return Array('id'=>$value->id,
 				'module_name'=> $module,
 				'name_value_list'=>get_name_value_list($value, $returnDomValue)
@@ -788,14 +781,25 @@ function get_report_value($seed){
 	$field_list = array();
 	$output_list = array();
 	$report = new Report(html_entity_decode($seed->content));
+    // For some reason $seed->content has summary for both detailed and summary report
+    $report->report_type = $seed->report_type;
+
  	$report->enable_paging = false;
 	$next_row_fn = 'get_next_row';
  	$report->plain_text_output = true;
- 	if($report->report_type == 'summary'){
- 		$report->run_summary_query();
+
+    $column_types = 'display_columns';
+
+    // If it's a summary report (detailed or normal)
+ 	if(strpos($report->report_type, 'summary') !== false)
+    {
+ 		$report->run_summary_combo_query(true);
  		$header = $report->get_summary_header_row();
  		$next_row_fn = 'get_summary_next_row';
- 	}else{
+        $column_types = 'summary_columns';
+ 	}
+    else
+    {
 		$report->run_query();
  		$header = $report->get_header_row();
  	}
@@ -809,10 +813,24 @@ function get_report_value($seed){
 		);
 	}
 
-	$index = 0;
-	$column_types = 'display_columns';
-	if($report->report_type == 'summary')
-		$column_types = 'summary_columns';
+    // Summary detail header columns
+    if($report->report_type == 'detailed_summary')
+    {
+        $header_details = $report->get_header_row();
+        foreach ($header_details as $key => $value)
+        {
+            $field_list_details[$key] = array(
+                'name' => $value,
+                'type' => 'details',
+                'label' => $value,
+                'required' => '0',
+                'options' => array()
+            );
+        }
+        $field_list = array_merge($field_list, $field_list_details);
+    }
+
+    $index = 0;
 	while (( $row = $report->$next_row_fn('result', $column_types) ) != 0 ){
 		$row_list = array('id' => $index,
 			'module_name' => 'Reports',
@@ -824,12 +842,33 @@ function get_report_value($seed){
 													'value' => $value
 												 );
 		}
+
+        // Summary Detail columns
+        if($report->report_type == 'detailed_summary')
+        {
+            if ($row['count'] > 0)
+            {
+                for ($i = 0; $i < $row['count']; $i++)
+                {
+                    $row_details = $report->get_next_row('result', 'display_columns');
+                    foreach ($row_details['cells'] as $key => $value){
+                        $row_list['details'][$key] = array(
+                            'name' => $key,
+                            'value' => $value
+                        );
+                    }
+
+                }
+            }
+        }
+
 		$output_list[$index] = $row_list;
 		$index++;
 		$output_list[] = $row;
 	}
 	$result['output_list'] = $output_list;
 	$result['field_list'] = $field_list;
+
 	return $result;
 }
 
@@ -960,7 +999,7 @@ function add_create_account($seed)
 
 	    $arr = array();
 
-	    $query = "select id, deleted from {$focus->table_name} ";
+	    $query = "select {$focus->table_name}.id, {$focus->table_name}.deleted from {$focus->table_name} ";
 	    $focus->add_team_security_where_clause($query);
 	    $query .= " WHERE name='".$seed->db->quote($account_name)."'";
 	    $query .=" ORDER BY deleted ASC";

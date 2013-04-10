@@ -1,30 +1,16 @@
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -706,18 +692,16 @@ SUGAR.reports = function() {
 				}			
 			}else if ( field.type == 'datetimecombo') {
 				if ( (typeof(filter_def.input_name0) != 'undefined' && typeof(filter_def.input_name0) != 'array') && (typeof(filter_def.input_name1) != 'undefined' && typeof(filter_def.input_name1) != 'array')) {
-					var date_match = filter_def.input_name0.match(date_reg_format);
-					var time_match = filter_def.input_name1.match(time_reg_format);
-					if ( date_match != null && time_match != null) {
-						filter_def.input_name0 = date_match[date_reg_positions['Y']] + "-"+date_match[date_reg_positions['m']] + "-"+date_match[date_reg_positions['d']] + ' '+ filter_def.input_name1;
-					}
-				}			
+                    var dbValue = convertReportDateTimeToDB(filter_def.input_name0, filter_def.input_name1);
+                    if (dbValue != '') {
+                        filter_def.input_name0 = dbValue;
+                    }
+				}
 				if ( typeof(filter_def.input_name2) != 'undefined' && typeof(filter_def.input_name2) != 'array' && typeof(filter_def.input_name3) != 'undefined' && typeof(filter_def.input_name3) != 'array') {
-					var date_match = filter_def.input_name2.match(date_reg_format);
-					var time_match = filter_def.input_name3.match(time_reg_format);
-					if ( date_match != null && time_match != null) {
-						filter_def.input_name2 = date_match[date_reg_positions['Y']] + "-"+date_match[date_reg_positions['m']] + "-"+date_match[date_reg_positions['d']] + ' '+ filter_def.input_name3;
-					}
+                    var dbValue = convertReportDateTimeToDB(filter_def.input_name2, filter_def.input_name3);
+                    if (dbValue != '') {
+                        filter_def.input_name2 = dbValue;
+                    }
 				}			
 			}
 			return filter_def;
@@ -876,18 +860,16 @@ SUGAR.reports = function() {
 						}			
 					}else if ( field.type == 'datetimecombo') {
 						if ( (typeof(filter_def.input_name0) != 'undefined' && typeof(filter_def.input_name0) != 'array') && (typeof(filter_def.input_name1) != 'undefined' && typeof(filter_def.input_name1) != 'array')) {
-							var date_match = filter_def.input_name0.match(date_reg_format);
-							var time_match = filter_def.input_name1.match(time_reg_format);
-							if ( date_match != null && time_match != null) {
-								filter_def.input_name0 = date_match[date_reg_positions['Y']] + "-"+date_match[date_reg_positions['m']] + "-"+date_match[date_reg_positions['d']] + ' '+ filter_def.input_name1;
-							}
+                            var dbValue = convertReportDateTimeToDB(filter_def.input_name0, filter_def.input_name1);
+                            if (dbValue != '') {
+                                filter_def.input_name0 = dbValue;
+                            }
 						}			
 						if ( typeof(filter_def.input_name2) != 'undefined' && typeof(filter_def.input_name2) != 'array' && typeof(filter_def.input_name3) != 'undefined' && typeof(filter_def.input_name3) != 'array') {
-							var date_match = filter_def.input_name2.match(date_reg_format);
-							var time_match = filter_def.input_name3.match(time_reg_format);
-							if ( date_match != null && time_match != null) {
-								filter_def.input_name2 = date_match[date_reg_positions['Y']] + "-"+date_match[date_reg_positions['m']] + "-"+date_match[date_reg_positions['d']] + ' '+ filter_def.input_name3;
-							}
+                            var dbValue = convertReportDateTimeToDB(filter_def.input_name2, filter_def.input_name3);
+                            if (dbValue != '') {
+                                filter_def.input_name2 = dbValue;
+                            }
 						}			
 					}	 		
 			 		
@@ -2293,7 +2275,7 @@ SUGAR.reports = function() {
 		
 			field_type = field.type;
 		
-			if ( typeof(field.custom_type) != 'undefined') {
+			if ( typeof(field.custom_type) != 'undefined' && typeof(filter_defs[field.custom_type]) != 'undefined') {
 				field_type = field.custom_type;
 			}
 		
@@ -2855,7 +2837,7 @@ SUGAR.reports = function() {
 			}
 			var selectSpan = document.createElement("span");
 			var timevalue = "01:00am";
-			if( inputTime &&inputTime.match(time_reg_format) != null){
+			if( inputTime &&inputTime.match(/([0-9]{1,2})\:([0-9]{1,2})([ap]m)/) != null){
 				timevalue = inputTime;
 			}
 			hrs = parseInt(timevalue.substring(0,2));
@@ -3062,7 +3044,7 @@ SUGAR.reports = function() {
 					SUGAR.reports.addRunTimeCheckBox(row,filter,rowId);		
 				}
 			} 
-			else if (field_type == 'enum' || field_type == 'multienum'  || field_type == 'radioenum' || field_type == 'parent_type') {
+			else if (field_type == 'enum' || field_type == 'multienum'  || field_type == 'radioenum' || field_type == 'parent_type' || field_type == 'currency_id') {
 				if (qualifier_name == 'one_of' || qualifier_name == 'not_one_of') {
 					SUGAR.reports.addFilterInputSelectMultiple(row,field.options,filter,rowId);
 					SUGAR.reports.addRunTimeCheckBox(row,filter,rowId);		
@@ -3187,45 +3169,45 @@ SUGAR.reports = function() {
 			
     		
 		},			
-		deleteFromFullTableList: function(rowId) {
-			var row = document.getElementById(rowId);
-			var key = row.cells[0].getElementsByTagName('input')[1].value;
-			if (key.split('>').length == 1)
-				return;
-			key = key.replace(/>/g,':');
-			//Upgraded content strings don't have dependents.
-			if (full_table_list[key].dependents) {
-				if (full_table_list[key].dependents.length == 1){
-					delete full_table_list[key];
-				}
-				else {
-					var dependents = full_table_list[key].dependents;
-					for (var i = 0; i < dependents.length; i++) {
-						if (dependents[i] == rowId) {
-							delete dependents[i];
-						}
-					}
-					var allUndefined = true;
-					for (var i = 0; i < dependents.length; i++) {
-						if (typeof(dependents[i]) != 'undefined') {
-							allUndefined = false;
-							break;
-						}
-					}
-					if ((typeof(full_table_list[key].dependents) == 'undefined' || allUndefined) && key !='self') {
-						delete full_table_list[key];
-					}
-					
-					/*
-					for (var i = 0; i < dependents.length; i++) {
-						if (dependents[i] == rowId) {
-							dependents.splice(i,1);
-							break;
-						}
-					}*/
-				}
-			}
-		},
+
+        /**
+         * Removing element from dependents of full_table_list
+         *
+         * @param stirng rowId element for removal
+         */
+        deleteFromFullTableList: function(rowId) {
+            for (var key in full_table_list)
+            {
+                if (typeof full_table_list[key] != 'object')
+                {
+                    continue;
+                }
+                if (typeof full_table_list[key].module != 'string')
+                {
+                    continue;
+                }
+
+                if (typeof full_table_list[key].dependents == 'undefined')
+                {
+                    full_table_list[key].dependents = [];
+                }
+
+                var dependents = full_table_list[key].dependents;
+                full_table_list[key].dependents = [];
+                for (var i = 0; i < dependents.length; i++)
+                {
+                    if (dependents[i] != rowId)
+                    {
+                        full_table_list[key].dependents.push(dependents[i]);
+                    }
+                }
+
+                if (full_table_list[key].dependents.length == 0 && key !='self')
+                {
+                    delete full_table_list[key];
+                }
+            }
+        },
 		cleanFullTableList: function() {
 			for (i in full_table_list) {
 				if (typeof(full_table_list[i].dependents) == 'undefined' && i !='self') {
@@ -3933,6 +3915,7 @@ SUGAR.reports = function() {
 	        					myColumnDefs, myDataSource, 
 	        					{height : "270px", width: "200px"}
 	        );
+            myDataTable.sortColumn(myDataTable.getColumn(0), YAHOO.widget.DataTable.CLASS_ASC);
 	        /*
 	        myDataTable.subscribe("rowClickEvent", myDataTable.onEventSelectRow);
 	        myDataTable.subscribe("rowSelectEvent", SUGAR.reports.gridRowClickHandler);
@@ -4053,7 +4036,7 @@ SUGAR.reports = function() {
             if (!moduleTree) {
 				var title = "<h3 class='spantitle'>" + SUGAR.language.get('Reports','LBL_RELATED_MODULES') + "<span id='related_modules_panel_help'><img src='index.php?entryPoint=getImage&themeName=" + SUGAR.themes.theme_name + "&imageName=helpInline.png'  alt='"+SUGAR.language.get("Reports", "LBL_ALT_INFORMATION")+"' class='inlineHelpTip' onclick='SUGAR.util.showHelpTips(this,\"" + SUGAR.language.get('Reports','LBL_RELATED_MODULES_PANEL_HELP_DESC') +"\");'></span></h3>";
 				var moduleTree = new YAHOO.widget.Module("module_tree_panel", { visible: false });
-				var moduletreePanelHTML = "<div id=\"module_tree\" style=\"height:230px; width:200px; overflow:auto;\"></div>";
+				var moduletreePanelHTML = "<div id=\"module_tree\" style=\"height:215px; width:200px; overflow:auto;\"></div>";
 				moduleTree.setHeader(title);
 				moduleTree.setBody(moduletreePanelHTML);
 				moduleTree.render();

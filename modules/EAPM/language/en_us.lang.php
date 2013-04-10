@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 $mod_strings = array (
@@ -86,10 +72,10 @@ $mod_strings = array (
 
   // Various strings used throughout the external account modules
   'LBL_MEET_NOW_BUTTON' => 'Meet Now',
-  'LBL_VIEW_LOTUS_LIVE_MEETINGS' => 'View Upcoming LotusLive&trade; Meetings',
-  'LBL_TITLE_LOTUS_LIVE_MEETINGS' => 'Upcoming LotusLive&trade; Meetings',
-  'LBL_VIEW_LOTUS_LIVE_DOCUMENTS' => 'View LotusLive&trade; Files',
-  'LBL_TITLE_LOTUS_LIVE_DOCUMENTS' => 'LotusLive&trade; Files',
+  'LBL_VIEW_LOTUS_LIVE_MEETINGS' => 'View Upcoming IBM SmartCloud&trade; Meetings',
+  'LBL_TITLE_LOTUS_LIVE_MEETINGS' => 'Upcoming IBM SmartCloud&trade; Meetings',
+  'LBL_VIEW_LOTUS_LIVE_DOCUMENTS' => 'View IBM SmartCloud&trade; Files',
+  'LBL_TITLE_LOTUS_LIVE_DOCUMENTS' => 'IBM SmartCloud&trade; Files',
   'LBL_REAUTHENTICATE_LABEL' => 'Reauthenticate',
   'LBL_REAUTHENTICATE_KEY' => 'a',
   'LBL_APPLICATION_FOUND_NOTICE' => 'An account for this application already exists. We have reinstated the existing account.',
@@ -97,6 +83,8 @@ $mod_strings = array (
   'LBL_OAUTH_SAVE_NOTICE' => 'Click <b>Connect</b> to be directed to a page to provide your account information and to authorize access to the account by Sugar. After connecting, you will be directed back to Sugar.',
   'LBL_BASIC_SAVE_NOTICE' => 'Click <b>Connect</b> to connect this account to Sugar.',
   'LBL_ERR_FACEBOOK' => 'Facebook returned an error, and the feed cannot be displayed.',
+    'LBL_ERR_OAUTH_FACEBOOK_1' => 'Facebook session is expired. To get stream, please',
+    'LBL_ERR_OAUTH_FACEBOOK_2' => 'login to Facebook again',
   'LBL_ERR_NO_RESPONSE' => 'An error occurred when trying to connect to this account.',
   'LBL_ERR_TWITTER' => 'Twitter returned an error, and the feed cannot be displayed.',
   'LBL_ERR_POPUPS_DISABLED' => 'Please enable browser popup windows or add an exception for website "{0}" to the exceptions list in order to connect.'

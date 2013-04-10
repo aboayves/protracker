@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -60,15 +46,7 @@ $mod_strings = array (
   'DEFAULT_REPORT_TITLE_3' => 'Lista kompanija partnera',
   'DEFAULT_REPORT_TITLE_31' => 'Moji nedavno promenjeni zapisi (Poslednjih 30 dana)',
   'DEFAULT_REPORT_TITLE_32' => 'Promenjeni zapisi po Mojim direktnim izveštajima (Poslednjih 30 dana)',
-  'DEFAULT_REPORT_TITLE_33' => 'Podaci o korišćenju šablona',
-  'DEFAULT_REPORT_TITLE_34' => 'Maksimalan broj sesija po danu (Poslednjih 7 dana)',
-  'DEFAULT_REPORT_TITLE_35' => 'Zahteva po danu (Poslednjih 7 dana)',
-  'DEFAULT_REPORT_TITLE_36' => 'Prijava po danu (Poslednjih 7 dana)',
-  'DEFAULT_REPORT_TITLE_37' => 'Upita po danu (Poslednjih 7 dana)',
-  'DEFAULT_REPORT_TITLE_38' => 'Fajlova po danu (Poslednjih 7 dana)',
-  'DEFAULT_REPORT_TITLE_39' => 'Korisnika po danu (Poslednjih 7 dana)',
   'DEFAULT_REPORT_TITLE_4' => 'Lista kompanija korisnika',
-  'DEFAULT_REPORT_TITLE_40' => 'Zauzeće memorije po danu (Poslednjih 7 dana)',
   'DEFAULT_REPORT_TITLE_41' => 'Sesije aktivnih korisnika (Poslednjih 7 dana)',
   'DEFAULT_REPORT_TITLE_42' => 'Pregled sesija korisnika (Poslednjih 7 dana)',
   'DEFAULT_REPORT_TITLE_43' => 'Klijenti koji su vlasnici kompanija',
@@ -83,6 +61,10 @@ $mod_strings = array (
   'DEFAULT_REPORT_TITLE_51' => 'Ostvarene prodajne prilike po korisniku',
   'DEFAULT_REPORT_TITLE_52' => 'Sve aktuelne prodajne prilike',
   'DEFAULT_REPORT_TITLE_53' => 'Sve zatvorene prodajne prilike',
+  'DEFAULT_REPORT_TITLE_56' => 'Mogućnosti kvara proizvoda za prošlost, sadašnjost, buduće vremenske periode po mesecu',
+  'DEFAULT_REPORT_TITLE_57' => 'Mogućnosti prodajnih perioda za prošlost, sadašnost, buduće vremenske periode po mesecu',
+  'DEFAULT_REPORT_TITLE_58' => 'Prognoza za Prošli/Sadašnji/Budući kvartal',
+  'DEFAULT_REPORT_TITLE_59' => 'Prodajne prilike po prodajnim fazama za podređene u trenutnom periodu',
   'DEFAULT_REPORT_TITLE_6' => 'Prodajne prilike po Izvoru potencijalnog klijenta',
   'DEFAULT_REPORT_TITLE_7' => 'Aktivni slučajevi po korisniku po statusu',
   'DEFAULT_REPORT_TITLE_8' => 'Aktivni slučajevi po mesecu po korisniku',
@@ -97,6 +79,8 @@ $mod_strings = array (
     1209600 => 'Svake 2 nedelje',
     2419200 => 'Svake 4 nedelje',
   ),
+  'ERR_REPORT_INVALID' => 'Definicija izveštaja "{0}" sadrži polja koja nisu validna: "{1}"',
+  'ERR_REPORT_INVALID_SUBJECT' => 'Izveštaj nije validan',
   'ERR_SELECT_COLUMN' => 'Molim, izaberite prvo kolonu za prikazivanje.',
   'LBL_1X2' => '1 X 2',
   'LBL_1_REPORT_ON' => '1. Izveštaj o',
@@ -123,6 +107,7 @@ $mod_strings = array (
   'LBL_ALL' => 'Najmanje',
   'LBL_ALL_PUBLISHED_REPORTS' => 'Svi objavljeni izveštaji',
   'LBL_ALL_REPORTS' => 'Prikaži izveštaje',
+  'LBL_ALT_INFORMATION' => 'Informacija',
   'LBL_ALT_SHOW' => 'Prikaži',
   'LBL_AND' => 'i',
   'LBL_ANY' => 'Bilo koji',
@@ -144,6 +129,7 @@ $mod_strings = array (
   'LBL_CALL_REPORTS' => 'Izveštaji o pozivima',
   'LBL_CANCEL' => 'Otkaži',
   'LBL_CANNOT_BE_EMPTY' => 'ne može biti prazno.',
+  'LBL_CANNOT_DISPLAY_CHART_MESSAGE' => 'Grafikon ne može biti prikazan zbog njegove konfiguracije.',
   'LBL_CASE_REPORTS' => 'Izveštaji o slučajevima',
   'LBL_CHANGE' => 'Promeni',
   'LBL_CHART_DATA_HELP' => 'Izaberite sadržaj koji će biti prikazan u dijagramu',
@@ -173,7 +159,6 @@ $mod_strings = array (
   'LBL_DATE' => 'Datum početka',
   'LBL_DATE_BASED_FILTERS' => '<i>Filteri datuma su povezani sa vremenskom zonom <b>Dodeljenog </b> korisnika</i> izveštaja',
   'LBL_DAY' => 'Dan',
-  'LBL_DCE_LICENSING_REPORT' => 'Izveštaj o licenciranju',
   'LBL_DEFINE_FILTERS' => 'Definišite filtere',
   'LBL_DELETE' => 'Obriši',
   'LBL_DELETED_FIELD_IN_REPORT1' => 'Sledeće polje u ovom izveštaju više nije validno:',
@@ -224,6 +209,7 @@ $mod_strings = array (
   'LBL_FUNNEL' => 'Levak',
   'LBL_GRAND_TOTAL' => 'Sveukupni zbir',
   'LBL_GREATER_THAN' => 'Veće od',
+  'LBL_GREATER_THAN_EQUAL' => 'Veće od jednako',
   'LBL_GROUP_BY' => 'Grupiši po',
   'LBL_GROUP_BY_HELP_DESC' => '<b>Koraci da definišete grupu po:</b><br></br>1) Kliknite na modul u  <b>Povezani moduli</b> panelu koji želite da koristite da bi grupisali zapise u vašem izveštaju. Po podrazumevanom primarni modul (čvor na vrhu pregleda stabla) je odabran. <br/><br/>Možete odabrati povezani modul (podčvor u pregledu stabla) klikom na modul. Proširite čvor da bi videli dodatne module povezane sa povezanim modulom. Modul koji odaberete određuje koja polja za izveštavanje će se pojaviti u <b>Dostupnim poljima</b> panelu.<br/><br/>2) Kliknite na polje u <b>Dostupna polja</b> panelu da bi grupisali zapise po tom polju u vašem izveštaju. Takođe možete da pretražite polje kucanjem u polju panela za pretragu.<br/><br/>Nakon odabira bilo kog broja polja iz odabranog modula u <b>Povezani moduli</b> panelu, možete da odaberete drugi moduli iz kog možete da odaberete bilo koji broj polja za grupisanje zapisa. Kako god, izveštaj je manje čitljiv ako odaberete previše polja po kojima grupišete.<br/><br/>Možete da promenite redosled polja prevlačenjem i spuštanjem na željenu poziciju.  Promena redosleda utiče na to kako će se prikazivati rezultati.<br/><br/>  Za Matrične izveštaje, možete odabrati najviše 3 polja za grupisanje zapisa.',
   'LBL_GROUP_BY_REQUIRED' => 'Barem po jedna kolona za grupisanje i jedna zbirna kolona su neophodne za iscrtavanje dijagrama.',
@@ -251,6 +237,7 @@ $mod_strings = array (
   'LBL_LEAD_REPORTS' => 'Izveštali o potencijlnim klijentima',
   'LBL_LEFT' => 'Levo',
   'LBL_LESS_THAN' => 'Manje od',
+  'LBL_LESS_THAN_EQUAL' => 'Manje od jednako',
   'LBL_LINE' => 'Linijski',
   'LBL_LIST_FORM_TITLE' => 'Izveštaji',
   'LBL_LIST_PUBLISHED' => 'Objavljen',
@@ -269,6 +256,7 @@ $mod_strings = array (
   'LBL_MODULE_CHANGE_PROMPT' => 'Menjanje izabranog modula dovodi do gubitka filtera, prikazanih kolona, itd. Da li želite da nastavite?',
   'LBL_MODULE_NAME' => 'Izveštaji',
   'LBL_MODULE_NAME_SAVED' => 'Naziv modula',
+  'LBL_MODULE_NAME_SINGULAR' => 'Izveštaj',
   'LBL_MODULE_TITLE' => 'Izveštaji: Početna strana',
   'LBL_MODULE_VIEWER_TITLE' => 'Prikaz izveštaja: Početna strana',
   'LBL_MONTH' => 'Mesec',
@@ -357,6 +345,7 @@ $mod_strings = array (
   'LBL_PUBLISHED_OPPORTUNITY_REPORTS' => 'Objavljeni izveštaji o prodajnim prilikama',
   'LBL_PUBLISHED_PROJECT_TASK_REPORTS' => 'Objavljeni izveštaji o projektnim zadacima',
   'LBL_PUBLISHED_PROSPECT_REPORTS' => 'Objavljeni izveštaji o ciljevima',
+  'LBL_PUBLISHED_QUOTA_REPORTS' => 'Objavljeni izveštaj kvota',
   'LBL_PUBLISHED_QUOTE_REPORTS' => 'Objavljeni izveštaji o ponudama',
   'LBL_PUBLISHED_TASK_REPORTS' => 'Objavljeni izveštaji o zadacima',
   'LBL_QUARTER' => 'Kvartal',
@@ -372,6 +361,7 @@ $mod_strings = array (
   'LBL_REMOVE_BTN_HELP' => 'Kliknite da bi uklonili ovaj grupni filter',
   'LBL_REMOVE_GROUP' => 'Ukloni grupni filter',
   'LBL_REPORTS' => 'Izveštaji',
+  'LBL_REPORTS_TO' => 'Izveštaji',
   'LBL_REPORT_ATT_MODULES' => 'Moduli',
   'LBL_REPORT_ATT_NAME' => 'Naziv',
   'LBL_REPORT_COLLAPSE_ALL' => 'Suzi sve',
@@ -478,6 +468,7 @@ $mod_strings = array (
   'LBL_WITH_AN_AVERAGE' => 'u proseku',
   'LBL_WITH_A_TOTAL' => 'sve ukupno',
   'LBL_WITH_DETAILS' => 'Sa detaljima',
+  'LBL_WORKSHEET' => 'Radna lista',
   'LBL_YEAR' => 'Godina',
   'LBL_YESTERDAY' => 'Juče',
   'LBL_YOU_HAVE_NO_SAVED_REPORTS.' => 'Nemate sačuvanih izveštaja.',

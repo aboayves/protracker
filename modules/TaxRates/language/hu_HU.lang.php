@@ -1,73 +1,50 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-  'LBL_MODULE_NAME' => 'Áfa kulcsok',
-  'LBL_MODULE_TITLE' => 'Áfa kulcsok: Főoldal',
-  'LBL_SEARCH_FORM_TITLE' => 'Áfa kulcs keresése',
-  'LBL_LIST_FORM_TITLE' => 'Áfa kulcs lista',
-  'LBL_NEW_FORM_TITLE' => 'Új Áfa kulcs',
-  'LBL_TAXRATE' => 'Áfa kulcs:',
-  'LBL_LIST_NAME' => 'Áfa kulcs neve',
-  'LBL_NAME' => 'Áfa kulcs neve:',
+  'ERR_DELETE_RECORD' => 'Adjon meg egy azonosítót az adókulcs törléséhez!',
+  'LBL_CREATED_ID' => 'Létrehozó azonosítója',
+  'LBL_EDITLAYOUT' => 'Elrendezés szerkesztése',
+  'LBL_EXPORT_CREATED_BY' => 'Létrehozó azonosítója',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'Megváltozott felhasználói azonosító',
+  'LBL_LIST_FORM_TITLE' => 'Adókulcs lista',
   'LBL_LIST_LIST_ORDER' => 'Sorrend',
+  'LBL_LIST_NAME' => 'Adókulcs neve',
   'LBL_LIST_ORDER' => 'Sorrend:',
   'LBL_LIST_STATUS' => 'Állapot',
-  'LBL_STATUS' => 'Állapot:',
   'LBL_LIST_VALUE' => 'Százalék',
+  'LBL_MODIFIED_ID' => 'Módosító azonosítója',
+  'LBL_MODULE_NAME' => 'Adókulcsok',
+  'LBL_MODULE_NAME_SINGULAR' => 'Adókulcs',
+  'LBL_MODULE_TITLE' => 'Adókulcsok: Főoldal',
+  'LBL_NAME' => 'Adókulcs neve:',
+  'LBL_NEW_FORM_TITLE' => 'Új adókulcs',
+  'LBL_SEARCH_FORM_TITLE' => 'Adókulcs keresése',
+  'LBL_STATUS' => 'Állapot:',
+  'LBL_TAXRATE' => 'Adókulcs:',
   'LBL_VALUE' => 'Százalék (%):',
-  'LNK_NEW_SHIPPER' => 'Szállító lista
-',
-  'LNK_NEW_TAXRATE' => 'Áfa kulcs lista',
-  'LNK_IMPORT_TAXRATES' => 'Import adókulcsok
-',
+  'LNK_IMPORT_TAXRATES' => 'Adókulcsok importálása',
+  'LNK_NEW_SHIPPER' => 'Szállítói lista',
+  'LNK_NEW_TAXRATE' => 'Adókulcs lista',
   'NTC_DELETE_CONFIRMATION' => 'Biztosan törölni akarja ezt a rekordot?',
-  'ERR_DELETE_RECORD' => 'Adjon meg egy azonosítót a adókulcs törléséhez!',
-  'NTC_STATUS' => 'Állítsa inaktív állapotba ezt az adókulcsot mielőtt eltávolítja legördülő listából
-',
-  'NTC_LIST_ORDER' => 'Állítsa be a sorrendet, ahogy az adó mértéke meg fog jelenni az adókulcs legördülő listában',
+  'NTC_LIST_ORDER' => 'Állítsa be a sorrendet, ahogy az adó meg fog jelenni az adókulcs legördülő listájában',
+  'NTC_STATUS' => 'Hogy eltávolítsa az adót a legördülő listából, állítsa állapotát inaktívra',
   'taxrate_status_dom' => 
   array (
     'Active' => 'Aktív',

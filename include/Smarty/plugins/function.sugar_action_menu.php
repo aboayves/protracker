@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /**
@@ -42,7 +28,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  *     'buttons' => list of button htmls, such as ( html_element1, html_element2, ..., html_element_n),
  *     'id' => id property for ul element
  *     'class' => class property for ul element
- * 	   'flat' => controls the display of the menu as a dropdown or flat buttons
+ * 	   'flat' => controls the display of the menu as a dropdown or flat buttons (if the value is assigned, it will be not affected by enable_action_menu setting.)
  * @param $smarty
  *
  * @return string - compatible sugarActionMenu structure, such as
@@ -109,13 +95,14 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  */
 function smarty_function_sugar_action_menu($params, &$smarty)
 {
-    $flat = !empty($params['flat']) ? $params['flat'] : false;
+    global $sugar_config;
 
     if( !empty($params['params']) ) {
         $addition_params = $params['params'];
         unset($params['params']);
         $params = array_merge_recursive($params, $addition_params);
     }
+    $flat = isset($params['flat']) ? $params['flat'] : (isset($sugar_config['enable_action_menu']) ? !$sugar_config['enable_action_menu'] : false);
     //if buttons have not implemented, it returns empty string;
     if(empty($params['buttons']))
         return '';
@@ -128,10 +115,25 @@ function smarty_function_sugar_action_menu($params, &$smarty)
         );
 
         foreach($params['buttons'] as $item) {
-            if(strlen($item)) {
+            if(is_array($item)) {
+                $sub = array();
+                $sub_first = array_shift($item);
+                foreach($item as $subitem) {
+                    $sub[] = array(
+                        'html' => $subitem
+                    );
+                }
+                array_push($menus['items'],array(
+                    'html' => $sub_first,
+                    'items' => $sub,
+                    'submenuHtmlOptions' => array(
+                        'class' => 'subnav-sub'
+                    )
+                ));
+            } else if(strlen($item)) {
                 array_push($menus['items'],array(
                    'html' => $item
-               ));
+                ));
             }
         }
         $action_menu = array(
@@ -156,12 +158,26 @@ function smarty_function_sugar_action_menu($params, &$smarty)
     }
 
     if (is_array($params['buttons'])) {
-        return '<div class="action_buttons">' . implode(' ', $params['buttons']).'</div>';
+        return '<div class="action_buttons">' . implode_r(' ', $params['buttons'], true).'<div class="clear"></div></div>';
     } else if(is_array($params)) {
-        return '<div class="action_buttons">' . implode(' ', $params).'</div>';
+        return '<div class="action_buttons">' . implode_r(' ', $params, true).'<div class="clear"></div></div>';
     }
 
     return $params['buttons'];
 }
 
+function implode_r($glue, $pieces, $extract_first_item = false) {
+    $result = array_shift($pieces);
+    if(is_array($result)) {
+        $result = implode_r($glue, $result);
+    }
+    foreach($pieces as $item) {
+        if(is_array($item)) {
+            $result .= empty($extract_first_item) ? implode_r($glue, $item) : $glue.$item[0];
+        } else {
+            $result .= $glue.$item;
+        }
+    }
+    return $result;
+}
 ?>

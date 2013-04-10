@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -129,13 +115,13 @@ class Call extends SugarBean {
 		} else {
 			$this->team_id = 1; // make the item globally accessible
 		}
-		
-		
+
+
 
          if(!empty($GLOBALS['app_list_strings']['duration_intervals']))
         	$this->minutes_values = $GLOBALS['app_list_strings']['duration_intervals'];
 	}
-	
+
 	/**
 	 * Disable edit if call is recurring and source is not Sugar. It should be edited only from Outlook.
 	 * @param $view string
@@ -162,15 +148,15 @@ class Call extends SugarBean {
 	function save($check_notify = FALSE) {
 		global $timedate,$current_user;
 
-	    if(isset($this->date_start) && isset($this->duration_hours) && isset($this->duration_minutes)) 
+	    if(isset($this->date_start) && isset($this->duration_hours) && isset($this->duration_minutes))
         {
     	    $td = $timedate->fromDb($this->date_start);
     	    if($td)
     	    {
 	        	$this->date_end = $td->modify("+{$this->duration_hours} hours {$this->duration_minutes} mins")->asDb();
-    	    }	
+    	    }
         }
-        		
+
 		if(!empty($_REQUEST['send_invites']) && $_REQUEST['send_invites'] == '1') {
 			$check_notify = true;
         } else {
@@ -195,11 +181,11 @@ class Call extends SugarBean {
         if (empty($this->status) ) {
             $this->status = $this->getDefaultStatus();
         }
-        
+
 		// prevent a mass mailing for recurring meetings created in Calendar module
 		if (empty($this->id) && !empty($_REQUEST['module']) && $_REQUEST['module'] == "Calendar" && !empty($_REQUEST['repeat_type']) && !empty($this->repeat_parent_id)) {
 			$check_notify = false;
-		}       
+		}
 		/*nsingh 7/3/08  commenting out as bug #20814 is invalid
 		if($current_user->getPreference('reminder_time')!= -1 &&  isset($_POST['reminder_checked']) && isset($_POST['reminder_time']) && $_POST['reminder_checked']==0  && $_POST['reminder_time']==-1){
 			$this->reminder_checked = '1';
@@ -238,7 +224,7 @@ class Call extends SugarBean {
 
 	function create_list_query($order_by, $where, $show_deleted=0)
 	{
-		$custom_join = $this->custom_fields->getJOIN();
+        $custom_join = $this->getCustomJoin();
                 $query = "SELECT ";
 		$query .= "
 			calls.*,";
@@ -251,9 +237,7 @@ class Call extends SugarBean {
 			$query .= "
 			users.user_name as assigned_user_name";
 			$query .= ", teams.name AS team_name";
-			if($custom_join){
-   				$query .= $custom_join['select'];
- 			}
+        $query .= $custom_join['select'];
 
 			// this line will help generate a GMT-metric to compare to a locale's timezone
 
@@ -280,9 +264,7 @@ class Call extends SugarBean {
 			$query .= "
 			LEFT JOIN users
 			ON calls.assigned_user_id=users.id ";
-			if($custom_join){
-  				$query .= $custom_join['join'];
-			}
+        $query .= $custom_join['join'];
 			$where_auto = '1=1';
        		 if($show_deleted == 0){
             	$where_auto = " $this->table_name.deleted=0  ";
@@ -306,17 +288,14 @@ class Call extends SugarBean {
 
         function create_export_query(&$order_by, &$where, $relate_link_join='')
         {
-        	$custom_join = $this->custom_fields->getJOIN(true, true,$where);
-			if($custom_join)
-				$custom_join['join'] .= $relate_link_join;
+            $custom_join = $this->getCustomJoin(true, true, $where);
+            $custom_join['join'] .= $relate_link_join;
 			$contact_required = stristr($where, "contacts");
             if($contact_required)
             {
                     $query = "SELECT calls.*, contacts.first_name, contacts.last_name, users.user_name as assigned_user_name ";
                     $query .= ", teams.name AS team_name";
-                    if($custom_join){
-   						$query .= $custom_join['select'];
- 					}
+                    $query .= $custom_join['select'];
                     $query .= " FROM contacts, calls, calls_contacts ";
                     $where_auto = "calls_contacts.contact_id = contacts.id AND calls_contacts.call_id = calls.id AND calls.deleted=0 AND contacts.deleted=0";
             }
@@ -324,9 +303,7 @@ class Call extends SugarBean {
             {
                     $query = 'SELECT calls.*, users.user_name as assigned_user_name ';
                     $query .= ", teams.name AS team_name";
-                   	if($custom_join){
-   						$query .= $custom_join['select'];
- 					}
+                    $query .= $custom_join['select'];
                     $query .= ' FROM calls ';
                     $where_auto = "calls.deleted=0";
             }
@@ -337,9 +314,7 @@ class Call extends SugarBean {
 				$query .= getTeamSetNameJoin('calls');
 			$query .= "  LEFT JOIN users ON calls.assigned_user_id=users.id ";
 
-			if($custom_join){
-  				$query .= $custom_join['join'];
-			}
+            $query .= $custom_join['join'];
 
 			if($where != "")
                     $query .= "where $where AND ".$where_auto;
@@ -419,14 +394,14 @@ class Call extends SugarBean {
 		if (empty($this->email_reminder_time)) {
 			$this->email_reminder_time = -1;
 		}
-		if(empty($this->id)){ 
+		if(empty($this->id)){
 			$reminder_t = $GLOBALS['current_user']->getPreference('email_reminder_time');
 			if(isset($reminder_t))
 		    		$this->email_reminder_time = $reminder_t;
 		}
 		$this->email_reminder_checked = $this->email_reminder_time == -1 ? false : true;
 
-		if (isset ($_REQUEST['parent_type'])) {
+		if (isset ($_REQUEST['parent_type']) && (!isset($_REQUEST['action']) || $_REQUEST['action'] != 'SubpanelEdits')) {
 			$this->parent_type = $_REQUEST['parent_type'];
 		} elseif (is_null($this->parent_type)) {
 			$this->parent_type = $app_list_strings['record_type_default_key'];
@@ -471,19 +446,19 @@ class Call extends SugarBean {
 
 		//make sure we grab the localized version of the contact name, if a contact is provided
 		if (!empty($this->contact_id)) {
-		    global $locale;
            // Bug# 46125 - make first name, last name, salutation and title of Contacts respect field level ACLs
-            $contact_temp = new Contact();
-            $contact_temp->retrieve($this->contact_id);
-            $contact_temp->_create_proper_name_field();
-            $this->contact_name = $contact_temp->full_name;
+            $contact_temp = BeanFactory::getBean("Contacts", $this->contact_id);
+            if(!empty($contact_temp)) {
+                $contact_temp->_create_proper_name_field();
+                $this->contact_name = $contact_temp->full_name;
+            }
 		}
 
         $call_fields['CONTACT_ID'] = $this->contact_id;
         $call_fields['CONTACT_NAME'] = $this->contact_name;
 		$call_fields['PARENT_NAME'] = $this->parent_name;
         $call_fields['REMINDER_CHECKED'] = $this->reminder_time==-1 ? false : true;
-	$call_fields['EMAIL_REMINDER_CHECKED'] = $this->email_reminder_time==-1 ? false : true;
+	    $call_fields['EMAIL_REMINDER_CHECKED'] = $this->email_reminder_time==-1 ? false : true;
 
 		return $call_fields;
 	}
@@ -497,7 +472,7 @@ class Call extends SugarBean {
 
         // rrs: bug 42684 - passing a contact breaks this call
 		$notifyUser =($call->current_notify_user->object_name == 'User') ? $call->current_notify_user : $current_user;
-		        
+
 
 		// Assumes $call dates are in user format
 		$calldate = $timedate->fromDb($call->date_start);
@@ -653,6 +628,12 @@ class Call extends SugarBean {
 			$GLOBALS['log']->info("Notifications: recipient is $notify_user->new_assigned_user_name");
 			$list[$notify_user->id] = $notify_user;
 		}
+		global $sugar_config;
+		if(isset($sugar_config['disable_notify_current_user']) && $sugar_config['disable_notify_current_user']) {
+			global $current_user;
+			if(isset($list[$current_user->id]))
+				unset($list[$current_user->id]);
+		}
 //		$GLOBALS['log']->debug('Call.php->get_notification_recipients():'.print_r($list,true));
 		return $list;
 	}
@@ -737,12 +718,12 @@ class Call extends SugarBean {
         }
         return '';
     }
-    
+
     public function mark_deleted($id)
     {
         require_once("modules/Calendar/CalendarUtils.php");
         CalendarUtils::correctRecurrences($this, $id);
-                
+
         parent::mark_deleted($id);
     }
 }

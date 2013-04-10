@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -95,6 +81,8 @@ $mod_strings = array (
   'LBL_DISALBE_CONVERT_LEAD' => '对于线索转化禁用转化操作',
   'LBL_DISALBE_CONVERT_LEAD_DESC' => '如果一个线索已经被转化，使用这个选项将移出转化线索操作。',
   'LBL_DISPLAYING_LOG' => '显示日志中',
+  'LBL_ENABLE_ACTION_MENU' => '在菜单内显示行为',
+  'LBL_ENABLE_ACTION_MENU_DESC' => '选择在下拉菜单中来显示细节是图和子面板的星文。如未选，行为则会显示未单独的按钮。',
   'LBL_ENABLE_MAILMERGE' => '启用邮件合并？',
   'LBL_EXCHANGE_LOGO' => 'Exchange',
   'LBL_EXCHANGE_SMTPPASS' => 'Exchange 密码:',
@@ -230,6 +218,7 @@ $mod_strings = array (
   'LBL_REMOVE' => '删除',
   'LBL_RESTORE_BUTTON_LABEL' => '恢复',
   'LBL_SEARCH' => '查找:',
+  'LBL_SESSION_TIMEOUT_TOOLTIP' => '门户会话超时是给历史Sugar版本门户用于6.5以及以前的版本。',
   'LBL_SKYPEOUT_ON' => '启用SkypeOut&reg;组件',
   'LBL_SKYPEOUT_ON_DESC' => '允许用户使用SkypeOut&reg;打电话。电话号码要合适地格式化。也就是说，必须要有“+”，“国家代码”，“号码”，像+1（555）555-1234。获取更多信息，请查看<a href="http://www.skype.com/help/faq/skypeout.html#calling" target="skype">skype&reg; faq</a>',
   'LBL_SKYPEOUT_TITLE' => 'SkypeOut&reg;',
@@ -276,6 +265,7 @@ $mod_strings = array (
   'MAX_DASHLETS' => '主页上 Sugar仪表盘的最大数',
   'NEW_LOGO' => '选择表示:',
   'NEW_LOGO_HELP' => '图象文件格式一定不是 .png就是 .jpg.<BR>推荐尺寸为 212x40 px。',
+  'NEW_LOGO_HELP_NO_SPACE' => '图像文件的格式可以是png或jpg文件。最大高度是17px，最大宽度是450px。如果图片超出这个范围将自动进行调整。图片文件名不能包含空格字符。',
   'NEW_QUOTE_LOGO' => '上传新报价标识(867x74)',
   'NEW_QUOTE_LOGO_HELP' => '需要的图象文件格式是.jpg.<BR>推荐尺寸为 867x74 px。',
   'PDF_ACL_ACCESS' => '访问控制',

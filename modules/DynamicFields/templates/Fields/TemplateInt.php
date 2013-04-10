@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('modules/DynamicFields/templates/Fields/TemplateRange.php');
@@ -39,7 +25,11 @@ class TemplateInt extends TemplateRange
 		$this->vardef_map['autoinc_next'] = 'autoinc_next';
 		$this->vardef_map['autoinc_start'] = 'autoinc_start';
 		$this->vardef_map['auto_increment'] = 'auto_increment';
-	}
+        
+        $this->vardef_map['min'] = 'ext1';
+        $this->vardef_map['max'] = 'ext2';
+        $this->vardef_map['disable_num_format'] = 'ext3';
+    }
 
 	function get_html_edit(){
 		$this->prepare();
@@ -57,12 +47,21 @@ class TemplateInt extends TemplateRange
     function get_field_def(){
 		$vardef = parent::get_field_def();
 		$vardef['disable_num_format'] = isset($this->disable_num_format) ? $this->disable_num_format : $this->ext3;//40005
-		if(!empty($this->ext2)){
-		    $min = (!empty($this->ext1))?$this->ext1:0;
-		    $max = $this->ext2;
-		    $vardef['validation'] = array('type' => 'range', 'min' => $min, 'max' => $max);
-		}
-		if(!empty($this->auto_increment))
+
+        $vardef['min'] = isset($this->min) ? $this->min : $this->ext1;
+        $vardef['max'] = isset($this->max) ? $this->max : $this->ext2;
+        $vardef['min'] = filter_var($vardef['min'], FILTER_VALIDATE_INT);
+        $vardef['max'] = filter_var($vardef['max'], FILTER_VALIDATE_INT);
+        if ($vardef['min'] !== false || $vardef['max'] !== false)
+        {
+            $vardef['validation'] = array(
+                'type' => 'range',
+                'min' => $vardef['min'],
+                'max' => $vardef['max']
+            );
+        }
+
+        if(!empty($this->auto_increment))
 		{
 			$vardef['auto_increment'] = $this->auto_increment;
 			if ((empty($this->autoinc_next)) && isset($this->module) && isset($this->module->table_name))

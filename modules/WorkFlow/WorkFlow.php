@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -128,8 +114,11 @@ class WorkFlow extends SugarBean {
 	// This is the list of fields that are required
 	var $required_fields =  array("name"=>1, 'base_module'=>1, 'type'=>1);
 
-    // This is a member variable to flag whether or not we really call mark_deleted on the cascade_delete call
+    // This is a member variable to flag whether or not we really call mark_deleted
     var $delete_workflow_on_cascade = true;
+
+    // Flag whether
+    var $check_controller = true;
 
 	function WorkFlow() {
 		parent::SugarBean();
@@ -157,15 +146,11 @@ class WorkFlow extends SugarBean {
 
         function create_export_query(&$order_by, &$where)
         {
-        $custom_join = $this->custom_fields->getJOIN(true, true,$where);
+        $custom_join = $this->getCustomJoin(true, true, $where);
 		$query = "SELECT $this->table_name.* ";
-		if($custom_join){
-   								$query .= $custom_join['select'];
- 		}
+        $query .= $custom_join['select'];
  		$query .= " FROM $this->table_name ";
- 		if($custom_join){
-  				$query .= $custom_join['join'];
-		}
+        $query .= $custom_join['join'];
 		$where_auto = "$this->table_name.deleted=0";
 
                 if($where != "")
@@ -229,16 +214,12 @@ class WorkFlow extends SugarBean {
     function create_new_list_query($order_by, $where,$filter=array(),$params=array(), $show_deleted = 0,$join_type='', $return_array = false,$parentbean=null, $singleSelect = false)
     {
     	$ret = array();
-    	$custom_join = $this->custom_fields->getJOIN();
+    	$custom_join = $this->getCustomJoin();
         $ret['select'] = "SELECT workflow.id, workflow.name, workflow.base_module, workflow.type, workflow.status, workflow.list_order_y ";
-    	if($custom_join){
-            $ret['select'] .= $custom_join['select'];
-        }
+        $ret['select'] .= $custom_join['select'];
 
         $ret['from'] = " FROM ".$this->table_name." ";
-        if($custom_join){
-            $ret['from'] .= $custom_join['join'];
-        }
+        $ret['from'] .= $custom_join['join'];
 
         $where_auto = "deleted=0 AND ( parent_id IS NULL OR parent_id = '' )";
 
@@ -498,7 +479,6 @@ function filter_base_modules(){
 	global $dictionary;
 		if(!empty($dictionary[$seed_object->object_name]['fields'][$field]['custom_type'])){
 		//field is present in the module's custom table.  Retrieve this table and use as query
-			$custom_join = $this->custom_fields->getJOIN();
 			$field_select = $seed_object->table_name."_cstm.".$field;
 
 		} else {
@@ -1353,23 +1333,19 @@ function repair_workflow(){
 
 
     /**
-     * cascade_delete
+     * mark_deleted
      * This function handles the management of related workflow components when a workflow is deleted.  The
-     * cascade_delete call is also run when the target module of an existing workflow is modified so that the
+     * mark_deleted call is also run when the target module of an existing workflow is modified so that the
      * workflow may invalidate the related workflow alerts, actions, etc.
      *
-     * @param Mixed $focus variable of the Workflow instance to run cascading deletes against
-     * @param bool $check_controller boolean flag indicating whether or not to readjust the ordering of workflow;
-     * defaults to true
+     * @param string $id
      */
-	function cascade_delete(& $focus, $check_controller=true){
-
-
+    function mark_deleted($id){
 		//Completely remove the trigger components////////////////////////
-					$trigger_object_list = $focus->get_linked_beans('triggers','WorkFlowTriggerShell');
-					if(!empty($trigger_object_list)){
+		$trigger_object_list = $this->get_linked_beans('triggers','WorkFlowTriggerShell');
+        if(!empty($trigger_object_list)){
 
-					foreach($trigger_object_list as $trigger_object){
+			foreach($trigger_object_list as $trigger_object){
 
 				//mark delete trigger components and sub expression components
 				mark_delete_components($trigger_object->get_linked_beans('future_triggers','Expression'));
@@ -1382,7 +1358,7 @@ function repair_workflow(){
 		}
 
 		//Completely remove the trigger filter components////////////////////////
-		$trigger_object_list = $focus->get_linked_beans('trigger_filters','WorkFlowTriggerShell');
+		$trigger_object_list = $this->get_linked_beans('trigger_filters','WorkFlowTriggerShell');
 		if(!empty($trigger_object_list)){
 
 			foreach($trigger_object_list as $trigger_object){
@@ -1396,7 +1372,7 @@ function repair_workflow(){
 		//end if any alert objects exist
 		}
 		//Completely remove the alert components/////////////////////////
-		$alert_object_list = $focus->get_linked_beans('alerts','WorkFlowAlertShell');
+		$alert_object_list = $this->get_linked_beans('alerts','WorkFlowAlertShell');
 		if(!empty($alert_object_list)){
 
 			foreach($alert_object_list as $alert_object){
@@ -1426,7 +1402,7 @@ function repair_workflow(){
 
 		//Completely remove the action components////////////////////////
 		//mark delete actionshell components, action components and sub expression components
-		$action_shell_list = $focus->get_linked_beans('actions','WorkFlowActionShell');
+		$action_shell_list = $this->get_linked_beans('actions','WorkFlowActionShell');
 
 		foreach($action_shell_list as $action_shell_object){
 
@@ -1440,23 +1416,32 @@ function repair_workflow(){
 			$action_shell_object->mark_deleted($action_shell_object->id);
 		}
 
-		if($check_controller==true){
+		if($this->check_controller==true){
+             require_once('include/controller/Controller.php');
+             //Handle re-processing orders
+             $controller = new Controller();
+             $controller->init($this, "Delete");
+             $controller->delete_adjust_order($this->base_module);
+         }
 
-		//Handle re-processing orders
-		$controller = new Controller();
-		$controller->init($focus, "Delete");
-		$controller->delete_adjust_order($focus->base_module);
+        $query =  "     SELECT id FROM workflow_schedules WHERE workflow_schedules.workflow_id = '".$id."'";
+        $result = $this->db->query($query,true," Error getting workflow_schedules for workflow_id: ".$id);
 
-		}
-
-		//mark deleted the workflow object if delete_workflow_on_cascade is set to true
-        if($focus->delete_workflow_on_cascade)
+        // Remove each workflow schedule by id
+        $w_schedule = new WorkFlowSchedule();
+        while($row = $this->db->fetchByAssoc($result))
         {
-		    $focus->mark_deleted($focus->id);
+            $w_schedule->remove_expired($row['id']);
         }
-		$focus->write_workflow();
 
-	//end function cascade_delete
+        //mark deleted the workflow object if delete_workflow_on_cascade is set to true
+        if($this->delete_workflow_on_cascade)
+        {
+		    parent::mark_deleted($id);
+        }
+		$this->write_workflow();
+
+	//end function mark_deleted
 	}
 
 function getActiveWorkFlowCount() {

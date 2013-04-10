@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -36,23 +22,27 @@ $mod_strings = array (
   'LBL_ACCEPT_LINK' => 'Accept Link',
   'LBL_ACCEPT_STATUS' => 'Accept Status',
   'LBL_ACCEPT_THIS' => 'Приемате ли?',
+  'LBL_ACCOUNT_NAME' => 'Oрганизация',
   'LBL_ACTIVITIES_REPORTS' => 'Activities Report',
   'LBL_ADD_BUTTON' => 'Добави',
   'LBL_ADD_INVITEE' => 'Добавяне на покана',
+  'LBL_ADD_PARENT_INVITEE' => 'Добави свързани лица към поканените',
   'LBL_ASSIGNED_TO_NAME' => 'Отговорник:',
   'LBL_CANCEL_CREATE_INVITEE' => 'Отмени',
   'LBL_COLON' => ':',
+  'LBL_CONFIRM_REMOVE_ALL_RECURRENCES' => 'Сигурни ли сте, че искате да премахнете всички периодично повтарящи се записи?',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти',
   'LBL_CONTACT_NAME' => 'Контакт:',
   'LBL_CREATED_BY' => 'Създадено от',
   'LBL_CREATED_USER' => 'Създаден потребител',
   'LBL_CREATE_AND_ADD' => 'Създай и Добави',
-  'LBL_CREATE_CONTACT' => 'As Contact',
-  'LBL_CREATE_INVITEE' => 'Create an invitee',
-  'LBL_CREATE_LEAD' => 'As Lead',
+  'LBL_CREATE_CONTACT' => 'като контакт',
+  'LBL_CREATE_INVITEE' => 'Суздай и изпрати покана',
+  'LBL_CREATE_LEAD' => 'Като потенциален клиент',
   'LBL_CREATOR' => 'Meeting Creator',
   'LBL_DATE' => 'Начална дата:',
   'LBL_DATE_END' => 'Крайна дата',
+  'LBL_DATE_END_ERROR' => 'Въведенета крайна дата е преди началната',
   'LBL_DATE_TIME' => 'Начална дата и час:',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Срещи',
   'LBL_DEL' => 'Изтрий',
@@ -63,18 +53,19 @@ $mod_strings = array (
   'LBL_DURATION' => 'Продължителност:',
   'LBL_DURATION_HOURS' => 'Продължителност (час.):',
   'LBL_DURATION_MINUTES' => 'Продължителност (мин.):',
+  'LBL_EDIT_ALL_RECURRENCES' => 'Редактирай всички повторения',
   'LBL_EMAIL' => 'Електронна поща',
-  'LBL_EMAIL_REMINDER' => 'Email Reminder',
+  'LBL_EMAIL_REMINDER' => 'Напомняне по електронна поща',
   'LBL_EMAIL_REMINDER_SENT' => 'Email reminder sent',
   'LBL_EMAIL_REMINDER_TIME' => 'Email Reminder Time',
-  'LBL_EMPTY_SEARCH_RESULT' => 'Sorry, no results were found. Please create an invitee below.',
+  'LBL_EMPTY_SEARCH_RESULT' => 'Няма намерени резултати. Моля поканете участник в срещата.',
   'LBL_EXPORT_ASSIGNED_USER_ID' => 'Assigned User ID',
   'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Отговорник',
   'LBL_EXPORT_CREATED_BY' => 'Created By ID',
   'LBL_EXPORT_DATE_END' => 'Крайна дата и час',
   'LBL_EXPORT_DATE_START' => 'Начална дата и час',
   'LBL_EXPORT_DISPLAYED_URL' => 'Displayed Url',
-  'LBL_EXPORT_EXTERNAL_ID' => 'External ID',
+  'LBL_EXPORT_EXTERNAL_ID' => 'Външен Идентификатор',
   'LBL_EXPORT_HOST_URL' => 'Host Url',
   'LBL_EXPORT_JOIN_URL' => 'Join Url',
   'LBL_EXPORT_MODIFIED_USER_ID' => 'Modified By ID',
@@ -84,10 +75,10 @@ $mod_strings = array (
   'LBL_EXTERNALID' => 'External App ID',
   'LBL_EXTNOSTART_HEADER' => 'Грешка: Не можете да започнете срещата',
   'LBL_EXTNOSTART_MAIN' => 'Не можете да започнете срещата защото не сте Отговорник за нея или Администратор.',
-  'LBL_EXTNOT_GO_BACK' => 'Go back to the previous record',
+  'LBL_EXTNOT_GO_BACK' => 'Върнете се на предишнич запис',
   'LBL_EXTNOT_HEADER' => 'Грешка: Не сте поканен',
   'LBL_EXTNOT_MAIN' => 'Не можете да участвате в срещата защото не сте поканен.',
-  'LBL_EXTNOT_RECORD_LINK' => 'View Meeting',
+  'LBL_EXTNOT_RECORD_LINK' => 'Разгледай срещата',
   'LBL_FIRST_NAME' => 'Име',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'Бележки',
   'LBL_HOST_EXT_MEETING' => 'Start Meeting',
@@ -128,15 +119,24 @@ $mod_strings = array (
   'LBL_PARENT_TYPE' => 'Parent Type',
   'LBL_PASSWORD' => 'Парола на срещата',
   'LBL_PHONE' => 'Служебен телефон:',
+  'LBL_RECURRENCE' => 'Регулярност',
+  'LBL_RECURRING_LIMIT_ERROR' => 'Повтарящата се среща не може да бъде насрочена от системата, защото превишава максималния брой от $limit разрешени повторения.',
   'LBL_RECURRING_SOURCE' => 'Recurring Source',
+  'LBL_RELATED_TO' => 'Свързано с:',
   'LBL_REMINDER' => 'Напомняне:',
   'LBL_REMINDER_EMAIL' => 'Електронна поща',
+  'LBL_REMINDER_EMAIL_ALL_INVITEES' => 'Изпращане на поща до всички поканени',
   'LBL_REMINDER_POPUP' => 'Изскачащ прозорец',
   'LBL_REMINDER_TIME' => 'Напомняне през',
   'LBL_REMOVE' => 'изтрий',
+  'LBL_REMOVE_ALL_RECURRENCES' => 'Изтрий всички повторения',
   'LBL_REPEAT_COUNT' => 'Брой повторения',
   'LBL_REPEAT_DOW' => 'Repeat Dow',
+  'LBL_REPEAT_END' => 'Край',
+  'LBL_REPEAT_END_AFTER' => 'След',
+  'LBL_REPEAT_END_BY' => 'До',
   'LBL_REPEAT_INTERVAL' => 'Интервал на повторение',
+  'LBL_REPEAT_OCCURRENCES' => 'повторения',
   'LBL_REPEAT_PARENT_ID' => 'Repeat Parent ID',
   'LBL_REPEAT_TYPE' => 'Repeat Type',
   'LBL_REPEAT_UNTIL' => 'Repeat Until',
@@ -149,7 +149,7 @@ $mod_strings = array (
   'LBL_SEQUENCE' => 'Meeting update sequence',
   'LBL_STATUS' => 'Статус:',
   'LBL_SUBJECT' => 'Относно:',
-  'LBL_SYNCED_RECURRING_MSG' => 'Срещата първоначално е създадена в друга система и синхронизирана в последствие с SugarCRM. Ако бъде редактирана в SugarCRM тя няма да може да бъде вече синхронизирана с друга система.',
+  'LBL_SYNCED_RECURRING_MSG' => 'Срещата първоначално е създадена в друга система и синхронизирана в последствие с SugarCRM. Ако бъде редактирана в SugarCRM тя няма да може да бъде вече синхронизирана с другата система.',
   'LBL_TIME' => 'Начален час:',
   'LBL_TYPE' => 'Тип на срещата',
   'LBL_URL' => 'Start/Join Meeting',

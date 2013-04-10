@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -220,13 +206,36 @@ ul.megamenu,
 	float: left;	
 }
 
+#quickCreateULSubnav,
 #quickCreate ul.clickMenu li ul.subnav
 {
-	right: auto;	
+    left:0px;
+	right: auto;
+    direction: rtl;
 }
+.selectActionsDisabled span.ab {
+    margin:0px 10px 0 0;
+    padding:0 0 0 5px;
+}
+.selectActionsDisabled {
+    padding: 0 10px 0 0px;
+}
+td.paginationActionButtons ul.clickMenu .massall,
+ul#selectLink.clickMenu .massall, td.selectCol .massall,
+ul.SugarActionMenuIESub li a, ul.clickMenu li span, .selectActionsDisabled span, .selectActionsDisabled a, .selectActionsDisabled a:hover,
+ul.clickMenu li ul.subnav li a,ul.clickMenu li ul.subnav li input, ul.subnav-sub li a, ul.SugarActionMenuIESub li a,
+ul.clickMenu li a, .list tr.pagination td.buttons ul.clickMenu > li > a:link, .list tr.pagination td.buttons ul.clickMenu > li > a{
+    float:right;
+    text-align:right;
+}
+ul.clickMenu li span.ab, .selectActionsDisabled span.ab {
+    border-right:1px #aaa solid;
+    border-left:0px;
 
-#globalLinksModule ul.clickMenu li ul.subnav {
-	left: 0px;	
+}
+ul#quickCreateULSubnav {
+    left:0px;
+    right:auto !important;
 }
 ul.moduleTabExtraMenu, ul.filter-menu,
 ul.megamenu ul.MMLastViewed,
@@ -348,12 +357,7 @@ border-radius: 6px 0px 0px 0px;
 }
 
 #dcboxbody{
-width: 1050px;
 direction: rtl;
-}
-
-#dcboxbody.sugar_spot_search, #dcboxbody.dcmenuSugarCube{
-width: 320px;
 }
 
 #dcboxbody  .hd span {
@@ -365,7 +369,7 @@ direction: rtl;
 float: left;
 }
 #sugar_spot_search_div { float:right; }
-#close_spot_search { left:20px;}
+#close_spot_search { left:50px;}
 #glblSearchBtn {
 float: left;
  left: 10px;
@@ -389,7 +393,14 @@ float: right;
 }
 
 #sugar_spot_search {
-    direction: rtl;    
+    direction: rtl;
+    padding:1px 5px 0px 40px;
+}
+#glblSearchBtn .searchicon {
+    left:2px;
+}
+#glblSearchBtn {
+    left: 17px;
 }
 
 #notificationsDivider {
@@ -458,18 +469,22 @@ direction: rtl;
 }
 
 #footer #partner {
-    border-left: 0px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
     float: left;
     margin-left: 25px;
     margin-right: 0px;
+    border-right: 0;
 }
 
 .buttons {
 	text-align: right;
 }
+div.action_buttons form, div.action_buttons input { float:right; }
 
 .paginationWrapper {
 	text-align: left;
+    direction:ltr;
+    float:left;
 }
 
 #notifDivider {

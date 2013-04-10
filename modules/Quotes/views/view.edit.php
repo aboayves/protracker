@@ -2,30 +2,16 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -211,7 +197,7 @@ class QuotesViewEdit extends ViewEdit
 		$this->ss->assign('CURRENCY_JAVASCRIPT', $currency->getJavascript());
 
 
-		$add_row = '';
+		$add_row = array();
 		if (!empty($this->bean->id))
 		{
 			$this->bean->load_relationship('product_bundles');
@@ -228,18 +214,18 @@ class QuotesViewEdit extends ViewEdit
 				foreach ($ordered_bundle_list as $product_bundle) {
 					$product_list = $product_bundle->get_products();
 					$bundle_list = $product_bundle->get_product_bundle_line_items();
-					$add_row .= "quotesManager.addTable('$product_bundle->id','$product_bundle->bundle_stage', '$product_bundle->name', '".format_money($product_bundle->shipping,FALSE)."' );\n";
+					$add_row[] = "quotesManager.addTable('$product_bundle->id','$product_bundle->bundle_stage', '$product_bundle->name', '".format_money($product_bundle->shipping,FALSE)."' );\n";
 
 					if (is_array($bundle_list)) {
 						while (list($key, $line_item) = each ($bundle_list)) {
 							if ($line_item->object_name == "Product") {
-								if (isset($line_item->tax_class) && !empty($line_item->tax_class)) $tax_class_name = $app_list_strings['tax_class_dom'][$line_item->tax_class];
-								else $tax_class_name = '';
+
+                                $tax_class_name = isset($line_item->tax_class) ? $line_item->tax_class : "";
 
 								$encoded_name = js_escape(br2nl($line_item->name));
 
 
-								$add_row .= "quotesManager.addRow('$line_item->id','" . format_number($line_item->quantity, 0, 0) . "','$line_item->product_template_id','$encoded_name'"
+								$add_row[] = "quotesManager.addRow('$line_item->id','" . format_number($line_item->quantity, 0, 0) . "','$line_item->product_template_id','$encoded_name'"
 											. ", '".format_number($line_item->cost_usdollar, $significantDigits, $significantDigits, array('convert' => true, 'currency_id' => $curid)) . "'"
 											. ", '".format_number($line_item->list_usdollar, $significantDigits, $significantDigits, array('convert' => true, 'currency_id' => $curid)) ."'"
 											. ", '".format_number($line_item->discount_usdollar, $significantDigits, $significantDigits, array('convert' => true, 'currency_id' => $curid)) . "'"
@@ -253,7 +239,7 @@ class QuotesViewEdit extends ViewEdit
 							else if ($line_item->object_name == "ProductBundleNote") {
 								$encoded_description = js_escape(br2nl($line_item->description));
 								//$encoded_description = html_entity_decode($encoded_description);
-								$add_row .= "quotesManager.addCommentRow('$line_item->id', '$product_bundle->id', '$encoded_description');\n";
+								$add_row[] = "quotesManager.addCommentRow('$line_item->id', '$product_bundle->id', '$encoded_description');\n";
 							}
 						} //while
 					} //if
@@ -281,22 +267,23 @@ class QuotesViewEdit extends ViewEdit
 					$product_list = $product_bundle->get_products();
 					if (is_array($product_list)) {
 						foreach ($product_list as $line_item) {
-		                    $tax_class_name = isset($line_item->tax_class) ? $tax_class_name = $app_list_strings['tax_class_dom'][$line_item->tax_class] : "";
+                            $tax_class_name = isset($line_item->tax_class) ? $line_item->tax_class : "";
 
-							$add_row .= "quotesManager.addRow('','$line_item->quantity','$line_item->product_template_id','$line_item->name'"
+							$add_row[] = "quotesManager.addRow('','$line_item->quantity','$line_item->product_template_id','$line_item->name'"
 											. ", '".format_number($line_item->cost_usdollar, $significantDigits, $significantDigits, array('convert' => true, 'currency_id' => $curid)) . "'"
 											. ", '".format_number($line_item->list_usdollar, $significantDigits, $significantDigits, array('convert' => true, 'currency_id' => $curid)) ."'"
-											. ", '".format_number($line_item->discount_usdollar, $significantDigits, $significantDigits, array('convert' => true, 'currency_id' => $curid)) . "'";
-							$add_row .=  ", '', '', '$line_item->pricing_factor', '$line_item->tax_class', '$tax_class_name',
+											. ", '".format_number($line_item->discount_usdollar, $significantDigits, $significantDigits, array('convert' => true, 'currency_id' => $curid)) . "'"
+							    .", '', '', '$line_item->pricing_factor', '$line_item->tax_class', '$tax_class_name',
 								'$line_item->mft_part_num', 'group_$product_bundle->id', '$product_bundle->bundle_stage', '$product_bundle->name', '".format_money($product_bundle->shipping,FALSE)
 							    ."', '".js_escape(br2nl($line_item->description))."', '"
 							    . $line_item->type_id ."','"
-							    . $line_item->discount_amount_usdollar."',".($line_item->discount_select?1:0)
+							    . format_number($line_item->discount_amount_usdollar, $significantDigits, $significantDigits, array('convert' => !$line_item->discount_select, 'currency_id' => $curid))."',"
+                                .($line_item->discount_select?1:0)
 							    . ",0, '". $line_item->status."');\n";
 
 						} //foreach
 						if(empty($product_list)){
-								$add_row .= "quotesManager.addTable('group_$product_bundle->id','$product_bundle->bundle_stage', '$product_bundle->name' , ' ".format_money($product_bundle->shipping,FALSE)."');\n";
+								$add_row[] = "quotesManager.addTable('group_$product_bundle->id','$product_bundle->bundle_stage', '$product_bundle->name' , ' ".format_money($product_bundle->shipping,FALSE)."');\n";
 						} //if
                         //bug 39573 - Comments are not duplicated in quotes
                         $bundle_list = $product_bundle->get_product_bundle_line_items();
@@ -304,7 +291,7 @@ class QuotesViewEdit extends ViewEdit
                             while (list($key, $line_item) = each ($bundle_list)){
                                 if ($line_item->object_name == "ProductBundleNote"){
                                     $encoded_description = js_escape(br2nl($line_item->description));
-                                    $add_row .= "quotesManager.addCommentRow('$line_item->id', 'group_$product_bundle->id', '$encoded_description');\n";
+                                    $add_row[] = "quotesManager.addCommentRow('$line_item->id', 'group_$product_bundle->id', '$encoded_description');\n";
 
                                 }
                             }
@@ -314,9 +301,47 @@ class QuotesViewEdit extends ViewEdit
 			}
 		} //if-else for !empty($this->bean->id)
 
-		// Create the javascript code to render the rows
-		$add_row = 'function add_rows_on_load() {' . $add_row . '}';
-		$this->ss->assign("ADD_ROWS", $add_row);
+		//Bug#53607: Create the javascript code to store the rendering function in a queue
+        $add_row_js = 'var add_row_stack = [];';
+        foreach($add_row as $script_command) {
+            $add_row_js .= "add_row_stack.push(function(){
+                $script_command
+            });";
+        }
+
+		//Bug#53607: Rather than executing all rendering row script once, it will keep in a queue.
+        //           And it will render the specified number of rows every interval.
+        $add_row_js .= "function add_rows_on_load() {
+            if(typeof add_row_stack != 'undefined' && add_row_stack.length > 0) {
+                //interval is in msec,
+                //size is the number of rows rendering every time
+                var _interval = 100,
+                    _size = 3,
+                    _exec = add_row_stack.splice(0, _size),
+                    _header_button = document.getElementById('SAVE_HEADER'),
+                    _footer_button = document.getElementById('SAVE_FOOTER');
+                if(_header_button) {
+                    _header_button.disabled = true;
+                }
+                if(_footer_button) {
+                    _footer_button.disabled = true;
+                }
+                for(idx in _exec) {
+                    _exec[idx]();
+                }
+                window.setTimeout(add_rows_on_load, _interval);
+            } else {
+                var _header_button = document.getElementById('SAVE_HEADER'),
+                    _footer_button = document.getElementById('SAVE_FOOTER');
+                if(_header_button) {
+                    _header_button.disabled = false;
+                }
+                if(_footer_button) {
+                    _footer_button.disabled = false;
+                }
+            }
+        }";
+		$this->ss->assign("ADD_ROWS", $add_row_js);
 
 		$setup_script = '';
 		$taxclass = translate('tax_class_dom');

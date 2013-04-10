@@ -1,5 +1,5 @@
 <?php
-// created: 2012-07-03 09:43:36
+// created: 2013-04-10 13:54:26
 $viewdefs['Project']['DetailView'] = array (
   'templateMeta' => 
   array (
@@ -52,6 +52,14 @@ $viewdefs['Project']['DetailView'] = array (
     ),
     'useTabs' => true,
     'syncDetailEditViews' => true,
+    'tabDefs' => 
+    array (
+      'LBL_PROJECT_INFORMATION' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+    ),
   ),
   'panels' => 
   array (

@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -180,7 +166,7 @@ height: 43px;
 
 
 #globalLinksModule:hover {
-	background-color: #276499;	
+	background-color: #276499;
 }
 
 #globalLinksCtrl img{
@@ -370,6 +356,10 @@ cursor:pointer;
 	visibility: hidden;
 }
 
+div#main
+{
+    min-width: 950px; /* Bug 61126 */
+}
 
 div#content
 {
@@ -657,6 +647,8 @@ div.actionsContainer
 
 .edit h4
 {
+    font-weight: bold;
+    background-color: #eee;
     text-align: left;
     margin-top: 0;
     padding-top:0;
@@ -1386,7 +1378,6 @@ background-image:url(../../../../index.php?entryPoint=getImage&imageName=form-bu
 }
 #footer 
 {
-
     border-top:1px solid #ccc;
     background: rgb(255,255,255); /* Old browsers */
     background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
@@ -1400,6 +1391,7 @@ background-image:url(../../../../index.php?entryPoint=getImage&imageName=form-bu
     bottom:0;
     width:100%;
     z-index:1;
+    text-align: center;
 }
 
 #footer img {
@@ -1430,6 +1422,38 @@ background-image:url(../../../../index.php?entryPoint=getImage&imageName=form-bu
     
 }
 
+#footer #buffer {
+    float: right;
+    margin-right: 25px;
+    height: 31px;
+}
+
+#footer #help {
+    float: right;
+    border-right: 1px solid #CCC;
+    height: 31px;
+}
+
+#footer #help a {
+    color: #444;
+    text-decoration: none;
+    font-size: 12px;
+    float: left;
+    padding: 0px 10px 0px;
+ }
+
+
+#footer #help a .icon {
+    float: left;
+    height: 24px;
+    margin: 5px 4px 4px 0px;
+}
+
+#footer #help a span.title {
+    float: left;
+    padding-top: 8px;
+}
+
 #footer #partner a {
 	float: left;
 }
@@ -1441,7 +1465,6 @@ background-image:url(../../../../index.php?entryPoint=getImage&imageName=form-bu
 }
 #footer #partner {
     float:right;
-    margin-right:25px;
      border-right: 1px solid #CCCCCC;
      height: 31px;
 }
@@ -1453,11 +1476,11 @@ background-image:url(../../../../index.php?entryPoint=getImage&imageName=form-bu
 }
 
 #footer .copyright {
-	color: #ccc;
-	text-decoration: none;
-	font-size: 11px;	
-	padding-top: 10px;
-	float: left;
+    color: #A0A0A0;
+    text-decoration: none;
+    font-size: 11px;
+    padding-top: 10px;
+    display: block;
 }
 
 #themePicker, #langPicker 
@@ -3975,6 +3998,10 @@ ul.megamenu a, ul.moduleTabMore a, ul.sf-sub-modulelist a,
 	z-index: 99;
 }
 
+#moduleList > ul.sf-menu > li {
+    height: 43px;
+}
+
 #moduleList ul.sf-menu li:hover li ul,
 #moduleListul.sf-menu li.sfHover li ul {
 	top:			-999em;
@@ -4078,12 +4105,15 @@ ul.sf-sub-modulelist li.sfHover div.megawrapper {
     background: #fff;
 }
 
+
 ul.megamenu .MMShortcuts li.sfHover a.sf-with-ul,
 ul.moduleTabMore li.sfHover a.sf-with-ul,
 ul.sf-sub-modulelist li.sfHover > a.sf-with-ul{
     color: #fff !important;
     background:		#355B7E;
 }
+
+#globalLinksModule ul.clickMenu.SugarActionMenu li a:hover,
 ul.megamenu .MMShortcuts li.sfHover,
 ul.moduleTabMore li.sfHover,
 ul.sf-sub-modulelist li.sfHover,
@@ -4509,6 +4539,7 @@ ul.subpanelTablist li a.activeSubTab:hover
 	-webkit-border-radius:6px;
 }
 
+.detail.view  tr:last-child td:first-child ,.detail.view  tr:last-child th:first-child,
 .list.view  tr:last-child td:first-child ,.list.view  tr:last-child th:first-child{
 	-moz-border-radius-bottomleft: 6px;
 	-webkit-border-bottom-left-radius: 6px;
@@ -4602,6 +4633,10 @@ table.detail
 /* editviews */
 .edit td[scope=row]
 {
+    color: #444444;
+}
+
+.edit h4 {
     color: #444444;
 }
 
@@ -5223,7 +5258,7 @@ font-size: 13px;
 }
 
 .yui-navset .yui-nav li, .yui-navset .yui-navset-top .yui-nav li {
-margin: 0 4px 0 0;
+margin: 2px 4px 0 0;
 *height: 24px; /* ie 7 hack */
 }
 
@@ -5236,9 +5271,13 @@ margin: 0 4px 0 0;
 }
 
 
-.yui-navset .yui-nav, .yui-navset .yui-navset-top .yui-nav, .yui-layout .yui-layout-hd {
+.yui-navset .yui-nav, .yui-navset .yui-navset-top .yui-nav {
+    background:transparent url('../../../../index.php?entryPoint=getImage&themeName=Sugar&imageName=sugar-yui-tab-bg.png'); 
+    border-color: #c3c3c3;
+}
 
-    background:transparent url('../../../../index.php?entryPoint=getImage&themeName=Sugar&imageName=sugar-yui-sprites.png') repeat-x scroll 0 0; 
+.yui-layout .yui-layout-hd {
+    background:transparent url('../../../../index.php?entryPoint=getImage&themeName=Sugar&imageName=sugar-yui-sprites.png'); 
     border-color: #c3c3c3;
 }
 
@@ -5502,41 +5541,73 @@ input, select, textarea, button
 
 /* for edit and detail views */
 .edit.view th:first-child,.detail.view th:first-child {
--moz-border-radius: 6px 6px 0px 0px;
-border-radius: 6px 6px 0px 0px;
--webkit-border-topr-right-radius: 6px;
+-moz-border-radius-topleft: 6px;
+-moz-border-radius-topright: 6px;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+-webkit-border-top-right-radius: 6px;
 -webkit-border-top-left-radius: 6px;
 }
 
 .edit.view h4:first-child,.detail.view h4:first-child {
--moz-border-radius: 6px 6px 0px 0px;
-border-radius: 6px 6px 0px 0px;
--webkit-border-topr-right-radius: 6px;
+-moz-border-radius-topleft: 6px;
+-moz-border-radius-topright: 6px;
+border-top-left-radius: 6px;
+border-top-right-radius: 6px;
+-webkit-border-top-right-radius: 6px;
 -webkit-border-top-left-radius: 6px;
 }
 
-.edit.view > tr:first-child > td:first-child,.detail.view tr:first-child > td:first-child  {
--moz-border-radius: 6px 0px 0px 0px;
-border-radius: 6px 0px 0px 0px;
+.edit.view.collapsed h4,.detail.view.collapsed h4 {
+-moz-border-bottom-left-radius: 6px;
+-moz-border-bottom-right-radius: 6px;
+border-bottom-left-radius: 6px;
+border-bottom-right-radius: 6px;
+-webkit-border-bottom-right-radius: 6px;
+-webkit-border-bottom-left-radius: 6px;
+}
+
+.collapsed .panelContainer, .collapsed .collapseLink, .expanded .expandLink { display:none; }
+
+.edit.view > table tr:first-child td:first-child,.detail.view > table:first-child tr:first-child td:first-child  {
+-moz-border-radius-topleft: 6px;
+border-top-left-radius: 6px;
 -webkit-border-top-left-radius: 6px;
 }
 
-.edit.view > tr:first-child td:last-child,.detail.view tr:first-child td:last-child   {
--moz-border-radius: 0px 6px 0px 0px;
-border-radius: 0px 6px 0px 0px;
+.edit.view > table tr:first-child td:last-child,.detail.view > table:first-child tr:first-child td:last-child   {
+-moz-border-radius-topright: 6px;
+border-top-right-radius: 6px;
 -webkit-border-top-right-radius: 6px;
 }
 
 .edit.view > tr:last-child > td:first-child,.detail.view tr:last-child > td:first-child {
 -moz-border-radius: 0px 0px 0px 6px;
 border-radius: 0px 0px 0px 6px;
+-moz-border-radius-bottomleft: 6px;
+border-bottom-left-radius: 6px;
 -webkit-border-bottom-left-radius: 6px;
 }
 .edit.view > tr:last-child td:last-child ,.detail.view tr:last-child td:last-child{
--moz-border-radius: 0px 0px 6px 0px;
-border-radius: 0px 0px 6px 0px;
+-moz-border-radius-bottomright: 6px;
+border-bottom-right-radius: 6px;
 -webkit-border-bottom-right-radius: 6px;
 }
+.edit.view tr td tr td,
+.detail.view > table:first-child tr td tr:first-child td:first-child,
+.detail.view > table:first-child tr td tr:first-child td:last-child,
+.detail.view tr td tr:first-child > td:first-child,
+.detail.view tr td tr:first-child > td:last-child,
+.detail.view tr td tr:last-child > td:first-child,
+.detail.view tr td tr:last-child > td:last-child {
+    -moz-border-radius: 0px 0px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+}
+/*
 table.importTable .edit.view > tr:first-child > td:first-child,.detail.view tr:first-child > td:first-child,
 table.importTable .edit.view > tr:first-child td:last-child,.detail.view tr:first-child td:last-child,
 table.importTable .edit.view > tr:last-child > td:first-child,.detail.view tr:last-child > td:first-child,
@@ -5549,11 +5620,12 @@ table.importTable .edit.view > tr:last-child td:last-child ,.detail.view tr:last
     -webkit-border-bottom-left-radius: 0px;
     -webkit-border-bottom-right-radius: 0px;
 }
+*/
 
 .edit.view tr:last-child td,.detail.view tr:last-child td {
 border-bottom: 0px;
 }
-
+/*
 .yui-navset.detailview_tabs .view tr:first-child td:first-child {
 -moz-border-radius: 6px 0px 0px 0px;
 border-radius: 6px 0px 0px 0px;
@@ -5564,6 +5636,7 @@ border-radius: 6px 0px 0px 0px;
 border-radius: 0px 6px 0px 0px;
 -webkit-border-top-right-radius: 6px;
 }
+*/
 /* for list views */
 .oddListRowS1 td:first-child, .evenListRowS1 td:first-child,.list.view th:first-child{
 padding-left: 10px;
@@ -5807,14 +5880,16 @@ padding:0px 10px 0px;
 #dcboxbody{
 height:110%;
 font-size:6px !important;
-min-width: 750px\9; /* ie hack, width must be defined or else it goes off the screen */
-*width: 750px;
+min-width:750px;
 }
 
-#dcboxbody.sugar_spot_search{
-min-width:320px\9;
-width: 320px\9; /* ie hack, width must be defined or else it goes off the screen */
+#dcboxbody.sugar_spot_search {
+    min-width:320px;
+}
 
+#dcboxbody.dcmenuSugarCube {
+    min-width:480px;
+    width:480px;
 }
 
 #dcboxbody div.buttons {
@@ -5853,12 +5928,22 @@ top:0px;
 
 #glblSearchBtn {
     display:block;
-    float: right;
-    position: relative;
-    left: -10px;
+    position: absolute;
+    right: 19px;
     top: 1px;
+    width:32px;
 }
-
+#glblSearchBtn .searchIconLink {
+    width:32px;
+    overflow:hidden;
+    display:block;
+    position:relative;
+    cursor:pointer;
+}
+#glblSearchBtn .searchicon {
+    position: relative;
+    right:2px;
+}
 
 #dcmenuwrap{
 margin-left: auto;
@@ -5875,8 +5960,17 @@ span.dcmenuitem:hover{
 }
 
 
-#dcmenuSugarCube {
+#dcmenuSugarCube, #dcmenuSugarCubeEmpty{
 float: right;
+padding: 0px 0px 0 2px;
+height: 43px;
+}
+
+#dcmenuSugarCubeEmpty {
+    padding: 0px;
+}
+#dcmenuUserIcon {
+float: left;
 padding: 0px 0px 0 2px;
 height: 43px;
 }
@@ -5890,22 +5984,22 @@ float: right;
 margin-right: 0px;	
 }
 
-#dcmenuSugarCube a{
+#dcmenuUserIcon a{
 width: 36px;
 height: 43px;
 background-repeat:no-repeat;
-padding: 0px 0 0 10px;
 margin: 0 0 0 0;
 text-decoration: none;
 display: block;
 text-align: center;
+cursor:default;
 }
 
 #dcmenuSugarCube.none a.notice
 {
 cursor: default;
 }
-#dcmenuSugarCube .dc_notif_icon{
+#dcmenuSugarCube .dc_notif_icon, #dcmenuUserIcon .dc_notif_icon{
 	width:24px;
 	height:24px;
 	border:0px;
@@ -5920,15 +6014,20 @@ cursor: default;
 
 #dcmenuSugarCube .notifCount{
     font-weight:bold;
-    font-size:9px !important;
+    font-size:11px !important;
     color:#FFFFFF;
-    position: relative; bottom: 20px; left: 5px;
+    position: relative;
 	text-align: center;
 	background-color: #CC0000;
     border-radius: 2px;
     width: 16px;
     cursor: pointer;
     padding: 1px;
+    width: 24px;
+    height:18px;
+    padding-top:6px;
+    top:8px;  
+    margin:0px 5px;  
 }
 
 
@@ -6075,8 +6174,9 @@ color: #0B578F;
 #dcmenuSearchDiv {
 	float:right;
 	margin-top: 8px;
-	height: 26px;
+	height: 35px;
     width: 275px;
+    position:relative;
 }
 
 table.dcListView th,table.dcListView td {
@@ -6114,16 +6214,16 @@ margin-left:10px;
 		
 #sugar_spot_search_div {
 	height: 26px;
-	width: 240px;
+	width: 270px;
 	display: inline-block;
 	position: relative;
     float: left;
 }
 #sugar_spot_search {
 	border: 0;
-	width:215px;
+	width:210px;
 	font-size: 12px;
-    padding:1px 5px 0px 5px;
+    padding:1px 40px 0px 5px;
     height: 23px;
     margin-top: 1px;
     border-radius: 2px;
@@ -6167,7 +6267,7 @@ input#sugar_spot_search:focus {
 #sugar_spot_search_results {
 
     box-shadow:0 1px 1px #999;
-    padding: 20px;
+    padding: 40px 20px 20px 20px;
     background:#fff;
     border-bottom-left-radius:4px;
     border-bottom-right-radius:4px;
@@ -6269,7 +6369,7 @@ margin-top: 14px;
 #close_spot_search {
 display: block;
 position: absolute;
-right: 20px;
+right: 50px;
 top: 8px;
 display: none;
 cursor: pointer;
@@ -6443,7 +6543,12 @@ ul.clickMenu {
     *display:inline;
     *zoom:1;
 }
-ul.clickMenu form, div.action_buttons form {float:left;}
+ul.clickMenu form, div.action_buttons form, div.action_buttons input {float:left;}
+
+/** bug 55940 - prevent wrapping of action buttons in button mode in the detail view header **/
+.actionsContainer div.action_buttons input {
+    float:left;
+}
 ul.SugarActionMenuIESub {
     font-family: 'Lucida Grande',Tahoma,Verdana,Arial,sans-serif;
 }
@@ -6500,6 +6605,8 @@ ul.clickMenu li > span.ab { /*--Drop down trigger styles--*/
 ul.clickMenu li span.subhover {
 	cursor: pointer;
 	} /*--Hover effect for trigger--*/
+div.action_buttons .subnav-sub { display:none; }
+
 ul.clickMenu li ul.subnav, ul.clickMenu ul.subnav-sub, ul.SugarActionMenuIESub {
 	list-style: none;
 	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
@@ -6539,6 +6646,7 @@ ul.clickMenu.subpanel.records {
 	background-image: none;
 }
 
+/** Bug53826: Disable whole subpanel hover action
 ul.clickMenu.subpanel.records:hover {
    		background-image: -moz-linear-gradient(center top, 
 		#ffffff 0%,
@@ -6556,11 +6664,10 @@ ul.clickMenu.subpanel.records:hover {
 	   
 	   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#255e90', endColorstr='#3d74a5') !important;
 }
-
-ul.clickMenu.subpanel.records:hover > li div a{ 
+*/
+ul.clickMenu.subpanel.records li div:hover a{
 	color: #fff !important;	
 }
-
 ul.clickMenu.subpanel.records li a{ 
 	color: #aaa;	
 }
@@ -6646,17 +6753,21 @@ ul.clickMenu li ul.subnav li input {
 	/*width: 170px;*/
 	width:100%	
 }
-ul.SugarActionMenuIESub li a:hover,
+td.paginationActionButtons ul.clickMenu li a { font-size:12px !important; }
+
+ul.SugarActionMenuIESub li a:hover, ul.clickMenu.SugarActionMenu li a:hover, ul.clickMenu.SugarActionMenu li span.subhover:hover,
 ul.clickMenu li ul.subnav li a:hover,ul.clickMenu li ul.subnav li input:hover, ul.clickMenu.subpanel.records li ul.subnav li a:hover, ul.clickMenu ul.subnav-sub li a:hover { /*--Hover effect for subnav links--*/
 background-color: #355b7e;
-color: #fff;
+color: #fff !important;
 font-weight: normal !important;
-font-size: 12px !important;
 cursor: pointer;
 text-shadow: none;
 border-radius: 0px;
 -webkit-border-radius: 0px;
 
+}
+ul.clickMenu li ul.subnav li a:hover,ul.clickMenu li ul.subnav li input:hover, ul.clickMenu.subpanel.records li ul.subnav li a:hover, ul.clickMenu ul.subnav-sub li a:hover {
+font-size: 12px !important;
 }
 
 
@@ -6706,8 +6817,6 @@ ul#globalLinks.clickMenu > li > a {
 	font-size: 14px;
     padding: 14px 7px !important;	
 }
-
-#contentTable .yui-nav, #contentTable .yui-nav * { position:static; }
 
 ul#selectLink.clickMenu {
 	height: 22px;
@@ -6807,7 +6916,7 @@ ul.clickMenu.show {
 	height: 43px;
 	width: 50px;
 }
-
+#globalLinksModule ul.clickMenu li:hover span,
 #quickCreate ul.clickMenu > li:hover {
 	background-color: #276499;
 }
@@ -6820,6 +6929,7 @@ ul#globalLinksSubnav, ul#quickCreateULSubnav,
 	padding: 10px 0px;
 	border: 1px solid #999;
 	width: auto;
+    min-width: 150px;
 }
 
 #quickCreate ul.clickMenu li ul.subnav {
@@ -6830,7 +6940,7 @@ ul#globalLinksSubnav, ul#quickCreateULSubnav,
 #quickCreate ul.clickMenu li ul.subnav li a, #globalLinksModule ul.clickMenu li ul.subnav li a {
 	padding: 4px 10px !important;
 	font-size: 13px !important;
-	color: #666666 !important;
+	color: #666666;
 	line-height: 1.45;
 }
 #quickCreateULSubnav li.moduleMenuOverFlowLess a, #quickCreateULSubnav li.moduleMenuOverFlowMore a,
@@ -6967,7 +7077,10 @@ ul#globalLinksSubnav, ul#quickCreateULSubnav,
 
 .edit508 tr td[scope="col"]
 {
+    color: #444;
     background-color: #eee;
+    border-color: #ccc;
+    white-space: nowrap;
 }
 
 .listViewEmpty{

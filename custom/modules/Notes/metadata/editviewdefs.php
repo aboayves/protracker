@@ -1,5 +1,5 @@
 <?php
-// created: 2012-07-03 09:43:36
+// created: 2013-04-10 13:54:26
 $viewdefs['Notes']['EditView'] = array (
   'templateMeta' => 
   array (
@@ -38,6 +38,14 @@ function deleteAttachmentCallBack(text)
 </script>
 <script>toggle_portal_flag(); function toggle_portal_flag()  {literal} { {/literal} {$TOGGLE_JS} {literal} } {/literal} </script>{$tiny}',
     'useTabs' => false,
+    'tabDefs' => 
+    array (
+      'LBL_NOTE_INFORMATION' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+    ),
   ),
   'panels' => 
   array (

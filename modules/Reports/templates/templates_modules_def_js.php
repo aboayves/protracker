@@ -2,30 +2,16 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('modules/Reports/config.php');
@@ -41,9 +27,9 @@ $mod_strings = return_module_language($current_language,'Reports');
 $currentModule = 'Reports';
 
 $global_json = getJSONobj();
-global $ACLAllowedModules; 
+global $ACLAllowedModules;
 $ACLAllowedModules = getACLAllowedModules();
-echo 'ACLAllowedModules = ' . $global_json->encode(array_keys($ACLAllowedModules)) .";\n"; 
+echo 'ACLAllowedModules = ' . $global_json->encode(array_keys($ACLAllowedModules)) .";\n";
 
 ?>
 var module_defs = new Object();
@@ -58,7 +44,7 @@ global $currentModule;
 
 $relationships = array();
 foreach($report_modules as $module_name=>$bean_name)
-{	
+{
 	if($module_name=='Reports')
 	{
 		continue;
@@ -90,12 +76,12 @@ var link_defs_<?php echo $module_name; ?> = new Object();
 	           $linked_field['reportable'] == false))
 	    {
 	       continue;
-	    }	
+	    }
 		if(empty($relationships[$linked_field['relationship']]))
 		{
 			$relationships[$linked_field['relationship']] = $module->$field->relationship;
 		}
-	
+
 		if(! empty($linked_field['vname']))
 		{
 			$linked_field['label'] =translate($linked_field['vname']);
@@ -120,53 +106,47 @@ var field_defs_<?php echo $module_name; ?> = new Object();
 
 		if(is_array($module->field_defs)) {
 			ACLField::listFilter($module->field_defs, $module->module_dir, $GLOBALS['current_user']->id, true);
-		    
-			if($module->object_name == 'Team' && ACLField::hasAccess('team_set_id', $module->module_dir, $GLOBALS['current_user']->id, true)) {
-		       $module->field_defs['team_set_id'] = array('name'=>'team_set_id', 'type'=>'team_set_id', 'vname' => 'LBL_TEAMS', 'rname'=>'id', 'dbType'=>'id', 'id_name'=>'team_set_id');	
-			}
 			ksort($module->field_defs);
-		    
+
 		    if(isset($module->field_defs['team_set_id'])) {
-		       $module->field_defs['team_set_id']['type'] = 'team_set_id';	
+		       $module->field_defs['team_set_id']['type'] = 'team_set_id';
 		    }
-		    
+
 			foreach($module->field_defs as $field_def)
 			{
 				//if (ACLField::hasAccess($field_def, $module, $GLOBALS['current_user']->id,))
 				//$field, $category,$user_id, $is_owner
-		
+
 			    if(isset($field_def['reportable']) &&
 			           $field_def['reportable'] == false)
 			    {
 			       continue;
 			    }
-			
+
+                //Allowed fields array with non-db-source
+                $allowed_fields_array = array('full_name', 'default_primary_team');
 			    if(isset($field_def['source']) &&
 			           ($field_def['source'] == 'non-db' && empty($field_def['ext2'])) && $field_def['name'] != 'full_name')
 			    {
 			       continue;
 			    }
-			
+
 			    if($field_def['type'] == 'relate' && ! empty($field_def['custom_type']))
 					{
 						$field_def['type'] = $field_def['custom_type'];
 					}
-			
+
 			    if(($field_def['type'] == 'relate' && empty($field_def['ext2'])) || $field_def['type'] == 'assigned_user_name' || $field_def['type'] == 'foreign_key')
 			    {
 			       continue;
 			    }
-			    
-			    if ($field_def['type'] == 'encrypt')
-			    {
-			    	continue;
-			    }
-    
+
+
 ?>
 field_defs_<?php echo $module_name; ?>[ "<?php echo $field_def['name']; ?>"] = <?php
 
 				$js_defs_array = array();
-		
+
 				foreach($field_def as $field_name=>$field_value)
 				{
 					if(empty($field_name) || empty($field_value) || $field_name  == 'comment'
@@ -179,31 +159,27 @@ field_defs_<?php echo $module_name; ?>[ "<?php echo $field_def['name']; ?>"] = <
 						if($field_name == "vname")
 						{
 							$field_value = translate($field_value);
-							if(preg_match('/:$/',$field_value))
-			                                {
+							if(substr($field_value, -1) == ':')
+                            {
 								$field_value = substr($field_value,0,-1);
 							}
-							$field_value = addslashes($field_value);
 						}
-						else if ($field_name == 'comments' || $field_name == 'help') {
-							$field_value = addslashes($field_value);
-						}
-						
+
 						if ($field_name != 'default' && $field_name != 'default_value') {
 						    array_push($js_defs_array,
-								"\"$field_name\":\"$field_value\"");
+								"\"$field_name\":".json_encode($field_value));
 						}
 					}
 				}
 
-		
+
 			    if($field_def['name'] == 'team_set_id' && $module_name != 'Teams')
 		    	{
 		      	    array_push($js_defs_array, "invisible:true");
-		   	 	}		
-				
+		   	 	}
+
 				echo "{".implode(",",$js_defs_array)."};";
-		
+
 				if(isset($field_def['options']))
 				{
 ?>
@@ -212,12 +188,12 @@ var option_arr_<?php echo $module_name; ?> = new Array();
 <?php
 					$options_array = array();
 			      	$trans_options = translate($field_def['options']);
-			
+
 					if(! is_array($trans_options))
 				    {
 				        $trans_options = array();
 				    }
-			
+
 					foreach($trans_options as $option_value=>$option_text)
 					{
 						$option_text = translate($option_text);
@@ -235,7 +211,7 @@ var option_arr_<?php echo $module_name; ?> = new Array();
 ?>
 option_arr_<?php echo $module_name; ?>[option_arr_<?php echo $module_name; ?>.length] = { "value":"<?php echo $option_value; ?>", "text":"<?php echo $option_text; ?>"};
 <?php
-// END HALF-FIX			            
+// END HALF-FIX
 					}
 ?>
 
@@ -246,12 +222,12 @@ field_defs_<?php echo $module_name; ?>[ "<?php echo $field_def['name']; ?>"].opt
 				{
 ?>
 					var option_arr_<?php echo $module_name; ?> = new Array();
-	
+
 <?php
 			        $options_array = array();
-			        $options_array = $field_def['function']();	    
-	
-			        foreach($options_array as $option_value=>$option_text)          
+			        $options_array = $field_def['function']();
+
+			        foreach($options_array as $option_value=>$option_text)
 			        {
 			            $option_text = html_entity_decode($option_text,ENT_QUOTES);
 			            $option_text = addslashes($option_text);
@@ -271,16 +247,16 @@ field_defs_<?php echo $module_name; ?>[ "<?php echo $field_def['name']; ?>"].opt
 	    	<?php
 	    	    	$options_array = array();
 				  	$trans_options = translate($module->field_defs[$field_def['group']]['options']);
-			
+
 			        if(! is_array($trans_options))
 			      	{
 			        	$trans_options = array();
 			      	}
-			
+
 		            foreach($trans_options as $option_value=>$option_text)
 		            {
 		                $option_text = translate($option_text);
-					
+
 				        if(is_array($option_text))
 				        {
 				          $option_text = 'Array';
@@ -289,16 +265,32 @@ field_defs_<?php echo $module_name; ?>[ "<?php echo $field_def['name']; ?>"].opt
 				        $option_text = addslashes($option_text);
 				        $option_value = html_entity_decode($option_value,ENT_QUOTES);
 				        $option_value = addslashes($option_value);
-			
+
 				?>
 option_arr_<?php echo $module_name; ?>[option_arr_<?php echo $module_name; ?>.length] = { "value":"<?php echo $option_value; ?>", "text":"<?php echo $option_text; ?>"};
 				<?php
 		            }
 				?>
-				
+
 field_defs_<?php echo $module_name; ?>[ "<?php echo $field_def['name']; ?>"].options=option_arr_<?php echo $module_name; ?>;
            <?php
 				}
+                elseif (isset($field_def['type']) && $field_def['type'] == 'currency_id')
+                {
+                    require_once('include/generic/SugarWidgets/SugarWidgetFieldcurrency_id.php');
+                    $tmpList = SugarWidgetFieldcurrency_id::getCurrenciesList();
+                    $currencyList = array();
+                    foreach ($tmpList as $bean)
+                    {
+                        $currencyList[] = array(
+                            'value' => $bean->id,
+                            'text' => $bean->symbol . ' ' . $bean->iso4217
+                        );
+                    }
+                    $json = getJSONobj();
+                    echo "var option_arr_{$module_name} = " . $json->encode($currencyList) . ";\n";
+                    echo "field_defs_{$module_name}[\"{$field_def['name']}\"].options = option_arr_{$module_name};\n";
+                }
 			} //End foreach field
 		}
 //var default_table_columns_<php echo $module_name; > = ["<php echo implode("\",\"",$module->default_table_columns); >"];
@@ -324,7 +316,7 @@ module_defs['<?php echo $module_name; ?>'].label = "<?php echo addslashes(
 	foreach($relationships as $relationship_name=>$relationship)
 	{
 		$rel_defs_array = array();
-	
+
 		if(empty($beanList[$relationship->lhs_module]) || empty($beanList[$relationship->rhs_module]))
 		{
 			continue;
@@ -333,14 +325,14 @@ module_defs['<?php echo $module_name; ?>'].label = "<?php echo addslashes(
 		$rhs_bean_name = $beanList[$relationship->rhs_module];
 		array_push($rel_defs_array, "\"lhs_bean_name\":\"".$lhs_bean_name."\"");
 		array_push($rel_defs_array, "\"rhs_bean_name\":\"".$rhs_bean_name."\"");
-        
+
 		foreach($relationship->def as $rel_field => $value)
 		{
 		    if (!is_array($value) && !is_object($value))
                 array_push($rel_defs_array, '"' . $rel_field . '":"' . $value . '"');
 		}
 		$rel_defs = "{".implode(',',$rel_defs_array)."}";
-	
+
 		print "rel_defs['". $relationship_name."'] = $rel_defs;\n";
 	}
 
@@ -389,7 +381,7 @@ for(module_name in module_defs)
         if(field_type != 'text' && (field_source != 'non-db' || typeof(field_def.ext2) != 'undefined') && field_def.name != 'full_name') {
 		      module_defs[module_name].group_by_field_defs[ field_def.name] = field_def;
         }
-        
+
 		if(field_type == 'int' || field_type == 'float' || field_type=='currency' || field_type=='decimal')
 		{
 			// create a new "column" for each summary type
@@ -438,6 +430,13 @@ var filter_defs = new Object();
 var qualifiers =  new Array();
 qualifiers[qualifiers.length] = {name:'equals',value:'<?php echo $mod_strings['LBL_EQUALS']; ?>'};
 qualifiers[qualifiers.length] = {name:'not_equals_str',value:'<?php echo $mod_strings['LBL_DOES_NOT_EQUAL']; ?>'};
+qualifiers[qualifiers.length] = {name:'empty',value:'<?php echo $mod_strings['LBL_IS_EMPTY']; ?>'};
+qualifiers[qualifiers.length] = {name:'not_empty',value:'<?php echo $mod_strings['LBL_IS_NOT_EMPTY']; ?>'};
+filter_defs['encrypt'] = qualifiers;
+
+var qualifiers =  new Array();
+qualifiers[qualifiers.length] = {name:'equals',value:'<?php echo $mod_strings['LBL_EQUALS']; ?>'};
+qualifiers[qualifiers.length] = {name:'not_equals_str',value:'<?php echo $mod_strings['LBL_DOES_NOT_EQUAL']; ?>'};
 qualifiers[qualifiers.length] = {name:'contains',value:'<?php echo $mod_strings['LBL_CONTAINS']; ?>'};
 qualifiers[qualifiers.length] = {name:'does_not_contain',value:'<?php echo $mod_strings['LBL_DOES_NOT_CONTAIN']; ?>'};
 qualifiers[qualifiers.length] = {name:'starts_with',value:'<?php echo $mod_strings['LBL_STARTS_WITH']; ?>'};
@@ -452,6 +451,7 @@ filter_defs['yim'] = qualifiers;
 filter_defs['time'] = qualifiers;
 filter_defs['phone'] = qualifiers;
 filter_defs['url'] = qualifiers;
+
 
 var qualifiers_name = new Array();
 var is_def = {name:'is',value:'<?php echo $mod_strings['LBL_IS']; ?>'};
@@ -560,7 +560,7 @@ qualifiers[qualifiers.length] = {name:'not_empty',value:'<?php echo $mod_strings
 filter_defs['enum'] = qualifiers;
 filter_defs['radioenum'] = qualifiers;
 filter_defs['parent_type'] = qualifiers;
-
+filter_defs['currency_id'] = qualifiers;
 
 var qualifiers =  new Array();
 qualifiers[qualifiers.length] = {name:'is',value:'<?php echo $mod_strings['LBL_IS']; ?>'};

@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -121,6 +107,7 @@ $mod_strings = array (
   'LBL_DATE_MODIFIED' => 'Datum poslední úpravy',
   'LBL_DECIMAL_SEP' => 'Desetinný oddělovač',
   'LBL_DECIMAL_SEP_TEXT' => 'Znak desetinného oddělovače',
+  'LBL_DEFAULT_PRIMARY_TEAM' => 'Výchozí primární tým',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Uživatelé',
   'LBL_DEFAULT_TEAM' => 'Defaultní tým',
   'LBL_DEFAULT_TEAM_TEXT' => 'Přiřazuje základní tým k novým záznamům',
@@ -229,6 +216,9 @@ $mod_strings = array (
   'LBL_LOCALE_EXAMPLE_NAME_FORMAT' => 'Příklad',
   'LBL_LOCALE_NAME_FORMAT_DESC' => 'Nastavte jak se budou zobrazovat jména',
   'LBL_LOCALE_NAME_FORMAT_DESC_2' => '<i>\\"s\\" Oslovení <br>\\"f\\" Křestní jméno <br> \\"l\\" Příjmení</i>',
+  'LBL_LOGGED_OUT_1' => 'Byl jste odhlášen. Pokud se chcete přihlásit, prosím klikněte',
+  'LBL_LOGGED_OUT_2' => 'zde',
+  'LBL_LOGGED_OUT_3' => '.',
   'LBL_LOGIN' => 'Uživatelské jméno',
   'LBL_LOGIN_ADMIN_CALL' => 'Prosím kontaktujte system administrator.',
   'LBL_LOGIN_ATTEMPTS_OVERRUN' => 'Mnoho marných pokusů o login.',
@@ -294,6 +284,7 @@ $mod_strings = array (
   'LBL_NEW_USER_PASSWORD_3' => 'Helso bylo vytvořeno úspěšně.',
   'LBL_NORMAL_LOGIN' => 'Přepnout do normálního modu',
   'LBL_NOTES' => 'Poznámky',
+  'LBL_NO_KEY' => 'Klíč není nastaven. Prosím nastavte klíč k tomu, aby šlo publikovat.',
   'LBL_NUMBER_GROUPING_SEP' => 'Oddělovač tisíců',
   'LBL_NUMBER_GROUPING_SEP_TEXT' => 'Znak oddělovače tisíců',
   'LBL_OAUTH_TOKENS' => 'OAuth Tokens',
@@ -431,6 +422,7 @@ $mod_strings = array (
   'LBL_REGULAR_USER' => 'Regulérní uživatel',
   'LBL_REMINDER' => 'Zobrazovat připomínání?',
   'LBL_REMINDER_EMAIL' => 'E-mail',
+  'LBL_REMINDER_EMAIL_ALL_INVITEES' => 'Obeslat všechny pozvané',
   'LBL_REMINDER_POPUP' => 'Vyskakovací okno',
   'LBL_REMINDER_TEXT' => 'Přidá upomínání před následujícím hovorem nebo schůzkou',
   'LBL_REMOVED_TABS' => 'Záložky odstraněné administrátorem',
@@ -488,6 +480,8 @@ $mod_strings = array (
   'LBL_TAB_TITLE_EMAIL' => 'Emailové nastavení',
   'LBL_TAB_TITLE_USER' => 'Nastavení uživatele',
   'LBL_TEAMS' => 'Týmy',
+  'LBL_TEAM_MEMBERSHIP' => 'Členství v týmech',
+  'LBL_TEAM_SET' => 'Týmy',
   'LBL_TEAM_UPLINE' => 'Člen reportuje komu',
   'LBL_TEAM_UPLINE_EXPLICIT' => 'člen',
   'LBL_TEST_BUTTON_KEY' => 't',
@@ -525,6 +519,17 @@ $mod_strings = array (
   'LBL_USE_REAL_NAMES' => 'Ukázat celé jméno',
   'LBL_USE_REAL_NAMES_DESC' => 'Ukázat celé jméno uživatele, místo standardně zobrazovaného uživatelského jména.',
   'LBL_WIZARD_BACK_BUTTON' => '< Zpět',
+  'LBL_WIZARD_FINISH' => 'Klikněte na <b>Dokončit</b> pro uložení Vašeho nastavení, aby jste mohl začít používat Sugar. Pro více informací, jak používat Sugar:<br /><br /><br /><table cellpadding=0 cellspacing=0><br /><tr><td><!--not_in_theme!--><img src=include/images/university.png style="margin-right: 5px;"></td><td><a href="http://www.sugarcrm.com/university" target="_blank"><b>Sugar University</b></a><br>Trénink a zdroje pro koncové uživatele a systémové administrátory</td></tr><br /><tr><td colspan=2><hr style="margin: 5px 0px;"></td></tr><br /><tr><td><!--not_in_theme!--><img src=include/images/docs.png style="margin-right: 5px;"></td><td><a href="http://docs.sugarcrm.com/" target="_blank"><b>Dokumentace</b></a><br>Příručky a poznámky</td></tr><br /><tr><td colspan=2><hr style="margin: 5px 0px;"></td></tr><br /><tr><td><!--not_in_theme!--><img src=include/images/kb.png style="margin-right: 5px;"></td><td><a href="http://kb.sugarcrm.com/" target="_blank"><b>Znalostní báze</b></a><br>Tipy od společnosti SugarCRM jak používat Sugar</td></tr><br /><tr><td colspan=2><hr style="margin: 5px 0px;"></td></tr><br /><tr><td><!--not_in_theme!--><img src=include/images/forums.png style="margin-right: 5px;"></td><td><a href="http://www.sugarcrm.com/forums" target="_blank"><b>Forum</b></a><br>Forum zaměřené na Sugar komunitu</td></tr><br /></table>',
+  'LBL_WIZARD_FINISH1' => 'Co si přejete udělat dále?',
+  'LBL_WIZARD_FINISH10' => 'Použijte Studio k vytvoření a správě polí a vzhledů aplikace.',
+  'LBL_WIZARD_FINISH11' => 'Navštivte Sugar University',
+  'LBL_WIZARD_FINISH12' => 'Objevte treninkové materiály a třídy, které Vám pomohou začít jako systémový administrátor nebo koncový uživatel.',
+  'LBL_WIZARD_FINISH14' => 'Dokumentace',
+  'LBL_WIZARD_FINISH15' => 'Příručky a poznámky',
+  'LBL_WIZARD_FINISH16' => 'Znalostní báze',
+  'LBL_WIZARD_FINISH17' => 'Tipy od společnosti SugarCRM jak používat Sugar',
+  'LBL_WIZARD_FINISH18' => 'Forum',
+  'LBL_WIZARD_FINISH19' => 'Forum zaměřené na Sugar komunitu',
   'LBL_WIZARD_FINISH2' => 'Začít používat SugarCRM',
   'LBL_WIZARD_FINISH2DESC' => 'Přejít přímo na hlavní stránku SugarCRM',
   'LBL_WIZARD_FINISH3' => 'Importovat data',

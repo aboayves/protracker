@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -145,9 +131,12 @@ function portal_login_contact($portal_auth, $contact_portal_auth, $application_n
     }
     global $current_user;
     $sessionManager = new SessionManager();
-    $contact = $contact->retrieve_by_string_fields(array('portal_name'=>$contact_portal_auth['user_name'], 'portal_password' => $contact_portal_auth['password'], 'portal_active'=>'1', 'deleted'=>0) );
+    $contact = $contact->retrieve_by_string_fields(array('portal_name'=>$contact_portal_auth['user_name'],  'portal_active'=>'1', 'deleted'=>0) );
+    if(!empty($contact) && !User::checkPasswordMD5($contact_portal_auth['password'], $contact->portal_password)) {
+        $contact = null;
+    }
 
-    if($contact != null){
+    if(!empty($contact)) {
         session_start();
         $_SESSION['is_valid_session']= true;
         $_SESSION['ip_address'] = query_client_ip();
@@ -299,7 +288,7 @@ function portal_get_entry_list_filter($session, $module_name, $order_by, $select
     }else if($module_name == 'Contacts'){
         $sugar = new Contact();
     }else if($module_name == 'Accounts'){
-        $sugar = new Account(); 
+        $sugar = new Account();
     } else if($module_name == 'Bugs'){
         $sugar = new Bug();
     } else if($module_name == 'KBDocuments' || $module_name == 'FAQ') {
@@ -361,15 +350,15 @@ $server->register(
 function portal_get_entry($session, $module_name, $id,$select_fields ){
     global  $beanList, $beanFiles;
     $error = new SoapError();
-    
+
     if(!portal_validate_authenticated($session)){
         $error->set_error('invalid_session');
         return array('result_count'=>-1, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
     }
-    
+
     //set the working module
     set_module_in(array('list'=>array($id=>$id), 'in'=>'('.$id.')'), $module_name);
-    
+
     if($_SESSION['type'] == 'lead'){
         $error->set_error('no_access');
         return array('result_count'=>-1, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
@@ -470,11 +459,11 @@ function portal_set_entry($session,$module_name, $name_value_list){
     if(!$is_update){
         if(!key_exists('team_id', $values_set) && isset($_SESSION['team_id'])){
             $seed->team_id = $_SESSION['team_id'];
-        }   
+        }
 
         if(!key_exists('team_set_id', $values_set) && isset($_SESSION['team_set_id'])){
             $seed->team_set_id = $_SESSION['team_set_id'];
-        }               
+        }
         if(isset($_SESSION['assigned_user_id']) && (!key_exists('assigned_user_id', $values_set) || empty($values_set['assigned_user_id']))){
             $seed->assigned_user_id = $_SESSION['assigned_user_id'];
         }
@@ -561,7 +550,7 @@ function portal_remove_note_attachment($session, $id)
         $error->set_error('no_access');
         return array('result_count'=>-1, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
     }
-    
+
     $focus = new Note();
     $focus->disable_row_level_security = true;
     $focus->retrieve($id);
@@ -589,7 +578,7 @@ function portal_get_note_attachment($session,$id)
         return array('result_count'=>-1, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
     }
     $current_user = $seed_user;
-    
+
     $note = new Note();
     $note->disable_row_level_security = true;
     $note->retrieve($id);

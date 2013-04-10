@@ -1,29 +1,15 @@
 <!--
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -52,7 +38,15 @@ var LBL_HIDEOPTIONS = '{sugar_translate module="Users" label="LBL_HIDEOPTIONS"}'
 						<div class="login">
 							<form action="index.php" method="post" name="DetailView" id="form" onsubmit="return document.getElementById('cant_login').value == ''">
 								<table cellpadding="0" cellspacing="2" border="0" align="center" width="100%">
-									{if $LOGIN_ERROR !=''}
+						    	<td scope="row" colspan="2">
+						    	    <span class="error" id="browser_warning" style="display:none">
+						    	        {sugar_translate label="WARN_BROWSER_VERSION_WARNING"}
+						    	    </span>
+						    	    <span class="error" id="ie_compatibility_mode_warning" style="display:none">
+						    	        {sugar_translate label="WARN_BROWSER_IE_COMPATIBILITY_MODE_WARNING"}
+						    	    </span>
+						    	</td>
+						    	{if $LOGIN_ERROR !=''}
 									<tr>
 										<td scope="row" colspan="2"><span class="error">{$LOGIN_ERROR}</span></td>
 						    	{if $WAITING_ERROR !=''}
@@ -69,7 +63,6 @@ var LBL_HIDEOPTIONS = '{sugar_translate module="Users" label="LBL_HIDEOPTIONS"}'
 								{/if}
 									<tr>
 										<td scope="row" colspan="2" width="100%" style="font-size: 12px; font-weight: normal; padding-bottom: 4px;">
-										{sugar_translate label="NTC_LOGIN_MESSAGE"}
 										<input type="hidden" name="module" value="Users">
 										<input type="hidden" name="action" value="Authenticate">
 										<input type="hidden" name="return_module" value="Users">
@@ -82,6 +75,12 @@ var LBL_HIDEOPTIONS = '{sugar_translate module="Users" label="LBL_HIDEOPTIONS"}'
 									</tr>
 
                                     <tr><td>&nbsp;</td></tr>
+                                {if !empty($SELECT_LANGUAGE)}
+                                    <tr>
+                                        <td scope="row">{sugar_translate module="Users" label="LBL_LANGUAGE"}:</td>
+                                        <td><select style='width: 152px' name='login_language' onchange="switchLanguage(this.value)">{$SELECT_LANGUAGE}</select></td>
+                                    </tr>
+                                {/if}
 									<tr>
 										<td scope="row" width="30%"><label for="user_name">{sugar_translate module="Users" label="LBL_USER_NAME"}:</label></td>
 										<td width="70%"><input type="text" size='35' tabindex="1" id="user_name" name="user_name"  value='{$LOGIN_USER_NAME}' /></td>
@@ -90,15 +89,7 @@ var LBL_HIDEOPTIONS = '{sugar_translate module="Users" label="LBL_HIDEOPTIONS"}'
 										<td scope="row"><label for="user_password">{sugar_translate module="Users" label="LBL_PASSWORD"}:</label></td>
 										<td width="30%"><input type="password" size='26' tabindex="2" id="user_password" name="user_password" value='{$LOGIN_PASSWORD}' /></td>
 									</tr>
-									{if !empty($SELECT_LANGUAGE)}
 
-
-									<tr>
-									    <td scope="row">{sugar_translate module="Users" label="LBL_LANGUAGE"}:</td>
-                                        <td><select style='width: 152px' name='login_language' onchange="switchLanguage(this.value)">{$SELECT_LANGUAGE}</select></td>
-									</tr>
-                                    <tr><td>&nbsp;</td></tr>
-									{/if}
 									<tr>
 										<td>&nbsp;</td>
 										<td><input title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}"  class="button primary" class="button primary" type="submit" tabindex="3" id="login_button" name="Login" value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}"><br>&nbsp;</td>

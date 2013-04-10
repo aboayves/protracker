@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -35,9 +21,11 @@ $mod_strings = array (
   'ERR_DELETE_RECORD' => 'Трябва да определите номер, за да изтриете този запис.',
   'LBL_ACCEPT_LINK' => 'Accept Link',
   'LBL_ACCEPT_STATUS' => 'Accept Status',
+  'LBL_ACCOUNT_NAME' => 'Организация',
   'LBL_ACTIVITIES_REPORTS' => 'Отчет за справката',
   'LBL_ADD_BUTTON' => 'Добави',
   'LBL_ADD_INVITEE' => 'Добавяне на покана',
+  'LBL_ADD_PARENT_INVITEE' => 'Добави свързани лица към поканените',
   'LBL_ASSIGNED_TO_ID' => 'Отговорник',
   'LBL_ASSIGNED_TO_NAME' => 'Отговорник',
   'LBL_BLANK' => '-празен-',
@@ -45,6 +33,7 @@ $mod_strings = array (
   'LBL_CALL_INFORMATION' => 'Обаждане',
   'LBL_CANCEL_CREATE_INVITEE' => 'Отмени',
   'LBL_COLON' => ':',
+  'LBL_CONFIRM_REMOVE_ALL_RECURRENCES' => 'Сигурни ли сте, че искате да премахнете всички периодично повтарящи се записи?',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакти',
   'LBL_CONTACT_NAME' => 'Контакт:',
   'LBL_CREATE_AND_ADD' => 'Създай и Добави',
@@ -53,6 +42,7 @@ $mod_strings = array (
   'LBL_CREATE_LEAD' => 'Като потенциален клиент',
   'LBL_DATE' => 'Начална дата:',
   'LBL_DATE_END' => 'Крайна дата',
+  'LBL_DATE_END_ERROR' => 'Въведенета крайна дата е преди началната',
   'LBL_DATE_TIME' => 'Начална дата и час:',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Обаждания',
   'LBL_DEL' => 'Изтрий',
@@ -62,15 +52,16 @@ $mod_strings = array (
   'LBL_DURATION' => 'Продължителност:',
   'LBL_DURATION_HOURS' => 'Продължителност (час.):',
   'LBL_DURATION_MINUTES' => 'Продължителност (мин.):',
+  'LBL_EDIT_ALL_RECURRENCES' => 'Редактирай всички повторения',
   'LBL_EMAIL' => 'Електронна поща',
   'LBL_EMAIL_REMINDER' => 'Електронна поща',
-  'LBL_EMAIL_REMINDER_SENT' => 'Email reminder sent',
+  'LBL_EMAIL_REMINDER_SENT' => 'Изпратено напомняне по е-мейл',
   'LBL_EMAIL_REMINDER_TIME' => 'Email Reminder Time',
-  'LBL_EMPTY_SEARCH_RESULT' => 'Sorry, no results were found. Please create an invitee below.',
-  'LBL_EXPORT_ASSIGNED_USER_ID' => 'Assigned User ID',
-  'LBL_EXPORT_CREATED_BY' => 'Created By ID',
-  'LBL_EXPORT_DATE_START' => 'Start Date and Time',
-  'LBL_EXPORT_MODIFIED_USER_ID' => 'Modified By ID',
+  'LBL_EMPTY_SEARCH_RESULT' => 'Няма намерени резултати. Please create an invitee below.',
+  'LBL_EXPORT_ASSIGNED_USER_ID' => 'Идентификатор на отговорника',
+  'LBL_EXPORT_CREATED_BY' => 'Идентификатор на създателя',
+  'LBL_EXPORT_DATE_START' => 'Начална дата и време',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'Идентификатор на модифициращия',
   'LBL_EXPORT_PARENT_TYPE' => 'Свързан с модул',
   'LBL_EXPORT_REMINDER_TIME' => 'Reminder Time (in minutes)',
   'LBL_FIRST_NAME' => 'Име',
@@ -103,16 +94,24 @@ $mod_strings = array (
   'LBL_OUTLOOK_ID' => 'Outlook ID',
   'LBL_PARENT_ID' => 'Parent ID',
   'LBL_PHONE' => 'Телефон',
+  'LBL_RECURRENCE' => 'Регулярност',
+  'LBL_RECURRING_LIMIT_ERROR' => 'Повтарящото се обаждане не може да бъде насрочено от системата, защото превишава максималния брой от $limit разрешени повторения.',
   'LBL_RECURRING_SOURCE' => 'Recurring Source',
   'LBL_RELATED_TO' => 'Свързано с:',
   'LBL_REMINDER' => 'Напомняне:',
   'LBL_REMINDER_EMAIL' => 'Електронна поща',
+  'LBL_REMINDER_EMAIL_ALL_INVITEES' => 'Изпращане на поща до всички поканени',
   'LBL_REMINDER_POPUP' => 'Изскачащ прозорец',
   'LBL_REMINDER_TIME' => 'Напомняне през',
   'LBL_REMOVE' => 'изтрий',
+  'LBL_REMOVE_ALL_RECURRENCES' => 'Изтрий всички повторения',
   'LBL_REPEAT_COUNT' => 'Брой повторения',
   'LBL_REPEAT_DOW' => 'Repeat Dow',
+  'LBL_REPEAT_END' => 'Край',
+  'LBL_REPEAT_END_AFTER' => 'След',
+  'LBL_REPEAT_END_BY' => 'До',
   'LBL_REPEAT_INTERVAL' => 'Интервал на повторение',
+  'LBL_REPEAT_OCCURRENCES' => 'повторения',
   'LBL_REPEAT_PARENT_ID' => 'Repeat Parent ID',
   'LBL_REPEAT_TYPE' => 'Тип на повторение',
   'LBL_REPEAT_UNTIL' => 'Repeat Until',

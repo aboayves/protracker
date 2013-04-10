@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -242,18 +228,15 @@ class ProductTemplate extends SugarBean {
     
     function create_export_query(&$order_by, &$where, $relate_link_join='')
     {
-        $custom_join = $this->custom_fields->getJOIN(true, true,$where);
-		if($custom_join)
-				$custom_join['join'] .= $relate_link_join;
+        $custom_join = $this->getCustomJoin(true, true, $where);
+        $custom_join['join'] .= $relate_link_join;
                 $query = "SELECT ";
                 $query .= " $this->table_name.*,
                                 $this->rel_manufacturers.name as manufacturer_name,
                                 $this->rel_categories.name as category_name,
                                 $this->rel_types.name as type_name
 					";
-				if($custom_join){
-   					$query .= $custom_join['select'];
- 				}
+        $query .= $custom_join['select'];
                             $query.=   " FROM $this->table_name ";
 
 
@@ -264,9 +247,7 @@ class ProductTemplate extends SugarBean {
                                 LEFT JOIN $this->rel_types
                                 ON $this->table_name.type_id=$this->rel_types.id AND $this->rel_types.deleted=0
 								";
-			if($custom_join){
-   					$query .= $custom_join['join'];
- 				}
+        $query .= $custom_join['join'];
 				$where_auto = $this->table_name.'.deleted = 0 ';
 				
                 if($where != "")
@@ -279,12 +260,6 @@ class ProductTemplate extends SugarBean {
 
                 return $query;
 	}
-
-
-
-	function save_relationship_changes($is_update)
-    {
-    }
 
 	function clear_note_product_template_relationship($product_template_id)
 	{
@@ -498,6 +473,10 @@ class ProductTemplate extends SugarBean {
 		
 		$currency = new Currency();
 		$currency->retrieve($this->currency_id);
+
+        // Bug #52052: Calculated Fields don't get into POST (inputs are disabled)
+        // So if i.e. "discount_price" is Calculated Fields we have find out it's value first
+        $this->updateCalculatedFields();
 		
 		//US DOLLAR
 		if(isset($this->discount_price)){
@@ -514,7 +493,7 @@ class ProductTemplate extends SugarBean {
 }
 
 function getProductTypes($focus, $field='type_id', $value,$view='DetailView') {
-	if($view == 'EditView' || $view == 'MassUpdate') {
+	if($view == 'EditView' || $view == 'MassUpdate' || $view == 'QuickCreate') {
 		
 		$type = new ProductType();
 		$html = "<select id=\"$field\" name=\"$field\">";
@@ -536,6 +515,7 @@ function getProductTypes($focus, $field='type_id', $value,$view='DetailView') {
 
 function getPricingFormula($focus, $field='pricing_formula', $value, $view='DetailView') {
 	require_once('modules/ProductTemplates/Formulas.php');
+    refresh_price_formulas();
 	if($view == 'EditView' || $view == 'MassUpdate') {
 		global $app_list_strings;
 	    $html = "<select id=\"$field\" name=\"$field\"";
@@ -554,7 +534,7 @@ function getPricingFormula($focus, $field='pricing_formula', $value, $view='Deta
 
 function getManufacturers($focus, $field='manufacturer_id', $value, $view='DetailView') {
 
-	if($view == 'EditView' || $view == 'MassUpdate') {
+	if($view == 'EditView' || $view == 'MassUpdate' || $view == 'QuickCreate') {
 	   $html = "<select id=\"$field\" name=\"$field\">";
 	   
 	   $manufacturer = new Manufacturer();
@@ -575,7 +555,7 @@ function getManufacturers($focus, $field='manufacturer_id', $value, $view='Detai
 }
 
 function getCategories($focus, $field='category_id', $value,$view='DetailView') {
-    if($view == 'EditView' || $view == 'MassUpdate') {
+    if($view == 'EditView' || $view == 'MassUpdate' || $view == 'QuickCreate') {
 	   $html = "<select id=\"$field\" name=\"$field\">";
 	   
 	   $category = new ProductCategory();
@@ -599,7 +579,7 @@ function getCategories($focus, $field='category_id', $value,$view='DetailView') 
 }
 
 function getSupportTerms($focus, $field='support_term', $value,$view='DetailView') {
-    if($view == 'EditView' || $view == 'MassUpdate') {
+    if($view == 'EditView' || $view == 'MassUpdate' || $view == 'QuickCreate') {
 	   $html = "<select id=\"$field\" name=\"$field\">";
 	   global $app_list_strings;
 	   $the_term_dom = $app_list_strings['support_term_dom'];

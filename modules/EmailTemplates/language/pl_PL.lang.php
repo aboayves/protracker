@@ -3,101 +3,92 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_HIDE_ALT_TEXT' => 'Ukryj zwykły tekst',
-  'LBL_TEAMS' => 'Zespoły:',
-  'LBL_ACTIVITIES_REPORTS' => 'Raport działań',
-  'LNK_VIEW_MY_INBOX' => 'Zobacz moją skrzynkę e-mail',
-  'LBL_ASSIGNED_TO_ID' => 'Przydzielone do',
-  'LBL_COLON' => ':',
+  'LBL_ACCOUNT' => 'Kontrahent',
+  'LBL_ACTIVITIES_REPORTS' => 'Raport aktywności',
   'LBL_ADD_ANOTHER_FILE' => 'Dodaj inny plik',
-  'LBL_ADD_DOCUMENT' => 'Dodaj plik z SugarDokument',
+  'LBL_ADD_DOCUMENT' => 'Dodaj dokument Sugar',
   'LBL_ADD_FILE' => 'Dodaj plik',
+  'LBL_ASSIGNED_TO_ID' => 'Przydzielono do',
   'LBL_ATTACHMENTS' => 'Załączniki',
+  'LBL_BASE_MODULE' => 'Moduł podstawowy',
   'LBL_BODY' => 'Treść:',
   'LBL_CLOSE' => 'Zamknij:',
-  'LBL_CONTACT_AND_OTHERS' => 'Kontakty/Wizytówki/Potencjalni Klienci',
+  'LBL_COLON' => ':',
+  'LBL_CREATED_BY' => 'Utworzone przez',
   'LBL_DESCRIPTION' => 'Opis:',
   'LBL_EDIT_ALT_TEXT' => 'Edytuj w formacie tekstowym',
+  'LBL_EDIT_LAYOUT' => 'Edytuj widok',
   'LBL_EMAIL_ATTACHMENT' => 'Załącznik wiadomości',
-  'LBL_HTML_BODY' => 'Kod HTML',
-  'LBL_INSERT_VARIABLE' => 'Wstaw zmienną:',
-  'LBL_INSERT_URL_REF' => 'Wstaw podstawowy URL',
-  'LBL_INSERT_TRACKER_URL' => 'Wstaw ścieżkę URL:',
+  'LBL_FROM_ADDRESS' => 'Adres nadawcy',
+  'LBL_FROM_NAME' => 'Nazwa nadawcy',
+  'LBL_HIDE_ALT_TEXT' => 'Ukryj zwykły tekst',
+  'LBL_HTML_BODY' => 'Treść HTML',
+  'LBL_ID_FF_CLEAR' => 'Wyczyść',
   'LBL_INSERT' => 'Wstaw',
+  'LBL_INSERT_TRACKER_URL' => 'Wstaw link śledzenia URL:',
+  'LBL_INSERT_URL_REF' => 'Wstaw odnośnik URL',
+  'LBL_INSERT_VARIABLE' => 'Wstaw zmienną:',
+  'LBL_LIST_BASE_MODULE' => 'Moduł podstawowy:',
   'LBL_LIST_DATE_MODIFIED' => 'Ostatnio modyfikowane',
   'LBL_LIST_DESCRIPTION' => 'Opis',
   'LBL_LIST_FORM_TITLE' => 'Lista szablonów wiadmości',
   'LBL_LIST_NAME' => 'Nazwa',
-  'LBL_MODULE_NAME' => 'Szablony wiadmosci',
+  'LBL_MODULE_NAME' => 'Szablony wiadomości',
+  'LBL_MODULE_NAME_SINGULAR' => 'Szablon wiadomości e-mail',
+  'LBL_MODULE_NAME_SINGULAR_WORKFLOW' => 'Szablon wiadomości procesu Workflow',
+  'LBL_MODULE_NAME_WORKFLOW' => 'Szablony wiadomości procesu Workflow',
   'LBL_MODULE_TITLE' => 'Szablony wiadomości: Strona główna',
   'LBL_NAME' => 'Nazwa:',
+  'LBL_NEW' => 'Nowy',
   'LBL_NEW_FORM_TITLE' => 'Utwórz szablon wiadomości',
+  'LBL_PLAIN_TEXT' => 'Zwykły tekst',
   'LBL_PUBLISH' => 'Publikuj:',
-  'LBL_RELATED_TO' => 'Połaczone z:',
-  'LBL_SEARCH_FORM_TITLE' => 'Szukaj szablonów wiadomości',
+  'LBL_PUBLISHED' => 'Opublikowany',
+  'LBL_RELATED_TO' => 'Powiązane z:',
+  'LBL_SEARCH_FORM_TITLE' => 'Wyszukiwanie szablonów wiadomości',
+  'LBL_SELECT' => 'Wybierz',
+  'LBL_SEND_AS_TEXT' => 'Wyślij tylko tekst',
   'LBL_SHOW_ALT_TEXT' => 'Pokaż w formacie tekstowym',
   'LBL_SUBJECT' => 'Temat:',
-  'LBL_SUGAR_DOCUMENT' => 'Dokumenty Sugar',
+  'LBL_SUGAR_DOCUMENT' => 'Dokument Sugar',
+  'LBL_TEAMS' => 'Zespoły:',
   'LBL_TEAMS_LINK' => 'Zespół',
-  'LBL_TEXT_BODY' => 'Tekst treści',
+  'LBL_TEXT_BODY' => 'Treśc tekstu',
+  'LBL_TEXT_ONLY' => 'Tylko tekst',
+  'LBL_TYPE' => 'Typ',
   'LBL_USERS' => 'Użytkownicy',
   'LNK_ALL_EMAIL_LIST' => 'Wszystkie wiadomości',
   'LNK_ARCHIVED_EMAIL_LIST' => 'Wiadomości zarchiwizowane',
   'LNK_CHECK_EMAIL' => 'Sprawdź pocztę',
-  'LNK_DRAFTS_EMAIL_LIST' => 'Wszystkie szkice',
-  'LNK_EMAIL_TEMPLATE_LIST' => 'Szablony wiadomości',
-  'LNK_IMPORT_NOTES' => 'Importuj notatki',
-  'LNK_NEW_ARCHIVE_EMAIL' => 'Utwórz zarchiwizowany email',
-  'LNK_NEW_EMAIL_TEMPLATE' => 'Utwórz szablon wiadomości',
-  'LNK_NEW_EMAIL' => 'Archiwum wiadomości',
-  'LNK_NEW_SEND_EMAIL' => 'Napisz wiadomość',
-  'LNK_SENT_EMAIL_LIST' => 'Wyślij wiadomości',
-  'LNK_VIEW_CALENDAR' => 'Dziś',
-  'LBL_NEW' => 'Nowy',
   'LNK_CHECK_MY_INBOX' => 'Sprawdź moją pocztę',
+  'LNK_DRAFTS_EMAIL_LIST' => 'Wszystkie wersje robocze',
+  'LNK_EMAIL_TEMPLATE_LIST' => 'Szablony wiadomości',
   'LNK_GROUP_INBOX' => 'Skrzynka grupowa',
+  'LNK_IMPORT_NOTES' => 'Importuj notatki',
   'LNK_MY_ARCHIVED_LIST' => 'Moje archiwum',
-  'LNK_MY_DRAFTS' => 'Moje szkice',
-  'LNK_MY_INBOX' => 'Moja skrzynka',
-  'LBL_LIST_BASE_MODULE' => 'Moduł podstawowy:',
-  'LBL_MODULE_NAME_WORKFLOW' => 'Szkice wiadomości prac do wykonania',
-  'LBL_TEXT_ONLY' => 'Tylko jako tekst',
-  'LBL_SEND_AS_TEXT' => 'Wyślij tylko jako tekst',
-  'LBL_ACCOUNT' => 'Konto',
-  'LBL_BASE_MODULE' => 'Moduł podstawowy',
-  'LBL_FROM_NAME' => 'Nazwa Od',
-  'LBL_PLAIN_TEXT' => 'Zwykły tekst',
-  'LBL_CREATED_BY' => 'Utworzone przez',
-  'LBL_FROM_ADDRESS' => 'Adres Od',
-  'LBL_PUBLISHED' => 'Opublikowany',
+  'LNK_MY_DRAFTS' => 'Wersje robocze',
+  'LNK_MY_INBOX' => 'Skrzynka odbiorcza',
+  'LNK_NEW_ARCHIVE_EMAIL' => 'Utwórz zarchiwizowany e-mail',
+  'LNK_NEW_EMAIL' => 'Napisz e-mail',
+  'LNK_NEW_EMAIL_TEMPLATE' => 'Utwórz szablon wiadomości',
+  'LNK_NEW_SEND_EMAIL' => 'Napisz e-mail',
+  'LNK_SENT_EMAIL_LIST' => 'Wysłane wiadomości e-mail',
+  'LNK_VIEW_CALENDAR' => 'Dziś',
+  'LNK_VIEW_MY_INBOX' => 'Pokaż moje wiadomości',
 );
 

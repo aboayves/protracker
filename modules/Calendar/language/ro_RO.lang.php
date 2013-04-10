@@ -3,115 +3,174 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_EDIT_USERLIST' => 'Lista Utilizatori',
-  'LBL_CREATE_MEETING' => 'Programeaza Intalnire',
+  'LBL_AM' => 'AM',
+  'LBL_APPLY_BUTTON' => 'Aplica',
+  'LBL_ASSIGNED_TO_NAME' => 'Atrbuit lui',
+  'LBL_BUSY' => 'Ocupat',
+  'LBL_CANCEL_BUTTON' => 'Anulare',
+  'LBL_CLOSE_BUTTON' => 'Inchide:',
+  'LBL_CONFIRM_REMOVE' => 'Sunteţi sigur că doriţi să eliminaţi înregistrarea?',
+  'LBL_CONFIRM_REMOVE_ALL_RECURRING' => 'Sunteţi sigur că doriţi să eliminaţi toate înregistrările recurente?',
+  'LBL_CONFLICT' => 'Conflict',
   'LBL_CREATE_CALL' => 'Jurnal Apeluri',
-  'LBL_HOURS_ABBREV' => 'h',
-  'LBL_MINS_ABBREV' => 'm',
-  'LBL_YES' => 'Da',
-  'LBL_NO' => 'Nu',
-  'LBL_SETTINGS' => 'Setari ( defined in ./include/language/ro_RO.lang.php )',
+  'LBL_CREATE_MEETING' => 'Programeaza Intalnire',
   'LBL_CREATE_NEW_RECORD' => 'Creaza activitate',
-  'LBL_LOADING' => 'Incarcare...Va rugam asteptati',
-  'LBL_SAVING' => 'Salveaza ...',
+  'LBL_DATE' => 'Data si Timp Inceput:',
+  'LBL_DATE_END_ERROR' => 'Data de sfârşit este înainte de data începerii',
+  'LBL_DATE_TIME' => 'Data si timpul de start',
+  'LBL_DAY' => 'zi',
+  'LBL_DELETE_BUTTON' => 'Sterge',
+  'LBL_DURATION' => 'Durata',
+  'LBL_EDIT_ALL_RECURRENCES' => 'Editare toate repetarile',
   'LBL_EDIT_RECORD' => 'Editeaza activitate',
-  'NOTICE_DURATION_TIME' => 'Durata timpului trebuie sa fie mai mare ca 0',
-  'LBL_STYLE_BASIC' => 'Elementar',
-  'LBL_STYLE_ADVANCED' => 'Avansat',
-  'LBL_INFO_TITLE' => 'Detalii Aditionale',
+  'LBL_EDIT_USERLIST' => 'Lista Utilizatori',
+  'LBL_ERROR_LOADING' => 'Eroare in timpul incarcarii',
+  'LBL_ERROR_SAVING' => 'Eroare in timpul salvarii',
+  'LBL_FILTER_BY_TEAM' => 'Filtreaza lista utilizatori pe echipe',
+  'LBL_GENERAL_TAB' => 'Detalii',
+  'LBL_GOTO_DATE' => 'Mergi la Data',
+  'LBL_HOURS_ABBREV' => 'h',
   'LBL_INFO_DESC' => 'Descriere',
-  'LBL_INFO_START_DT' => 'Data Inceput:',
+  'LBL_INFO_DUE_DT' => 'Pana la data:',
   'LBL_INFO_DURATION' => 'Durata',
   'LBL_INFO_NAME' => 'Subiect',
   'LBL_INFO_RELATED_TO' => 'Asociat cu',
-  'LBL_SUBJECT' => 'Subiect:',
-  'LBL_DURATION' => 'Durata',
-  'LBL_STATUS' => 'Statut',
-  'LBL_DATE_TIME' => 'Data si timpul de start',
-  'LBL_SETTINGS_TITLE' => 'Setari ( defined in ./include/language/ro_RO.lang.php )',
-  'LBL_SAVE_BUTTON' => 'Salveaza',
-  'LBL_DELETE_BUTTON' => 'Sterge',
-  'LBL_APPLY_BUTTON' => 'Aplica',
-  'LBL_SEND_INVITES' => 'Trimite invitatii',
-  'LBL_CANCEL_BUTTON' => 'Anulare',
-  'LBL_CLOSE_BUTTON' => 'Inchide:',
-  'LBL_GENERAL_TAB' => 'Detalii',
+  'LBL_INFO_START_DT' => 'Data Inceput:',
+  'LBL_INFO_TITLE' => 'Detalii Aditionale',
+  'LBL_LOADING' => 'Incarcare...Va rugam asteptati',
+  'LBL_MINS_ABBREV' => 'm',
+  'LBL_MODULE_NAME' => 'Calendar',
+  'LBL_MODULE_NAME_SINGULAR' => 'Calendar',
+  'LBL_MODULE_TITLE' => 'Calendar',
+  'LBL_MONTH' => 'Luna',
+  'LBL_NEXT_DAY' => 'Ziua urmatoare',
+  'LBL_NEXT_MONTH' => 'Luna urmatoare',
+  'LBL_NEXT_SHARED' => 'urmatorul',
+  'LBL_NEXT_WEEK' => 'Saptamana urmatoare',
+  'LBL_NEXT_YEAR' => 'Anul urmator',
+  'LBL_NO' => 'Nu',
+  'LBL_NO_USER' => 'Nu se potrivesc pentru domeniul: Alocate de',
   'LBL_PARTICIPANTS_TAB' => 'Invitat',
-  'LBL_REPEAT_TYPE' => 'Repeta',
-  'LBL_REPEAT_INTERVAL' => 'interval',
+  'LBL_PM' => 'PM',
+  'LBL_PREVIOUS_DAY' => 'ziua anterioara',
+  'LBL_PREVIOUS_MONTH' => 'luna anterioara',
+  'LBL_PREVIOUS_SHARED' => 'anterior',
+  'LBL_PREVIOUS_WEEK' => 'saptamana anterioara',
+  'LBL_PREVIOUS_YEAR' => 'anul anterior',
+  'LBL_RECURRING_LIMIT_ERROR' => 'Această recurentă $ titlu modul nu poate fi programat, deoarece depășește reapariția maximă permisă de $ limită.',
+  'LBL_REFRESH' => 'Improspatare',
+  'LBL_REMOVE_ALL_RECURRENCES' => 'Sterge toate repetarile',
+  'LBL_REPEAT_COUNT' => 'numarul de repetari',
+  'LBL_REPEAT_DOW' => 'Pe',
   'LBL_REPEAT_END' => 'Sfarsit',
   'LBL_REPEAT_END_AFTER' => 'Dupa',
   'LBL_REPEAT_END_BY' => 'de',
-  'LBL_REPEAT_DOW' => 'Pe',
-  'LBL_MODULE_NAME' => 'Calendar',
-  'LBL_MODULE_TITLE' => 'Calendar',
-  'LBL_AM' => 'AM',
-  'LBL_PM' => 'PM',
-  'LBL_CONFLICT' => 'Conflict',
-  'LNK_NEW_CALL' => 'Jurnal Apeluri',
-  'LNK_NEW_MEETING' => 'Orar Intalniri',
-  'LNK_NEW_APPOINTMENT' => 'Creeaza Intalnire',
-  'LNK_NEW_TASK' => 'Creaza sarcina',
+  'LBL_REPEAT_INTERVAL' => 'interval',
+  'LBL_REPEAT_OCCURRENCES' => 'Repetari',
+  'LBL_REPEAT_TAB' => 'Repetare',
+  'LBL_REPEAT_TYPE' => 'Repeta',
+  'LBL_REPEAT_UNTIL' => 'Repeta inainte',
+  'LBL_SAVE_BUTTON' => 'Salveaza',
+  'LBL_SAVING' => 'Salveaza ...',
+  'LBL_SCHEDULED' => 'Programat',
+  'LBL_SELECT_USERS' => 'Selecteaza utilizatori pentru afisaj calendar',
+  'LBL_SENDING_INVITES' => 'Salveaza & Trimitere Invitati',
+  'LBL_SEND_INVITES' => 'Trimite invitatii',
+  'LBL_SETTINGS' => 'Setari ( defined in ./include/language/ro_RO.lang.php )',
+  'LBL_SETTINGS_CALLS_SHOW' => 'Arata apeluri',
+  'LBL_SETTINGS_DISPLAY_TIMESLOTS' => 'Afisare sloturi de timp i zile si saptamanai',
+  'LBL_SETTINGS_TASKS_SHOW' => 'Arata Sarcini',
+  'LBL_SETTINGS_TIME_ENDS' => 'Ora de terminare',
+  'LBL_SETTINGS_TIME_STARTS' => 'Ora de incepere:',
+  'LBL_SETTINGS_TITLE' => 'Setari ( defined in ./include/language/ro_RO.lang.php )',
+  'LBL_SHARED' => 'Partajate',
+  'LBL_SHARED_CAL_TITLE' => 'Calendarul Partajat',
+  'LBL_STATUS' => 'Statut',
+  'LBL_STYLE_ADVANCED' => 'Avansat',
+  'LBL_STYLE_BASIC' => 'Elementar',
+  'LBL_SUBJECT' => 'Subiect:',
+  'LBL_USERS' => 'Utilizator',
+  'LBL_USER_CALENDARS' => 'Calendarele utilizatorului',
+  'LBL_WEEK' => 'saptamana',
+  'LBL_YEAR' => 'an',
+  'LBL_YES' => 'Da',
   'LNK_CALL_LIST' => 'Vezi apeluri',
-  'LNK_MEETING_LIST' => 'Vezi intalniri',
-  'LNK_TASK_LIST' => 'vezi lista sarcini',
-  'LNK_VIEW_CALENDAR' => 'Astazi',
   'LNK_IMPORT_CALLS' => 'Importa Apeluri',
   'LNK_IMPORT_MEETINGS' => 'Importa Sedinte',
   'LNK_IMPORT_TASKS' => 'Importa artibutii',
-  'LBL_MONTH' => 'Luna',
-  'LBL_DAY' => 'zi',
-  'LBL_YEAR' => 'an',
-  'LBL_WEEK' => 'saptamana',
-  'LBL_PREVIOUS_MONTH' => 'luna anterioara',
-  'LBL_PREVIOUS_DAY' => 'ziua anterioara',
-  'LBL_PREVIOUS_YEAR' => 'anul anterior',
-  'LBL_PREVIOUS_WEEK' => 'saptamana anterioara',
-  'LBL_NEXT_MONTH' => 'Luna urmatoare',
-  'LBL_NEXT_DAY' => 'Ziua urmatoare',
-  'LBL_NEXT_YEAR' => 'Anul urmator',
-  'LBL_NEXT_WEEK' => 'Saptamana urmatoare',
-  'LBL_SCHEDULED' => 'Programat',
-  'LBL_BUSY' => 'Ocupat',
-  'LBL_USER_CALENDARS' => 'Calendarele utilizatorului',
-  'LBL_SHARED' => 'Partajate',
-  'LBL_PREVIOUS_SHARED' => 'anterior',
-  'LBL_NEXT_SHARED' => 'urmatorul',
-  'LBL_SHARED_CAL_TITLE' => 'Calendarul Partajat',
-  'LBL_USERS' => 'Utilizator',
-  'LBL_REFRESH' => 'Improspatare',
-  'LBL_SELECT_USERS' => 'Selecteaza utilizatori pentru afisaj calendar',
-  'LBL_FILTER_BY_TEAM' => 'Filtreaza lista utilizatori pe echipe',
-  'LBL_ASSIGNED_TO_NAME' => 'Atrbuit lui',
-  'LBL_DATE' => 'Data si Timp Inceput:',
+  'LNK_MEETING_LIST' => 'Vezi intalniri',
+  'LNK_NEW_APPOINTMENT' => 'Creeaza Intalnire',
+  'LNK_NEW_CALL' => 'Jurnal Apeluri',
+  'LNK_NEW_MEETING' => 'Orar Intalniri',
+  'LNK_NEW_TASK' => 'Creaza sarcina',
+  'LNK_TASK_LIST' => 'vezi lista sarcini',
+  'LNK_VIEW_CALENDAR' => 'Astazi',
+  'NOTICE_DURATION_TIME' => 'Durata timpului trebuie sa fie mai mare ca 0',
+);
+
+$mod_list_strings = array (
+  'dom_cal_month' => 
+  array (
+    1 => 'Ianuarie',
+    2 => 'Februarie',
+    3 => 'Martie',
+    4 => 'Aprilie',
+    5 => 'Mai',
+    6 => 'Iunie',
+    7 => 'Iulie',
+    8 => 'August',
+    9 => 'Septembrie',
+    10 => 'Octombrie',
+    11 => 'Noiembrie',
+    12 => 'Decembrie',
+  ),
+  'dom_cal_month_long' => 
+  array (
+    1 => 'Ianuarie',
+    2 => 'Februarie',
+    3 => 'Martie',
+    4 => 'Aprilie',
+    5 => 'Mai',
+    6 => 'Iunie',
+    7 => 'Iulie',
+    8 => 'August',
+    9 => 'Septembrie',
+    10 => 'Octombrie',
+    11 => 'Noiembrie',
+    12 => 'Decembrie',
+  ),
+  'dom_cal_weekdays' => 
+  array (
+    1 => 'Luni',
+    2 => 'Marti',
+    3 => 'Miercuri',
+    4 => 'Joi',
+    5 => 'Vineri',
+    6 => 'Sambata',
+  ),
+  'dom_cal_weekdays_long' => 
+  array (
+    1 => 'Luni',
+    2 => 'Marti',
+    3 => 'Miercuri',
+    4 => 'Joi',
+    5 => 'Vineri',
+    6 => 'Duminica',
+  ),
 );
 

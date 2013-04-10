@@ -1,5 +1,5 @@
 <?php
-// created: 2012-07-03 09:43:36
+// created: 2013-04-10 13:54:26
 $viewdefs['Contacts']['DetailView'] = array (
   'templateMeta' => 
   array (
@@ -44,6 +44,44 @@ $viewdefs['Contacts']['DetailView'] = array (
       ),
     ),
     'syncDetailEditViews' => true,
+    'tabDefs' => 
+    array (
+      'LBL_CONTACT_INFORMATION' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_EDITVIEW_PANEL5' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_EDITVIEW_PANEL2' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_EDITVIEW_PANEL3' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_EDITVIEW_PANEL4' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_PANEL_ADVANCED' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_EDITVIEW_PANEL1' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+    ),
   ),
   'panels' => 
   array (

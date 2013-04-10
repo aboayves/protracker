@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('soap/SoapRelationshipHelper.php');
@@ -317,7 +303,7 @@ function has_error($result=false){
 	global $soapclient;
 	if($result){
 		if(!isset($result['error'])){
-			echo "<br><font color='red'>An error has occured:</font><br>";
+			echo "<br><font color='red'>An error has occurred:</font><br>";
 			print_r($result);
 			echo '<br>';
 			echo $soapclient->error_str;
@@ -338,8 +324,8 @@ function has_error($result=false){
 
 	}else{
 		if($result || !empty($soapclient->error_str)){
-			echo "<br><font color='red'>An error has occured:(".$error['number'] . ") <br>". $error['name'] . "<br>" .$error['description']. '<br></font>';
-			$GLOBALS['log']->fatal("SYNC: An error has occured:(".$error['number'] . ") <br>". $error['name'] . "<br>" .$error['description']);
+			echo "<br><font color='red'>An error has occurred:(".$error['number'] . ") <br>". $error['name'] . "<br>" .$error['description']. '<br></font>';
+			$GLOBALS['log']->fatal("SYNC: An error has occurred:(".$error['number'] . ") <br>". $error['name'] . "<br>" .$error['description']);
 			echo $soapclient->error_str;
 			$GLOBALS['log']->fatal($soapclient->error_str);
 			echo '<br>';
@@ -541,6 +527,7 @@ function sync_users($soapclient, $session, $clean = false, $is_conversion = fals
 						$offset = $result['next_offset'];
 				}
 			}//end while
+                restoreUserPassword($user_id);
 					require_once('modules/Sync/config.php');
 						$sync_info['last_syncUsers'] = $start_time;
 
@@ -594,4 +581,30 @@ function sync_get_user_auth_data()
 {
     global $sugar_config;
     return array('user_name'=>$sugar_config['oc_username'],'password'=>$sugar_config['oc_password'], 'version'=>'1.0');
+}
+
+/**
+ * Function for restoring user password after syncronization with server
+ * @param $user_id string
+ */
+function restoreUserPassword($user_id)
+{
+    global $current_user;
+    $temp_user = new User();
+    if($temp_user->retrieve($user_id) && !$temp_user->user_hash)
+    {
+        if(!empty($_SESSION['oc_install']))
+        {
+            if(isset($_SESSION['oc_password']))
+            {
+                $temp_user->user_hash = User::getPasswordHash($_SESSION['oc_password']);
+                $temp_user->save(false);
+            }
+        }
+        elseif($user_id == $current_user->id && $current_user->user_hash)
+        {
+            $temp_user->user_hash = $current_user->user_hash;
+            $temp_user->save(false);
+        }
+    }
 }

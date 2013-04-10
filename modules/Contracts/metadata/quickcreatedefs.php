@@ -1,74 +1,39 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-/*********************************************************************************
-
- * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
- * All Rights Reserved.
- * Contributor(s): ______________________________________..
- ********************************************************************************/
- 
-$viewdefs ['Contracts'] = 
-array (
-  'QuickCreate' => 
+// created: 2013-04-10 13:54:26
+$viewdefs['Contracts']['QuickCreate'] = array (
+  'templateMeta' => 
   array (
-    'templateMeta' => 
+    'form' => 
     array (
-      'form' => 
+      'buttons' => 
       array (
-        'buttons' => 
-        array (
-          'SAVE',
-          'CANCEL',
-        ),
+        0 => 'SAVE',
+        1 => 'CANCEL',
       ),
-      'maxColumns' => '2',
-      'widths' => 
+    ),
+    'maxColumns' => '2',
+    'widths' => 
+    array (
+      0 => 
       array (
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
-        array (
-          'label' => '10',
-          'field' => '30',
-        ),
+        'label' => '10',
+        'field' => '30',
       ),
-	 'javascript' => '<script type="text/javascript" language="javascript">
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+    ),
+    'javascript' => '<script type="text/javascript" language="javascript">
 		function setvalue(source)  {ldelim} 
 			src= new String(source.value);
 			target=new String(source.form.name.value);
 	
 			if (target.length == 0)  {ldelim} 
-				lastindex=src.lastIndexOf("\"");
+				lastindex=src.lastIndexOf("\\"");
 				if (lastindex == -1)  {ldelim} 
-					lastindex=src.lastIndexOf("\\\\\"");
+					lastindex=src.lastIndexOf("\\\\\\"");
 				 {rdelim}  
 				if (lastindex == -1)  {ldelim} 
 					source.form.name.value=src;
@@ -103,57 +68,128 @@ array (
 			 {rdelim} 
 		 {rdelim} 
 	</script>',
-	),
-'panels' =>array (
-  'lbl_contract_information' => 
-  array (
-    
+    'tabDefs' => 
     array (
-      'name',
-      'status',
-    ),
-    
-    array (
-      'reference_code',
-      array('name'=>'start_date', 'displayParams'=>array('showFormats'=>true)),
-    ),
-    
-    array (
-      'account_name',
-      array('name'=>'end_date', 'displayParams'=>array('showFormats'=>true)),
-    ),
-    
-    array (
-      'opportunity_name',
-    ),
-    
-    array (
-    	'type',
-    	array('name'=>'customer_signed_date', 'displayParams'=>array('showFormats'=>true)),
-    ),
-    
-    array (
-    	array('name'=>'currency_id','label'=>'LBL_CURRENCY'),
-    	array('name'=>'company_signed_date', 'displayParams'=>array('showFormats'=>true)),
-    ),
-    
-    array (
-    	array('name'=>'total_contract_value', 'displayParams'=>array('size'=>15, 'maxlength'=>25)),
-    	array('name'=>'expiration_notice', 'type'=>'datetimecombo', 'displayParams'=>array('showFormats'=>true)),      
-    ),
-    
-    array (
-      array('name' => 'description'),
-    ),
-    ),
-	'LBL_PANEL_ASSIGNMENT' => 
-	array(
-	    array (
-      'assigned_user_name',
-      array('name'=>'team_name','displayParams'=>array('required'=>true)),
+      'LBL_CONTRACT_INFORMATION' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
       ),
+      'LBL_PANEL_ASSIGNMENT' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+    ),
   ),
-)
-)
+  'panels' => 
+  array (
+    'lbl_contract_information' => 
+    array (
+      0 => 
+      array (
+        0 => 'name',
+        1 => 'status',
+      ),
+      1 => 
+      array (
+        0 => 'reference_code',
+        1 => 
+        array (
+          'name' => 'start_date',
+          'displayParams' => 
+          array (
+            'showFormats' => true,
+          ),
+        ),
+      ),
+      2 => 
+      array (
+        0 => 'account_name',
+        1 => 
+        array (
+          'name' => 'end_date',
+          'displayParams' => 
+          array (
+            'showFormats' => true,
+          ),
+        ),
+      ),
+      3 => 
+      array (
+        0 => 'opportunity_name',
+      ),
+      4 => 
+      array (
+        0 => 'type',
+        1 => 
+        array (
+          'name' => 'customer_signed_date',
+          'displayParams' => 
+          array (
+            'showFormats' => true,
+          ),
+        ),
+      ),
+      5 => 
+      array (
+        0 => 
+        array (
+          'name' => 'currency_id',
+          'label' => 'LBL_CURRENCY',
+        ),
+        1 => 
+        array (
+          'name' => 'company_signed_date',
+          'displayParams' => 
+          array (
+            'showFormats' => true,
+          ),
+        ),
+      ),
+      6 => 
+      array (
+        0 => 
+        array (
+          'name' => 'total_contract_value',
+          'displayParams' => 
+          array (
+            'size' => 15,
+            'maxlength' => 25,
+          ),
+        ),
+        1 => 
+        array (
+          'name' => 'expiration_notice',
+          'type' => 'datetimecombo',
+          'displayParams' => 
+          array (
+            'showFormats' => true,
+          ),
+        ),
+      ),
+      7 => 
+      array (
+        0 => 
+        array (
+          'name' => 'description',
+        ),
+      ),
+    ),
+    'LBL_PANEL_ASSIGNMENT' => 
+    array (
+      0 => 
+      array (
+        0 => 'assigned_user_name',
+        1 => 
+        array (
+          'name' => 'team_name',
+          'displayParams' => 
+          array (
+            'required' => true,
+          ),
+        ),
+      ),
+    ),
+  ),
 );
-?>      

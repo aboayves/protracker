@@ -3,89 +3,74 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_COPY' => 'Копировать',
-  'LBL_PUSH_BILLING' => 'Push Billing',
-  'LBL_PUSH_SHIPPING' => 'Push Shipping',
-  'LBL_CONTRACTS' => 'Контракты',
-  'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Контракты',
-  'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Продукты',
-  'LBL_QUOTES_SUBPANEL_TITLE' => 'Коммерческие предложения',
-  'LNK_ACCOUNT_REPORTS' => 'Просмотр отчёта по контрагентам',
-  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Документы',
-  'LBL_CHARTS' => 'Графики',
-  'LBL_DEFAULT' => 'Обзоры',
-  'LBL_MISC' => 'Разное',
-  'LBL_UTILS' => 'Утилиты',
   'ACCOUNT_REMOVE_PROJECT_CONFIRM' => 'Вы действительно хотите удалить этого контрагента из проекта?',
   'ERR_DELETE_RECORD' => 'Вы должны указать номер записи перед удалением.',
+  'LBL_ACCOUNT' => 'Контрагент:',
+  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Контрагенты',
   'LBL_ACCOUNT_INFORMATION' => 'Информация по контрагенту',
   'LBL_ACCOUNT_NAME' => 'Контрагент:',
-  'LBL_ACCOUNT' => 'Контрагент:',
+  'LBL_ACCOUNT_TYPE' => 'Тип Контрагента',
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Мероприятия',
   'LBL_ADDRESS_INFORMATION' => 'Адресная информация',
   'LBL_ANNUAL_REVENUE' => 'Годовой доход:',
   'LBL_ANY_ADDRESS' => 'Адрес:',
   'LBL_ANY_EMAIL' => 'E-mail:',
   'LBL_ANY_PHONE' => 'Тел.:',
-  'LBL_ASSIGNED_TO_NAME' => 'Ответственный(ая):',
   'LBL_ASSIGNED_TO_ID' => 'Ответственный(ая):',
+  'LBL_ASSIGNED_TO_NAME' => 'Ответственный(ая):',
+  'LBL_ASSIGNED_USER_NAME' => 'Ответственный(ая):',
+  'LBL_BILLING_ADDRESS' => 'Юридический адрес',
   'LBL_BILLING_ADDRESS_CITY' => 'Юридический адрес - город:',
   'LBL_BILLING_ADDRESS_COUNTRY' => 'Юридический адрес - страна:',
   'LBL_BILLING_ADDRESS_POSTALCODE' => 'Юридический адрес - индекс:',
   'LBL_BILLING_ADDRESS_STATE' => 'Юридический адрес - область:',
+  'LBL_BILLING_ADDRESS_STREET' => 'Юридический адрес - улица:',
   'LBL_BILLING_ADDRESS_STREET_2' => 'Юридический адрес - улица 2',
   'LBL_BILLING_ADDRESS_STREET_3' => 'Юридический адрес - улица 3',
   'LBL_BILLING_ADDRESS_STREET_4' => 'Юридический адрес - улица 4',
-  'LBL_BILLING_ADDRESS_STREET' => 'Юридический адрес - улица:',
-  'LBL_BILLING_ADDRESS' => 'Юридический адрес',
-  'LBL_BUG_FORM_TITLE' => 'Контрагенты',
   'LBL_BUGS_SUBPANEL_TITLE' => 'Ошибки',
+  'LBL_BUG_FORM_TITLE' => 'Контрагенты',
   'LBL_CALLS_SUBPANEL_TITLE' => 'Звонки',
+  'LBL_CAMPAIGNS' => 'Маркет. кампании',
   'LBL_CAMPAIGN_ID' => 'Маркетинговая кампания',
   'LBL_CASES_SUBPANEL_TITLE' => 'Обращения',
+  'LBL_CHARTS' => 'Графики',
   'LBL_CITY' => 'Город:',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Контакты',
+  'LBL_CONTACT_HISTORY_SUBPANEL_TITLE' => 'Email-сообщения соответствующих контактов',
+  'LBL_CONTRACTS' => 'Контракты',
+  'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Контракты',
+  'LBL_COPY' => 'Копировать',
   'LBL_COUNTRY' => 'Страна:',
+  'LBL_CREATED_ID' => 'Создано пользователем',
   'LBL_DATE_ENTERED' => 'Дата создания:',
   'LBL_DATE_MODIFIED' => 'Дата изменения:',
-  'LBL_MODIFIED_ID' => 'Изменено пользователем',
+  'LBL_DEFAULT' => 'Обзоры',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Контрагенты',
-  'LBL_DESCRIPTION_INFORMATION' => 'Описание',
   'LBL_DESCRIPTION' => 'Описание:',
+  'LBL_DESCRIPTION_INFORMATION' => 'Описание',
+  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Документы',
   'LBL_DUPLICATE' => 'Возможно дублирующий контрагент',
   'LBL_EMAIL' => 'E-mail:',
-  'LBL_EMAIL_OPT_OUT' => 'Не писать на E-mail',
   'LBL_EMAIL_ADDRESSES' => 'Адреса E-mail',
+  'LBL_EMAIL_OPT_OUT' => 'Не писать на E-mail',
   'LBL_EMPLOYEES' => 'Число сотрудников:',
+  'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Ответственный пользователь',
   'LBL_FAX' => 'Факс:',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'История',
   'LBL_HOMEPAGE_TITLE' => 'Мои контрагенты',
@@ -105,9 +90,12 @@ $mod_strings = array (
   'LBL_MEMBER_OF' => 'Материнская компания:',
   'LBL_MEMBER_ORG_FORM_TITLE' => 'Дочерние организации',
   'LBL_MEMBER_ORG_SUBPANEL_TITLE' => 'Дочерние организации',
-  'LBL_MODULE_NAME' => 'Контрагенты',
-  'LBL_MODULE_TITLE' => 'Контрагенты - Главная',
+  'LBL_MISC' => 'Разное',
+  'LBL_MODIFIED_ID' => 'Изменено пользователем',
   'LBL_MODULE_ID' => 'Контрагенты',
+  'LBL_MODULE_NAME' => 'Контрагенты',
+  'LBL_MODULE_NAME_SINGULAR' => 'Контрагент',
+  'LBL_MODULE_TITLE' => 'Контрагенты - Главная',
   'LBL_NAME' => 'Название:',
   'LBL_NEW_FORM_TITLE' => 'Новый контрагент',
   'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Сделки',
@@ -115,27 +103,35 @@ $mod_strings = array (
   'LBL_OTHER_PHONE' => 'Дополнительный тел.:',
   'LBL_OWNERSHIP' => 'Форма собственности:',
   'LBL_PARENT_ACCOUNT_ID' => 'Родительский контрагент',
+  'LBL_PARENT_ID' => 'ID изначальной записи',
+  'LBL_PHONE' => 'Тел.:',
   'LBL_PHONE_ALT' => 'Доп. тел.:',
+  'LBL_PHONE_ALTERNATE' => 'Дополнительный телефон',
   'LBL_PHONE_FAX' => 'Тел. (факс):',
   'LBL_PHONE_OFFICE' => 'Тел. (раб.):',
-  'LBL_PHONE' => 'Тел.:',
   'LBL_POSTAL_CODE' => 'Индекс:',
+  'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Продукты',
   'LBL_PRODUCTS_TITLE' => 'Продукты',
   'LBL_PROJECTS_SUBPANEL_TITLE' => 'Проекты',
+  'LBL_PROJECT_SUBPANEL_TITLE' => 'Проекты',
+  'LBL_PROSPECT_LIST' => 'Адресаты',
+  'LBL_PUSH_BILLING' => 'Push Billing',
   'LBL_PUSH_CONTACTS_BUTTON_LABEL' => 'Копия для контакта',
   'LBL_PUSH_CONTACTS_BUTTON_TITLE' => 'Копирование...',
+  'LBL_PUSH_SHIPPING' => 'Push Shipping',
+  'LBL_QUOTES_SUBPANEL_TITLE' => 'Коммерческие предложения',
   'LBL_RATING' => 'Рейтинг:',
   'LBL_SAVE_ACCOUNT' => 'Сохранение контрагента',
   'LBL_SEARCH_FORM_TITLE' => 'Поиск контрагентов',
+  'LBL_SHIPPING_ADDRESS' => 'Фактический адрес:',
   'LBL_SHIPPING_ADDRESS_CITY' => 'Фактический адрес - город:',
   'LBL_SHIPPING_ADDRESS_COUNTRY' => 'Фактический адрес - страна:',
   'LBL_SHIPPING_ADDRESS_POSTALCODE' => 'Фактический адрес - индекс:',
   'LBL_SHIPPING_ADDRESS_STATE' => 'Фактический адрес - область:',
+  'LBL_SHIPPING_ADDRESS_STREET' => 'Фактический адрес - улица:',
   'LBL_SHIPPING_ADDRESS_STREET_2' => 'Фактический адрес - улица 2',
   'LBL_SHIPPING_ADDRESS_STREET_3' => 'Фактический адрес - улица 3',
   'LBL_SHIPPING_ADDRESS_STREET_4' => 'Фактический адрес - улица 4',
-  'LBL_SHIPPING_ADDRESS_STREET' => 'Фактический адрес - улица:',
-  'LBL_SHIPPING_ADDRESS' => 'Фактический адрес:',
   'LBL_SIC_CODE' => 'Идентификац. код:',
   'LBL_STATE' => 'Область:',
   'LBL_TASKS_SUBPANEL_TITLE' => 'Задачи',
@@ -145,13 +141,13 @@ $mod_strings = array (
   'LBL_USERS_ASSIGNED_LINK' => 'Ответственные пользователи',
   'LBL_USERS_CREATED_LINK' => 'Создано пользователями',
   'LBL_USERS_MODIFIED_LINK' => 'Измененные пользователи',
+  'LBL_UTILS' => 'Утилиты',
   'LBL_VIEW_FORM_TITLE' => 'Обзор контрагента',
   'LBL_WEBSITE' => 'Сайт:',
-  'LBL_CREATED_ID' => 'Создано пользователем',
-  'LBL_CAMPAIGNS' => 'Маркет. кампании',
   'LNK_ACCOUNT_LIST' => 'Контрагенты',
-  'LNK_NEW_ACCOUNT' => 'Новый контрагент',
+  'LNK_ACCOUNT_REPORTS' => 'Просмотр отчёта по контрагентам',
   'LNK_IMPORT_ACCOUNTS' => 'Импорт контрагентов',
+  'LNK_NEW_ACCOUNT' => 'Новый контрагент',
   'MSG_DUPLICATE' => 'Создаваемый вами контрагент возможно дублирует уже имеющуюся запись. Похожие контрагенты показаны ниже. Нажмите кнопку "Сохранить"  для продолжения создания нового контрагента или кнопку "Отказаться" для возврата в модуль.',
   'MSG_SHOW_DUPLICATES' => 'Создаваемый вами контрагент возможно дублирует уже имеющуюся запись. Похожие контрагенты показаны ниже. Нажмите кнопку "Сохранить"  для продолжения создания нового контрагента или кнопку "Отказаться" для возврата в модуль.',
   'NTC_COPY_BILLING_ADDRESS' => 'Копировать юридический адрес в погрузочный',
@@ -161,12 +157,5 @@ $mod_strings = array (
   'NTC_DELETE_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?',
   'NTC_REMOVE_ACCOUNT_CONFIRMATION' => 'Вы действительно хотите удалить эту запись?',
   'NTC_REMOVE_MEMBER_ORG_CONFIRMATION' => 'Вы действительно хотите удалить эту запись из дочерних организаций?',
-  'LBL_ASSIGNED_USER_NAME' => 'Ответственный(ая):',
-  'LBL_PROSPECT_LIST' => 'Адресаты',
-  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Контрагенты',
-  'LBL_PROJECT_SUBPANEL_TITLE' => 'Проекты',
-  'LBL_ACCOUNT_TYPE' => 'Тип Контрагента',
-  'LBL_PARENT_ID' => 'ID изначальной записи',
-  'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Ответственный пользователь',
 );
 

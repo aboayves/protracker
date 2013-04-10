@@ -1,5 +1,5 @@
 <?php
-// created: 2012-07-03 09:43:36
+// created: 2013-04-10 13:54:26
 $viewdefs['Leads']['DetailView'] = array (
   'templateMeta' => 
   array (
@@ -42,6 +42,24 @@ $viewdefs['Leads']['DetailView'] = array (
       0 => 
       array (
         'file' => 'modules/Leads/Lead.js',
+      ),
+    ),
+    'tabDefs' => 
+    array (
+      'LBL_CONTACT_INFORMATION' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_PANEL_ADVANCED' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_PANEL_ASSIGNMENT' => 
+      array (
+        'newTab' => true,
+        'panelDefault' => 'expanded',
       ),
     ),
   ),

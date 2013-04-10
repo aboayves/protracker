@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 (function(){if(typeof(SUGAR.forms)=='undefined')SUGAR.forms={};if(typeof(SUGAR.forms.animation)=='undefined')SUGAR.forms.animation={};var Dom=YAHOO.util.Dom;var AH=SUGAR.forms.AssignmentHandler=function(){}
 AH.ANIMATE=true;AH.VARIABLE_MAP={};AH.LISTENERS={};AH.LINKS={};AH.LOCKS={};AH.QUEUEDDEPS=[];AH.register=function(variable,view){if(!view)view=AH.lastView;if(typeof(AH.VARIABLE_MAP[view])=="undefined")
@@ -34,8 +20,7 @@ AH.VARIABLE_MAP[f]={};if(typeof(form)=='undefined')return;for(var i=0;i<form.len
 {if(el.type&&el.type=="text"&&Dom.getAncestorByClassName(el,"emailaddresses"))
 {var span=Dom.getAncestorByTagName(el,"span");sId=span.id;fieldName=sId.substring(0,sId.length-5);if(!AH.VARIABLE_MAP[f][fieldName]||!Dom.isAncestor(span,AH.VARIABLE_MAP[f][fieldName])){AH.VARIABLE_MAP[f][fieldName]=el;AH.updateListeners(fieldName,f,el);}}
 AH.VARIABLE_MAP[f][el.id]=el;AH.updateListeners(el.id,f,el);}
-else if(el!=null&&el.value&&el.type=="hidden")
-AH.VARIABLE_MAP[f][el.name]=el;AH.updateListeners(el.name,f,el);}}
+else if(el!=null&&el.value&&el.type=="hidden"){AH.VARIABLE_MAP[f][el.name]=el;AH.updateListeners(el.name,f,el);}}}
 AH.registerView=function(view,startEl){var Dom=YAHOO.util.Dom;AH.lastView=view;if(typeof(AH.VARIABLE_MAP[view])=="undefined")
 AH.VARIABLE_MAP[view]={};if(Dom.get(view)!=null&&Dom.get(view).tagName=="FORM"){return AH.registerForm(view);}
 var form=Dom.get("form");if(form&&form.name==view)
@@ -47,11 +32,14 @@ AH.getValue=function(variable,view,ignoreLinks){if(!view)view=AH.lastView;if(AH.
 return variable;var field=AH.getElement(variable,view);if(field==null||field.tagName==null)return null;if(field.children.length==1&&field.children[0].tagName.toLowerCase()=="input")
 field=field.children[0];if(field.tagName.toLowerCase()=="select"){if(field.selectedIndex==-1){return null;}else{return field.options[field.selectedIndex].value;}}
 if(field.tagName.toLowerCase()=="input"&&field.type.toLowerCase()=="checkbox"){return field.checked?SUGAR.expressions.Expression.TRUE:SUGAR.expressions.Expression.FALSE;}
+if(field.tagName.toLowerCase()=='input'&&field.type.toLowerCase()=='radio'){var form=field.form;var radioButtons=form[field.name];for(var rbi=0;rbi<radioButtons.length;rbi++){var button=radioButtons[rbi];if(button.checked){return button.value;}}}
 if(field.className&&(field.className=="DateTimeCombo"||field.className=="Date")){return SUGAR.util.DateUtils.parse(field.value,"user");}
 if(field.tagName.toLowerCase()=="span")
-{return document.all?trim(field.innerText):trim(field.textContent);}
+{if(field.hasAttribute("data-id-value"))
+{return field.getAttribute("data-id-value");}
+return document.all?trim(field.innerText):trim(field.textContent);}
 if(field.value!==null&&typeof(field.value)!="undefined")
-{var asNum=SUGAR.expressions.unFormatNumber(field.value);if((/^(\-)?[0-9]+(\.[0-9]+)?$/).exec(asNum)!=null){return asNum;}
+{var asNum=SUGAR.expressions.unFormatNumber(field.value);if((/^(\-)?[0-9]+(\.[0-9]+)?$/).exec(asNum)!=null){return parseFloat(asNum);}
 return field.value;}
 return YAHOO.lang.trim(field.innerText);}
 AH.getLink=function(variable,view){if(!view)view=AH.lastView;if(AH.LINKS[view][variable])
@@ -75,6 +63,7 @@ return null;if(AH.LOCKS[variable]!=null){throw("Circular Reference Detected");}
 if(Dom.hasClass(field,"imageUploader"))
 {var img=Dom.get("img_"+field.id);img.src=value;img.style.visibility="";}
 else if(field.type=="checkbox"){field.checked=value==SUGAR.expressions.Expression.TRUE||value===true;}
+else if(field.type=="radio"){var radioButtons=field.form[field.id];for(var rbi=0;rbi<radiobuttons.length;rbi++){var button=radioButtons[rbi];if(button.value==value){button.checked=true;}else{button.checked=false;}}}
 else if(value instanceof Date)
 {if(Dom.hasClass(field,"date_input"))
 field.value=SUGAR.util.DateUtils.formatDate(value);else{if(Dom.hasClass(field,"DateTimeCombo"))
@@ -88,6 +77,7 @@ AH.LOCKS[variable]=true;SUGAR.util.callOnChangeListers(field);AH.LOCKS[variable]
 var attachListener=function(el,callback,scope,view)
 {scope=scope||this;if(el.type&&el.type.toUpperCase()=="CHECKBOX")
 {return YAHOO.util.Event.addListener(el,"click",callback,scope,true);}
+else if(el.type&&el.type.toUpperCase()=="RADIO"){var radioButtons=el.form[el.id];for(var radioButtonIndex=0;radioButtonIndex<radioButtons.length;radioButtonIndex++){var button=radioButtons[radioButtonIndex];YAHOO.util.Event.addListener(button,"click",callback,scope,true);}}
 else{return YAHOO.util.Event.addListener(el,"change",callback,scope,true);}}
 AH.addListener=function(varname,callback,scope,view)
 {if(!view)view=AH.lastView;if(!AH.LISTENERS[view])AH.LISTENERS[view]={};if(!AH.LISTENERS[view][varname])AH.LISTENERS[view][varname]=[];var el=AH.getElement(varname,view);AH.LISTENERS[view][varname].push({el:el,callback:callback,scope:scope});if(!el)return false;attachListener(el,callback,scope,view);}
@@ -129,16 +119,20 @@ AH.setRelatedFields=function(fields){for(var link in fields)
 {for(var type in fields[link])
 {AH.cacheRelatedField(link,type,fields[link][type]);}}}
 AH.getRelatedFieldValues=function(fields,module,record)
-{if(fields.length>0){module=module||SUGAR.forms.AssignmentHandler.getValue("module")||DCMenu.module;record=record||SUGAR.forms.AssignmentHandler.getValue("record")||DCMenu.record;for(var i=0;i<fields.length;i++)
+{if(fields.length>0){module=module||SUGAR.forms.AssignmentHandler.getValue("module")||DCMenu.module;record=record||SUGAR.forms.AssignmentHandler.getValue("record")||DCMenu.record;for(var i=fields.length-1;i>=0;i--)
 {if(fields[i].type=="related")
-{var linkDef=SUGAR.forms.AssignmentHandler.getLink(fields[i].link);if(linkDef&&linkDef.id_name&&linkDef.module){var idField=document.getElementById(linkDef.id_name);if(idField&&idField.tagName=="INPUT")
-{fields[i].relId=SUGAR.forms.AssignmentHandler.getValue(linkDef.id_name,false,true);fields[i].relModule=linkDef.module;}}}}
-var r=http_fetch_sync("index.php",SUGAR.util.paramsToUrl({module:"ExpressionEngine",action:"getRelatedValues",record_id:record,tmodule:module,fields:YAHOO.lang.JSON.stringify(fields),to_pdf:1}));try{var ret=YAHOO.lang.JSON.parse(r.responseText);AH.setRelatedFields(ret);return ret;}catch(e){}}
+{var linkDef=SUGAR.forms.AssignmentHandler.getLink(fields[i].link);if(linkDef&&linkDef.id_name&&linkDef.module){var idField=document.getElementById(linkDef.id_name);if(idField&&(idField.tagName=="INPUT"||idField.hasAttribute("data-id-value")))
+{fields[i].relModule=linkDef.module;fields[i].relId=SUGAR.forms.AssignmentHandler.getValue(linkDef.id_name,false,true);if(fields[i].relId.length==0)
+{fields.splice(i,1);}}}}}
+if(fields.length>0)
+{var r=http_fetch_sync("index.php",SUGAR.util.paramsToUrl({module:"ExpressionEngine",action:"getRelatedValues",record_id:record,tmodule:module,fields:YAHOO.lang.JSON.stringify(fields),to_pdf:1}));try{var ret=YAHOO.lang.JSON.parse(r.responseText);AH.setRelatedFields(ret);return ret;}catch(e){}}}
 return null;}
 AH.getRelatedField=function(link,ftype,field,view){if(!view)
 view=AH.lastView;else
 AH.lastView=view;if(!AH.LINKS[view][link])
-return null;var linkDef=SUGAR.forms.AssignmentHandler.getLink(link);var currId=linkDef.id_name?SUGAR.forms.AssignmentHandler.getValue(linkDef.id_name,false,true):false;if(typeof(linkDef[ftype])=="undefined"||(field&&typeof(linkDef[ftype][field])=="undefined")||(ftype=="related"&&linkDef.relId!=currId)){var params={link:link,type:ftype};if(field)
+return null;var linkDef=SUGAR.forms.AssignmentHandler.getLink(link);var currId;if(linkDef.id_name)
+{currId=SUGAR.forms.AssignmentHandler.getValue(linkDef.id_name,false,true);}
+if(typeof(linkDef[ftype])=="undefined"||(field&&typeof(linkDef[ftype][field])=="undefined")||(ftype=="related"&&(linkDef.relId||currId)&&linkDef.relId!=currId)){var params={link:link,type:ftype};if(field)
 params.relate=field;AH.getRelatedFieldValues([params]);linkDef=SUGAR.forms.AssignmentHandler.getLink(link);}
 if(typeof(linkDef[ftype])=="undefined")
 return null;if(field){if(typeof(linkDef[ftype][field])=="undefined")
@@ -156,7 +150,9 @@ AH.registerView(formName);}
 SUGAR.util.extend(SUGAR.forms.FormExpressionContext,SUGAR.expressions.ExpressionContext,{getValue:function(varname)
 {var SE=SUGAR.expressions,toConst=SE.ExpressionParser.prototype.toConstant;var value="";if(AH.LINKS[this.formName][varname])
 value=varname;else
-value=AH.getValue(varname,this.formName);if(typeof(value)=="string")
+value=AH.getValue(varname,this.formName);if(typeof(value)=='number')
+{return toConst(value);}
+else if(typeof(value)=="string")
 {value=value.replace(/\n/g,"");if((/^(\s*)$/).exec(value)!=null||value==="")
 {return toConst('""')}
 else if(SE.isNumeric(value)){return toConst(SE.unFormatNumber(value));}

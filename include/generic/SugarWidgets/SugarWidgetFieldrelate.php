@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -49,8 +35,8 @@ class SugarWidgetFieldRelate extends SugarWidgetReportField
         }
         $html = '<select name="' . $layout_def['name'] . '[]" multiple="true">';
 
-        $sql = 'SELECT id, ' . $layout_def['rname'] . ' title FROM ' . $layout_def['table'] . ' WHERE deleted = 0 ORDER BY title ASC';
-        $result = $this->reporter->db->query($sql);
+        $query = $this->displayInputQuery($layout_def);
+        $result = $this->reporter->db->query($query);
         while ($row = $this->reporter->db->fetchByAssoc($result))
         {
             $html .= '<option value="' . $row['id'] . '"';
@@ -63,6 +49,35 @@ class SugarWidgetFieldRelate extends SugarWidgetReportField
 
         $html .= '</select>';
         return $html;
+    }
+
+    /**
+     * Method returns database query for generation HTML of input on configure dashlet page
+     *
+     * @param array $layout_def definition of a field
+     * @return string database query HTML of select for edit page
+     */
+    private function displayInputQuery($layout_def)
+    {
+        $title = $layout_def['rname'];
+        if (isset($layout_def['custom_module']) || isset($layout_def['ext2'])) {
+            $bean = BeanFactory::getBean($layout_def['module']);
+            $layout_def['table'] = $bean->table_name;
+            if (isset($bean->field_defs[$title]['db_concat_fields'])){
+                $layout_def['db_concat_fields'] = $bean->field_defs[$title]['db_concat_fields'];
+            }
+        }
+        if (isset($layout_def['db_concat_fields'])) {
+            $title = $this->reporter->db->concat($layout_def['table'], $layout_def['db_concat_fields']);
+        }
+
+        $query = "SELECT
+                id,
+                $title title
+            FROM {$layout_def['table']}
+            WHERE deleted = 0
+            ORDER BY title ASC";
+        return $query;
     }
 
     /**
@@ -105,23 +120,25 @@ class SugarWidgetFieldRelate extends SugarWidgetReportField
     public function queryFilterone_of($layout_def, $rename_columns = true)
     {
         $ids = array();
-
-        $relation = new Relationship();
-        $relation->retrieve_by_name($layout_def['link']);
-
-        global $beanList;
-        $beanClass = $beanList[$relation->lhs_module];
-        $seed = new $beanClass();
+        if (isset($layout_def['link'])) {
+            $relation = new Relationship();
+            $relation->retrieve_by_name($layout_def['link']);
+        }
+        $module = isset($layout_def['custom_module']) ? $layout_def['custom_module'] : $layout_def['module'];
+        $seed = BeanFactory::getBean($module);
 
         foreach($layout_def['input_name0'] as $beanId)
         {
-            $seed->retrieve($beanId);
-
-            $link = new Link2($layout_def['link'], $seed);
-            $sql = $link->getQuery();
+            if (!empty($relation->lhs_module) && !empty($relation->rhs_module)
+                && $relation->lhs_module == $relation->rhs_module) {
+                    $filter = array('id');
+            } else {
+                $filter = array('id', $layout_def['name']);
+            }
+            $where = $layout_def['id_name']."='$beanId' ";
+            $sql = $seed->create_new_list_query('', $where, $filter, array(), 0, '', false, $seed, true);
             $result = $this->reporter->db->query($sql);
-            while ($row = $this->reporter->db->fetchByAssoc($result))
-            {
+            while ($row = $this->reporter->db->fetchByAssoc($result)) {
                 $ids[] = $row['id'];
             }
         }
@@ -139,6 +156,10 @@ class SugarWidgetFieldRelate extends SugarWidgetReportField
 		if(!empty($reporter->selected_loaded_custom_links) && !empty($reporter->selected_loaded_custom_links[$field_def['secondary_table']])){
 			$display = strtoupper($reporter->selected_loaded_custom_links[$field_def['secondary_table']]['join_table_alias'].'_name');
 		}
+        elseif(isset($field_def['rep_rel_name']) && isset($reporter->selected_loaded_custom_links) && !empty($reporter->selected_loaded_custom_links[$field_def['secondary_table'].'_'.$field_def['rep_rel_name']]))
+        {
+            $display = strtoupper($reporter->selected_loaded_custom_links[$field_def['secondary_table'].'_'.$field_def['rep_rel_name']]['join_table_alias'].'_name');
+        }
 		elseif(!empty($reporter->selected_loaded_custom_links) && !empty($reporter->selected_loaded_custom_links[$field_def['secondary_table'].'_'.$field_def['name']])){
 			$display = strtoupper($reporter->selected_loaded_custom_links[$field_def['secondary_table'].'_'.$field_def['name']]['join_table_alias'].'_name');
 		}
@@ -153,7 +174,11 @@ class SugarWidgetFieldRelate extends SugarWidgetReportField
 
         //#31797  , we should get the table alias in a global registered array:selected_loaded_custom_links
         if(!empty($reporter->selected_loaded_custom_links) && !empty($reporter->selected_loaded_custom_links[$field_def['secondary_table']])){
-            $display = strtoupper($reporter->selected_loaded_custom_links[$field_def['secondary_table']]['join_table_alias'].'_name');
+             $display = strtoupper($reporter->selected_loaded_custom_links[$field_def['secondary_table']]['join_table_alias'].'_name');
+        }
+        elseif(isset($field_def['rep_rel_name']) && isset($reporter->selected_loaded_custom_links) && !empty($reporter->selected_loaded_custom_links[$field_def['secondary_table'].'_'.$field_def['rep_rel_name']]))
+        {
+            $display = strtoupper($reporter->selected_loaded_custom_links[$field_def['secondary_table'].'_'.$field_def['rep_rel_name']]['join_table_alias'].'_name');
         }
         elseif(!empty($reporter->selected_loaded_custom_links) && !empty($reporter->selected_loaded_custom_links[$field_def['secondary_table'].'_'.$field_def['name']])){
             $display = strtoupper($reporter->selected_loaded_custom_links[$field_def['secondary_table'].'_'.$field_def['name']]['join_table_alias'].'_name');

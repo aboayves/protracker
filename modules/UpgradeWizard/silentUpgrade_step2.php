@@ -1,30 +1,16 @@
 <?php
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -169,6 +155,13 @@ function rebuildRelations($pre_path = '')
 	include($pre_path.'modules/ACL/install_actions.php');
 }
 
+//Bug 52872. Dies if the request does not come from CLI.
+$sapi_type = php_sapi_name();
+if (substr($sapi_type, 0, 3) != 'cli') {
+    die("This is command-line only script");
+}
+//End of #52872
+
 // only run from command line
 if(isset($_SERVER['HTTP_USER_AGENT'])) {
 	fwrite(STDERR,'This utility may only be run from the command line or command prompt.');
@@ -251,8 +244,8 @@ $errors = array();
 	$zip_from_dir	= substr($patchName, 0, strlen($patchName) - 4); // patch folder name (minus ".zip")
 	$path			= $argv[2]; // custom log file, if blank will use ./upgradeWizard.log
     $db				= &DBManagerFactory::getInstance();
-	$UWstrings		= return_module_language('en_us', 'UpgradeWizard');
-	$adminStrings	= return_module_language('en_us', 'Administration');
+	$UWstrings		= return_module_language('en_us', 'UpgradeWizard', true);
+	$adminStrings	= return_module_language('en_us', 'Administration', true);
     $app_list_strings = return_app_list_strings_language('en_us');
 	$mod_strings	= array_merge($adminStrings, $UWstrings);
 	$subdirs		= array('full', 'langpack', 'module', 'patch', 'theme', 'temp');
@@ -458,18 +451,16 @@ logThis('End rebuild relationships.', $path);
 
 include("$unzip_dir/manifest.php");
 $ce_to_pro_ent = isset($manifest['name']) && ($manifest['name'] == 'SugarCE to SugarPro' || $manifest['name'] == 'SugarCE to SugarEnt'  || $manifest['name'] == 'SugarCE to SugarCorp' || $manifest['name'] == 'SugarCE to SugarUlt');
-$origVersion = getSilentUpgradeVar('origVersion');
-if(!$origVersion){
+$sugar_version = getSilentUpgradeVar('origVersion');
+if (!$sugar_version)
+{
     global $silent_upgrade_vars_loaded;
-    logThis("Error retrieving silent upgrade var for origVersion: cache dir is {$GLOBALS['sugar_config']['cache_dir']} -- full cache for \$silent_upgrade_vars_loaded is ".var_export($silent_upgrade_vars_loaded, true), $path);
+    logThis("Error retrieving silent upgrade var for sugar_version: cache dir is {$GLOBALS['sugar_config']['cache_dir']} -- full cache for \$silent_upgrade_vars_loaded is ".var_export($silent_upgrade_vars_loaded, true), $path);
 }
 
 // If going from pre 610 to 610+, migrate the report favorites
 // At this point in the upgrade, the db and sugar_version have already been updated to 6.1 so we need to add a mechanism of preserving the original version
 // so that we can check against that in 6.1.1.
-/*
-*/
-
 logThis("Begin: Update custom module built using module builder to add favorites", $path);
 add_custom_modules_favorites_search();
 logThis("Complete: Update custom module built using module builder to add favorites", $path);
@@ -504,10 +495,6 @@ if($ce_to_pro_ent) {
     }
 }
 
-
-/*
-*/
-
 //bug: 37214 - merge config_si.php settings if available
 logThis('Begin merge_config_si_settings', $path);
 merge_config_si_settings(true, '', '', $path);
@@ -518,27 +505,20 @@ logThis('Begin upgrade_connectors', $path);
 upgrade_connectors();
 logThis('End upgrade_connectors', $path);
 
-// Enable the InsideView connector by default
-if($origVersion < '621' && function_exists('upgradeEnableInsideViewConnector')) {
-    logThis("Looks like we need to enable the InsideView connector\n",$path);
-    upgradeEnableInsideViewConnector($path);
-}
-
-
-//bug: 36845 - ability to provide global search support for custom modules
-/*
-*/
-
-//Upgrade system displayed tabs and subpanels
-if(function_exists('upgradeDisplayedTabsAndSubpanels'))
+if (version_compare($sugar_version, '6.5.0', '<'))
 {
-	upgradeDisplayedTabsAndSubpanels($origVersion);
+    // Bug 53650 - Workflow Type Templates not saving Type upon upgrade to 6.5.0, usable as Email Templates
+    $db->query("UPDATE email_templates SET type = 'workflow' WHERE
+        coalesce(" . $db->convert("base_module", "length") . ",0) > 0
+        AND
+        coalesce(" . $db->convert("type", "length") . ",0) = 0
+    ");
 }
 
 //Unlink files that have been removed
 if(function_exists('unlinkUpgradeFiles'))
 {
-	unlinkUpgradeFiles($origVersion);
+	unlinkUpgradeFiles($sugar_version);
 }
 
 if(function_exists('rebuildSprites') && function_exists('imagecreatetruecolor'))
@@ -547,7 +527,7 @@ if(function_exists('rebuildSprites') && function_exists('imagecreatetruecolor'))
 }
 
 //Run repairUpgradeHistoryTable
-if($origVersion < '650' && function_exists('repairUpgradeHistoryTable'))
+if (version_compare($sugar_version, '6.5.0', '<') && function_exists('repairUpgradeHistoryTable'))
 {
     repairUpgradeHistoryTable();
 }
@@ -587,6 +567,3 @@ if(count($errors) > 0) {
 	echo "******** Run Repair -> Rebuild Relationships  **********************\n";
 	echo "********************************************************************\n";
 }
-
-
-?>

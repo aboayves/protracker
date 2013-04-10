@@ -1,32 +1,19 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 class ViewPopup extends SugarView{
+    protected $override_popup = array();
 	var $type ='list';
 	function ViewPopup(){
 		parent::SugarView();
@@ -42,13 +29,17 @@ class ViewPopup extends SugarView{
 
 		if(isset($_REQUEST['metadata']) && strpos($_REQUEST['metadata'], "..") !== false)
 			die("Directory navigation attack denied.");
-		if(!empty($_REQUEST['metadata']) && $_REQUEST['metadata'] != 'undefined'
-			&& file_exists('modules/' . $this->module . '/metadata/' . $_REQUEST['metadata'] . '.php')) // if custom metadata is requested
-			require_once('modules/' . $this->module . '/metadata/' . $_REQUEST['metadata'] . '.php');
-		elseif(file_exists('custom/modules/' . $this->module . '/metadata/popupdefs.php'))
-	    	require_once('custom/modules/' . $this->module . '/metadata/popupdefs.php');
-	    elseif(file_exists('modules/' . $this->module . '/metadata/popupdefs.php'))
-	    	require_once('modules/' . $this->module . '/metadata/popupdefs.php');
+        if (!empty($_REQUEST['metadata']) && $_REQUEST['metadata'] != 'undefined'
+            && file_exists('custom/modules/' . $this->module . '/metadata/' . $_REQUEST['metadata'] . '.php')) {
+            require 'custom/modules/' . $this->module . '/metadata/' . $_REQUEST['metadata'] . '.php';
+        } elseif (!empty($_REQUEST['metadata']) && $_REQUEST['metadata'] != 'undefined'
+            && file_exists('modules/' . $this->module . '/metadata/' . $_REQUEST['metadata'] . '.php')) {
+            require 'modules/' . $this->module . '/metadata/' . $_REQUEST['metadata'] . '.php';
+        } elseif (file_exists('custom/modules/' . $this->module . '/metadata/popupdefs.php')) {
+            require 'custom/modules/' . $this->module . '/metadata/popupdefs.php';
+        } elseif (file_exists('modules/' . $this->module . '/metadata/popupdefs.php')) {
+            require 'modules/' . $this->module . '/metadata/popupdefs.php';
+        }
 
 	    if(!empty($popupMeta) && !empty($popupMeta['listviewdefs'])){
 	    	if(is_array($popupMeta['listviewdefs'])){
@@ -85,12 +76,20 @@ class ViewPopup extends SugarView{
         if(!empty($this->bean) && isset($_REQUEST[$this->module.'2_'.strtoupper($this->bean->object_name).'_offset'])) {
             if(!empty($_REQUEST['current_query_by_page'])) {
                 $blockVariables = array('mass', 'uid', 'massupdate', 'delete', 'merge', 'selectCount',
-                	'lvso', 'sortOrder', 'orderBy', 'request_data', 'current_query_by_page');
+                    'sortOrder', 'orderBy', 'request_data', 'current_query_by_page');
                 $current_query_by_page = unserialize(base64_decode($_REQUEST['current_query_by_page']));
                 foreach($current_query_by_page as $search_key=>$search_value) {
                     if($search_key != $this->module.'2_'.strtoupper($this->bean->object_name).'_offset'
                     	&& !in_array($search_key, $blockVariables)) {
-						$_REQUEST[$search_key] = $GLOBALS['db']->quote($search_value);
+                        if (!is_array($search_value)) {
+                            $_REQUEST[$search_key] = $GLOBALS['db']->quote($search_value);
+                        }
+                        else {
+                            foreach ($search_value as $key=>&$val) {
+                                $val = $GLOBALS['db']->quote($val);
+                            }
+                            $_REQUEST[$search_key] = $search_value;
+                        }
                     }
                 }
             }
@@ -138,7 +137,23 @@ class ViewPopup extends SugarView{
 			}
 			$popup->massUpdateData = $massUpdateData;
 
-			$popup->setup('include/Popups/tpls/PopupGeneric.tpl');
+            $tpl = 'include/Popups/tpls/PopupGeneric.tpl';
+            if(file_exists($this->getCustomFilePathIfExists("modules/{$this->module}/tpls/popupGeneric.tpl")))
+            {
+                $tpl = $this->getCustomFilePathIfExists("modules/{$this->module}/tpls/popupGeneric.tpl");
+            }
+
+            if(file_exists($this->getCustomFilePathIfExists("modules/{$this->module}/tpls/popupHeader.tpl")))
+            {
+                $popup->headerTpl = $this->getCustomFilePathIfExists("modules/{$this->module}/tpls/popupHeader.tpl");
+            }
+
+            if(file_exists($this->getCustomFilePathIfExists("modules/{$this->module}/tpls/popupFooter.tpl")))
+            {
+                $popup->footerTpl = $this->getCustomFilePathIfExists("modules/{$this->module}/tpls/popupFooter.tpl");
+            }
+
+			$popup->setup($tpl);
 
             //We should at this point show the header and javascript even if to_pdf is true.
             //The insert_popup_header javascript is incomplete and shouldn't be relied on.
@@ -150,6 +165,10 @@ class ViewPopup extends SugarView{
                 $this->_displayJavascript();
             }
             insert_popup_header(null, false);
+            if(isset($this->override_popup['template_data']) && is_array($this->override_popup['template_data']))
+            {
+                 $popup->th->ss->assign($this->override_popup['template_data']);
+            }
 			echo $popup->display();
 
 		}else{

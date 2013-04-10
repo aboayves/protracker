@@ -2,30 +2,16 @@
 if (! defined ( 'sugarEntry' ) || ! sugarEntry)
 	die ( 'Not A Valid Entry Point' ) ;
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -52,6 +38,16 @@ class aSubPanel
 	var $sub_subpanels ;
 	var $parent_bean ;
 
+    /**
+     * Can we display this subpanel?
+     *
+     * This is set after it loads the def's for the subpanel.  If there are no beans to display in the collection
+     * we don't want to display this as it will just throw errors.
+     *
+     * @var bool
+     */
+    var $canDisplay = true;
+
 	//module's table name and column fields.
 	var $table_name ;
 	var $db_fields ;
@@ -73,9 +69,9 @@ class aSubPanel
 		}
 		$this->mod_strings = $mod_strings ;
 
-		if ($this->isCollection ())
+        if ($this->isCollection ())
 		{
-			$this->load_sub_subpanels () ; //load sub-panel definition.
+			$this->canDisplay = $this->load_sub_subpanels () ; //load sub-panel definition.
 		} else
 		{
 			if (!is_dir('modules/' . $this->_instance_properties [ 'module' ])){
@@ -106,17 +102,20 @@ class aSubPanel
 			if (!$loaded)
 			{
 				$GLOBALS['log']->fatal("Failed to load original or custom subpanel data for $name in $def_path");
+                $this->canDisplay = false;
 			}
 
-			// check that the loaded subpanel definition includes a $subpanel_layout section - some, such as projecttasks/default do not...
-			$this->panel_definition = array () ;
-			if (isset($subpanel_layout))
-			{
-				$this->panel_definition = $subpanel_layout ;
+            // load module info from the module's bean file
+            $this->load_module_info();
+
+            // check that the loaded subpanel definition includes a $subpanel_layout section - some, such as
+            // projecttasks/default do not...
+            $this->panel_definition = array();
+            if (isset($subpanel_layout) && is_array($subpanel_layout)) {
+                $this->set_panel_definition($subpanel_layout);
 
 				ACLField::listFilter ( $this->panel_definition [ 'list_fields' ], $this->_instance_properties [ 'module' ], $GLOBALS [ 'current_user' ]->id, true ) ;
 			}
-			$this->load_module_info () ; //load module info from the module's bean file.
 		}
 
 	}
@@ -196,7 +195,14 @@ class aSubPanel
 	}
 
 
-	//call this function for sub-panels that have unions.
+    /**
+     * Load the Sub-Panel objects if it can from the metadata files.
+     *
+     * call this function for sub-panels that have unions.
+     *
+     * @return bool         True by default if the subpanel was loaded.  Will return false if none in the collection are
+     *                      allowed by the current user.
+     */
 	function load_sub_subpanels ()
 	{
 
@@ -229,6 +235,8 @@ class aSubPanel
 					$this->sub_subpanels [ $panel ] = new aSubPanel ( $panel, $properties, $this->parent_bean ) ;
 				}
 			}
+            // if it's empty just dump out as there is nothing to process.
+            if(empty($this->sub_subpanels)) return false;
 			//Sync displayed list fields across the subpanels
 			$display_fields = $this->getDisplayFieldsFromCollection($this->sub_subpanels);
 		 	$query_fields = array();
@@ -306,6 +314,8 @@ class aSubPanel
 				$subpanel->panel_definition['list_fields'] = $list_fields;
 			}
 		}
+
+        return true;
 	}
 
 	protected function getDisplayFieldsFromCollection($sub_subpanels)
@@ -354,11 +364,15 @@ class aSubPanel
 		}
 		return true ;
 	}
+
+    /**
+     * Test to see if the sub panels defs contain a collection
+     *
+     * @return bool
+     */
 	function isCollection ()
 	{
-		if ($this->get_inst_prop_value ( 'type' ) == 'collection')
-		return true ; else
-		return false ;
+		return ($this->get_inst_prop_value ( 'type' ) == 'collection');
 	}
 
 	//get value of a property defined at the panel instance level.
@@ -505,6 +519,63 @@ class aSubPanel
 	{
 		return array ( '_instance_properties' => $this->_instance_properties , 'db_fields' => $this->db_fields , 'mod_strings' => $this->mod_strings , 'name' => $this->name , 'panel_definition' => $this->panel_definition , 'parent_bean' => get_class ( $this->parent_bean ) , 'sub_subpanels' => $this->sub_subpanels , 'table_name' => $this->table_name , 'template_instance' => get_class ( $this->template_instance ) ) ;
 	}
+
+    /**
+     * Sets definition of the subpanel
+     *
+     * @param array $definition
+     */
+    protected function set_panel_definition(array $definition)
+    {
+        if (isset($definition['list_fields'])
+            && is_array($definition['list_fields'])) {
+            $definition['list_fields'] = $this->expand_list_fields(
+                $this->template_instance,
+                $definition['list_fields']
+            );
+        }
+        $this->panel_definition = $definition;
+    }
+
+    /**
+     * Expands list fields by adding those ones which existing fields depend on.
+     *
+     * @param  SugarBean $bean   Instance of SugarBean which is displayed
+     *                           in the subpanel
+     * @param  array     $fields Definition if list fields
+     *
+     * @return array             Expanded definition
+     */
+    public function expand_list_fields(SugarBean $bean, array $fields)
+    {
+        $expanded = array();
+        foreach (array_keys($fields) as $name) {
+            if (!empty($bean->field_defs[$name]['dependency'])) {
+                $expr = $bean->field_defs[$name]['dependency'];
+                $extracted = Parser::getFieldsFromExpression($expr, $bean->field_defs);
+                $extracted = array_flip($extracted);
+
+                // remove fields that do not exist in field definitions
+                $expanded += array_intersect_key($extracted, $bean->field_defs);
+
+                // make the dependent field non-sortable since availability of the field
+                // is calculated after the data is retrieved from database
+                $fields[$name]['sortable'] = false;
+            }
+        }
+
+        // ignore dependencies that already present in the list
+        $expanded = array_diff_key($expanded, $fields);
+
+        foreach (array_keys($expanded) as $name) {
+            $fields[$name] = array(
+                'name'  => $name,
+                'usage' => 'query_only',
+            );
+        }
+
+        return $fields;
+    }
 }
 ;
 
@@ -616,12 +687,27 @@ class SubPanelDefinitions
 	 * Load the definition of the a sub-panel.
 	 * Also the sub-panel is added to an array of sub-panels.
 	 * use of reload has been deprecated, since the subpanel is initialized every time.
+     *
+     * @param string $name              The name of the sub-panel to reload
+     * @param boolean $reload           Reload the sub-panel (unused)
+     * @param boolean $original_only    Only load the original sub-panel and no custom ones
+     * @return boolean|aSubPanel        Returns aSubPanel object or boolean false if one is not found or it can't be
+     *      displayed due to ACL reasons.
 	 */
 	function load_subpanel ( $name , $reload = false , $original_only = false )
 	{
 		if (!is_dir('modules/' . $this->layout_defs [ 'subpanel_setup' ][ strtolower ( $name ) ] [ 'module' ]))
 		  return false;
-		return new aSubPanel ( $name, $this->layout_defs [ 'subpanel_setup' ] [ strtolower ( $name ) ], $this->_focus, $reload, $original_only ) ;
+
+        $subpanel = new aSubPanel ( $name, $this->layout_defs [ 'subpanel_setup' ] [ strtolower ( $name ) ], $this->_focus, $reload, $original_only ) ;
+
+        // only return the subpanel object if we can display it.
+        if($subpanel->canDisplay == true) {
+            return $subpanel;
+        }
+
+        // by default return false so we don't show anything if it's not required.
+        return false;
 	}
 
 	/**

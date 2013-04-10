@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -121,6 +107,7 @@ $mod_strings = array (
   'LBL_DATE_MODIFIED' => '修改日期',
   'LBL_DECIMAL_SEP' => '小数符号',
   'LBL_DECIMAL_SEP_TEXT' => '分隔小数部分的字符',
+  'LBL_DEFAULT_PRIMARY_TEAM' => '默认主要团队',
   'LBL_DEFAULT_SUBPANEL_TITLE' => '用户',
   'LBL_DEFAULT_TEAM' => '默认团队',
   'LBL_DEFAULT_TEAM_TEXT' => '新记录的默认团队',
@@ -229,6 +216,9 @@ $mod_strings = array (
   'LBL_LOCALE_EXAMPLE_NAME_FORMAT' => '实例',
   'LBL_LOCALE_NAME_FORMAT_DESC' => '设置如何显示名字。',
   'LBL_LOCALE_NAME_FORMAT_DESC_2' => '<i>“s”称谓<br>“f”名<br>“l”姓</i>',
+  'LBL_LOGGED_OUT_1' => '您已经登出。重新登陆请点击',
+  'LBL_LOGGED_OUT_2' => '这里',
+  'LBL_LOGGED_OUT_3' => '。',
   'LBL_LOGIN' => '用户名',
   'LBL_LOGIN_ADMIN_CALL' => '请联系系统管理员或者使用找回密码.',
   'LBL_LOGIN_ATTEMPTS_OVERRUN' => '登录失败次数过多.',
@@ -294,6 +284,7 @@ $mod_strings = array (
   'LBL_NEW_USER_PASSWORD_3' => '密码生成成功.',
   'LBL_NORMAL_LOGIN' => '切换到常规视图',
   'LBL_NOTES' => '备忘录',
+  'LBL_NO_KEY' => '关键字没有设置。请设置关键字使其能发布。',
   'LBL_NUMBER_GROUPING_SEP' => '千分符',
   'LBL_NUMBER_GROUPING_SEP_TEXT' => '分隔千位的字符',
   'LBL_OAUTH_TOKENS' => '授权标识',
@@ -431,6 +422,7 @@ $mod_strings = array (
   'LBL_REGULAR_USER' => '普通用户',
   'LBL_REMINDER' => '显示提醒?',
   'LBL_REMINDER_EMAIL' => '电子邮件',
+  'LBL_REMINDER_EMAIL_ALL_INVITEES' => '所有被邀请者邮件',
   'LBL_REMINDER_POPUP' => '弹出',
   'LBL_REMINDER_TEXT' => '为即将到来的电话或者会议，弹出提醒',
   'LBL_REMOVED_TABS' => '管理员移除的标签',
@@ -488,6 +480,8 @@ $mod_strings = array (
   'LBL_TAB_TITLE_EMAIL' => '电子邮件设置',
   'LBL_TAB_TITLE_USER' => '用户设置',
   'LBL_TEAMS' => '团队',
+  'LBL_TEAM_MEMBERSHIP' => '团队成员',
+  'LBL_TEAM_SET' => '团队列表',
   'LBL_TEAM_UPLINE' => '成员汇报给',
   'LBL_TEAM_UPLINE_EXPLICIT' => '成员',
   'LBL_TEST_BUTTON_KEY' => 't',

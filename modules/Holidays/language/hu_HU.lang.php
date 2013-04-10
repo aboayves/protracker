@@ -1,67 +1,42 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-  'LBL_MODULE_NAME' => 'Szabadságok',
-  'LBL_MODULE_TITLE' => 'Szabadságok:Főoldal',
-  'LBL_HOLIDAY' => 'Szabadság:',
-  'LBL_HOLIDAY_DATE' => 'Szabadság kezdete:',
-  'LBL_NAME' => 'Szabadság vége:',
+  'LBL_CONTACT' => 'Kapcsolat',
   'LBL_DESCRIPTION' => 'Leírás:',
-  'LBL_RESOURCE_NAME' => 'Forrás neve',
-  'LBL_SEARCH_FORM_TITLE' => 'Szabadság keresése',
-  'LBL_LIST_FORM_TITLE' => 'Szabadság lista',
-  'LNK_NEW_HOLIDAY' => 'Szabadság felvitele',
-  'LNK_HOLIDAYS' => 'Szabadságok',
-  'LBL_USERS_SUBPANEL_TITLE' => 'Felhasználók',
-  'LBL_USER_HOLIDAY_SUBPANEL_TITLE' => 'A felhasználó szabadságai',
-  'LBL_RESOURCE' => 'Forrás:',
+  'LBL_HOLIDAY' => 'Szabadság:',
+  'LBL_HOLIDAY_DATE' => 'Szabadság ideje:',
+  'LBL_LIST_FORM_TITLE' => 'Szabadságlista',
+  'LBL_MODULE_NAME' => 'Szabadság',
+  'LBL_MODULE_NAME_SINGULAR' => 'Szabadság',
+  'LBL_MODULE_TITLE' => 'Szabadság: Főoldal',
+  'LBL_NAME' => 'Szabadság ideje:',
   'LBL_PERSON_TYPE' => 'Személy típusa:',
   'LBL_RELATED_MODULE' => 'Kapcsolódó modul:',
-  'LBL_SELECT_RESOURCE_TYPE' => 'Válasszon erőforrás típust...',
+  'LBL_RESOURCE' => 'Forrás:',
+  'LBL_RESOURCE_NAME' => 'Forrás neve',
+  'LBL_SEARCH_FORM_TITLE' => 'Szabadság keresése',
+  'LBL_SELECT_RESOURCE_TYPE' => 'Válasszon forrás típust...',
   'LBL_USER' => 'Felhasználó',
-  'LBL_CONTACT' => 'Kapcsolat',
+  'LBL_USERS_SUBPANEL_TITLE' => 'Felhasználók',
+  'LBL_USER_HOLIDAY_SUBPANEL_TITLE' => 'A felhasználó szabadságai',
+  'LNK_HOLIDAYS' => 'Szabadság',
+  'LNK_NEW_HOLIDAY' => 'Szabadság felvitele',
 );
 

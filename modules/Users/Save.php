@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -35,7 +21,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Contributor(s): ______________________________________..
  ********************************************************************************/
 
-
+require_once('include/SugarFields/SugarFieldHandler.php');
 require_once('modules/MySettings/TabController.php');
 
 $display_tabs_def = isset($_REQUEST['display_tabs_def']) ? urldecode($_REQUEST['display_tabs_def']) : '';
@@ -93,10 +79,20 @@ if(!$current_user->is_admin  && !$GLOBALS['current_user']->isAdminForModule('Use
 
 
     // Populate the custom fields
-    foreach ($focus->field_defs as $fieldName => $field ) {
-        if ( isset($field['source']) && $field['source'] == 'custom_fields' ) {
-            if ( isset($_POST[$fieldName]) ) {
-                $focus->$field = $_POST[$fieldName];
+    $sfh = new SugarFieldHandler();
+    foreach ($focus->field_defs as $fieldName => $field)
+    {
+        if (isset($field['source']) && $field['source'] == 'custom_fields')
+        {
+            $type = !empty($field['custom_type']) ? $field['custom_type'] : $field['type'];
+            $sf = $sfh->getSugarField($type);
+            if ($sf != null)
+            {
+                $sf->save($focus, $_POST, $fieldName, $field, '');
+            }
+            else
+            {
+                $GLOBALS['log']->fatal("Field '$fieldName' does not have a SugarField handler");
             }
         }
     }
@@ -144,22 +140,34 @@ if(!$current_user->is_admin  && !$GLOBALS['current_user']->isAdminForModule('Use
 	// if the user saved is a Regular User
 	if(!$focus->is_group && !$focus->portal_only){
 
-		foreach($focus->column_fields as $field)
-		{
-			if(isset($_POST[$field]))
-			{
-				$value = $_POST[$field];
-				$focus->$field = $value;
-			}
-		}
-		foreach($focus->additional_column_fields as $field)
-		{
-			if(isset($_POST[$field]))
-			{
-				$value = $_POST[$field];
-				$focus->$field = $value;
-			}
-		}
+        foreach ($focus->column_fields as $fieldName)
+        {
+            $field = $focus->field_defs[$fieldName];
+            $type = !empty($field['custom_type']) ? $field['custom_type'] : $field['type'];
+            $sf = $sfh->getSugarField($type);
+            if ($sf != null)
+            {
+                $sf->save($focus, $_POST, $fieldName, $field, '');
+            }
+            else
+            {
+                $GLOBALS['log']->fatal("Field '$fieldName' does not have a SugarField handler");
+            }
+        }
+        foreach ($focus->additional_column_fields as $fieldName)
+        {
+            $field = $focus->field_defs[$fieldName];
+            $type = !empty($field['custom_type']) ? $field['custom_type'] : $field['type'];
+            $sf = $sfh->getSugarField($type);
+            if ($sf != null)
+            {
+                $sf->save($focus, $_POST, $fieldName, $field, '');
+            }
+            else
+            {
+                $GLOBALS['log']->fatal("Field '$fieldName' does not have a SugarField handler");
+            }
+        }
 
 		$focus->is_group=0;
 		$focus->portal_only=0;
@@ -172,7 +180,7 @@ if(!$current_user->is_admin  && !$GLOBALS['current_user']->isAdminForModule('Use
 		}
 		if((isset($_POST['is_admin']) && ($_POST['is_admin'] == 'on' || $_POST['is_admin'] == '1')) ||
            (isset($_POST['UserType']) && $_POST['UserType'] == "Administrator")) $focus->is_admin = 1;
-		elseif(empty($_POST['is_admin'])) $focus->is_admin = 0;
+		elseif(isset($_POST['is_admin']) && empty($_POST['is_admin'])) $focus->is_admin = 0;
 		//if(empty($_POST['portal_only']) || !empty($_POST['is_admin'])) $focus->portal_only = 0;
 		//if(empty($_POST['is_group'])    || !empty($_POST['is_admin'])) $focus->is_group = 0;
 		if(empty($_POST['receive_notifications'])) $focus->receive_notifications = 0;

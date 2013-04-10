@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -43,12 +29,13 @@ $mod_strings = array (
   'LBL_BASIC_OPTIONS' => '基本设置',
   'LBL_CATCH_UP' => '错过时执行',
   'LBL_CATCH_UP_WARNING' => '如果这个任务执行需要一些时间就取消选择。',
+  'LBL_CLEANJOBQUEUE' => '清理任务队列',
   'LBL_CRONTAB_EXAMPLES' => '使用上述标准crontab符号。',
   'LBL_CRONTAB_SERVER_TIME_POST' => ')。 请相应地确定任务执行。',
   'LBL_CRONTAB_SERVER_TIME_PRE' => '计量规格基于服务器所在的时区运行 (',
   'LBL_CRON_INSTRUCTIONS_LINUX' => '设置Crontab',
-  'LBL_CRON_INSTRUCTIONS_WINDOWS' => '设置windows的任务计划',
-  'LBL_CRON_LINUX_DESC' => '在您的crontab中增加这一行:',
+  'LBL_CRON_INSTRUCTIONS_WINDOWS' => '设置Windows的任务计划',
+  'LBL_CRON_LINUX_DESC' => '在您的crontab文件中增加这一行:',
   'LBL_CRON_WINDOWS_DESC' => '用以下的命令创建一个批处理文件:',
   'LBL_DATE_TIME_END' => '结束日期和时间',
   'LBL_DATE_TIME_START' => '开始日期和时间',
@@ -90,14 +77,15 @@ $mod_strings = array (
   'LBL_NO_PHP_CLI' => '如果您的主机没有这个PHP二进制程序，您可以使用wget或着curl来执行您的任务。<br>forwget:<b>*&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;wget--quiet--non-verbosehttp://translate.sugarcrm.com/soon/latest/cron.php>/dev/null2>&1</b><br>forcurl:<b>*&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;curl--silenthttp://translate.sugarcrm.com/soon/latest/cron.php>/dev/null2>&1',
   'LBL_OFTEN' => '频繁。',
   'LBL_ON_THE' => '于',
-  'LBL_OOTB_BOUNCE' => '每晚处理退回的电子邮件',
-  'LBL_OOTB_CAMPAIGN' => '每晚批量运行电子邮件市场活动',
+  'LBL_OOTB_BOUNCE' => '运行每晚处理退回的营销邮件',
+  'LBL_OOTB_CAMPAIGN' => '运行每晚批量运行邮件营销',
+  'LBL_OOTB_CLEANUP_QUEUE' => '清理任务队列',
   'LBL_OOTB_IE' => '检查收件箱',
   'LBL_OOTB_PRUNE' => '每月1号精简数据库',
-  'LBL_OOTB_REPORTS' => '为计划任务产生报表',
-  'LBL_OOTB_SEND_EMAIL_REMINDERS' => '运用邮件提醒通知',
-  'LBL_OOTB_TRACKER' => '砍掉第一个月的用户历史表',
-  'LBL_OOTB_WORKFLOW' => '使工作流程任务进行',
+  'LBL_OOTB_REPORTS' => '运行报表生成计划任务',
+  'LBL_OOTB_SEND_EMAIL_REMINDERS' => '运行邮件提醒通知',
+  'LBL_OOTB_TRACKER' => '清理跟踪器表',
+  'LBL_OOTB_WORKFLOW' => '处理工作流程任务',
   'LBL_PERENNIAL' => '永久',
   'LBL_PERFORMFULLFTSINDEX' => '全文搜索索引系统',
   'LBL_POLLMONITOREDINBOXES' => '收取邮件',
@@ -133,7 +121,7 @@ $mod_strings = array (
   'NTC_DELETE_CONFIRMATION' => '您确定要删除这条记录?',
   'NTC_LIST_ORDER' => '设置计划任务的下拉框选项',
   'NTC_STATUS' => '设置状态为“停用”，计划任务会从下拉列表中移除。',
-  'SOCK_GREETING' => '这是SugarCRM日程表服务的界面. <br />[ 可守护进程的命令: 开始|重起|关闭|状态 ]<br />退出, 键入$#39;quit$#39;.  要关闭服务$#39;shutdown$#39;.',
+  'SOCK_GREETING' => '这是SugarCRM计划任务服务界面. <br />[ 可守护进程的命令: 开始|重起|关闭|状态 ]<br />退出, 键入$#39;quit$#39;.  要关闭服务$#39;shutdown$#39;.',
 );
 
 $mod_list_strings = array (

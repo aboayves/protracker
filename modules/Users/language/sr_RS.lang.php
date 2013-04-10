@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -48,6 +34,7 @@ $mod_strings = array (
   'ERR_NO_LOGIN_MOBILE' => 'Vaše prvo prijavljivanje na ovu aplikaciju mora biti obavljeno iz brauzera koji se ne nalazi na nekom mobilnom uređaju, ili u normalnom modu. Molimo vratite se na ovu stranicu koristeći običan brauzer ili kliknite na link "normal" koji se nalazi ispod. Izvinjavamo se zbog neprijatnosti.',
   'ERR_PASSWORD_CHANGE_FAILED_1' => 'Promena lozinke korisnika je neuspela za',
   'ERR_PASSWORD_CHANGE_FAILED_2' => 'nije uspelo. Mora biti postavljena nova lozinka.',
+  'ERR_PASSWORD_CHANGE_FAILED_3' => 'Nova lozinka nije validna',
   'ERR_PASSWORD_INCORRECT_OLD_1' => 'Pogrešna trenutna lozinka za korisnika',
   'ERR_PASSWORD_INCORRECT_OLD_2' => '. Ponovo unesite lozinku.',
   'ERR_PASSWORD_LINK_EXPIRED' => 'Vaš link je istekao, molim Vas generišite novi link',
@@ -75,6 +62,8 @@ $mod_strings = array (
   'LBL_ADDRESS_POSTALCODE' => 'Poštanski broj',
   'LBL_ADDRESS_STATE' => 'Opština',
   'LBL_ADDRESS_STREET' => 'Ulica',
+  'LBL_ADDRESS_STREET_2' => 'Adresa Ulica 2',
+  'LBL_ADDRESS_STREET_3' => 'Adresa Ulica 3',
   'LBL_ADMIN' => 'Administrator sistema',
   'LBL_ADMIN_DESC' => 'Korisnik može da prstupi stranici za administraciju svih zapisa, bez obzira na bezbednosna podešavanja tima.',
   'LBL_ADMIN_USER' => 'Administrator sistema',
@@ -99,6 +88,7 @@ $mod_strings = array (
   'LBL_CHANGE_PASSWORD' => 'Promena generisane lozinke.',
   'LBL_CHANGE_PASSWORD_TITLE' => 'Lozinka',
   'LBL_CHANGE_SYSTEM_PASSWORD' => 'Molim Vas da unesete novu lozinku.',
+  'LBL_CHECKMARK' => 'Potvrda',
   'LBL_CHOOSE_A_KEY' => 'Izaberite ključ kako bi sprečili neautorizovanu objavu svog kalendara',
   'LBL_CHOOSE_EMAIL_PROVIDER' => 'Izaberite vašeg Email provajdera:',
   'LBL_CHOOSE_WHICH' => 'Izaberite koje kartice se prikazuju',
@@ -119,6 +109,7 @@ $mod_strings = array (
   'LBL_DATE_MODIFIED' => 'Datum izmene',
   'LBL_DECIMAL_SEP' => 'Decimalni simbol',
   'LBL_DECIMAL_SEP_TEXT' => 'Karakter koji se koristi da bi se razdvojio decimalni deo',
+  'LBL_DEFAULT_PRIMARY_TEAM' => 'Podrazumevani primarni tim',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Korisnici',
   'LBL_DEFAULT_TEAM' => 'Podrazumevani timovi:',
   'LBL_DEFAULT_TEAM_TEXT' => 'U zapisima se podrazumevano pojavljuju dostupni timovi čiji ste član.',
@@ -168,12 +159,15 @@ $mod_strings = array (
   'LBL_EXT_AUTHENTICATE' => 'Spoljna Autentifikacija',
   'LBL_FAX' => 'Faks',
   'LBL_FAX_PHONE' => 'Faks:',
+  'LBL_FDOW' => 'Prvi dan u nedelji',
+  'LBL_FDOW_TEXT' => 'Prvi dan prikazan u pogledu nedelje, meseca i godine',
   'LBL_FIND_OPTIMUM_KEY' => 'f',
   'LBL_FIND_OPTIMUM_MSG' => '<br><br>Tražim optimalne parametre za uspostavljanje veze.',
   'LBL_FIND_OPTIMUM_TITLE' => 'Nađi optimalnu konfiguraciju',
   'LBL_FIRST_NAME' => 'Ime',
   'LBL_FORCE' => 'Forsiraj negativno',
   'LBL_FORCE_DESC' => 'Neki IMAP/POP3 serveri zahtevaju specijalne prekidače. Odaberite da bi forsirali negativan prekidač kada se konektujete (i.e., /notls)',
+  'LBL_FORECASTS' => 'Prognoze',
   'LBL_FOUND_OPTIMUM_MSG' => '<br><br>Nađena optimalna podešavanja. Pritisnite dugme ispod da bi se primenila na Vaše Email sanduče.',
   'LBL_GENERATE_PASSWORD' => 'Resetovanje lozinke',
   'LBL_GENERATE_PASSWORD_BUTTON_KEY' => 'G',
@@ -188,6 +182,8 @@ $mod_strings = array (
   'LBL_HIDEOPTIONS' => 'Sakrij Opcije',
   'LBL_HIDE_TABS' => 'Sakrij kartice',
   'LBL_HOME_PHONE' => 'Kućni telefon',
+  'LBL_ICAL_PUB_URL' => 'URL za integraciju sa iCal',
+  'LBL_ICAL_PUB_URL_HELP' => 'Iskoristite ovaj URL kako biste se prijavili na Sugar kalendar u okviru iCal',
   'LBL_INBOUND_TITLE' => 'Informacije o kompaniji',
   'LBL_IS_ADMIN' => 'Je administrator',
   'LBL_IS_GROUP' => 'grupni',
@@ -223,6 +219,9 @@ $mod_strings = array (
   'LBL_LOCALE_EXAMPLE_NAME_FORMAT' => 'Primer',
   'LBL_LOCALE_NAME_FORMAT_DESC' => 'Podesi kako će imena biti prikazana.',
   'LBL_LOCALE_NAME_FORMAT_DESC_2' => '<i>"s" Oslovljavanje<br>"f" Ime<br>"l" Prezime</i>',
+  'LBL_LOGGED_OUT_1' => 'Izlogovani ste. Molimo kliknite da se ponovo ulogujete.',
+  'LBL_LOGGED_OUT_2' => 'ovde',
+  'LBL_LOGGED_OUT_3' => '.',
   'LBL_LOGIN' => 'Korisničko ime',
   'LBL_LOGIN_ADMIN_CALL' => 'Molim Vas kontaktirajte administratora sistema.',
   'LBL_LOGIN_ATTEMPTS_OVERRUN' => 'Previše neuspešnih pokušaja pristupa sistemu.',
@@ -271,6 +270,7 @@ $mod_strings = array (
   'LBL_MODIFIED_BY_ID' => 'ID korisnika koji je promenio',
   'LBL_MODIFIED_USER_ID' => 'ID broj korisnika koji je promenio',
   'LBL_MODULE_NAME' => 'Korisnici',
+  'LBL_MODULE_NAME_SINGULAR' => 'Korisnik',
   'LBL_MODULE_TITLE' => 'Korisnici: Početna strana',
   'LBL_MY_TEAMS' => 'Moji timovi',
   'LBL_NAME' => 'Puno ime',
@@ -288,8 +288,11 @@ $mod_strings = array (
   'LBL_NEW_USER_PASSWORD_3' => 'Lozinka je kreirana uspešno.',
   'LBL_NORMAL_LOGIN' => 'Prebaci na običan pregled',
   'LBL_NOTES' => 'Beleške',
+  'LBL_NO_KEY' => 'Ključ nije podešen. Molimo podesite ključ kako biste omogućili izdavanje.',
   'LBL_NUMBER_GROUPING_SEP' => 'Separator hiljada',
   'LBL_NUMBER_GROUPING_SEP_TEXT' => 'Karakter koji se koristi da bi se razdvojile hiljade',
+  'LBL_OAUTH_TOKENS' => 'OAuth tokeni',
+  'LBL_OAUTH_TOKENS_SUBPANEL_TITLE' => 'OAuth pristupni tokeni',
   'LBL_OFFICE_PHONE' => 'Poslovni telefon',
   'LBL_OK' => 'OK',
   'LBL_OLD_PASSWORD' => 'Sadašnja lozinka',
@@ -338,6 +341,10 @@ $mod_strings = array (
   'LBL_PDF_SETTINGS' => 'PDF Podešavanja',
   'LBL_PHONE' => 'Telefon',
   'LBL_PHONE_FAX' => 'Telefax:',
+  'LBL_PHONE_HOME' => 'Kućni telefon',
+  'LBL_PHONE_MOBILE' => 'Mobilni telefon',
+  'LBL_PHONE_OTHER' => 'Drugi telefon',
+  'LBL_PHONE_WORK' => 'Poslovni telefon',
   'LBL_PICK_TZ_DESCRIPTION' => 'Pre nego što nastavite, molimo Vas da potvrdite vremensku zonu. Odaberite odgovarajuću vremensku zonu iz liste ispod i kliknite na Sačuvaj da bi nastavili dalje. Vremensku zonu možete promeniti u bilo kom trenutku u podešavanju Vašeg naloga.',
   'LBL_PICK_TZ_WELCOME' => 'Dobrodošli u Sugar.',
   'LBL_PICTURE_FILE' => 'Slika',
@@ -355,6 +362,7 @@ $mod_strings = array (
   'LBL_PROVIDE_USERNAME_AND_EMAIL' => 'Unesite korisničko ime i Email adresu.',
   'LBL_PSW_MODIFIED' => 'poslednja izmena lozinke',
   'LBL_PUBLISH_KEY' => 'Objavi ključ',
+  'LBL_QUOTAS' => 'Kvote',
   'LBL_REASS_ASSESSING' => 'Procena',
   'LBL_REASS_BUTTON_CLEAR' => 'Obriši',
   'LBL_REASS_BUTTON_CONTINUE' => 'Sledeći >',
@@ -366,6 +374,7 @@ $mod_strings = array (
   'LBL_REASS_CANNOT_PROCESS' => 'ne može da se obradi:',
   'LBL_REASS_CONFIRM_REASSIGN' => 'Da li želite da ponovo dodelite sve zapise ovog korisnika?',
   'LBL_REASS_CONFIRM_REASSIGN_NO' => 'Ne',
+  'LBL_REASS_CONFIRM_REASSIGN_TITLE' => 'Ponovo dodeli',
   'LBL_REASS_CONFIRM_REASSIGN_YES' => 'Da',
   'LBL_REASS_DESC_PART1' => 'Odaberite module koji sadrže zapise koje treba ponovo dodeliti sa određenog korisnika drugom korisniku.<br><br>Kliknite na Sledeći da bi ste videli broj zapisa koji će biti ažuriran u svakom odabranom modulu. Kliknite na Odustani da bi ste izašli sa strane bez ponovnog dodeljivanja bilo kojih zapisa.',
   'LBL_REASS_DESC_PART2' => 'Izaberite koji moduli će u okviru kojih pokrenuti radne tokove, poslati obaveštenja pri dodeli, i vršiti praćenje promena za vreme ponovnog dodeljivanja. Pritisnite Sledeći da biste nastavili da ponovo dodeljujete zapise. Kliknite Ponovo pokreni da počnete ispočetka.',
@@ -418,6 +427,8 @@ $mod_strings = array (
   'LBL_REGULAR_USER' => 'Redovni Korisnik',
   'LBL_REMINDER' => 'Podsetnici',
   'LBL_REMINDER_EMAIL' => 'Email',
+  'LBL_REMINDER_EMAIL_ALL_INVITEES' => 'Pošaljite email svim pozvanima.',
+  'LBL_REMINDER_POPUP' => 'Popup',
   'LBL_REMINDER_TEXT' => 'Postavite podrazumevane vrednosti podsetnika za pozive i sastanke.',
   'LBL_REMOVED_TABS' => 'Administrator uklanja kartice',
   'LBL_REPORTS_TO' => 'Nadređeni',
@@ -447,6 +458,8 @@ $mod_strings = array (
   'LBL_SESSION_EXPIRED' => 'Odjavljeni ste zbog toga što je istekla sesija.',
   'LBL_SETTINGS_URL' => 'URL',
   'LBL_SETTINGS_URL_DESC' => 'Koristite ovaj URL kada uspostavljate podešavanje za prijavljivanje u Sugar Plug-in za Microsoft&reg; Outlook&reg; i Sugar Plug-in za Microsoft&reg; Word&reg;',
+  'LBL_SHOWOPTIONS' => 'Pokaži opcije',
+  'LBL_SHOW_ON_EMPLOYEES' => 'Prikaži zaposlenog',
   'LBL_SIGNATURE' => 'Potpis',
   'LBL_SIGNATURES' => 'Potpisi',
   'LBL_SIGNATURE_DEFAULT' => 'Koristi potpis?',
@@ -472,6 +485,8 @@ $mod_strings = array (
   'LBL_TAB_TITLE_EMAIL' => 'Email podešavanja',
   'LBL_TAB_TITLE_USER' => 'Podešavanja korisnika',
   'LBL_TEAMS' => 'Timovi',
+  'LBL_TEAM_MEMBERSHIP' => 'Članstvo u timu',
+  'LBL_TEAM_SET' => 'Postavljeni tim',
   'LBL_TEAM_UPLINE' => 'Član odgovara pretpostavljenom',
   'LBL_TEAM_UPLINE_EXPLICIT' => 'Član',
   'LBL_TEST_BUTTON_KEY' => 't',
@@ -510,6 +525,25 @@ $mod_strings = array (
   'LBL_USE_REAL_NAMES_DESC' => 'Prikaži puno ime korisnika umesto njegovog korisničkog imena',
   'LBL_WIZARD_BACK_BUTTON' => '< Nazad',
   'LBL_WIZARD_FINISH' => 'Kliknite <b>Završi</b> ispod da sačuvate vaša podešavanja i da počnete da koristite Sugar. Za više informacija o korišćenju Sugar aplikacije:<br><table cellpadding=0 cellspacing=0><tr><td><img src=include/images/university.png style="margin-right: 5px;"></td><td><a href="http://www.sugarcrm.com/university" target="_blank"><b>Sugar University</b></a><br>Počnite sa obukom i resursima za krajnje korisnike, iskusne korisnike i sistemske administratore na Sugar Univerzitetu .</td></tr><tr><td colspan=2><hr style="margin: 5px 0px;"></td></tr><tr><td><img src=include/images/docs.png style="margin-right: 5px;"></td><td><a href="http://docs.sugarcrm.com/" target="_blank"><b>Dokumentacija</b></a><br>Dokumentacija o proizvodu koja može da vam pomogne sa svim verzijama Sugar aplikacije i zvaničnih Sugar dodatka i ekstenzija.</td></tr><tr><td colspan=2><hr style="margin: 5px 0px;"></td></tr><tr><td><img src=include/images/kb.png style="margin-right: 5px;"></td><td><a href="http://kb.sugarcrm.com/" target="_blank"><b>Baza Znanja</b></a><br>Kolekcija članaka o obavljanju osnovnih zadataka i odgovora na često postavljena pitanja</td></tr><tr><td colspan=2><hr style="margin: 5px 0px;"></td></tr><tr><td><img src=include/images/wiki.png style="margin-right: 5px;"></td><td><a href="http://www.sugarcrm.com/wiki" target="_blank"><b>Wiki</b></a><br>Kolekcija članaka o obavljanju osnovnih zadataka i odgovora na često postavljena pitanja</td></tr><tr><td colspan=2><hr style="margin: 5px 0px;"></td></tr><tr><td><img src=include/images/forums.png style="margin-right: 5px;"></td><td><a href="http://www.sugarcrm.com/forums" target="_blank"><b>Forumi</b></a><br>Zajednica korisnika i članova Sugar tima provode vreme ovde diskutujući različite teme o Sugar aplikaciji.</td></tr></table>',
+  'LBL_WIZARD_FINISH1' => 'Šta želite da uradite sledeće?',
+  'LBL_WIZARD_FINISH10' => 'Upotrebite Studio da napravite i upravljate poljima i rasporedima aplikacija',
+  'LBL_WIZARD_FINISH11' => 'Posetite Sugar Univerzitet',
+  'LBL_WIZARD_FINISH12' => 'Pronađite trening materijale i časove koji će vam pomoći da počnete kao sistemski administrator ili krajnji korisnik aplikacije.',
+  'LBL_WIZARD_FINISH14' => 'Dokumentacija',
+  'LBL_WIZARD_FINISH15' => 'Vodiči i beleške o izdanju proizvoda',
+  'LBL_WIZARD_FINISH16' => 'Baza znanja',
+  'LBL_WIZARD_FINISH17' => 'Saveti SugarCRM podrške za izvođenje uobičajenih zadataka i procesa u Sugar-u',
+  'LBL_WIZARD_FINISH18' => 'Forumi',
+  'LBL_WIZARD_FINISH19' => 'Forumi posvećeni Sugar zajednici na kojima možete govori o temama od insteresa sa drugima, kao i sa SugarCRM razvojnim inženjerima.',
+  'LBL_WIZARD_FINISH2' => 'Počni da koristiš Sugar',
+  'LBL_WIZARD_FINISH2DESC' => 'Idi direktno na početnu stranu aplikacije',
+  'LBL_WIZARD_FINISH3' => 'Uvezi podatke',
+  'LBL_WIZARD_FINISH4' => 'Uvezi podatke iz eksternog izvora u aplikaciju',
+  'LBL_WIZARD_FINISH5' => 'Napravi korisnike',
+  'LBL_WIZARD_FINISH6' => 'Napravi nove korisničke naloge ljudima da bi mogli da koriste aplikaciju.',
+  'LBL_WIZARD_FINISH7' => 'Pregledaj i upravljaj podešavanjima aplikacije',
+  'LBL_WIZARD_FINISH8' => 'Upravljaj naprednim podešavanjima, uključujući podrazumevana podešavanja aplikacije',
+  'LBL_WIZARD_FINISH9' => 'Podesi aplikaciju',
   'LBL_WIZARD_FINISH_BUTTON' => 'Završi',
   'LBL_WIZARD_FINISH_TAB' => 'Završi',
   'LBL_WIZARD_FINISH_TITLE' => 'Spremni ste da koristite Sugar!',
@@ -526,6 +560,7 @@ $mod_strings = array (
   'LBL_WIZARD_WELCOME_NOSMTP' => 'Kliknite <b>Sledeći</b> da konfigurišete nekoliko osnovnih podešavanja za korišćenje Sugar-a.',
   'LBL_WIZARD_WELCOME_TAB' => 'Dobrodošli',
   'LBL_WIZARD_WELCOME_TITLE' => 'Dobrodošli u Sugar!',
+  'LBL_WORKSHEETS' => 'Radni listovi',
   'LBL_WORK_PHONE' => 'Poslovni telefon',
   'LBL_YAHOOMAIL_SMTPPASS' => 'Lozinka za Yahoo! email:',
   'LBL_YAHOOMAIL_SMTPUSER' => 'ID za Yahoo! email:',

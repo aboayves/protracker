@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -35,6 +21,7 @@ $mod_strings = array (
   'ERR_DELETE_RECORD' => 'Ha d´especificar un número de registre a eliminar.',
   'LBL_ACCEPT_LINK' => 'Acceptar enllaç',
   'LBL_ACCEPT_STATUS' => 'Acceptar estat',
+  'LBL_ACCOUNT_NAME' => 'Compte',
   'LBL_ACTIVITIES_REPORTS' => 'Informe d&#39;activitat',
   'LBL_ADD_BUTTON' => 'Afegir',
   'LBL_ADD_INVITEE' => 'Afegir Convidats',
@@ -45,14 +32,17 @@ $mod_strings = array (
   'LBL_CALL_INFORMATION' => 'Visió General',
   'LBL_CANCEL_CREATE_INVITEE' => 'Cancel·lar',
   'LBL_COLON' => ':',
+  'LBL_CONFIRM_REMOVE_ALL_RECURRENCES' => 'Està segur de voler eliminar tots els registres que es repeteixen?',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contactes',
   'LBL_CONTACT_NAME' => 'Contacte:',
   'LBL_CREATE_AND_ADD' => 'Crear i Afegir',
   'LBL_CREATE_CONTACT' => 'Com contacte',
   'LBL_CREATE_INVITEE' => 'Crear un convidat',
   'LBL_CREATE_LEAD' => 'Com client potencial',
+  'LBL_CREATE_MODULE' => 'Registrar trucada',
   'LBL_DATE' => 'Data Inici:',
   'LBL_DATE_END' => 'Data de Fi',
+  'LBL_DATE_END_ERROR' => 'Data de finalització és abans de la data d&#39;inici',
   'LBL_DATE_TIME' => 'Inici:',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Trucades',
   'LBL_DEL' => 'Esborrar',
@@ -62,6 +52,7 @@ $mod_strings = array (
   'LBL_DURATION' => 'Durada:',
   'LBL_DURATION_HOURS' => 'Hores Durada:',
   'LBL_DURATION_MINUTES' => 'Minuts Durada:',
+  'LBL_EDIT_ALL_RECURRENCES' => 'Edita totes les recurrències',
   'LBL_EMAIL' => 'Correu',
   'LBL_EMAIL_REMINDER' => 'Recordatori per correu electrònic',
   'LBL_EMAIL_REMINDER_SENT' => 'Recordatori per correu electrònic enviat',
@@ -96,6 +87,7 @@ $mod_strings = array (
   'LBL_MEMBER_OF' => 'Membre De',
   'LBL_MINSS_ABBREV' => 'm',
   'LBL_MODULE_NAME' => 'Trucades',
+  'LBL_MODULE_NAME_SINGULAR' => 'Trucada',
   'LBL_MODULE_TITLE' => 'Trucades: Inici',
   'LBL_NAME' => 'Nom',
   'LBL_NEW_FORM_TITLE' => 'Crear Cita',
@@ -103,16 +95,25 @@ $mod_strings = array (
   'LBL_OUTLOOK_ID' => 'ID Outlook',
   'LBL_PARENT_ID' => 'ID Pare',
   'LBL_PHONE' => 'Telèfon',
+  'LBL_RECURRENCE' => 'Reaparició',
+  'LBL_RECURRING_LIMIT_ERROR' => 'La recurrència de no es pot programar pel fet que excedeix el màxim permès de recurrència $limit.',
   'LBL_RECURRING_SOURCE' => 'Font periódico',
+  'LBL_RELATED_RECORD_DEFAULT_NAME' => 'Trucada amb {{{this}}}',
   'LBL_RELATED_TO' => 'Relatiu a',
   'LBL_REMINDER' => 'Avís',
   'LBL_REMINDER_EMAIL' => 'Email',
+  'LBL_REMINDER_EMAIL_ALL_INVITEES' => 'Enviar correu electrònic a tots els convidats',
   'LBL_REMINDER_POPUP' => 'Popup',
   'LBL_REMINDER_TIME' => 'Hora Avís',
   'LBL_REMOVE' => 'treure',
+  'LBL_REMOVE_ALL_RECURRENCES' => 'Eliminar totes les recurrències',
   'LBL_REPEAT_COUNT' => 'Nombre de repeticions',
   'LBL_REPEAT_DOW' => 'Repetiu el Dow',
+  'LBL_REPEAT_END' => 'Fi',
+  'LBL_REPEAT_END_AFTER' => 'Desprès',
+  'LBL_REPEAT_END_BY' => 'Per',
   'LBL_REPEAT_INTERVAL' => 'Interval de repetició',
+  'LBL_REPEAT_OCCURRENCES' => 'ocurrències',
   'LBL_REPEAT_PARENT_ID' => 'Repetiu l&#39;ID principal',
   'LBL_REPEAT_TYPE' => 'Repetició',
   'LBL_REPEAT_UNTIL' => 'Repetiu fins que',
@@ -123,8 +124,10 @@ $mod_strings = array (
   'LBL_SEND_BUTTON_KEY' => 'I',
   'LBL_SEND_BUTTON_LABEL' => 'Enviar Invitacions',
   'LBL_SEND_BUTTON_TITLE' => 'Enviar Invitacions [Alt+I]',
+  'LBL_SEND_INVITES' => 'Enviar Invitacions',
   'LBL_STATUS' => 'Estat:',
   'LBL_SUBJECT' => 'Assumpte:',
+  'LBL_SYNCED_RECURRING_MSG' => 'Aquesta trucada es va originar en un altre sistema i es sincronitzen amb el Sugar. Per realitzar canvis, aneu a la trucada original en l$#39;altre sistema. Els canvis realitzats en l$#39;altre sistema es pot sincronitzar amb aquest registre.',
   'LBL_TIME' => 'Hora inici:',
   'LBL_TIME_END' => 'Hora de Fi',
   'LBL_USERS_SUBPANEL_TITLE' => 'Usuaris',

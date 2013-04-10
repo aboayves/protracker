@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 SUGAR.expressions.initFormulaBuilder=function(){var Dom=YAHOO.util.Dom,Connect=YAHOO.util.Connect,Msg=YAHOO.SUGAR.MessageBox;SUGAR.expressions.getFunctionList=function()
 {var typeMap=SUGAR.expressions.Expression.TYPE_MAP;var funcMap=SUGAR.FunctionMap;var funcList=[];for(var i in funcMap){if(typeof funcMap[i]=="function"&&funcMap[i].prototype){for(var j in typeMap){if(funcMap[i].prototype instanceof typeMap[j]){funcList[funcList.length]=[i,j];break;}}}}
@@ -73,7 +59,9 @@ var expression=YAHOO.lang.trim(Dom.get('formulaInput').value);var tokens=new SUG
 if(typeof(silent)=='undefined'||!silent)
 Msg.show({msg:"Validation Sucessfull"});return true;}catch(e){Msg.show({title:SUGAR.language.get("ModuleBuilder","LBL_FORMULA_INVALID"),msg:YAHOO.lang.escapeHTML(e.message?e.message:e)});return false;}}
 SUGAR.expressions.saveCurrentExpression=function(target,returnType)
-{if(!SUGAR.expressions.validateCurrExpression(true,returnType))
+{var expression=YAHOO.lang.trim(Dom.get('formulaInput').value);var res="";var quote=0;for(var i=0;i<expression.length;i++){var ch=expression.substr(i,1);if(ch=='"'){quote++;}
+if((quote%2)||ch!=" "){res+=ch;}}
+Dom.get('formulaInput').value=res;if(!SUGAR.expressions.validateCurrExpression(true,returnType))
 return false;if(YAHOO.lang.isString(target))
 target=Dom.get(target);target.value=Dom.get("formulaInput").value;if(typeof target.onchange=="function")
 {target.onchange();}
@@ -116,7 +104,9 @@ SUGAR.rollupWindow.hide();}
 SUGAR.expressions.insertRelated=function(){$.markItUp({target:"#formulaInput",closeWith:"related($"+$("#selrf_rmodule").val()+",\""+$("#selrf_rfield").val()+"\")"});SUGAR.formulaRelFieldWin.hide()}
 $("#formulaInput").markItUp({onShiftEnter:{keepDefault:true},onCtrlEnter:{keepDefault:true},onTab:{keepDefault:false,replaceWith:'    '},markupSet:[{name:SUGAR.language.get("ModuleBuilder","LBL_RELATED_FIELD"),className:'rel_field button',beforeInsert:function(){if(!SUGAR.formulaRelFieldWin)
 SUGAR.formulaRelFieldWin=new YAHOO.SUGAR.AsyncPanel('relatedFieldWindow',{width:400,draggable:true,close:true,constraintoviewport:true,fixedcenter:false,script:false,modal:true});var win=SUGAR.formulaRelFieldWin;win.setHeader(SUGAR.language.get("ModuleBuilder","LBL_FORMULA_BUILDER"));win.setBody("loading...");win.render(document.body);SUGAR.expressions.updateSelRFLink("");win.show();win.center();}},{name:SUGAR.language.get("ModuleBuilder","LBL_ROLLUP"),className:'rollup button',beforeInsert:function(){if(!SUGAR.rollupWindow)
-SUGAR.rollupWindow=new YAHOO.SUGAR.AsyncPanel('rollupWindow',{width:400,draggable:true,close:true,constraintoviewport:true,fixedcenter:false,script:false,modal:true});var win=SUGAR.rollupWindow;win.setHeader(SUGAR.language.get("ModuleBuilder","LBL_FORMULA_BUILDER"));win.setBody("loading...");win.render(document.body);SUGAR.expressions.updateRollupWizard("","");win.show();win.center();}}]});if($("#fb_ac_wrapper").length==0){$("body").append("<input id='fb_ac_input' style='display:none;z-index:50;position:relative'>"+"<div id='fb_ac_wrapper' style='position: absolute;'>"+"<div id='fb_ac_spacer'></div>"+"</div>")
+SUGAR.rollupWindow=new YAHOO.SUGAR.AsyncPanel('rollupWindow',{width:400,draggable:true,close:true,constraintoviewport:true,fixedcenter:false,script:false,modal:true});var win=SUGAR.rollupWindow;win.setHeader(SUGAR.language.get("ModuleBuilder","LBL_FORMULA_BUILDER"));win.setBody("loading...");win.render(document.body);SUGAR.expressions.updateRollupWizard("","");win.show();win.center();}}]});var maxZ=Math.max.apply(null,$.map($('body > *'),function(element,index)
+{return parseInt($(element).css('z-index'))||1;}));if($("#fb_ac_wrapper").length==0)
+{$("body").append("<input id='fb_ac_input' style='display: none; z-index: "+maxZ+"; position: relative'>"+"<div id='fb_ac_wrapper' style='position: absolute;'>"+"<div id='fb_ac_spacer'></div>"+"</div>")
 $("#fb_ac_wrapper").position({my:"left top",at:"left top",of:"#formulaInput"});}
 var fb_ac_open=false;var getCompStart=function(val,offset)
 {var start=0,chars={",":"",".":"","(":"",")":""};for(var c in chars)
@@ -167,7 +157,11 @@ var updateACSpacer=function()
 {var start=getCompStart(rows[i],rows[i].length-1);if(start==0){rows[i]=new RegExp("^\\s*").exec(rows[i])[0];}else{rows[i]=rows[i].substring(0,start);}}
 var line=htmlentities(rows[i],"ENT_NOQUOTES").replace(/\t/g,"&nbsp;&nbsp;&nbsp;&nbsp;").replace(/ /g,"&nbsp;");html+="<div class='fb_ac_spacer"+(i!=rows.length-1?" fb_ac_spacer_line'>":"'>")+line+"</div>";}
 $("#fb_ac_wrapper .fb_ac_spacer").remove();$("#fb_ac_wrapper ul.ui-autocomplete").before(html);}
-$('body').append("<div id='fb_ac_help' class='fb_ac_help'></div>'");var hideACHelp=function(){$("#fb_ac_help").css("visibility","hidden");};var showACHelp=function(func){var ggt=SUGAR.expressions.GridToolTip,cache=ggt.tipCache,div=$("#fb_ac_help");if(ggt.currentHelpFunc==func&&div.css("visibility")!="hidden")
+var maxZTooltip=maxZ+2;if($("#fb_ac_help").length==0)
+{$('body').append("<div id='fb_ac_help' style='z-index: "+maxZTooltip+";' class='fb_ac_help'></div>'");}
+var hideACHelp=function()
+{$("#fb_ac_help").css("visibility","hidden");};var showACHelp=function(func)
+{var ggt=SUGAR.expressions.GridToolTip,cache=ggt.tipCache,div=$("#fb_ac_help");if(ggt.currentHelpFunc==func&&div.css("visibility")!="hidden")
 return;ggt.currentHelpFunc=func;var do_show=function(){if(!fb_ac_open)return;if(typeof cache[func]=='string'){div.html(cache[func]);}else{div.html("loading...");$.ajax({url:Connect.url,data:{"function":func,action:"functionDetail",module:"ExpressionEngine"},success:function(data){var desc=$.parseJSON(data).desc;cache[func]=desc;div.html(desc);}});}
 div.position({my:"left top",at:"right top",of:"#fb_ac_wrapper ul.ui-autocomplete"});div.css("visibility","visible");}
 if(SUGAR.expressions.fb_ac_help_timer)

@@ -2,30 +2,16 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -174,6 +160,18 @@ class ImportDuplicateCheck
      */
     public function isADuplicateRecord( $indexlist )
     {
+        // Bug #51264 : Importing updates to rows prevented by duplicates check
+        if ( !empty($this->_focus) && ($this->_focus instanceof SugarBean) && !empty($this->_focus->id) )
+        {
+            $_focus = clone $this->_focus;
+            $_focus->id = null;
+            $_focus->retrieve($this->_focus->id);
+            if ( !empty($_focus->id) )
+            {
+                return false;
+            }
+            unset($_focus);
+        }
 
         //lets strip the indexes of the name field in the value and leave only the index name
         $origIndexList = $indexlist;
@@ -234,7 +232,7 @@ class ImportDuplicateCheck
             // Adds a hook so you can define a method in the bean to handle dupe checking
             elseif ( isset($index['dupeCheckFunction']) ) {
                 $functionName = substr_replace($index['dupeCheckFunction'],'',0,9);
-                if ( method_exists($this->_focus,$functionName) )
+                if ( method_exists($this->_focus,$functionName) && $this->_focus->$functionName($index) === true)
                     return $this->_focus->$functionName($index);
             }
             else {

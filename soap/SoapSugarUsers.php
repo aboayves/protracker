@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('soap/SoapHelperFunctions.php');
@@ -259,7 +245,7 @@ function seamless_login($session){
 		if(!validate_authenticated($session)){
 			return 0;
 		}
-		$_SESSION['seamless_login'] = true;
+		
 		return 1;
 }
 
@@ -292,7 +278,7 @@ $server->register(
  *               'error' -- The SOAP error, if any
  */
 function get_entry_list($session, $module_name, $query, $order_by,$offset, $select_fields, $max_results, $deleted ){
-	global  $beanList, $beanFiles;
+	global  $beanList, $beanFiles, $current_user;
 	$error = new SoapError();
 	if(!validate_authenticated($session)){
 		$error->set_error('invalid_login');
@@ -361,6 +347,13 @@ function get_entry_list($session, $module_name, $query, $order_by,$offset, $sele
     }
 	// retrieve the vardef information on the bean's fields.
 	$field_list = array();
+    
+    require_once 'modules/Currencies/Currency.php';
+
+    $userCurrencyId = $current_user->getPreference('currency');
+    $userCurrency = new Currency;
+    $userCurrency->retrieve($userCurrencyId);
+
 	foreach($list as $value)
 	{
 		if(isset($value->emailAddress)){
@@ -370,6 +363,36 @@ function get_entry_list($session, $module_name, $query, $order_by,$offset, $sele
             $value->retrieveEmailText();
         }
 		$value->fill_in_additional_detail_fields();
+
+        // bug 55129 - populate currency from user settings
+        if (property_exists($value, 'currency_id') && $userCurrency->deleted != 1)
+        {
+            // walk through all currency-related fields
+            foreach ($value->field_defs as $temp_field)
+            {
+                if (isset($temp_field['type']) && 'relate' == $temp_field['type']
+                    && isset($temp_field['module'])  && 'Currencies' == $temp_field['module']
+                    && isset($temp_field['id_name']) && 'currency_id' == $temp_field['id_name'])
+                {
+                    // populate related properties manually
+                    $temp_property     = $temp_field['name'];
+                    $currency_property = $temp_field['rname'];
+                    $value->$temp_property = $userCurrency->$currency_property;
+                }
+                else if ($value->currency_id != $userCurrency->id
+                         && isset($temp_field['type'])
+                         && 'currency' == $temp_field['type']
+                         && substr($temp_field['name'], -9) != '_usdollar')
+                {
+                    $temp_property = $temp_field['name'];
+                    $value->$temp_property *= $userCurrency->conversion_rate;
+                }
+            }
+
+            $value->currency_id = $userCurrencyId;
+        }
+        // end of bug 55129
+
 		$output_list[] = get_return_value($value, $module_name);
 		if(empty($field_list)){
 			$field_list = get_field_list($value);
@@ -1147,6 +1170,11 @@ function get_relationships($session, $module_name, $module_id, $related_module, 
 
 	$related_mod->add_team_security_where_clause($sql);
 
+    if (isset($related_mod->custom_fields)) {
+        $customJoin = $related_mod->custom_fields->getJOIN();
+        $sql .= $customJoin ? $customJoin['join'] : '';
+    }
+
 	$sql .= " WHERE {$related_mod->table_name}.id IN ({$in}) ";
 
 	if (!empty($related_module_query)) {
@@ -1199,7 +1227,7 @@ function set_relationship($session, $set_relationship_value){
 		$error->set_error('invalid_login');
 		return $error->get_soap_array();
 	}
-	return handle_set_relationship($set_relationship_value);
+	return handle_set_relationship($set_relationship_value, $session);
 }
 
 $server->register(
@@ -1228,7 +1256,7 @@ function set_relationships($session, $set_relationship_list){
 	$count = 0;
 	$failed = 0;
 	foreach($set_relationship_list as $set_relationship_value){
-		$reter = handle_set_relationship($set_relationship_value);
+		$reter = handle_set_relationship($set_relationship_value, $session);
 		if($reter['number'] == 0){
 			$count++;
 		}else{
@@ -1251,7 +1279,7 @@ function set_relationships($session, $set_relationship_list){
  *      'module2_id' -- The ID of the bean in the specified module
  * @return Empty error on success, Error on failure
  */
-function handle_set_relationship($set_relationship_value)
+function handle_set_relationship($set_relationship_value, $session='')
 {
     global  $beanList, $beanFiles;
     $error = new SoapError();
@@ -1368,7 +1396,17 @@ function handle_set_relationship($set_relationship_value)
     	$key = strtolower($module2);
     	$mod->load_relationship($key);
     	$mod->$key->add($module2_id);
-    }else{
+    }
+    else if ($module1 == 'Contacts' && ($module2 == 'Notes' || $module2 == 'Calls' || $module2 == 'Meetings' || $module2 == 'Tasks') && !empty($session)){
+        $mod->$key = $module2_id;
+        $mod->save_relationship_changes(false);
+        if (!empty($mod->account_id)) {
+            // when setting a relationship from a Contact to these activities, if the Contacts is related to an Account,
+            // we want to associate that Account to the activity as well
+            $ret = set_relationship($session, array('module1'=>'Accounts', 'module1_id'=>$mod->account_id, 'module2'=>$module2, 'module2_id'=>$module2_id));
+        }
+    }
+    else{
     	$mod->$key = $module2_id;
     	$mod->save_relationship_changes(false);
     }
@@ -1983,6 +2021,9 @@ function get_entries_count($session, $module_name, $query, $deleted) {
 
 	$seed->add_team_security_where_clause($sql);
 
+    $customJoin = $seed->getCustomJoin();
+    $sql .= $customJoin['join'];
+
 	// build WHERE clauses, if any
 	$where_clauses = array();
 	if (!empty($query)) {
@@ -2255,4 +2296,3 @@ function handle_set_entries($module_name, $name_value_lists, $select_fields = FA
 	}
 }
 
-?>

@@ -1,11 +1,11 @@
 <?php
-$searchdefs ['Notes'] = 
-array (
+// created: 2013-04-10 13:54:09
+$searchdefs['Notes'] = array (
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
@@ -14,13 +14,13 @@ array (
     ),
     'advanced_search' => 
     array (
-      'name' => 
+      0 => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      'contact_name' => 
+      1 => 
       array (
         'type' => 'name',
         'link' => 'contact',
@@ -29,7 +29,7 @@ array (
         'default' => true,
         'name' => 'contact_name',
       ),
-      'parent_name' => 
+      2 => 
       array (
         'type' => 'parent',
         'label' => 'LBL_RELATED_TO',
@@ -37,13 +37,13 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      'filename' => 
+      3 => 
       array (
         'name' => 'filename',
         'default' => true,
         'width' => '10%',
       ),
-      'created_by_name' => 
+      4 => 
       array (
         'type' => 'relate',
         'label' => 'LBL_CREATED_BY',
@@ -51,7 +51,7 @@ array (
         'default' => true,
         'name' => 'created_by_name',
       ),
-      'date_entered' => 
+      5 => 
       array (
         'type' => 'datetime',
         'label' => 'LBL_DATE_ENTERED',
@@ -69,6 +69,6 @@ array (
       'label' => '10',
       'field' => '30',
     ),
+    'maxColumnsBasic' => '3',
   ),
 );
-?>

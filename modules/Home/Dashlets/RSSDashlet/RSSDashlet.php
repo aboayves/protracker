@@ -1,97 +1,83 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
 require_once('include/Dashlets/Dashlet.php');
 require_once('include/Sugar_Smarty.php');
 
-class RSSDashlet extends Dashlet 
+class RSSDashlet extends Dashlet
 {
     protected $url = 'http://www.sugarcrm.com/crm/aggregator/rss/1';
     protected $height = '200'; // height of the pad
     protected $images_dir = 'modules/Home/Dashlets/RSSDashlet/images';
 
     /**
-     * Constructor 
-     * 
+     * Constructor
+     *
      * @global string current language
      * @param guid $id id for the current dashlet (assigned from Home module)
      * @param array $def options saved for this dashlet
      */
-    public function __construct($id, $def) 
+    public function __construct($id, $def)
     {
         $this->loadLanguage('RSSDashlet', 'modules/Home/Dashlets/'); // load the language strings here
-            
+
         if(!empty($def['height'])) // set a default height if none is set
             $this->height = $def['height'];
-            
+
         if(!empty($def['url']))
             $this->url = $def['url'];
-        
+
         if(!empty($def['title']))
             $this->title = $def['title'];
         else
             $this->title = $this->dashletStrings['LBL_TITLE'];
-        
+
         if(isset($def['autoRefresh'])) $this->autoRefresh = $def['autoRefresh'];
-        
+
         parent::Dashlet($id); // call parent constructor
-         
+
         $this->isConfigurable = true; // dashlet is configurable
         $this->hasScript = false;  // dashlet has javascript attached to it
     }
 
     /**
      * Displays the dashlet
-     * 
+     *
      * @return string html to display dashlet
      */
-    public function display() 
+    public function display()
     {
         $ss = new Sugar_Smarty();
         $ss->assign('saving', $this->dashletStrings['LBL_SAVING']);
         $ss->assign('saved', $this->dashletStrings['LBL_SAVED']);
         $ss->assign('id', $this->id);
         $ss->assign('height', $this->height);
-        $ss->assign('rss_output', $this->getRSSOutput($this->url)); 
+        $ss->assign('rss_output', $this->getRSSOutput($this->url));
         $str = $ss->fetch('modules/Home/Dashlets/RSSDashlet/RSSDashlet.tpl');
         return parent::display($this->dashletStrings['LBL_DBLCLICK_HELP']) . $str; // return parent::display for title and such
     }
-    
+
     /**
      * Displays the configuration form for the dashlet
-     * 
+     *
      * @return string html to display form
      */
     public function displayOptions() {
         global $app_strings, $sugar_version, $sugar_config;
-        
+
         $ss = new Sugar_Smarty();
         $ss->assign('titleLbl', $this->dashletStrings['LBL_CONFIGURE_TITLE']);
         $ss->assign('heightLbl', $this->dashletStrings['LBL_CONFIGURE_HEIGHT']);
@@ -108,29 +94,29 @@ class RSSDashlet extends Dashlet
 			$ss->assign('autoRefreshOptions', $this->getAutoRefreshOptions());
 			$ss->assign('autoRefreshSelect', $this->autoRefresh);
 		}
-        
+
         return parent::displayOptions() . $ss->fetch('modules/Home/Dashlets/RSSDashlet/RSSDashletOptions.tpl');
-    }  
+    }
 
     /**
      * called to filter out $_REQUEST object when the user submits the configure dropdown
-     * 
+     *
      * @param array $req $_REQUEST
      * @return array filtered options to save
-     */  
+     */
     public function saveOptions(
         array $req
-        ) 
+        )
     {
         $options = array();
         $options['title'] = $req['title'];
         $options['url'] = $req['url'];
         $options['height'] = $req['height'];
         $options['autoRefresh'] = empty($req['autoRefresh']) ? '0' : $req['autoRefresh'];
-        
+
         return $options;
     }
-    
+
     protected function getRSSOutput(
         $url
         )
@@ -141,7 +127,7 @@ class RSSDashlet extends Dashlet
         // return back the error message if the loading wasn't successful
         if (!$rssdoc)
             return $this->dashletStrings['ERR_LOADING_FEED'];
-        
+
         $output = "<table class='edit view'>";
         if ( isset($rssdoc->channel) ) {
             foreach ( $rssdoc->channel as $channel ) {
@@ -176,7 +162,7 @@ EOHTML;
             }
         }
         $output .= "</table>";
-        
+
         return $output;
     }
 }

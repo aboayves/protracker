@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('include/ListView/ListViewSmarty.php');
@@ -68,6 +54,8 @@ class PopupSmarty extends ListViewSmarty{
 		$this->module = $module;
 		$this->searchForm = new SearchForm($this->seed, $this->module);
 		$this->th->deleteTemplate($module, $this->view);
+        $this->headerTpl = 'include/Popups/tpls/header.tpl';
+        $this->footerTpl = 'include/Popups/tpls/footer.tpl';
 
 	}
 
@@ -222,8 +210,8 @@ class PopupSmarty extends ListViewSmarty{
 		$json = getJSONobj();
 		$this->th->ss->assign('jsLang', $jsLang);
 		$this->th->ss->assign('lang', substr($GLOBALS['current_language'], 0, 2));
-		$this->th->ss->assign('headerTpl', 'include/Popups/tpls/header.tpl');
-        $this->th->ss->assign('footerTpl', 'include/Popups/tpls/footer.tpl');
+        $this->th->ss->assign('headerTpl', $this->headerTpl);
+        $this->th->ss->assign('footerTpl', $this->footerTpl);
         $this->th->ss->assign('ASSOCIATED_JAVASCRIPT_DATA', 'var associated_javascript_data = '.$json->encode($associated_row_data). '; var is_show_fullname = '.$is_show_fullname.';');
 		$this->th->ss->assign('module', $this->seed->module_dir);
 		$request_data = empty($_REQUEST['request_data']) ? '' : $_REQUEST['request_data'];
@@ -279,6 +267,7 @@ class PopupSmarty extends ListViewSmarty{
 		$params = array();
 		if(!empty($this->_popupMeta['orderBy'])){
 			$params['orderBy'] = $this->_popupMeta['orderBy'];
+			$params['overrideOrder'] = true;
 		}
 
 		if(file_exists('custom/modules/'.$this->module.'/metadata/metafiles.php')){
@@ -394,7 +383,27 @@ class PopupSmarty extends ListViewSmarty{
             }
             
         }
-        
+        else if (!empty($_REQUEST['request_data']))
+        {
+            $request_data = get_object_vars(json_decode(htmlspecialchars_decode($_REQUEST['request_data'])));
+
+            if (!empty($request_data['field_to_name_array']))
+            {
+                $request_data['field_to_name'] = get_object_vars($request_data['field_to_name_array']);
+                if (is_array($request_data['field_to_name']))
+                {
+                    foreach ($request_data['field_to_name'] as $add_field)
+                    {
+                        $add_field = strtolower($add_field);
+                        if ($add_field != 'id' && !isset($this->filter_fields[$add_field]) && isset($this->seed->field_defs[$add_field]))
+                        {
+                            $this->filter_fields[$add_field] = true;
+                        }
+                    }
+                }
+            }
+        }
+
         //check for team_set_count
         if(!empty($this->filter_fields['team_name']) && empty($this->filter_fields['team_count'])){
         	$this->filter_fields['team_count'] = true;

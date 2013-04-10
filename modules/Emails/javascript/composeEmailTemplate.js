@@ -1,32 +1,18 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 SUGAR.email2.templates['compose'] = '<div id="composeLayout{idx}" class="ylayout-inactive-content"></div>' +
-'<div id="composeOverFrame{idx}" style="height:100%;width:100%">' +
+'<div id="composeOverFrame{idx}" style="height:100%;width:100%;position:absolute;top:0px">' +
 '	<form id="emailCompose{idx}" name="ComposeEditView{idx}" action="index.php" method="POST">' +
 '		<input type="hidden" id="email_id{idx}" name="email_id" value="">' +
 '		<input type="hidden" id="uid{idx}" name="uid" value="">' +
@@ -81,12 +67,13 @@ SUGAR.email2.templates['compose'] = '<div id="composeLayout{idx}" class="ylayout
 '						</tr>' +
 '						<tr>' +
 '							<td class="emailUILabel" NOWRAP>' +
-'								<button class="button" type="button" onclick="SUGAR.email2.addressBook.selectContactsDialogue(\'addressTO{idx}\')">' + 
+'								<br /><button class="button" type="button" onclick="SUGAR.email2.addressBook.selectContactsDialogue(\'addressTO{idx}\')">' +
 '                                   {app_strings.LBL_EMAIL_TO}:' +
 '                               </button>' + 
 '							</td>' +
 '							<td class="emailUIField" NOWRAP>' +
 '								<div class="ac_autocomplete">' +
+'                                   <span id="move_to_bcc_span{idx}" style="padding-left:9px"><a href="#" onclick="SE.composeLayout.moveToBCC(\'move_to_bcc\',\'{idx}\');">{mod_strings.LBL_MOVE_TO_BCC}</a></span><br />'+
 '									&nbsp;&nbsp;<input class="ac_input" type="text" size="96" id="addressTO{idx}" title="{app_strings.LBL_EMAIL_TO}" name="addressTO{idx}" onkeyup="SE.composeLayout.showAddressDetails(this);">' +
 '									<span class="rolloverEmail"> <a id="MoreaddressTO{idx}" href="#" style="display: none;">+<span id="DetailaddressTO{idx}">&nbsp;</span></a> </span>' +
 '									<div class="ac_container" id="addressToAC{idx}"></div>' +
@@ -130,7 +117,7 @@ SUGAR.email2.templates['compose'] = '<div id="composeLayout{idx}" class="ylayout
 '							</td>' +
 '							<td class="emailUIField" NOWRAP width="99%">' +
 '								<div class="ac_autocomplete">' +
-'									&nbsp;&nbsp;<input class="ac_input" type="text" size="96" id="emailSubject{idx}" name="subject{idx}" value="">' +
+'									&nbsp;&nbsp;<input class="ac_input" type="text" size="96" id="emailSubject{idx}" name="subject{idx}" value="" maxlength="'+SUGAR.email2.composeLayout.subjectMaxlen+'">' +
 '								</div>' +
 '							</td>' +
 '						</tr>' +
