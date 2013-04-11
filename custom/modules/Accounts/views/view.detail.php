@@ -201,7 +201,7 @@ class AccountsViewDetail extends CustomViewDetail
 		</script>";
 		//Date dialog for net worth statement
 		echo '<div id="DialogForDatePicker" title="Date Picker" style="display:none">'.
-				'<form name="input" action="index.php?module=Accounts&action=PrintNetWorth&record=' . $this->bean->id . '" method="POST">'.
+				'<form name="input" target="_blank" action="index.php?module=Accounts&action=PrintNetWorth&record=' . $this->bean->id . '" method="POST">'.
 					'<span class="dateTime">'.
 						'Select Date: '.
 						'<input type="text" maxlength="10" size="11" id="net_worth_date" name="net_worth_date" autocomplete="off" class="date_input"> &nbsp;'.
