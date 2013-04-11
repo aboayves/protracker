@@ -7801,7 +7801,7 @@ div.login{
 	}
 label{
 	font-size:15px;
-	line-height: 26px;
+	/*line-height: 26px;*/
 	}
 .createDashlet{
 	display:block;
