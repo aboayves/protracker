@@ -426,7 +426,11 @@ $option_module_groups = array(
 		"mailboxes"=>"Emails",
 		"timeperiod_management"=>"Forecasts",
 		"connector_settings"=>"Administration",
-		
+		"av_Prices"=>"Administration",
+		"av_Tax_Rates"=>"Administration",
+		"av_Tax_Forms"=>"Administration",
+		"av_Fee_Schedules"=>"Administration",
+		"av_Commission_Schedules"=>"Administration",
 		"product_types"=>"Products",
 		"product_categories"=>"Products"
 );
