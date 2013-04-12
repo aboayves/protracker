@@ -31,7 +31,7 @@ array (
           'field' => '30',
         ),
       ),
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
@@ -41,12 +41,26 @@ array (
         array (
           0 => 
           array (
-            'name' => 'full_name',
-            'studio' => 
-            array (
-              'listview' => false,
-            ),
-            'label' => 'LBL_NAME',
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+          ),
+          1 => 'picture',
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'middle_name',
+            'comment' => '',
+            'label' => 'LBL_MIDDLE_NAME',
+          ),
+          1 => '',
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_name',
           ),
           1 => 
           array (
@@ -54,7 +68,7 @@ array (
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
         ),
-        1 => 
+        3 => 
         array (
           0 => 
           array (
@@ -68,16 +82,36 @@ array (
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
-        2 => 
+        4 => 
         array (
-          0 => 'picture',
+          0 => 
+          array (
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
+          ),
           1 => 
           array (
             'name' => 'av_contact_types_name',
             'label' => 'LBL_AV_CONTACT_TYPES_NAME',
           ),
         ),
-        3 => 
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
+          ),
+        ),
+        6 => 
         array (
           0 => 
           array (
@@ -95,12 +129,11 @@ array (
           ),
           1 => 
           array (
-            'name' => 'status',
-            'studio' => 'visible',
-            'label' => 'LBL_STATUS',
+            'name' => 'contact_priority',
+            'label' => 'LBL_CONTACT_PRIORITY',
           ),
         ),
-        4 => 
+        7 => 
         array (
           0 => 
           array (
@@ -109,36 +142,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'contact_priority',
-            'label' => 'LBL_CONTACT_PRIORITY',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
-          ),
-          1 => 
-          array (
             'name' => 'document_path',
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
           ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'report_salutation',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
-          ),
-          1 => '',
-        ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -147,7 +156,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -175,18 +184,18 @@ array (
           ),
           1 => 
           array (
-            'name' => 'preferred_calling_time',
+            'name' => 'preferred_document_submittal',
             'comment' => '',
-            'label' => 'LBL_PREFERRED_CALLING_TIME',
+            'label' => 'LBL_PREFERRED_DOCUMENT_SUBMITTAL',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'preferred_document_submittal',
+            'name' => 'preferred_calling_time',
             'comment' => '',
-            'label' => 'LBL_PREFERRED_DOCUMENT_SUBMITTAL',
+            'label' => 'LBL_PREFERRED_CALLING_TIME',
           ),
           1 => 
           array (
@@ -196,6 +205,46 @@ array (
           ),
         ),
         2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_mobile',
+            'comment' => 'Mobile phone number of the contact',
+            'label' => 'LBL_MOBILE_PHONE',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_work',
+            'comment' => 'Work phone number of the contact',
+            'label' => 'LBL_OFFICE_PHONE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_home',
+            'comment' => 'Home phone number of the contact',
+            'label' => 'LBL_HOME_PHONE',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_fax',
+            'comment' => 'Contact fax number',
+            'label' => 'LBL_FAX_PHONE',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'phone_other',
+            'comment' => 'Other phone number for the contact',
+            'label' => 'LBL_OTHER_PHONE',
+          ),
+          1 => '',
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -217,7 +266,7 @@ array (
             'label' => 'LBL_EMAIL_ADDRESS',
           ),
         ),
-        3 => 
+        6 => 
         array (
           0 => 
           array (
@@ -246,7 +295,7 @@ array (
             ),
           ),
         ),
-        4 => 
+        7 => 
         array (
           0 => 
           array (
@@ -261,7 +310,7 @@ array (
             'label' => 'LBL_OTHER_ADDRESS_DESCR',
           ),
         ),
-        5 => 
+        8 => 
         array (
           0 => 
           array (
@@ -290,54 +339,14 @@ array (
             'label' => 'LBL_OTHER_ADDRESS_STREET',
           ),
         ),
-        6 => 
+        9 => 
         array (
           0 => 
-          array (
-            'name' => 'phone_home',
-            'comment' => 'Home phone number of the contact',
-            'label' => 'LBL_HOME_PHONE',
-          ),
-          1 => 
-          array (
-            'name' => 'phone_work',
-            'comment' => 'Work phone number of the contact',
-            'label' => 'LBL_OFFICE_PHONE',
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'phone_mobile',
-            'comment' => 'Mobile phone number of the contact',
-            'label' => 'LBL_MOBILE_PHONE',
-          ),
-          1 => 
-          array (
-            'name' => 'phone_other',
-            'comment' => 'Other phone number for the contact',
-            'label' => 'LBL_OTHER_PHONE',
-          ),
-        ),
-        8 => 
-        array (
-          0 => 
-          array (
-            'name' => 'phone_fax',
-            'comment' => 'Contact fax number',
-            'label' => 'LBL_FAX_PHONE',
-          ),
-          1 => 
           array (
             'name' => 'primary_address_date_start',
             'comment' => '',
             'label' => 'LBL_PRIMARY_ADDRESS_DATE_START',
           ),
-        ),
-        9 => 
-        array (
-          0 => '',
           1 => 
           array (
             'name' => 'primary_address_date_end',
@@ -798,7 +807,12 @@ array (
         ),
         4 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'sec_related_party',
+            'studio' => 'visible',
+            'label' => 'LBL_SEC_RELATED_PARTY',
+          ),
           1 => '',
         ),
         5 => 
