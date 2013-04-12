@@ -42,6 +42,13 @@ array (
     'width' => '10%',
     'default' => false,
   ),
+  'NAME' => 
+  array (
+    'width' => '32%',
+    'label' => 'LBL_NAME',
+    'default' => false,
+    'link' => true,
+  ),
   'ASSIGNED_USER_NAME' => 
   array (
     'width' => '9%',
@@ -49,13 +56,6 @@ array (
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
     'default' => false,
-  ),
-  'NAME' => 
-  array (
-    'width' => '32%',
-    'label' => 'LBL_NAME',
-    'default' => false,
-    'link' => true,
   ),
   'TEAM_NAME' => 
   array (
