@@ -10,35 +10,10 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'SHORT_NAME' => 
-  array (
-    'type' => 'varchar',
-    'default' => true,
-    'label' => 'LBL_SHORT_NAME',
-    'width' => '15%',
-  ),
   'INDUSTRY' => 
   array (
     'width' => '10%',
     'label' => 'LBL_INDUSTRY',
-    'default' => true,
-  ),
-  'AV_COMPANIES_TYPE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_TYPE',
-    'default' => true,
-  ),
-  'ANNUAL_REVENUE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_ANNUAL_REVENUE',
-    'default' => true,
-  ),
-  'BILLING_ADDRESS_CITY' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_CITY',
     'default' => true,
   ),
   'PHONE_OFFICE' => 
@@ -56,16 +31,47 @@ array (
     'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
     'default' => true,
   ),
+  'SHIPPING_ADDRESS_CITY' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_SHIPPING_ADDRESS_CITY',
+    'default' => true,
+  ),
+  'SHIPPING_ADDRESS_STATE' => 
+  array (
+    'width' => '7%',
+    'label' => 'LBL_SHIPPING_ADDRESS_STATE',
+    'default' => true,
+  ),
+  'SHORT_NAME' => 
+  array (
+    'type' => 'varchar',
+    'default' => false,
+    'label' => 'LBL_SHORT_NAME',
+    'width' => '15%',
+  ),
   'PHONE_FAX' => 
   array (
     'width' => '10%',
     'label' => 'LBL_PHONE_FAX',
     'default' => false,
   ),
+  'ANNUAL_REVENUE' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_ANNUAL_REVENUE',
+    'default' => false,
+  ),
   'BILLING_ADDRESS_STREET' => 
   array (
     'width' => '15%',
     'label' => 'LBL_BILLING_ADDRESS_STREET',
+    'default' => false,
+  ),
+  'BILLING_ADDRESS_CITY' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_CITY',
     'default' => false,
   ),
   'BILLING_ADDRESS_STATE' => 
@@ -122,23 +128,11 @@ array (
     'label' => 'LBL_MASTER_ACCOUNT',
     'width' => '10%',
   ),
-  'SHIPPING_ADDRESS_CITY' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_SHIPPING_ADDRESS_CITY',
-    'default' => false,
-  ),
   'RATING' => 
   array (
     'type' => 'varchar',
     'label' => 'LBL_RATING',
     'width' => '10%',
-    'default' => false,
-  ),
-  'SHIPPING_ADDRESS_STATE' => 
-  array (
-    'width' => '7%',
-    'label' => 'LBL_SHIPPING_ADDRESS_STATE',
     'default' => false,
   ),
   'SHIPPING_ADDRESS_POSTALCODE' => 

@@ -53,21 +53,36 @@ array (
         ),
         1 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'account_number',
+            'comment' => '',
+            'label' => 'LBL_ACCOUNT_NUMBER',
+          ),
           1 => 
           array (
-            'name' => 'symbol',
+            'name' => 'security_type',
             'comment' => '',
-            'label' => 'LBL_SYMBOL',
+            'label' => 'LBL_TYPE',
           ),
         ),
         2 => 
         array (
+          0 => 'name',
+          1 => 
+          array (
+            'name' => 'value',
+            'comment' => '',
+            'label' => 'LBL_VALUE',
+          ),
+        ),
+        3 => 
+        array (
           0 => 
           array (
-            'name' => 'type',
+            'name' => 'symbol',
             'comment' => '',
-            'label' => 'LBL_TYPE',
+            'label' => 'LBL_SYMBOL',
           ),
           1 => 
           array (
@@ -76,35 +91,30 @@ array (
             'label' => 'LBL_QUANTITY',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
-          array (
-            'name' => 'price_date',
-            'comment' => '',
-            'label' => 'LBL_PRICE_DATE',
-          ),
-          1 => 
           array (
             'name' => 'price',
             'comment' => '',
             'label' => 'LBL_PRICE',
           ),
-        ),
-        4 => 
-        array (
-          0 => 
+          1 => 
           array (
-            'name' => 'value',
+            'name' => 'price_date',
             'comment' => '',
-            'label' => 'LBL_VALUE',
+            'label' => 'LBL_PRICE_DATE',
           ),
-          1 => '',
         ),
         5 => 
         array (
-          0 => 'description',
-          1 => '',
+          0 => 
+          array (
+            'name' => 'position_date',
+            'comment' => '',
+            'label' => 'LBL_POSITION_DATE',
+          ),
+          1 => 'description',
         ),
         6 => 
         array (

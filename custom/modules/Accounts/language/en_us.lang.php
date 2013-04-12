@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-07 18:05:08
+// created: 2013-04-10 16:48:30
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -15,8 +15,8 @@ $mod_strings = array (
   'LBL_ACCOUNTS_AV_NET_WORTH_FROM_AV_NET_WORTH_TITLE' => 'Net Worth History',
   'LBL_PRIORITY' => 'Priority',
   'LBL_EDITVIEW_PANEL1' => 'Addresses',
-  'LBL_EDITVIEW_PANEL2' => 'Communications',
-  'LBL_DESCRIPTION' => 'Comments',
+  'LBL_EDITVIEW_PANEL2' => 'Address & Phone',
+  'LBL_DESCRIPTION' => 'Description',
   'LBL_NET_WORTH' => 'Net Worth',
   'LBL_EDITVIEW_PANEL3' => 'Financial',
   'LBL_CLIENT_SINCE' => 'Client Since',
@@ -47,9 +47,9 @@ $mod_strings = array (
   'LBL_ACCOUNTS_AV_GIFTING_1_FROM_AV_GIFTING_TITLE' => 'Gifting',
   'LBL_ACCOUNTS_AV_SOCIAL_SECURITY_1_FROM_AV_SOCIAL_SECURITY_TITLE' => 'Social Security',
   'LBL_RT_OFFICES_ACCOUNTS_1_FROM_RT_OFFICES_TITLE' => 'Office',
-  'LBL_LIST_ASSIGNED_USER' => 'Firm Contact',
+  'LBL_LIST_ASSIGNED_USER' => 'Assigned To',
   'LBL_ACCOUNTS_RT_NOTES_TITLE' => 'Notes',
-  'LBL_TYPE' => 'Client Type DO NOT USE',
+  'LBL_TYPE' => 'Account Type',
   'LBL_ACCOUNTS_CONTACTS_1_FROM_CONTACTS_TITLE' => 'Primary Contact',
   'ACCOUNTS_CONTACTS_2_NAME' => 'Co-Client',
   'LBL_CLIENT_SINCE_DATE' => 'Client Since',
@@ -101,4 +101,16 @@ $mod_strings = array (
   'LBL_BILLED_CUSTODIAN_ID_NAME' => 'Billed Custodian',
   'LBL_MAILING_ADDRESS_STREET' => 'Mailing Address',
   'LBL_TAGS_ACCOUNTS_FROM_TAGS_TITLE' => 'Tags',
+  'LBL_BILLING_ADDRESS_STREET' => 'Billing Address',
+  'LBL_EDITVIEW_PANEL6' => 'New Panel 6',
+  'LBL_REVIEW_GROUP' => 'Review Group',
+  'LBL_AV_CLIENT_TYPES_NAME' => 'Client Type',
+  'LBL_REPORT_SALUTATION' => 'Client Salutation',
+  'LBL_BILLED_CUSTODIAN' => 'Billed Custodian',
+  'LBL_SHIPPING_ADDRESS_STREET' => 'Mailing Street',
+  'LBL_CLIENT_NUMBER' => 'Client Reference',
+  'LBL_AV_MEDICARE' => 'Medicare',
+  'LBL_AV_SOCIAL_SECURITY' => 'Social Security',
+  'LBL_AV_PENSIONS' => 'Pensions',
+  'LBL_AV_RETIREMENT_PROJECTIONS' => 'Retirement Projections',
 );

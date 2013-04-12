@@ -2,13 +2,6 @@
 $module_name = 'av_Transaction_Schedule';
 $listViewDefs [$module_name] = 
 array (
-  'NEXT_TRANSACTION_DATE' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'label' => 'LBL_NEXT_TRANSACTION_DATE',
-    'width' => '10%',
-  ),
   'AV_ACCOUNTS_NAME' => 
   array (
     'type' => 'relate',
@@ -30,6 +23,13 @@ array (
     'type' => 'int',
     'default' => true,
     'label' => 'LBL_TRANSACTION_FREQUENCY',
+    'width' => '10%',
+  ),
+  'NEXT_TRANSACTION_DATE' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'label' => 'LBL_NEXT_TRANSACTION_DATE',
     'width' => '10%',
   ),
   'RELATED_ACCOUNT' => 

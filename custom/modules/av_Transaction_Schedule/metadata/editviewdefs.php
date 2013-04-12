@@ -21,6 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -28,24 +29,14 @@ array (
       array (
         0 => 
         array (
-          0 => '',
-          1 => 'assigned_user_name',
-        ),
-        1 => 
-        array (
           0 => 
           array (
             'name' => 'av_accounts_name',
             'label' => 'LBL_AV_ACCOUNTS_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'distribution_type',
-            'comment' => '',
-            'label' => 'LBL_DISTRIBUTION_TYPE',
-          ),
+          1 => 'assigned_user_name',
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -60,7 +51,7 @@ array (
             'label' => 'LBL_TRANSACTION_FREQUENCY',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -75,7 +66,7 @@ array (
             'label' => 'LBL_NEXT_TRANSACTION_DATE',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -89,6 +80,16 @@ array (
             'comment' => '',
             'label' => 'LBL_RELATED_ACCOUNT_NUMBER',
           ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'amount',
+            'comment' => '',
+            'label' => 'LBL_AMOUNT',
+          ),
+          1 => '',
         ),
         5 => 
         array (

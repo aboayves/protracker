@@ -185,9 +185,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'include_on_ips',
+            'name' => 'include_on_account_policy',
             'comment' => '',
-            'label' => 'LBL_INCLUDE_ON_IPS',
+            'label' => 'LBL_INCLUDE_ON_ACCOUNT_POLICY',
           ),
           1 => 
           array (

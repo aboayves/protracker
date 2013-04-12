@@ -102,6 +102,18 @@ $admin_role_options = array(
 				'Manage Tax Forms',
 				'./index.php?module=av_Tax_Forms&action=index'
 			),
+			"av_Fee_Schedules"=>array(
+				'av_Fee_Schedule',
+				translate('av_Fee_Schedule', 'LBL_MODULE_NAME'),
+				'Manage Fee Schedules',
+				'./index.php?module=av_Fee_Schedules&action=index'
+			),
+			"av_Commission_Schedules"=>array(
+				'av_Commission_Schedules',
+				translate('av_Commission_Schedules', 'LBL_MODULE_NAME'),
+				'Manage Commission Schedules',
+				'./index.php?module=av_Commission_Schedules&action=index'
+			),
 			"Import"=>array(
 				'Import',
 				translate('Import', 'LBL_MODULE_NAME'),
@@ -170,6 +182,18 @@ $admin_role_options = array(
 				translate('av_Tax_Forms', 'LBL_MODULE_NAME'),
 				'Manage Tax Forms',
 				'./index.php?module=av_Tax_Forms&action=index'
+			),
+			"av_Fee_Schedules"=>array(
+				'av_Fee_Schedule',
+				translate('av_Fee_Schedule', 'LBL_MODULE_NAME'),
+				'Manage Fee Schedules',
+				'./index.php?module=av_Fee_Schedules&action=index'
+			),
+			"av_Commission_Schedules"=>array(
+				'av_Commission_Schedules',
+				translate('av_Commission_Schedules', 'LBL_MODULE_NAME'),
+				'Manage Commission Schedules',
+				'./index.php?module=av_Commission_Schedules&action=index'
 			),
 			"Import"=>array(
 				'Import',
@@ -268,6 +292,18 @@ $admin_role_options = array(
 				translate('av_Tax_Forms', 'LBL_MODULE_NAME'),
 				'Manage Tax Forms',
 				'./index.php?module=av_Tax_Forms&action=index'
+			),
+			"av_Fee_Schedules"=>array(
+				'av_Fee_Schedule',
+				translate('av_Fee_Schedule', 'LBL_MODULE_NAME'),
+				'Manage Fee Schedules',
+				'./index.php?module=av_Fee_Schedules&action=index'
+			),
+			"av_Commission_Schedules"=>array(
+				'av_Commission_Schedules',
+				translate('av_Commission_Schedules', 'LBL_MODULE_NAME'),
+				'Manage Commission Schedules',
+				'./index.php?module=av_Commission_Schedules&action=index'
 			),
 			"Import"=>array(
 				'Import',
@@ -390,7 +426,11 @@ $option_module_groups = array(
 		"mailboxes"=>"Emails",
 		"timeperiod_management"=>"Forecasts",
 		"connector_settings"=>"Administration",
-		
+		"av_Prices"=>"Administration",
+		"av_Tax_Rates"=>"Administration",
+		"av_Tax_Forms"=>"Administration",
+		"av_Fee_Schedules"=>"Administration",
+		"av_Commission_Schedules"=>"Administration",
 		"product_types"=>"Products",
 		"product_categories"=>"Products"
 );

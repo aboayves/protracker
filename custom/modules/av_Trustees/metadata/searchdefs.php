@@ -57,6 +57,15 @@ array (
         'id' => 'TRUSTEE_ID',
         'name' => 'contacts_name',
       ),
+      'name' => 
+      array (
+        'type' => 'name',
+        'link' => true,
+        'label' => 'LBL_NAME',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'name',
+      ),
       'type' => 
       array (
         'type' => 'enum',
@@ -64,6 +73,14 @@ array (
         'label' => 'LBL_TYPE',
         'width' => '10%',
         'name' => 'type',
+      ),
+      'ok_to_speak_to' => 
+      array (
+        'type' => 'bool',
+        'default' => true,
+        'label' => 'LBL_OK_TO_SPEAK_TO',
+        'width' => '10%',
+        'name' => 'ok_to_speak_to',
       ),
     ),
   ),

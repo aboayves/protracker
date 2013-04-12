@@ -54,7 +54,7 @@ array (
         array (
           'file' => 'include/javascript/tiny_mce/tiny_mce.js',
         ),
-		2 => 
+        2 => 
         array (
           'file' => 'custom/modules/Accounts/copy_primary_contact_address.js',
         ),
@@ -87,8 +87,8 @@ array (
 
           1 => 
           array (
-            'name' => 'primary_contact_name',
-            'label' => 'LBL_PRIMARY_CONTACT_NAME',
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
           2 => 
           array (
@@ -163,14 +163,82 @@ array (
         ),
         3 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'primary_contact_name',
+            'label' => 'LBL_PRIMARY_CONTACT_NAME',
+          ),
           1 => 
           array (
-            'name' => 'av_client_types_name',
-            'label' => 'LBL_AV_CLIENT_TYPES_NAME',
+            'name' => 'secondary_contact_name',
+            'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
           ),
         ),
         4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'primary_contact_image',
+            'label' => '',
+            'displayParams' => 
+            array (
+              'trimColon' => 1,
+            ),
+            'customCode' => '
+			{if $fields.primary_contact_image.value}
+			<input type="hidden" value="$fields.primary_contact_image.value" id="primary_contact_image" class="sugar_field">
+				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_primary_contact_image\').src)">
+				<img style="
+				border: 1px solid black; 
+				width: auto;
+				height: 132px;
+				float:left;
+				margin-right: 5px;
+				" src="index.php?entryPoint=download&amp;id={$fields.primary_contact_image.value}&amp;type=SugarFieldImage&amp;isTempFile=1" name="img_primary_contact_image" id="img_primary_contact_image">
+				</a>
+			{/if}
+			
+			<span>
+				{if $fields.primary_contact_salutation.value}<b>{$fields.primary_contact_salutation.value}</b>{/if}
+				{if $fields.primary_contact_birthdate.value}</br>DOB: {$fields.primary_contact_birthdate.value}{/if}
+				{if $fields.primary_contact_age.value}</br>Age: {$fields.primary_contact_age.value}{/if}
+				{if $fields.primary_contact_ssn.value}</br>SSN: {$fields.primary_contact_ssn.value}{/if}
+				{if $fields.primary_contact_employer.value}</br>Employer: {$fields.primary_contact_employer.value}{/if}
+
+			</span>
+			',
+          ),
+          1 => 
+          array (
+            'name' => 'secondary_contact_image',
+            'label' => ' ',
+            'customCode' => '
+			{if $fields.secondary_contact_image.value}
+			<input id="secondary_contact_image" class="sugar_field" type="hidden" value="$fields.secondary_contact_image.value">
+				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_secondary_contact_image\').src)">
+				<img 
+				id="img_secondary_contact_image" 
+				style=" 
+				border: 1px solid black;
+				width: auto;
+				height: 132px;
+				float:left;
+				margin-right: 5px;
+				" src="index.php?entryPoint=download&id={$fields.secondary_contact_image.value}&type=SugarFieldImage&isTempFile=1" name="img_secondary_contact_image">
+					</a>
+				{/if}
+
+				<span>
+				{if $fields.secondary_contact_salutation.value}<b>{$fields.secondary_contact_salutation.value}</b>{/if}
+				{if $fields.secondary_contact_birthdate.value}</br>DOB: {$fields.secondary_contact_birthdate.value}{/if}
+				{if $fields.secondary_contact_age.value}</br>Age: {$fields.secondary_contact_age.value}{/if}
+				{if $fields.secondary_contact_ssn.value}</br>SSN: {$fields.secondary_contact_ssn.value}{/if}
+				{if $fields.secondary_contact_employer.value}</br>Employer: {$fields.secondary_contact_employer.value}{/if}
+			</span>
+				',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -185,12 +253,13 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
-            'name' => 'married',
-            'label' => 'LBL_MARRIED',
+            'name' => 'relationship_type',
+            'comment' => '',
+            'label' => 'LBL_RELATIONSHIP_TYPE',
           ),
           1 => 
           array (
@@ -199,7 +268,7 @@ array (
             'label' => 'LBL_PRIORITY',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -213,12 +282,13 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
-            'name' => 'current_net_worth',
-            'label' => 'LBL_CURRENT_NET_WORTH',
+            'name' => 'is_investment_client',
+            'comment' => '',
+            'label' => 'LBL_IS_INVESTMENT_CLIENT',
           ),
           1 => 
           array (
@@ -227,7 +297,7 @@ array (
             'label' => 'LBL_PHASE',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -236,53 +306,30 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_MANAGED_ASSETS',
           ),
-          1 => 
-          array (
-            'name' => 'relationship_type',
-            'comment' => '',
-            'label' => 'LBL_RELATIONSHIP_TYPE',
-          ),
-        ),
-        9 => 
-        array (
-          0 => 
-          array (
-            'name' => 'document_path',
-            'comment' => '',
-            'label' => 'LBL_DOCUMENT_PATH',
-          ),
-          1 => 
-          array (
-            'name' => 'report_name',
-            'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
-          ),
+          1 => 'campaign_name',
         ),
         10 => 
         array (
           0 => 
           array (
-            'name' => 'net_worth',
-            'label' => 'LBL_NET_WORTH',
+            'name' => 'current_net_worth',
+            'label' => 'LBL_CURRENT_NET_WORTH',
           ),
           1 => 
           array (
-            'name' => 'client_id',
-            'label' => 'LBL_CLIENT_ID',
+            'name' => 'tax_year_end_date',
+            'comment' => '',
+            'label' => 'LBL_TAX_YEAR_END_DATE',
           ),
         ),
         11 => 
         array (
-          0 => 
-          array (
-            'name' => 'last_rebal',
-            'label' => 'LBL_LAST_REBAL',
-          ),
+          0 => '',
           1 => 
           array (
-            'name' => 'is_investment_client',
+            'name' => 'document_path',
             'comment' => '',
-            'label' => 'LBL_IS_INVESTMENT_CLIENT',
+            'label' => 'LBL_DOCUMENT_PATH',
           ),
         ),
         12 => 
@@ -316,34 +363,24 @@ array (
         array (
           0 => 
           array (
-            'name' => 'phone_home',
-            'comment' => '',
-            'label' => 'LBL_PHONE_HOME',
+            'name' => 'preferred_communication',
           ),
           1 => 
           array (
-            'name' => 'email1',
-            'studio' => 'false',
-            'label' => 'LBL_EMAIL',
+            'name' => 'preferred_document_submittal',
+            'comment' => '',
+            'label' => 'LBL_PREFERRED_DOCUMENT_SUBMITTAL',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'phone_work',
-            'comment' => '',
-            'label' => 'LBL_PHONE_WORK',
+            'name' => 'preferred_calling_time',
           ),
           1 => 
           array (
-            'name' => 'website',
-            'type' => 'link',
-            'label' => 'LBL_WEBSITE',
-            'displayParams' => 
-            array (
-              'link_target' => '_blank',
-            ),
+            'name' => 'preferred_meeting_time',
           ),
         ),
         2 => 
@@ -356,39 +393,46 @@ array (
           ),
           1 => 
           array (
-            'name' => 'phone_fax',
-            'comment' => 'The fax phone number of this company',
-            'label' => 'LBL_FAX',
+            'name' => 'phone_work',
+            'comment' => '',
+            'label' => 'LBL_PHONE_WORK',
           ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'preferred_communication',
+            'name' => 'phone_home',
+            'comment' => '',
+            'label' => 'LBL_PHONE_HOME',
           ),
           1 => 
           array (
-            'name' => 'preferred_document_submittal',
-            'comment' => '',
-            'label' => 'LBL_PREFERRED_DOCUMENT_SUBMITTAL',
+            'name' => 'phone_fax',
+            'comment' => 'The fax phone number of this company',
+            'label' => 'LBL_FAX',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'preferred_calling_time',
+            'name' => 'email1',
+            'studio' => 'false',
+            'label' => 'LBL_EMAIL',
           ),
           1 => 
           array (
-            'name' => 'preferred_meeting_time',
+            'name' => 'website',
+            'type' => 'link',
+            'label' => 'LBL_WEBSITE',
+            'displayParams' => 
+            array (
+              'link_target' => '_blank',
+            ),
           ),
         ),
-      ),
-      'lbl_editview_panel1' => 
-      array (
-        0 => 
+        5 => 
         array (
           0 => 
           array (
@@ -445,16 +489,6 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'annual_revenue',
-            'comment' => 'Annual revenue for this company',
-            'label' => 'LBL_ANNUAL_REVENUE',
-          ),
-        ),
-        3 => 
-        array (
           0 => 
           array (
             'name' => 'billing_group',
@@ -468,7 +502,7 @@ array (
             'label' => 'LBL_BILLING_FREQUENCY',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -483,20 +517,30 @@ array (
             'label' => 'LBL_RATE_SCHEDULE',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
-          array (
-            'name' => 'when_billed',
-            'comment' => '',
-            'label' => 'LBL_WHEN_BILLED',
-          ),
-          1 => 
           array (
             'name' => 'billing_rate',
             'comment' => '',
             'label' => 'LBL_BILLING_RATE',
           ),
+          1 => 
+          array (
+            'name' => 'when_billed',
+            'comment' => '',
+            'label' => 'LBL_WHEN_BILLED',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'annual_revenue',
+            'comment' => 'Annual revenue for this company',
+            'label' => 'LBL_ANNUAL_REVENUE',
+          ),
+          1 => '',
         ),
         6 => 
         array (
@@ -524,15 +568,20 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_TERMINATED',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'termination_date',
+            'comment' => '',
+            'label' => 'LBL_TERMINATION_DATE',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'termination_date',
+            'name' => 'termination_reason',
             'comment' => '',
-            'label' => 'LBL_TERMINATION_DATE',
+            'label' => 'LBL_TERMINATION_REASON',
           ),
           1 => '',
         ),
@@ -540,9 +589,24 @@ array (
         array (
           0 => 
           array (
-            'name' => 'termination_reason',
+            'name' => 'successor_advisor',
             'comment' => '',
-            'label' => 'LBL_TERMINATION_REASON',
+            'label' => 'LBL_SUCCESSOR_ADVISOR',
+          ),
+          1 => 
+          array (
+            'name' => 'successor_transfer_date',
+            'comment' => '',
+            'label' => 'LBL_SUCCESSOR_TRANSFER_DATE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'successor_info',
+            'comment' => '',
+            'label' => 'LBL_SUCCESSOR_INFO',
           ),
           1 => '',
         ),

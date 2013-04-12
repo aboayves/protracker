@@ -6,6 +6,14 @@ array (
   array (
     'basic_search' => 
     array (
+      'account_number' => 
+      array (
+        'type' => 'varchar',
+        'default' => true,
+        'label' => 'LBL_ACCOUNT_NUMBER',
+        'width' => '10%',
+        'name' => 'account_number',
+      ),
       'value_date' => 
       array (
         'type' => 'date',

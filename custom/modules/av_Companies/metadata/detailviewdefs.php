@@ -31,88 +31,110 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
-      'default' => 
+      'lbl_account_information' => 
       array (
         0 => 
         array (
           0 => 'name',
-          1 => 'phone_office',
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'website',
-            'type' => 'link',
+            'name' => 'short_name',
+            'comment' => '',
+            'label' => 'LBL_SHORT_NAME',
           ),
-          1 => 'phone_fax',
+          1 => 'ticker_symbol',
         ),
         2 => 
         array (
-          0 => 'ticker_symbol',
-          1 => 
-          array (
-            'name' => 'phone_alternate',
-            'label' => 'LBL_OTHER_PHONE',
-          ),
+          0 => 'industry',
+          1 => 'ownership',
         ),
         3 => 
         array (
           0 => 'employees',
+          1 => 'annual_revenue',
         ),
         4 => 
         array (
-          0 => 'ownership',
-          1 => 'rating',
+          0 => 
+          array (
+            'name' => 'master_account',
+            'comment' => '',
+            'label' => 'LBL_MASTER_ACCOUNT',
+          ),
+          1 => 
+          array (
+            'name' => 'routing_number',
+            'comment' => '',
+            'label' => 'LBL_ROUTING_NUMBER',
+          ),
         ),
         5 => 
         array (
-          0 => 'industry',
+          0 => 'description',
+          1 => 'team_name',
         ),
         6 => 
         array (
-          0 => 'av_companies_type',
-          1 => 'annual_revenue',
-        ),
-        7 => 
-        array (
           0 => 
+          array (
+            'name' => 'date_entered',
+            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+          ),
+          1 => 
           array (
             'name' => 'date_modified',
             'label' => 'LBL_DATE_MODIFIED',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
           ),
-          1 => 'team_name',
         ),
-        8 => 
+      ),
+      'lbl_email_addresses' => 
+      array (
+        0 => 
+        array (
+          0 => 'phone_office',
+          1 => 'phone_fax',
+        ),
+        1 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'phone_alternate',
+            'label' => 'LBL_OTHER_PHONE',
           ),
           1 => 
           array (
-            'name' => 'date_entered',
-            'customCode' => '{$fields.date_entered.value} {$APP.LBL_BY} {$fields.created_by_name.value}',
+            'name' => 'email',
+            'comment' => '',
+            'label' => 'LBL_EMAIL',
           ),
         ),
-        9 => 
+        2 => 
+        array (
+          0 => 'email1',
+          1 => 
+          array (
+            'name' => 'website',
+            'type' => 'link',
+          ),
+        ),
+        3 => 
         array (
           0 => 
-          array (
-            'name' => 'billing_address_street',
-            'label' => 'LBL_BILLING_ADDRESS',
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-            ),
-          ),
-          1 => 
           array (
             'name' => 'shipping_address_street',
             'label' => 'LBL_SHIPPING_ADDRESS',
@@ -122,14 +144,16 @@ array (
               'key' => 'shipping',
             ),
           ),
-        ),
-        10 => 
-        array (
-          0 => 'description',
-        ),
-        11 => 
-        array (
-          0 => 'email1',
+          1 => 
+          array (
+            'name' => 'billing_address_street',
+            'label' => 'LBL_BILLING_ADDRESS',
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'billing',
+            ),
+          ),
         ),
       ),
     ),
