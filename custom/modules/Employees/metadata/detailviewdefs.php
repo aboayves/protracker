@@ -88,7 +88,17 @@ array (
             'name' => 'description',
             'label' => 'LBL_NOTES',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'default_team',
+            'studio' => 
+            array (
+              'listview' => false,
+              'searchview' => false,
+              'formula' => false,
+            ),
+            'label' => 'LBL_DEFAULT_TEAM',
+          ),
         ),
       ),
       'lbl_editview_panel1' => 
