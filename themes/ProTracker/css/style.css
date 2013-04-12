@@ -7762,7 +7762,6 @@ div.login{
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger.png'), -o-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger.png'), -ms-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger.png'), linear-gradient(to right,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#191919',GradientType=1 );
 
 	background-repeat:no-repeat;
 	background-position:6px 6px;
@@ -7783,7 +7782,6 @@ div.login{
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger-close.png'), -o-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger-close.png'), -ms-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger-close.png'), linear-gradient(to right,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#191919',GradientType=1 );
 	background-repeat:no-repeat;
 	background-position:6px 6px;
 }
