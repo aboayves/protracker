@@ -595,7 +595,7 @@ class SugarView
 		//hard code area for sorting menus
 		
 		$fixed_modules = array("Tasks","Calls","Reports","Clients","Contacts","Meetings","Calendar",
-								"Notes", "Groups","Emails");
+								"Notes", "Groups","Emails","Documents","Project");
 		foreach($fixed_modules as $data){
 			$groupTabs[$data]['type'] = 'non-group';
 			$groupTabs[$data]['path'] = "_header".$data.".tpl";
@@ -612,6 +612,8 @@ class SugarView
 		$topTabList['Meetings'] = $app_list_strings['moduleList']['Meetings'];
 		$topTabList['Notes'] = $app_list_strings['moduleList']['Notes'];
 		$topTabList['Tasks'] = $app_list_strings['moduleList']['Tasks'];
+		$topTabList['Documents'] = $app_list_strings['moduleList']['Documents'];
+		$topTabList['Project'] = $app_list_strings['moduleList']['Project'];
         if ( isset($topTabList) && is_array($topTabList) ) {
             // Adding shortcuts array to menu array for displaying shortcuts associated with each module
             $shortcutTopMenu = array();
