@@ -31,14 +31,14 @@ array (
           'field' => '30',
         ),
       ),
-	  'includes' => 
+      'includes' => 
       array (
         0 => 
         array (
           'file' => 'custom/modules/Contacts/validate_ssn.js',
         ),
       ),
-      'syncDetailEditViews' => true,
+      'syncDetailEditViews' => false,
     ),
     'panels' => 
     array (
