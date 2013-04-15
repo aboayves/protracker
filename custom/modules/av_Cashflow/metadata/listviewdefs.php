@@ -9,6 +9,7 @@ array (
     'default' => true,
     'label' => 'LBL_YEAR',
     'width' => '5%',
+	'link' => 'true',
   ),
   'DOCUMENT_NAME' => 
   array (
