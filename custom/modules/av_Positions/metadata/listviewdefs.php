@@ -24,6 +24,7 @@ array (
     'default' => true,
     'label' => 'LBL_SYMBOL',
     'width' => '10%',
+	'customCode' => '<a href=https://www.google.com/finance?q={$SYMBOL}>{$SYMBOL}</a>',
   ),
   'TYPE' => 
   array (
