@@ -14,6 +14,7 @@ $dictionary["av_Tax_Rates"]["fields"]["tax_year"] = array (
 	'importable' => True,
 	'duplicate_merge' => 'Enabled',
 	'duplicate_merge_dom_value' => True,
+	'disable_num_format' => True,
 	'help' => '',
 	'group' => '',
 );
