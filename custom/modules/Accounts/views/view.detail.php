@@ -15,7 +15,9 @@ class AccountsViewDetail extends CustomViewDetail
 		
 		$tabStructure = array('Activities'=>$tabStructure['LBL_TABGROUP_ACTIVITIES']) + $tabStructure;
 		$tabStructure['Activities']['label'] = 'Activities';
-		$tabStructure['Activities']['modules'][8] = 'activities';
+		$tabStructure['Activities']['modules'][0] = 'Meetings';
+		$tabStructure['Activities']['modules'][1] = 'Calls';
+		$tabStructure['Activities']['modules'][2] = 'activities';
 		unset($tabStructure['LBL_TABGROUP_ACTIVITIES']);
 		$sql = "SELECT *
 			FROM
