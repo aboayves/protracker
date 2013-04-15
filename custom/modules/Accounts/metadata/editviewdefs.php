@@ -321,6 +321,7 @@ array (
             'displayParams' => 
             array (
               'key' => 'billing',
+			  'copy' => 'mailing',
               'rows' => 2,
               'cols' => 30,
               'maxlength' => 150,
