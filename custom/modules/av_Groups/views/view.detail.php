@@ -58,7 +58,11 @@ class Customav_GroupsViewDetail extends CustomViewDetail
 	}
     public function display()
     {
-		global $db, $timedate;
+		global $db, $timedate, $tabStructure;
+		
+		$tabStructure = array('Activities'=>$tabStructure['LBL_TABGROUP_ACTIVITIES']) + $tabStructure;
+		$tabStructure['Activities']['label'] = 'Activities';
+		unset($tabStructure['LBL_TABGROUP_ACTIVITIES']);
 		
 		if(isset($_REQUEST['uid']) && !empty($_REQUEST['uid']) && isset($_REQUEST['mass']))
 		{
