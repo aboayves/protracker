@@ -298,6 +298,12 @@ class av_WorkflowController extends SugarController {
 				if(!empty($record['parent_tasks_id'])){
 					$record['parent_tasks_id'] = $array_new_ids[$record['parent_tasks_id']];
 				}
+				//==========Setting Date Entered and Modified ===========================================
+				$record['date_entered'] = $timedate->nowDB();
+				$record['date_modified'] = $timedate->nowDB();
+				//==========Setting Created By and Modified By ===========================================
+				$record['created_by'] = $current_user->id;
+				$record['modified_user_id'] = $current_user->id;;
 				
 				if($_REQUEST['assign_to_members'] == '1' && $record['parent_type'] == "av_Groups"){
 					//Assigning to members
