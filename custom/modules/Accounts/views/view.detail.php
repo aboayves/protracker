@@ -239,6 +239,7 @@ class AccountsViewDetail extends CustomViewDetail
 	*/
 	public function showPrimarySecondaryImage(){
 		global $db, $timedate;
+		$contact_bean = new Contact();
 		if(!empty($this->bean->primary_contact_id) || !empty($this->bean->secondary_contact_id)){
 			$sql = "SELECT id, picture FROM contacts WHERE deleted=0 and id ='{$this->bean->primary_contact_id}' OR id ='{$this->bean->secondary_contact_id}'";
 			$res = $db->query($sql);
@@ -253,6 +254,7 @@ class AccountsViewDetail extends CustomViewDetail
 						}
 						$this->bean->primary_contact_birthdate =  $timedate->to_display_date($this->bean->primary_contact_birthdate);
 					}
+					$this->bean->primary_contact_ssn = $this->applyMaskToSSN($this->bean->primary_contact_ssn, $contact_bean->field_name_map['ssn']['ext3'], $contact_bean->field_name_map['ssn']['ext4']);
 				}
 				else if($row['id'] == $this->bean->secondary_contact_id){
 					$this->bean->secondary_contact_image = $row['picture'];
@@ -264,11 +266,43 @@ class AccountsViewDetail extends CustomViewDetail
 						}
 						$this->bean->secondary_contact_birthdate = $timedate->to_display_date($this->bean->secondary_contact_birthdate);
 					}
+					$this->bean->secondary_contact_ssn = $this->applyMaskToSSN($this->bean->secondary_contact_ssn, $contact_bean->field_name_map['ssn']['ext3'], $contact_bean->field_name_map['ssn']['ext4']);
 				}
 			}
 			
 		}
 		
+	}
+	//Applying mask to SSN Field.
+	public function applyMaskToSSN($value, $detailmask, $custommask){
+		$returnString="";
+		if($detailmask!="") {
+			if($detailmask!="X") {
+				$y=strlen($value)-strlen($detailmask);
+			} else {
+				$y=strlen($value);
+			}
+			for($i = 0; $i < $y; $i++) {
+			$character=substr($custommask,$i,1);
+				switch ($character) {
+					case "@":
+					case "#":
+					case "*":
+					case "A":
+					case "a":
+						$returnString.="*";
+						break;
+					default:
+						$returnString.=substr($value,$i,1);
+				}
+			}
+			if($detailmask!="X") {
+				$returnString.=substr($value,(strlen($value)-strlen($detailmask)),strlen($detailmask));
+			}
+			return $returnString;
+		} else {
+			return $value;
+		}
 	}
 } 
 
