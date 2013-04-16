@@ -84,13 +84,12 @@ array (
         ),
         1 => 
         array (
-
-          1 => 
+          0 => 
           array (
-            'name' => 'av_offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
+            'name' => 'primary_contact_name',
+            'label' => 'LBL_PRIMARY_CONTACT_NAME',
           ),
-          2 => 
+          1 => 
           array (
             'name' => 'secondary_contact_name',
             'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
@@ -159,86 +158,17 @@ array (
 			</span>
 				',
           ),
-
         ),
-        3 => 
+		3 => 
         array (
-          0 => 
-          array (
-            'name' => 'primary_contact_name',
-            'label' => 'LBL_PRIMARY_CONTACT_NAME',
-          ),
+
           1 => 
           array (
-            'name' => 'secondary_contact_name',
-            'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
         4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'primary_contact_image',
-            'label' => '',
-            'displayParams' => 
-            array (
-              'trimColon' => 1,
-            ),
-            'customCode' => '
-			{if $fields.primary_contact_image.value}
-			<input type="hidden" value="$fields.primary_contact_image.value" id="primary_contact_image" class="sugar_field">
-				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_primary_contact_image\').src)">
-				<img style="
-				border: 1px solid black; 
-				width: auto;
-				height: 132px;
-				float:left;
-				margin-right: 5px;
-				" src="index.php?entryPoint=download&amp;id={$fields.primary_contact_image.value}&amp;type=SugarFieldImage&amp;isTempFile=1" name="img_primary_contact_image" id="img_primary_contact_image">
-				</a>
-			{/if}
-			
-			<span>
-				{if $fields.primary_contact_salutation.value}<b>{$fields.primary_contact_salutation.value}</b>{/if}
-				{if $fields.primary_contact_birthdate.value}</br>DOB: {$fields.primary_contact_birthdate.value}{/if}
-				{if $fields.primary_contact_age.value}</br>Age: {$fields.primary_contact_age.value}{/if}
-				{if $fields.primary_contact_ssn.value}</br>SSN: {$fields.primary_contact_ssn.value}{/if}
-				{if $fields.primary_contact_employer.value}</br>Employer: {$fields.primary_contact_employer.value}{/if}
-
-			</span>
-			',
-          ),
-          1 => 
-          array (
-            'name' => 'secondary_contact_image',
-            'label' => ' ',
-            'customCode' => '
-			{if $fields.secondary_contact_image.value}
-			<input id="secondary_contact_image" class="sugar_field" type="hidden" value="$fields.secondary_contact_image.value">
-				<a href="javascript:SUGAR.image.lightbox(YAHOO.util.Dom.get(\'img_secondary_contact_image\').src)">
-				<img 
-				id="img_secondary_contact_image" 
-				style=" 
-				border: 1px solid black;
-				width: auto;
-				height: 132px;
-				float:left;
-				margin-right: 5px;
-				" src="index.php?entryPoint=download&id={$fields.secondary_contact_image.value}&type=SugarFieldImage&isTempFile=1" name="img_secondary_contact_image">
-					</a>
-				{/if}
-
-				<span>
-				{if $fields.secondary_contact_salutation.value}<b>{$fields.secondary_contact_salutation.value}</b>{/if}
-				{if $fields.secondary_contact_birthdate.value}</br>DOB: {$fields.secondary_contact_birthdate.value}{/if}
-				{if $fields.secondary_contact_age.value}</br>Age: {$fields.secondary_contact_age.value}{/if}
-				{if $fields.secondary_contact_ssn.value}</br>SSN: {$fields.secondary_contact_ssn.value}{/if}
-				{if $fields.secondary_contact_employer.value}</br>Employer: {$fields.secondary_contact_employer.value}{/if}
-			</span>
-				',
-          ),
-        ),
-        5 => 
         array (
           0 => 
           array (
@@ -253,7 +183,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -268,7 +198,7 @@ array (
             'label' => 'LBL_PRIORITY',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -282,7 +212,7 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -297,7 +227,7 @@ array (
             'label' => 'LBL_PHASE',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -308,7 +238,7 @@ array (
           ),
           1 => 'campaign_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -322,7 +252,7 @@ array (
             'label' => 'LBL_TAX_YEAR_END_DATE',
           ),
         ),
-        11 => 
+        10 => 
         array (
           0 => '',
           1 => 
@@ -332,7 +262,7 @@ array (
             'label' => 'LBL_DOCUMENT_PATH',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -342,7 +272,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
