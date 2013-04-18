@@ -65,11 +65,19 @@ array (
       array (
         0 => 
         array (
-          0 => 
+         0 => 
           array (
-            'name' => 'first_name',
-            'comment' => 'First name of the contact',
-            'label' => 'LBL_FIRST_NAME',
+            'name' => 'full_name',
+            'label' => 'LBL_NAME',
+            'displayParams' => 
+            array (
+              'enableConnectors' => true,
+              'module' => 'Contacts',
+              'connectors' => 
+              array (
+                0 => 'ext_rest_twitter',
+              ),
+            ),
           ),
           1 => 
           array (
@@ -79,12 +87,6 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'last_name',
-            'comment' => 'Last name of the contact',
-            'label' => 'LBL_LAST_NAME',
-          ),
           1 => 
           array (
             'name' => 'assigned_user_name',
