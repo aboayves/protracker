@@ -41,29 +41,67 @@ $subpanel_layout = array(
 		'name'=>array(
 	 		'vname' => 'LBL_NAME',
 			'widget_class' => 'SubPanelDetailViewLink',
-	 		'width' => '45%',
+	 		'width' => '30%',
 		),
-		'date_modified'=>array(
-	 		'vname' => 'LBL_DATE_MODIFIED',
-	 		'width' => '20%',
-		),
-		'av_groups_contacts_fields' => array(
-			'vname' => 'LBL_?',
+		'contacts_fields' => array(
+			'vname' => 'LBL_JOIN_FIELD',
 			'usage'=>'query_only',
 		),
-		'av_groups_contacts_mail'=>array(
-			'vname' => 'LBL_MAIL',
-			'width' => '10%',
-			'customCode' => 'mehe',
+		'membership_id' => array(
+			'vname' => 'LBL_ID',
+			'usage'=>'query_only',
 		),
-		'av_groups_contacts_email'=>array(
-			'vname' => 'LBL_EMAIL',
+		'envelope' => 
+		array (
+			'type' => 'text',
+			'vname' => 'LBL_ENVELOPE',
+			'sortable' => false,
 			'width' => '10%',
+			'default' => true,
+		),
+		'include' => 
+		array (
+			'type' => 'bool',
+			'default' => true,
+			'vname' => 'LBL_INCLUDE',
+			'width' => '10%',
+		),
+		'opted_out' => 
+		array (
+			'type' => 'bool',
+			'vname' => 'LBL_OPTED_OUT',
+			'width' => '10%',
+			'default' => true,
+		),
+		'expiration_date' => 
+		array (
+			'type' => 'date',
+			'vname' => 'LBL_EXPIRATION_DATE',
+			'width' => '10%',
+			'default' => true,
+		),
+		'delivery_method' => 
+		array (
+			'type' => 'enum',
+			'vname' => 'LBL_DELIVERY_METHOD',
+			'width' => '10%',
+			'default' => true,
+		),
+		'comments' => 
+		array (
+			'type' => 'text',
+			'vname' => 'LBL_COMMENTS',
+			'sortable' => false,
+			'width' => '10%',
+			'default' => true,
 		),
 		'edit_button'=>array(
-			'widget_class' => 'SubPanelEditButton',
-		 	'module' => $module_name,
-	 		'width' => '4%',
+			'vname' => 'LBL_EDIT_BUTTON',
+			'widget_class' => 'SubPanelCstmEditRoleButton',
+		 	'target' => 'av_Group_Membership',
+			'action' => 'EditView',
+			'id_field' => 'membership_id',
+			'width' => '5%',
 		),
 		'remove_button'=>array(
 			'widget_class' => 'SubPanelRemoveButton',

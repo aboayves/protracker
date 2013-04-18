@@ -180,7 +180,7 @@
          //reset css generating by positionMenu
         this.removeClass("rtl ltr");
 
-    	if(this.offset() && this.parent().parent().hasClass('sf-menu') != true) {
+    	if(this.offset()) {
             //reset position to origin
             var is_rtl_theme = sf.op['rtl'] || sf.defaults['rtl'];
             if(is_rtl_theme) {
@@ -273,6 +273,11 @@
      *              if $ul is not given, it will restore back to the original structure
      */
     sf.IEfix = function($ul) {
+		//Quick fix for IE 9 & 10
+		
+		if(($.browser.msie && $.browser.version >= 9))
+		return;
+		
         if ( ($.browser.msie && $.browser.version > 6) || $(this).hasClass("iefix") ) {
             if($ul) {
                 //Take out the element out of the fixed box model,
@@ -405,7 +410,7 @@
         showSuperfishUl: function() {
             var o = sf.op,
             sh = sf.c.shadowClass + '-off',
-            $ul = this.addClass(o.hoverClass).find('>ul:hidden').show().css('visibility', 'visible');
+            $ul = this.addClass(o.hoverClass).find('>ul:hidden').show().css('visibility', 'visible').css('max-height', $(window).height() + 'px');
             sf.positionMenu.call($ul);
             sf.IE7fix.call($ul);
             o.onBeforeShow.call($ul);

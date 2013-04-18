@@ -127,7 +127,7 @@ $vardefs = array(
 	    'type' => 'text',
 	    'comment' => 'Full text of the note',
 	    'rows' => 6,
-	    'cols' => 80,
+	    'cols' => 60,
 	  ),
 	  'deleted' =>
 	  array (

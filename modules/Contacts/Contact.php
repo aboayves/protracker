@@ -3,7 +3,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (â€œMSAâ€), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -311,6 +311,59 @@ class Contact extends Person {
 			$this->fill_in_additional_detail_fields();
 		}
 	}
+	public function _create_proper_name_field() {	
+		global $locale, $app_list_strings;
+
+        // Bug# 46125 - make first name, last name, salutation and title of Contacts respect field level ACLs
+        $first_name = ""; $last_name = ""; $salutation = ""; $title = "";
+
+        $globalUserSet = isset($GLOBALS['current_user']);
+        if ($globalUserSet && (ACLField::hasAccess('first_name', $this->module_dir, $GLOBALS['current_user']->id, $this->isOwner($GLOBALS['current_user']->id))) > 0) {
+           // first name has at least read access
+           $first_name = $this->first_name;
+        }
+
+        if ($globalUserSet && (ACLField::hasAccess('last_name', $this->module_dir, $GLOBALS['current_user']->id, $this->isOwner($GLOBALS['current_user']->id))) > 0) {
+            // last name has at least read access
+            $last_name = $this->last_name;
+        }
+
+        if ($globalUserSet && (ACLField::hasAccess('salutation', $this->module_dir, $GLOBALS['current_user']->id, $this->isOwner($GLOBALS['current_user']->id))) > 0) {
+
+            // salutation has at least read access
+            if(isset($this->field_defs['salutation']['options'])
+			  && isset($app_list_strings[$this->field_defs['salutation']['options']])
+			  && isset($app_list_strings[$this->field_defs['salutation']['options']][$this->salutation]) ) {
+
+			        $salutation = $app_list_strings[$this->field_defs['salutation']['options']][$this->salutation];
+			} // if
+        }
+
+        if ($globalUserSet && (ACLField::hasAccess('title', $this->module_dir, $GLOBALS['current_user']->id, $this->isOwner($GLOBALS['current_user']->id))) > 0) {
+            // last name has at least read access
+            $title = $this->title;
+        }
+
+        // Corner Case:
+        // Both first name and last name cannot be empty, at least one must be shown
+        // In that case, we can ignore field level ACL and just display last name...
+        // In the ACL field level access settings, last_name cannot be set to "none"
+        if (empty($first_name) && empty($last_name)) {
+            $full_name = $locale->getLocaleFormattedName("", $last_name, $salutation, $title);
+        } else {
+			if($this->createLocaleFormattedName) {
+				$full_name = $locale->getLocaleFormattedName($first_name, $last_name, $salutation, $title);
+			} else {
+				$full_name = $locale->getLocaleFormattedName($first_name, $last_name);
+			}
+		}
+		
+		//	$this->name = $full_name;
+		//	$this->full_name = $full_name;
+			$this->full_name = $this->title.' '.$this->first_name.' '.$this->middle_name.' '.$this->last_name.' '.$this->suffix; //used by campaigns
+	
+	}
+
 
 	function fill_in_additional_detail_fields() {
 		parent::fill_in_additional_detail_fields();
@@ -403,6 +456,26 @@ class Contact extends Person {
 			$temp_array['SYNC_CONTACT'] = !empty($this->contacts_users_id) ? 1 : 0;
 		}
 
+		
+//Marking dates ----------------------------------------- PROTRACK-152 ---- Abdul
+		if(isset($temp_array['EXPIRATION_DATE']) && !empty($temp_array['EXPIRATION_DATE'])){
+			global $timedate;
+			
+			$today = $timedate->nowDb();
+			$nextday = $timedate->asDbDate($timedate->getNow()->modify("+1 day"));
+	
+			$date_db = $timedate->to_db($temp_array['EXPIRATION_DATE']);
+			
+			if( $date_db < $today){
+				$temp_array['EXPIRATION_DATE']= "<font class='overdueTask'>".$temp_array['EXPIRATION_DATE']."</font>";
+			}else if($date_db < $nextday){
+				$temp_array['EXPIRATION_DATE'] = "<font class='todaysTask'>".$temp_array['EXPIRATION_DATE']."</font>";
+			}else{
+				$temp_array['EXPIRATION_DATE'] = "<font class='futureTask'>".$temp_array['EXPIRATION_DATE']."</font>";
+			}
+		}
+//----------------------------------------------------------------------------------------------------------------
+		
 		return $temp_array;
 	}
 

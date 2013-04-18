@@ -21,6 +21,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * All Rights Reserved.
  * Contributor(s): ______________________________________..
  ********************************************************************************/
+ //print"<pre>";print_r($_REQUEST);die;
 require_once('modules/Accounts/AccountFormBase.php');
 $accountForm = new AccountFormBase();
 $prefix = empty($_REQUEST['dup_checked']) ? '' : 'Accounts';

@@ -1113,8 +1113,8 @@ function insert_default_settings(){
     global $sugar_db_version;
 
 
-    $db->query("INSERT INTO config (category, name, value) VALUES ('notify', 'fromaddress', 'do_not_reply@example.com')");
-    $db->query("INSERT INTO config (category, name, value) VALUES ('notify', 'fromname', 'SugarCRM')");
+    $db->query("INSERT INTO config (category, name, value) VALUES ('notify', 'fromaddress', 'do_not_reply@protracker.com')");
+    $db->query("INSERT INTO config (category, name, value) VALUES ('notify', 'fromname', 'ProTracker')");
     $db->query("INSERT INTO config (category, name, value) VALUES ('notify', 'send_by_default', '1')");
     $db->query("INSERT INTO config (category, name, value) VALUES ('notify', 'on', '1')");
     $db->query("INSERT INTO config (category, name, value) VALUES ('notify', 'send_from_assigning_user', '0')");

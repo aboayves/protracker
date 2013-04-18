@@ -1,200 +1,181 @@
 <?php
-// created: 2013-04-10 13:54:26
-$viewdefs['Accounts']['QuickCreate'] = array (
-  'templateMeta' => 
+$viewdefs ['Accounts'] = 
+array (
+  'QuickCreate' => 
   array (
-    'form' => 
+    'templateMeta' => 
     array (
-      'buttons' => 
+      'form' => 
       array (
-        0 => 'SAVE',
-        1 => 'CANCEL',
+        'buttons' => 
+        array (
+          0 => 'SAVE',
+          1 => 'CANCEL',
+        ),
       ),
-    ),
-    'maxColumns' => '2',
-    'widths' => 
-    array (
-      0 => 
-      array (
-        'label' => '10',
-        'field' => '30',
-      ),
-      1 => 
-      array (
-        'label' => '10',
-        'field' => '30',
-      ),
-    ),
-    'includes' => 
-    array (
-      0 => 
-      array (
-        'file' => 'modules/Accounts/Account.js',
-      ),
-    ),
-    'useTabs' => true,
-    'tabDefs' => 
-    array (
-      'LBL_ACCOUNT_INFORMATION' => 
-      array (
-        'newTab' => true,
-        'panelDefault' => 'expanded',
-      ),
-      'LBL_EDITVIEW_PANEL2' => 
-      array (
-        'newTab' => true,
-        'panelDefault' => 'expanded',
-      ),
-      'LBL_EDITVIEW_PANEL1' => 
-      array (
-        'newTab' => true,
-        'panelDefault' => 'expanded',
-      ),
-      'LBL_EDITVIEW_PANEL3' => 
-      array (
-        'newTab' => true,
-        'panelDefault' => 'expanded',
-      ),
-    ),
-  ),
-  'panels' => 
-  array (
-    'lbl_account_information' => 
-    array (
-      0 => 
+      'maxColumns' => '2',
+      'widths' => 
       array (
         0 => 
         array (
-          'name' => 'name',
-          'displayParams' => 
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'modules/Accounts/Account.js',
+        ),
+      ),
+      'useTabs' => true,
+    ),
+    'panels' => 
+    array (
+      'lbl_account_information' => 
+      array (
+        0 => 
+        array (
+          0 => 
           array (
-            'required' => true,
+            'name' => 'name',
+            'displayParams' => 
+            array (
+              'required' => true,
+            ),
+          ),
+          1 => 
+          array (
+            'name' => 'preferred_comm',
+            'studio' => 'visible',
+            'label' => 'LBL_PREFERRED_COMM',
           ),
         ),
         1 => 
         array (
-          'name' => 'preferred_comm_c',
-          'studio' => 'visible',
-          'label' => 'LBL_PREFERRED_COMM',
+          0 => 
+          array (
+            'name' => 'av_client_types_name',
+          ),
+          1 => 
+          array (
+            'name' => 'priority',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIORITY',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'status',
+            'studio' => 'visible',
+            'label' => 'LBL_STATUS',
+          ),
+		  1 => 'client_salutation',
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
         ),
       ),
-      1 => 
+      'lbl_editview_panel2' => 
       array (
         0 => 
         array (
-          'name' => 'account_type',
+          0 => 
+          array (
+            'name' => 'phone_office',
+          ),
+          1 => 
+          array (
+            'name' => 'email1',
+          ),
         ),
         1 => 
         array (
-          'name' => 'priority_c',
-          'studio' => 'visible',
-          'label' => 'LBL_PRIORITY',
+          0 => 
+          array (
+            'name' => 'website',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_fax',
+          ),
         ),
       ),
-      2 => 
+      'lbl_editview_panel1' => 
       array (
         0 => 
         array (
-          'name' => 'status_c',
-          'studio' => 'visible',
-          'label' => 'LBL_STATUS',
+          0 => 
+          array (
+            'name' => 'billing_address_street',
+            'comment' => 'The street address used for billing address',
+            'label' => 'LBL_BILLING_ADDRESS_STREET',
+          ),
+          1 => 
+          array (
+            'name' => 'shipping_address_street',
+            'comment' => 'The street address used for for shipping purposes',
+            'label' => 'LBL_SHIPPING_ADDRESS_STREET',
+          ),
         ),
-        1 => '',
       ),
-      3 => 
+      'lbl_editview_panel3' => 
       array (
         0 => 
         array (
-          'name' => 'description',
-          'comment' => 'Full text of the note',
-          'label' => 'LBL_DESCRIPTION',
-        ),
-      ),
-    ),
-    'lbl_editview_panel2' => 
-    array (
-      0 => 
-      array (
-        0 => 
-        array (
-          'name' => 'phone_office',
+          0 => 
+          array (
+            'name' => 'net_worth',
+            'label' => 'LBL_NET_WORTH',
+          ),
+          1 => 
+          array (
+            'name' => 'client_id',
+            'label' => 'LBL_CLIENT_ID',
+          ),
         ),
         1 => 
         array (
-          'name' => 'email1',
+          0 => 
+          array (
+            'name' => 'client_since',
+            'label' => 'LBL_CLIENT_SINCE',
+          ),
+          1 => 
+          array (
+            'name' => 'accounting_id',
+            'label' => 'LBL_ACCOUNTING_ID',
+          ),
         ),
-      ),
-      1 => 
-      array (
-        0 => 
+        2 => 
         array (
-          'name' => 'website',
-        ),
-        1 => 
-        array (
-          'name' => 'phone_fax',
-        ),
-      ),
-    ),
-    'lbl_editview_panel1' => 
-    array (
-      0 => 
-      array (
-        0 => 
-        array (
-          'name' => 'billing_address_street',
-          'comment' => 'The street address used for billing address',
-          'label' => 'LBL_BILLING_ADDRESS_STREET',
-        ),
-        1 => 
-        array (
-          'name' => 'shipping_address_street',
-          'comment' => 'The street address used for for shipping purposes',
-          'label' => 'LBL_SHIPPING_ADDRESS_STREET',
-        ),
-      ),
-    ),
-    'lbl_editview_panel3' => 
-    array (
-      0 => 
-      array (
-        0 => 
-        array (
-          'name' => 'net_worth_c',
-          'label' => 'LBL_NET_WORTH',
-        ),
-        1 => 
-        array (
-          'name' => 'client_id_c',
-          'label' => 'LBL_CLIENT_ID',
-        ),
-      ),
-      1 => 
-      array (
-        0 => 
-        array (
-          'name' => 'client_since_c',
-          'label' => 'LBL_CLIENT_SINCE',
-        ),
-        1 => 
-        array (
-          'name' => 'accounting_id_c',
-          'label' => 'LBL_ACCOUNTING_ID',
-        ),
-      ),
-      2 => 
-      array (
-        0 => 
-        array (
-          'name' => 'married_c',
-          'label' => 'LBL_MARRIED',
-        ),
-        1 => 
-        array (
-          'name' => 'last_rebal_c',
-          'label' => 'LBL_LAST_REBAL',
+          0 => 
+          array (
+            'name' => 'married',
+            'label' => 'LBL_MARRIED',
+          ),
+          1 => 
+          array (
+            'name' => 'last_rebal',
+            'label' => 'LBL_LAST_REBAL',
+          ),
         ),
       ),
     ),
   ),
 );
+?>

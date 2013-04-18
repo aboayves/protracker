@@ -1,15 +1,13 @@
 <?php
-// created: 2012-05-29 16:03:04
+// created: 2013-01-11 18:26:15
 $searchFields['Accounts'] = array (
   'name' => 
   array (
     'query_type' => 'default',
   ),
-  'account_type' => 
+  'av_client_types_name' => 
   array (
     'query_type' => 'default',
-    'options' => 'account_type_dom',
-    'template_var' => 'ACCOUNT_TYPE_OPTIONS',
   ),
   'industry' => 
   array (

@@ -1,5 +1,5 @@
 <?php
-// created: 2012-05-29 15:10:14
+// created: 2013-01-11 19:05:15
 $searchFields['Contacts'] = array (
   'first_name' => 
   array (
@@ -46,10 +46,11 @@ $searchFields['Contacts'] = array (
     'db_field' => 
     array (
       0 => 'phone_mobile',
-      1 => 'phone_work',
-      2 => 'phone_other',
-      3 => 'phone_fax',
-      4 => 'assistant_phone',
+      1 => 'phone_home',
+      2 => 'phone_work',
+      3 => 'phone_other',
+      4 => 'phone_fax',
+      5 => 'assistant_phone',
     ),
   ),
   'email' => 
@@ -138,6 +139,14 @@ $searchFields['Contacts'] = array (
   array (
     'query_type' => 'default',
   ),
+   'ssn' => 
+  array (
+    'query_type' => 'default',
+  ),
+   'ein' => 
+  array (
+    'query_type' => 'default',
+  ),
   'favorites_only' => 
   array (
     'query_type' => 'format',
@@ -199,6 +208,24 @@ $searchFields['Contacts'] = array (
     'is_date_field' => true,
   ),
   'end_range_date_modified' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_birthdate' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_birthdate' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_birthdate' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,

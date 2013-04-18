@@ -22,9 +22,18 @@ class="yui-navset detailview_tabs"
 >
     {{if $useTabs}}
     {* Generate the Tab headers *}
+	{{counter name="tabCount" start=-1 print=false assign="tabCount"}}
+	<script type='text/javascript'>
+	var tabs_array=Array();
+	{{foreach name=section from=$sectionPanels key=label item=panel}}
+        {{counter name="tabCount" print=false}}
+		tabs_array[{{$tabCount}}]='{sugar_translate label='{{$label}}' module='{{$module}}'}';
+	{{/foreach}}
+	</script>
     {{counter name="tabCount" start=-1 print=false assign="tabCount"}}
     <ul class="yui-nav">
     {{foreach name=section from=$sectionPanels key=label item=panel}}
+        <li><a id="tab{{$tabCount}}" href="javascript:void(0)" onclick="setTabCookie('{{$module}}', '{sugar_translate label='{{$label}}' module='{{$module}}'}');"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
         {{capture name=label_upper assign=label_upper}}{{$label|upper}}{{/capture}}
         {* override from tab definitions *}
         {{if (isset($tabDefs[$label_upper].newTab) && $tabDefs[$label_upper].newTab == true)}}
@@ -103,6 +112,7 @@ class="yui-navset detailview_tabs"
 			{counter name="fieldsUsed"}
 			{{if empty($colData.field.hideLabel)}}
 			<td width='{{$def.templateMeta.widths[$smarty.foreach.colIteration.index].label}}%' scope="col">
+            	<label>
 				{{if !empty($colData.field.name)}}
 				    {if !$fields.{{$colData.field.name}}.hidden}
                 {{/if}}
@@ -134,6 +144,7 @@ class="yui-navset detailview_tabs"
                 {/if}
                 {{/if}}
                 {{/if}}
+                </label>
 			</td>
 			<td width='{{$def.templateMeta.widths[$smarty.foreach.colIteration.index].field}}%' {{if $colData.colspan}}colspan='{{$colData.colspan}}'{{/if}} {{if isset($fields[$colData.field.name].type) && $fields[$colData.field.name].type == 'phone'}}class="phone"{{/if}}>
 			    {{if !empty($colData.field.name)}}
@@ -208,6 +219,11 @@ class="yui-navset detailview_tabs"
 <script type="text/javascript" src="{sugar_getjspath file='cache/include/javascript/sugar_grp_yui_widgets.js'}"></script>
 <script type="text/javascript">
 var {{$module}}_detailview_tabs = new YAHOO.widget.TabView("{{$module}}_detailview_tabs");
-{{$module}}_detailview_tabs.selectTab(0);
+//{{$module}}_detailview_tabs.selectTab(0);
+var selectedTab=getTabCookie('{{$module}}');
+selectedTab = tabs_array.indexOf(selectedTab);
+selectedTab = (isNaN(selectedTab)||(selectedTab=='-1')) ? 0 : selectedTab;
+{{$module}}_detailview_tabs.selectTab(selectedTab);
 </script>
 {{/if}}
+<hr>

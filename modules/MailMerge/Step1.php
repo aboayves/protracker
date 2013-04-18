@@ -41,6 +41,10 @@ $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
 $xtpl->assign('JSON_CONFIG_JAVASCRIPT', $json_config->get_static_json_server(false, true));
 
+if(isset($_REQUEST['mailmerge_module'])) {
+	$_SESSION['MAILMERGE_MODULE'] = $_REQUEST['mailmerge_module'];
+}
+
 if($_SESSION['MAILMERGE_MODULE'] == 'Campaigns' || $_SESSION['MAILMERGE_MODULE'] == 'CampaignProspects'){
 	$modules_array['Campaigns'] = 'Campaigns';
 }

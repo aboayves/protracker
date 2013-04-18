@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+<?php
+$mod_strings['LBL_PREFERRED_CALLING_TIME']='Preferred Calling Time';
+?>
+=======
+<?php
+$mod_strings['LBL_PREFERRED_CALLING_TIME']='Preferred Calling Time';
+?>
+>>>>>>> Clients module: added client preference and relationship type fields

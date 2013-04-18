@@ -52,7 +52,7 @@ function export($type, $records = null, $members = false, $sample=false) {
       "name"=>"Account Name",
       "website"=>"Website",
       "industry"=>"Industry",
-      "account_type"=>"Type",
+      "av_client_types_name"=>"Type",
       "ticker_symbol"=>"Ticker Symbol",
       "employees"=>"Employees",
       "ownership"=>"Ownership",

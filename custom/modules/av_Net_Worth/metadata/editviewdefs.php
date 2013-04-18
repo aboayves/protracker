@@ -1,90 +1,96 @@
 <?php
-// created: 2013-04-10 13:54:26
-$viewdefs['av_Net_Worth']['EditView'] = array (
-  'templateMeta' => 
+$module_name = 'av_Net_Worth';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
   array (
-    'maxColumns' => '2',
-    'form' => 
+    'templateMeta' => 
     array (
-      'hidden' => 
+      'maxColumns' => '2',
+      'form' => 
       array (
-        0 => '<input type="hidden" id="name" name="name" value="Net Worth">',
+        'hidden' => 
+        array (
+          0 => '<input type="hidden" id="name" name="name" value="Net Worth">',
+        ),
       ),
-    ),
-    'widths' => 
-    array (
-      0 => 
-      array (
-        'label' => '10',
-        'field' => '30',
-      ),
-      1 => 
-      array (
-        'label' => '10',
-        'field' => '30',
-      ),
-    ),
-    'useTabs' => false,
-    'syncDetailEditViews' => true,
-    'tabDefs' => 
-    array (
-      'DEFAULT' => 
-      array (
-        'newTab' => false,
-        'panelDefault' => 'expanded',
-      ),
-    ),
-  ),
-  'panels' => 
-  array (
-    'default' => 
-    array (
-      0 => 
-      array (
-        0 => '',
-        1 => 'assigned_user_name',
-      ),
-      1 => 
+      'widths' => 
       array (
         0 => 
         array (
-          'name' => 'team_name',
-          'displayParams' => 
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+      ),
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
+    ),
+    'panels' => 
+    array (
+      'default' => 
+      array (
+        0 => 
+        array (
+          0 => 
           array (
-            'display' => true,
+            'name' => 'accounts_name',
+          ),
+          1 => 
+          array (
+            'name' => 'net_worth_date',
+            'comment' => '',
+            'label' => 'LBL_NET_WORTH_DATE',
           ),
         ),
         1 => 
         array (
-          'name' => 'grand_total',
-          'label' => 'LBL_GRAND_TOTAL',
+          0 => 
+          array (
+            'name' => 'grand_total',
+            'label' => 'LBL_GRAND_TOTAL',
+			'type' => 'varchar',
+          ),
+          1 => 
+          array (
+            'name' => 'managed_assets',
+            'label' => 'LBL_MANAGED_ASSETS',
+			'type' => 'varchar',
+          ),
         ),
-      ),
-      2 => 
-      array (
-        0 => 'description',
-        1 => 
+        2 => 
         array (
-          'name' => 'managed_assets',
-          'label' => 'LBL_MANAGED_ASSETS',
+          0 => 'description',
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
         ),
-      ),
-      3 => 
-      array (
-        0 => 
+        3 => 
         array (
-          'name' => 'av_net_worth_av_accounts_name',
-          'label' => 'LBL_AV_NET_WORTH_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE',
-        ),
-        1 => '',
-      ),
-      4 => 
-      array (
-        0 => 
-        array (
-          'name' => 'accounts_av_net_worth_name',
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),
   ),
 );
+?>

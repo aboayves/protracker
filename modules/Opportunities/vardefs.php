@@ -58,9 +58,8 @@ $dictionary['Opportunity'] = array('table' => 'opportunities','audited'=>true, '
     'len' => '255',
    	 'source'=>'non-db',
    	 'unified_search' => true,
-   	 'required' => true,
+   	 'required' => false,
    	 'importable' => 'required',
-     'required' => true,
   ),
   'account_id' =>
    array (

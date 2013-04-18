@@ -1,13 +1,10 @@
 <?php
-// Do not store anything in this file that is not part of the array or the hook version.  This file will	
-// be automatically rebuilt in the future. 
- $hook_version = 1; 
-$hook_array = Array(); 
-// position, file, function 
-$hook_array['after_ui_frame'] = Array(); 
-$hook_array['process_record'] = Array(); 
-$hook_array['process_record'][] = Array(1, 'make html for relationship fields', 'custom/modules/Accounts/theHook4Accounts.php','theHook4Accounts', 'makeHTML4RelateFields'); 
-
-
-
+$hook_array['process_record'] = Array();
+$hook_array['process_record'][] = Array(1, 'delete multiple record checkbox', 'custom/modules/Accounts/AccountsHook.php', 'AccountsHook', 'delete_multiple_record');
+$hook_array['before_save'] = Array();
+$hook_array['before_save'][] = Array(1, ' sync communicaton tab', 'custom/modules/Accounts/AccountsHook.php', 'AccountsHook', 'sync_communicaton_tab');
+$hook_array['after_save'] = Array();
+$hook_array['after_save'][] = Array(1, ' sync email address', 'custom/modules/Accounts/AccountsHook.php', 'AccountsHook', 'sync_email_address');
+$hook_array['after_relationship_add'] = Array();
+$hook_array['after_relationship_add'][] = Array(1, 'set first contact to primary', 'custom/modules/Accounts/AccountsHook.php', 'AccountsHook', 'setFirstContactToPrimary');
 ?>

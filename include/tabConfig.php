@@ -54,6 +54,16 @@ $GLOBALS['tabStructure'] = array(
             "KBDocuments",
         )
     ),
+	"LBL_TABGROUP_ACCOUNTS" => array(
+        'label' => 'LBL_TABGROUP_ACCOUNTS',
+        'modules' => array(
+            "av_Accounts",
+            "av_Account",
+			"Accounts",
+			"av_accounts",
+			"av_account",
+        )
+    ),
     "LBL_TABGROUP_ACTIVITIES" => array(
         'label' => 'LBL_TABGROUP_ACTIVITIES',
         'modules' => array(

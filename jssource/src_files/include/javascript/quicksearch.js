@@ -318,7 +318,7 @@ function enableQS(noReload){
 					});					
 					
                     //For IE browsers below 8 we have to set the z-index to allow the Autocomplete field to appear correctly
-                    if(SUGAR.isIE && navigator.appVersion.match(/MSIE (.\..)/)[1] < 8 && /team_name/.test(search.getInputEl().id)) {
+                    if(SUGAR.isIE && $.browser.version < 8 && /team_name/.test(search.getInputEl().id)) {
 	                    search.containerExpandEvent.subscribe(function(e, args) {
 	                    	var zVal = 9999;
 	                    	div_els = YAHOO.util.Selector.query('div[name=teamset_div]');

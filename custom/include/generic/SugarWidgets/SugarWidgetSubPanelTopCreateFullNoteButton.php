@@ -35,8 +35,8 @@ require_once('include/generic/SugarWidgets/SugarWidgetSubPanelTopButton.php');
 class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopButton
 {
 	function __construct(&$layout_manager) {
-		$this->title = 'Create Note or Attachment';
-		$this->form_value = '  Create Note or Attachment';
+		$this->title = 'Create Note';
+		$this->form_value = '  Create Note';
 		parent::SugarWidget($layout_manager);
 	}
 	function &_get_form($defines, $additionalFormFields = null)
@@ -62,7 +62,9 @@ class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopB
 				}
 			}
 		}
-
+		//Inheriting team members from parent
+		if(isset($defines['focus']->team_id))$additionalFormFields['team_id'] = $defines['focus']->team_id;
+		if(isset($defines['focus']->team_set_id))$additionalFormFields['team_set_id'] = $defines['focus']->team_set_id;
 		if(!empty($this->module))
 		{
 			$defines['child_module_name'] = $this->module;
@@ -99,7 +101,7 @@ class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopB
 		if(empty($additionalFormFields['parent_type']))
 		{
 			if($defines['focus']->object_name=='Contact') {
-				$additionalFormFields['parent_type'] = 'Accounts';
+				$additionalFormFields['parent_type'] = 'Contacts';
 			}
 			else {
 				$additionalFormFields['parent_type'] = $defines['focus']->module_dir;
@@ -108,7 +110,7 @@ class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopB
 		if(empty($additionalFormFields['parent_name']))
 		{
 			if($defines['focus']->object_name=='Contact') {
-				$additionalFormFields['parent_name'] = $defines['focus']->account_name;
+				$additionalFormFields['parent_name'] = $defines['focus']->name;
 				$additionalFormFields['account_name'] = $defines['focus']->account_name;
 			}
 			else {
@@ -118,7 +120,7 @@ class SugarWidgetSubPanelTopCreateFullNoteButton extends SugarWidgetSubPanelTopB
 		if(empty($additionalFormFields['parent_id']))
 		{
 			if($defines['focus']->object_name=='Contact') {
-				$additionalFormFields['parent_id'] = $defines['focus']->account_id;
+				$additionalFormFields['parent_id'] = $defines['focus']->id;
 				$additionalFormFields['account_id'] = $defines['focus']->account_id;
 			}
 			else {

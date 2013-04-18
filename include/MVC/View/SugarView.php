@@ -2,7 +2,7 @@
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (â€œMSAâ€), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -547,7 +547,7 @@ class SugarView
                     $extraTabs = array_splice($topTabs,$max_tabs);
                 }
                 // Make sure the current module is accessable through one of the top tabs
-                if ( !isset($topTabs[$moduleTab]) ) {
+                /*if ( !isset($topTabs[$moduleTab]) ) {
                     // Nope, we need to add it.
                     // First, take it out of the extra menu, if it's there
                     if ( isset($extraTabs[$moduleTab]) ) {
@@ -562,7 +562,7 @@ class SugarView
                     if ( !empty($moduleTab) ) {
                         $topTabs[$moduleTab] = $app_list_strings['moduleList'][$moduleTab];
                     }
-                }
+                }*/
 
 
                 /*
@@ -584,9 +584,30 @@ class SugarView
 
                 $groupTabs[$tabIdx]['modules'] = $topTabs;
                 $groupTabs[$tabIdx]['extra'] = $extraTabs;
+				$groupTabs[$tabIdx]['type'] = 'group';
             }
         }
+		
+		//hard code area for sorting menus
+		
+		$fixed_modules = array("Tasks","Calls","Reports","Clients","Contacts","Meetings","Calendar",
+								"Notes", "Groups","Emails");
+		foreach($fixed_modules as $data){
+			$groupTabs[$data]['type'] = 'non-group';
+			$groupTabs[$data]['path'] = "_header".$data.".tpl";
+		
+		}
 
+		//Hardcoding modules
+		$topTabList['av_Companies'] = $app_list_strings['moduleList']['av_Companies'];
+		$topTabList['av_Groups'] = $app_list_strings['moduleList']['av_Groups'];
+		$topTabList['Accounts'] = $app_list_strings['moduleList']['Accounts'];
+		$topTabList['Contacts'] = $app_list_strings['moduleList']['Contacts'];
+		$topTabList['Calls'] = $app_list_strings['moduleList']['Calls'];
+		$topTabList['Emails'] = $app_list_strings['moduleList']['Emails'];
+		$topTabList['Meetings'] = $app_list_strings['moduleList']['Meetings'];
+		$topTabList['Notes'] = $app_list_strings['moduleList']['Notes'];
+		$topTabList['Tasks'] = $app_list_strings['moduleList']['Tasks'];
         if ( isset($topTabList) && is_array($topTabList) ) {
             // Adding shortcuts array to menu array for displaying shortcuts associated with each module
             $shortcutTopMenu = array();
@@ -604,6 +625,9 @@ class SugarView
                         );
                 }
             }
+			
+			ksort($groupTabs);
+			
             $ss->assign("groupTabs",$groupTabs);
             $ss->assign("shortcutTopMenu",$shortcutTopMenu);
             $ss->assign('USE_GROUP_TABS',$usingGroupTabs);
@@ -650,13 +674,26 @@ class SugarView
 			require_once('include/DashletContainer/DCFactory.php');
             require_once('include/SugarSearchEngine/SugarSearchEngineFactory.php');
 			$dcm = DCFactory::getContainer(null, 'DCMenu');
+			//Non upgrade safe changes for quick menu create.
+			$quickMenuItems = $dcm->getMenus();
+			$updated_menus =array();
+			foreach($quickMenuItems as $data){
+				$pieces = explode(" ", $data['createRecordTitle']);
+				$data['createRecordTitle'] = $pieces[1];
+				$updated_menus[] = $data;
+			}
+			array_unshift($updated_menus,$updated_menus[6],$updated_menus[7]);
+			$updated_menus[8] = $updated_menus[10];
+			$updated_menus[9] = $updated_menus[11];
+			unset($updated_menus[10]);
+			unset($updated_menus[11]);
 			$notifData = $dcm->getNotifications();
 			$ss->assign('NOTIFCLASS', $notifData['class']);
 			$ss->assign('NOTIFCODE', $notifData['code']);
 			$ss->assign('NOTIFICON', $notifData['icon']);
 			$ss->assign('DCSCRIPT', $dcm->getScript());
 			$ss->assign('ICONSEARCH', $dcm->getSearchIcon());
-			$ss->assign('DCACTIONS',$dcm->getMenus());
+			$ss->assign('DCACTIONS',$updated_menus);
 			$ss->assign('PICTURE', $current_user->picture);
             $ftsAutocompleteEnable = TRUE;
             $searchEngine = SugarSearchEngineFactory::getInstance();
@@ -922,6 +959,7 @@ EOHTML;
 			 $bottomLinkList['print'] = array($app_strings['LNK_PRINT'] => getPrintLink());
 		}
 		$bottomLinkList['backtotop'] = array($app_strings['LNK_BACKTOTOP'] => 'javascript:SUGAR.util.top();');
+		$bottomLinkList['help'] = array('Help' => 'javascript:window.open(\'http://protrackersoftware.net/help/contacts.php?'.$GLOBALS['request_string'].'\');');
 
 		$bottomLinksStr = "";
 		foreach($bottomLinkList as $key => $value) {
@@ -1344,7 +1382,7 @@ EOHTML;
 			$params = array_reverse($params);
 		}
 		if(count($params) > 1) {
-			array_shift($params);
+			//array_shift($params);
 		}
 		$count = count($params);
         $paramString = '';
@@ -1423,17 +1461,15 @@ EOHTML;
     /**
      * Returns an array composing of the breadcrumbs to use for the module title
      *
-     * @param bool $browserTitle true if the returned string is being used for the browser title, meaning
-     *                           there should be no HTML in the string
      * @return array
      */
-    protected function _getModuleTitleParams($browserTitle = false)
+    protected function _getModuleTitleParams($bTitle=false)
     {
-        $params = array($this->_getModuleTitleListParam($browserTitle));
-		//$params = array();
-        if (isset($this->action)){
-            switch ($this->action) {
-            case 'EditView':
+    	$params = array($this->_getModuleTitleListParam($bTitle));
+    	
+    	if (isset($this->action)){
+    	    switch ($this->action) {
+    	    case 'EditView':
                 if(!empty($this->bean->id) && (empty($_REQUEST['isDuplicate']) || $_REQUEST['isDuplicate'] === 'false')) {
                     $params[] = "<a href='index.php?module={$this->module}&action=DetailView&record={$this->bean->id}'>".$this->bean->get_summary_text()."</a>";
                     $params[] = $GLOBALS['app_strings']['LBL_EDIT_BUTTON_LABEL'];
@@ -1443,64 +1479,59 @@ EOHTML;
                 break;
             case 'DetailView':
                 $beanName = $this->bean->get_summary_text();
-                if($this->bean->isFavoritesEnabled())
-                    $beanName .= '&nbsp;' . SugarFavorites::generateStar(SugarFavorites::isUserFavorite($this->module, $this->bean->id), $this->module, $this->bean->id);
                 $params[] = $beanName;
                 break;
-            }
-        }
-
-        return $params;
+    		}
+    	}
+ 		
+    	return $params;
     }
-
+    
     /**
      * Returns the portion of the array that will represent the listview in the breadcrumb
      *
-     * @param bool $browserTitle true if the returned string is being used for the browser title, meaning
-     *                           there should be no HTML in the string
      * @return string
      */
-    protected function _getModuleTitleListParam( $browserTitle = false )
+    protected function _getModuleTitleListParam($bTitle=false)
     {
     	global $current_user;
     	global $app_strings;
-
+    	
     	if(!empty($GLOBALS['app_list_strings']['moduleList'][$this->module]))
     		$firstParam = $GLOBALS['app_list_strings']['moduleList'][$this->module];
     	else
     		$firstParam = $this->module;
-
+    	
     	$iconPath = $this->getModuleTitleIconPath($this->module);
-    	if($this->action == "ListView" || $this->action == "index") {
-    	    if (!empty($iconPath) && !$browserTitle) {
-    	    	if (SugarThemeRegistry::current()->directionality == "ltr") {
-    	    		return $app_strings['LBL_SEARCH']."&nbsp;"
-    	    			 . "$firstParam";
-
-    	    	} else {
-					return "$firstParam"
-					     . "&nbsp;".$app_strings['LBL_SEARCH'];
-    	    	}
+    	if($this->action == "ListView" || $this->action == "index") 
+    	{
+    	    if (!empty($iconPath) && !$bTitle) {
+				return "<a href='index.php?module={$this->module}&action=index'>" 
+				     //. "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'> &nbsp;"
+					 . $firstParam."</a>" 
+				     . "<span class='pointer'>&raquo;</span>".$app_strings['LBL_SEARCH'];
 			} else {
 				return $firstParam;
 			}
-    	}
-    	else {
-		    if (!empty($iconPath) && !$browserTitle) {
-				//return "<a href='index.php?module={$this->module}&action=index'>$this->module</a>";
+    	} else 
+    	{
+		    if (!empty($iconPath) && !$bTitle) {
+				return "<a href='index.php?module={$this->module}&action=index'>" 
+				     //. "<img src='{$iconPath}' alt='".$firstParam."' title='".$firstParam."' align='absmiddle'> &nbsp;"
+					 . $firstParam."</a>";
 			} else {
-				return $firstParam;
+				return "<a href='index.php?module={$this->module}&action=index'>{$firstParam}</a>";
 			}
     	}
     }
-
-    protected function getModuleTitleIconPath($module)
-    {
+    
+    protected function getModuleTitleIconPath($module) {
     	$iconPath = "";
-    	if(is_file(SugarThemeRegistry::current()->getImageURL('icon_'.$module.'_32.png',false))) {
+    	if(is_file(SugarThemeRegistry::current()->getImageURL('icon_'.$module.'_32.png',false)))
+    	{
     		$iconPath = SugarThemeRegistry::current()->getImageURL('icon_'.$module.'_32.png');
-    	}
-    	else if (is_file(SugarThemeRegistry::current()->getImageURL('icon_'.ucfirst($module).'_32.png',false))) {
+    	} else if (is_file(SugarThemeRegistry::current()->getImageURL('icon_'.ucfirst($module).'_32.png',false)))
+    	{
     		$iconPath = SugarThemeRegistry::current()->getImageURL('icon_'.ucfirst($module).'_32.png');
     	}
     	return $iconPath;

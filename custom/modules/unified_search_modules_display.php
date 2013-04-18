@@ -1,21 +1,13 @@
 <?php
-// created: 2012-05-21 21:14:37
+// created: 2013-03-01 03:38:21
 $unified_search_modules_display = array (
   'Accounts' => 
   array (
     'visible' => true,
   ),
-  'Bugs' => 
-  array (
-    'visible' => false,
-  ),
   'Calls' => 
   array (
     'visible' => true,
-  ),
-  'Campaigns' => 
-  array (
-    'visible' => false,
   ),
   'Cases' => 
   array (
@@ -25,19 +17,19 @@ $unified_search_modules_display = array (
   array (
     'visible' => true,
   ),
-  'Contracts' => 
-  array (
-    'visible' => false,
-  ),
   'Documents' => 
   array (
     'visible' => true,
   ),
-  'KBDocuments' => 
+  'av_Groups' => 
   array (
-    'visible' => false,
+    'visible' => true,
   ),
   'Leads' => 
+  array (
+    'visible' => true,
+  ),
+  'av_Accounts' => 
   array (
     'visible' => true,
   ),
@@ -52,6 +44,30 @@ $unified_search_modules_display = array (
   'Opportunities' => 
   array (
     'visible' => true,
+  ),
+  'Tasks' => 
+  array (
+    'visible' => true,
+  ),
+  'av_Companies' => 
+  array (
+    'visible' => true,
+  ),
+  'Bugs' => 
+  array (
+    'visible' => false,
+  ),
+  'Campaigns' => 
+  array (
+    'visible' => false,
+  ),
+  'Contracts' => 
+  array (
+    'visible' => false,
+  ),
+  'KBDocuments' => 
+  array (
+    'visible' => false,
   ),
   'Project' => 
   array (
@@ -73,19 +89,7 @@ $unified_search_modules_display = array (
   array (
     'visible' => false,
   ),
-  'Tasks' => 
-  array (
-    'visible' => false,
-  ),
   'av_Account_Histories' => 
-  array (
-    'visible' => false,
-  ),
-  'av_Accounts' => 
-  array (
-    'visible' => false,
-  ),
-  'av_Groups' => 
   array (
     'visible' => false,
   ),

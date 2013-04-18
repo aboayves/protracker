@@ -149,6 +149,7 @@ if(!empty($_REQUEST['search_form_only']) && $_REQUEST['search_form_only']) { // 
 		    $searchForm->xtpl->assign('MODULES', get_select_options_with_id($reportModules,  (empty($_REQUEST['report_module']) ? '' : $_REQUEST['report_module'])));
 			$searchForm->xtpl->assign('USER_FILTER', get_select_options_with_id(get_user_array(FALSE), (empty($_REQUEST['assigned_user_id']) ? '' : $_REQUEST['assigned_user_id'])));
 			$searchForm->xtpl->assign('REPORT_TYPES', get_select_options_with_id($app_list_strings['dom_report_types'], (empty($_REQUEST['report_type']) ? '' : $_REQUEST['report_type'])));
+			$searchForm->xtpl->assign('CATEGORY_TYPES', get_select_options_with_id($app_list_strings['category_dropdown_list'], (empty($_REQUEST['category']) ? '' : $_REQUEST['category'])));
 		    $searchForm->xtpl->assign('FAVORITE', (isset($_REQUEST['favorite']) ? 'checked' : ''));
             $searchForm->displayBasic(false);
             break;
@@ -158,6 +159,7 @@ if(!empty($_REQUEST['search_form_only']) && $_REQUEST['search_form_only']) { // 
 			$searchForm->xtpl->assign('USER_FILTER', get_select_options_with_id(get_user_array(FALSE), (empty($_REQUEST['assigned_user_id']) ? '' : $_REQUEST['assigned_user_id'])));
 			$searchForm->xtpl->assign('TEAM_FILTER', get_select_options_with_id(get_team_array(FALSE), (empty($_REQUEST['team_id']) ? '' : $_REQUEST['team_id'])));
 			$searchForm->xtpl->assign('REPORT_TYPES', get_select_options_with_id($app_list_strings['dom_report_types'], (empty($_REQUEST['report_type']) ? '' : $_REQUEST['report_type'])));
+			$searchForm->xtpl->assign('CATEGORY_TYPES', get_select_options_with_id($app_list_strings['category_dropdown_list'], (empty($_REQUEST['category']) ? '' : $_REQUEST['category'])));
 		    $searchForm->xtpl->assign('FAVORITE', (isset($_REQUEST['favorite']) ? 'checked' : ''));
             $searchForm->displayAdvanced(false, false, $listViewDefsNewArray, $lv);
             echo "<script>if(typeof(loadSSL_Scripts)=='function'){
@@ -214,6 +216,7 @@ $lv->displayColumns = $displayColumns;
 			$searchForm->xtpl->assign('TEAM_FILTER', get_select_options_with_id(get_team_array(FALSE), empty($_REQUEST['team_id']) ? isset($saved_search->contents['team_id']) && $saved_search->contents['team_id']!='_none' ? $saved_search->contents['team_id'] : '' : $_REQUEST['team_id'] ));
 			$searchForm->xtpl->assign('USER_FILTER', get_select_options_with_id(get_user_array(FALSE), empty($_REQUEST['assigned_user_id']) ? isset($saved_search->contents['assigned_user_id']) && $saved_search->contents['assigned_user_id']!='_none' ? $saved_search->contents['assigned_user_id'] : '' : $_REQUEST['assigned_user_id'] ));
 			$searchForm->xtpl->assign('REPORT_TYPES', get_select_options_with_id($app_list_strings['dom_report_types'], empty($_REQUEST['report_type']) ? isset($saved_search->contents['report_type']) && $saved_search->contents['report_type']!='_none' ? $saved_search->contents['report_type'] : '' : $_REQUEST['report_type'] ));
+			$searchForm->xtpl->assign('CATEGORY_TYPES', get_select_options_with_id($app_list_strings['category_dropdown_list'], empty($_REQUEST['category']) ? isset($saved_search->contents['category']) && $saved_search->contents['category']!='_none' ? $saved_search->contents['category'] : '' : $_REQUEST['category'] ));
 		    $searchForm->xtpl->assign('FAVORITE', (isset($_REQUEST['favorite']) ? 'checked' : ''));
 	        $searchForm->displayAdvanced(true, false, $listViewDefsNewArray, $lv);
             echo "<script>if(typeof(loadSSL_Scripts)=='function'){
@@ -223,6 +226,7 @@ $lv->displayColumns = $displayColumns;
 		    $searchForm->xtpl->assign('MODULES', get_select_options_with_id($reportModules, empty($_REQUEST['report_module_basic']) ? isset($saved_search->contents['report_module_basic']) && $saved_search->contents['report_module_basic']!='_none' ? $saved_search->contents['report_module_basic'] : '' : $_REQUEST['report_module_basic'] ));
 			$searchForm->xtpl->assign('USER_FILTER', get_select_options_with_id(get_user_array(FALSE), empty($_REQUEST['assigned_user_id_basic']) ? isset($saved_search->contents['assigned_user_id_basic']) && $saved_search->contents['assigned_user_id_basic']!='_none' ? $saved_search->contents['assigned_user_id_basic'] : '' : $_REQUEST['assigned_user_id_basic'] ));
 			$searchForm->xtpl->assign('REPORT_TYPES', get_select_options_with_id($app_list_strings['dom_report_types'], empty($_REQUEST['report_type_basic']) ? isset($saved_search->contents['report_type_basic']) && $saved_search->contents['report_type_basic']!='_none' ? $saved_search->contents['report_type_basic'] : '' : $_REQUEST['report_type_basic'] ));
+			$searchForm->xtpl->assign('CATEGORY_TYPES', get_select_options_with_id($app_list_strings['category_dropdown_list'], empty($_REQUEST['category']) ? isset($saved_search->contents['category']) && $saved_search->contents['category']!='_none' ? $saved_search->contents['category'] : '' : $_REQUEST['category'] ));
 		    $searchForm->xtpl->assign('FAVORITE', (isset($_REQUEST['favorite']) ? 'checked' : ''));
 	        $searchForm->displayBasic();
 	    }

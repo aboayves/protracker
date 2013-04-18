@@ -1,7 +1,7 @@
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (‚ÄúMSA‚Äù), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (ìMSAî), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -974,7 +974,7 @@ if (typeof(ModuleBuilder) == 'undefined') {
 			var mp = ModuleBuilder.mainPanel;
 			var c = Dom.get("mblayout");
 			mp.set("height", Dom.getViewportHeight() - Dom.getY(c) - 30);
-			mp.set("width", Dom.getViewportWidth() - 40);
+			mp.set("width", Dom.getViewportWidth() - 240);
 			mp.resize(true);
 			var tabEl = ModuleBuilder.tabPanel.get("element");
 			Dom.setStyle(tabEl.firstChild.nextSibling, "overflow-y", "auto");

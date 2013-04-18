@@ -1,11 +1,27 @@
 <?php
-// created: 2013-04-10 13:54:09
-$searchdefs['Notes'] = array (
+$searchdefs ['Notes'] = 
+array (
   'layout' => 
   array (
     'basic_search' => 
     array (
-      0 => 
+      'date_entered' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_ENTERED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_entered',
+      ),
+      'parent_name' => 
+      array (
+        'type' => 'parent',
+        'label' => 'LBL_RELATED_TO',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'parent_name',
+      ),
+      'name' => 
       array (
         'name' => 'name',
         'default' => true,
@@ -14,22 +30,29 @@ $searchdefs['Notes'] = array (
     ),
     'advanced_search' => 
     array (
-      0 => 
+      'date_entered' => 
+      array (
+        'type' => 'datetime',
+        'label' => 'LBL_DATE_ENTERED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'date_entered',
+      ),
+      'created_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_user_id',
+      ),
+      'name' => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-      1 => 
-      array (
-        'type' => 'name',
-        'link' => 'contact',
-        'label' => 'LBL_CONTACT_NAME',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'contact_name',
-      ),
-      2 => 
+      'parent_name' => 
       array (
         'type' => 'parent',
         'label' => 'LBL_RELATED_TO',
@@ -37,27 +60,32 @@ $searchdefs['Notes'] = array (
         'default' => true,
         'name' => 'parent_name',
       ),
-      3 => 
+      'av_activity_types_name' => 
       array (
-        'name' => 'filename',
-        'default' => true,
+        'type' => 'relate_cstm',
+        'link' => 'av_activity_types',
+        'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
         'width' => '10%',
+        'default' => true,
+        'name' => 'av_activity_types_name',
       ),
-      4 => 
+      'assigned_user_name' => 
       array (
+        'link' => true,
         'type' => 'relate',
-        'label' => 'LBL_CREATED_BY',
+        'label' => 'LBL_ASSIGNED_TO_NAME',
+        'id' => 'ASSIGNED_USER_ID',
         'width' => '10%',
         'default' => true,
-        'name' => 'created_by_name',
+        'name' => 'assigned_user_name',
       ),
-      5 => 
+      'current_user_only' => 
       array (
-        'type' => 'datetime',
-        'label' => 'LBL_DATE_ENTERED',
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
         'width' => '10%',
         'default' => true,
-        'name' => 'date_entered',
+        'name' => 'current_user_only',
       ),
     ),
   ),
@@ -69,6 +97,6 @@ $searchdefs['Notes'] = array (
       'label' => '10',
       'field' => '30',
     ),
-    'maxColumnsBasic' => '3',
   ),
 );
+?>

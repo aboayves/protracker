@@ -1,28 +1,34 @@
 <?php
-// created: 2013-04-10 13:54:26
-$viewdefs['Notes']['EditView'] = array (
-  'templateMeta' => 
+$viewdefs ['Notes'] = 
+array (
+  'EditView' => 
   array (
-    'form' => 
+    'templateMeta' => 
     array (
-      'enctype' => 'multipart/form-data',
-      'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
-    ),
-    'maxColumns' => '2',
-    'widths' => 
-    array (
-      0 => 
+      'form' => 
       array (
-        'label' => '10',
-        'field' => '30',
+        'enctype' => 'multipart/form-data',
+        'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
+        'hidden' => 
+        array (
+          0 => '<input type="hidden" name="attach_to_group_id" value="{$fields.attach_to_group_id.value}">',
+        ),
       ),
-      1 => 
+      'maxColumns' => '2',
+      'widths' => 
       array (
-        'label' => '10',
-        'field' => '30',
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
       ),
-    ),
-    'javascript' => '<script type="text/javascript" src="include/javascript/dashlets.js?s={$SUGAR_VERSION}&c={$JS_CUSTOM_VERSION}"></script>
+      'javascript' => '<script type="text/javascript" src="include/javascript/dashlets.js?s={$SUGAR_VERSION}&c={$JS_CUSTOM_VERSION}"></script>
 <script>
 function deleteAttachmentCallBack(text) 
 	{literal} { {/literal} 
@@ -37,76 +43,48 @@ function deleteAttachmentCallBack(text)
 {literal} } {/literal} 
 </script>
 <script>toggle_portal_flag(); function toggle_portal_flag()  {literal} { {/literal} {$TOGGLE_JS} {literal} } {/literal} </script>{$tiny}',
-    'useTabs' => false,
-    'tabDefs' => 
-    array (
-      'LBL_NOTE_INFORMATION' => 
-      array (
-        'newTab' => false,
-        'panelDefault' => 'expanded',
-      ),
+      'useTabs' => true,
+      'syncDetailEditViews' => true,
     ),
-  ),
-  'panels' => 
-  array (
-    'lbl_note_information' => 
+    'panels' => 
     array (
-      0 => 
+      'lbl_note_information' => 
       array (
         0 => 
         array (
-          'name' => 'contact_name',
-          'label' => 'LBL_CONTACT_NAME',
+          0 => 
+          array (
+            'name' => 'parent_name',
+            'label' => 'LBL_RELATED_TO',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
         1 => 
         array (
-          'name' => 'parent_name',
-          'label' => 'LBL_RELATED_TO',
-        ),
-      ),
-      1 => 
-      array (
-        0 => 
-        array (
-          'name' => 'name',
-          'displayParams' => 
+          0 => 
           array (
-            'size' => 60,
+            'name' => 'name',
+            'displayParams' => 
+            array (
+              'size' => 60,
+            ),
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),
-        1 => 'filename',
-      ),
-      2 => 
-      array (
-        0 => 
+        2 => 
         array (
-          'name' => 'portal_flag',
-          'displayParams' => 
+          0 => 
           array (
-            'required' => false,
-          ),
-          'customLabel' => '{if ($PORTAL_ENABLED)}{sugar_translate label="LBL_PORTAL_FLAG" module="Notes"}{/if}',
-          'customCode' => ' {if ($PORTAL_ENABLED)}
-											  {if $fields.portal_flag.value == "1"}
-											  {assign var="checked" value="CHECKED"}
-											  {else}
-											  {assign var="checked" value=""}
-											  {/if}
-											  <input type="hidden" name="{$fields.portal_flag.name}" value="0"> 
-											  <input type="checkbox" name="{$fields.portal_flag.name}" value="1" tabindex="1" {$checked}>
-					        		          {/if}',
-        ),
-        1 => 
-        array (
-          'name' => 'team_name',
-        ),
-      ),
-      3 => 
-      array (
-        0 => 
-        array (
-          'name' => 'description',
-          'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
+            'name' => 'description',
+            'customCode' => '<textarea id="description" name="description">{$fields.description.value}</textarea>{literal}<script type="text/javascript" language="Javascript" src="include/javascript/tiny_mce/tiny_mce.js?s=d569410bd100799ca3095b1d6561f222&c=1"></script>
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -119,9 +97,101 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 -->
 </script>
 <script>focus_obj = document.getElementById("description");</script>{/literal}',
-          'label' => 'LBL_NOTE_STATUS',
+            'label' => 'LBL_NOTE_STATUS',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 'filename',
+          1 => 
+          array (
+            'name' => 'team_name',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
+        ),
+      ),
+      'lbl_editview_panel1' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_meeting_agenda',
+            'comment' => '',
+            'label' => 'LBL_ON_MEETING_AGENDA',
+          ),
+          1 => 
+          array (
+            'name' => 'embed_flag',
+            'comment' => 'Embed flag indicator determines if note embedded in email',
+            'label' => 'LBL_EMBED_FLAG',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
+          1 => 
+          array (
+            'name' => 'portal_flag',
+            'displayParams' => 
+            array (
+              'required' => false,
+            ),
+            'label' => 'LBL_PORTAL_FLAG',
+            'hideIf' => 'empty($PORTAL_ENABLED)',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'on_financial_plan',
+            'comment' => '',
+            'label' => 'LBL_ON_FINANCIAL_PLAN',
+          ),
+          1 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'av_group_name',
+            'studio' => 'visible',
+            'label' => 'LBL_AV_GROUPS_TITLE',
+          ),
+          1 => 
+          array (
+            'name' => 'attach_to_group_id',
+            'comment' => 'Note Attach To Group',
+            'label' => 'LBL_ATTACH_TO_GROUP_ID_NOTES',
+          ),
         ),
       ),
     ),
   ),
 );
+?>

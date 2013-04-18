@@ -1,5 +1,5 @@
 <?php
-// created: 2012-05-18 23:09:31
+// created: 2012-11-15 19:41:20
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
@@ -16,25 +16,18 @@ $subpanel_layout['list_fields'] = array (
     'width' => '10%',
     'default' => true,
   ),
-  'date_modified' => 
+  'value_date' => 
   array (
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '45%',
+    'type' => 'date',
     'default' => true,
+    'vname' => 'LBL_VALUE_DATE',
+    'width' => '10%',
   ),
   'edit_button' => 
   array (
     'widget_class' => 'SubPanelEditButton',
     'module' => 'av_Account_Histories',
     'width' => '4%',
-    'default' => true,
-  ),
-  'description' => 
-  array (
-    'type' => 'text',
-    'vname' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '10%',
     'default' => true,
   ),
   'remove_button' => 

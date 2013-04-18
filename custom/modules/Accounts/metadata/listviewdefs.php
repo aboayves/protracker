@@ -8,27 +8,27 @@ $listViewDefs['Accounts'] = array (
     'link' => true,
     'default' => true,
   ),
-  'ACCOUNT_TYPE' => 
+  'AV_CLIENT_TYPES_NAME' => 
   array (
     'width' => '10%',
-    'label' => 'LBL_TYPE',
+    'label' => 'LBL_AV_CLIENT_TYPES_NAME',
     'default' => true,
   ),
-  'PRIORITY_C' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'label' => 'LBL_PRIORITY',
-    'width' => '10%',
-  ),
-  'STATUS_C' => 
+  'STATUS' => 
   array (
     'type' => 'enum',
     'default' => true,
     'studio' => 'visible',
     'label' => 'LBL_STATUS',
-    'width' => '10%',
+    'width' => '8%',
+  ),
+  'PRIORITY' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'studio' => 'visible',
+    'label' => 'LBL_PRIORITY',
+    'width' => '8%',
   ),
   'ASSIGNED_USER_NAME' => 
   array (
@@ -36,6 +36,12 @@ $listViewDefs['Accounts'] = array (
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
+  'DATE_MODIFIED' => 
+  array (
+    'width' => '5%',
+    'label' => 'LBL_DATE_MODIFIED',
     'default' => true,
   ),
   'TEAM_NAME' => 
@@ -54,6 +60,14 @@ $listViewDefs['Accounts'] = array (
   array (
     'width' => '10%',
     'label' => 'LBL_PHONE_FAX',
+    'default' => false,
+  ),
+  'DESCRIPTION' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '10%',
     'default' => false,
   ),
   'PHONE_OFFICE' => 
@@ -147,12 +161,6 @@ $listViewDefs['Accounts'] = array (
   array (
     'width' => '10%',
     'label' => 'LBL_EMPLOYEES',
-    'default' => false,
-  ),
-  'DATE_MODIFIED' => 
-  array (
-    'width' => '5%',
-    'label' => 'LBL_DATE_MODIFIED',
     'default' => false,
   ),
   'CREATED_BY_NAME' => 

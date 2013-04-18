@@ -1,0 +1,19 @@
+.yui-navset {
+	position: relative;
+    overflow-y: auto;
+	height: 85%; !important;
+    zoom: 1;
+}
+.yui3-skin-sam.edit.view.dcQuickEdit
+
+.yui3-skin-sam.edit.view.dcQuickEdit #tree_plotting_div .ygtvchildren .ygtvitem table.ygtvtable,
+.yui3-skin-sam.edit.view.dcQuickEdit #tree_plotting_div .ygtvchildren .ygtvitem table.ygtvtable td,
+.yui3-skin-sam.edit.view.dcQuickEdit #tree_plotting_div .ygtvchildren .ygtvitem table.ygtvtable th,
+.yui3-skin-sam.edit.view.dcQuickEdit #tree_plotting_div .ygtvchildren .ygtvitem table.ygtvtable td table,
+.yui3-skin-sam.edit.view.dcQuickEdit #tree_plotting_div .ygtvchildren .ygtvitem table.ygtvtable td table td,
+.yui3-skin-sam.edit.view.dcQuickEdit #tree_plotting_div .ygtvchildren .ygtvitem table.ygtvtable td table th{
+	padding:0px !important;
+}
+.globelLinkBar{
+	height:0px !important;
+}

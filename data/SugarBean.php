@@ -3,7 +3,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (â€œMSAâ€), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -4502,7 +4502,7 @@ class SugarBean
 
         foreach($this->field_defs as $field)
         {
-            if(0 == strcmp($field['type'],'relate') && !empty($field['module']))
+            if((0 == strcmp($field['type'],'relate') || 0 == strcmp($field['type'],'relate_cstm'))&& !empty($field['module']))
             {
                 $name = $field['name'];
                 if(empty($this->$name))

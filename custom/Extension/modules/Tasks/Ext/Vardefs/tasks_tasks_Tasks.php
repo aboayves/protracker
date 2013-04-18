@@ -1,31 +1,49 @@
 <?php
-// created: 2012-04-30 16:26:22
-$dictionary["Task"]["fields"]["tasks_tasks"] = array (
-  'name' => 'tasks_tasks',
+
+$dictionary["Task"]["fields"]["parent_tasks"] = array (
+  'name' => 'parent_tasks',
   'type' => 'link',
-  'relationship' => 'tasks_tasks',
+  'relationship' => 'parent_tasks',
+  'module' => 'Tasks',
+  'bean_name' => 'Task',
   'source' => 'non-db',
-  'vname' => 'LBL_TASKS_TASKS_FROM_TASKS_L_TITLE',
-  'id_name' => 'tasks_taskstasks_ida',
+  'vname' => 'LBL_PARENT_TASKS',
 );
-$dictionary["Task"]["fields"]["tasks_tasks_name"] = array (
-  'name' => 'tasks_tasks_name',
-  'type' => 'relate',
+
+$dictionary["Task"]["fields"]["dependent_on"] = array (
+  'name' => 'dependent_on',
+  'type' => 'link',
+  'relationship' => 'parent_tasks',
+  'module' => 'Tasks',
+  'bean_name' => 'Task',
+  'link_type' => 'one',
   'source' => 'non-db',
-  'vname' => 'LBL_TASKS_TASKS_FROM_TASKS_L_TITLE',
-  'save' => true,
-  'id_name' => 'tasks_taskstasks_ida',
-  'link' => 'tasks_tasks',
+  'vname' => 'LBL_PARENT_TASKS',
+  'side' => 'right',
+);
+
+$dictionary["Task"]["fields"]["parent_tasks_name"] = array (
+  'name' => 'parent_tasks_name',
+  'rname' => 'name',
+  'id_name' => 'parent_tasks_id',
+  'vname' => 'LBL_PARENT_TASKS',
+  'type' => 'relate',
+  'isnull' => 'true',
   'table' => 'tasks',
   'module' => 'Tasks',
-  'rname' => 'name',
-);
-$dictionary["Task"]["fields"]["tasks_taskstasks_ida"] = array (
-  'name' => 'tasks_taskstasks_ida',
-  'type' => 'link',
-  'relationship' => 'tasks_tasks',
+  'massupdate' => false,
   'source' => 'non-db',
+  'len' => 36,
+  'link' => 'dependent_on',
+  'unified_search' => true,
+  'importable' => 'true',
+);
+
+$dictionary["Task"]["fields"]["parent_tasks_id"] = array (
+  'name' => 'parent_tasks_id',
+  'vname' => 'LBL_PARENT_TASKS_ID',
+  'type' => 'id',
+  'required' => false,
   'reportable' => false,
-  'side' => 'right',
-  'vname' => 'LBL_TASKS_TASKS_FROM_TASKS_R_TITLE',
+  'audited' => true,
 );

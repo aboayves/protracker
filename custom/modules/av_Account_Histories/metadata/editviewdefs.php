@@ -1,67 +1,74 @@
 <?php
-// created: 2013-04-10 13:54:26
-$viewdefs['av_Account_Histories']['EditView'] = array (
-  'templateMeta' => 
+$module_name = 'av_Account_Histories';
+$viewdefs [$module_name] = 
+array (
+  'EditView' => 
   array (
-    'maxColumns' => '2',
-    'widths' => 
+    'templateMeta' => 
     array (
-      0 => 
-      array (
-        'label' => '10',
-        'field' => '30',
-      ),
-      1 => 
-      array (
-        'label' => '10',
-        'field' => '30',
-      ),
-    ),
-    'useTabs' => false,
-    'syncDetailEditViews' => true,
-    'tabDefs' => 
-    array (
-      'DEFAULT' => 
-      array (
-        'newTab' => false,
-        'panelDefault' => 'expanded',
-      ),
-    ),
-  ),
-  'panels' => 
-  array (
-    'default' => 
-    array (
-      0 => 
-      array (
-        0 => 'name',
-        1 => 'assigned_user_name',
-      ),
-      1 => 
+      'maxColumns' => '2',
+      'widths' => 
       array (
         0 => 
         array (
-          'name' => 'dependent_dropdown',
-          'label' => 'LBL_DEPENDENT_DROPDOWN',
+          'label' => '10',
+          'field' => '30',
         ),
         1 => 
         array (
-          'name' => 'value',
-          'label' => 'LBL_VALUE',
+          'label' => '10',
+          'field' => '30',
         ),
       ),
-      2 => 
-      array (
-        0 => '',
-        1 => 'description',
-      ),
-      3 => 
+      'useTabs' => false,
+      'syncDetailEditViews' => true,
+    ),
+    'panels' => 
+    array (
+      'default' => 
       array (
         0 => 
         array (
-          'name' => 'av_accounts_av_account_histories_name',
+          0 => 
+          array (
+            'name' => 'av_accounts_name',
+            'label' => 'LBL_AV_ACCOUNTS_NAME',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'value_date',
+            'comment' => '',
+            'label' => 'LBL_VALUE_DATE',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'value',
+            'label' => 'LBL_VALUE',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),
   ),
 );
+?>

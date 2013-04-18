@@ -4,7 +4,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (â€œMSAâ€), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -329,9 +329,12 @@ EOD
 EOD
         ;
     }
+	global $app_list_strings;
+
     $smarty->assign('action_button', $buttons);
 
     $reportName =  $args['reporter']->saved_report->name;
+	$category_value = $app_list_strings['category_dropdown_list'][$args['reporter']->saved_report->category];
     $reportType = ($reporter->report_def['report_type'] == 'tabular' ? $mod_strings['LBL_ROWS_AND_COLUMNS_REPORT'] : $mod_strings['LBL_SUMMATION_REPORT']);
     if (!empty($reporter->report_def['display_columns']) &&
         !empty($reporter->report_def['group_defs'])) {
@@ -403,6 +406,7 @@ EOD
 
     $smarty->assign('reportFilters', $reportFilters);
     $smarty->assign('reportName', $reportName);
+	$smarty->assign('category_value', $category_value);
     $smarty->assign('reportType', $reportType);
     $smarty->assign('reportModuleList', implode(", ", $fullTableListArray));
     $smarty->assign('reportDisplayColumnsList', implode(", ", $displayColumnsArray));

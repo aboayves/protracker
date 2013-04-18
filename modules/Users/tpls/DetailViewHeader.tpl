@@ -2,7 +2,7 @@
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (‚ÄúMSA‚Äù), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (ìMSAî), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -80,9 +80,7 @@ $(document).ready(function(){
 
 </td>
 <td width="100%">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
 {$PAGINATION}
-</table>
 </td>
 </tr>
 </table>

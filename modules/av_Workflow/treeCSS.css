@@ -1,0 +1,18 @@
+.active_task{
+	font-weight:bold;
+}
+
+.completed_task{
+	color:#00CC00 !important;
+	font-weight:bold;
+}
+
+.overdue_task{
+	color:#FF0000 !important;
+}
+
+/*changing semi checkboxes to full*/
+.ygtv-checkbox .ygtv-highlight2 .ygtvcontent {
+	background: url('../../include/javascript/yui/build/treeview/assets/skins/sam/check1.gif') no-repeat scroll 0 0 transparent !important;
+	padding-left: 1em;
+}

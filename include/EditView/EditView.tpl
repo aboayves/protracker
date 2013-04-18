@@ -15,7 +15,7 @@
 *}
 {{include file=$headerTpl}}
 {sugar_include include=$includes}
-
+<script type="text/JavaScript" src="custom/include/js/validation_for_cstm_relate.js"></script>
 <span id='tabcounterJS'><script>SUGAR.TabFields=new Array();//this will be used to track tabindexes for references</script></span>
 
 <div id="{{$form_name}}_tabs"
@@ -25,13 +25,21 @@ class="yui-navset"
 >
     {{if $useTabs}}
     {* Generate the Tab headers *}
+	{{counter name="tabCount" start=-1 print=false assign="tabCount"}}
+	<script type='text/javascript'>
+	var tabs_array=Array();
+	{{foreach name=section from=$sectionPanels key=label item=panel}}
+        {{counter name="tabCount" print=false}}
+		tabs_array[{{$tabCount}}]='{sugar_translate label='{{$label}}' module='{{$module}}'}';
+	{{/foreach}}
+	</script>
     {{counter name="tabCount" start=-1 print=false assign="tabCount"}}
     <ul class="yui-nav">
     {{foreach name=section from=$sectionPanels key=label item=panel}}
         {{counter name="tabCount" print=false}}
         {{capture name=label_upper assign=label_upper}}{{$label|upper}}{{/capture}}
         {{if (isset($tabDefs[$label_upper].newTab) && $tabDefs[$label_upper].newTab == true)}}
-        <li class="selected"><a id="tab{{$tabCount}}" href="javascript:void({{$tabCount}})"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
+        <li class="selected"><a id="tab{{$tabCount}}" href="javascript:void({{$tabCount}})" onclick="setTabCookie('{{$module}}', '{sugar_translate label='{{$label}}' module='{{$module}}'}');"><em>{sugar_translate label='{{$label}}' module='{{$module}}'}</em></a></li>
         {{/if}}
     {{/foreach}}
     </ul>
@@ -278,7 +286,11 @@ class="yui-navset"
 {sugar_getscript file="cache/include/javascript/sugar_grp_yui_widgets.js"}
 <script type="text/javascript">
 var {{$form_name}}_tabs = new YAHOO.widget.TabView("{{$form_name}}_tabs");
-{{$form_name}}_tabs.selectTab(0);
+//{{$form_name}}_tabs.selectTab(0);
+var selectedTab=getTabCookie('{{$module}}');
+selectedTab = tabs_array.indexOf(selectedTab);
+selectedTab = (isNaN(selectedTab)||(selectedTab=='-1')) ? 0 : selectedTab;
+{{$form_name}}_tabs.selectTab(selectedTab);
 </script>
 {{/if}}
 <script type="text/javascript">

@@ -40,5 +40,19 @@ class av_GroupsController extends SugarController
 		$sql="UPDATE av_groups_contacts_c SET {$_REQUEST['field']}={$_REQUEST['value']} WHERE deleted=0 AND av_groups_contactsav_groups_ida='{$_REQUEST['group_id']}' AND av_groups_contactscontacts_idb='{$_REQUEST['contact_id']}'";
 		$db->query($sql);
 	}
+	function action_delete_report(){
+		global $db;
+		$this->view='';
+		$sql="Update av_groups_reports SET deleted=1 WHERE av_groups_id='{$_REQUEST['group_id']}'
+			  AND reports_id= '{$_REQUEST['report_id']}'";
+		$db->query($sql);
+	}
+	function action_delete_multi_group_members(){
+		global $db;
+		$this->view='';
+		$record_to_delete_ids = explode(',', $_REQUEST['record_to_delete_ids']);
+		$sql="Update av_group_membership SET deleted=1 WHERE parent_id IN('" . implode("','", $record_to_delete_ids) . "') AND parent_type='{$_REQUEST['subpanel_module']}'";
+		$db->query($sql);
+	}
 }
 ?>

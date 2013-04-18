@@ -1,25 +1,37 @@
 <?php
-// created: 2012-05-21 19:28:07
+// created: 2013-03-14 17:59:08
 $subpanel_layout['list_fields'] = array (
-  'name' => 
+  'grand_total_formated' => 
   array (
-    'vname' => 'LBL_NAME',
-    'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
+    'vname' => 'LBL_GRAND_TOTAL',
+    'width' => '15%',
+    'default' => true,
+  ),
+  'net_worth_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'vname' => 'LBL_NET_WORTH_DATE',
+    'width' => '15%',
+  ),
+  'managed_assets_formated' => 
+  array (
+    'vname' => 'LBL_MANAGED_ASSETS',
+    'width' => '20%',
+    'default' => true,
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '20%',
     'default' => true,
   ),
   'date_modified' => 
   array (
     'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '45%',
-    'default' => true,
-  ),
-  'grand_total' => 
-  array (
-    'type' => 'currency',
-    'vname' => 'LBL_GRAND_TOTAL',
-    'currency_format' => true,
-    'width' => '10%',
+    'width' => '13%',
     'default' => true,
   ),
   'edit_button' => 

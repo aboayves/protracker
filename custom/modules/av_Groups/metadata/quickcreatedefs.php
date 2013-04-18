@@ -1,111 +1,139 @@
 <?php
-// created: 2013-04-10 13:54:26
-$viewdefs['av_Groups']['QuickCreate'] = array (
-  'templateMeta' => 
+$module_name = 'av_Groups';
+$viewdefs [$module_name] = 
+array (
+  'QuickCreate' => 
   array (
-    'maxColumns' => '2',
-    'widths' => 
+    'templateMeta' => 
     array (
-      0 => 
+      'maxColumns' => '2',
+      'widths' => 
       array (
-        'label' => '10',
-        'field' => '30',
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
       ),
-      1 => 
-      array (
-        'label' => '10',
-        'field' => '30',
-      ),
+      'useTabs' => true,
     ),
-    'useTabs' => true,
-    'tabDefs' => 
+    'panels' => 
     array (
-      'DEFAULT' => 
-      array (
-        'newTab' => true,
-        'panelDefault' => 'expanded',
-      ),
-      'LBL_EDITVIEW_PANEL1' => 
-      array (
-        'newTab' => true,
-        'panelDefault' => 'expanded',
-      ),
-    ),
-  ),
-  'panels' => 
-  array (
-    'default' => 
-    array (
-      0 => 
-      array (
-        0 => 'name',
-        1 => 'assigned_user_name',
-      ),
-      1 => 
+      'default' => 
       array (
         0 => 
         array (
-          'name' => 'office_c',
-          'studio' => 'visible',
-          'label' => 'LBL_OFFICE',
+          0 => 'name',
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
-          'name' => 'category_c',
-          'studio' => 'visible',
-          'label' => 'LBL_CATEGORY',
+          0 => 
+          array (
+            'name' => 'contacts_av_groups_2_name',
+            'label' => 'LBL_CONTACTS_AV_GROUPS_2_FROM_CONTACTS_TITLE',
+          ),
+          1 => 
+          array (
+            'name' => 'priority',
+            'comment' => '',
+            'label' => 'LBL_PRIORITY',
+          ),
         ),
-      ),
-      2 => 
-      array (
-        0 => 
+        2 => 
         array (
-          'name' => 'status_c',
-          'studio' => 'visible',
-          'label' => 'LBL_STATUS',
+          0 => 
+          array (
+            'name' => 'contacts_av_groups_1_name',
+            'label' => 'LBL_CONTACTS_AV_GROUPS_1_FROM_CONTACTS_TITLE',
+          ),
+          1 => 
+          array (
+            'name' => 'document_path',
+            'comment' => '',
+            'label' => 'LBL_DOCUMENT_PATH',
+          ),
         ),
-        1 => 
+        3 => 
         array (
-          'name' => 'last_checked_c',
-          'label' => 'LBL_LAST_CHECKED',
+          0 => 'description',
         ),
-      ),
-      3 => 
-      array (
-        0 => 
+        4 => 
         array (
-          'name' => 'priority_c',
-          'studio' => 'visible',
-          'label' => 'LBL_PRIORITY',
+          0 => 
+          array (
+            'name' => 'delivery_method_av_group',
+            'comment' => '',
+            'label' => 'LBL_DELIVERY_METHOD',
+          ),
+          1 => 
+          array (
+            'name' => 'av_offices_av_groups_name',
+            'label' => 'LBL_RT_OFFICES_AV_GROUPS_FROM_RT_OFFICES_TITLE',
+          ),
         ),
-        1 => 
+        5 => 
         array (
-          'name' => 'broadcast_group_c',
-          'label' => 'LBL_BROADCAST_GROUP',
+          0 => 
+          array (
+            'name' => 'status',
+            'comment' => '',
+            'label' => 'LBL_STATUS',
+          ),
         ),
-      ),
-      4 => 
-      array (
-        0 => 'description',
-      ),
-    ),
-    'lbl_editview_panel1' => 
-    array (
-      0 => 
-      array (
-        0 => 
+        6 => 
         array (
-          'name' => 'leader_c',
-          'studio' => 'visible',
-          'label' => 'LBL_LEADER',
+          0 => 
+          array (
+            'name' => 'communication_type',
+            'label' => 'LBL_COMMUNICATION_TYPE',
+          ),
+          1 => 
+          array (
+            'name' => 'membership_expiration_days',
+            'comment' => '',
+            'label' => 'LBL_MEMBERSHIP_EXPIRATION_DAYS',
+          ),
         ),
-        1 => 
+        7 => 
         array (
-          'name' => 'alternate_leader_c',
-          'studio' => 'visible',
-          'label' => 'LBL_ALTERNATE_LEADER',
+          0 => 
+          array (
+            'name' => 'date_checked',
+            'comment' => '',
+            'label' => 'LBL_DATE_CHECKED',
+          ),
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
+          ),
+        ),
+        8 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_entered',
+            'comment' => 'Date record created',
+            'label' => 'LBL_DATE_ENTERED',
+          ),
+          1 => 
+          array (
+            'name' => 'date_modified',
+            'comment' => 'Date record last modified',
+            'label' => 'LBL_DATE_MODIFIED',
+          ),
         ),
       ),
     ),
   ),
 );
+?>

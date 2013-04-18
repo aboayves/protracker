@@ -1,5 +1,28 @@
 <?php
-// created: 2012-04-24 01:53:39
+// created: 2012-12-14 15:43:43
 $mod_strings = array (
   'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Clients',
+  'LBL_ASSIGNED_TO_NAME' => 'Assigned to',
+  'LBL_CONTRACT_NAME' => 'Contract Name',
+  'LBL_CONTRACT_STATUS' => 'Contract status',
+  'LBL_DET_IS_TEMPLATE' => 'Template?',
+  'LBL_DET_RELATED_DOCUMENT' => 'Related Document',
+  'LBL_DET_RELATED_DOCUMENT_VERSION' => 'Related Document Revision',
+  'LBL_DET_TEMPLATE_TYPE' => 'Document Type',
+  'LBL_DOC_ACTIVE_DATE' => 'Publish Date',
+  'LBL_DOC_DESCRIPTION' => 'Description',
+  'LBL_DOC_EXP_DATE' => 'Expiration Date',
+  'LBL_DOC_NAME' => 'Document Name',
+  'LBL_DOC_STATUS' => 'Status',
+  'LBL_DOC_VERSION' => 'Revision',
+  'LBL_FILENAME' => 'File Name',
+  'LBL_LASTEST_REVISION_NAME' => 'Lastest revision name',
+  'LBL_LAST_REV_CREATOR' => 'Revision Created By',
+  'LBL_LATEST_REVISION_ID' => 'Latest revision ID',
+  'LBL_SELECTED_REVISION_ID' => 'Selected revision ID',
+  'LBL_SELECTED_REVISION_NAME' => 'Selected revision name',
+  'LBL_SF_CATEGORY' => 'Category',
+  'LBL_SF_SUBCATEGORY' => 'Sub Category',
+  'LBL_TEAM' => 'Team',
+  'LBL_TEAM_ID' => 'Team ID',
 );

@@ -1,28 +1,30 @@
 <?php
-// created: 2013-04-10 13:54:26
-$viewdefs['Notes']['QuickCreate'] = array (
-  'templateMeta' => 
+$viewdefs ['Notes'] = 
+array (
+  'QuickCreate' => 
   array (
-    'form' => 
+    'templateMeta' => 
     array (
-      'enctype' => 'multipart/form-data',
-      'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
-    ),
-    'maxColumns' => '2',
-    'widths' => 
-    array (
-      0 => 
+      'form' => 
       array (
-        'label' => '10',
-        'field' => '30',
+        'enctype' => 'multipart/form-data',
+        'headerTpl' => 'modules/Notes/tpls/EditViewHeader.tpl',
       ),
-      1 => 
+      'maxColumns' => '2',
+      'widths' => 
       array (
-        'label' => '10',
-        'field' => '30',
+        0 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
+        1 => 
+        array (
+          'label' => '10',
+          'field' => '30',
+        ),
       ),
-    ),
-    'javascript' => '<script type="text/javascript" src="include/javascript/dashlets.js?s={$SUGAR_VERSION}&c={$JS_CUSTOM_VERSION}"></script>
+      'javascript' => '<script type="text/javascript" src="include/javascript/dashlets.js?s={$SUGAR_VERSION}&c={$JS_CUSTOM_VERSION}"></script>
 <script>
 function deleteAttachmentCallBack(text) 
 	{literal} { {/literal} 
@@ -37,56 +39,49 @@ function deleteAttachmentCallBack(text)
 {literal} } {/literal} 
 </script>
 <script>toggle_portal_flag(); function toggle_portal_flag()  {literal} { {/literal} {$TOGGLE_JS} {literal} } {/literal} </script>',
-    'useTabs' => false,
-    'tabDefs' => 
-    array (
-      'DEFAULT' => 
-      array (
-        'newTab' => false,
-        'panelDefault' => 'expanded',
-      ),
+      'useTabs' => false,
     ),
-  ),
-  'panels' => 
-  array (
-    'default' => 
+    'panels' => 
     array (
-      0 => 
+      'default' => 
       array (
         0 => 
         array (
-          'name' => 'contact_name',
-          'label' => 'LBL_CONTACT_NAME',
+          0 => 
+          array (
+            'name' => 'parent_name',
+            'label' => 'LBL_RELATED_TO',
+          ),
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO',
+          ),
         ),
         1 => 
         array (
-          'name' => 'parent_name',
-          'label' => 'LBL_RELATED_TO',
-        ),
-      ),
-      1 => 
-      array (
-        0 => 
-        array (
-          'name' => 'name',
-          'label' => 'LBL_SUBJECT',
-          'displayParams' => 
+          0 => 
           array (
-            'size' => 100,
-            'required' => true,
+            'name' => 'name',
+            'label' => 'LBL_SUBJECT',
+            'displayParams' => 
+            array (
+              'size' => 100,
+              'required' => true,
+            ),
+          ),
+          1 => 
+          array (
+            'name' => 'av_activity_types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),
-      ),
-      2 => 
-      array (
-        0 => 'filename',
-      ),
-      3 => 
-      array (
-        0 => 
+        2 => 
         array (
-          'name' => 'description',
-          'customCode' => '<textarea id="description_notes" name="description">{$fields.description.value}</textarea>{literal}
+          0 => 
+          array (
+            'name' => 'description',
+            'customCode' => '<textarea id="description_notes" name="description">{$fields.description.value}</textarea>{literal}
 
 <script type="text/javascript" language="Javascript">
 <!--
@@ -99,14 +94,20 @@ else {    document.getElementById(\'description_notes\').style.width = \'100%\';
 -->
 </script>
 <script>focus_obj = document.getElementById("description_notes");</script>{/literal}',
-          'label' => 'LBL_NOTE_STATUS',
-          'displayParams' => 
-          array (
-            'rows' => 6,
-            'cols' => 75,
+            'label' => 'LBL_NOTE_STATUS',
+            'displayParams' => 
+            array (
+              'rows' => 6,
+              'cols' => 75,
+            ),
           ),
+        ),
+        3 => 
+        array (
+          0 => 'filename',
         ),
       ),
     ),
   ),
 );
+?>

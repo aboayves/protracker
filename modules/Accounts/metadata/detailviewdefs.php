@@ -86,12 +86,12 @@ $viewdefs['Accounts']['DetailView'] = array(
           ),
 
           array (
-            'name' => 'shipping_address_street',
-            'label' => 'LBL_SHIPPING_ADDRESS',
+            'name' => 'mailing_address_street',
+            'label' => 'LBL_MAILING_ADDRESS',
             'type' => 'address',
             'displayParams' => 
             array (
-              'key' => 'shipping',
+              'key' => 'mailing',
             ),
           ),
         ),

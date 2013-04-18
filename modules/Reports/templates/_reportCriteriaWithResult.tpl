@@ -2,7 +2,7 @@
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (‚ÄúMSA‚Äù), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (ìMSAî), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -116,8 +116,11 @@ ACLAllowedModules = {$ACLAllowedModules};
 			{$summaryAndGroupDefData}
 			<tr>
 			<tr>
-				<td wrap="true" colspan="2">
+				<td wrap="true">
 					<b>{$mod_strings.LBL_REPORT_SCHEDULE_TITLE}:</b> <span id="schduleDateTimeDiv">{$schedule_value}</span>
+				</td>
+				<td wrap="true">
+					<b>{$mod_strings.LBL_CATEGORY}:</b> <span id="categoryDiv">{$category_value}</span>
 				</td>
 			</tr>
 			<tr>

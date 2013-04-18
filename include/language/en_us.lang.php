@@ -30,7 +30,7 @@ $app_list_strings = array (
   array (
     'Home' => 'Home',
     'Contacts' => 'Contacts',
-    'Accounts' => 'Accounts',
+    'Accounts' => 'Clients',
     'Opportunities' => 'Opportunities',
     'Cases' => 'Cases',
     'Notes' => 'Notes',
@@ -109,7 +109,7 @@ $app_list_strings = array (
     'Home' => 'Home',
     'Dashboard' => 'Dashboard',
     'Contacts' => 'Contact',
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
     'Opportunities' => 'Opportunity',
     'Cases' => 'Case',
     'Notes' => 'Note',
@@ -142,7 +142,7 @@ $app_list_strings = array (
     'WorkFlow' => 'Workflow',
     'EAPM' => 'External Account',
     'Users' => 'User',
-  'SugarFavorites'=>'SugarFavorites'
+  'SugarFavorites'=>'Favorites'
 
         ),
 
@@ -282,6 +282,7 @@ $app_list_strings = array (
     'Negotiation/Review' => 'Negotiation/Review',
     'Closed Won' => 'Closed Won',
     'Closed Lost' => 'Closed Lost',
+	'Inactive' => 'Inactive',
   ),
   'in_total_group_stages' => array (
     'Draft' => 'Draft',
@@ -367,7 +368,7 @@ $app_list_strings = array (
   'meeting_type_dom' =>
    array (
       'Other' => 'Other',
-      'Sugar' => 'SugarCRM',
+      'Sugar' => 'ProTracker',
    ),
   'call_status_default' => 'Planned',
   'call_status_dom' =>
@@ -508,7 +509,7 @@ $app_list_strings = array (
 
   'record_type_display_notes' =>
   array (
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
     'Contacts' => 'Contact',
     'Opportunities' => 'Opportunity',
     'Tasks' => 'Task',
@@ -531,7 +532,7 @@ $app_list_strings = array (
 
   'parent_type_display' =>
   array (
-    'Accounts' => 'Account',
+    'Accounts' => 'Client',
     'Contacts' => 'Contact',
     'Tasks' => 'Task',
     'Opportunities' => 'Opportunity',
@@ -720,7 +721,7 @@ $app_list_strings = array (
   'product_category_dom' =>
   array (
     '' => '',
-    'Accounts' => 'Accounts',
+    'Accounts' => 'Clients',
     'Activities' => 'Activities',
     'Bug Tracker' => 'Bug Tracker',
     'Calendar' => 'Calendar',
@@ -905,7 +906,7 @@ $app_list_strings = array (
                                         'off' => 'No',
                                         '' => 'No', ),
 
-    'dom_email_link_type'   => array(   'sugar'     => 'Sugar Email Client',
+    'dom_email_link_type'   => array(   'sugar'     => 'Internal Email Client',
                                         'mailto'    => 'External Email Client'),
 
 
@@ -988,6 +989,155 @@ $app_list_strings = array (
     'tentative' => 'Tentative',
     'none'      => 'None',
   ),
+          'dataset_output_default_dom' =>
+    array (
+    'table' => 'Table',
+  ),
+    'report_maker_status_dom' =>
+    array (
+    'Single Module' => 'Single Module',
+    'Multi Module' => 'Multi Module',
+  ),
+  'report_align_dom' =>
+    array (
+    'left' => 'Left',
+    'center' => 'Center',
+    'right' => 'Right',
+  ),
+
+    'width_type_dom' =>
+    array (
+    '%' => 'Percent (%)',
+    'px' => 'Pixels (px)',
+  ),
+    'report_color_dom' =>
+    array (
+    '' => 'Default',
+    'black' => 'Black',
+    'green' => 'Green',
+    'blue' => 'Blue',
+    'red' => 'Red',
+    'white' => 'White',
+    'DarkGreen' => 'Dark Green',
+    'LightGray' => 'Light Gray',
+    'DodgerBlue' => 'Dodger Blue',
+    'LightBlue' => 'Light Blue',
+  ),
+    'font_size_dom' =>
+    array (
+    '-5' => 'Smaller (-5)',
+    '-4' => 'Smaller (-4)',
+    '-3' => 'Smaller (-3)',
+    '-2' => 'Smaller (-2)',
+    '-1' => 'Smaller (-1)',
+    'Default' => 'Default',
+    '1' => 'Larger (+1)',
+    '2' => 'Larger (+2)',
+    '3' => 'Larger (+3)',
+    '4' => 'Larger (+4)',
+    '5' => 'Larger (+5)',
+  ),
+        'query_type_dom' =>
+    array (
+    'Main Query' => 'Main Query',
+//  'Sub Query' => 'Sub Query',
+//  'Reverse Sub Query' => 'Reverse Sub Query',
+  ),
+        'query_column_type_dom' =>
+    array (
+    'Display' => 'Display',
+//  'Group By' => 'Group By',
+    'Calculation' => 'Calculation',
+  ),
+        'query_display_type_dom' =>
+    array (
+    'Default' => 'Default',
+    'Custom' => 'Custom',
+    'Hidden' => 'Hidden',
+  ),
+
+            'query_groupby_qualifier_dom' =>
+    array (
+    'Day' => 'Day',
+    'Week' => 'Week',
+    'Month' => 'Month',
+    'Quarter' => 'Quarter',
+    'Year' => 'Year',
+  ),
+
+            'query_groupby_qualifier_qty_dom' =>
+    array (
+    '1' => '1',
+    '2' => '2',
+    '3' => '3',
+    '4' => '4',
+    '5' => '5',
+    '6' => '6',
+    '7' => '7',
+    '8' => '8',
+    '9' => '9',
+    '10' => '10',
+    '12' => '12',
+    '18' => '18',
+    '24' => '24',
+  ),
+
+            'query_groupby_qualifier_start_dom' =>
+    array (
+    '0' => 'Now',
+    '-1' => '-1',
+    '-2' => '-2',
+    '-3' => '-3',
+    '-4' => '-4',
+    '-5' => '-5',
+    '-6' => '-6',
+    '-7' => '-7',
+    '-8' => '-8',
+    '-9' => '-9',
+    '-10' => '-10',
+    '12' => '-12',
+    '-18' => '-18',
+    '-24' => '-24',
+  ),
+            'query_groupby_calc_type_dom' =>
+    array (
+    'SUM' => 'SUM',
+    'AVG' => 'AVG',
+    'COUNT' => 'Count',
+    'STDDEV' => 'Standard Deviation',
+    'VARIANCE' => 'Variance',
+//  'Custom' => 'Custom',
+  ),
+            'query_groupby_type_dom' =>
+    array (
+    'Field' => 'Standard Field',
+    'Time' => 'Time Interval',
+//  'Custom' => 'Custom Group By',
+  ),
+
+  'query_groupby_axis_dom' =>
+    array (
+    'Rows' => 'Rows (Y-Axis)',
+    'Columns' => 'Columns (X-Axis)',
+  ),
+
+  'query_calc_calc_type_dom' =>
+    array (
+    'SUM' => 'Sum (Total)',
+    'AVG' => 'Average',
+    'MAX' => 'Maximum',
+    'MIN' => 'Minimum',
+    'COUNT' => 'Count',
+    'STDDEV' => 'Standard Deviation',
+    'VARIANCE' => 'Variance',
+  ),
+  'query_calc_type_dom' =>
+    array (
+    'Standard' => 'Standard',
+//  'Sub-Query' => 'Sub Query',
+    'Math' => 'Math Calc',
+  ),
+  
   'query_calc_oper_dom' =>
       array (
     '+' => '(+) Plus',
@@ -1248,7 +1398,7 @@ $app_list_strings = array (
     'Users'=>'Users',
     'Prospects'=>'Targets',
     'Leads'=>'Leads',
-    'Accounts'=>'Accounts',
+    'Accounts'=>'Clients',
   ),
   'merge_operators_dom' => array (
     'like'=>'Contains',
@@ -1476,7 +1626,7 @@ $app_strings = array (
     'LBL_EDITINLINE'=>'Edit',
     'LBL_VIEWINLINE'=>'View',
     'LBL_INFOINLINE'=>'Info',
-    'LBL_POWERED_BY_SUGARCRM' => "Powered by SugarCRM",
+    'LBL_POWERED_BY_SUGARCRM' => "ProTrackerWeb",
     'LBL_PRINT' => "Print",
     'LBL_HELP' => "Help",
     'LBL_ID_FF_SELECT' => "Select",
@@ -1494,7 +1644,7 @@ $app_strings = array (
     'LBL_ROUTING_BUTTON_SAVE'               => 'Save Rule',
 
     'LBL_ROUTING_ACTIONS_COPY_MAIL'         => 'Copy Mail',
-    'LBL_ROUTING_ACTIONS_DELETE_BEAN'       => 'Delete Sugar Object',
+    'LBL_ROUTING_ACTIONS_DELETE_BEAN'       => 'Delete Object',
     'LBL_ROUTING_ACTIONS_DELETE_FILE'       => 'Delete File',
     'LBL_ROUTING_ACTIONS_DELETE_MAIL'       => 'Delete Email',
     'LBL_ROUTING_ACTIONS_FORWARD'           => 'Forward Email',
@@ -1587,12 +1737,12 @@ $app_strings = array (
     'LBL_EMAIL_ADDRESSES'                   => 'Email',
     'LBL_EMAIL_ADDRESS_PRIMARY'             => 'Email Address',
     'LBL_EMAIL_ADDRESSES_TITLE'             => 'Email Addresses',
-    'LBL_EMAIL_ARCHIVE_TO_SUGAR'            => 'Import to Sugar',
+    'LBL_EMAIL_ARCHIVE_TO_SUGAR'            => 'Import to ProTracker',
     'LBL_EMAIL_ASSIGNMENT'                  => 'Assignment',
     'LBL_EMAIL_ATTACH_FILE_TO_EMAIL'        => 'Attach',
     'LBL_EMAIL_ATTACHMENT'                  => 'Attach',
     'LBL_EMAIL_ATTACHMENTS'                 => 'From Local System',
-    'LBL_EMAIL_ATTACHMENTS2'                => 'From Sugar Documents',
+    'LBL_EMAIL_ATTACHMENTS2'                => 'From ProTracker Documents',
     'LBL_EMAIL_ATTACHMENTS3'                => 'Template Attachments',
     'LBL_EMAIL_ATTACHMENTS_FILE'            => 'File',
     'LBL_EMAIL_ATTACHMENTS_DOCUMENT'        => 'Document',
@@ -1658,7 +1808,7 @@ $app_strings = array (
     'LBL_EMAIL_ERROR_CONTACT_NAME'          => 'Please make sure you enter a last name.',
     'LBL_EMAIL_ERROR_DESC'                  => 'Errors were detected: ',
     'LBL_EMAIL_DELETE_ERROR_DESC'           => 'You do not have access to this area. Contact your site administrator to obtain access.',
-    'LBL_EMAIL_ERROR_DUPE_FOLDER_NAME'      => 'Sugar Folder names must be unique.',
+    'LBL_EMAIL_ERROR_DUPE_FOLDER_NAME'      => 'ProTracker Folder names must be unique.',
     'LBL_EMAIL_ERROR_EMPTY'                 => 'Please enter some search criteria.',
     'LBL_EMAIL_ERROR_GENERAL_TITLE'         => 'An error has occurred',
     'LBL_EMAIL_ERROR_LIST_NAME'             => 'An email list with that name already exists',
@@ -1713,7 +1863,7 @@ $app_strings = array (
     'LBL_EMAIL_IE_DELETE_SUCCESSFUL'        => 'Deletion successful.',
     'LBL_EMAIL_IE_SAVE'                     => 'Saving Mail Account Information',
     'LBL_EMAIL_IMPORTING_EMAIL'             => 'Importing Email',
-    'LBL_EMAIL_IMPORT_EMAIL'                => 'Import to Sugar',
+    'LBL_EMAIL_IMPORT_EMAIL'                => 'Import to ProTracker',
     'LBL_EMAIL_IMPORT_SETTINGS'                => 'Import Settings',
     'LBL_EMAIL_INVALID'                     => 'Invalid',
     'LBL_EMAIL_LIST_RENAME_TITLE'           => 'Rename Mailing List',
@@ -1740,13 +1890,13 @@ $app_strings = array (
     'LBL_EMAIL_MENU_RENAMING_FOLDER'        => 'Renaming Folder',
     'LBL_EMAIL_MENU_MAKE_SELECTION'         => 'Please make a selection before trying this operation.',
 
-    'LBL_EMAIL_MENU_HELP_ADD_FOLDER'        => 'Create a Folder (remote or in Sugar)',
-    'LBL_EMAIL_MENU_HELP_ARCHIVE'           => 'Archive these email(s) to SugarCRM',
+    'LBL_EMAIL_MENU_HELP_ADD_FOLDER'        => 'Create a Folder (remote or in ProTracker)',
+    'LBL_EMAIL_MENU_HELP_ARCHIVE'           => 'Archive these email(s) to ProTracker',
     'LBL_EMAIL_MENU_HELP_COMPOSE_TO_LIST'   => 'Email selected Mailing Lists',
     'LBL_EMAIL_MENU_HELP_CONTACT_COMPOSE'   => 'Email this Contact',
     'LBL_EMAIL_MENU_HELP_CONTACT_REMOVE'    => 'Remove a Contact',
     'LBL_EMAIL_MENU_HELP_DELETE'            => 'Delete these email(s)',
-    'LBL_EMAIL_MENU_HELP_DELETE_FOLDER'     => 'Delete a Folder (remote or in Sugar)',
+    'LBL_EMAIL_MENU_HELP_DELETE_FOLDER'     => 'Delete a Folder (remote or in ProTracker)',
     'LBL_EMAIL_MENU_HELP_EDIT_CONTACT'      => 'Edit a Contact',
     'LBL_EMAIL_MENU_HELP_EDIT_LIST'         => 'Edit a Mailing List',
     'LBL_EMAIL_MENU_HELP_EMPTY_TRASH'       => 'Empties all Trash folders for your mail accounts',
@@ -1755,7 +1905,7 @@ $app_strings = array (
     'LBL_EMAIL_MENU_HELP_MARK_UNFLAGGED'    => 'Mark these email(s) unflagged',
     'LBL_EMAIL_MENU_HELP_MARK_UNREAD'       => 'Mark these email(s) unread',
     'LBL_EMAIL_MENU_HELP_REMOVE_LIST'       => 'Removes Mailing Lists',
-    'LBL_EMAIL_MENU_HELP_RENAME_FOLDER'     => 'Rename a Folder (remote or in Sugar)',
+    'LBL_EMAIL_MENU_HELP_RENAME_FOLDER'     => 'Rename a Folder (remote or in ProTracker)',
     'LBL_EMAIL_MENU_HELP_REPLY'             => 'Reply to these email(s)',
     'LBL_EMAIL_MENU_HELP_REPLY_ALL'         => 'Reply to all recipients for these email(s)',
 
@@ -1889,11 +2039,11 @@ $app_strings = array (
   'LBL_SMTPTYPE_EXCHANGE'                 => 'Microsoft Exchange',
     'LBL_SMTPTYPE_OTHER'                  => 'Other',
     'LBL_EMAIL_SPACER_MAIL_SERVER'          => '[ Remote Folders ]',
-    'LBL_EMAIL_SPACER_LOCAL_FOLDER'         => '[ Sugar Folders ]',
+    'LBL_EMAIL_SPACER_LOCAL_FOLDER'         => '[ ProTracker Folders ]',
     'LBL_EMAIL_SUBJECT'                     => 'Subject',
     'LBL_EMAIL_TO'                        => 'To',
     'LBL_EMAIL_SUCCESS'                     => 'Success',
-    'LBL_EMAIL_SUGAR_FOLDER'                => 'SugarFolder',
+    'LBL_EMAIL_SUGAR_FOLDER'                => 'ProTrackerFolder',
     'LBL_EMAIL_TEAMS'                       => 'Assign to Teams',
     'LBL_EMAIL_TEMPLATE_EDIT_PLAIN_TEXT'    => 'Email template body is empty',
     'LBL_EMAIL_TEMPLATES'                   => 'Templates',
@@ -1979,7 +2129,7 @@ $app_strings = array (
     'ERR_NOTHING_SELECTED' =>'Please make a selection before proceeding.',
     'ERR_OPPORTUNITY_NAME_DUPE' => 'An opportunity with the name %s already exists.  Please enter another name below.',
     'ERR_OPPORTUNITY_NAME_MISSING' => 'An opportunity name was not entered.  Please enter an opportunity name below.',
-    'ERR_POTENTIAL_SEGFAULT' => 'A potential Apache segmentation fault was detected.  Please notify your system administrator to confirm this problem and have her/him report it to SugarCRM.',
+    'ERR_POTENTIAL_SEGFAULT' => 'A potential Apache segmentation fault was detected.  Please notify your system administrator to confirm this problem and have her/him report it to ProTracker.',
     'ERR_SELF_REPORTING' => 'User cannot report to him or herself.',
     'ERR_SINGLE_QUOTE'  => 'Using the single quote is not supported for this field.  Please change the value.',
     'ERR_SQS_NO_MATCH_FIELD' => 'No match for field: ',
@@ -1989,17 +2139,17 @@ $app_strings = array (
     'ERR_COMPATIBLE_PRECISION_VALUE' => 'Field value is not compatible with precision value',
     'ERR_EXTERNAL_API_SAVE_FAIL' => 'An error occurred when trying to save to the external account.',
     'ERR_EXTERNAL_API_UPLOAD_FAIL' => 'An error occurred while uploading.  Please ensure the file you are uploading is not empty.',
-    'ERR_NO_DB' => 'Could not connect to the database. Please refer to sugarcrm.log for details.',
-    'ERR_DB_FAIL' => 'Database failure. Please refer to sugarcrm.log for details.',
+    'ERR_NO_DB' => 'Could not connect to the database. Please refer to protracker.log for details.',
+    'ERR_DB_FAIL' => 'Database failure. Please refer to protracker.log for details.',
     'ERR_EXTERNAL_API_403' => 'Permission Denied. File type is not supported.',
     'ERR_DB_VERSION' => 'Sugar CRM {0} Files May Only Be Used With A Sugar CRM {1} Database.',
 
     //Lotus Live specific error messages
     'ERR_EXTERNAL_API_LOTUS_LIVE_CONFLICT' => 'A file with the same name already exists in the system.',
 
-    'LBL_ACCOUNT'=>'Account',
-    'LBL_OLD_ACCOUNT_LINK'=>'Old Account',
-    'LBL_ACCOUNTS'=>'Accounts',
+    'LBL_ACCOUNT'=>'Client',
+    'LBL_OLD_ACCOUNT_LINK'=>'Old Client',
+    'LBL_ACCOUNTS'=>'Clients',
     'LBL_ACTIVITIES_SUBPANEL_TITLE'=>'Activities',
     'LBL_ACCUMULATED_HISTORY_BUTTON_KEY' => 'H',
     'LBL_ACCUMULATED_HISTORY_BUTTON_LABEL' => 'View Summary',
@@ -2021,11 +2171,11 @@ $app_strings = array (
     'LBL_ASSIGNED_TO_USER'=>'Assigned to User',
     'LBL_ASSIGNED_TO' => 'Assigned to:',
     'LBL_BACK' => 'Back',
-    'LBL_BILL_TO_ACCOUNT'=>'Bill to Account',
+    'LBL_BILL_TO_ACCOUNT'=>'Bill to Client',
     'LBL_BILL_TO_CONTACT'=>'Bill to Contact',
     'LBL_BILLING_ADDRESS'=>'Billing Address',
     'LBL_QUICK_CREATE_TITLE' => 'Quick Create',
-    'LBL_BROWSER_TITLE' => 'SugarCRM - Commercial Open Source CRM',
+    'LBL_BROWSER_TITLE' => 'ProTracker - Client Relationship Management for Financial Practitioners',
     'LBL_BUGS'=>'Bugs',
     'LBL_BY' => 'by',
     'LBL_CALLS'=>'Calls',
@@ -2133,7 +2283,7 @@ $app_strings = array (
     'LBL_THEME_PICKER_IE6COMPAT_CHECK' => 'Warning: Internet Explorer 6 is not supported for the selected theme. Click OK to select it anyways or Cancel to select a different theme.',
     'LBL_FOUND_IN_RELEASE'=>'Found In Release',
     'LBL_FIXED_IN_RELEASE'=>'Fixed In Release',
-    'LBL_LIST_ACCOUNT_NAME' => 'Account Name',
+    'LBL_LIST_ACCOUNT_NAME' => 'Client Name',
     'LBL_LIST_ASSIGNED_USER' => 'User',
     'LBL_LIST_CONTACT_NAME' => 'Contact Name',
     'LBL_LIST_CONTACT_ROLE' => 'Contact Role',
@@ -2296,11 +2446,11 @@ $app_strings = array (
     'LBL_ACCESSKEY_CLEAR_USERS_TITLE' => 'Clear User',
     'LBL_ACCESSKEY_CLEAR_USERS_LABEL' => 'Clear User',
     'LBL_ACCESSKEY_SELECT_ACCOUNTS_KEY' => 'A',
-    'LBL_ACCESSKEY_SELECT_ACCOUNTS_TITLE' => 'Select Account',
-    'LBL_ACCESSKEY_SELECT_ACCOUNTS_LABEL' => 'Select Account',
+    'LBL_ACCESSKEY_SELECT_ACCOUNTS_TITLE' => 'Select Client',
+    'LBL_ACCESSKEY_SELECT_ACCOUNTS_LABEL' => 'Select Client',
     'LBL_ACCESSKEY_CLEAR_ACCOUNTS_KEY' => ' ',
-    'LBL_ACCESSKEY_CLEAR_ACCOUNTS_TITLE' => 'Clear Account',
-    'LBL_ACCESSKEY_CLEAR_ACCOUNTS_LABEL' => 'Clear Account',
+    'LBL_ACCESSKEY_CLEAR_ACCOUNTS_TITLE' => 'Clear Client',
+    'LBL_ACCESSKEY_CLEAR_ACCOUNTS_LABEL' => 'Clear Client',
     'LBL_ACCESSKEY_SELECT_CAMPAIGNS_KEY' => 'M',
     'LBL_ACCESSKEY_SELECT_CAMPAIGNS_TITLE' => 'Select Campaign',
     'LBL_ACCESSKEY_SELECT_CAMPAIGNS_LABEL' => 'Select Campaign',
@@ -2326,7 +2476,7 @@ $app_strings = array (
     'LBL_SERVER_MEMORY_USAGE' => 'Server Memory Usage: {0} ({1})',
     'LBL_SERVER_MEMORY_LOG_MESSAGE' => 'Usage: - module: {0} - action: {1}',
     'LBL_SERVER_PEAK_MEMORY_USAGE' => 'Server Peak Memory Usage: {0} ({1})',
-    'LBL_SHIP_TO_ACCOUNT'=>'Ship to Account',
+    'LBL_SHIP_TO_ACCOUNT'=>'Ship to Client',
     'LBL_SHIP_TO_CONTACT'=>'Ship to Contact',
     'LBL_SHIPPING_ADDRESS'=>'Shipping Address',
     'LBL_SHORTCUTS' => 'Shortcuts',
@@ -2342,13 +2492,13 @@ $app_strings = array (
 
     /* The following version of LBL_SUGAR_COPYRIGHT is intended for Sugar Open Source only. */
 
-    'LBL_SUGAR_COPYRIGHT' => '&copy; 2004-2013 SugarCRM Inc. The Program is provided AS IS, without warranty.  Licensed under <a href="LICENSE.txt" target="_blank" class="copyRightLink">AGPLv3</a>.<br />SugarCRM is a trademark of SugarCRM, Inc. All other company and product names may be trademarks of the respective companies with which they are associated.',
+    'LBL_SUGAR_COPYRIGHT' => '&copy; 2012-2013 ProTracker Software, Inc. The Program is provided AS IS, without warranty. All other company and product names may be trademarks of the respective companies with which they are associated.',
 
 
 
     // The following version of LBL_SUGAR_COPYRIGHT is for Professional and Enterprise editions.
 
-    'LBL_SUGAR_COPYRIGHT_SUB' => '&copy; 2004-2013 <a href="http://www.sugarcrm.com" target="_blank" class="copyRightLink">SugarCRM Inc.</a> All Rights Reserved.<br />SugarCRM is a trademark of SugarCRM, Inc. All other company and product names may be trademarks of the respective companies with which they are associated.',
+    'LBL_SUGAR_COPYRIGHT_SUB' => '&copy; 2012-2013 <a href="http://www.protracker.com" target="_blank" class="copyRightLink">ProTracker Software, Inc.</a> All Rights Reserved.',
 
 
     'LBL_SYNC' => 'Sync',
@@ -2433,14 +2583,14 @@ $app_strings = array (
     'NTC_NO_ITEMS_DISPLAY' => 'none',
     'NTC_REMOVE_CONFIRMATION' => 'Are you sure you want to remove this relationship? Only the relationship will be removed. The record will not be deleted.',
     'NTC_REQUIRED' => 'Indicates required field',
-    'NTC_SUPPORT_SUGARCRM' => 'Support the SugarCRM open source project with a donation through PayPal - it\'s fast, free and secure!',
+    'NTC_SUPPORT_SUGARCRM' => '',
     'NTC_TIME_FORMAT' => '(24:00)',
     'NTC_WELCOME' => 'Welcome',
     'NTC_YEAR_FORMAT' => '(yyyy)',
-    'LOGIN_LOGO_ERROR'=> 'Please replace the SugarCRM logos.',
-    'ERROR_FULLY_EXPIRED'=> "Your company's license for SugarCRM has expired for more than 7 days and needs to be brought up to date. Only admins may login.",
-    'ERROR_LICENSE_EXPIRED'=> "Your company's license for SugarCRM needs to be updated. Only admins may login",
-    'ERROR_LICENSE_VALIDATION'=> "Your company's license for SugarCRM needs to be validated. Only admins may login",
+    'LOGIN_LOGO_ERROR'=> 'Please replace the ProTracker logos.',
+    'ERROR_FULLY_EXPIRED'=> "Your company's license for ProTracker has expired for more than 7 days and needs to be brought up to date. Only admins may login.",
+    'ERROR_LICENSE_EXPIRED'=> "Your company's license for ProTracker needs to be updated. Only admins may login",
+    'ERROR_LICENSE_VALIDATION'=> "Your company's license for ProTracker needs to be validated. Only admins may login",
     'WARN_BROWSER_VERSION_WARNING' => "<b>Warning:</b> Your browser version is no longer supported or you are using an unsupported browser.<p></p>The following browser versions are recommended:<p></p><ul><li>Internet Explorer 8 (compatibility view not supported)<li>Firefox 19<li>Safari 5.1<li>Chrome 25</ul>",
     'WARN_BROWSER_IE_COMPATIBILITY_MODE_WARNING' => "<b>Warning:</b> Your browser is in IE compatibility view which is not supported.",
     'WARN_LICENSE_SEATS'=>  "Warning: The number of active users is already the maximum number of licenses allowed.",
@@ -2547,16 +2697,16 @@ $app_strings = array (
 
     // MySugar status strings
     'LBL_CREATING_NEW_PAGE' => 'Creating New Page ...',
-    'LBL_NEW_PAGE_FEEDBACK' => 'You have created a new page. You may add new content with the Add Sugar Dashlets menu option.',
+    'LBL_NEW_PAGE_FEEDBACK' => 'You have created a new page. You may add new content with the Add Dashlets menu option.',
     'LBL_DELETE_PAGE_CONFIRM' => 'Are you sure you want to delete this page?',
     'LBL_SAVING_PAGE_TITLE' => 'Saving Page Title ...',
     'LBL_RETRIEVING_PAGE' => 'Retrieving Page ...',
-    'LBL_MAX_DASHLETS_REACHED' => 'You have reached the maximum number of Sugar Dashlets your adminstrator has set. Please remove a Sugar Dashlet to add more.',
-    'LBL_ADDING_DASHLET' => 'Adding Sugar Dashlet ...',
-    'LBL_ADDED_DASHLET' => 'Sugar Dashlet Added',
-    'LBL_REMOVE_DASHLET_CONFIRM' => 'Are you sure you want to remove the Sugar Dashlet?',
-    'LBL_REMOVING_DASHLET' => 'Removing Sugar Dashlet ...',
-    'LBL_REMOVED_DASHLET' => 'Sugar Dashlet Removed',
+    'LBL_MAX_DASHLETS_REACHED' => 'You have reached the maximum number of Dashlets your adminstrator has set. Please remove a Dashlet to add more.',
+    'LBL_ADDING_DASHLET' => 'Adding Dashlet ...',
+    'LBL_ADDED_DASHLET' => 'Dashlet Added',
+    'LBL_REMOVE_DASHLET_CONFIRM' => 'Are you sure you want to remove the Dashlet?',
+    'LBL_REMOVING_DASHLET' => 'Removing Dashlet ...',
+    'LBL_REMOVED_DASHLET' => 'Dashlet Removed',
 
     // MySugar Menu Options
     'LBL_ADD_PAGE' => 'Add Page',
@@ -2566,7 +2716,7 @@ $app_strings = array (
 
     'LBL_LOADING_PAGE' => 'Loading page, please wait...',
 
-    'LBL_RELOAD_PAGE' => 'Please <a href="javascript: window.location.reload()">reload the window</a> to use this Sugar Dashlet.',
+    'LBL_RELOAD_PAGE' => 'Please <a href="javascript: window.location.reload()">reload the window</a> to use this Dashlet.',
     'LBL_ADD_DASHLETS' => 'Add Dashlets',
     'LBL_CLOSE_DASHLETS' => 'Close',
     'LBL_OPTIONS' => 'Options',
@@ -2644,14 +2794,14 @@ $app_strings = array (
     'LBL_TWITTER_DATA_LOADING' => 'Loading Twitter Connector...',
     'LBL_TWITTER_DATA_EMPTY' => 'No data availlable from Twitter',
 
-    'LBL_PLUGIN_OUTLOOK_NAME' => 'Sugar Plug-in for Outlook',
-    'LBL_PLUGIN_OUTLOOK_DESC' => 'Integrate Sugar e-mail and calendar information with Microsoft Outlook.',
-    'LBL_PLUGIN_WORD_NAME' => 'Sugar Plug-in for Word',
-    'LBL_PLUGIN_WORD_DESC' => 'Automatically populate information from SugarCRM into form letters, direct mail and other Microsoft documents.',
-    'LBL_PLUGIN_EXCEL_NAME' => 'Sugar Plug-in for Excel',
-    'LBL_PLUGIN_EXCEL_DESC' => 'Integrate Sugar with spreadsheets for better analysis of key metrics.',
-    'LBL_PLUGINS_TITLE' => 'Sugar Plug-ins for Microsoft Office<sup>TM</sup>',
-    'LBL_PLUGINS_DESC' => 'Read about the plug-in features within the <a href="https://www.sugarcrm.com/crm/support/documentation/SugarPlugIns">Plug-ins Documentation</a>.',
+    'LBL_PLUGIN_OUTLOOK_NAME' => 'ProTracker Plug-in for Outlook',
+    'LBL_PLUGIN_OUTLOOK_DESC' => 'Integrate ProTracker e-mail and calendar information with Microsoft Outlook.',
+    'LBL_PLUGIN_WORD_NAME' => 'ProTracker Plug-in for Word',
+    'LBL_PLUGIN_WORD_DESC' => 'Automatically populate information from ProTracker into form letters, direct mail and other Microsoft documents.',
+    'LBL_PLUGIN_EXCEL_NAME' => 'ProTracker Plug-in for Excel',
+    'LBL_PLUGIN_EXCEL_DESC' => 'Integrate ProTracker with spreadsheets for better analysis of key metrics.',
+    'LBL_PLUGINS_TITLE' => 'ProTracker Plug-ins for Microsoft Office<sup>TM</sup>',
+    'LBL_PLUGINS_DESC' => 'Read about the plug-in features within the <a href="https://www.protrackerweb.com/crm/support/documentation/SugarPlugIns">Plug-ins Documentation</a>.',
 
 
 
@@ -2662,8 +2812,8 @@ $app_strings = array (
   'MSG_SHOULD_BE' => 'should be',
   'MSG_OR_GREATER' => 'or greater',
 
-    'LBL_PORTAL_WELCOME_TITLE' => 'Welcome to Sugar Portal 5.1.0',
-    'LBL_PORTAL_WELCOME_INFO' => 'Sugar Portal is a framework which provides real-time view of cases, bugs & newsletters etc to customers. This is an external facing interface to Sugar that can be deployed within any website.  Stay tuned for more customer self service features like Project Management and Forums in our future releases.',
+    'LBL_PORTAL_WELCOME_TITLE' => 'Welcome to ProTracker Portal 5.1.0',
+    'LBL_PORTAL_WELCOME_INFO' => 'ProTracker Portal is a framework which provides real-time view of cases, bugs & newsletters etc to customers. This is an external facing interface to ProTracker that can be deployed within any website.  Stay tuned for more customer self service features like Project Management and Forums in our future releases.',
     'LBL_LIST' => 'List',
     'LBL_CREATE_CASE' => 'Create Case',
     'LBL_CREATE_BUG' => 'Create Bug',
@@ -3608,7 +3758,7 @@ $app_list_strings['kbdocument_status_dom'] = array (
 
   $app_list_strings['moduleList']['Sugar_Favorites'] = 'Favorites';
   $app_list_strings['eapm_list']= array(
-    'Sugar'=>'Sugar',
+    'Sugar'=>'ProTracker',
     'WebEx'=>'WebEx',
     'GoToMeeting'=>'GoToMeeting',
     'IBMSmartCloud'=>'IBM SmartCloud',

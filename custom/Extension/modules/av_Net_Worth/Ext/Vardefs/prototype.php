@@ -13,7 +13,7 @@ $dictionary["av_Net_Worth"]["fields"]["grand_total"] = array (
     'duplicate_merge_dom_value' => '0',
     'audited' => false,
     'reportable' => true,
-    'len' => 26,
+    'len' => '26,6',
     'size' => '20',
     );
 

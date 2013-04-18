@@ -2,7 +2,7 @@
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (â€œMSAâ€), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -1086,7 +1086,7 @@ require_once('include/EditView/EditView2.php');
                                          }
 
                                          //field is not last name or this is not from global unified search, so do normal where clause
-                                         $where .=  $db_field . " like ".$this->seed->db->quoted(sql_like_string($field_value, $like_char));
+                                         $where .=  $db_field . " like ".$this->seed->db->quoted(sql_like_string('%'.$field_value, $like_char));
                                      }
                                  }
                                  break;

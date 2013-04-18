@@ -1,0 +1,10 @@
+<?php
+// created: 2012-12-13 16:24:52
+$layout_defs["av_Account_Categories"]["subpanel_setup"]["av_account_types"] = array (
+	'order' => 100,
+	'module' => 'av_Account_Types',
+	'subpanel_name' => 'default',
+	'title_key' => 'LBL_AV_ACCOUNT_TYPES',
+	'get_subpanel_data' => 'av_account_types_av_account_categories',
+);
+

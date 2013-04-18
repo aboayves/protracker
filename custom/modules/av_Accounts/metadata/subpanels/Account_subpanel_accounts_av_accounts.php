@@ -1,78 +1,63 @@
 <?php
-// created: 2012-05-29 17:09:08
+// created: 2013-03-13 13:14:25
 $subpanel_layout['list_fields'] = array (
+  'account_number' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'vname' => 'LBL_ACCOUNT_NUMBER',
+    'width' => '10%',
+  ),
   'name' => 
   array (
     'vname' => 'LBL_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
+    'width' => '25%',
     'default' => true,
   ),
-  'ownership_c' => 
+  'av_account_types_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+    'id' => 'ACCOUNT_TYPE_ID',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'av_Account_Types',
+    'target_record_key' => 'account_type_id',
+  ),
+  'category' => 
   array (
     'type' => 'enum',
     'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_OWNERSHIP',
+    'vname' => 'LBL_CATEGORY',
     'width' => '10%',
+  ),
+  'custodian' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_CUSTODIAN',
+    'width' => '12%',
   ),
   'value' => 
   array (
     'type' => 'currency',
     'vname' => 'LBL_VALUE',
     'currency_format' => true,
-    'width' => '10%',
+    'width' => '13%',
     'default' => true,
-  ),
-  'asset_class_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ASSET_CLASS',
-    'width' => '10%',
-  ),
-  'asset_category_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ASSET_CATEGORY',
-    'width' => '10%',
-  ),
-  'account_type_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ACCOUNT_TYPE',
-    'width' => '10%',
-  ),
-  'institution_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_INSTITUTION',
-    'width' => '10%',
-  ),
-  'asset_type_c' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'studio' => 'visible',
-    'vname' => 'LBL_ASSET_TYPE',
-    'width' => '10%',
   ),
   'date_modified' => 
   array (
     'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '45%',
+    'width' => '13%',
     'default' => true,
   ),
   'edit_button' => 
   array (
-    'widget_class' => 'SubPanelEditButton',
+    'widget_class' => 'SubPanelCstmEditAccount',
     'module' => 'av_Accounts',
     'width' => '4%',
     'default' => true,

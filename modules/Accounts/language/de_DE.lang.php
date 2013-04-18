@@ -18,6 +18,23 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	
 
 $mod_strings = array (
+  'LBL_COPY' => 'Kopieren',
+  'LBL_FAX' => 'Fax:',
+  'LBL_MEETINGS_SUBPANEL_TITLE' => 'Meetings',
+  'LBL_NAME' => 'Name:',
+  'LBL_SIC_CODE' => 'SIC Code:',
+  'LBL_TEAMS_LINK' => 'Teams',
+  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Clients',
+  'LBL_CONTRACTS' => 'Verträge',
+  'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Verträge',
+  'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Produkte',
+  'LBL_QUOTES_SUBPANEL_TITLE' => 'Angebote',
+  'LNK_ACCOUNT_REPORTS' => 'Firmen Berichte',
+  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Dokumente',
+  'LBL_CHARTS' => 'Diagramme',
+  'LBL_DEFAULT' => 'Ansichten',
+  'LBL_MISC' => 'Verschiedenes',
+  'LBL_UTILS' => 'Werkzeuge',
   'ACCOUNT_REMOVE_PROJECT_CONFIRM' => 'Möchten Sie diese Firma wirklich aus dem Projekt entfernen?',
   'ERR_DELETE_RECORD' => 'Es muss die Datensatznummer angegeben werden, um diesen Datensatz löschen zu können.',
   'LBL_ACCOUNT' => 'Firma:',

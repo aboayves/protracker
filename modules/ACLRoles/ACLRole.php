@@ -3,7 +3,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (â€œMSAâ€), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -262,6 +262,22 @@ function mark_relationships_deleted($id){
             $this->$name = $value;
         }
     }
+	
+	function create_new_list_query($order_by, $where,$filter=array(),$params=array(), $show_deleted = 0,$join_type='', $return_array = false,$parentbean=null, $singleSelect = false, $ifListForExport = false){
+		$arr = parent::create_new_list_query($order_by, $where,$filter,$params, $show_deleted,$join_type, $return_array,$parentbean, $singleSelect, $ifListForExport);
+		
+		if(!isset($_REQUEST['show_all']) || empty($_REQUEST['show_all'])){
+			if(isset($arr['where']) && !empty($arr['where'])){
+				$arr['where'] .= " AND ";
+			}else{
+				$arr['where'] .= " WHERE ";
+			}
+			
+			$arr['where'] .= " acl_roles.id NOT IN ('reserved_standard', 'reserved_professional', 'reserved_enterprise') ";
+		}
+		
+		return $arr;
+	}
 }
 
 ?>

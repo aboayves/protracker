@@ -1,0 +1,12 @@
+.active_task{
+	font-weight:bold;
+}
+
+.completed_task{
+	color:#00CC00 !important;
+	font-weight:bold;
+}
+
+.overdue_task{
+	color:#FF0000 !important;
+}

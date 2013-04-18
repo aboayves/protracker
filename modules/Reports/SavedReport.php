@@ -3,7 +3,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
  * By installing or using this file, you are confirming on behalf of the entity
  * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
- * the SugarCRM Inc. Master Subscription Agreement (â€œMSAâ€), which is viewable at:
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
  * http://www.sugarcrm.com/master-subscription-agreement
  *
  * If Company is not bound by the MSA, then by installing or using this file
@@ -46,6 +46,7 @@ class SavedReport extends SugarBean
 	var $team_id;
 	var $team_name;
 	var $chart_type;
+	var $category;
 
 	//variables for joining the report schedules table
 	var $schedule_id;
@@ -80,7 +81,7 @@ class SavedReport extends SugarBean
 
 	var $list_fields = array('id', 'name', 'module', 'report_type', 'schedule_id', 'active', 'next_run', 'last_run_date');
 
-	function save_report($id, $owner_id, $name, $module,$report_type,$content,$is_published = 0,$team_id, $chart_type='none') {
+	function save_report($id, $owner_id, $name, $module,$report_type,$content,$is_published = 0,$team_id, $chart_type='none', $category='') {
 		global $json;
 		global $current_user;
 
@@ -118,6 +119,7 @@ class SavedReport extends SugarBean
 		$this->module = $module;
 		$this->is_published = $is_published;
 		$this->chart_type = $chart_type;
+		$this->category = $category;
 
 		$this->save();
 		return $result;
