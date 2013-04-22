@@ -16,22 +16,6 @@ $GLOBALS['tabStructure'] = array (
       7 => 'av_Activity_Types',
     ),
   ),
-  'LBL_TABGROUP_DOCUMENT_MANAGEMENT' => 
-  array (
-    'label' => 'LBL_TABGROUP_DOCUMENT_MANAGEMENT',
-    'modules' => 
-    array (
-      0 => 'Documents',
-    ),
-  ),
-  'LBL_TABGROUP_PROJECT_MANAGEMENT' => 
-  array (
-    'label' => 'LBL_TABGROUP_PROJECT_MANAGEMENT',
-    'modules' => 
-    array (
-      0 => 'Project',
-    ),
-  ),
   'LBL_TABGROUP_SALES_MARKETING' => 
   array (
     'label' => 'LBL_TABGROUP_SALES_MARKETING',
