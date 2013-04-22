@@ -27,11 +27,8 @@
  ********************************************************************************/
 
 *}
-<script src="custom/include/js/show_recent_records.js"></script>
-<div id="companyLogo" onmouseover="showRecentlyViewedRecords()">
+<div id="companyLogo">
     <a href="index.php?module=Home&action=index" border="0">
     <img src="{$COMPANY_LOGO_URL}" alt="{sugar_translate label='LBL_COMPANY_LOGO'}" border="0"/>
     </a>
-</div>
-<div id="popup_box" >	<!-- OUR PopupBox DIV-->
 </div>
