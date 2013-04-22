@@ -6,6 +6,10 @@ array (
     'templateMeta' => 
     array (
       'maxColumns' => '2',
+	  'form' => 
+      array (
+		'enctype' => 'multipart/form-data',
+	  ),
       'widths' => 
       array (
         0 => 
@@ -189,7 +193,7 @@ array (
             'comment' => '',
             'label' => 'LBL_BILLING_TYPE',
           ),
-          1 => '',
+          1 => 'filename',
         ),
         9 => 
         array (
