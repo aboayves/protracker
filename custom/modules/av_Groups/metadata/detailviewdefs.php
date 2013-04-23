@@ -105,12 +105,12 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
-      'default' => 
+      'lbl_editview_panel1' => 
       array (
         0 => 
         array (
@@ -152,8 +152,13 @@ array (
           1 => 'membership_expiration_days',
         ),
         4 => 
-        array (         
-		 1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lastupdated',
+            'customCode' => '<span id="lastupdated">{$fields.lastupdated.value}</span> <img src="custom/themes/default/images/refresh.jpg" style="cursor:pointer;" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
+          ),
+          1 => 
           array (
             'name' => 'date_checked',
             'comment' => '',
@@ -168,10 +173,6 @@ array (
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
           ),
-		  1 => array(
-		  	'name' => 'lastupdated',
-			'customCode' => '<span id="lastupdated">{$fields.lastupdated.value}</span> <img src="custom/themes/default/images/refresh.jpg" style="cursor:pointer;" height="20px" width="20px" onclick="if(confirm(\'This will remove all the existing members and will run the associated reports to rebuild the group. Continue?\')) rebuildGroup(); " />',
-		  ),
         ),
         6 => 
         array (

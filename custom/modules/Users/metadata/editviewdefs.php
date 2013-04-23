@@ -199,17 +199,7 @@ array (
             ),
             'label' => 'LBL_EXT_AUTHENTICATE',
           ),
-          1 => 
-          array (
-            'name' => 'portal_only',
-            'studio' => 
-            array (
-              'listview' => false,
-              'searchview' => false,
-              'formula' => false,
-            ),
-            'label' => 'LBL_PORTAL_ONLY_USER',
-          ),
+          1 => '',
         ),
       ),
     ),

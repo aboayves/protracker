@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-05 20:21:28
+// created: 2013-04-15 19:53:15
 $mod_strings = array (
   'LBL_EDITVIEW_PANEL1' => 'Address & Phone',
   'LBL_DEPARTMENT' => 'Position',
@@ -10,4 +10,5 @@ $mod_strings = array (
   'LBL_PRIMARY_ADDRESS_STREET' => 'Primary Address Street',
   'LBL_LIST_PHONE' => 'Work Phone',
   'LBL_TAGS_LEADS_FROM_TAGS_TITLE' => 'Tags',
+  'LBL_CONTACT_INFORMATION' => 'Lead Profile',
 );

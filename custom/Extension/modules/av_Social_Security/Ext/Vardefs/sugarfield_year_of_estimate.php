@@ -6,5 +6,5 @@ $dictionary['av_Social_Security']['fields']['year_of_estimate']['duplicate_merge
 $dictionary['av_Social_Security']['fields']['year_of_estimate']['merge_filter']='disabled';
 $dictionary['av_Social_Security']['fields']['year_of_estimate']['calculated']=false;
 $dictionary['av_Social_Security']['fields']['year_of_estimate']['enable_range_search']=false;
-
+$dictionary['av_Social_Security']['fields']['year_of_estimate']['disable_num_format']=true;
  ?>

@@ -198,7 +198,12 @@ array (
             'comment' => '',
             'label' => 'LBL_ON_MEETING_AGENDA',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
         ),
         1 => 
         array (
@@ -218,24 +223,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'on_financial_plan',
-            'comment' => '',
-            'label' => 'LBL_ON_FINANCIAL_PLAN',
-          ),
-          1 => 
-          array (
             'name' => 'report_sort',
             'comment' => '',
             'label' => 'LBL_REPORT_SORT',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'on_report_card',
-            'comment' => '',
-            'label' => 'LBL_ON_REPORT_CARD',
           ),
           1 => 
           array (

@@ -20,12 +20,12 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => false,
+      'useTabs' => true,
       'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
-      'default' => 
+      'lbl_editview_panel1' => 
       array (
         0 => 
         array (

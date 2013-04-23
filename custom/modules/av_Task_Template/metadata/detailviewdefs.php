@@ -58,12 +58,13 @@ array (
       array (
         0 => 
         array (
-          0 => 
+          0 => 'name',
+          1 => 
           array (
-            'name' => 'subject',
-            'label' => 'LBL_SUBJECT',
+            'name' => 'assign_to',
+            'studio' => 'visible',
+            'label' => 'LBL_ASSIGN_TO',
           ),
-          1 => 'assigned_user_name',
         ),
         1 => 
         array (
@@ -75,21 +76,35 @@ array (
           ),
           1 => 
           array (
-            'name' => 'assign_to',
-            'studio' => 'visible',
-            'label' => 'LBL_ASSIGN_TO',
+            'name' => 'av_activity_types_name',
+            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
           ),
         ),
         2 => 
         array (
-          0 => 
+          0 => '',
+          1 => 
           array (
-            'name' => 'av_activity_types_name',
-            'label' => 'LBL_AV_ACTIVITY_TYPES_NAME',
+            'name' => 'priority',
+            'studio' => 'visible',
+            'label' => 'LBL_PRIORITY',
           ),
-          1 => 'name',
         ),
         3 => 
+        array (
+          0 => 
+          array (
+            'name' => 'parent_tasks_name',
+            'studio' => 'visible',
+            'label' => 'LBL_PARENT_TASKS',
+          ),
+          1 => 
+          array (
+            'name' => 'private',
+            'label' => 'LBL_PRIVATE',
+          ),
+        ),
+        4 => 
         array (
           0 => 
           array (
@@ -98,23 +113,8 @@ array (
           ),
           1 => 
           array (
-            'name' => 'priority',
-            'studio' => 'visible',
-            'label' => 'LBL_PRIORITY',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'private',
-            'label' => 'LBL_PRIVATE',
-          ),
-          1 => 
-          array (
-            'name' => 'parent_tasks_name',
-            'studio' => 'visible',
-            'label' => 'LBL_PARENT_TASKS',
+            'name' => 'notify_child_completion',
+            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
           ),
         ),
         5 => 
@@ -125,18 +125,9 @@ array (
             'studio' => 'visible',
             'label' => 'LBL_WORKFLOW',
           ),
-          1 => 
-          array (
-            'name' => 'notify_child_completion',
-            'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
-          ),
-        ),
-        6 => 
-        array (
-          0 => '',
           1 => 'on_task_list',
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -145,19 +136,16 @@ array (
           ),
           1 => 'client_task',
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
             'name' => 'description',
             'customCode' => '<div> {$fields.description.value} <div>',
           ),
+          1 => 'team_name',
         ),
-        9 => 
-        array (
-          0 => 'team_name',
-        ),
-        10 => 
+        8 => 
         array (
           0 => 
           array (

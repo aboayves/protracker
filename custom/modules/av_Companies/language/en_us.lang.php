@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-08 16:08:51
+// created: 2013-04-15 19:51:59
 $mod_strings = array (
   'LBL_LIST_NAME' => 'Company Name',
   'LBL_ADDRESS_INFORMATION' => 'Address & Phone',
@@ -24,4 +24,5 @@ $mod_strings = array (
   'LBL_SHIPPING_ADDRESS_STREET' => 'Mailing Street:',
   'LBL_SHIPPING_ADDRESS_POSTALCODE' => 'Mailing Postal Code',
   'LBL_SHIPPING_ADDRESS_COUNTRY' => 'Mailing Country',
+  'LBL_ACCOUNT_INFORMATION' => 'Company Profile',
 );

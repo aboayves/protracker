@@ -17,13 +17,20 @@ array (
     'default' => true,
     'label' => 'LBL_SERVICE_TYPE',
     'width' => '10%',
-	'link' => true,
+    'link' => true,
   ),
   'FREQUENCY' => 
   array (
     'type' => 'enum',
     'default' => true,
     'label' => 'LBL_FREQUENCY',
+    'width' => '10%',
+  ),
+  'REPORT_NAME' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_REPORT_NAME',
     'width' => '10%',
   ),
   'DESCRIPTION' => 
@@ -41,13 +48,6 @@ array (
     'module' => 'Employees',
     'id' => 'ASSIGNED_USER_ID',
     'default' => false,
-  ),
-  'REPORT_NAME' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_REPORT_NAME',
-    'width' => '10%',
   ),
   'HOURLY_RATE' => 
   array (
