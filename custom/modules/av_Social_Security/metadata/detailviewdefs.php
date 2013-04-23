@@ -14,8 +14,9 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
-          4 => array(
-            'customCode' =>  '<input title="Help" type="button" name="help_button" id="help_button" onclick="window.location=\'http://protrackersoftware.net/?module='.$module_name.'\';" value="Help">',
+          4 => 
+          array (
+            'customCode' => '<input title="Help" type="button" name="help_button" id="help_button" onclick="window.location=\'http://protrackersoftware.net/?module=av_Social_Security\';" value="Help">',
           ),
         ),
       ),
@@ -47,22 +48,22 @@ array (
             'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
-          ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
           0 => 
           array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+          1 => 
+          array (
             'name' => 'year_of_estimate',
             'comment' => '',
             'label' => 'LBL_YEAR_OF_ESTIMATE',
-			'disable_num_format' => '1',
+            'disable_num_format' => '1',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -141,15 +142,10 @@ array (
         ),
         7 => 
         array (
-          0 => '',
-          1 => 'assigned_user_name',
-        ),
-        8 => 
-        array (
           0 => 'description',
           1 => 'team_name',
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (

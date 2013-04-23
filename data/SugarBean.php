@@ -680,8 +680,8 @@ class SugarBean
             return;
         foreach($this->field_defs as $field=>$value){
             if((isset($value['default']) || !empty($value['display_default'])) && ($force || empty($this->$field))){
-                $type = $value['type'];
-
+                if (isset($value['type'])) {$type = $value['type'];}
+				
                 switch($type){
                     case 'date':
                         if(!empty($value['display_default'])){

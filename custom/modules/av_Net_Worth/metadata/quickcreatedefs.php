@@ -27,6 +27,7 @@ array (
           'field' => '30',
         ),
       ),
+      'useTabs' => false,
     ),
     'panels' => 
     array (
@@ -34,9 +35,33 @@ array (
       array (
         0 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'studio' => 'visible',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'net_worth_date',
+            'comment' => '',
+            'label' => 'LBL_NET_WORTH_DATE',
+          ),
         ),
         1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'grand_total',
+            'label' => 'LBL_GRAND_TOTAL',
+          ),
+          1 => 
+          array (
+            'name' => 'managed_assets_c',
+            'label' => 'LBL_MANAGED_ASSETS',
+          ),
+        ),
+        2 => 
         array (
           0 => 'description',
           1 => 

@@ -34,21 +34,21 @@ array (
             'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
-          ),
+          1 => 'assigned_user_name',
         ),
         1 => 
         array (
           0 => 
           array (
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
+          ),
+          1 => 
+          array (
             'name' => 'year_of_estimate',
             'comment' => '',
             'label' => 'LBL_YEAR_OF_ESTIMATE',
           ),
-          1 => '',
         ),
         2 => 
         array (
@@ -127,11 +127,6 @@ array (
         ),
         7 => 
         array (
-          0 => '',
-          1 => 'assigned_user_name',
-        ),
-        8 => 
-        array (
           0 => 'description',
           1 => 
           array (
@@ -142,7 +137,7 @@ array (
             ),
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (

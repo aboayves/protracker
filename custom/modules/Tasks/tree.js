@@ -20,8 +20,10 @@ var oContextMenu = new YAHOO.widget.ContextMenu(
 oContextMenu.subscribe("triggerContextMenu", onTriggerContextMenu);
 
 function generateTree(){
-	var taskID = document.getElementsByName('record')[0].value;
-	var taskName = document.getElementsByName('task_name')[0].value;
+	//var taskID = document.getElementsByName('record')[0].value;
+	//var taskName = document.getElementsByName('task_name')[0].value;
+	var taskID = $('[name="record"]').val();
+	var taskName = $('[name="task_name"]').val();
 	loadNodeData(taskID, taskName);
 }
 

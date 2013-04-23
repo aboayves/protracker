@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-15 02:59:51
+// created: 2013-04-18 17:00:10
 $mod_strings = array (
   'LBL_ASSIGNED_TO_CLIENT' => 'Assigned to Client',
   'LBL_ASSIGN_TO' => 'Assign Task To',
@@ -11,4 +11,5 @@ $mod_strings = array (
   'LBL_PARENT_TASKS' => 'Waiting for',
   'LBL_CHILD_TASKS' => 'Dependent Task Templatess',
   'LBL_HOMEPAGE_TITLE' => 'My Task Templates',
+  'LBL_SUBJECT' => 'Name',
 );

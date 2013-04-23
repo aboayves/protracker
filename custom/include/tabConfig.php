@@ -1,35 +1,13 @@
 <?php
-// created: 2013-04-08 14:36:49
+// created: 2013-04-19 20:19:57
 $GLOBALS['tabStructure'] = array (
   'LBL_TABGROUP_ACTIVITIES' => 
   array (
     'label' => 'LBL_TABGROUP_ACTIVITIES',
     'modules' => 
     array (
-      0 => 'Calls',
-      1 => 'Emails',
-      2 => 'Meetings',
-      3 => 'Notes',
-      4 => 'Tasks',
-      5 => 'av_Workflow',
-      6 => 'av_Task_Template',
-      7 => 'av_Activity_Types',
-    ),
-  ),
-  'LBL_TABGROUP_DOCUMENT_MANAGEMENT' => 
-  array (
-    'label' => 'LBL_TABGROUP_DOCUMENT_MANAGEMENT',
-    'modules' => 
-    array (
-      0 => 'Documents',
-    ),
-  ),
-  'LBL_TABGROUP_PROJECT_MANAGEMENT' => 
-  array (
-    'label' => 'LBL_TABGROUP_PROJECT_MANAGEMENT',
-    'modules' => 
-    array (
-      0 => 'Project',
+      0 => 'av_Task_Template',
+      1 => 'av_Workflow',
     ),
   ),
   'LBL_TABGROUP_SALES_MARKETING' => 
@@ -165,24 +143,9 @@ $GLOBALS['tabStructure'] = array (
     'label' => 'LBL_TABGROUP_BILLING',
     'modules' => 
     array (
-      0 => 'Contracts',
-      1 => 'av_Payments',
-    ),
-  ),
-  'LBL_GROUPTAB14_1365431809' => 
-  array (
-    'label' => 'LBL_GROUPTAB14_1365431809',
-    'modules' => 
-    array (
-      0 => 'av_Companies',
-    ),
-  ),
-  'LBL_GROUPTAB15_1365431809' => 
-  array (
-    'label' => 'LBL_GROUPTAB15_1365431809',
-    'modules' => 
-    array (
-      0 => 'av_Households',
+      0 => 'Quotes',
+      1 => 'Contracts',
+      2 => 'av_Payments',
     ),
   ),
 );

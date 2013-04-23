@@ -595,7 +595,7 @@ class SugarView
 		//hard code area for sorting menus
 		
 		$fixed_modules = array("Tasks","Calls","Reports","Clients","Contacts","Meetings","Calendar",
-								"Notes", "Groups","Emails");
+								"Notes", "Groups","Emails","Documents","Project");
 		foreach($fixed_modules as $data){
 			$groupTabs[$data]['type'] = 'non-group';
 			$groupTabs[$data]['path'] = "_header".$data.".tpl";
@@ -612,6 +612,8 @@ class SugarView
 		$topTabList['Meetings'] = $app_list_strings['moduleList']['Meetings'];
 		$topTabList['Notes'] = $app_list_strings['moduleList']['Notes'];
 		$topTabList['Tasks'] = $app_list_strings['moduleList']['Tasks'];
+		$topTabList['Documents'] = $app_list_strings['moduleList']['Documents'];
+		$topTabList['Project'] = $app_list_strings['moduleList']['Project'];
         if ( isset($topTabList) && is_array($topTabList) ) {
             // Adding shortcuts array to menu array for displaying shortcuts associated with each module
             $shortcutTopMenu = array();
@@ -967,7 +969,7 @@ EOHTML;
 			 $bottomLinkList['print'] = array($app_strings['LNK_PRINT'] => getPrintLink());
 		}
 		$bottomLinkList['backtotop'] = array($app_strings['LNK_BACKTOTOP'] => 'javascript:SUGAR.util.top();');
-		$bottomLinkList['help'] = array('Help' => 'javascript:window.open(\'http://protrackersoftware.net/help/contacts.php?'.$GLOBALS['request_string'].'\');');
+		$bottomLinkList['help'] = array('Help' => 'index.php?module=av_help&action=help&help_module='.$_REQUEST['module'].'&help_action='.$_REQUEST['action']);
 
 		$bottomLinksStr = "";
 		foreach($bottomLinkList as $key => $value) {
@@ -979,9 +981,15 @@ EOHTML;
                    } else {
                    		$onclick = "";
                    	}
+					if(strpos($link, 'av_help')>=0) {
+						$help = " target='_blank' accesskey='h'";
+					} else {
+						$help = "";
+					}
                 $imageURL = SugarThemeRegistry::current()->getImageURL($key.'.gif');
 				$bottomLinksStr .= "<a href=\"{$href}\"";
 				$bottomLinksStr .= (isset($onclick)) ? $onclick : "";
+				$bottomLinksStr .= (isset($help)) ? $help : "";
 				$bottomLinksStr .= "><img src='{$imageURL}' alt=''>"; //keeping alt blank on purpose for 508 (text will be read instead)
 				$bottomLinksStr .= " ".$text."</a>";
 			}

@@ -30,7 +30,7 @@
 {if $AUTHENTICATED}
 {$DCSCRIPT}
 <div id='dcmenutop'></div>
-<div id='dcmenu' class='dcmenu dcmenuFloat'>
+<div id='dcmenu' style="z-index:20;" class='dcmenu dcmenuFloat'>
 <div id='ie8GradientFix'></div>
   <!--{include file="_headerModuleList.tpl" theme_template=true}-->
     {include file="_companyLogo.tpl" theme_template=true}

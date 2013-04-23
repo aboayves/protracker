@@ -7,7 +7,7 @@ array (
     array (
       'form' => 
       array (
-	  'enctype'=> 'multipart/form-data',
+        'enctype' => 'multipart/form-data',
         'hidden' => 
         array (
           0 => '<input type="hidden" name="isSaveAndNew" value="false">',
@@ -277,7 +277,12 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
             'comment' => '',
             'label' => 'LBL_ON_MEETING_AGENDA',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'on_report_card',
+            'comment' => '',
+            'label' => 'LBL_ON_REPORT_CARD',
+          ),
         ),
         1 => 
         array (
@@ -297,24 +302,9 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
         array (
           0 => 
           array (
-            'name' => 'on_financial_plan',
-            'comment' => '',
-            'label' => 'LBL_ON_FINANCIAL_PLAN',
-          ),
-          1 => 
-          array (
             'name' => 'report_sort',
             'comment' => '',
             'label' => 'LBL_REPORT_SORT',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'on_report_card',
-            'comment' => '',
-            'label' => 'LBL_ON_REPORT_CARD',
           ),
           1 => 'notify_child_completion',
         ),

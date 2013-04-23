@@ -432,8 +432,10 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
                         $widget_contents = $layout_manager->widgetDisplay($list_field);
                     }
 
-                 $count++;
+                $count++;
+				$cell_align = empty($list_field['align']) ? '' : $list_field['align']; //PROTRACKER ADD
                 $this->xTemplate->assign('CELL_COUNT', $count);
+				$this->xTemplate->assign('CELL_ALIGN', $cell_align); //PROTRACKER ADD
                 $this->xTemplate->assign('CLASS', "");
                 if ( empty($widget_contents) ) $widget_contents = '&nbsp;';
                 $this->xTemplate->assign('CELL', $widget_contents);
@@ -1723,6 +1725,7 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
 	            if(!isset($count))$count = 0; else $count++;
 	                $this->xTemplate->assign('CELL_COUNT', $count);
 	                $this->xTemplate->assign('CELL_WIDTH', $cell_width);
+					$cell_align = empty($widget_args['align']) ? 'left' : $widget_args['align']; 
 					$this->xTemplate->assign('CELL_ALIGN', $cell_align);
 	                $this->xTemplate->parse('dyn_list_view.header_cell');
                 } else {
@@ -1735,6 +1738,8 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
         			$this->xTemplate->assign('HEADER_CELL', "&nbsp;");
         			$this->xTemplate->assign('CELL_COUNT', $count);
 	                $this->xTemplate->assign('CELL_WIDTH', $cell_width);
+					$cell_align = empty($widget_args['align']) ? 'left' : $widget_args['align']; 
+					$this->xTemplate->assign('CELL_ALIGN', $cell_align);
 	                $this->xTemplate->parse('dyn_list_view.header_cell');
         }
 
