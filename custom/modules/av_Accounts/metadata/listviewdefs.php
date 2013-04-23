@@ -33,6 +33,7 @@ array (
     'default' => true,
     'label' => 'LBL_ACCOUNT_NUMBER',
     'width' => '10%',
+	'customCode' => '{$ACCOUNT_NUMBER} <img src=include/iconDisplay.php?name=account.closed&value={$IS_CLOSED}> <img src=include/iconDisplay.php?name=account.billed&value={$IS_BILLED}> ',
   ),
   'OWNERSHIP_TYPE' => 
   array (

@@ -90,6 +90,9 @@ input[type="submit"] {
 input[type=text].sqsEnabled{
 	width:80% !important;
 }
+input[type=text].sqsEnabledFlex{
+	width:62% !important;
+}
 input[type=text].cstm_relate_field_validation{
 	width:75% !important;
 }
@@ -7762,7 +7765,6 @@ div.login{
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger.png'), -o-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger.png'), -ms-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger.png'), linear-gradient(to right,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#191919',GradientType=1 );
 
 	background-repeat:no-repeat;
 	background-position:6px 6px;
@@ -7783,7 +7785,6 @@ div.login{
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger-close.png'), -o-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger-close.png'), -ms-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
 	background-image:url('../../../../index.php?entryPoint=getImage&imageName=dragger-close.png'), linear-gradient(to right,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#191919',GradientType=1 );
 	background-repeat:no-repeat;
 	background-position:6px 6px;
 }
@@ -7801,7 +7802,7 @@ div.login{
 	}
 label{
 	font-size:15px;
-	line-height: 26px;
+	/*line-height: 26px;*/
 	}
 .createDashlet{
 	display:block;
@@ -7908,4 +7909,64 @@ tr.ygtvrow{
 }
 #form_SubpanelQuickCreate_av_Groups_team_name_input_div_0 > input {
     width: 262px !important;
+}
+#popup_box { 
+	display:none; /* Hide the DIV */
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */  
+	height:250px;  
+	width:200px;  
+	background:#FFFFFF;  
+	left:170px;
+	top:110px;
+	z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 15px;  
+	
+	/* additional features, can be omitted */
+	border:2px solid #000;  	
+	padding:15px;  
+	font-size:15px;  
+	-moz-box-shadow: 0 0 5px #ff0000;
+	-webkit-box-shadow: 0 0 5px #ff0000;
+	box-shadow: 0 0 5px #ff0000;
+	
+}
+
+/* This is for the positioning of the Close Link */
+#popupBoxClose {
+	font-size:20px;  
+	line-height:15px;  
+	right:5px;  
+	top:5px;  
+	position:absolute;  
+	color:#6fa5e2;  
+	font-weight:500;  	
+}
+
+.theBackButton{
+	display:block;
+	height:25px;
+	width:25px;
+	border-radius:0px 3px 3px 0px;
+	-moz-border-radius:0px 3px 3px 0px;
+	-webkit-border-radius:0px 3px 3px 0px;
+	-o-border-radius:0px 3px 3px 0px;
+	-ms-border-radius:0px 3px 3px 0px;
+	#background: #000000;
+	background-image:url('../../../../index.php?entryPoint=getImage&imageName=previous.png');
+	background-image:url('../../../../index.php?entryPoint=getImage&imageName=previous.png'), url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM0JSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzAxMDEwMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU3JSIgc3RvcC1jb2xvcj0iIzBhMGEwYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjgxJSIgc3RvcC1jb2xvcj0iIzIzMjMyMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg5JSIgc3RvcC1jb2xvcj0iIzIzMjMyMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxOTE5MTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background-image:url('../../../../index.php?entryPoint=getImage&imageName=previous.png'), -moz-linear-gradient(left,  #000000 0%, #000000 34%, #010101 50%, #0a0a0a 57%, #232323 81%, #232323 89%, #191919 100%);
+	background-image:url('../../../../index.php?entryPoint=getImage&imageName=previous.png'), -webkit-gradient(linear, left top, right top, color-stop(0%,#000000), color-stop(34%,#000000), color-stop(50%,#010101), color-stop(57%,#0a0a0a), color-stop(81%,#232323), color-stop(89%,#232323), color-stop(100%,#191919));
+	background-image:url('../../../../index.php?entryPoint=getImage&imageName=previous.png'), -webkit-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
+	background-image:url('../../../../index.php?entryPoint=getImage&imageName=previous.png'), -o-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
+	background-image:url('../../../../index.php?entryPoint=getImage&imageName=previous.png'), -ms-linear-gradient(left,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
+	background-image:url('../../../../index.php?entryPoint=getImage&imageName=previous.png'), linear-gradient(to right,  #000000 0%,#000000 34%,#010101 50%,#0a0a0a 57%,#232323 81%,#232323 89%,#191919 100%);
+
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	position:absolute;
+	border:1px solid #000;
+	box-shadow:inset -1px 0px 0px #333;
+	z-index:3;
+	margin:40px 0px 0px 180px;
 }

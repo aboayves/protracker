@@ -1,21 +1,16 @@
 <?php
 $dashletData['av_CompaniesDashlet']['searchFields'] = array (
-  'date_entered' => 
+  'name' => 
   array (
     'default' => '',
   ),
-  'date_modified' => 
+  'industry' => 
   array (
     'default' => '',
   ),
-  'team_id' => 
+  'shipping_address_state' => 
   array (
     'default' => '',
-  ),
-  'assigned_user_id' => 
-  array (
-    'type' => 'assigned_user_name',
-    'default' => 'Deb Giffen',
   ),
 );
 $dashletData['av_CompaniesDashlet']['columns'] = array (
@@ -27,19 +22,49 @@ $dashletData['av_CompaniesDashlet']['columns'] = array (
     'default' => true,
     'name' => 'name',
   ),
-  'av_companies_type' => 
+  'industry' => 
   array (
     'type' => 'enum',
-    'label' => 'LBL_TYPE',
-    'width' => '15%',
+    'label' => 'LBL_INDUSTRY',
+    'width' => '10%',
     'default' => true,
   ),
-  'date_entered' => 
+  'phone_office' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_DATE_ENTERED',
+    'type' => 'phone',
+    'label' => 'LBL_PHONE_OFFICE',
+    'width' => '10%',
     'default' => true,
-    'name' => 'date_entered',
+    'name' => 'phone_office',
+  ),
+  'email1' => 
+  array (
+    'type' => 'varchar',
+    'studio' => 
+    array (
+      'editField' => true,
+      'searchview' => false,
+    ),
+    'label' => 'LBL_EMAIL',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'email1',
+  ),
+  'shipping_address_city' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SHIPPING_ADDRESS_CITY',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'shipping_address_city',
+  ),
+  'shipping_address_state' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_SHIPPING_ADDRESS_STATE',
+    'width' => '10%',
+    'default' => true,
+    'name' => 'shipping_address_state',
   ),
   'date_modified' => 
   array (
@@ -47,6 +72,21 @@ $dashletData['av_CompaniesDashlet']['columns'] = array (
     'label' => 'LBL_DATE_MODIFIED',
     'name' => 'date_modified',
     'default' => false,
+  ),
+  'date_entered' => 
+  array (
+    'width' => '15%',
+    'label' => 'LBL_DATE_ENTERED',
+    'default' => false,
+    'name' => 'date_entered',
+  ),
+  'av_companies_type' => 
+  array (
+    'type' => 'enum',
+    'label' => 'LBL_TYPE',
+    'width' => '15%',
+    'default' => false,
+    'name' => 'av_companies_type',
   ),
   'created_by' => 
   array (

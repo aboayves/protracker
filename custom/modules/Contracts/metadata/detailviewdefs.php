@@ -109,7 +109,7 @@ array (
             'comment' => '',
             'label' => 'LBL_BILLING_TYPE',
           ),
-          1 => '',
+          1 => 'filename',
         ),
         9 => 
         array (

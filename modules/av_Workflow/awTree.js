@@ -55,3 +55,10 @@ function resetUser(){
 			$(this).text($(this).attr("default_value"));
 	});
 }
+//Removing extra "»" when assigning workflow from menu shortcut.
+$(function(){
+	var contents = $(".moduleTitle").children().first().contents();
+	if((contents.get(3).textContent) == '»'){
+		$(".moduleTitle").children().first().children().eq(2).remove();
+	}
+});

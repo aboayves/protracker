@@ -26,27 +26,29 @@ class AccountsHook
 		   )
 		  )
 		{
-			$focus = new Contact();
-			$focus->retrieve($bean->primary_contact_id);
-			$focus->phone_work = $bean->phone_work;
-			$focus->phone_home = $bean->phone_home;
-			$focus->phone_mobile = $bean->phone_mobile;
-			$focus->phone_fax = $bean->phone_fax;
-			$focus->preferred_communication = $bean->preferred_communication;
-			$focus->preferred_calling_time = $bean->preferred_calling_time;
-			$focus->preferred_meeting_time = $bean->preferred_meeting_time;
-			$focus->preferred_document_submittal = $bean->preferred_document_submittal;
-			$focus->primary_address_street = $bean->mailing_address_street;
-			$focus->primary_address_city = $bean->mailing_address_city;
-			$focus->primary_address_state = $bean->mailing_address_state;
-			$focus->primary_address_postalcode = $bean->mailing_address_postalcode;
-			$focus->primary_address_country = $bean->mailing_address_country;
-			$focus->work_address_street = $bean->billing_address_street;
-			$focus->work_address_city = $bean->billing_address_city;
-			$focus->work_address_state = $bean->billing_address_state;
-			$focus->work_address_postalcode = $bean->billing_address_postalcode;
-			$focus->work_address_country = $bean->billing_address_country;
-			$focus->save();
+			global $db;
+			$sql="UPDATE contacts
+				  SET 
+					  phone_fax='{$bean->phone_fax}',
+					  phone_home='{$bean->phone_home}',
+					  phone_work='{$bean->phone_work}', 
+					  phone_mobile='{$bean->phone_mobile}',
+					  primary_address_street='{$bean->mailing_address_street}',
+					  primary_address_city='{$bean->mailing_address_city}',
+					  primary_address_state='{$bean->mailing_address_state}', 
+					  primary_address_postalcode='{$bean->mailing_address_postalcode}', 
+					  primary_address_country='{$bean->mailing_address_country}',
+					  work_address_street='{$bean->billing_address_street}',
+					  work_address_city='{$bean->billing_address_city}',
+					  work_address_state='{$bean->billing_address_state}', 
+					  work_address_postalcode='{$bean->billing_address_postalcode}', 
+					  work_address_country='{$bean->billing_address_country}',
+					  preferred_communication='{$bean->preferred_communication}',
+					  preferred_calling_time='{$bean->preferred_calling_time}',
+					  preferred_meeting_time='{$bean->preferred_meeting_time}',
+					  preferred_document_submittal='{$bean->preferred_document_submittal}'
+				  WHERE contacts.deleted=0 AND contacts.id='{$bean->primary_contact_id}'";
+				$db->query($sql, true);
 		}
 	}
 	function sync_email_address($bean, $event, $arguments) {

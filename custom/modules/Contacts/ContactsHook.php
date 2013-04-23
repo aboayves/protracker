@@ -26,7 +26,7 @@ class ContactsHook
 			{	
 				global $db;
 				$sql="UPDATE accounts
-					  LEFT JOIN accounts_contacts
+					  RIGHT JOIN accounts_contacts
 					  ON(accounts_contacts.contact_type='Primary'
 						 AND accounts_contacts.deleted=0
 						 AND accounts_contacts.contact_id='{$bean->id}'
@@ -51,7 +51,9 @@ class ContactsHook
 						  preferred_calling_time='{$bean->preferred_calling_time}',
 						  preferred_meeting_time='{$bean->preferred_meeting_time}',
 						  preferred_document_submittal='{$bean->preferred_document_submittal}'
-					  WHERE accounts.deleted=0";
+					  WHERE accounts.deleted=0 AND
+							accounts_contacts.contact_type='Primary' AND
+							accounts_contacts.contact_id='{$bean->id}'";
 				$db->query($sql, true);
 			}
 			   

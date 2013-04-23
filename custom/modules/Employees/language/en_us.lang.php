@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-04 20:29:17
+// created: 2013-04-08 01:57:20
 $mod_strings = array (
   'LBL_RELATIONSHIP_LISTING' => 'Relationship Type',
   'LBL_EDITVIEW_PANEL1' => 'Address & Phone',
@@ -8,4 +8,8 @@ $mod_strings = array (
   'LBL_PRODUCT_LEVEL' => 'Product Edition',
   'LBL_IS_MOBILE_USER' => 'Is Mobile User',
   'LBL_DEPARTMENT' => 'Position',
+  'LBL_OFFICE_PHONE' => 'Work Phone',
+  'LBL_LIST_PHONE' => 'Work Phone',
+  'LBL_NOTES' => 'Description',
+  'LBL_MOBILE_PHONE' => 'Mobile Phone',
 );

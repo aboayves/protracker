@@ -113,37 +113,12 @@ class SugarPlugins
 		curl_exec($ch);
 		curl_close($ch);
 		fclose($fh);
-		$zip = new ZipArchive;
-		$res = $zip->open($path);
-		if ($res === TRUE) {
-			$zip->extractTo('cache/'.$name);
-			$zip->close();
-		}
-		unlink($path);
-		if ($handle = opendir('cache/'.$name)) {
-			while (false !== ($entry = readdir($handle))) {
-				$entry1 = str_replace('Sugar', 'ProTracker', $entry);
-				rename('cache/'.$name.'/'.$entry, 'cache/'.$name.'/'.$entry1);
-			}
-			closedir($handle);
-		}
-		$this->downloadZip($name);
+		$new_name = str_replace('Sugar', 'ProTracker', $name);
+		rename('cache/'.$name.'.zip', 'cache/'.$new_name.'.zip');
+		$this->downloadZip($new_name);
 	}
 	public function downloadZip($name){
 		ini_set('max_execution_time', 5000);
-		chdir('cache');
-		$destination = $name.'.zip';
-		$zip = new ZipArchive();
-		if ($zip->open($destination, ZIPARCHIVE::CREATE) !== TRUE) {
-			die ("Could not open archive");
-		}
-		$iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($name));
-		foreach ($iterator as $key) {
-			$zip->addFile($key) or die ("ERROR: Could not add file: $key");
-		}
-		$zip->close();
-		chdir('../');
-		unlink('cache/'.$name);
 		header("Content-type: application/zip");
 		header("Content-Disposition: attachment; filename=".$name.'.zip');
 		header("Pragma: no-cache");

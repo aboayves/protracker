@@ -21,6 +21,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -28,63 +29,48 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
+          0 => 
+          array (
+            'name' => 'accounts_name',
+            'label' => 'LBL_ACCOUNTS_NAME',
+          ),
           1 => 'assigned_user_name',
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'Accounts_name',
-            'label' => 'LBL_ACCOUNTS_NAME',
+            'name' => 'contacts_name',
+            'label' => 'LBL_CONTACTS_NAME',
           ),
-          1 => 
-          array (
-            'name' => 'reciprocal_type',
-            'comment' => '',
-            'label' => 'LBL_RECIPROCAL_TYPE',
-          ),
+          1 => 'name',
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'Contacts_name',
-            'label' => 'LBL_CONTACTS_NAME',
-          ),
-          1 => 
-          array (
             'name' => 'type',
             'comment' => '',
             'label' => 'LBL_TYPE',
           ),
+          1 => '',
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'cc_statements',
-            'comment' => '',
-            'label' => 'LBL_CC_STATEMENTS',
-          ),
-          1 => 
-          array (
             'name' => 'ok_to_speak_to',
             'comment' => '',
             'label' => 'LBL_OK_TO_SPEAK_TO',
           ),
+          1 => 
+          array (
+            'name' => 'cc_statements',
+            'comment' => '',
+            'label' => 'LBL_CC_STATEMENTS',
+          ),
         ),
         4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'cc_reports',
-            'comment' => '',
-            'label' => 'LBL_CC_REPORTS',
-          ),
-          1 => '',
-        ),
-        5 => 
         array (
           0 => 
           array (
@@ -92,9 +78,14 @@ array (
             'comment' => '',
             'label' => 'LBL_CC_MAIL',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'cc_reports',
+            'comment' => '',
+            'label' => 'LBL_CC_REPORTS',
+          ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 'description',
           1 => 
@@ -106,7 +97,7 @@ array (
             ),
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (

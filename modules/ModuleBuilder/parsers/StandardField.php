@@ -94,7 +94,7 @@ class StandardField extends DynamicField
         foreach ($field->vardef_map as $property => $fmd_col){
            
         	if ($property == "action" || $property == "label_value" || $property == "label"
-            	|| ((substr($property, 0,3) == 'ext' && strlen($property) == 4))
+            	|| ((substr($property, 0,3) == 'ext' && strlen($property) == 4 && $newDef['type'] !='maskedinput'))
             ) 
             	continue;
        	 		
@@ -129,7 +129,6 @@ class StandardField extends DynamicField
         
         if (isset($this->custom_def["duplicate_merge_dom_value"]) && !isset($this->custom_def["duplicate_merge"]))
         	unset($this->custom_def["duplicate_merge_dom_value"]);
-        
         $this->writeVardefExtension($bean_name, $field, $this->custom_def);
     }
     

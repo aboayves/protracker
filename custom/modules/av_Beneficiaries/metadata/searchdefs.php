@@ -47,6 +47,16 @@ array (
         'id' => 'ASSET_ID',
         'name' => 'av_accounts_name',
       ),
+      'contacts_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_CONTACTS_NAME',
+        'width' => '10%',
+        'default' => true,
+        'id' => 'BENEFICIARY_ID',
+        'name' => 'contacts_name',
+      ),
       'name' => 
       array (
         'name' => 'name',

@@ -440,10 +440,16 @@ EOQ;
 			}
 
         }
+		//Showing buttons seperately instead of dropdown list for Activity Subpanel
+		$flat_flag=false;
+		if($widget_data['module'] == 'Activities'){
+			$flat_flag = true;
+		}
         require_once('include/Smarty/plugins/function.sugar_action_menu.php');
         $widget_contents = smarty_function_sugar_action_menu(array(
             'buttons' => $buttons,
             'class' => 'clickMenu fancymenu',
+			'flat' =>$flat_flag,
         ), $this->xTemplate);
         return $widget_contents;
 	}

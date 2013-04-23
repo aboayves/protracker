@@ -1,19 +1,13 @@
 <?php
-// created: 2013-04-05 19:49:13
+// created: 2013-04-08 14:36:49
 $GLOBALS['tabStructure'] = array (
   'LBL_TABGROUP_ACTIVITIES' => 
   array (
     'label' => 'LBL_TABGROUP_ACTIVITIES',
     'modules' => 
     array (
-      0 => 'Calls',
-      1 => 'Emails',
-      2 => 'Meetings',
-      3 => 'Notes',
-      4 => 'Tasks',
-      5 => 'av_Workflow',
-      6 => 'av_Task_Template',
-      7 => 'av_Activity_Types',
+	  0 => 'av_Task_Template',
+      1 => 'av_Workflow',
     ),
   ),
   'LBL_TABGROUP_SALES_MARKETING' => 
@@ -151,6 +145,22 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'Contracts',
       1 => 'av_Payments',
+    ),
+  ),
+  'LBL_GROUPTAB14_1365431809' => 
+  array (
+    'label' => 'LBL_GROUPTAB14_1365431809',
+    'modules' => 
+    array (
+      0 => 'av_Companies',
+    ),
+  ),
+  'LBL_GROUPTAB15_1365431809' => 
+  array (
+    'label' => 'LBL_GROUPTAB15_1365431809',
+    'modules' => 
+    array (
+      0 => 'av_Households',
     ),
   ),
 );

@@ -3,7 +3,7 @@
 $dictionary["Contact"]["fields"]["ein"] = array (
 	'name' => 'ein',
 	'vname' => 'LBL_EIN',
-	'type' => 'varchar',
+	'dbType' => 'varchar',
 	'len' => '255',
 	'audited' => 0,
 	'required' => 0,

@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-05 20:20:59
+// created: 2013-04-09 01:32:34
 $mod_strings = array (
   'LBL_OTHER_ADDRESS_STREET' => 'Other Address Street',
   'LBL_OTHER_ADDRESS_CITY' => 'Other Address City',
@@ -83,7 +83,7 @@ $mod_strings = array (
   'LBL_EMPLOYER' => 'Employer',
   'LBL_REPORT_NAME' => 'Report Name',
   'LBL_SALUTATION' => 'Salutation',
-  'LBL_REPORT_SALUTATION' => 'Report Salutation',
+  'LBL_REPORT_SALUTATION' => 'Salutation',
   'LBL_REFERRAL_NAME' => 'Referred By',
   'LBL_SECRELATED' => 'Sec Related',
   'LBL_AV_OFFICES_NAME' => 'Office',

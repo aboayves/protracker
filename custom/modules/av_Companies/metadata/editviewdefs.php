@@ -37,6 +37,7 @@ array (
         ),
       ),
       'useTabs' => false,
+      'syncDetailEditViews' => true,
     ),
     'panels' => 
     array (
@@ -45,27 +46,27 @@ array (
         0 => 
         array (
           0 => 'name',
-          1 => 
+          1 => 'assigned_user_name',
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'short_name',
             'comment' => '',
             'label' => 'LBL_SHORT_NAME',
           ),
-        ),
-        1 => 
-        array (
-          0 => 'ticker_symbol',
-          1 => 'employees',
+          1 => 'ticker_symbol',
         ),
         2 => 
         array (
-          0 => 'rating',
+          0 => 'industry',
           1 => 'ownership',
         ),
         3 => 
         array (
-          0 => 'industry',
-          1 => 'av_companies_type',
+          0 => 'employees',
+          1 => 'annual_revenue',
         ),
         4 => 
         array (
@@ -75,24 +76,16 @@ array (
             'comment' => '',
             'label' => 'LBL_MASTER_ACCOUNT',
           ),
-        ),
-        5 => 
-        array (
-          0 => 'description',
-          1 => 'annual_revenue',
-        ),
-        6 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'routing_number',
             'comment' => '',
             'label' => 'LBL_ROUTING_NUMBER',
           ),
         ),
-        7 => 
+        5 => 
         array (
-          0 => 'assigned_user_name',
+          0 => 'description',
           1 => 
           array (
             'name' => 'team_name',
@@ -102,7 +95,7 @@ array (
             ),
           ),
         ),
-        8 => 
+        6 => 
         array (
           0 => 
           array (
@@ -137,62 +130,10 @@ array (
         ),
         2 => 
         array (
-          0 => 'website',
-          1 => 'email1',
+          0 => 'email1',
+          1 => 'website',
         ),
-      ),
-      'lbl_address_information' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_street',
-            'hideLabel' => true,
-            'type' => 'address',
-            'displayParams' => 
-            array (
-              'key' => 'billing',
-              'rows' => 2,
-              'cols' => 30,
-              'maxlength' => 150,
-            ),
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_city',
-            'comment' => 'The city used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_CITY',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_state',
-            'comment' => 'The state used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_STATE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'billing_address_postalcode',
-            'comment' => 'The postal code used for billing address',
-            'label' => 'LBL_BILLING_ADDRESS_POSTALCODE',
-          ),
-          1 => 
-          array (
-            'name' => 'billing_address_country',
-            'comment' => 'The country used for the billing address',
-            'label' => 'LBL_BILLING_ADDRESS_COUNTRY',
-          ),
-        ),
-      ),
-      'lbl_description_information' => 
-      array (
-        0 => 
+        3 => 
         array (
           0 => 
           array (
@@ -208,35 +149,18 @@ array (
               'maxlength' => 150,
             ),
           ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'shipping_address_city',
-            'comment' => 'The city used for the shipping address',
-            'label' => 'LBL_SHIPPING_ADDRESS_CITY',
-          ),
           1 => 
           array (
-            'name' => 'shipping_address_state',
-            'comment' => 'The state used for the shipping address',
-            'label' => 'LBL_SHIPPING_ADDRESS_STATE',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'shipping_address_postalcode',
-            'comment' => 'The zip code used for the shipping address',
-            'label' => 'LBL_SHIPPING_ADDRESS_POSTALCODE',
-          ),
-          1 => 
-          array (
-            'name' => 'shipping_address_country',
-            'comment' => 'The country used for the shipping address',
-            'label' => 'LBL_SHIPPING_ADDRESS_COUNTRY',
+            'name' => 'billing_address_street',
+            'hideLabel' => true,
+            'type' => 'address',
+            'displayParams' => 
+            array (
+              'key' => 'billing',
+              'rows' => 2,
+              'cols' => 30,
+              'maxlength' => 150,
+            ),
           ),
         ),
       ),

@@ -18,5 +18,5 @@ $dictionary['av_Cashflow']['fields']['year']['group']='';
 $dictionary['av_Cashflow']['fields']['year']['merge_filter']='disabled';
 $dictionary['av_Cashflow']['fields']['year']['calculated']=false;
 $dictionary['av_Cashflow']['fields']['year']['enable_range_search']=false;
-
+$dictionary['av_Cashflow']['fields']['year']['disable_num_format']=true;
  ?>

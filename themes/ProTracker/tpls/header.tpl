@@ -99,6 +99,7 @@ $(document).ready(function() {
 </script>
 
 {/literal}
+<script src="custom/include/js/show_recent_records.js"></script>
 <script>
 var max_tabs = {$max_tabs};
 </script>
@@ -106,6 +107,8 @@ var max_tabs = {$max_tabs};
 <div id="main">
     <div id="content">
     {if $AUTHENTICATED}
+    <div class="theBackButton" onclick="showRecentlyViewedRecords()"></div>
+	<div id="popup_box" ><!-- OUR PopupBox DIV--></div>
     <div class="modulesdrager"></div>
     {/if}
         <table width="100%" border="0" cellspacing="0" cellpadding="0">

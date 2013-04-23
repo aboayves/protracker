@@ -61,23 +61,26 @@ array (
         ),
         1 => 
         array (
-          0 => 'website',
-          1 => 'email1',
+          0 => 'industry',
+          1 => 
+          array (
+            'name' => 'description',
+            'comment' => 'Full text of the note',
+            'label' => 'LBL_DESCRIPTION',
+          ),
         ),
-        2 => 
+      ),
+      'lbl_quickcreate_panel1' => 
+      array (
+        0 => 
         array (
           0 => 
           array (
             'name' => 'phone_office',
           ),
-          1 => 
-          array (
-            'name' => 'phone_alternate',
-            'comment' => 'An alternate phone number',
-            'label' => 'LBL_PHONE_ALT',
-          ),
+          1 => 'phone_fax',
         ),
-        3 => 
+        1 => 
         array (
           0 => 
           array (
@@ -85,52 +88,21 @@ array (
             'comment' => '',
             'label' => 'LBL_EMAIL',
           ),
-          1 => 'phone_fax',
+          1 => 'website',
         ),
-        4 => 
-        array (
-          0 => 'annual_revenue',
-          1 => 
-          array (
-            'name' => 'rating',
-            'comment' => 'An arbitrary rating for this company for use in comparisons with others',
-            'label' => 'LBL_RATING',
-          ),
-        ),
-        5 => 
-        array (
-          0 => 'industry',
-          1 => 'av_companies_type',
-        ),
-        6 => 
+        2 => 
         array (
           0 => 
           array (
-            'name' => 'av_accounts_av_companies_1_name',
-            'label' => 'LBL_AV_ACCOUNTS_AV_COMPANIES_1_FROM_AV_ACCOUNTS_TITLE',
+            'name' => 'shipping_address_street',
+            'comment' => 'The street address used for for shipping purposes',
+            'label' => 'LBL_SHIPPING_ADDRESS_STREET',
           ),
           1 => 
           array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'date_entered',
-            'comment' => 'Date record created',
-            'label' => 'LBL_DATE_ENTERED',
-          ),
-          1 => 
-          array (
-            'name' => 'date_modified',
-            'comment' => 'Date record last modified',
-            'label' => 'LBL_DATE_MODIFIED',
+            'name' => 'billing_address_street',
+            'comment' => 'The street address used for billing address',
+            'label' => 'LBL_BILLING_ADDRESS_STREET',
           ),
         ),
       ),

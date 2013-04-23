@@ -174,6 +174,17 @@ EOHTML;
 		$xtpl->parse("audit");
 		$xtpl->out("audit");
 		insert_popup_footer();
+		echo "<style>
+			.moduleTitle h2 {
+				position: static !important;
+			}
+			.moduleTitle span.utils {
+				float: right !important;
+			}
+			.list tr td {
+				border: 1px dotted !important;
+			}
+			</style>";
     }
 } // end of class Popup_Picker
 ?>

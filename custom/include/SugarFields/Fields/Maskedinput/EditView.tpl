@@ -34,3 +34,4 @@
 var oStringMask = new Mask("{{$vardef.default}}");
 oStringMask.attach(document.EditView.{{sugarvar key='name'}}_id);
 </script>
+<span id="show_masked_errors" style="color:#F00"></span>

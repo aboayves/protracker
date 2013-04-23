@@ -1,0 +1,1 @@
+<?php$mod_strings['LBL_CREATE_NET_WORTH_HISTORY_SNAPSHOT'] = 'Create networth history snapshot';?>

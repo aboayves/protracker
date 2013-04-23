@@ -89,7 +89,7 @@ array (
             'name' => 'custodian_id_name',
             'label' => 'LBL_CUSTODIAN_ID_NAME',
           ),
-          1 => '',
+          1 => 'managed_c',
         ),
         4 => 
         array (
@@ -185,9 +185,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'include_on_ips',
+            'name' => 'include_on_account_policy',
             'comment' => '',
-            'label' => 'LBL_INCLUDE_ON_IPS',
+            'label' => 'LBL_INCLUDE_ON_ACCOUNT_POLICY',
           ),
           1 => 
           array (

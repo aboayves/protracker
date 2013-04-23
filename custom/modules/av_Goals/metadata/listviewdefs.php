@@ -27,7 +27,6 @@ array (
   ),
   'PROGRESS' => 
   array (
-    'type' => 'currency',
     'default' => true,
     'label' => 'LBL_PROGRESS',
     'currency_format' => true,
