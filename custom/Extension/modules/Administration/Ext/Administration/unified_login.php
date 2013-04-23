@@ -126,6 +126,12 @@ $admin_role_options = array(
 				'Import Orion AdvisorLynx Portfolio Values',
 				'./index.php?module=Import&action=step1&import_module=av_Account_Histories&source=reserved_orion_import_pv'
 			),
+			"create_account_history_record"=>array(
+				'create_account_history_record',
+				'Record Account Status For All Clients',
+				'Record Account History For Each Client\'s Account',
+				'./index.php?module=av_Account_Histories&action=create_account_history_record'
+			),
 		),
 		"reserved_professional"=>array(
 			"av_Account_Types"=>array(
@@ -236,6 +242,12 @@ $admin_role_options = array(
 				translate('Teams', 'LBL_MODULE_NAME'),
 				'Teams',
 				'./index.php?module=Teams&action=index'
+			),
+			"create_account_history_record"=>array(
+				'create_account_history_record',
+				'Create Account History Records',
+				'Create Account History Records For All Clients',
+				'./index.php?module=av_Account_Histories&action=create_account_history_record'
 			),
 		),
 		"reserved_enterprise"=>array(
@@ -401,6 +413,12 @@ $admin_role_options = array(
 				'LBL_PRODUCT_CATEGORIES_TITLE',
 				'LBL_PRODUCT_CATEGORIES',
 				'./index.php?module=ProductCategories&action=index'
+			),
+			"create_account_history_record"=>array(
+				'create_account_history_record',
+				'Create Account History Records',
+				'Create Account History Records For All Clients',
+				'./index.php?module=av_Account_Histories&action=create_account_history_record'
 			),
 		),
 ) ;
