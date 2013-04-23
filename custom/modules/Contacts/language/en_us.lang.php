@@ -89,4 +89,5 @@ $mod_strings = array (
   'LBL_AV_OFFICES_NAME' => 'Office',
   'LBL_CONTACT_PRIORITY' => 'Priority',
   'LBL_TAGS_CONTACTS_FROM_TAGS_TITLE' => 'Tags',
+  'LBL_AV_COMPANIES_NAME' => 'Employer',
 );

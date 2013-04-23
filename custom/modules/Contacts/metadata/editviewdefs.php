@@ -617,9 +617,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employer',
+            'name' => 'av_companies_name',
             'comment' => '',
-            'label' => 'LBL_EMPLOYER',
+            'label' => 'LBL_AV_COMPANIES_NAME',
           ),
           1 => 
           array (

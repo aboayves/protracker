@@ -254,6 +254,8 @@ class AccountsViewDetail extends CustomViewDetail
 						}
 						$this->bean->primary_contact_birthdate =  $timedate->to_display_date($this->bean->primary_contact_birthdate);
 					}
+					$primary_companies_bean = BeanFactory::getBean("av_Companies", $this->bean->primary_contact_employer);
+					$this->bean->primary_contact_employer = $primary_companies_bean->name;
 					$this->bean->primary_contact_ssn = $this->applyMaskToSSN($this->bean->primary_contact_ssn, $contact_bean->field_name_map['ssn']['ext3'], $contact_bean->field_name_map['ssn']['ext4']);
 				}
 				else if($row['id'] == $this->bean->secondary_contact_id){
@@ -266,6 +268,8 @@ class AccountsViewDetail extends CustomViewDetail
 						}
 						$this->bean->secondary_contact_birthdate = $timedate->to_display_date($this->bean->secondary_contact_birthdate);
 					}
+					$secondary_companies_bean = BeanFactory::getBean("av_Companies", $this->bean->secondary_contact_employer);
+					$this->bean->secondary_contact_employer = $secondary_companies_bean->name;
 					$this->bean->secondary_contact_ssn = $this->applyMaskToSSN($this->bean->secondary_contact_ssn, $contact_bean->field_name_map['ssn']['ext3'], $contact_bean->field_name_map['ssn']['ext4']);
 				}
 			}
