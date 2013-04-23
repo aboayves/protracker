@@ -147,6 +147,12 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
                             {/if}
                         </li>
                         {/foreach}
+						{if $tabGroupName == "Compliance"}
+							<li class="">
+							<a class="sf-with-ul" id="moduleTab_Compliance_Report" href="index.php?module=Reports&action=index&searchFormTab=advanced_search&query=true&&category[]=Compliance_Report" tabindex="-1">
+							Compliance Report</a>
+							</li>
+						{/if}
                         {foreach from=$tabGroup.extra item=name key=module name=moduleList}
 				
 							<li {if $smarty.foreach.moduleList.index > 4}class="moreOverflow"{/if}>{sugar_link id="moduleTab_$tabGroupName$module" module="$module" data="$name" class="sf-with-ul"}
