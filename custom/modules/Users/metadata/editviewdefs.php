@@ -107,8 +107,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'title',
-            'customCode' => '{if $IS_ADMIN}@@FIELD@@{else}{$TITLE_READONLY}{/if}',
+            'name' => 'office_id_name',
+            'label' => 'LBL_OFFICE_ID_NAME',
           ),
           1 => 'phone_work',
         ),
@@ -116,8 +116,8 @@ array (
         array (
           0 => 
           array (
-            'name' => 'department',
-            'customCode' => '{if $IS_ADMIN}@@FIELD@@{else}{$DEPT_READONLY}{/if}',
+            'name' => 'title',
+            'customCode' => '{if $IS_ADMIN}@@FIELD@@{else}{$TITLE_READONLY}{/if}',
           ),
           1 => 'phone_mobile',
         ),
@@ -125,24 +125,29 @@ array (
         array (
           0 => 
           array (
-            'name' => 'reports_to_name',
-            'customCode' => '{if $IS_ADMIN}@@FIELD@@{else}{$REPORTS_TO_READONLY}{/if}',
+            'name' => 'department',
+            'customCode' => '{if $IS_ADMIN}@@FIELD@@{else}{$DEPT_READONLY}{/if}',
           ),
           1 => 'phone_other',
         ),
         4 => 
         array (
-          0 => 'phone_home',
+          0 => 
+          array (
+            'name' => 'reports_to_name',
+            'customCode' => '{if $IS_ADMIN}@@FIELD@@{else}{$REPORTS_TO_READONLY}{/if}',
+          ),
           1 => 'phone_fax',
         ),
         5 => 
         array (
-          0 => 'messenger_type',
-          1 => 'messenger_id',
+          0 => 'phone_home',
+          1 => 'messenger_type',
         ),
         6 => 
         array (
           0 => 'address_street',
+          1 => 'messenger_id',
         ),
         7 => 
         array (
