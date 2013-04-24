@@ -100,29 +100,17 @@
 					"FROM ".
 						"av_accounts aa ".
 					"LEFT JOIN ".
-						"av_accounts_av_companies_1_c aaac ".
-					"ON ".
-						"aaac.av_accounts_av_companies_1av_accounts_ida=aa.id AND aaac.deleted=0 ".
-					"LEFT JOIN ".
 						"av_companies comp ".
 					"ON ".
-						"comp.id=aaac.av_accounts_av_companies_1av_companies_idb AND comp.deleted=0 ".
-					"LEFT JOIN ".
-						"av_account_types_av_accounts_1_c ata ".
-					"ON ".
-						"aa.id=ata.av_account_types_av_accounts_1av_accounts_idb AND ata.deleted=0 ".
+						"comp.id=aa.custodian_id AND comp.deleted=0 ".
 					"LEFT JOIN ".
 						"av_account_types at ".
 					"ON	".
-						"ata.av_account_types_av_accounts_1av_account_types_ida=at.id AND at.deleted=0 ".
-					"LEFT JOIN ".
-						"av_account_categories_av_account_types_1_c acat ".
-					"ON ".
-						"at.id=acat.av_account_categories_av_account_types_1av_account_types_idb AND acat.deleted=0 ".
+						"at.id=aa.account_type_id AND at.deleted=0 ".
 					"LEFT JOIN ".
 						"av_account_categories ac ".
 					"ON ".
-						"acat.av_account296eegories_ida=ac.id AND ac.deleted=0 ".
+						"ac.id=at.account_category_id AND ac.deleted=0 ".
 					"WHERE ".
 						"aa.deleted=0 AND aa.accounts_id='" . $this->bean->id . "' AND ".
 						"aa.value_date <= '" . $netWorthDate . "' AND ".
@@ -172,20 +160,20 @@
 				foreach($data['Categories'] as $catName => &$cat){
 					foreach($cat['data'] as &$row){
 						//Calculating subtotal
-						$cat['Subtotal']['Client'] += intval($row['Client']);
-						$cat['Subtotal']['Client Trust'] += intval($row['Client Trust']);
-						$cat['Subtotal']['Co Client'] += intval($row['Co Client']);
-						$cat['Subtotal']['Co Client Trust'] += intval($row['Co Client Trust']);
-						$cat['Subtotal']['Joint or CP'] += intval($row['Joint or CP']);
-						$cat['Subtotal']['Total'] += intval($row['Total']);
+						$cat['Subtotal']['Client'] += intval(round($row['Client']));
+						$cat['Subtotal']['Client Trust'] += intval(round($row['Client Trust']));
+						$cat['Subtotal']['Co Client'] += intval(round($row['Co Client']));
+						$cat['Subtotal']['Co Client Trust'] += intval(round($row['Co Client Trust']));
+						$cat['Subtotal']['Joint or CP'] += intval(round($row['Joint or CP']));
+						$cat['Subtotal']['Total'] += intval(round($row['Total']));
 						
 						//Formatting numbers
-						$row['Client'] = number_format(intval($row['Client']), 0, '.', ',');
-						$row['Client Trust'] = number_format(intval($row['Client Trust']), 0, '.', ',');
-						$row['Co Client'] = number_format(intval($row['Co Client']), 0, '.', ',');
-						$row['Co Client Trust'] = number_format(intval($row['Co Client Trust']), 0, '.', ',');
-						$row['Joint or CP'] = number_format(intval($row['Joint or CP']), 0, '.', ',');
-						$row['Total'] = number_format(intval($row['Total']), 0, '.', ',');
+						$row['Client'] = number_format(intval(round($row['Client'])), 0, '.', ',');
+						$row['Client Trust'] = number_format(intval(round($row['Client Trust'])), 0, '.', ',');
+						$row['Co Client'] = number_format(intval(round($row['Co Client'])), 0, '.', ',');
+						$row['Co Client Trust'] = number_format(intval(round($row['Co Client Trust'])), 0, '.', ',');
+						$row['Joint or CP'] = number_format(intval(round($row['Joint or CP'])), 0, '.', ',');
+						$row['Total'] = number_format(intval(round($row['Total'])), 0, '.', ',');
 					}
 					
 					//Calculating total
