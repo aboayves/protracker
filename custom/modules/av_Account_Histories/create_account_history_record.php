@@ -6,6 +6,7 @@
 		  ON(av_accounts.deleted=0 AND av_accounts.accounts_id=accounts.id)
 		  WHERE accounts.deleted=0";
 	$result = $db->query($sql);
+	$updated = false;
 	while($row = $db->fetchByAssoc($result)){
 		$av_accounts_bean = BeanFactory::getBean("av_Accounts", $row['id']);
 		$key_fields = array_keys($av_accounts_bean->fetched_row);
@@ -30,6 +31,15 @@
 			$values = "'" . $values . "'";
 		}
 		$sql = "INSERT INTO av_account_histories (" . $keys . ") VALUES (" . $values . ")";
-		$db->query($sql, true);
+		if($db->query($sql, true)){
+			$updated = true;
+		}
 	}
+	if($updated){
+		SugarApplication::appendErrorMessage('Account history records for all clients are updated.');
+	}else{
+		SugarApplication::appendErrorMessage('There is no records to update or there is something wrong.');
+	}
+	SugarApplication::redirect("index.php?module=Administration&action=index");
+
 ?>
