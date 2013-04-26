@@ -111,6 +111,7 @@ array (
             'name' => 'income_per_year',
             'comment' => '',
             'label' => 'LBL_INCOME_PER_YEAR',
+			'type' => 'currency',
           ),
         ),
         1 => 
@@ -126,6 +127,7 @@ array (
             'name' => 'savings_per_year',
             'comment' => '',
             'label' => 'LBL_SAVINGS_PER_YEAR',
+			'type' => 'currency',
           ),
         ),
         2 => 
@@ -141,6 +143,7 @@ array (
             'name' => 'fixed_expenses_per_year',
             'comment' => '',
             'label' => 'LBL_FIXED_EXPENSES_PER_YEAR',
+			'type' => 'currency',
           ),
         ),
         3 => 
@@ -156,6 +159,14 @@ array (
             'name' => 'variable_expenses_per_year',
             'comment' => '',
             'label' => 'LBL_VARIABLE_EXPENSES_PER_YEAR',
+			'type' => 'currency',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'total_per_year',
           ),
         ),
       ),
