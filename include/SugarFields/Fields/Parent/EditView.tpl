@@ -26,7 +26,7 @@ onchange='document.{$form_name}.{{sugarvar key='name'}}.value="";document.{$form
 {else}
 	{assign var="keepParent" value = 1}
 {/if}
-<input type="text" name="{{sugarvar key='name'}}" id="{{sugarvar key='name'}}" class="sqsEnabledFlex" tabindex="{{$tabindex}}"
+<input type="text" name="{{sugarvar key='name'}}" id="{{sugarvar key='name'}}" class="sqsEnabled sqsEnabledFlex" tabindex="{{$tabindex}}"
     size="{{$displayParams.size}}" {if $keepParent}value="{{sugarvar key='value'}}"{/if} autocomplete="off"><input type="hidden" name="{{sugarvar memberName='vardef.id_name' key='name'}}" id="{{sugarvar memberName='vardef.id_name' key='name'}}"  
 {if $keepParent}value="{{sugarvar memberName='vardef.id_name' key='value'}}"{/if}>
 <span class="id-ff multiple">
