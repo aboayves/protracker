@@ -32,3 +32,13 @@ function unloadPopupBox() {	// TO Unload the Popupbox
 		"opacity": "1"  
 	}); 
 }
+$(function(){
+	$('.modulesdrager').click( function(){	
+		var obj = $(".modulesdrager.hide");
+		if(obj['length'] == "1"){
+			$(".theBackButton").css("margin-left", "1px");
+		}else{
+			$(".theBackButton").css("margin-left", "180px");
+		}
+	});
+});
