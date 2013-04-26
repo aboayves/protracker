@@ -6,8 +6,13 @@ $hook_array = Array();
 // position, file, function 
 $hook_array['after_login'] = Array(); 
 $hook_array['after_login'][] = Array(1, 'SugarFeed old feed entry remover', 'modules/SugarFeed/SugarFeedFlush.php','SugarFeedFlush', 'flushStaleEntries'); 
+$hook_array['after_save'] = Array(); 
 $hook_array['after_save'][] = Array(1, 'singleSignOnHook', 'custom/modules/Users/UsersHook.php','UsersHook', 'delete_or_deactivate'); 
-$hook_array['before_save'] = Array();
+$hook_array['before_save'] = Array(); 
 $hook_array['before_save'][] = Array(1, 'singleSignOnHook', 'custom/modules/Users/UsersHook.php','UsersHook', 'create_or_activate'); 
+$hook_array['after_relationship_add'] = Array(); 
+$hook_array['after_relationship_add'][] = Array(3, 'Force Relationship Policy', 'modules/dash_DashboardManager/logic_hooks/DashboardManager_User_Hooks.php','DashboardManager_User_Hooks', 'forceRelationshipPolicy'); 
+
+
 
 ?>
