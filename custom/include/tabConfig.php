@@ -20,8 +20,7 @@ $GLOBALS['tabStructure'] = array (
       2 => 'Leads',
       3 => 'Prospects',
       4 => 'ProspectLists',
-      5 => 'Quotes',
-      6 => 'Products',
+      5 => 'Products',
     ),
   ),
   'LBL_TABGROUP_RELATED' => 
@@ -145,6 +144,7 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'Contracts',
       1 => 'av_Payments',
+	  2 => 'Quotes',
     ),
   ),
   'LBL_GROUPTAB14_1365431809' => 

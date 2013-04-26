@@ -30,8 +30,8 @@ global $mod_strings;
 // in modules/Quotes/language/<lang>.lang.php
 global $layouts;
 $layouts = array(
-	'Standard'=>'modules/Quotes/layouts/Standard.php',
-    'Invoice'=>'modules/Quotes/layouts/Invoice.php'
+    'Invoice'=>'modules/Quotes/layouts/Invoice.php',
+	'Standard'=>'modules/Quotes/layouts/Standard.php'
 );
 
 /**
