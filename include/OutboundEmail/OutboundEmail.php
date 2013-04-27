@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /**
@@ -415,80 +401,51 @@ class OutboundEmail {
 	}
 
 	/**
+	 * Generate values for saving into outbound_emails table
+	 * @param array $keys
+	 * @return array
+	 */
+	protected function getValues($keys)
+	{
+	    $values = array();
+
+	    foreach($keys as $def) {
+	    	if ($def == 'mail_smtppass' && !empty($this->$def)) {
+	    		$this->$def = blowfishEncode(blowfishGetKey('OutBoundEmail'), $this->$def);
+	    	} // if
+	    	if($def == 'mail_smtpauth_req' || $def == 'mail_smtpssl' || $def == 'mail_smtpport'){
+	    		if(empty($this->$def)){
+	    			$this->$def = 0;
+	    		}
+	    		$values[] = intval($this->$def);
+	    	} else {
+	    		$values[] = $this->db->quoted($this->$def);
+	    	}
+	    }
+	    return $values;
+	}
+
+	/**
 	 * saves an instance
 	 */
 	function save() {
 		require_once('include/utils/encryption_utils.php');
-		if(empty($this->id) || $this->new_with_id) {
+	    if( empty($this->id) ) {
+	        $this->id = create_guid();
+			$this->new_with_id = true;
+		}
 
-		    if( empty($this->id) )
-			    $this->id = create_guid();
+		$cols = $this->field_defs;
+		$values = $this->getValues($cols);
 
-			$cols = '';
-			$values = '';
-
-			foreach($this->field_defs as $def) {
-			    if(!empty($cols)) {
-					$cols .= ", ";
-				}
-				if(!empty($values)) {
-					$values .= ", ";
-				}
-				$cols .= $def;
-				$pattern = '\\';
-				if ($def == 'mail_smtppass' && !empty($this->$def)) {
-					$this->$def = blowfishEncode(blowfishGetKey('OutBoundEmail'), $this->$def);
-				} // if
-				if($def == 'mail_smtpauth_req' || $def == 'mail_smtpssl'){
-					if(empty($this->$def)){
-						$this->$def = 0;
-					}
-					$values .= $this->$def;
-				}elseif($def == 'mail_smtpuser' && strpos($this->$def, '\\' )){ //bug 41766: taking care of '\' in username
-					$temp = explode('\\', $this->$def);
-					$this->$def = $temp[0] . '\\\\' .$temp[1];
-					$values .= "{$def} = '{$this->$def}'";
-				}else{
-					$values .= "'{$this->$def}'";
-				}
-
-
-			}
-
-			$q  = "INSERT INTO outbound_email ($cols) VALUES ({$values})";
+		if($this->new_with_id) {
+			$q  = sprintf("INSERT INTO outbound_email (%s) VALUES (%s)", implode($cols, ","), implode($values, ","));
 		} else {
-			$values = array();
-			foreach($this->field_defs as $def) {
-				switch($def) {
-					case 'mail_smtpport':
-					case 'mail_smtpauth_req':
-					case 'mail_smtpssl':
-						if(empty($this->$def)){
-							$this->$def = 0;
-						}
-                        $values []= "{$def} = {$this->$def}";
-						break;
-					case 'mail_smtppass':
-						if(!empty($this->mail_smtppass)) {
-							$this->mail_smtppass = blowfishEncode(blowfishGetKey('OutBoundEmail'), $this->mail_smtppass);
-						} else {
-							// ignore empty password unless username is empty too
-							if(!empty($this->mail_smtpuser)) {
-                                continue;
-							}
-						}
-                        $values []= "{$def} = '{$this->$def}'";
-						break;
-					case 'mail_smtpuser':
-						if(strpos($this->$def, '\\' )){ //bug 41766: taking care of '\' in username
-							$temp = explode('\\', $this->$def);
-							$this->$def = $temp[0] . '\\\\' .$temp[1];
-						}
-					default:
-                        $values []= "{$def} = '{$this->$def}'";
-				}
-			}
-			$q = "UPDATE outbound_email SET ".implode(', ', $values)." WHERE id = '{$this->id}'";
+		    $updvalues = array();
+		    foreach($values as $k => $val) {
+		        $updvalues[] = "{$cols[$k]} = $val";
+		    }
+			$q = "UPDATE outbound_email SET ".implode(', ', $updvalues)." WHERE id = ".$this->db->quoted($this->id);
 		}
 
 		$this->db->query($q, true);
@@ -523,6 +480,7 @@ class OutboundEmail {
 	 */
 	function updateUserSystemOverrideAccounts()
 	{
+		require_once('include/utils/encryption_utils.php');
 	    $updateFields = array('mail_smtptype','mail_sendtype','mail_smtpserver', 'mail_smtpport','mail_smtpauth_req','mail_smtpssl');
 
 	    //Update the username ans password for the override accounts if alloweed access.
@@ -531,24 +489,12 @@ class OutboundEmail {
 	        $updateFields[] = 'mail_smtpuser';
 	        $updateFields[] = 'mail_smtppass';
 	    }
-
-	    $values = "";
-	    foreach ($updateFields as $singleField)
-	    {
-	        if(!empty($values))
-					$values .= ", ";
-	        if($singleField == 'mail_smtpauth_req' || $singleField == 'mail_smtpssl')
-	        {
-				if(empty($this->$singleField))
-				    $this->$singleField = 0;
-
-                $values .= "{$singleField} = {$this->$singleField} ";
-	        }
-	        else
-	            $values .= "{$singleField} = '{$this->$singleField}' ";
-	    }
-
-	    $query = "UPDATE outbound_email set {$values} WHERE type='system-override' ";
+        $values = $this->getValues($updateFields);
+        $updvalues = array();
+		foreach($values as $k => $val) {
+		        $updvalues[] = "{$updateFields[$k]} = $val";
+		}
+        $query = "UPDATE outbound_email set ".implode(', ', $updvalues)." WHERE type='system-override' ";
 
 	    $this->db->query($query);
 	}
@@ -569,7 +515,7 @@ class OutboundEmail {
 			return false;
 		}
 
-		$q = "DELETE FROM outbound_email WHERE id = '{$this->id}'";
+		$q = "DELETE FROM outbound_email WHERE id = ".$this->db->quoted($this->id);
 		return $this->db->query($q);
 	}
 

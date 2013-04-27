@@ -3,98 +3,92 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_URL' => 'URL',
-  'LBL_API_CONSKEY' => 'Consumer Key',
-  'LBL_API_CONSSECRET' => 'Consumer Secret',
+  'LBL_ACTIVE' => 'Aktív',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Tevékenységek',
+  'LBL_API_CONSKEY' => 'Fogyasztói kulcs',
+  'LBL_API_CONSSECRET' => 'Fogyasztói titok',
+  'LBL_API_DATA' => 'API adat',
   'LBL_API_OAUTHTOKEN' => 'OAuth Token',
-  'LBL_OAUTH_NAME' => '%s',
+  'LBL_API_TYPE' => 'Bejelentkezési típus',
+  'LBL_APPLICATION' => 'Alkalmazás',
+  'LBL_APPLICATION_FOUND_NOTICE' => 'Ez a Kliens már létezik ebben az alkalmazásban.Visszahelyeztük.',
   'LBL_ASSIGNED_TO_ID' => 'Hozzárendelt felhasználói azonosító',
   'LBL_ASSIGNED_TO_NAME' => 'Felhasználó',
+  'LBL_AUTH_ERROR' => 'A klienshez való kapcsolódás sikertelen.',
+  'LBL_AUTH_UNSUPPORTED' => 'Az azonosítás e típusát nem támogatja az alkalmazás.',
+  'LBL_BASIC_SAVE_NOTICE' => 'Kattintson a Csatlakozás gombra a kliens Sugar-hez való kapcsolásához!',
+  'LBL_CONNECTED' => 'Csatlakozva',
+  'LBL_CONNECT_BUTTON_TITLE' => 'Csatlakozás',
+  'LBL_CREATED' => 'Létrehozva',
+  'LBL_CREATED_ID' => 'Létrehozó azonosítója',
+  'LBL_CREATED_USER' => 'Létrehozó neve',
+  'LBL_DATE_ENTERED' => 'Létrehozás dátuma',
+  'LBL_DATE_MODIFIED' => 'Módosítás dátuma',
+  'LBL_DELETED' => 'Törölve',
+  'LBL_DESCRIPTION' => 'Leírás',
+  'LBL_DISCONNECTED' => 'Nincs csatlakozva',
+  'LBL_DISPLAY_PROPERTIES' => 'Tulajdonságok megjelenítése',
+  'LBL_ERR_FACEBOOK' => 'A Facebook-ban a lekérdezés során hiba lépett fel, a híreket nem tudja megjeleníteni.',
+  'LBL_ERR_FAILED_QUICKCHECK' => 'Jelenleg nincs bejelentkezve {0} fiókjába. Kattintson az OK gombra a fiókjába való bejelentkezéshez és ismételje meg a kapcsolat aktivizálását!',
+  'LBL_ERR_NO_AUTHINFO' => 'A klienshez nem található azonosítási információ.',
+  'LBL_ERR_NO_RESPONSE' => 'Hiba lépett fel a klienshez való csatlakozás során.',
+  'LBL_ERR_NO_TOKEN' => 'Nincs érvényes token bejelentkezés ehhez a klienshez.',
+  'LBL_ERR_OAUTH_FACEBOOK_1' => 'A Facebook munkamenet lejárt. A folytatáshoz, kérem,',
+  'LBL_ERR_OAUTH_FACEBOOK_2' => 'jelentkezzen be ismét a Facebookba!',
+  'LBL_ERR_POPUPS_DISABLED' => 'Kérem, engedélyezze a felugró ablakokat vagy tegyen kivételt a "{0}" weblap esetében a csatlakozás eredményessége végett!',
+  'LBL_ERR_TWITTER' => 'A Twitter-ben a lekérdezés során hiba lépett fel, a híreket nem tudja megjeleníteni.',
+  'LBL_HISTORY_SUBPANEL_TITLE' => 'Előzmények megtekintése',
+  'LBL_HOMEPAGE_TITLE' => 'Külső klienseim',
   'LBL_ID' => 'Azonosító',
-  'LBL_DATE_ENTERED' => 'Dátum létrehozva',
-  'LBL_DATE_MODIFIED' => 'Dátum módosítva',
+  'LBL_LIST_FORM_TITLE' => 'Külső kliensek listája',
+  'LBL_LIST_NAME' => 'Név',
+  'LBL_MEET_NOW_BUTTON' => 'Találkozás azonnal',
   'LBL_MODIFIED' => 'Módosítva',
   'LBL_MODIFIED_ID' => 'Módosítva azonosító szerint',
   'LBL_MODIFIED_NAME' => 'Módosítva név szerint',
-  'LBL_CREATED' => 'Létrehozva',
-  'LBL_CREATED_ID' => 'Létrehozva azonosító szerint',
-  'LBL_DESCRIPTION' => 'Leírás',
-  'LBL_DELETED' => 'Törölve',
-  'LBL_NAME' => 'Alkalmazás felhasználói neve',
-  'LBL_CREATED_USER' => 'Létrehozva felhasználói név szerint',
   'LBL_MODIFIED_USER' => 'Módosítva felhasználói név szerint',
-  'LBL_LIST_NAME' => 'Név',
+  'LBL_MODULE_NAME' => 'Külső kliens',
+  'LBL_MODULE_NAME_SINGULAR' => 'Külső kliens',
+  'LBL_MODULE_TITLE' => 'Külső kliensek',
+  'LBL_NAME' => 'Alkalmazás felhasználói neve',
+  'LBL_NEW_FORM_TITLE' => 'Új külső kliens',
+  'LBL_NOTE' => 'Kérem, ügyeljen rá,',
+  'LBL_OAUTH_NAME' => '%s',
+  'LBL_OAUTH_SAVE_NOTICE' => 'Kattintson a Csatlakozás gombra, hogy a következő oldalon megadja a kliensére vonatkozó információkat, továbbá hogy engedélyezze a Sugar hozzáférését! A csatlakozás után vissza lesz irányítva a Sugar oldalára.',
+  'LBL_OMIT_URL' => '(http:// vagy https:// kihagyása)',
+  'LBL_PASSWORD' => 'Alkalmazás kelszó',
+  'LBL_REAUTHENTICATE_KEY' => 'a(z)',
+  'LBL_REAUTHENTICATE_LABEL' => 'Újraazonosítás',
+  'LBL_SEARCH_FORM_TITLE' => 'Külső kliens keresése',
+  'LBL_SUGAR_EAPM_SUBPANEL_TITLE' => 'Külső kliensek',
+  'LBL_SUGAR_USER_NAME' => 'Sugar felhasználó',
   'LBL_TEAM' => 'Csoportok',
   'LBL_TEAMS' => 'Csoportok',
   'LBL_TEAM_ID' => 'Csoport azonosító',
-  'LBL_LIST_FORM_TITLE' => 'Kiterjesztett Klienslista',
-  'LBL_MODULE_NAME' => 'Klienslista',
-  'LBL_MODULE_TITLE' => 'Klienslisták',
-  'LBL_HOMEPAGE_TITLE' => 'Kiterjesztett Klienslistáim',
-  'LNK_NEW_RECORD' => 'Kiterjesztett Klienslista Létrehozása',
-  'LNK_LIST' => 'Kiterjesztett Klienslisták Megtekintése',
-  'LNK_IMPORT_SUGAR_EAPM' => 'Kiterjesztett Klienslisták Importálása',
-  'LBL_SEARCH_FORM_TITLE' => 'Kiterjesztett Klienslisták Keresése',
-  'LBL_HISTORY_SUBPANEL_TITLE' => 'Előzmény Megtekintése',
-  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Tevékenységek',
-  'LBL_SUGAR_EAPM_SUBPANEL_TITLE' => 'Kiterjesztett Klienslisták',
-  'LBL_NEW_FORM_TITLE' => 'Új Kiterjesztett Klienslista',
-  'LBL_PASSWORD' => 'Alkalmazás Jelszó',
-  'LBL_USER_NAME' => 'Alkalmazás Felhasználónév',
-  'LBL_APPLICATION' => 'Alkalmazás',
-  'LBL_API_DATA' => 'API Adat',
-  'LBL_API_TYPE' => 'Bejelentkezési Típus',
-  'LBL_AUTH_UNSUPPORTED' => 'Ez az azonosítás nincs támogatva az alkalmazás által',
-  'LBL_AUTH_ERROR' => 'A Kiterjesztett Kliens azonosítása sikertelen.',
-  'LBL_VALIDATED' => 'Hozzáférés érvényesítve',
-  'LBL_ACTIVE' => 'Aktív',
-  'LBL_SUGAR_USER_NAME' => 'Felhasználó',
-  'LBL_DISPLAY_PROPERTIES' => 'Tulajdonságok megjelenítése',
-  'LBL_ERR_NO_AUTHINFO' => 'Nincs azonosítási információ ehhez a Klienshez.',
-  'LBL_ERR_NO_TOKEN' => 'Nincs érvényes token bejelentkezés ehhez a Klienshez.',
-  'LBL_ERR_FAILED_QUICKCHECK' => 'Jelenleg nincs bejelentkezve. Kattintson az OK gombra a fiókjába való bejelentkezéshez és aktiválja a kiterjesztett Kliens rekordot.',
-  'LBL_MEET_NOW_BUTTON' => 'Meeting most',
-  'LBL_VIEW_LOTUS_LIVE_MEETINGS' => 'Aktuális LotusLive meetingek megtekintése',
-  'LBL_TITLE_LOTUS_LIVE_MEETINGS' => 'Aktuális LotusLive meetingek',
-  'LBL_VIEW_LOTUS_LIVE_DOCUMENTS' => 'LotusLive fájlok megtekintése',
-  'LBL_TITLE_LOTUS_LIVE_DOCUMENTS' => 'LotusLive fájlok',
-  'LBL_REAUTHENTICATE_LABEL' => 'Újraazonosítás',
-  'LBL_REAUTHENTICATE_KEY' => 'a(z)',
-  'LBL_APPLICATION_FOUND_NOTICE' => 'Ez a Kliens már létezik ebben az alkalmazásban.Visszahelyeztük.',
-  'LBL_OMIT_URL' => '(http:// or https:// kihagyása)',
-  'LBL_OAUTH_SAVE_NOTICE' => 'Kattintson a Save gombra egy kiterjesztett kliens rekord létrehozásához. Az alábbi oldalon adja meg a Sugar belépéséhez szükséges adatait. A belépést követően fiók információi elérhetőek is lesznek.',
-  'LBL_BASIC_SAVE_NOTICE' => 'Kattintson a Save gombra egy kiterjesztett kliens rekord létrehozásához. Ezt követően Sugar adatai érvényesítve lesznek.',
-  'LBL_ERR_FACEBOOK' => 'A Facebook-ban a lekérdezés során hiba lépett fel, a híreket nem tudja megjeleníteni.',
-  'LBL_ERR_NO_RESPONSE' => 'Hiba történt a külső fióka történő mentés során.',
-  'LBL_ERR_TWITTER' => 'A Twitter-ben a lekérdezés során hiba lépett fel, a híreket nem tudja megjeleníteni.',
+  'LBL_TITLE_LOTUS_LIVE_DOCUMENTS' => 'LotusLive™ fájlok',
+  'LBL_TITLE_LOTUS_LIVE_MEETINGS' => 'Következő LotusLive™ találkozók',
+  'LBL_URL' => 'URL',
+  'LBL_USER_NAME' => 'Alkalmazás felhasználónév',
+  'LBL_VALIDATED' => 'Csatlakozva',
+  'LBL_VIEW_LOTUS_LIVE_DOCUMENTS' => 'LotusLive™ fájlok megtekintése',
+  'LBL_VIEW_LOTUS_LIVE_MEETINGS' => 'Aktuális LotusLive™ találkozók megtekintése',
+  'LNK_IMPORT_SUGAR_EAPM' => 'Külső kliensek importálása',
+  'LNK_LIST' => 'Külső kliensek megtekintése',
+  'LNK_NEW_RECORD' => 'Külső kliens létrehozása',
 );
 

@@ -1,67 +1,53 @@
 <?php
-
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
 	
+
 $mod_strings = array (
-  'LBL_ID' => 'ID',
+  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Actividades',
   'LBL_ASSIGNED_TO_ID' => 'Atribuído a',
   'LBL_ASSIGNED_TO_NAME' => 'Atribuído a',
+  'LBL_ASX_NOTIFICATIONS_SUBPANEL_TITLE' => 'Notificações',
+  'LBL_CREATED' => 'Criado Por',
+  'LBL_CREATED_ID' => 'Id de Criado Por',
+  'LBL_CREATED_USER' => 'Criado pelo Utilizador',
   'LBL_DATE_ENTERED' => 'Data de Criação',
   'LBL_DATE_MODIFIED' => 'Data de Modificação',
+  'LBL_DELETED' => 'Eliminado',
+  'LBL_DESCRIPTION' => 'Descrição',
+  'LBL_HISTORY_SUBPANEL_TITLE' => 'Ver Histórico',
+  'LBL_HOMEPAGE_TITLE' => 'As Minhas Notificações',
+  'LBL_ID' => 'ID',
+  'LBL_IS_READ' => 'Lido',
+  'LBL_LIST_FORM_TITLE' => 'Lista de Notificações',
   'LBL_MODIFIED' => 'Modificado Por',
   'LBL_MODIFIED_ID' => 'Id de Modificado Por',
   'LBL_MODIFIED_NAME' => 'Modificado Por Nome',
-  'LBL_CREATED' => 'Criado Por',
-  'LBL_CREATED_ID' => 'Id de Criado Por',
-  'LBL_DESCRIPTION' => 'Descrição',
-  'LBL_DELETED' => 'Eliminado',
-  'LBL_NAME' => 'Nome',
-  'LBL_CREATED_USER' => 'Criado pelo Utilizador',
   'LBL_MODIFIED_USER' => 'Modificado pelo Utilizador',
+  'LBL_MODULE_NAME' => 'Notificações',
+  'LBL_MODULE_NAME_SINGULAR' => 'Notificação',
+  'LBL_MODULE_TITLE' => 'Notificações',
+  'LBL_NAME' => 'Nome',
+  'LBL_NEW_FORM_TITLE' => 'Novas Notificações',
+  'LBL_SEARCH_FORM_TITLE' => 'Pesquisar Notificações',
   'LBL_TEAM' => 'Equipa',
   'LBL_TEAMS' => 'Equipas',
   'LBL_TEAM_ID' => 'Id Equipa',
-  'LBL_LIST_FORM_TITLE' => 'Lista de Notificações',
-  'LBL_MODULE_NAME' => 'Notificações',
-  'LBL_MODULE_TITLE' => 'Notificações',
-  'LBL_HOMEPAGE_TITLE' => 'As Minhas Notificações',
-  'LNK_NEW_RECORD' => 'Nova Notificação',
   'LNK_LIST' => 'Notificações',
-  'LBL_SEARCH_FORM_TITLE' => 'Pesquisar Notificações',
-  'LBL_HISTORY_SUBPANEL_TITLE' => 'Ver Histórico',
-  'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Actividades',
-  'LBL_ASX_NOTIFICATIONS_SUBPANEL_TITLE' => 'Notificações',
-  'LBL_NEW_FORM_TITLE' => 'Novas Notificações',
-  'LBL_IS_READ' => 'Lido',
+  'LNK_NEW_RECORD' => 'Nova Notificação',
 );
 

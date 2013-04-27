@@ -3,78 +3,69 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
+  'LBL_ADDRESS_INFORMATION' => 'Adres(sen)',
   'LBL_ALT_ADDRESS' => 'Alt. Adres:',
-  'LBL_FAX_PHONE' => 'Fax',
-  'LBL_SALUTATION' => 'Aanhef',
-  'LBL_NAME' => 'Naam',
-  'LBL_FIRST_NAME' => 'Voornaam',
-  'LBL_LAST_NAME' => 'Achternaam',
-  'LBL_TITLE' => 'Titel',
-  'LBL_DEPARTMENT' => 'Afdeling',
-  'LBL_DO_NOT_CALL' => 'Niet Bellen',
-  'LBL_HOME_PHONE' => 'Telefoon Thuis',
-  'LBL_MOBILE_PHONE' => 'Telefoon Mobiel',
-  'LBL_OFFICE_PHONE' => 'Telefoon Werk',
-  'LBL_OTHER_PHONE' => 'Telefoon Anders',
-  'LBL_EMAIL_ADDRESS' => 'E-mailadres(sen)',
-  'LBL_PRIMARY_ADDRESS' => 'Primair Adres',
-  'LBL_PRIMARY_ADDRESS_STREET' => 'Straatnaam',
-  'LBL_PRIMARY_ADDRESS_STREET_2' => 'Adres 2:',
-  'LBL_PRIMARY_ADDRESS_STREET_3' => 'Adres 3:',
-  'LBL_PRIMARY_ADDRESS_CITY' => 'Plaats',
-  'LBL_PRIMARY_ADDRESS_STATE' => 'Provincie',
-  'LBL_PRIMARY_ADDRESS_POSTALCODE' => 'Postcode',
-  'LBL_PRIMARY_ADDRESS_COUNTRY' => 'Land',
+  'LBL_ALT_ADDRESS_CITY' => 'Plaats',
+  'LBL_ALT_ADDRESS_COUNTRY' => 'Land',
+  'LBL_ALT_ADDRESS_POSTALCODE' => 'Postcode',
+  'LBL_ALT_ADDRESS_STATE' => 'Provincie',
   'LBL_ALT_ADDRESS_STREET' => 'Straatnaam',
   'LBL_ALT_ADDRESS_STREET_2' => 'Adres 2:',
   'LBL_ALT_ADDRESS_STREET_3' => 'Adres 3:',
-  'LBL_ALT_ADDRESS_CITY' => 'Plaats',
-  'LBL_ALT_ADDRESS_STATE' => 'Provincie',
-  'LBL_ALT_ADDRESS_POSTALCODE' => 'Postcode',
-  'LBL_ALT_ADDRESS_COUNTRY' => 'Land',
-  'LBL_COUNTRY' => 'Land',
-  'LBL_STREET' => 'Ander Adres',
-  'LBL_CITY' => 'Plaats',
-  'LBL_STATE' => 'Provincie',
-  'LBL_POSTALCODE' => 'Postcode',
-  'LBL_POSTAL_CODE' => 'Postcode',
-  'LBL_CONTACT_INFORMATION' => 'Contactinformatie',
-  'LBL_ADDRESS_INFORMATION' => 'Adres(sen)',
+  'LBL_ALT_STREET' => 'Ander Adres',
+  'LBL_ANY_EMAIL' => 'Willekeurige e-Mail',
   'LBL_ASSIGNED_TO_NAME' => 'Toegewezen aan',
-  'LBL_OTHER_EMAIL_ADDRESS' => 'Ander E-mailadres:',
   'LBL_ASSISTANT' => 'Assistent',
   'LBL_ASSISTANT_PHONE' => 'Telefoon Assistent',
+  'LBL_CITY' => 'Plaats',
+  'LBL_CONTACT_INFORMATION' => 'Contactinformatie',
+  'LBL_COUNTRY' => 'Land',
+  'LBL_DEPARTMENT' => 'Afdeling',
+  'LBL_DO_NOT_CALL' => 'Niet Bellen',
+  'LBL_EDIT_BUTTON' => 'Wijzig',
+  'LBL_EMAIL_ADDRESS' => 'E-mailadres(sen)',
+  'LBL_FAX_PHONE' => 'Fax',
+  'LBL_FIRST_NAME' => 'Voornaam',
+  'LBL_HOME_PHONE' => 'Telefoon Thuis',
+  'LBL_LAST_NAME' => 'Achternaam',
+  'LBL_MOBILE_PHONE' => 'Telefoon Mobiel',
+  'LBL_NAME' => 'Naam',
+  'LBL_OFFICE_PHONE' => 'Telefoon Werk',
+  'LBL_OTHER_EMAIL_ADDRESS' => 'Ander E-mailadres:',
+  'LBL_OTHER_PHONE' => 'Telefoon Anders',
+  'LBL_PICTURE_FILE' => 'Afbeelding',
+  'LBL_POSTALCODE' => 'Postcode',
+  'LBL_POSTAL_CODE' => 'Postcode',
+  'LBL_PRIMARY_ADDRESS' => 'Primair Adres',
+  'LBL_PRIMARY_ADDRESS_CITY' => 'Plaats',
+  'LBL_PRIMARY_ADDRESS_COUNTRY' => 'Land',
+  'LBL_PRIMARY_ADDRESS_POSTALCODE' => 'Postcode',
+  'LBL_PRIMARY_ADDRESS_STATE' => 'Provincie',
+  'LBL_PRIMARY_ADDRESS_STREET' => 'Straatnaam',
+  'LBL_PRIMARY_ADDRESS_STREET_2' => 'Adres 2:',
+  'LBL_PRIMARY_ADDRESS_STREET_3' => 'Adres 3:',
+  'LBL_PRIMARY_STREET' => 'Adres',
+  'LBL_REMOVE' => 'Verwijder',
+  'LBL_SALUTATION' => 'Aanhef',
+  'LBL_STATE' => 'Provincie',
+  'LBL_STREET' => 'Ander Adres',
+  'LBL_TITLE' => 'Titel',
   'LBL_WORK_PHONE' => 'Telefoon Werk',
   'LNK_IMPORT_VCARD' => 'Maak van vCard',
-  'LBL_PICTURE_FILE' => 'Afbeelding',
 );
 

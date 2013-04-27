@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -43,9 +29,9 @@ $mod_strings = array (
   'LBL_AND' => '和',
   'LBL_ARE' => '是',
   'LBL_BASIC_CHARTS' => '基本视图',
-  'LBL_BASIC_SEARCH' => '初级搜索',
+  'LBL_BASIC_SEARCH' => '基本搜索',
   'LBL_BUILD' => '创建',
-  'LBL_CAMPAIGN_ROI_FORM_TITLE' => '营销活动投资回收率',
+  'LBL_CAMPAIGN_ROI_FORM_TITLE' => '营销ROI',
   'LBL_CHANGE_LAYOUT' => '改变布局',
   'LBL_CHARTS' => '图表',
   'LBL_CLEAR' => '消除',
@@ -60,7 +46,7 @@ $mod_strings = array (
   'LBL_DASHLET_DELETE' => '删除新增栏',
   'LBL_DASHLET_DISCOVER_SUGAR_PRO' => '发现 Sugar',
   'LBL_DASHLET_EDIT' => '编辑新增栏',
-  'LBL_DASHLET_OPT_HEIGHT' => 'Dashlet高度（按像素计算）',
+  'LBL_DASHLET_OPT_HEIGHT' => '仪表盘高度（像素）',
   'LBL_DASHLET_OPT_TITLE' => '标题',
   'LBL_DASHLET_OPT_URL' => '网站地址',
   'LBL_DASHLET_REFRESH' => '刷新新增栏',
@@ -70,13 +56,13 @@ $mod_strings = array (
   'LBL_DELETE_PAGE' => '删除页',
   'LBL_DELETE_PAGE_CONFIRM' => '您确定您要删除这一页吗？',
   'LBL_DEL_PAGE' => '删除页',
-  'LBL_DETAILS_DEVSITE' => '发现资源，教程和帮助的链接可让您放心使用，以加速对Sugar的开发',
+  'LBL_DETAILS_DEVSITE' => '探索资源，教程和帮助的链接来让您加速对Sugar的开发',
   'LBL_DETAILS_FORUMS' => '与专家社区用户或开发人员讨论Sugar',
   'LBL_DETAILS_SUGAREXCHANGE' => '买和卖Sugar业务的认证',
   'LBL_DETAILS_SUGARFORGE' => '合作发展 Sugar 业务',
   'LBL_DETAILS_TRAINING' => '了解Sugar的在线使用和互动学习内容',
   'LBL_DETAILS_WIKI' => '搜索知识库中的用户和开发者话题',
-  'LBL_DEVSITE' => '开发者论坛',
+  'LBL_DEVSITE' => '开发者站点',
   'LBL_EMAIL_ADDRESS' => '电子邮件:',
   'LBL_FIRST_NAME' => '名:',
   'LBL_FORUMS' => '评论',
@@ -123,7 +109,7 @@ $mod_strings = array (
   'LBL_OPEN_TASKS' => '我要完成的任务',
   'LBL_OPTIONS' => '选项',
   'LBL_PHONE' => '电话:',
-  'LBL_PIPELINE_FORM_TITLE' => '我的销售数据',
+  'LBL_PIPELINE_FORM_TITLE' => '销售阶段排列的管道数据',
   'LBL_POWERED_BY_SUGAR' => '由SugarCRM授权',
   'LBL_RELOAD_PAGE' => '请 <a href="javascript: window.location.reload()">重新加载窗口</a> 开始用这个Sugar新增栏.',
   'LBL_REMOVED_DASHLET' => '新增栏已移除',
@@ -137,37 +123,52 @@ $mod_strings = array (
   'LBL_SEARCH' => '查找',
   'LBL_SEARCH_RESULTS' => '查找结果',
   'LBL_SEARCH_RESULTS_IN' => '中',
+  'LBL_SOURCE_ASYNC' => 'Async - 异步节点的实用程序和浏览器。',
+  'LBL_SOURCE_BACKBONE' => 'Backbone.js - Javascript-heavy应用程序的MVC框架。',
+  'LBL_SOURCE_BOOTSTRAP' => 'Twitterbootstrap - HTML, CSS,  JS 来自Twitter的工具包.',
+  'LBL_SOURCE_CHOSEN' => '选择 - 使长的，难使用的选择框更加友好的库。',
   'LBL_SOURCE_CODE' => '源代码',
   'LBL_SOURCE_CRYPT_BLOWFISH' => 'Crypt_Blowfish - 允许快速的双工 blowfish 加密，无需mcrypt PHP扩展。',
   'LBL_SOURCE_CSSMIN' => 'CssMin - 计算机系统模拟解析器和缩小器',
   'LBL_SOURCE_EXT' => 'Ext - 一个客户端JavaScript框架用于搭建web应用.',
   'LBL_SOURCE_FLASHCANVAS' => 'FlashCanvas - FlashCanvas 是一个 JavaScript 库，给浏览器添加HTML5 Canvas 支持 。它通过Flash drawing API渲染形状与形象. 它支持所有的Canvas APIs 并且在很对情况下比其他的使用VML 或者 Silverlightand的类似元件库运行速度更快。',
+  'LBL_SOURCE_HANDLEBARS' => 'Handlebars - 有效建立语义模板的一个模板引擎。',
   'LBL_SOURCE_HTMLPURIFIER' => 'HTML 过滤 - 一个遵循HTML标准的过滤库.',
   'LBL_SOURCE_HTTP_WEBDAV_SERVER' => 'HTTP_WebDAV_Server - PHP实现的WebDAV服务器。',
   'LBL_SOURCE_ISCROLL' => 'iScroll - 为移动网页的overflow:scroll装备。在固定高度和宽度元素内的本土滚动。',
+  'LBL_SOURCE_JASMINE' => 'Jasmine - 测试JavaScript代码的行为驱动开发框架。',
   'LBL_SOURCE_JIT' => 'JavaScript InfoVis Toolkit - The JavaScript InfoVis Toolkit 给网站提供新增互动数据可视化的工具。',
+  'LBL_SOURCE_JQUERY' => 'jQuery -  jQuery是一个快速，简洁的JavaScript库，它简化了HTML文档遍历，事件处理，动画和Ajax交互使网络快速发展。',
+  'LBL_SOURCE_JQUERYUI' => 'jQuery的用户界面 - 官方的jQuery用户界面库。',
+  'LBL_SOURCE_JQUERY_IFRAME' => 'jquery.iframe-transport.js - jQuery的Ajax传输插件，通过一个隐藏的iframe支持文件上传。',
   'LBL_SOURCE_JSCALENDAR' => 'JS Calendar - Mihai Bazon开发的用于输入日期的日历。',
   'LBL_SOURCE_JSHRINK' => 'JShrink - 一个PHP写的Javascript minifier written in PHP',
+  'LBL_SOURCE_LESSPHP' => 'lessphp - 写在PHP的编译器。',
   'LBL_SOURCE_NUSOAP' => 'NuSOAP - NuSphere公司和Dietrich Ayala开发的一组PHP类，它允许开发者创建和使用web服务。',
   'LBL_SOURCE_PARSECSV' => 'parseCSV - 适用于PHP的 CSV 数据分解器',
   'LBL_SOURCE_PCLZIP' => 'PclZip - Vincent Blavet开发的为Zip格式的文章提供压缩和抽取功能的库',
+  'LBL_SOURCE_PHPEXCEL' => 'PHPExcel - 一个纯粹的PHP库用来阅读和写作电子表格文件。',
   'LBL_SOURCE_PHPJS' => 'php.js - 在JavaScript中使用PHP功能',
   'LBL_SOURCE_PHPMAILER' => 'PHPMailer -一个对PHP的全面功能邮件转换类',
   'LBL_SOURCE_PHPPDF' => 'PHP PDF - Wayne Munro开发的用于创建PDF文档的库',
   'LBL_SOURCE_PHPSAML' => 'PHP-SAML - 一个简单给PHP的 SAML 工具组 .',
   'LBL_SOURCE_PHPSQL' => 'PHP SQL 分解器',
+  'LBL_SOURCE_PLACEHOLDER' => 'jQuery占位符 - 一个插件，使传统的浏览器支持HTML5占位符。',
   'LBL_SOURCE_RECAPTCHA' => 'reCAPTCHA帮助您阻止自动滥用您的站点(例如：垃圾评论或虚假注册)通过使用CAPTCHA确保只有真实用户执行了操作.',
+  'LBL_SOURCE_SINON' => 'sinon.js - 独立测试spies, stubs以及JackScript模型。',
   'LBL_SOURCE_SMARTY' => 'Smarty - 一个 PHP的模板引擎.',
+  'LBL_SOURCE_STASH' => 'Stash - 一个JavaScript库，使您轻松使用脱机存储。',
   'LBL_SOURCE_SUGAR' => 'Sugar - SugarCRM Inc公司开发的世界上最受欢迎的销售自动化应用软件。',
   'LBL_SOURCE_SWFOBJECT' => 'SWFObject - Javascript Flash 播放器检测和嵌入脚本.',
   'LBL_SOURCE_TCPDF' => 'TCPDF - 一个生成PDF文档的PHP类 .',
+  'LBL_SOURCE_TIMEAGO' => 'jquery timeago - 一个jQuery插件，可以很容易地支持自动更新模糊时间戳。',
   'LBL_SOURCE_TINYMCE' => 'TinyMCE - 所见即所得编辑器控制的网页浏览器，使用户可以编辑HTML内容',
   'LBL_SOURCE_XML_HTMLSAX3' => 'XML_HTMLSax3 - 一个SAX 解析器为HTML 和其它非法形成的XML文档',
   'LBL_SOURCE_XTEMPLATE' => 'XTemplate - Barnabás Debreceni开发的PHP的模板引擎。',
   'LBL_SOURCE_YAHOO_UI_LIB' => 'Yahoo! User Interface Library - 用于实施丰富的客户端功能的用户界面库。',
   'LBL_SOURCE_YAHOO_UI_LIB_EXT' => 'Yahoo! UI Extensions Library - Yahoo的扩展功能! 用户界面库是 Jack Slocum创建',
   'LBL_SOURCE_ZEND' => 'Zend Framework - 一个开放源代码的 PHP5 网页程序开发框架.',
-  'LBL_SUGARCRM_FORUMS' => 'SugarCRM 评论',
+  'LBL_SUGARCRM_FORUMS' => 'SugarCRM论坛',
   'LBL_SUGARCRM_NEWS' => 'SugarCRM 新闻',
   'LBL_SUGARCRM_TRAINING_NEWS' => 'SugarCRM 培训新闻',
   'LBL_SUGARFORGE_NEWS' => 'SugarForge 新闻',
@@ -180,6 +181,35 @@ $mod_strings = array (
   'LBL_TODAY' => '今天',
   'LBL_TOMORROW' => '明天',
   'LBL_TOOLS' => '工具',
+  'LBL_TOUR_BRAND' => '您的品牌。',
+  'LBL_TOUR_BRAND_DESCRIPTION' => '您的Logo在这里。您可以把鼠标移动上来获得更多信息。',
+  'LBL_TOUR_CALENDAR_URL_1' => '你要分享你的SugarCRM日历到第三方应用程序，如Microsoft Outlook或Exchange吗？如果是这样，你有一个新的URL。这个新的、更安全的URL包含了个人的关键字，这将防止未经授权出版的日历。',
+  'LBL_TOUR_CALENDAR_URL_2' => '获取新的共享日历的URL。',
+  'LBL_TOUR_CUSTOM' => '定制应用',
+  'LBL_TOUR_CUSTOM_DESCRIPTION' => '定制应用会在这里。',
+  'LBL_TOUR_DONE' => '您已搞定啦！',
+  'LBL_TOUR_FEATURES' => '更加简化的导航栏<br />可缩进的页脚<br />增强的搜索<br />更新的动作菜单<br />还有更多其他功能!',
+  'LBL_TOUR_FOOTER' => '可缩页脚',
+  'LBL_TOUR_FOOTER_DESCRIPTION' => '轻松的展开和缩进页脚。',
+  'LBL_TOUR_HOME' => '首页图标',
+  'LBL_TOUR_HOME_DESCRIPTION' => '快速回到您的首页仪表盘',
+  'LBL_TOUR_MODULES' => '模块',
+  'LBL_TOUR_MODULES_DESCRIPTION' => '您所有的重要模块都在这里。',
+  'LBL_TOUR_MORE' => '更多模块',
+  'LBL_TOUR_MORE_DESCRIPTION' => '其他的模块在这里。',
+  'LBL_TOUR_NOTIFICATIONS' => '通知',
+  'LBL_TOUR_NOTIFICATIONS_DESCRIPTION' => 'Sugar应用的通知会在这里。',
+  'LBL_TOUR_PROFILE' => '档案',
+  'LBL_TOUR_PROFILE_DESCRIPTION' => '访问档案，设置和登出。',
+  'LBL_TOUR_QUICKCREATE' => '快速创建',
+  'LBL_TOUR_QUICKCREATE_DESCRIPTION' => '在不刷新的情况下快速创建纪录。',
+  'LBL_TOUR_REFERENCE_1' => '您可以随时查看我们的',
+  'LBL_TOUR_REFERENCE_2' => '通过点击右上角档案标签下面的支持&#39;.',
+  'LBL_TOUR_SEARCH' => '全文本检索',
+  'LBL_TOUR_SEARCH_DESCRIPTION' => '搜索功能刚刚被全新增强。',
+  'LBL_TOUR_VISIT' => '更多信息请访问我们的应用',
+  'LBL_TOUR_WATCH' => '看看Sugar又增加了什么',
+  'LBL_TOUR_WELCOME' => '欢迎来到Sugar',
   'LBL_TRADEMARKS' => '商标',
   'LBL_TRAINING' => '培训',
   'LBL_TRAINING_TITLE' => '培训',
@@ -202,10 +232,11 @@ $mod_strings = array (
   'LNK_NEW_QUOTE' => '新增报价',
   'LNK_NEW_SEND_EMAIL' => '撰写电子邮件',
   'LNK_NEW_TASK' => '新增任务',
+  'LNK_TOUR_DOCUMENTATION' => '文档',
   'dashlet_categories_dom' => 
   array (
     'Charts' => '图表',
-    'Miscellaneous' => '混合',
+    'Miscellaneous' => '其他',
     'Module Views' => '模块视图',
     'Portal' => '门户网站',
     'Tools' => '工具',

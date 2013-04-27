@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -58,7 +44,7 @@ class iCal extends vCal {
     */
     protected function escapeNls($string)
     {
-        $str = str_replace("\r\n", "\\n", $string);
+        $str = str_replace(array("\r\n", "\n"), "\\n", $string);
         return $str;
     }
 
@@ -84,11 +70,7 @@ class iCal extends vCal {
     protected function getUtcTime($ts)
     {
         global $timedate, $sugar_version;
-        if (substr($sugar_version, 0, 1) > 5) {
-            $timestamp = ($ts+(date('Z')-$timedate->adjustmentForUserTimeZone()*60));
-        } else {
-            $timestamp = ($ts);
-        }
+        $timestamp = ($ts+(date('Z')-$timedate->adjustmentForUserTimeZone()*60));
         return $this->getUtcDateTime(new SugarDateTime("@" . $ts));
     }
 
@@ -201,17 +183,25 @@ class iCal extends vCal {
         $str = '';
         global $DO_USER_TIME_OFFSET, $sugar_config, $current_user, $timedate;
 
-        $acts_arr = CalendarActivity::get_activities($user_bean->id,
-            false,
-            $start_date_time,
-            $end_date_time,
-            'month');
-
         $hide_calls = false;
         if (!empty($_REQUEST['hide_calls']) && $_REQUEST['hide_calls'] == "true")
         {
             $hide_calls = true;
         }
+
+        $taskAsVTODO = true;
+        if (!empty($_REQUEST['show_tasks_as_events']) && ($_REQUEST['show_tasks_as_events'] == "1"  || $_REQUEST['show_tasks_as_events'] == "true"))
+        {
+            $taskAsVTODO = false;
+        }
+
+        $acts_arr = CalendarActivity::get_activities($user_bean->id,
+            !$taskAsVTODO,
+            $start_date_time,
+            $end_date_time,
+            'month',
+            !$hide_calls);
+
 
         // loop thru each activity, get start/end time in UTC, and return iCal strings
         foreach($acts_arr as $act)
@@ -244,7 +234,22 @@ class iCal extends vCal {
                         {
                             if ($attendee->id != $user_bean->id)
                             {
-                                $str .= 'ATTENDEE;CN="'.$attendee->get_summary_text().'":mailto:'. $attendee->email1 . "\n";
+                                // Define the participant status
+                                $participant_status = '';
+                                if (!empty($attendee->accept_status)) {
+                                    switch ($attendee->accept_status) {
+                                        case 'accept':
+                                            $participant_status = ';PARTSTAT=ACCEPTED';
+                                            break;
+                                        case 'decline':
+                                            $participant_status = ';PARTSTAT=DECLINED';
+                                            break;
+                                        case 'tentative':
+                                            $participant_status = ';PARTSTAT=TENTATIVE';
+                                            break;
+                                    }
+                                }
+                                $str .= 'ATTENDEE'.$participant_status.';CN="'.$attendee->get_summary_text().'":mailto:'. (!empty($attendee->email1) ? $attendee->email1 : 'none@none.tld') . "\n";
                             }
                         }
                     }
@@ -260,12 +265,27 @@ class iCal extends vCal {
                         {
                             if ($attendee->id != $user_bean->id)
                             {
-                                $str .= 'ATTENDEE;CN="'.$attendee->get_summary_text().'":mailto:'. $attendee->email1 . "\n";
+                                // Define the participant status
+                                $participant_status = '';
+                                if (!empty($attendee->accept_status)) {
+                                    switch ($attendee->accept_status) {
+                                        case 'accept':
+                                            $participant_status = ';PARTSTAT=ACCEPTED';
+                                            break;
+                                        case 'decline':
+                                            $participant_status = ';PARTSTAT=DECLINED';
+                                            break;
+                                        case 'tentative':
+                                            $participant_status = ';PARTSTAT=TENTATIVE';
+                                            break;
+                                    }
+                                }
+                                $str .= 'ATTENDEE'.$participant_status.';CN="'.$attendee->get_summary_text().'":mailto:'. (!empty($attendee->email1) ? $attendee->email1 : 'none@none.tld') . "\n";
                             }
                         }
                     }
                 }
-                if ($event->reminder_time > 0 && $event->status != "Held")
+                if (isset($event->reminder_time) && $event->reminder_time > 0 && $event->status != "Held")
                 {
                     $str .= "BEGIN:VALARM\n";
                     $str .= "TRIGGER:-PT" . $event->reminder_time/60 . "M\n";
@@ -286,7 +306,7 @@ class iCal extends vCal {
         require_once('modules/ProjectTask/ProjectTask.php');
         $where = "project_task.assigned_user_id='{$user_bean->id}' ".
             "AND (project_task.status IS NULL OR (project_task.status!='Deferred')) ".
-            "AND (project_task.date_start IS NULL OR project_task.date_start <= '$today')";
+            "AND (project_task.date_start IS NULL OR " . CalendarActivity::get_occurs_within_where_clause('project_task', '', $start_date_time, $end_date_time, 'date_start', 'month') . ")";
         $seedProjectTask = new ProjectTask();
         $projectTaskList = $seedProjectTask->get_full_list("", $where);
         if (is_array($projectTaskList))
@@ -297,20 +317,22 @@ class iCal extends vCal {
             }
         }
 
-        require_once('modules/Tasks/Task.php');
-        $where = "tasks.assigned_user_id='{$user_bean->id}' ".
-            "AND (tasks.status IS NULL OR (tasks.status!='Deferred')) ".
-            "AND (tasks.date_start IS NULL OR tasks.date_start <= '$today')";
-        $seedTask = new Task();
-        $taskList = $seedTask->get_full_list("", $where);
-        if (is_array($taskList))
-        {
-            foreach($taskList as $task)
+        if ($taskAsVTODO) {
+            require_once('modules/Tasks/Task.php');
+            $where = "tasks.assigned_user_id='{$user_bean->id}' ".
+                "AND (tasks.status IS NULL OR (tasks.status!='Deferred')) ".
+                "AND (tasks.date_start IS NULL OR " . CalendarActivity::get_occurs_within_where_clause('tasks', '', $start_date_time, $end_date_time, 'date_start', 'month') . ")";
+            $seedTask = new Task();
+            $taskList = $seedTask->get_full_list("", $where);
+            if (is_array($taskList))
             {
-                $str .= $this->createSugarIcalTodo($user_bean, $task, "Tasks", $dtstamp);
+                foreach($taskList as $task)
+                {
+                    $str .= $this->createSugarIcalTodo($user_bean, $task, "Tasks", $dtstamp);
+                }
             }
         }
-
+        
         return $str;
     }
 
@@ -486,5 +508,3 @@ class iCal extends vCal {
     }
 
 }
-
-?>

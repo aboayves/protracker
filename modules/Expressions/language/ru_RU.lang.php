@@ -3,65 +3,52 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_MODULE_NAME' => 'Выражения',
-  'LBL_MODULE_TITLE' => 'Запуски рабочего процесса: Главная',
-  'LBL_SEARCH_FORM_TITLE' => 'Поиск запуска рабочего процесса',
-  'LBL_LIST_FORM_TITLE' => 'Список действий',
-  'LBL_NEW_FORM_TITLE' => 'Создать запуск',
-  'LBL_LIST_NAME' => 'Название запуска:',
-  'LBL_LIST_TYPE' => 'Тип:',
-  'LBL_LIST_EVAL' => 'Оценка:',
-  'LBL_LIST_FIELD' => 'Поле:',
-  'LBL_NAME' => 'Название запуска:',
-  'LBL_FIELD' => 'Поле:',
-  'LBL_TYPE' => 'Тип:',
-  'LBL_EVAL' => 'Оценка запуска:',
-  'LBL_SHOW_PAST' => 'Изменить прошлую величину:',
-  'LNK_NEW_TRIGGER' => 'Создать запуск',
-  'LNK_TRIGGER' => 'Запуски рабочего процесса',
-  'LBL_TIME_PAST' => 'назад',
-  'LBL_TIME_FUTURE' => 'в дальнейшем',
+  'LBL_ACTION_NEW' => 'Создать новую',
   'LBL_ACTION_UPDATE' => 'Обновить поля в запускаемом',
   'LBL_ACTION_UPDATE_REL' => 'Обновить поля в зависимом',
-  'LBL_ACTION_NEW' => 'Создать новую',
-  'LBL_RECORD' => 'запись',
-  'LBL_NEXT_BUTTON' => 'Дальше',
-  'LBL_PREVIOUS_BUTTON' => 'Назад',
+  'LBL_ASSOCIATED_WITH' => 'ассоциированный с зависимым',
+  'LBL_EVAL' => 'Оценка запуска:',
+  'LBL_FIELD' => 'Поле:',
   'LBL_LIST_ACTION_DESCRIPTION' => 'Действия к выполнению:',
+  'LBL_LIST_EVAL' => 'Оценка:',
+  'LBL_LIST_FIELD' => 'Поле:',
+  'LBL_LIST_FORM_TITLE' => 'Список действий',
+  'LBL_LIST_NAME' => 'Название запуска:',
+  'LBL_LIST_TYPE' => 'Тип:',
+  'LBL_MODULE_NAME' => 'Выражения',
+  'LBL_MODULE_NAME_SINGULAR' => 'Выражение',
+  'LBL_MODULE_TITLE' => 'Запуски рабочего процесса: Главная',
+  'LBL_NAME' => 'Название запуска:',
+  'LBL_NEW_FORM_TITLE' => 'Создать запуск',
+  'LBL_NEXT_BUTTON' => 'Дальше',
   'LBL_PLEASE_SELECT' => 'Пожалуйста, выберите',
-  'LBL_TIME_INT' => 'по крайней мере на',
+  'LBL_PLEASE_SEL_TARGET' => 'Пожалуйста, выберите целевой модуль',
+  'LBL_PREVIOUS_BUTTON' => 'Назад',
+  'LBL_RECORD' => 'запись',
   'LBL_REL1' => 'Зависимый модуль:',
   'LBL_REL2' => 'Модуль зависимого модуля:',
-  'LBL_PLEASE_SEL_TARGET' => 'Пожалуйста, выберите целевой модуль',
-  'LBL_ASSOCIATED_WITH' => 'ассоциированный с зависимым',
+  'LBL_SEARCH_FORM_TITLE' => 'Поиск запуска рабочего процесса',
+  'LBL_SHOW_PAST' => 'Изменить прошлую величину:',
+  'LBL_TIME_FUTURE' => 'в дальнейшем',
+  'LBL_TIME_INT' => 'по крайней мере на',
+  'LBL_TIME_PAST' => 'назад',
+  'LBL_TYPE' => 'Тип:',
+  'LNK_NEW_TRIGGER' => 'Создать запуск',
+  'LNK_TRIGGER' => 'Запуски рабочего процесса',
 );
 

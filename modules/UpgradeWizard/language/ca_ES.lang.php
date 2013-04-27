@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -108,6 +94,7 @@ $mod_strings = array (
   'LBL_ML_VERSION' => 'Versió',
   'LBL_MODULELOADER' => 'Carregador de Mòduls',
   'LBL_MODULE_NAME' => 'Assistent d&#39;Actualitzacions',
+  'LBL_MODULE_NAME_SINGULAR' => 'Assistent d&#39;Actualitzacions',
   'LBL_PATCHUPGRADES' => 'Les actualitzacions de patch',
   'LBL_PREFLIGHT_CHECK_IN_PROGRESS' => 'Comprovacions Prèvies en progrés',
   'LBL_PREFLIGHT_FILE_COPYING_PROGRESS' => 'Còpia d&#39;arxius en progrés',
@@ -156,6 +143,7 @@ $mod_strings = array (
   'LBL_UW_COMPLIANCE_PHP_INI' => 'Ruta de php.ini',
   'LBL_UW_COMPLIANCE_PHP_VERSION' => 'Versió Mínima de PHP',
   'LBL_UW_COMPLIANCE_SAFEMODE' => 'Configuració de PHP: Manera Segura',
+  'LBL_UW_COMPLIANCE_STREAM' => 'Paràmetre PHP: Stream',
   'LBL_UW_COMPLIANCE_TITLE' => 'Comprobació de Configuració del Servidor',
   'LBL_UW_COMPLIANCE_TITLE2' => 'Configuració Detectada',
   'LBL_UW_COMPLIANCE_XML' => 'Anàlisis XML',
@@ -174,16 +162,7 @@ $mod_strings = array (
   'LBL_UW_DB_ISSUES' => 'Problemes de Base de dades',
   'LBL_UW_DB_ISSUES_PERMS' => 'Privilegis de Base de dades',
   'LBL_UW_DB_METHOD' => 'Mètode d´Actualització en Base de Dades',
-  'LBL_UW_DB_NO_ADD_COLUMN' => 'ALTER TABLE [table] ADD COLUMN [column]',
-  'LBL_UW_DB_NO_CHANGE_COLUMN' => 'ALTER TABLE [table] CHANGE COLUMN [column]',
-  'LBL_UW_DB_NO_CREATE' => 'CREATE TABLE [table]',
-  'LBL_UW_DB_NO_DELETE' => 'DELETE FROM [table]',
-  'LBL_UW_DB_NO_DROP_COLUMN' => 'ALTER TABLE [table] DROP COLUMN [column]',
-  'LBL_UW_DB_NO_DROP_TABLE' => 'DROP TABLE [table]',
   'LBL_UW_DB_NO_ERRORS' => 'Tots els Privilegis Disponibles',
-  'LBL_UW_DB_NO_INSERT' => 'INSERT INTO [table]',
-  'LBL_UW_DB_NO_SELECT' => 'SELECT [x] FROM [table]',
-  'LBL_UW_DB_NO_UPDATE' => 'UPDATE [table]',
   'LBL_UW_DB_PERMS' => 'Privilegi Necessari',
   'LBL_UW_DESC_MODULES_INSTALLED' => 'Les següents actualitzacions s´han instal·lat:',
   'LBL_UW_DORP_THE_OLD_SCHMEA' => 'Desitja que Sugar elimini l´esquema obsolet de la versió 4.5.1?',

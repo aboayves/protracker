@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -134,6 +120,13 @@ class Email extends SugarBean {
 	var $et;		// EmailUI object
 	// prefix to use when importing inlinge images in emails
 	public $imagePrefix;
+
+    /**
+     * Used for keeping track of field defs that have been modified
+     *
+     * @var array
+     */
+    public $modifiedFieldDefs = array();
 
 	/**
 	 * sole constructor
@@ -907,7 +900,7 @@ class Email extends SugarBean {
 		}
 
 		if(!empty($request['fromAccount'])) {
-			if (isset($ie->id) && !$ie->isPop3Protocol()) {
+			if (isset($ie->id) && !$ie->isPop3Protocol() && $mail->oe->mail_smtptype != 'gmail') {
 				$sentFolder = $ie->get_stored_options("sentFolder");
 				if (!empty($sentFolder)) {
 					$data = $mail->CreateHeader() . "\r\n" . $mail->CreateBody() . "\r\n";
@@ -929,65 +922,81 @@ class Email extends SugarBean {
 		return true;
 	} // end email2send
 
-	/**
-	 * Generates a config-specified separated name and addresses to be used in compose email screen for
-	 * contacts or leads from listview
-     * By default, use comma, but allow for non-standard delimeters as specified in email_address_separator
-	 *
-	 * @param $module string module name
-	 * @param $idsArray array of record ids to get the email address for
-	 * @return string (config-specified) delimited list of email addresses
-	 */
-	public function getNamePlusEmailAddressesForCompose($module, $idsArray)
-	{
-		global $locale;
-		global $db;
-		$table = SugarModule::get($module)->loadBean()->table_name;
-		$returndata = array();
-		$idsString = "";
-		foreach($idsArray as $id) {
-			if ($idsString != "") {
-				$idsString = $idsString . ",";
-			} // if
-			$idsString = $idsString . "'" . $id . "'";
-		} // foreach
-		$where = "({$table}.deleted = 0 AND {$table}.id in ({$idsString}))";
+    /**
+     * Generates a config-specified separated name and addresses to be used in compose email screen for
+     * contacts or leads from listview
+     * By default, use comma, but allow for non-standard delimiters as specified in email_address_separator
+     *
+     * @param $module string module name
+     * @param $idsArray array of record ids to get the email address for
+     * @return string (config-specified) delimited list of email addresses
+     */
+    public function getNamePlusEmailAddressesForCompose($module, $idsArray)
+    {
+        global $locale;
+        $result = array();
 
-		if ($module == 'Users' || $module == 'Employees') {
-			$selectColumn = "{$table}.first_name, {$table}.last_name, {$table}.title";
-		}
-		elseif (SugarModule::get($module)->moduleImplements('Person')) {
-			$selectColumn = "{$table}.first_name, {$table}.last_name, {$table}.salutation, {$table}.title";
-		}
-		else {
-		    $selectColumn = "{$table}.name";
-		}
-		$query = "SELECT {$table}.id, {$selectColumn}, eabr.primary_address, ea.email_address";
-		$query .= " FROM {$table} ";
-		$query .= "JOIN email_addr_bean_rel eabr ON ({$table}.id = eabr.bean_id and eabr.deleted=0) ";
-		$query .= "JOIN email_addresses ea ON (eabr.email_address_id = ea.id) ";
-		$this->add_team_security_where_clause($query, $table);
-		$query .= " WHERE ({$where}) ORDER BY eabr.primary_address DESC";
-		$r = $this->db->query($query);
+        foreach ($idsArray as $id)
+        {
+            // Load bean
+            $bean = BeanFactory::getBean($module, $id);
 
-		while($a = $this->db->fetchByAssoc($r)) {
-			if (!isset($returndata[$a['id']])) {
-				if ($module == 'Users' || $module == 'Employees') {
-				    $full_name = from_html($locale->getLocaleFormattedName($a['first_name'], $a['last_name'], '', $a['title']));
-					$returndata[$a['id']] = "{$full_name} <".from_html($a['email_address']).">";
-				}
-				elseif (SugarModule::get($module)->moduleImplements('Person')) {
-					$full_name = from_html($locale->getLocaleFormattedName($a['first_name'], $a['last_name'], $a['salutation'], $a['title']));
-					$returndata[$a['id']] = "{$full_name} <".from_html($a['email_address']).">";
-				}
-				else {
-					$returndata[$a['id']] = from_html($a['name']) . " <".from_html($a['email_address']).">";
-				} // else
-			}
-		}
+            // Got a bean
+            if (!empty($bean))
+            {
+                // For CE, just get primary e-mail address
+                $emailAddress = $bean->email1;
 
-        // broken out of method to facilitate unit testing
-        return $this->_arrayToDelimitedString($returndata);
+                $emailAddress = '';
+                // If has access to primary mail, use it
+                if (ACLField::hasAccess('email1', $module, $GLOBALS['current_user']->id, $bean->isOwner($GLOBALS['current_user']->id)))
+                {
+                    $emailAddress = $bean->email1;
+                }
+                // Otherwise, try to use secondary
+                else if (ACLField::hasAccess('email2', $module, $GLOBALS['current_user']->id, $bean->isOwner($GLOBALS['current_user']->id)))
+                {
+                    $emailAddress = $bean->email2;
+                }
+
+                // If we have an e-mail address loaded
+                if (!empty($emailAddress))
+                {
+                    // Use bean name by default
+                    $fullName = $bean->name;
+
+                    // Depending on module, format the name
+                    if (in_array($module, array('Users', 'Employees')))
+                    {
+                        $fullName = from_html(
+                            $locale->getLocaleFormattedName(
+                                $bean->first_name,
+                                $bean->last_name,
+                                '',
+                                $bean->title
+                            )
+                        );
+                    }
+                    else if (SugarModule::get($module)->moduleImplements('Person'))
+                    {
+                        $fullName = from_html(
+                            $locale->getLocaleFormattedName(
+                                $bean->first_name,
+                                $bean->last_name,
+                                $bean->salutation,
+                                $bean->title
+                            )
+                        );
+                    }
+
+                    // Make e-mail address in format "Name <@email>"
+                    $result[$bean->id] = $fullName . " <" . from_html($emailAddress) . ">";
+                }
+            }
+        }
+
+        // Broken out of method to facilitate unit testing
+        return $this->_arrayToDelimitedString($result);
     }
 
     /**
@@ -1012,6 +1021,8 @@ class Email extends SugarBean {
 	///////////////////////////////////////////////////////////////////////////
 	////	SAVERS
 	function save($check_notify = false) {
+        global $current_user;
+
 		if($this->isDuplicate) {
 			$GLOBALS['log']->debug("EMAIL - tried to save a duplicate Email record");
 		} else {
@@ -1026,7 +1037,8 @@ class Email extends SugarBean {
 			$this->bcc_addrs_names = $this->cleanEmails($this->bcc_addrs_names);
 			$this->reply_to_addr = $this->cleanEmails($this->reply_to_addr);
 			$this->description = SugarCleaner::cleanHtml($this->description);
-			$this->description_html = SugarCleaner::cleanHtml($this->description_html);
+            $this->description_html = SugarCleaner::cleanHtml($this->description_html, true);
+            $this->raw_source = SugarCleaner::cleanHtml($this->raw_source, true);
 			$this->saveEmailText();
 			$this->saveEmailAddresses();
 
@@ -1036,10 +1048,17 @@ class Email extends SugarBean {
 			//Bug 39503 - SugarBean is not setting date_sent when seconds missing
  			if(empty($this->date_sent)) {
 				global $timedate;
-				$date_sent_obj = $timedate->fromString($this->date_start." ".$this->time_start);
+				$date_sent_obj = $timedate->fromUser($timedate->merge_date_time($this->date_start, $this->time_start), $current_user);
                  if (!empty($date_sent_obj) && ($date_sent_obj instanceof SugarDateTime)) {
  				    $this->date_sent = $date_sent_obj->asDb();
                  }
+			} else {
+				//set date_entered to date_sent if this is a new email being archived
+				//that way emails archived to sugar by plugins like opacus mail will
+				//have the correct ordering according to email incoming date.
+				if ($this->new_with_id) {
+					$this->date_entered = $this->date_sent;
+				}
 			}
 
 			parent::save($check_notify);
@@ -1183,7 +1202,7 @@ class Email extends SugarBean {
                 continue;
             }
             if(!empty($parts["name"])) {
-                $res[] = "{$parts["name"]} <{$parts["email"]}>";
+                $res[] = "{$parts['name']} <{$parts['email']}>";
             } else {
                 $res[] .= $parts["email"];
             }
@@ -1213,9 +1232,9 @@ class Email extends SugarBean {
 
 		if($ret) {
 			$ret->retrieveEmailText();
-		    $ret->raw_source = SugarCleaner::cleanHtml($ret->raw_source);
+            //$ret->raw_source = SugarCleaner::cleanHtml($ret->raw_source);
 			$ret->description = to_html($ret->description);
-            $ret->description_html = SugarCleaner::cleanHtml($ret->description_html);
+            //$ret->description_html = SugarCleaner::cleanHtml($ret->description_html);
 			$ret->retrieveEmailAddresses();
 
 			$ret->date_start = '';
@@ -1425,7 +1444,7 @@ class Email extends SugarBean {
 		if(empty($text)) {
 			return '';
 		}
-		$text = str_replace("\n", "\n<BR/>", $text);
+		$text = str_replace("\n", "<BR/>", $text);
 		$out = "<div style='border-left:1px solid #00c; padding:5px; margin-left:10px;'>{$text}</div>";
 
 		return $out;
@@ -2229,13 +2248,11 @@ class Email extends SugarBean {
 		if ($return_array) {
 			return parent::create_new_list_query($order_by, $where,$filter,$params, $show_deleted,$join_type, $return_array,$parentbean, $singleSelect);
 		}
-        $custom_join = $this->custom_fields->getJOIN();
+        $custom_join = $this->getCustomJoin();
 
 		$query = "SELECT ".$this->table_name.".*, users.user_name as assigned_user_name\n";
 
-    	if($custom_join){
-			$query .= $custom_join['select'];
-		}
+        $query .= $custom_join['select'];
     	$query .= " FROM emails\n";
     	if ($where != "" && (strpos($where, "contacts.first_name") > 0))  {
 			$query .= " LEFT JOIN emails_beans ON emails.id = emails_beans.email_id\n";
@@ -2250,9 +2267,7 @@ class Email extends SugarBean {
         $query .= " JOIN contacts ON contacts.id= emails_beans.bean_id AND emails_beans.bean_module='Contacts' and contacts.deleted=0 \n";
     	}
 
-		if($custom_join){
-			$query .= $custom_join['join'];
-		}
+        $query .= $custom_join['join'];
 
 		if($show_deleted == 0) {
 			$where_auto = " emails.deleted=0 \n";
@@ -2376,25 +2391,22 @@ class Email extends SugarBean {
 
 
 
-	function create_export_query(&$order_by, &$where) {
+	function create_export_query(&$order_by, &$where)
+    {
 		$contact_required = stristr($where, "contacts");
-		$custom_join = $this->custom_fields->getJOIN(true, true,$where);
+		$custom_join = $this->getCustomJoin(true, true, $where);
 
 		if($contact_required) {
 			$query = "SELECT emails.*, contacts.first_name, contacts.last_name";
 			$query .= ", teams.name AS team_name";
-			if($custom_join) {
-				$query .= $custom_join['select'];
-			}
+            $query .= $custom_join['select'];
 
 			$query .= " FROM contacts, emails, emails_contacts ";
 			$where_auto = "emails_contacts.contact_id = contacts.id AND emails_contacts.email_id = emails.id AND emails.deleted=0 AND contacts.deleted=0";
 		} else {
 			$query = 'SELECT emails.*';
 			$query .= ", teams.name AS team_name";
-			if($custom_join) {
-				$query .= $custom_join['select'];
-			}
+            $query .= $custom_join['select'];
 
             $query .= ' FROM emails ';
             $where_auto = "emails.deleted=0";
@@ -2403,9 +2415,7 @@ class Email extends SugarBean {
 		// We need to confirm that the user is a member of the team of the item.
 		$this->add_team_security_where_clause($query);
 		$query .= getTeamSetNameJoin('emails');
-		if($custom_join){
-			$query .= $custom_join['join'];
-		}
+        $query .= $custom_join['join'];
 
 		if($where != "")
 			$query .= "where $where AND ".$where_auto;
@@ -2537,8 +2547,8 @@ class Email extends SugarBean {
             'flagged' => 'flagged'
         );
 
-	     $sort = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "";
-         $direction = !empty($_REQUEST['dir']) ? $_REQUEST['dir'] : "";
+	     $sort = !empty($_REQUEST['sort']) ? $this->db->getValidDBName($_REQUEST['sort']) : "";
+         $direction = !empty($_REQUEST['dir'])  && in_array(strtolower($_REQUEST['dir']), array("asc", "desc")) ? $_REQUEST['dir'] : "";
 
          $order = ( !empty($sort) && !empty($direction) ) ? " ORDER BY {$hrSortLocal[$sort]} {$direction}" : "";
 
@@ -2547,6 +2557,7 @@ class Email extends SugarBean {
 
 		//Perform a count query needed for pagination.
 		$countQuery = $this->create_list_count_query($fullQuery);
+		
 		$count_rs = $this->db->query($countQuery, false, 'Error executing count query for imported emails search');
 		$count_row = $this->db->fetchByAssoc($count_rs);
 		$total_count = ($count_row != null) ? $count_row['c'] : 0;
@@ -2634,14 +2645,16 @@ class Email extends SugarBean {
         //Handle from and to addr joins
         if( !empty($_REQUEST['from_addr']) )
         {
+            $from_addr = $this->db->quote(strtolower($_REQUEST['from_addr']));
             $query['joins'] .= "INNER JOIN emails_email_addr_rel er_from ON er_from.email_id = emails.id AND er_from.deleted = 0 INNER JOIN email_addresses ea_from ON ea_from.id = er_from.email_address_id
-                                AND er_from.address_type='from' AND ea_from.email_address='" . strtolower($_REQUEST['from_addr']) . "'";
+                                AND er_from.address_type='from' AND emails_text.from_addr LIKE '%" . $from_addr . "%'";
         }
 
         if( !empty($_REQUEST['to_addrs'])  )
         {
+            $to_addrs = $this->db->quote(strtolower($_REQUEST['to_addrs']));
             $query['joins'] .= "INNER JOIN emails_email_addr_rel er_to ON er_to.email_id = emails.id AND er_to.deleted = 0 INNER JOIN email_addresses ea_to ON ea_to.id = er_to.email_address_id
-                                    AND er_to.address_type='to' AND ea_to.email_address='" . strtolower($_REQUEST['to_addrs']) . "'";
+                                    AND er_to.address_type='to' AND ea_to.email_address LIKE '%" . $to_addrs . "%'";
         }
 
 		$this->add_team_security_where_clause($query['joins']);
@@ -2658,7 +2671,7 @@ class Email extends SugarBean {
              $query['where'] .= " AND NOT EXISTS ( SELECT id FROM notes n WHERE n.parent_id = emails.id AND n.deleted = 0 AND n.filename is not null )";
 
         $fullQuery = "SELECT " . $query['select'] . " " . $query['joins'] . " " . $query['where'];
-
+        
         return $fullQuery;
     }
         /**
@@ -2674,8 +2687,8 @@ class Email extends SugarBean {
             unset($_REQUEST['assigned_user_id']);
 
         $availableSearchParam = array('name' => array('table_name' =>'emails'),
-                                        'data_parent_id_search' => array('table_name' =>'emails','db_key' => 'parent_id','opp' => '='),
-                                        'assigned_user_id' => array('table_name' => 'emails', 'opp' => '=') );
+                                      'data_parent_id_search' => array('table_name' =>'emails','db_key' => 'parent_id','opp' => '='),
+                                      'assigned_user_id' => array('table_name' => 'emails', 'opp' => '=') );
 
 		$additionalWhereClause = array();
 		foreach ($availableSearchParam as $key => $properties)
@@ -2683,15 +2696,17 @@ class Email extends SugarBean {
 		      if( !empty($_REQUEST[$key]) )
 		      {
 		          $db_key =  isset($properties['db_key']) ? $properties['db_key'] : $key;
-		          $searchValue = $_REQUEST[$key];
+                  $searchValue = $this->db->quote($_REQUEST[$key]);
 
 		          $opp = isset($properties['opp']) ? $properties['opp'] : 'like';
 		          if($opp == 'like')
-		              $searchValue = $searchValue . "%";
+		              $searchValue = "%" . $searchValue . "%";
 
 		          $additionalWhereClause[] = "{$properties['table_name']}.$db_key $opp '$searchValue' ";
 		      }
         }
+        
+        
 
         $isDateFromSearchSet = !empty($_REQUEST['searchDateFrom']);
         $isdateToSearchSet = !empty($_REQUEST['searchDateTo']);
@@ -3107,6 +3122,58 @@ eoq;
     		$r = $this->db->query($q);
             while($a = $this->db->fetchByAssoc($r)) {
                 $this->cid2Link($a['id'], $a['file_mime_type']);
+            }
+    	}
+
+    /**
+     * Bugs 50972, 50973
+     * Sets the field def for a field to allow null values
+     *
+     * @todo Consider moving to SugarBean to allow other models to set fields to NULL
+     * @param string $field The field name to modify
+     * @return void
+     */
+    public function setFieldNullable($field)
+    {
+        if (isset($this->field_defs[$field]) && is_array($this->field_defs[$field]))
+        {
+            if (empty($this->modifiedFieldDefs[$field]))
+            {
+                if (
+                    isset($this->field_defs[$field]['isnull']) &&
+                    (strtolower($this->field_defs[$field]['isnull']) == 'false' || $this->field_defs[$field]['isnull'] === false)
+                )
+                {
+                    $this->modifiedFieldDefs[$field]['isnull'] = $this->field_defs[$field]['isnull'];
+                    unset($this->field_defs[$field]['isnull']);
+                }
+
+                if (isset($this->field_defs[$field]['dbType']) && $this->field_defs[$field]['dbType'] == 'id')
+                {
+                    $this->modifiedFieldDefs[$field]['dbType'] = $this->field_defs[$field]['dbType'];
+                    unset($this->field_defs[$field]['dbType']);
+                }
+            }
+        }
+    }
+
+    /**
+     * Bugs 50972, 50973
+     * Set the field def back to the way it was prior to modification
+     *
+     * @param $field
+     * @return void
+     */
+    public function revertFieldNullable($field)
+    {
+        if (!empty($this->modifiedFieldDefs[$field]) && is_array($this->modifiedFieldDefs[$field]))
+        {
+            foreach ($this->modifiedFieldDefs[$field] as $k => $v)
+            {
+                $this->field_defs[$field][$k] = $v;
+            }
+
+            unset($this->modifiedFieldDefs[$field]);
             }
     	}
 } // end class def

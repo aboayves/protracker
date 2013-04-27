@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -85,7 +71,7 @@ class UserViewHelper {
         $this->setupEmailSettings();
         $this->setupThemeTab();
         $this->setupAdvancedTab();
-        
+
     }
 
     protected function assignUserTypes() {
@@ -104,7 +90,7 @@ class UserViewHelper {
 
         // check if the user has access to the User Management
         $this->ss->assign('USER_ADMIN',$current_user->isAdminForModule('Users')&& !is_admin($current_user));
-        
+
 
         if ($this->is_current_admin) {
             $this->ss->assign('IS_ADMIN','1');
@@ -132,7 +118,7 @@ class UserViewHelper {
 
 
         $this->ss->assign('IS_FOCUS_ADMIN', is_admin($this->bean));
-        
+
         if($edit_self) {
             $this->ss->assign('EDIT_SELF','1');
         }
@@ -141,7 +127,7 @@ class UserViewHelper {
         }
 
     }
-    
+
     protected function setupButtonsAndTabs() {
         global $current_user;
 
@@ -184,13 +170,13 @@ class UserViewHelper {
         }
         if (isset($buttons_header)) $this->ss->assign("BUTTONS_HEADER", $buttons_header);
         if (isset($buttons_footer)) $this->ss->assign("BUTTONS_FOOTER", $buttons_footer);
-        
+
 
 
         if (isset($this->bean->id)) {
             $this->ss->assign('ID',$this->bean->id);
         }
-        
+
     }
 
 
@@ -203,7 +189,7 @@ class UserViewHelper {
      */
     public function setupUserTypeDropdown() {
         global $current_user;
-        
+
 
         //if this is an existing bean and the type is empty, then populate user type
         if(!empty($this->bean->id) && empty($this->bean->user_type))
@@ -252,7 +238,7 @@ class UserViewHelper {
             $userTypeDropdown .= ' disabled ';
         }
         $userTypeDropdown .= '>';
-     
+
         $userTypeDescription = '';
 
         $setSelected = !empty($this->bean->id);
@@ -265,15 +251,15 @@ class UserViewHelper {
             }
         }
         $userTypeDropdown .= '</select><div id="UserTypeDesc">&nbsp;</div>';
-        
+
         $this->ss->assign('USER_TYPE_DROPDOWN',$userTypeDropdown);
         $this->ss->assign('USER_TYPE_READONLY',$userTypes[$userType]['label'] . "<input type='hidden' id='UserType' value='{$userType}'><div id='UserTypeDesc'>&nbsp;</div>");
-        
+
     }
 
     protected function setupPasswordTab() {
         global $current_user;
-        
+
         $this->ss->assign('PWDSETTINGS', isset($GLOBALS['sugar_config']['passwordsetting']) ? $GLOBALS['sugar_config']['passwordsetting'] : array());
         if ( isset($GLOBALS['sugar_config']['passwordsetting']) && isset($GLOBALS['sugar_config']['passwordsetting']['customregex']) ) {
             $pwd_regex=str_replace( "\\","\\\\",$GLOBALS['sugar_config']['passwordsetting']['customregex']);
@@ -299,14 +285,14 @@ class UserViewHelper {
         } else {
             $this->ss->assign('CHANGE_PWD', '0');
         }
-        
+
         // Make sure group users don't get a password change prompt
         if ( $this->usertype == 'GROUP' ) {
             $this->ss->assign('CHANGE_PWD', '0');
         }
 
         $configurator = new Configurator();
-        if ( isset($configurator->config['passwordsetting']) 
+        if ( isset($configurator->config['passwordsetting'])
              && ($configurator->config['passwordsetting']['SystemGeneratedPasswordON']
                  || $configurator->config['passwordsetting']['forgotpasswordON'])
              && $this->usertype != 'GROUP' && $this->usertype != 'PORTAL_ONLY' ) {
@@ -325,7 +311,7 @@ class UserViewHelper {
                 $this->ss->assign('HIDE_STATIC_USERTYPE','none');
             }
         }
-        
+
     }
 
     protected function setupThemeTab() {
@@ -339,18 +325,18 @@ class UserViewHelper {
         $this->ss->assign("USER_THEME_COLOR", $this->bean->getPreference('user_theme_color'));
         $this->ss->assign("USER_THEME_FONT", $this->bean->getPreference('user_theme_font'));
         $this->ss->assign("USER_THEME", $user_theme);
-        
+
 // Build a list of themes that support group modules
         $this->ss->assign("DISPLAY_GROUP_TAB", 'none');
-        
+
         $selectedTheme = $user_theme;
         if(!isset($user_theme)) {
             $selectedTheme = $GLOBALS['sugar_config']['default_theme'];
         }
-        
+
         $themeList = SugarThemeRegistry::availableThemes();
         $themeGroupList = array();
-        
+
         foreach ( $themeList as $themeId => $themeName ) {
             $currThemeObj = SugarThemeRegistry::get($themeId);
             if ( isset($currThemeObj->group_tabs) && $currThemeObj->group_tabs == 1 ) {
@@ -363,9 +349,9 @@ class UserViewHelper {
             }
         }
         $this->ss->assign("themeGroupListJSON",json_encode($themeGroupList));
-        
+
     }
-    
+
     protected function setupAdvancedTab() {
         $this->setupAdvancedTabUserSettings();
         $this->setupAdvancedTabTeamSettings();
@@ -374,7 +360,8 @@ class UserViewHelper {
         $this->setupAdvancedTabPdfSettings();
     }
 
-    protected function setupAdvancedTabUserSettings() {
+    protected function setupAdvancedTabUserSettings()
+    {
         global $current_user, $locale, $app_strings, $app_list_strings, $sugar_config;
         // This is for the "Advanced" tab, it's not controlled by the metadata UI so we have to do more for it.
 
@@ -390,10 +377,10 @@ class UserViewHelper {
         $this->ss->assign('EXPORT_CHARSET_DISPLAY', $export_charset);
         //end:12293
 
-        if( $this->bean->getPreference('use_real_names') == 'on' 
-            || ( empty($this->bean->id) 
-                 && isset($GLOBALS['sugar_config']['use_real_names']) 
-                 && $GLOBALS['sugar_config']['use_real_names'] 
+        if( $this->bean->getPreference('use_real_names') == 'on'
+            || ( empty($this->bean->id)
+                 && isset($GLOBALS['sugar_config']['use_real_names'])
+                 && $GLOBALS['sugar_config']['use_real_names']
                  && $this->bean->getPreference('use_real_names') != 'off') ) {
             $this->ss->assign('USE_REAL_NAMES', 'CHECKED');
         }
@@ -406,20 +393,21 @@ class UserViewHelper {
             $this->ss->assign('NO_OPPS', 'CHECKED');
         }
 
-	$reminder_time = $this->bean->getPreference('reminder_time');
-	if(empty($reminder_time)){
-		$reminder_time = -1;
-	}	
-	$email_reminder_time = $this->bean->getPreference('email_reminder_time');
-	if(empty($email_reminder_time)){
-		$email_reminder_time = -1;
-	}
-        $this->ss->assign("REMINDER_TIME_OPTIONS", $app_list_strings['reminder_time_options']);	
-        $this->ss->assign("EMAIL_REMINDER_TIME_OPTIONS", $app_list_strings['reminder_time_options']);	        
-	$this->ss->assign("REMINDER_TIME", $reminder_time);
-	$this->ss->assign("EMAIL_REMINDER_TIME", $email_reminder_time);
-	$this->ss->assign("REMINDER_TABINDEX", "12");
-        $this->ss->assign('CALENDAR_PUBLISH_KEY', $this->bean->getPreference('calendar_publish_key' ));
+	    $reminder_time = $this->bean->getPreference('reminder_time');
+	    if(empty($reminder_time)){
+		    $reminder_time = -1;
+	    }
+	    $email_reminder_time = $this->bean->getPreference('email_reminder_time');
+	    if(empty($email_reminder_time)){
+		    $email_reminder_time = -1;
+	    }
+        $this->ss->assign("REMINDER_TIME_OPTIONS", $app_list_strings['reminder_time_options']);
+        $this->ss->assign("EMAIL_REMINDER_TIME_OPTIONS", $app_list_strings['reminder_time_options']);
+	    $this->ss->assign("REMINDER_TIME", $reminder_time);
+	    $this->ss->assign("EMAIL_REMINDER_TIME", $email_reminder_time);
+	    $this->ss->assign("REMINDER_TABINDEX", "12");
+	    $publish_key = $this->bean->getPreference('calendar_publish_key' );
+        $this->ss->assign('CALENDAR_PUBLISH_KEY', $publish_key);
 
         $publish_url = $sugar_config['site_url'].'/vcal_server.php';
         $token = "/";
@@ -431,16 +419,26 @@ class UserViewHelper {
                 $token = '?parms=';
             }
         }
-        
-        $publish_url .= $token.'type=vfb&source=outlook&key=<span id="cal_pub_key_span">'.$this->bean->getPreference('calendar_publish_key' ) . '</span>';
+
+        $publish_url .= $token."type=vfb&source=outlook&key=<span id=\"cal_pub_key_span\">$publish_key</span>";
         if (! empty($this->bean->email1)) {
             $publish_url .= '&email='.$this->bean->email1;
         } else {
             $publish_url .= '&user_name='.$this->bean->user_name;
         }
+
+        $ical_url = $sugar_config['site_url']."/ical_server.php?type=ics&key=<span id=\"ical_pub_key_span\">$publish_key</span>";
+        if (! empty($this->bean->email1))
+        {
+            $ical_url .= '&email='.$this->bean->email1;
+        } else
+        {
+            $ical_url .= '&user_name='.$this->bean->user_name;
+        }
+
         $this->ss->assign("CALENDAR_PUBLISH_URL", $publish_url);
-        $this->ss->assign("CALENDAR_SEARCH_URL", $sugar_config['site_url'].'/vcal_server.php/type=vfb&email=%NAME%@%SERVER%');
-        $this->ss->assign("CALENDAR_ICAL_URL", $sugar_config['site_url'].'/ical_server.php?type=ics&key=%MYSECRETKEY%&user_name=%MYUSERNAME%');
+        $this->ss->assign("CALENDAR_SEARCH_URL", $sugar_config['site_url']."/vcal_server.php/type=vfb&key=<span id=\"search_pub_key_span\">$publish_key</span>&email=%NAME%@%SERVER%");
+        $this->ss->assign("CALENDAR_ICAL_URL", $ical_url);
 
         $this->ss->assign("SETTINGS_URL", $sugar_config['site_url']);
 
@@ -465,21 +463,17 @@ class UserViewHelper {
         if(!empty($this->bean->external_auth_only)) {
             $this->ss->assign('EXTERNAL_AUTH_ONLY_CHECKED', 'CHECKED');
         }
-        
+
         if($this->is_super_admin && !empty($authclass)) {
             $this->ss->assign('DISPLAY_EXTERNAL_AUTH',true);
         }
-        
+
         if(!empty($this->bean->id)) {
             require_once('include/SugarFields/Fields/Teamset/EmailSugarFieldTeamsetCollection.php');
 
-            //If you're an administrator editing the user or if you're a module level admin, then allow the widget to display all Teams
-            if($this->usertype == 'Administrator' || $GLOBALS['current_user']->isAdminForModule( 'Users')) {
-                $teamsWidget = new EmailSugarFieldTeamsetCollection($this->bean, $this->bean->field_defs, '', $this->viewType);
-            } else {
-                $teamsWidget = new EmailSugarFieldTeamsetCollection($this->bean, $this->bean->field_defs, 'get_non_private_teams_array', $this->viewType);
-                $teamsWidget->user_id = $this->bean->id;
-            }
+            // Display only the teams the user we're editing belongs to
+            $teamsWidget = new EmailSugarFieldTeamsetCollection($this->bean, $this->bean->field_defs, 'get_non_private_teams_array', $this->viewType);
+            $teamsWidget->user_id = $this->bean->id;
 
             $this->ss->assign('DEFAULT_TEAM_OPTIONS', $teamsWidget->get_code());
 
@@ -487,10 +481,10 @@ class UserViewHelper {
             $default_teams = TeamSetManager::getCommaDelimitedTeams($this->bean->team_set_id, $this->bean->team_id, true);
             $this->ss->assign("DEFAULT_TEAM_LIST", $default_teams);
         }
-        
+
         $this->ss->assign('SHOW_TEAM_SELECTION', !empty($this->bean->id));
         $this->ss->assign('IS_PORTALONLY', '0');
-        
+
         if (isset($sugar_config['enable_web_services_user_creation']) && $sugar_config['enable_web_services_user_creation'] &&
             (!empty($this->bean->portal_only) && $this->bean->portal_only) || (isset($_REQUEST['usertype']) && $_REQUEST['usertype']=='portal')) {
             $this->ss->assign('IS_PORTALONLY', '1');
@@ -523,8 +517,8 @@ class UserViewHelper {
         require_once('modules/MySettings/TabController.php');
         $chooser = new TemplateGroupChooser();
         $controller = new TabController();
-        
-        
+
+
         if($this->is_current_admin || $controller->get_users_can_edit()) {
             $chooser->display_hide_tabs = true;
         } else {
@@ -585,14 +579,14 @@ class UserViewHelper {
         if(empty($this->bean->id)) { // remove default timezone for new users(set later)
             $this->bean->user_preferences['timezone'] = '';
         }
-        
+
         $userTZ = $this->bean->getPreference('timezone');
-        
+
         if(empty($userTZ) && !$this->bean->is_group && !$this->bean->portal_only) {
             $userTZ = TimeDate::guessTimezone();
             $this->bean->setPreference('timezone', $userTZ);
         }
-        
+
         if(!$this->bean->getPreference('ut')) {
             $this->ss->assign('PROMPTTZ', ' checked');
         }
@@ -600,7 +594,7 @@ class UserViewHelper {
         $this->ss->assign('TIMEZONEOPTIONS', TimeDate::getTimezoneList());
         $this->ss->assign("TIMEZONE", TimeDate::tzName($userTZ));
 
-        
+
         // FG - Bug 4236 - Managed First Day of Week
         $fdowDays = array();
         foreach ($app_list_strings['dom_cal_day_long'] as $d) {
@@ -618,7 +612,7 @@ class UserViewHelper {
         //// Numbers and Currency display
         require_once('modules/Currencies/ListCurrency.php');
         $currency = new ListCurrency();
-        
+
         // 10/13/2006 Collin - Changed to use Localization.getConfigPreference
         // This was the problem- Previously, the "-99" currency id always assumed
         // to be defaulted to US Dollars.  However, if someone set their install to use
@@ -632,14 +626,14 @@ class UserViewHelper {
             $selectCurrency = $currency->getSelectOptions();
             $this->ss->assign("CURRENCY", $selectCurrency);
         }
-        
+
         $currencyList = array();
         foreach($locale->currencies as $id => $val ) {
             $currencyList[$id] = $val['symbol'];
         }
         $currencySymbolJSON = json_encode($currencyList);
         $this->ss->assign('currencySymbolJSON', $currencySymbolJSON);
-        
+
         $currencyDisplay = new Currency();
         if(isset($cur_id) ) {
             $currencyDisplay->retrieve($cur_id);
@@ -647,7 +641,7 @@ class UserViewHelper {
         } else {
             $this->ss->assign("CURRENCY_DISPLAY", $currencyDisplay->getDefaultISO4217() .' '.$currencyDisplay->getDefaultCurrencySymbol() );
         }
-        
+
         // fill significant digits dropdown
         $significantDigits = $locale->getPrecedentPreference('default_currency_significant_digits', $this->bean);
         $sigDigits = '';
@@ -658,16 +652,16 @@ class UserViewHelper {
                 $sigDigits .= "<option value=\"$i\">{$i}</option>";
             }
         }
-        
+
         $this->ss->assign('sigDigits', $sigDigits);
         $this->ss->assign('CURRENCY_SIG_DIGITS', $significantDigits);
-        
+
         $num_grp_sep = $this->bean->getPreference('num_grp_sep');
         $dec_sep = $this->bean->getPreference('dec_sep');
         $this->ss->assign("NUM_GRP_SEP",(empty($num_grp_sep) ? $GLOBALS['sugar_config']['default_number_grouping_seperator'] : $num_grp_sep));
         $this->ss->assign("DEC_SEP",(empty($dec_sep) ? $GLOBALS['sugar_config']['default_decimal_seperator'] : $dec_sep));
         $this->ss->assign('getNumberJs', $locale->getNumberJs());
-        
+
         //// Name display format
         $this->ss->assign('default_locale_name_format', $locale->getLocaleFormatMacro($this->bean));
         $this->ss->assign('getNameJs', $locale->getNameJs());
@@ -701,7 +695,7 @@ class UserViewHelper {
             $this->ss->assign('PDF_MARGIN_BOTTOM',PDF_MARGIN_BOTTOM);
             $this->ss->assign('PDF_MARGIN_LEFT',PDF_MARGIN_LEFT);
             $this->ss->assign('PDF_MARGIN_RIGHT',PDF_MARGIN_RIGHT);
-        
+
             require_once('include/Sugarpdf/FontManager.php');
             $fontManager = new FontManager();
             $fontlist = $fontManager->getSelectFontList();
@@ -715,7 +709,7 @@ class UserViewHelper {
             ////////////////////////////////////////////////////////////////////////////////
         }
     }
-    
+
     protected function setupEmailSettings() {
         global $current_user, $app_list_strings;
 
@@ -743,10 +737,10 @@ class UserViewHelper {
         } else {
             $this->ss->assign('EMAIL_LINK_TYPE', $app_list_strings['dom_email_link_type'][$raw_email_link_type]);
         }
-        
+
         /////	END EMAIL OPTIONS
         ///////////////////////////////////////////////////////////////////////////////
-        
+
 
         /////////////////////////////////////////////
         /// Handle email account selections for users
@@ -764,7 +758,7 @@ class UserViewHelper {
             $mail_smtppass = "";
             $mail_smtpdisplay = $systemOutboundEmail->mail_smtpdisplay;
             $mail_smtpauth_req=true;
-            
+
             if( !$systemOutboundEmail->isAllowUserAccessToSystemDefaultOutbound() ) {
                 $mail_smtpauth_req = $systemOutboundEmail->mail_smtpauth_req;
                 $userOverrideOE = $systemOutboundEmail->getUsersMailerForSystemOverride($this->bean->id);
@@ -772,15 +766,15 @@ class UserViewHelper {
                     $mail_smtpuser = $userOverrideOE->mail_smtpuser;
                     $mail_smtppass = $userOverrideOE->mail_smtppass;
                 }
-                
-                
+
+
                 if(!$mail_smtpauth_req && (empty($systemOutboundEmail->mail_smtpserver) || empty($systemOutboundEmail->mail_smtpuser) || empty($systemOutboundEmail->mail_smtppass))) {
                     $hide_if_can_use_default = true;
                 } else{
                     $hide_if_can_use_default = false;
                 }
             }
-            
+
             $this->ss->assign("mail_smtpdisplay", $mail_smtpdisplay);
             $this->ss->assign("mail_smtpserver", $mail_smtpserver);
             $this->ss->assign("mail_smtpuser", $mail_smtpuser);
@@ -791,7 +785,7 @@ class UserViewHelper {
             $this->ss->assign('MAIL_SMTPSSL',$mail_smtpssl);
         }
         $this->ss->assign('HIDE_IF_CAN_USE_DEFAULT_OUTBOUND',$hide_if_can_use_default );
-        
+
     }
 
 

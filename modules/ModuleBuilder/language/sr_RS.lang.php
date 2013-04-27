@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -63,6 +49,7 @@ $mod_strings = array (
   'LBL_AUDITED' => 'Praćenje promena',
   'LBL_AUTHOR' => 'Autor:',
   'LBL_AVAILABLE' => 'Dostupno',
+  'LBL_AVAILABLE_OPTIONS' => 'Dostupne opcije',
   'LBL_AVAILABLE_SUBPANELS' => 'Dostupni podpaneli',
   'LBL_BASIC' => 'Osnovno',
   'LBL_BASIC_SEARCH' => 'Osnovna pretraga',
@@ -91,6 +78,7 @@ $mod_strings = array (
   'LBL_BTN_NEXT' => 'Sledeći',
   'LBL_BTN_PUBLISH' => 'Objavi',
   'LBL_BTN_REDO' => 'Vrati poništeno',
+  'LBL_BTN_RENAME_MODULE' => 'Promeni ime modula',
   'LBL_BTN_SAVE' => 'Sačuvaj',
   'LBL_BTN_SAVEPUBLISH' => 'Sačuvaj i rasporedi',
   'LBL_BTN_SAVE_CHANGES' => 'Sačuvaj promene',
@@ -106,6 +94,7 @@ $mod_strings = array (
   'LBL_CLEAR_EXTENSIONS' => 'Obriši ekstenzije',
   'LBL_CLEAR_RELATIONSHIPS' => 'Obriši veze',
   'LBL_COMPANY' => 'Kompanija',
+  'LBL_CONFIG_PORTAL_URL' => 'URL do sopstvene slike za logo. Preporučene dimenzije za logo su 163 x 18 piksela.',
   'LBL_CONFIRM_DONT_SAVE' => 'Da li želite da sačuvate promene koje su nastale nakon poslednjeg čuvanja?',
   'LBL_CONFIRM_DONT_SAVE_TITLE' => 'Sačuvaj promene?',
   'LBL_CONFIRM_FIELD_DELETE' => 'Brisanjem ovog prilagođenog polja biće obrisano prilagođeno polje kao i svi podaci koji su povezani sa prilagođenim poljem iz baze podataka. Polje se više neće pojavljivati ni u jednom rasporedu modula. Ako je polje uključeno u formulu za računanje vrednosti bilo kog polja, formula više neće raditi. \\n\\nPolje više neće moći da se koristi za Izveštaje; ova promena će imati efekta nakon odjave i ponovne prijave na sistem. Sve izveštaje koji sadrže polje potrebno je ažurirati da bi mogli da se prikažu.\\n\\nDa li želite da nastavite?',
@@ -119,6 +108,7 @@ $mod_strings = array (
   'LBL_CURRENCY' => 'Valuta',
   'LBL_CURRENT_LAYOUT' => 'Raspored',
   'LBL_CUSTOM' => 'Prilagođen',
+  'LBL_CUSTOM_FIELDS' => '* polje kreirano u Studiju',
   'LBL_CUSTOM_MODULE' => 'Modul',
   'LBL_CUSTOM_RELATIONSHIPS' => '* veza kreirana u Studo-u',
   'LBL_DASHLET' => 'Sugar dašlet',
@@ -129,7 +119,9 @@ $mod_strings = array (
   'LBL_DEFAULT' => 'Podrazumevano',
   'LBL_DEFAULT_VALUE' => 'Podrazumevana vrednost',
   'LBL_DELETE' => 'Obriši',
+  'LBL_DEPENDANT' => 'Zavisno',
   'LBL_DEPENDENCY' => 'Zavisnost',
+  'LBL_DEPENDENT_DROPDOWN_HELP' => 'Prevucite opcije iz leve liste dostupnih opcija u listu sa desne strane kako bi ove opcije bile dostupne kad se odabere opcija roditelj. Ako opcija roditelj nema podopcija, kada je odabran, neće biti prikazan padajući meni sa podopcijama.',
   'LBL_DEPLOYE_COMPLETE' => 'Raspoređivanje završeno',
   'LBL_DEPLOY_FAILED' => 'Desila se greška tokom procesa raspoređivanja, Vaš paket se možda nije instalirao ispravno.',
   'LBL_DEPLOY_IN_PROGRESS' => 'Raspoređivanje paketa',
@@ -231,6 +223,7 @@ $mod_strings = array (
   'LBL_MODULES' => 'Moduli',
   'LBL_MODULE_DEPLOYED' => 'Modul je raspoređen.',
   'LBL_MODULE_NAME' => 'Naziv modula:',
+  'LBL_MODULE_NAME_SINGULAR' => 'Jedinstveno ime modula:',
   'LBL_MODULE_TITLE' => 'Studio',
   'LBL_MSUB' => 'Ovo je podpanel koji Vaš modul obezbeđuje za prikazivanje modulima sa kojima je u vezi',
   'LBL_MY_ACCOUNT' => 'Moj nalog',
@@ -260,9 +253,11 @@ $mod_strings = array (
   'LBL_POPHELP_DEPENDENT' => 'Kreira formulu da bi odredio da li je ovo polje vidljivo u rasporedima. Zavisna polja će pratiti zavisnost formule u mobilnom pogledu zasnovanom na browser-u.',
   'LBL_POPHELP_DUPLICATE_MERGE' => '<b>Omogućeno</b>: Polje će se pojaviti u funkciji Spoji duplikate, ali neće biti dostupno za korišćenje uslova filtriranja u funkciji Nađi duplikate.<br><b>Onemogućeno</b>: Polje se neće pojaviti u funkciji Spoji duplikate i neće biti dostupno za korišćenje uslova filtriranja u funkciji Nađi duplikate.<br><b>U Filteru</b>: Polje će se pojaviti u funkciji Spoji duplikate, i takođe će biti dostupno u funkciji Nađi duplikate.<br><b>Samo Filter</b>: Polje se neće pojaviti u funkciji Spoji duplikate, ali će biti dostupno u funkciji Nađi duplikate<br><b>Podrazumevano odabran Filter</b>: Polje će biti korišćeno za uslove filtriranja kao podrazumevano na strani Nađi duplikate, i takođe će se pojaviti u funkciji Spoji duplikate.',
   'LBL_POPHELP_FIELD_DATA_TYPE' => 'Izaberite odgovarajući tip podatka zasnovan na tipu podatka koji će biti unet u polje.',
+  'LBL_POPHELP_GLOBAL_SEARCH' => 'Odaberi da koristiš ovo polje pri pretrazi zapisa korišćenjem Globalne pretrage ovog modula',
   'LBL_POPHELP_IMAGE_HEIGHT' => 'Unesite broj za visinu, merenu u pikselima.<br> Učitana slika će biti smanjena prema ovoj visini.',
   'LBL_POPHELP_IMAGE_WIDTH' => 'Unesite broj za širinu, merenu u pikselima.<br> Učitana slika će biti smanjena prema ovoj širini.',
   'LBL_POPHELP_IMPORTABLE' => '<b>Da</b>: Polje će biti uključeno u operaciju uvoza.<br><b>Ne</b>: Polje neće biti uključeno u uvoz.<br><b>Zahtevano</b>: Vrednost polja mora biti uneta pri svakom uvozu.',
+  'LBL_POPHELP_SEARCHABLE' => 'Odaberi nivo povećanja vrednosti ovog polja.<br /><br />Polja sa većim nivoom imaće veću težinu prilikom pretrage.<br /><br />Priliko pretrage, zapisi koji sadrže polja sa većom vrednošću pojaviće se visoko u rezultatima pretrage.<br /><br />Ako promenite nivo povećanja vrednosti za polje sa jednog na drugi nivo, obavezno indeksirajte sistem kako bi promene bile primenjene.<br /><br />Budite sigurni da ste obrisali postojeće podatke u momentu kada radite indeksiranje sistema.',
   'LBL_POPHELP_VALIDATE_US_PHONE' => 'Odaberite da validirate ovo polje za unos na 10-ocifreni <br><br />telefonski broj, sa dozvolom za pozivni broj 1, i primenjen <br><br />na Američki format za telefonski broj kada je zapis <br><br />sačuvan. Biće primenjen sledeći format: (xxx) xxx-xxxx.',
   'LBL_POPUP' => 'Popup pregled',
   'LBL_POPUPLIST' => 'Pregled popup-a u vidu liste',
@@ -270,8 +265,21 @@ $mod_strings = array (
   'LBL_POPUPSEARCH' => 'Pretraga popup-a',
   'LBL_PORTAL' => 'Portal',
   'LBL_PORTALSITE' => 'URL Sugar portala:',
+  'LBL_PORTAL_APP_NAME' => 'Ime aplikacije',
+  'LBL_PORTAL_CONFIGURE' => 'Konfigurišite portal',
+  'LBL_PORTAL_DEFAULT_ASSIGN_USER' => 'Podrazumevano zadužen za nove registracije na portalu',
+  'LBL_PORTAL_DETAIL_NUMBER' => 'Broj polja koji će biti prikazani u okviru Detaljnog pregleda',
+  'LBL_PORTAL_DISABLED_MODULES' => 'Sledeći moduli su onemogućeni:',
+  'LBL_PORTAL_ENABLE' => 'Omogući',
+  'LBL_PORTAL_ENABLE_MODULES' => 'Ukoliko želite da ih ponovo omogućite u okviru portala, molimo omogućite ih <a id="configure_tabs" target="_blank" href="./index.php?module=Administration&amp;action=ConfigureTabs">ovde</a>.',
   'LBL_PORTAL_GO' => 'Idi',
   'LBL_PORTAL_LAYOUTS' => 'Izgled portala',
+  'LBL_PORTAL_LIST_NUMBER' => 'Broj zapisa koji će biti prikazan na listi',
+  'LBL_PORTAL_LOGO_URL' => 'URL logoa',
+  'LBL_PORTAL_ROLE_DESC' => 'Nemojte brisati ovu rolu. Uloga "Customer Self-Service Portal" je sistemski generisana uloga, nastala za vreme aktivacionog procesa Sugar Portala. Koristite kontrole pristupa u okviru ove uloge da omogućite ili onemogućite module za Bagove, Slučajeve i Bazu znanja u okviru Sugar portala. Nemojte modifikovati bilo koje druge kontrole pristupa za ovu ulogu kako biste izbegli nepredviđeno ponašanje sistema. U slučaju nenamernog brisanja ove uloge, ponovo je kreirate onemogućavanjem i ponovnim omogućavanjem Sugar portala.',
+  'LBL_PORTAL_SEARCH_RESULT_NUMBER' => 'Broj rezultata koji će bitui prikazan u globalnoj pretrai',
+  'LBL_PORTAL_SITE_URL' => 'Sajt Vašeg portala je dostupan na adresi:',
+  'LBL_PORTAL_THEME' => 'Portal sa temama',
   'LBL_POWERED_BY_SUGAR' => 'Powered By SugarCRM',
   'LBL_PRIORITY' => 'Prioritet:',
   'LBL_PUBLISHED' => 'Objavljen',
@@ -292,6 +300,7 @@ $mod_strings = array (
   'LBL_QUESTION_SUGAR_PORTAL' => 'Odaberite raspored Sugar portala koji želite da izmenite.',
   'LBL_QUICKCREATE' => 'Brzo kreiraj',
   'LBL_READ_ONLY' => 'Samo za čitanje',
+  'LBL_RELATED_FIELD' => 'Srodno polje',
   'LBL_RELATE_TO' => 'Poveži sa',
   'LBL_RELATIONSHIPS' => 'Veze',
   'LBL_RELATIONSHIP_EDIT' => 'Izmeni vezu',
@@ -357,6 +366,13 @@ $mod_strings = array (
   'LBL_SYNC_TO_DETAILVIEW' => 'Sinhornizacija Pregleda detalja',
   'LBL_SYNC_TO_DETAILVIEW_HELP' => 'Odaberite ovu opciju da bi ste sinhronizovali izgled Pregleda za izmenu sa izgledom odgovarajućeg Pregleda detalja. Polja i njihova mesta na Pregledu za izmenu će biti sinhronizovana i sačuvana automatski na Pregledu detalja kada se klikne na Sačuvaj ili Sačuvaj i rasporedi na Pregledu za izmenu. Promene izgleda neće biti moguće vršiti u Pregledu detalja.',
   'LBL_SYNC_TO_DETAILVIEW_NOTICE' => 'Ovaj Pregled detalja je sinhronizovan sa odgovarajućim Pregledom za izmenu. Polja i njihova mesta na ovom Pregledu detalja su odraz polja i njihovih mesta na Pregledu za izmenu. Promene na Pregledu detalja ne mogu da se sačuvaju ili rasporede unutar ove stranice. Napravite promene ili desinhronizujte izglede u Pregledu za izmenu.',
+  'LBL_TABDEF_COLLAPSE' => 'Sakrij',
+  'LBL_TABDEF_COLLAPSE_HELP' => 'Odaberi da podrazumevano stanje ovog panoa bude "sakriven".',
+  'LBL_TABDEF_TYPE' => 'Tip prikaza:',
+  'LBL_TABDEF_TYPE_HELP' => 'Odaberite kako će ova sekcija biti prikazana. Ova opcija je validna samo ukoliko ste omogućili tabove na ovom pogledu.',
+  'LBL_TABDEF_TYPE_OPTION_HELP' => 'Odaberite Pano da bi ovaj pano bio prikazan u okviru pogleda prikaza. Odaberite Tab da bi ovaj pano bio prikazan u odvojenom tabu u okviru prikaza. Kada je Tab određen za pano, u okviru njega će biti prikazani svi sledeći panoi. Novi tab će biti pokrenut za sledeći pano za koji je odabrana opcija Tab. Ako je opcija Tab odabrana za pano ispod prvog panoa, prvi pano će morati da bude Tab.',
+  'LBL_TABDEF_TYPE_OPTION_PANEL' => 'Pano',
+  'LBL_TABDEF_TYPE_OPTION_TAB' => 'Tab',
   'LBL_TAB_ORDER' => 'Redosled kartica',
   'LBL_TAB_PANELS' => 'Prikaži panele kao kartice',
   'LBL_TAB_PANELS_HELP' => 'Prikaži svaki panel na svojoj kartici umesto da se svi prikazuju na jednom ekranu',
@@ -371,11 +387,13 @@ $mod_strings = array (
   'LBL_TYPE_SALE' => 'prodaja',
   'LBL_UNDEFINED' => 'Nedefinisano',
   'LBL_UP_STYLE_SHEET' => 'Uvezi opis stila',
+  'LBL_USER_SELECT' => '-- Izaberi --',
   'LBL_VE_HIDDEN' => 'sakriven',
   'LBL_VE_VISIBLE' => 'vidljiv',
   'LBL_VIEW' => 'Pregled',
   'LBL_VIEW_SUGAR_BIN' => 'Pregled Sugar bin-a',
   'LBL_VIEW_SUGAR_FIELDS' => 'Pregled Sugar polja',
+  'LBL_VISIBILITY_EDITOR' => 'Uređivač vidljivosti',
   'LBL_WIDTH' => 'Širina',
   'LBL_WIRELESSDETAILVIEW' => 'Pregled detalja za mobilne uređaje',
   'LBL_WIRELESSEDITVIEW' => 'Pogled za izmenu za mobilne uređaje',
@@ -599,6 +617,10 @@ $mod_strings = array (
       'historyDefault' => 'Kliknite <b>Vrati podrazumevano</b> da vratite pogled na svoj prvobitni raspored.',
       'modify' => 'Sva polja koja mogu biti prikazana u <b>Pregledu u vidu listi</b> se pojavljuju ovde.<br><br><b>Podrazumevana</b> kolona sadrži polja koja su prikazana na pregledu u vidu listi. </Br></br><b>Skrivena</b> kolona sadrži polja koja se mogu dodati Podrazumevanoj ili Dostupnoj koloni. <br></br> <img src="themes/default/images/SugarLogic/icon_dependent.png"/> Ukazuje na Zavisno polje koje može ili ne može da se vidi na osnovu vrednosti formule </br><br> <img src="themes/default/images/SugarLogic/icon_calculated.png"/> Ukazuje na izračunato polje čija vrednost će biti automatski određena na osnovu formule.',
       'savebtn' => 'Kliknite <b>Sačuvaj & Rasporedi</b> da bi ste sačuvali promene koje ste napravili i da ih učinite aktivnim u modulu.',
+    ),
+    'portalConfig' => 
+    array (
+      'default' => 'Podrazumevano',
     ),
     'portalStyle' => 
     array (

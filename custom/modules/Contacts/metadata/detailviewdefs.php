@@ -58,6 +58,54 @@ array (
         ),
       ),
       'syncDetailEditViews' => true,
+      'tabDefs' => 
+      array (
+        'lbl_contact_information' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel5' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel2' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel4' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel7' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_panel_advanced' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel6' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel8' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel1' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -65,11 +113,19 @@ array (
       array (
         0 => 
         array (
-          0 => 
+         0 => 
           array (
-            'name' => 'first_name',
-            'comment' => 'First name of the contact',
-            'label' => 'LBL_FIRST_NAME',
+            'name' => 'full_name',
+            'label' => 'LBL_NAME',
+            'displayParams' => 
+            array (
+              'enableConnectors' => true,
+              'module' => 'Contacts',
+              'connectors' => 
+              array (
+                0 => 'ext_rest_twitter',
+              ),
+            ),
           ),
           1 => 
           array (
@@ -79,12 +135,6 @@ array (
         ),
         1 => 
         array (
-          0 => 
-          array (
-            'name' => 'last_name',
-            'comment' => 'Last name of the contact',
-            'label' => 'LBL_LAST_NAME',
-          ),
           1 => 
           array (
             'name' => 'assigned_user_name',
@@ -559,9 +609,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employer',
+            'name' => 'av_companies_name',
             'comment' => '',
-            'label' => 'LBL_EMPLOYER',
+            'label' => 'LBL_AV_COMPANIES_NAME',
           ),
           1 => 
           array (

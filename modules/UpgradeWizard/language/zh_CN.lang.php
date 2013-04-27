@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -156,6 +142,7 @@ $mod_strings = array (
   'LBL_UW_COMPLIANCE_PHP_INI' => 'php.ini位置',
   'LBL_UW_COMPLIANCE_PHP_VERSION' => '最低PHP版本',
   'LBL_UW_COMPLIANCE_SAFEMODE' => 'PHP设置：安全模式',
+  'LBL_UW_COMPLIANCE_STREAM' => 'PHP设置：Stream',
   'LBL_UW_COMPLIANCE_TITLE' => '服务器设置检查',
   'LBL_UW_COMPLIANCE_TITLE2' => '检查到的设置',
   'LBL_UW_COMPLIANCE_XML' => 'XML解析',
@@ -174,16 +161,7 @@ $mod_strings = array (
   'LBL_UW_DB_ISSUES' => '数据库问题',
   'LBL_UW_DB_ISSUES_PERMS' => '数据库权限',
   'LBL_UW_DB_METHOD' => '数据库更新方法',
-  'LBL_UW_DB_NO_ADD_COLUMN' => '修改表 [table] 添加列 [column]',
-  'LBL_UW_DB_NO_CHANGE_COLUMN' => '修改表 [table] 改变列 [column]',
-  'LBL_UW_DB_NO_CREATE' => '创建表 [table]',
-  'LBL_UW_DB_NO_DELETE' => '从表 [table]中删除',
-  'LBL_UW_DB_NO_DROP_COLUMN' => '删除表 [table] 删除列 [column]',
-  'LBL_UW_DB_NO_DROP_TABLE' => '删除表 [table]',
   'LBL_UW_DB_NO_ERRORS' => '所有权限有效',
-  'LBL_UW_DB_NO_INSERT' => '插入表 [table]',
-  'LBL_UW_DB_NO_SELECT' => '从 [table]中选择 [x]',
-  'LBL_UW_DB_NO_UPDATE' => '更新 [table]',
   'LBL_UW_DB_PERMS' => '必要权限',
   'LBL_UW_DESC_MODULES_INSTALLED' => '已安装的更新补丁：',
   'LBL_UW_DORP_THE_OLD_SCHMEA' => '您希望SugarCRM删除4.5.1不推荐的表结构吗？',

@@ -1,39 +1,18 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-/*********************************************************************************
-
- * Description:  TODO: To be written.
- * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
- * All Rights Reserved.
- * Contributor(s): ______________________________________..
- ********************************************************************************/
 require_once('include/phpmailer/class.phpmailer.php');
 require_once('include/OutboundEmail/OutboundEmail.php');
 
@@ -319,7 +298,9 @@ eoq;
 			} else {
 			    $mime_type = "image/".strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 			}
-		    $this->AddEmbeddedImage($file_location, $cid, $filename, 'base64', $mime_type);
+		    if (!$this->embeddedAttachmentExists($cid)) {
+		    	$this->AddEmbeddedImage($file_location, $cid, $filename, 'base64', $mime_type);
+		    }
 		    $i++;
         }
 		//replace references to cache with cid tag
@@ -327,27 +308,27 @@ eoq;
 		// remove bad img line from outbound email
 		$this->Body = preg_replace('#<img[^>]+src[^=]*=\"\/([^>]*?[^>]*)>#sim', '', $this->Body);
 	}
-
+	
 	/**
 	 * @param notes	array of note beans
 	 */
 	function handleAttachments($notes) {
 		global $sugar_config;
 
-        //replace references to cache/images with cid tag
-        $this->Body = str_replace(sugar_cached('images/'),'cid:',$this->Body);
-
-		if (empty($notes)) {
-				return;
-		}
 		// cn: bug 4864 - reusing same SugarPHPMailer class, need to clear attachments
 		$this->ClearAttachments();
+
+		//replace references to cache/images with cid tag
+        $this->Body = preg_replace(';=\s*"'.preg_quote(sugar_cached('images/'), ';').';','="cid:',$this->Body);
 
 		$this->replaceImageByRegex("(?:{$sugar_config['site_url']})?/?cache/images/", sugar_cached("images/"));
 
 		//Replace any embeded images using the secure entryPoint for src url.
 		$this->replaceImageByRegex("(?:{$sugar_config['site_url']})?index.php[?]entryPoint=download&(?:amp;)?[^\"]+?id=", "upload://", true);
 
+		if (empty($notes)) {
+				return;
+		}
 		//Handle regular attachments.
 		foreach($notes as $note) {
 				$mime_type = 'text/plain';
@@ -398,5 +379,38 @@ eoq;
 		}
 		return $connection;
 	} // fn
+
+    /*
+     * overloads PHPMailer::PreSend() to allow for empty messages to go out.
+     */
+    protected function PreSend() {
+        //check to see if message body is empty
+        if(empty($this->Body)){
+            //PHPMailer will throw an error if the body is empty, so insert a blank space if body is empty
+            $this->Body = " ";
+        }
+        return parent::PreSend();
+    }
+
+    /**
+     * Checks if the embedded file is already attached.
+     * @access protected
+     * @param string $filename Name of the file to check.
+     * @return boolean
+     */
+    protected function embeddedAttachmentExists($filename)
+    {
+        $result = false;
+        for ($i = 0; $i < count($this->attachment); $i++)
+        {
+            if ($this->attachment[$i][1] == $filename)
+            {
+                $result = true;
+                break;
+            }
+        }
+
+        return $result;
+    }
 
 } // end class definition

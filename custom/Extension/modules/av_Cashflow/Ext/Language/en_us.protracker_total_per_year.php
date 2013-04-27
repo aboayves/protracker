@@ -1,3 +1,3 @@
 <?php
-$mod_strings['LBL_TOTAL_PER_YEAR']='Total Per Year';
+$mod_strings['LBL_TOTAL_PER_YEAR']='Surplus';
 ?>

@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -298,7 +284,7 @@ abstract class DBManager
 	public function checkError($msg = '', $dieOnError = false)
 	{
 		if (empty($this->database)) {
-			$this->registerError("$msg: Database Is Not Connected", $dieOnError);
+			$this->registerError($msg, "Database Is Not Connected", $dieOnError);
 			return true;
 		}
 
@@ -410,6 +396,11 @@ abstract class DBManager
 	 */
 	protected function addDistinctClause(&$sql)
 	{
+	    preg_match("|^\w*(\w+)|i", $sql, $firstword);
+	    if(empty($firstword[1]) || strtolower($firstword[1]) != 'select') {
+	        // take first word of the query, if it's not SELECT - ignore it
+	        return;
+	    }
 		if(!empty($GLOBALS['sugar_config']['disable_count_query']) && (stripos($sql, 'count(*)') === false && stripos($sql, '(select tst.team_set_id from') !==false)){
 			if(stripos( $sql, 'UNION ALL') !== false){
 				$parts = explode('UNION ALL', $sql);
@@ -2446,8 +2437,9 @@ protected function checkQuery($sql, $object_name = false)
      * @param string $type Column type
      * @return array|bool array containing the different components of the passed in type or false in case the type contains illegal characters
      */
-    public function getTypeParts($type) {
-        if(preg_match("((?'type'\w+)\s*(?'arg'\((?'len'\w+)\s*(,\s*(?'scale'\d+))*\))*)", $type, $matches))
+    public function getTypeParts($type)
+    {
+        if(preg_match("#(?P<type>\w+)\s*(?P<arg>\((?P<len>\w+)\s*(,\s*(?P<scale>\d+))*\))*#", $type, $matches))
         {
             $return = array();  // Not returning matches array as such as we don't want to expose the regex make up on the interface
             $return['baseType'] = $matches['type'];
@@ -2508,10 +2500,20 @@ protected function checkQuery($sql, $object_name = false)
         }
 
         $default = '';
-		if (isset($fieldDef['default']) && strlen($fieldDef['default']) > 0)
-			$default = " DEFAULT ".$this->quoted($fieldDef['default']);
-		elseif (!isset($fieldDef['default']) && $type == 'bool')
-			$default = " DEFAULT 0 ";
+
+        // Bug #52610 We should have ability don't add DEFAULT part to query for boolean fields
+        if (!empty($fieldDef['no_default']))
+        {
+            // nothing to do
+        }
+        elseif (isset($fieldDef['default']) && strlen($fieldDef['default']) > 0)
+        {
+            $default = " DEFAULT ".$this->quoted($fieldDef['default']);
+        }
+        elseif (!isset($default) && $type == 'bool')
+        {
+            $default = " DEFAULT 0 ";
+        }
 
 		$auto_increment = '';
 		if(!empty($fieldDef['auto_increment']) && $fieldDef['auto_increment'])
@@ -2833,11 +2835,9 @@ protected function checkQuery($sql, $object_name = false)
 		$values['field_name']= $this->massageValue($changes['field_name'], $fieldDefs['field_name']);
 		$values['data_type'] = $this->massageValue($changes['data_type'], $fieldDefs['data_type']);
 		if ($changes['data_type']=='text') {
-			$bean->fetched_row[$changes['field_name']]=$changes['after'];;
 			$values['before_value_text'] = $this->massageValue($changes['before'], $fieldDefs['before_value_text']);
 			$values['after_value_text'] = $this->massageValue($changes['after'], $fieldDefs['after_value_text']);
 		} else {
-			$bean->fetched_row[$changes['field_name']]=$changes['after'];;
 			$values['before_value_string'] = $this->massageValue($changes['before'], $fieldDefs['before_value_string']);
 			$values['after_value_string'] = $this->massageValue($changes['after'], $fieldDefs['after_value_string']);
 		}
@@ -2863,63 +2863,97 @@ protected function checkQuery($sql, $object_name = false)
 	}
 
     /**
-     * Uses the audit enabled fields array to find fields whose value has changed.
+     * Finds fields whose value has changed.
      * The before and after values are stored in the bean.
-     * Uses $bean->fetched_row to compare
+     * Uses $bean->fetched_row && $bean->fetched_rel_row to compare
      *
      * @param SugarBean $bean Sugarbean instance that was changed
+     * @param array|null $field_filter Array of filter names to be inspected (NULL means all fields)
      * @return array
      */
-	public function getDataChanges(SugarBean &$bean)
+    public function getDataChanges(SugarBean &$bean, array $field_filter = null)
 	{
-		$changed_values=array();
-		$audit_fields=$bean->getAuditEnabledFieldDefinitions();
+        $changed_values=array();
 
-		if (is_array($audit_fields) and count($audit_fields) > 0) {
-			foreach ($audit_fields as $field=>$properties) {
-				if (!empty($bean->fetched_row) && array_key_exists($field, $bean->fetched_row)) {
-					$before_value=$bean->fetched_row[$field];
-					$after_value=$bean->$field;
-					if (isset($properties['type'])) {
-						$field_type=$properties['type'];
-					} else {
-						if (isset($properties['dbType']))
-							$field_type=$properties['dbType'];
-						else if(isset($properties['data_type']))
-							$field_type=$properties['data_type'];
-						else
-							$field_type=$properties['dbtype'];
-					}
+        $fetched_row = array();
+        if (is_array($bean->fetched_row))
+        {
+            $fetched_row = array_merge($bean->fetched_row, $bean->fetched_rel_row);
+        }
 
-					//Because of bug #25078(sqlserver haven't 'date' type, trim extra "00:00:00" when insert into *_cstm table).
-					// so when we read the audit datetime field from sqlserver, we have to replace the extra "00:00:00" again.
-					if(!empty($field_type) && $field_type == 'date'){
-						$before_value = $this->fromConvert($before_value , $field_type);
-					}
-					//if the type and values match, do nothing.
-					if (!($this->_emptyValue($before_value,$field_type) && $this->_emptyValue($after_value,$field_type))) {
-						if (trim($before_value) !== trim($after_value)) {
-                            // Bug #42475: Don't directly compare numeric values, instead do the subtract and see if the comparison comes out to be "close enough", it is necessary for floating point numbers.
-                            // Manual merge of fix 95727f2eed44852f1b6bce9a9eccbe065fe6249f from DBHelper
-                            // This fix also fixes Bug #44624 in a more generic way and therefore eliminates the need for fix 0a55125b281c4bee87eb347709af462715f33d2d in DBHelper
-							if (!($this->isNumericType($field_type) &&
-                                  abs(
-                                      2*((trim($before_value)+0)-(trim($after_value)+0))/((trim($before_value)+0)+(trim($after_value)+0)) // Using relative difference so that it also works for other numerical types besides currencies
-                                  )<0.0000000001)) {    // Smaller than 10E-10
-								if (!($this->isBooleanType($field_type) && ($this->_getBooleanValue($before_value)== $this->_getBooleanValue($after_value)))) {
-									$changed_values[$field]=array('field_name'=>$field,
-										'data_type'=>$field_type,
-										'before'=>$before_value,
-										'after'=>$after_value);
-								}
-							}
-						}
-					}
-				}
+        if ($fetched_row) {
+
+            $field_defs = $bean->field_defs;
+
+            if (is_array($field_filter)) {
+                $field_defs = array_intersect_key($field_defs, array_flip($field_filter));
+            }
+
+            // remove fields which do not present in fetched row
+            $field_defs = array_intersect_key($field_defs, $fetched_row);
+
+            // remove fields which do not exist as bean property
+            $field_defs = array_intersect_key($field_defs, (array) $bean);
+
+            foreach ($field_defs as $field => $properties) {
+                $before_value = $fetched_row[$field];
+                $after_value=$bean->$field;
+                if (isset($properties['type'])) {
+                    $field_type=$properties['type'];
+                } else {
+                    if (isset($properties['dbType'])) {
+                        $field_type=$properties['dbType'];
+                    }
+                    else if(isset($properties['data_type'])) {
+                        $field_type=$properties['data_type'];
+                    }
+                    else {
+                        $field_type=$properties['dbtype'];
+                    }
+                }
+
+                //Because of bug #25078(sqlserver haven't 'date' type, trim extra "00:00:00" when insert into *_cstm table).
+                // so when we read the audit datetime field from sqlserver, we have to replace the extra "00:00:00" again.
+                if(!empty($field_type) && $field_type == 'date'){
+                    $before_value = $this->fromConvert($before_value , $field_type);
+                }
+                //if the type and values match, do nothing.
+                if (!($this->_emptyValue($before_value,$field_type) && $this->_emptyValue($after_value,$field_type))) {
+                    if (trim($before_value) !== trim($after_value)) {
+                        // Bug #42475: Don't directly compare numeric values, instead do the subtract and see if the comparison comes out to be "close enough", it is necessary for floating point numbers.
+                        // Manual merge of fix 95727f2eed44852f1b6bce9a9eccbe065fe6249f from DBHelper
+                        // This fix also fixes Bug #44624 in a more generic way and therefore eliminates the need for fix 0a55125b281c4bee87eb347709af462715f33d2d in DBHelper
+                        if (!($this->isNumericType($field_type) &&
+                              abs(
+                                  2*((trim($before_value)+0)-(trim($after_value)+0))/((trim($before_value)+0)+(trim($after_value)+0)) // Using relative difference so that it also works for other numerical types besides currencies
+                              )<0.0000000001)) {    // Smaller than 10E-10
+                            if (!($this->isBooleanType($field_type) && ($this->_getBooleanValue($before_value)== $this->_getBooleanValue($after_value)))) {
+                                $changed_values[$field]=array('field_name'=>$field,
+                                    'data_type'=>$field_type,
+                                    'before'=>$before_value,
+                                    'after'=>$after_value);
+                            }
+                        }
+                    }
+                }
 			}
 		}
 		return $changed_values;
 	}
+
+    /**
+     * Uses the audit enabled fields array to find fields whose value has changed.
+     * The before and after values are stored in the bean.
+     * Uses $bean->fetched_row && $bean->fetched_rel_row to compare
+     *
+     * @param SugarBean $bean Sugarbean instance that was changed
+     * @return array
+     */
+    public function getAuditDataChanges(SugarBean $bean)
+    {
+        $audit_fields = $bean->getAuditEnabledFieldDefinitions();
+        return $this->getDataChanges($bean, array_keys($audit_fields));
+    }
 
 	/**
 	 * Setup FT indexing
@@ -3872,5 +3906,5 @@ protected function checkQuery($sql, $object_name = false)
      * @abstract
      * @return string
      */
-    abstract public function getGuidSQL();
+	abstract public function getGuidSQL();
 }

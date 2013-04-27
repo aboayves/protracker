@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -54,7 +40,7 @@ SUGAR.kb = function() {
         },
         displayNodeMessage:function() {
             document.getElementById('CreateNodeMessage').style.display = '';
-            document.getElementById('CreateNodeMessage').innerHTML = 'Please select a node';
+            document.getElementById('CreateNodeMessage').innerHTML = SUGAR.language.get('KBDocuments', 'LBL_SELECT_NODE');
 
             //document.getElementById('tags_search').type='hidden';
             // document.getElementById('search').type='hidden';
@@ -150,7 +136,7 @@ SUGAR.kb = function() {
             var root = tagsTree.getRoot();
             if (root != null && root.children.length > 0) {
                 document.getElementById('CreateNodeMessage').style.display = '';
-                document.getElementById('CreateNodeMessage').innerHTML = 'Please select a node';
+                document.getElementById('CreateNodeMessage').innerHTML = SUGAR.language.get('KBDocuments', 'LBL_SELECT_NODE');
                 document.getElementById('CreateNode').style.display = '';
                 document.getElementById('tag_base').checked = true;
                 document.getElementById('tagsCreate').style.display = '';
@@ -205,7 +191,7 @@ SUGAR.kb = function() {
         rootChecked:function() {
             if (document.getElementById('tag_base').checked == false) {
                 document.getElementById('CreateNodeMessage').style.display = '';
-                document.getElementById('CreateNodeMessage').innerHTML = 'Please select a node';
+                document.getElementById('CreateNodeMessage').innerHTML = SUGAR.language.get('KBDocuments', 'LBL_SELECT_NODE');
                 //document.getElementById('newSave').style.display='none';
                 //alert(document.getElementById('newSave').style.display);
                 //document.getElementById('tag_new').type='hidden';
@@ -1136,9 +1122,35 @@ SUGAR.kb = function() {
                 }, scope: myDialog, correctScope:true});
                 myDialog.cfg.queueProperty("keylisteners", listeners);
                 myDialog.show();
-                myDialog.center();
                 SUGAR.util.evalScript(result['body']);
                 window.setTimeout('ajaxStatus.hideStatus()', 1000);
+				
+				// Limits the height of tags tree so that the dialog never
+				// exceeds the window height and centers the dialog
+				YUI().use('node', function (Y) {
+					var viewPortHeight = parseInt(YAHOO.util.Dom.getViewportHeight(), 10);
+					var tree = Y.one('#tagstree');
+					var dialogTitleBar = Y.one('.yui-module .hd');
+					var dialogBody = Y.one('.yui-module .bd');
+					var search = Y.one('#searchAndCreate');
+
+					var titleBarHeight = parseInt(dialogTitleBar.getComputedStyle('height'), 10);
+					titleBarHeight += parseInt(dialogTitleBar.getComputedStyle('padding-top'), 10);
+					titleBarHeight += parseInt(dialogTitleBar.getComputedStyle('padding-bottom'), 10);
+
+					var searchHeight = parseInt(search.getComputedStyle('height'), 10);
+					searchHeight += parseInt(search.getComputedStyle('margin-top'), 10);
+					searchHeight += parseInt(search.getComputedStyle('margin-bottom'), 10);
+
+					var offset = parseInt(dialogBody.getComputedStyle('padding-top'), 10);
+					offset += parseInt(dialogBody.getComputedStyle('padding-bottom'), 10);
+					offset += 30; // various borders and free space
+
+					var maxHeight = viewPortHeight - titleBarHeight - searchHeight - offset;
+					tree.setStyle('max-height', maxHeight);
+					tree.setStyle('overflow', 'auto');
+					myDialog.center();
+				});
             }
             var postData = 'tagsMode=' + YAHOO.lang.JSON.stringify(selectCreateTags) + '&module=KBTags&action=SelectCreateApplyAndMoveTags&to_pdf=1';
             var callback = {success: fillInTags, failure: fillInTags};
@@ -2317,6 +2329,34 @@ SUGAR.kb = function() {
             } else {
                 document.location.href = url;
             }
+        },
+
+        //when called, this function will make ajax call to refresh list view sort order
+        sortBrowseList:function(params, name, query)
+        {
+            var params = YAHOO.lang.merge(params, {
+                "KBDocuments2_KBDOCUMENT_ORDER_BY" : name
+            });
+
+            //convert an object params to a string
+            var queryString = SUGAR.util.paramsToUrl(params);
+
+            if (query) {
+                queryString += '&query=' + query;
+            }
+
+            var callback =	{
+                //on success, refresh list
+                success: function(o) {
+                    var targetdiv=document.getElementById('selected_directory_children');
+                    targetdiv.innerHTML=o.responseText;
+                    SUGAR.util.evalScript(o.responseText);
+                },
+                //do nothing on failure
+                failure: function(o) {/*failure handler code*/}
+            };
+
+            YAHOO.util.Connect.asyncRequest('GET','index.php?' + queryString, callback);
         }
     }
 }();

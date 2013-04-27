@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -64,8 +50,12 @@ class LDAPAuthenticateUser extends SugarAuthenticateUser{
 		}
 		@ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
 		@ldap_set_option($ldapconn, LDAP_OPT_REFERRALS, 0); // required for AD
-
-
+		// If constant is defined, set the timeout (PHP >= 5.3)
+		if (defined('LDAP_OPT_NETWORK_TIMEOUT'))
+		{
+			// Network timeout, lower than PHP and DB timeouts
+			@ldap_set_option($ldapconn, LDAP_OPT_NETWORK_TIMEOUT, 60);
+		}
 
 		$bind_user = $this->ldap_rdn_lookup($name, $password);
 		$GLOBALS['log']->debug("ldapauth.ldap_authenticate_user: ldap_rdn_lookup returned bind_user=" . $bind_user);
@@ -77,17 +67,18 @@ class LDAPAuthenticateUser extends SugarAuthenticateUser{
 
 		// MRF - Bug #18578 - punctuation was being passed as HTML entities, i.e. &amp;
 		$bind_password = html_entity_decode($password,ENT_QUOTES);
-		$GLOBALS['log']->info("ldapauth: Binding user " . $bind_user);
 
+		$GLOBALS['log']->info("ldapauth: Binding user " . $bind_user);
 		$bind = ldap_bind($ldapconn, $bind_user, $bind_password);
-		 $error = ldap_errno($ldapconn);
-        if($this->loginError($error)){
-        		$GLOBALS['log']->fatal('[LDAP] ATTEMPTING BIND USING BASE DN PARAMS');
-				$bind = ldap_bind($ldapconn, $GLOBALS['ldap_config']->settings['ldap_bind_attr'] . "=" . $bind_user . "," . $GLOBALS['ldap_config']->settings['ldap_base_dn'], $bind_password);
-				$error = ldap_errno($ldapconn);
-				if($this->loginError($error)){
-        			return '';
-				}
+		$error = ldap_errno($ldapconn);
+		if($this->loginError($error)){
+			$full_user = $GLOBALS['ldap_config']->settings['ldap_bind_attr'] . "=" . $bind_user . "," . $GLOBALS['ldap_config']->settings['ldap_base_dn'];
+			$GLOBALS['log']->info("ldapauth: Binding user " . $full_user);
+			$bind = ldap_bind($ldapconn, $full_user, $bind_password);
+			$error = ldap_errno($ldapconn);
+			if($this->loginError($error)){
+				return '';
+			}
 		}
 
 		$GLOBALS['log']->info("ldapauth: Bind attempt complete.");
@@ -105,7 +96,7 @@ class LDAPAuthenticateUser extends SugarAuthenticateUser{
 				}
 			}
 
-			$GLOBALS['log']->debug("ldapauth: Fetching user info from Directory.");
+			$GLOBALS['log']->debug("ldapauth: Fetching user info from Directory using base dn: " . $base_dn . ", name_filter: " . $name_filter . ", attrs: " . var_export($attrs));
 			$result = @ldap_search($ldapconn, $base_dn, $name_filter, $attrs);
 			$error = ldap_errno($ldapconn);
 			 if($this->loginError($error)){
@@ -145,8 +136,21 @@ class LDAPAuthenticateUser extends SugarAuthenticateUser{
 				}else{
 					$user_uid = $info[0][$group_user_attr];
 				}
-				//user is not a member of the group if the count is zero get the logs and return no id so it fails login
-				if(!isset($user_uid[0]) || ldap_count_entries($ldapconn, ldap_search($ldapconn,$GLOBALS['ldap_config']->settings['ldap_group_name'] . ",". $GLOBALS['ldap_config']->settings['ldap_group_dn']  ,"($group_attr=" . $user_uid[0] . ")")) ==  0){
+
+				// build search query and determine if we are searching for a bare id or the full dn path
+				$group_name = $GLOBALS['ldap_config']->settings['ldap_group_name'] . "," . $GLOBALS['ldap_config']->settings['ldap_group_dn'];
+				$GLOBALS['log']->debug("ldapauth: Searching for group name: " . $group_name);
+				$user_search = "";
+				if(!empty($GLOBALS['ldap_config']->settings['ldap_group_attr_req_dn']) && $GLOBALS['ldap_config']->settings['ldap_group_attr_req_dn'] == 1) {
+					$GLOBALS['log']->debug("ldapauth: Checking for group membership using full user dn");
+					$user_search = "($group_attr=" . $group_user_attr . "=" . $user_uid[0] . "," . $base_dn . ")";
+				} else {
+					$user_search = "($group_attr=" . $user_uid[0] . ")";
+				}
+				$GLOBALS['log']->debug("ldapauth: Searching for user: " . $user_search);
+
+				//user is not a member of the group if the count is zero get the logs and return no id so it fails login        
+				if(!isset($user_uid[0]) || ldap_count_entries($ldapconn, ldap_search($ldapconn,$group_name, $user_search)) ==  0){
 					$GLOBALS['log']->fatal("ldapauth: User ($name) is not a member of the LDAP group");
 					$user_id = var_export($user_uid, true);
 					$GLOBALS['log']->debug("ldapauth: Group DN:{$GLOBALS['ldap_config']->settings['ldap_group_dn']} Group Name: " . $GLOBALS['ldap_config']->settings['ldap_group_name']  . " Group Attribute: $group_attr  User Attribute: $group_user_attr :(" . $user_uid[0] . ")");

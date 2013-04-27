@@ -1,103 +1,129 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-  'LBL_MODULE_NAME' => 'שיחות',
-  'LBL_MODULE_TITLE' => 'שיחות:דף הבית',
-  'LBL_SEARCH_FORM_TITLE' => 'חפש שיחת טלפון',
-  'LBL_LIST_FORM_TITLE' => 'רשימת שיחות טלפון',
-  'LBL_NEW_FORM_TITLE' => 'צור פגישה',
-  'LBL_LIST_CLOSE' => 'סגור',
-  'LBL_LIST_SUBJECT' => 'נושא',
-  'LBL_LIST_CONTACT' => 'איש קשר',
-  'LBL_LIST_RELATED_TO' => 'קשור אל',
-  'LBL_LIST_RELATED_TO_ID' => 'קשור אל ID',
-  'LBL_LIST_DATE' => 'תאריך התחלה',
-  'LBL_LIST_TIME' => 'שעת התחלה',
-  'LBL_LIST_DURATION' => 'משך',
-  'LBL_LIST_DIRECTION' => 'משך',
-  'LBL_SUBJECT' => 'בנושא',
-  'LBL_REMINDER' => 'תיזכורת',
+  'ERR_DELETE_RECORD' => 'למחיקת הרשומה יש לציין מספר רשומה',
+  'LBL_ACCEPT_LINK' => 'קבל קישור',
+  'LBL_ACCEPT_STATUS' => 'קבל סטאטוס',
+  'LBL_ACTIVITIES_REPORTS' => 'דוח פעילויות',
+  'LBL_ADD_BUTTON' => 'הוסף',
+  'LBL_ADD_INVITEE' => 'הוסף מוזמנים',
+  'LBL_ASSIGNED_TO_ID' => 'משתמש שהוקצה',
+  'LBL_ASSIGNED_TO_NAME' => 'הוקצה עבור',
+  'LBL_BLANK' => '-blank-',
+  'LBL_CALL' => 'שיחת טלפון',
+  'LBL_CALL_INFORMATION' => 'סקירה',
+  'LBL_CANCEL_CREATE_INVITEE' => 'בטל',
+  'LBL_COLON' => ':',
+  'LBL_CONTACTS_SUBPANEL_TITLE' => 'אנשי קשר',
   'LBL_CONTACT_NAME' => 'איש קשר',
-  'LBL_DESCRIPTION_INFORMATION' => 'תיאור המידע',
-  'LBL_DESCRIPTION' => 'תיאור',
-  'LBL_STATUS' => 'סטאטוס',
-  'LBL_DIRECTION' => 'הנחיות',
+  'LBL_CREATE_AND_ADD' => 'צור והוסף',
+  'LBL_CREATE_CONTACT' => 'כאיש קשר',
+  'LBL_CREATE_INVITEE' => 'צוק מוזמן',
+  'LBL_CREATE_LEAD' => 'כליד',
   'LBL_DATE' => 'תאריך התחלה',
+  'LBL_DATE_END' => 'מסתיים בתאריך',
+  'LBL_DATE_TIME' => 'תאריך ושעת התחלה',
+  'LBL_DEFAULT_SUBPANEL_TITLE' => 'שיחות',
+  'LBL_DEL' => 'מחק',
+  'LBL_DESCRIPTION' => 'תיאור',
+  'LBL_DESCRIPTION_INFORMATION' => 'תיאור המידע',
+  'LBL_DIRECTION' => 'הנחיות',
   'LBL_DURATION' => 'משך',
   'LBL_DURATION_HOURS' => 'משך בשעות',
   'LBL_DURATION_MINUTES' => 'משך בדקות',
+  'LBL_EMAIL' => 'דואר אלקטרוני',
+  'LBL_EMAIL_REMINDER' => 'תזכורת בדואר אלקטרוני',
+  'LBL_EMAIL_REMINDER_SENT' => 'תזכורת דואר נשלחה',
+  'LBL_EMAIL_REMINDER_TIME' => 'זמן תזכורת דואר אלקטרוני',
+  'LBL_EMPTY_SEARCH_RESULT' => 'מצטער לא נמאו תוצאות,אנא צור את המוזמן הרשום מטה',
+  'LBL_EXPORT_ASSIGNED_USER_ID' => 'הוקצה למשתמש ID',
+  'LBL_EXPORT_CREATED_BY' => 'נוצר על ידי ID',
+  'LBL_EXPORT_DATE_START' => 'תאריך וזמן התחלה',
+  'LBL_EXPORT_MODIFIED_USER_ID' => 'שונה על ידי ID',
+  'LBL_EXPORT_PARENT_TYPE' => 'קשור למודול',
+  'LBL_EXPORT_REMINDER_TIME' => 'זמן תזכורת (בדקות)',
+  'LBL_FIRST_NAME' => 'שם פרטי',
+  'LBL_HISTORY_SUBPANEL_TITLE' => 'פתקים',
+  'LBL_HOURS_ABBREV' => 'ש&#39;',
   'LBL_HOURS_MINUTES' => 'שעות/דקות',
-  'LBL_CALL' => 'שיחת טלפון',
-  'LBL_DATE_TIME' => 'תאריך ושעת התחלה',
+  'LBL_INVITEE' => 'מוזמנים',
+  'LBL_LAST_NAME' => 'שם משפחה',
+  'LBL_LEADS_SUBPANEL_TITLE' => 'לידים',
+  'LBL_LIST_ASSIGNED_TO_NAME' => 'הוקצה עבור',
+  'LBL_LIST_CLOSE' => 'סגור',
+  'LBL_LIST_CONTACT' => 'איש קשר',
+  'LBL_LIST_DATE' => 'תאריך התחלה',
+  'LBL_LIST_DIRECTION' => 'משך',
+  'LBL_LIST_DURATION' => 'משך',
+  'LBL_LIST_FORM_TITLE' => 'רשימת שיחות טלפון',
+  'LBL_LIST_MY_CALLS' => 'השיחות שלי',
+  'LBL_LIST_RELATED_TO' => 'קשור אל',
+  'LBL_LIST_RELATED_TO_ID' => 'קשור אל ID',
+  'LBL_LIST_SUBJECT' => 'נושא',
+  'LBL_LIST_TIME' => 'שעת התחלה',
+  'LBL_LOG_CALL' => 'יומן שיחה',
+  'LBL_MEMBER_OF' => 'חבר ב:',
+  'LBL_MINSS_ABBREV' => 'ד&#39;',
+  'LBL_MODULE_NAME' => 'שיחות',
+  'LBL_MODULE_TITLE' => 'שיחות:דף הבית',
+  'LBL_NAME' => 'שם',
+  'LBL_NEW_FORM_TITLE' => 'צור פגישה',
+  'LBL_NO_ACCESS' => 'אין לך גישה ליצירת $module',
+  'LBL_OUTLOOK_ID' => 'זהות אווטלוק',
+  'LBL_PARENT_ID' => 'זהות הורה:',
+  'LBL_PHONE' => 'טלפון',
+  'LBL_RECURRING_SOURCE' => 'התרחשות שנית של המקור',
+  'LBL_RELATED_TO' => 'קשור אל',
+  'LBL_REMINDER' => 'תיזכורת',
+  'LBL_REMINDER_EMAIL' => 'דואר אלקטרוני',
+  'LBL_REMINDER_POPUP' => 'הודעה קופצת',
+  'LBL_REMINDER_TIME' => 'התראה מראש',
+  'LBL_REMOVE' => 'הערה',
+  'LBL_REPEAT_COUNT' => 'מונה חזרות',
+  'LBL_REPEAT_DOW' => 'Repeat Dow',
+  'LBL_REPEAT_INTERVAL' => 'מרווחי זמן בין החזרות',
+  'LBL_REPEAT_PARENT_ID' => 'זהות הורה של החזרה',
+  'LBL_REPEAT_TYPE' => 'סוג חזרה',
+  'LBL_REPEAT_UNTIL' => 'חזור עד',
+  'LBL_SCHEDULING_FORM_TITLE' => 'תזמן',
+  'LBL_SEARCH_BUTTON' => 'חפש',
+  'LBL_SEARCH_FORM_TITLE' => 'חפש שיחת טלפון',
+  'LBL_SELECT_FROM_DROPDOWN' => 'אנא בצע בחירה התפריט הנגלל',
+  'LBL_SEND_BUTTON_KEY' => 'I',
+  'LBL_SEND_BUTTON_LABEL' => 'שלח הזמנה',
+  'LBL_SEND_BUTTON_TITLE' => 'שלח הזמנה',
+  'LBL_STATUS' => 'סטאטוס',
+  'LBL_SUBJECT' => 'בנושא',
+  'LBL_SYNCED_RECURRING_MSG' => 'This call originated in another system and was synced to Sugar. To make changes, go to the original call within the other system. Changes made in the other system can be synced to this record.',
   'LBL_TIME' => 'שעת התחלה',
-  'LBL_HOURS_ABBREV' => 'ש\'',
-  'LBL_MINSS_ABBREV' => 'ד\'',
-  'LBL_COLON' => ':',
-  'LBL_DEFAULT_STATUS' => 'מתוכנן',
-  'LNK_NEW_CALL' => 'יומן שיחה',
-  'LNK_NEW_MEETING' => 'פגישה מתוזמנת',
+  'LBL_TIME_END' => 'שעת סיום',
+  'LBL_USERS_SUBPANEL_TITLE' => 'משתמשים',
   'LNK_CALL_LIST' => 'צפייה בשיחות שהתקיימו',
   'LNK_IMPORT_CALLS' => 'ייבא שיחות',
-  'ERR_DELETE_RECORD' => 'למחיקת הרשומה יש לציין מספר רשומה',
-  'NTC_REMOVE_INVITEE' => 'האם אתה בטוח שברצונך להסיר את המוזמן הזה משיחת הטלפון',
-  'LBL_INVITEE' => 'מוזמנים',
-  'LBL_RELATED_TO' => 'קשור אל',
+  'LNK_NEW_ACCOUNT' => 'חשבון חדש',
   'LNK_NEW_APPOINTMENT' => 'צור הזדמנות',
-  'LBL_SCHEDULING_FORM_TITLE' => 'תזמן',
-  'LBL_ADD_INVITEE' => 'הוסף מוזמנים',
-  'LBL_NAME' => 'שם',
-  'LBL_FIRST_NAME' => 'שם פרטי',
-  'LBL_LAST_NAME' => 'שם משפחה',
-  'LBL_EMAIL' => 'דואר אלקטרוני',
-  'LBL_PHONE' => 'טלפון',
-  'LBL_SEND_BUTTON_TITLE' => 'שלח הזמנה',
-  'LBL_SEND_BUTTON_LABEL' => 'שלח הזמנה',
-  'LBL_DATE_END' => 'מסתיים בתאריך',
-  'LBL_TIME_END' => 'שעת סיום',
-  'LBL_REMINDER_TIME' => 'התראה מראש',
-  'LBL_SEARCH_BUTTON' => 'חפש',
+  'LNK_NEW_CALL' => 'יומן שיחה',
+  'LNK_NEW_MEETING' => 'פגישה מתוזמנת',
+  'LNK_NEW_OPPORTUNITY' => 'הזדמנות חדשה',
+  'LNK_SELECT_ACCOUNT' => 'בחר חשבון',
+  'NOTICE_DURATION_TIME' => 'משך זמן חייב להיות גדול מאפס',
+  'NTC_REMOVE_INVITEE' => 'האם אתה בטוח שברצונך להסיר את המוזמן הזה משיחת הטלפון',
 );
 

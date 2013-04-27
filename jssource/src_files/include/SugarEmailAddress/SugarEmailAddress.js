@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 (function() {
@@ -67,7 +53,7 @@
 		prefillEmailAddresses: function(tableId, o){
 			for (i = 0; i < o.length; i++) {
 				o[i].email_address = o[i].email_address.replace('&#039;', "'");
-				this.addEmailAddress(tableId, o[i].email_address, o[i].primary_address, o[i].reply_to_address, o[i].opt_out, o[i].invalid_email);
+				this.addEmailAddress(tableId, o[i].email_address, o[i].primary_address, o[i].reply_to_address, o[i].opt_out, o[i].invalid_email, o[i].email_address_id);
 			}
 		},
 		
@@ -198,7 +184,7 @@
 		    return false;
 		},//freezeEvent
 		
-		addEmailAddress : function (tableId, address, primaryFlag, replyToFlag, optOutFlag, invalidFlag) {
+		addEmailAddress : function (tableId, address, primaryFlag, replyToFlag, optOutFlag, invalidFlag, emailId) {
 			if (this.addInProgress)
 			    return;
 			this.addInProgress = true;
@@ -209,6 +195,7 @@
 		    var newContent = document.createElement("input");
 		    var nav = new String(navigator.appVersion);
 
+		    var newContentRecordId = document.createElement("input");
 		    var newContentPrimaryFlag = document.createElement("input");
 		    var newContentReplyToFlag = document.createElement("input");
 		    var newContentOptOutFlag = document.createElement("input");
@@ -253,14 +240,22 @@
 		    removeButton.setAttribute("id", this.id + "removeButton" + this.numberEmailAddresses);
 			removeButton.setAttribute("class", "id-ff-remove");
 		    removeButton.setAttribute("name", this.numberEmailAddresses);
-			removeButton.eaw = this;
+		    removeButton.setAttribute("type", "button");
             removeButton.setAttribute("tabindex", tabIndexCount);
-		    removeButton.onclick = function(){
-		    	this.eaw.removeEmailAddress(this.name);
-		    	return false;
-		    };
+            removeButton.onclick = (function(eaw) {
+                return function() {
+                    eaw.removeEmailAddress(this.name);
+                }
+            })(this);
             removeButton.appendChild(removeButtonImg);
 		    
+		    // set record id
+		    newContentRecordId.setAttribute("type", "hidden");
+		    newContentRecordId.setAttribute("name", this.id + "emailAddressId" + this.numberEmailAddresses);
+		    newContentRecordId.setAttribute("id", this.id + "emailAddressId" + this.numberEmailAddresses);
+		    newContentRecordId.setAttribute("value", typeof(emailId) != 'undefined' ? emailId : '');
+		    newContentRecordId.setAttribute("enabled", "true");
+
 		    // set primary flag
 		    newContentPrimaryFlag.setAttribute("type", "radio");
 		    newContentPrimaryFlag.setAttribute("name", this.id + "emailAddressPrimaryFlag");
@@ -352,6 +347,7 @@
 		    td6.setAttribute("align", "center");
 
 		    td1.appendChild(newContent);
+		    td1.appendChild(newContentRecordId);
 		    td1.appendChild(document.createTextNode(" "));
 		    spanNode = document.createElement('span');
 		    spanNode.innerHTML = '&nbsp;';
@@ -441,13 +437,10 @@
 
 		removeEmailAddress : function(index) {
 			removeFromValidate(this.emailView, this.id + 'emailAddress' + index);
-			var oNodeToRemove = $("#" + this.id +  'emailAddressRow' + index);
-            var form = oNodeToRemove.parents("form")[0];
-            oNodeToRemove.find("input").each(function(index, node){
-            	$(node).remove();
-            });
-            oNodeToRemove.css("display", "none");
-            
+            var oNodeToRemove = Dom.get(this.id +  'emailAddressRow' + index);
+            var form = Dom.getAncestorByTagName(oNodeToRemove, "form");
+            oNodeToRemove.parentNode.removeChild(oNodeToRemove);
+
             var removedIndex = parseInt(index);
             //If we are not deleting the last email address, we need to shift the numbering to fill the gap
             if(this.numberEmailAddresses != removedIndex) {

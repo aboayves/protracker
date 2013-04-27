@@ -2,30 +2,16 @@
 if (!defined('sugarEntry') || !sugarEntry)
     die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -34,8 +20,8 @@ if (!defined('sugarEntry') || !sugarEntry)
 $do_thousands = false;
 
 function template_chart(& $reporter, $chart_display_style, $is_dashlet = false, $id = '') {
-    $group_key = (isset($reporter->report_def['group_defs'][0]['table_key']) ? $reporter->report_def['group_defs'][0]['table_key'] : '') . 
-    ':' . 
+    $group_key = (isset($reporter->report_def['group_defs'][0]['table_key']) ? $reporter->report_def['group_defs'][0]['table_key'] : '') .
+    ':' .
     (isset($reporter->report_def['group_defs'][0]['name']) ?  $reporter->report_def['group_defs'][0]['name'] : '');
 
     if (!empty ($reporter->report_def['group_defs'][0]['qualifier'])) {
@@ -94,7 +80,7 @@ function get_row_remap(& $row, & $reporter) {
     }
     $row_remap['group_text'] = $group_text = (isset($reporter->chart_group_position) && !is_array($reporter->chart_group_position)) ? chop($row['cells'][$reporter->chart_group_position]['val']) : '';
     $row_remap['group_key'] = ((isset($reporter->chart_group_position) && !is_array($reporter->chart_group_position)) ? $row['cells'][$reporter->chart_group_position]['key'] : '');
-    $row_remap['count'] = $row['count'];
+    $row_remap['count'] = isset($row['count'])?$row['count']:'';
     $row_remap['group_label'] = ((isset($reporter->chart_group_position) && !is_array($reporter->chart_group_position)) ? $reporter->chart_header_row[$reporter->chart_group_position]['label'] : '');
     $row_remap['numerical_label'] = $reporter->chart_header_row[$reporter->chart_numerical_position]['label'];
     $row_remap['numerical_key'] = $reporter->chart_header_row[$reporter->chart_numerical_position]['column_key'];
@@ -115,6 +101,21 @@ function get_row_remap(& $row, & $reporter) {
     $row_remap['group_text'] = strip_tags($row_remap['group_text']);
     $row_remap['group_base_text'] = strip_tags($row_remap['group_base_text']);
     //end jclark fix
+
+    // Bug #54294: We should add currency symbol to row_remap
+    $row_remap['numerical_is_currency'] = false;
+    if (!empty($row['cells'][$reporter->chart_numerical_position]['key']))
+    {
+        $fieldKey = $row['cells'][$reporter->chart_numerical_position]['key'];
+        if (!empty($reporter->all_fields[$fieldKey]))
+        {
+            $fieldDef = $reporter->all_fields[$fieldKey];
+            if ($fieldDef['type'] == 'currency')
+            {
+                $row_remap['numerical_is_currency'] = true;
+            }
+        }
+    }
 
     return $row_remap;
 
@@ -293,7 +294,7 @@ function draw_chart(& $reporter, $chart_type, $is_dashlet=false, $id='', $report
 		$sugarChart = SugarChartFactory::getInstance('','Reports');
 
 		$sugarChart->setData($chart_rows);
-		$sugarChart->setProperties($chartTitle, '', $chartType);
+        $sugarChart->setProperties($chartTitle, '', $chartType, 'on', 'value', 'on', $do_thousands);
 
 		$xmlFile = get_cache_file_name($reporter);
 

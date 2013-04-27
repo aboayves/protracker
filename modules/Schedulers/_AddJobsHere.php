@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -60,6 +46,7 @@ $job_strings = array (
     9 => 'updateTrackerSessions',
     12 => 'sendEmailReminders',
     13 => 'performFullFTSIndex',
+    14 => 'cleanJobQueue',
 
 );
 
@@ -334,9 +321,9 @@ function pruneDatabase() {
 			while($aDel = $db->fetchByAssoc($rDel, false)) {
 				// build column names
 
-				$queryString[] = $db->insertParams($table, $columns, $rDel, null, false);
+				$queryString[] = $db->insertParams($table, $columns, $aDel, null, false);
 
-				if(!empty($custom_columns) && !empty($rDel['id'])) {
+				if(!empty($custom_columns) && !empty($aDel['id'])) {
                     $qDelCstm = 'SELECT * FROM '.$table.'_cstm WHERE id_c = '.$db->quoted($aDel['id']);
                     $rDelCstm = $db->query($qDelCstm);
 
@@ -422,29 +409,7 @@ function pollMonitoredInboxesForBouncedCampaignEmails() {
 		$ieX = new InboundEmail();
 		$ieX->retrieve($a['id']);
 		$ieX->connectMailserver();
-        $GLOBALS['log']->info("Bounced campaign scheduler connected to mail server id: {$a['id']} ");
-		$newMsgs = array();
-		if ($ieX->isPop3Protocol()) {
-			$newMsgs = $ieX->getPop3NewMessagesToDownload();
-		} else {
-			$newMsgs = $ieX->getNewMessageIds();
-		}
-
-		//$newMsgs = $ieX->getNewMessageIds();
-		if(is_array($newMsgs)) {
-			foreach($newMsgs as $k => $msgNo) {
-				$uid = $msgNo;
-				if ($ieX->isPop3Protocol()) {
-					$uid = $ieX->getUIDLForMessage($msgNo);
-				} else {
-					$uid = imap_uid($ieX->conn, $msgNo);
-				} // else
-                 $GLOBALS['log']->info("Bounced campaign scheduler will import message no: $msgNo");
-				$ieX->importOneEmail($msgNo, $uid, false,false);
-			}
-		}
-		imap_expunge($ieX->conn);
-		imap_close($ieX->conn);
+        $ieX->importMessages();
 	}
 
 	return true;
@@ -502,6 +467,26 @@ function performFullFTSIndex()
 }
 
 
+
+function cleanJobQueue($job)
+{
+    $td = TimeDate::getInstance();
+    // soft delete all jobs that are older than cutoff
+    $soft_cutoff = 7;
+    if(isset($GLOBALS['sugar_config']['jobs']['soft_lifetime'])) {
+        $soft_cutoff = $GLOBALS['sugar_config']['jobs']['soft_lifetime'];
+    }
+    $soft_cutoff_date = $job->db->quoted($td->getNow()->modify("- $soft_cutoff days")->asDb());
+    $job->db->query("UPDATE {$job->table_name} SET deleted=1 WHERE status='done' AND date_modified < ".$job->db->convert($soft_cutoff_date, 'datetime'));
+    // hard delete all jobs that are older than hard cutoff
+    $hard_cutoff = 21;
+    if(isset($GLOBALS['sugar_config']['jobs']['hard_lifetime'])) {
+        $hard_cutoff = $GLOBALS['sugar_config']['jobs']['hard_lifetime'];
+    }
+    $hard_cutoff_date = $job->db->quoted($td->getNow()->modify("- $hard_cutoff days")->asDb());
+    $job->db->query("DELETE FROM {$job->table_name} WHERE status='done' AND date_modified < ".$job->db->convert($hard_cutoff_date, 'datetime'));
+    return true;
+}
 
 if (file_exists('custom/modules/Schedulers/_AddJobsHere.php')) {
 	require('custom/modules/Schedulers/_AddJobsHere.php');

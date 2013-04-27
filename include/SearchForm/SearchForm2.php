@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -101,11 +87,11 @@ require_once('include/EditView/EditView2.php');
  		$this->view = $this->view.'_'.$displayView;
  		$tokens = explode('_', $this->displayView);
  		$this->parsedView = $tokens[0];
+                $this->searchFields = $searchFields[$this->module];
  		if($this->displayView != 'saved_views'){
  			$this->_build_field_defs();
  		}
 
-        $this->searchFields = $searchFields[$this->module];
 
         // Setup the tab array.
         $this->tabs = array();
@@ -395,9 +381,13 @@ require_once('include/EditView/EditView2.php');
 	                // fill in enums
                     $this->fieldDefs[$fvName]['options'] = $GLOBALS['app_list_strings'][$this->fieldDefs[$fvName]['options']];
                     //Hack to add blanks for parent types on search views
-                    if ($this->fieldDefs[$fvName]['type'] == "parent_type" || $this->fieldDefs[$fvName]['type'] == "parent")
+                    //53131 - add blank option for SearchField options with def 'options_add_blank' set to true
+                    if ($this->fieldDefs[$fvName]['type'] == "parent_type" || $this->fieldDefs[$fvName]['type'] == "parent" || (isset($this->searchFields[$name]['options_add_blank']) && $this->searchFields[$name]['options_add_blank']) )
                     {
-                        $this->fieldDefs[$fvName]['options'] = array_merge(array(""=>""), $this->fieldDefs[$fvName]['options']);
+                        if (!array_key_exists('', $this->fieldDefs[$fvName]['options'])) {
+                            $this->fieldDefs[$fvName]['options'] =
+                                array('' => '') + $this->fieldDefs[$fvName]['options'];
+                        }
                     }
 	            }
 
@@ -1036,36 +1026,45 @@ require_once('include/EditView/EditView2.php');
                                  break;
 
                              case 'like':
-                                 if($type == 'bool' && $field_value == 0) {
+                                 if($type == 'bool' && $field_value == 0)
+                                 {
                                      // Bug 43452 - FG - Added parenthesis surrounding the OR (without them the WHERE clause would be broken)
                                      $where .=  "( " . $db_field . " = '0' OR " . $db_field . " IS NULL )";
                                  }
-                                 else {
-                                     //check to see if this is coming from unified search or not
+                                 else
+                                 {
+                                     // check to see if this is coming from unified search or not
                                      $UnifiedSearch = !empty($parms['force_unifiedsearch']);
                                      if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'UnifiedSearch'){
                                          $UnifiedSearch = true;
                                      }
-
-                                     //check to see if this is a universal search OR the field has db_concat_fields set in vardefs, AND the field name is "last_name"
-                                     //BUG 45709: Tasks Advanced Search: Contact Name field does not return matches on full names
-                                     //Frank: Adding Surabhi's fix back which seem to have gone missing in CottonCandy merge
-                                     if(($UnifiedSearch || !empty($this->seed->field_name_map[$field]['db_concat_fields'])) && strpos($db_field, 'last_name') !== false){
-                                         //split the string value, and the db field name
-                                         $string = explode(' ', $field_value);
-                                         $column_name =  explode('.', $db_field);
-                                         //when a search is done with a space, we concatenate and search against the full name.
-                                         if(count($string)>1){
-                                             //add where clause against concatenated fields
-                                             $where .= $this->seed->db->concat($column_name[0],array('first_name','last_name')) . " LIKE ".$this->seed->db->quoted('%'.$field_value.'%');
-                                             $where .= ' OR ' . $this->seed->db->concat($column_name[0],array('last_name','first_name')) . " LIKE ".$this->seed->db->quoted($field_value.'%');
-                                         }else{
-                                             //no space was found, add normal where clause
-                                             $where .=  $db_field . " like ".$this->seed->db->quoted(sql_like_string('%'.$field_value, $like_char));
+                                     
+                                     // If it is a unified search and if the search contains more then 1 word (contains space)
+                                     // and if it's the last element from db_field (so we do the concat only once, not for every db_field element)
+                                     // we concat the db_field array() (both original, and in reverse order) and search for the whole string in it  
+                                     if ( $UnifiedSearch && strpos($field_value, ' ') !== false && strpos($db_field, $parms['db_field'][count($parms['db_field']) - 1]) !== false )
+                                     {
+                                         // Get the table name used for concat
+                                         $concat_table = explode('.', $db_field);
+                                         $concat_table = $concat_table[0];
+                                         // Get the fields for concatenating
+                                         $concat_fields = $parms['db_field'];
+                                         
+                                         // If db_fields (e.g. contacts.first_name) contain table name, need to remove it
+                                         for ($i = 0; $i < count($concat_fields); $i++)
+                                         {
+                                         	if (strpos($concat_fields[$i], $concat_table) !== false)
+                                         	{
+                                         		$concat_fields[$i] = substr($concat_fields[$i], strlen($concat_table) + 1);
+                                         	}
                                          }
-
-                                     }else {
-
+                                         
+                                         // Concat the fields and search for the value
+                                         $where .= $this->seed->db->concat($concat_table, $concat_fields) . " LIKE " . $this->seed->db->quoted($field_value . $like_char);
+                                         $where .= ' OR ' . $this->seed->db->concat($concat_table, array_reverse($concat_fields)) . " LIKE " . $this->seed->db->quoted($field_value . $like_char);
+                                     }
+                                     else
+                                     {
                                          //Check if this is a first_name, last_name search
                                          if(isset($this->seed->field_name_map) && isset($this->seed->field_name_map[$db_field]))
                                          {

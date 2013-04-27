@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('include/SugarObjects/templates/basic/Basic.php');
@@ -46,14 +32,13 @@ class Company extends Basic
  	{
  	    if(!empty($GLOBALS['resavingRelatedBeans']))
  	    {
- 	        parent::save($check_notify);
- 	        return $this;
+ 	        return parent::save($check_notify);
  	    } 	    
 		$this->add_address_streets('billing_address_street');
 		$this->add_address_streets('shipping_address_street');
-        $ori_in_workflow = empty($this->in_workflow) ? false : true;
+    	$ori_in_workflow = empty($this->in_workflow) ? false : true;
 		$this->emailAddress->handleLegacySave($this, $this->module_dir);
-        parent::save($check_notify);
+    	$record_id = parent::save($check_notify);
         $override_email = array();
         if(!empty($this->email1_set_in_workflow)) {
             $override_email['emailAddress0'] = $this->email1_set_in_workflow;
@@ -67,7 +52,7 @@ class Company extends Basic
         if($ori_in_workflow === false || !empty($override_email)){
             $this->emailAddress->save($this->id, $this->module_dir, $override_email,'','','','',$this->in_workflow);
         }
-		return $this;
+		return $record_id;
 	}
 	
  	/**
@@ -88,9 +73,21 @@ class Company extends Basic
 	{	
 		global $system_config;
 		global $current_user;
+
 		$temp_array = $this->get_list_view_array();
+
 		$temp_array['EMAIL1'] = $this->emailAddress->getPrimaryAddress($this);
+
+        // Fill in the email1 field only if the user has access to it
+        // This is a special case, because getEmailLink() uses email1 field for making the link
+        // Otherwise get_list_view_data() shouldn't set any fields except fill the template data
+        if (ACLField::hasAccess('email1', $this->module_dir, $GLOBALS['current_user']->id, $this->isOwner($GLOBALS['current_user']->id)))
+        {
+            $this->email1 = $temp_array['EMAIL1'];
+        }
+
 		$temp_array['EMAIL1_LINK'] = $current_user->getEmailLink('email1', $this, '', '', 'ListView');
+
 		return $temp_array;
 	}
 }

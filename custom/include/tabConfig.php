@@ -20,8 +20,7 @@ $GLOBALS['tabStructure'] = array (
       2 => 'Leads',
       3 => 'Prospects',
       4 => 'ProspectLists',
-      5 => 'Quotes',
-      6 => 'Products',
+      5 => 'Products',
     ),
   ),
   'LBL_TABGROUP_RELATED' => 
@@ -143,9 +142,25 @@ $GLOBALS['tabStructure'] = array (
     'label' => 'LBL_TABGROUP_BILLING',
     'modules' => 
     array (
-      0 => 'Quotes',
-      1 => 'Contracts',
-      2 => 'av_Payments',
+      0 => 'Contracts',
+      1 => 'av_Payments',
+	  2 => 'Quotes',
+    ),
+  ),
+  'LBL_GROUPTAB14_1365431809' => 
+  array (
+    'label' => 'LBL_GROUPTAB14_1365431809',
+    'modules' => 
+    array (
+      0 => 'av_Companies',
+    ),
+  ),
+  'LBL_GROUPTAB15_1365431809' => 
+  array (
+    'label' => 'LBL_GROUPTAB15_1365431809',
+    'modules' => 
+    array (
+      0 => 'av_Households',
     ),
   ),
 );

@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -259,7 +245,7 @@ class ModuleInstaller{
 	function install_copy(){
 		if(isset($this->installdefs['copy'])){
 			/* BEGIN - RESTORE POINT - by MR. MILK August 31, 2005 02:22:11 PM */
-			$backup_path = clean_path( remove_file_extension(urldecode(hashToFile($_REQUEST['install_file'])))."-restore" );
+			$backup_path = clean_path( remove_file_extension(urldecode($_REQUEST['install_file']))."-restore" );
 			/* END - RESTORE POINT - by MR. MILK August 31, 2005 02:22:18 PM */
 			foreach($this->installdefs['copy'] as $cp){
 				$GLOBALS['log']->debug("Copying ..." . $cp['from'].  " to " .$cp['to'] );
@@ -526,7 +512,155 @@ class ModuleInstaller{
 		}
     }
 
-	public function install_extensions()
+    /**
+     * Method removes module from global search configurations
+     *
+     * return bool
+     */
+    public function uninstall_global_search()
+    {
+        if (empty($this->installdefs['beans']))
+        {
+            return true;
+        }
+
+        if (is_file('custom/modules/unified_search_modules_display.php') == false)
+        {
+            return true;
+        }
+
+        $user = new User();
+        $users = get_user_array();
+        $unified_search_modules_display = array();
+        require('custom/modules/unified_search_modules_display.php');
+
+        foreach($this->installdefs['beans'] as $beanDefs)
+        {
+            if (array_key_exists($beanDefs['module'], $unified_search_modules_display) == false)
+            {
+                continue;
+            }
+            unset($unified_search_modules_display[$beanDefs['module']]);
+            foreach($users as $userId => $userName)
+            {
+                if (empty($userId))
+                {
+                    continue;
+                }
+                $user->retrieve($userId);
+                $prefs = $user->getPreference('globalSearch', 'search');
+                if (array_key_exists($beanDefs['module'], $prefs) == false)
+                {
+                    continue;
+                }
+                unset($prefs[$beanDefs['module']]);
+                $user->setPreference('globalSearch', $prefs, 0, 'search');
+                $user->savePreferencesToDB();
+            }
+        }
+
+        if (write_array_to_file("unified_search_modules_display", $unified_search_modules_display, 'custom/modules/unified_search_modules_display.php') == false)
+        {
+            global $app_strings;
+            $msg = string_format($app_strings['ERR_FILE_WRITE'], array('custom/modules/unified_search_modules_display.php'));
+            $GLOBALS['log']->error($msg);
+            throw new Exception($msg);
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Method enables module in global search configurations by disabled_module_visible key
+     *
+     * return bool
+     */
+    public function enable_global_search()
+    {
+        if (empty($this->installdefs['beans']))
+        {
+            return true;
+        }
+
+        if (is_file('custom/modules/unified_search_modules_display.php') == false)
+        {
+            return true;
+        }
+
+        $unified_search_modules_display = array();
+        require('custom/modules/unified_search_modules_display.php');
+
+        foreach($this->installdefs['beans'] as $beanDefs)
+        {
+            if (array_key_exists($beanDefs['module'], $unified_search_modules_display) == false)
+            {
+                continue;
+            }
+            if (isset($unified_search_modules_display[$beanDefs['module']]['disabled_module_visible']) == false)
+            {
+                continue;
+            }
+            $unified_search_modules_display[$beanDefs['module']]['visible'] = $unified_search_modules_display[$beanDefs['module']]['disabled_module_visible'];
+            unset($unified_search_modules_display[$beanDefs['module']]['disabled_module_visible']);
+        }
+
+        if (write_array_to_file("unified_search_modules_display", $unified_search_modules_display, 'custom/modules/unified_search_modules_display.php') == false)
+        {
+            global $app_strings;
+            $msg = string_format($app_strings['ERR_FILE_WRITE'], array('custom/modules/unified_search_modules_display.php'));
+            $GLOBALS['log']->error($msg);
+            throw new Exception($msg);
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Method disables module in global search configurations by disabled_module_visible key
+     *
+     * return bool
+     */
+    public function disable_global_search()
+    {
+        if (empty($this->installdefs['beans']))
+        {
+            return true;
+        }
+
+        if (is_file('custom/modules/unified_search_modules_display.php') == false)
+        {
+            return true;
+        }
+
+        $unified_search_modules_display = array();
+        require('custom/modules/unified_search_modules_display.php');
+
+        foreach($this->installdefs['beans'] as $beanDefs)
+        {
+            if (array_key_exists($beanDefs['module'], $unified_search_modules_display) == false)
+            {
+                continue;
+            }
+            if (isset($unified_search_modules_display[$beanDefs['module']]['visible']) == false)
+            {
+                continue;
+            }
+            $unified_search_modules_display[$beanDefs['module']]['disabled_module_visible'] = $unified_search_modules_display[$beanDefs['module']]['visible'];
+            $unified_search_modules_display[$beanDefs['module']]['visible'] = false;
+        }
+
+        if (write_array_to_file("unified_search_modules_display", $unified_search_modules_display, 'custom/modules/unified_search_modules_display.php') == false)
+        {
+            global $app_strings;
+            $msg = string_format($app_strings['ERR_FILE_WRITE'], array('custom/modules/unified_search_modules_display.php'));
+            $GLOBALS['log']->error($msg);
+            throw new Exception($msg);
+            return false;
+        }
+        return true;
+    }
+
+    public function install_extensions()
 	{
 	    foreach($this->extensions as $extname => $ext) {
 	        $install = "install_$extname";
@@ -1320,6 +1454,7 @@ class ModuleInstaller{
 			'uninstall_connectors',
 			'uninstall_layoutfields',
 		    'uninstall_extensions',
+            'uninstall_global_search',
 			'disable_manifest_logichooks',
 			'post_uninstall',
 		);
@@ -1875,6 +2010,7 @@ private function dir_file_count($path){
 								'enable_dashlets',
 								'enable_relationships',
 		                        'enable_extensions',
+                                'enable_global_search',
 		                        'enable_manifest_logichooks',
 								'reset_opcodes',
 		);
@@ -1944,6 +2080,7 @@ private function dir_file_count($path){
 							'disable_dashlets',
 							'disable_relationships',
 		                    'disable_extensions',
+                            'disable_global_search',
 							'disable_manifest_logichooks',
 							'reset_opcodes',
 							);

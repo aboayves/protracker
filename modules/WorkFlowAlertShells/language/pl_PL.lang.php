@@ -3,82 +3,70 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_NEW_BUTTON_KEY_ALERT' => 'A',
-  'LBL_NEW_BUTTON_KEY_ACTION' => 'C',
-  'LBL_MODULE_NAME' => 'Alerty',
-  'LBL_MODULE_TITLE' => 'Alerty: Strona główna',
-  'LBL_MODULE_SECTION_TITLE' => 'Te operacje będą wykonane',
-  'LBL_SEARCH_FORM_TITLE' => 'Wyszukiwanie alertów Workflow',
-  'LBL_LIST_FORM_TITLE' => 'Lista alertów',
-  'LBL_NEW_FORM_TITLE' => 'Utwórz alert Workflow',
-  'LBL_LIST_NAME' => 'Nazwa',
-  'LBL_LIST_ALERT_TYPE' => 'Typ alertu',
-  'LBL_LIST_ALERT_TEXT' => 'Wiadomość alertu',
-  'LBL_CUSTOM_TEMPLATE_NAME' => 'Niestandardowy szablon',
-  'LBL_NAME' => 'Nazwa:',
+  'ERR_DELETE_RECORD' => 'Musisz podać numer rekordu, żeby usunąć ten produkt.',
+  'LBL_ALERT_ERRORS' => 'Uwaga: jeden lub wiele alertów zawiera błędy',
   'LBL_ALERT_TEXT' => 'Tekst alertu:',
   'LBL_ALERT_TYPE' => 'Typ alertu:',
-  'LBL_SOURCE_TYPE' => 'Typ źródła:',
-  'LBL_LIST_TYPE' => 'Typ:',
+  'LBL_ALL_REPORTS' => 'Wszystkie raporty',
+  'LBL_CUSTOM_TEMPLATE_NAME' => 'Własny szablon',
+  'LBL_LIST_ALERT_TEXT' => 'Komunikat alertu',
+  'LBL_LIST_ALERT_TYPE' => 'Typ alertu',
+  'LBL_LIST_COMPONENTS' => 'Komponenty',
   'LBL_LIST_DETAILS' => 'Szczegóły',
-  'LNK_NEW_WORKFLOW' => 'Utwórz definicję Workflow',
-  'LNK_WORKFLOW' => 'Wymień definicje Workflow',
-  'LBL_PARENT_WORKFLOW' => 'Obiekt nadrzędny Workflow',
-  'LBL_RETURN_TO_WORKFLOW' => 'Wróć do definicji Workflow',
-  'NTC_REMOVE_ALERT' => 'Czy na pewno chcesz usunąć ten alert i jego wszystkich odbiorców?',
+  'LBL_LIST_FORM_TITLE' => 'Alerty',
+  'LBL_LIST_NAME' => 'Nazwa',
   'LBL_LIST_STATEMENT' => 'Opis zdarzenia:',
-  'STATEMENT_PART1' => 'Wyślij',
-  'STATEMENT_PART2' => 'używając',
-  'LNK_LIST_REPORTMAKER' => 'Lista raportów',
-  'LNK_NEW_REPORTMAKER' => 'Utwórz nowy raport',
+  'LBL_LIST_TYPE' => 'Typ:',
+  'LBL_MODULE_NAME' => 'Alerty',
+  'LBL_MODULE_NAME_COMBO' => 'Alerty',
+  'LBL_MODULE_NAME_SINGULAR' => 'Alert',
+  'LBL_MODULE_NAME_SINGULAR_COMBO' => 'Alert',
+  'LBL_MODULE_SECTION_TITLE' => 'Te alerty zostaną wysłane',
+  'LBL_MODULE_TITLE' => 'Alerty: Strona główna',
+  'LBL_MODULE_TITLE_INVITE' => 'Zaproś uczestników',
+  'LBL_NAME' => 'Nazwa:',
+  'LBL_NEW_BUTTON_KEY_ACTION' => 'C',
+  'LBL_NEW_BUTTON_KEY_ALERT' => 'A',
+  'LBL_NEW_BUTTON_LABEL_ACTION' => 'Utwórz akcję',
+  'LBL_NEW_BUTTON_LABEL_ALERT' => 'Utwórz alert',
+  'LBL_NEW_BUTTON_TITLE_ACTION' => 'Utwórz akcję [Alt+C]',
+  'LBL_NEW_BUTTON_TITLE_ALERT' => 'Utwórz alert [Alt+A]',
+  'LBL_NEW_FORM_TITLE' => 'Utwórz alert Workflow',
+  'LBL_PARENT_WORKFLOW' => 'Obiekty nadrzędne Workflow:',
+  'LBL_RECIPIENTS' => 'Odbiorcy',
+  'LBL_RECIPIENT_ERROR' => 'Ten odbiorca nie może zostać dodany.',
+  'LBL_RETURN_TO_WORKFLOW' => 'Wróć do definicji Workflow',
+  'LBL_SEARCH_FORM_TITLE' => 'Wyszukaj alert Workflow',
+  'LBL_SHOW' => 'Pokaż',
+  'LBL_SOURCE_TYPE' => 'Typ źródła:',
+  'LNK_ALERT_TEMPLATES' => 'Szablony powiadomień',
   'LNK_LIST_DATASET' => 'Lista zestawów danych',
+  'LNK_LIST_REPORTMAKER' => 'Lista raportów',
   'LNK_NEW_DATASET' => 'Utwórz zestaw danych',
   'LNK_NEW_QUERYBUILDER' => 'Utwórz zapytanie',
+  'LNK_NEW_REPORTMAKER' => 'Utwórz nowy raport',
+  'LNK_NEW_WORKFLOW' => 'Utwórz definicję Workflow',
+  'LNK_PROCESS_VIEW' => 'Workflow - kolejność działań',
   'LNK_QUERYBUILDER' => 'Kreator zapytań',
-  'LBL_ALL_REPORTS' => 'Wszystkie raporty',
+  'LNK_WORKFLOW' => 'Lista definicji Workflow',
   'NTC_DELETE_CONFIRMATION' => 'Czy na pewno chcesz usunąć ten rekord?',
-  'ERR_DELETE_RECORD' => 'Numer rekordu musi być określony, aby usunąć produkt.',
-  'LBL_NEW_BUTTON_LABEL_ALERT' => 'Utwórz alert',
-  'LBL_NEW_BUTTON_TITLE_ALERT' => 'Utwórz alert [Alt+A]',
-  'LBL_NEW_BUTTON_LABEL_ACTION' => 'Utwórz akcję',
-  'LBL_NEW_BUTTON_TITLE_ACTION' => 'Utwórz akcję [Alt+C]',
-  'LBL_MODULE_NAME_COMBO' => 'Alerty',
-  'LNK_ALERT_TEMPLATES' => 'Szablony alertów',
-  'LNK_PROCESS_VIEW' => 'Kolejność realizacji Workflow',
-  'LBL_LIST_COMPONENTS' => 'Komponenty',
-  'LBL_RECIPIENTS' => 'Odbiorcy',
-  'LBL_MODULE_TITLE_INVITE' => 'Zaproś osoby',
-  'LBL_SHOW' => 'Pokaż',
-  'LBL_RECIPIENT_ERROR' => 'ten odbiorca zawiera błędy i nie może być użyty.',
-  'LBL_ALERT_ERRORS' => 'Zawiadomienie: Jeden lub więcej alertów poniżej zawiera błędy.',
+  'NTC_REMOVE_ALERT' => 'Czy na pewno chcesz usunąć ten alert i wszystkich jego adresatów?',
+  'STATEMENT_PART1' => 'Wyślij',
+  'STATEMENT_PART2' => 'używając',
 );
 

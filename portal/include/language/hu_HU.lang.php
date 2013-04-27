@@ -1,622 +1,223 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
-$app_strings = array (
-  'LBL_ACCUMULATED_HISTORY_BUTTON_KEY' => 'H',
-  'LBL_ADD_BUTTON_KEY' => 'A',
-  'LBL_ADD_TO_PROSPECT_LIST_BUTTON_KEY' => 'L',
-  'LBL_ALT_HOT_KEY' => 'Alt+',
-  'LBL_CANCEL_BUTTON_KEY' => 'X',
-  'LBL_CHANGE_BUTTON_KEY' => 'G',
-  'LBL_CHARSET' => 'UTF-8',
-  'LBL_CLEAR_BUTTON_KEY' => 'C',
-  'LBL_CLOSEALL_BUTTON_KEY' => 'Q',
-  'LBL_COMPOSE_EMAIL_BUTTON_KEY' => 'L',
-  'LBL_DELETE_BUTTON_KEY' => 'D',
-  'LBL_DONE_BUTTON_KEY' => 'X',
-  'LBL_DUPLICATE_BUTTON_KEY' => 'U',
-  'LBL_EDIT_BUTTON_KEY' => 'E',
-  'LBL_VIEW_BUTTON_KEY' => 'V',
-  'LBL_EMAIL_PDF_BUTTON_KEY' => 'M',
-  'LBL_EXPORT' => 'Export',
-  'LBL_LOCALE_NAME_EXAMPLE_FIRST' => 'John',
-  'LBL_LOCALE_NAME_EXAMPLE_LAST' => 'Doe',
-  'LBL_LOCALE_NAME_EXAMPLE_SALUTATION' => 'Mr.',
-  'LBL_MAILMERGE_KEY' => 'M',
-  'LBL_NEW_BUTTON_KEY' => 'N',
-  'LBL_OPENALL_BUTTON_KEY' => 'O',
-  'LBL_OPENTO_BUTTON_KEY' => 'T',
-  'LBL_PERCENTAGE_SYMBOL' => '%',
-  'LBL_QUOTE_TO_OPPORTUNITY_KEY' => 'O',
-  'LBL_REQUIRED_SYMBOL' => '*',
-  'LBL_SAVE_BUTTON_KEY' => 'S',
-  'LBL_FULL_FORM_BUTTON_KEY' => 'F',
-  'LBL_SAVE_NEW_BUTTON_KEY' => 'V',
-  'LBL_SEARCH_BUTTON_KEY' => 'Q',
-  'LBL_SELECT_BUTTON_KEY' => 'T',
-  'LBL_SELECT_CONTACT_BUTTON_KEY' => 'T',
-  'LBL_SELECT_USER_BUTTON_KEY' => 'U',
-  'LBL_SQS_INDICATOR' => '',
-  'LBL_THOUSANDS_SYMBOL' => 'K',
-  'LBL_TRACK_EMAIL_BUTTON_KEY' => 'K',
-  'LBL_VIEW_PDF_BUTTON_KEY' => 'P',
-  'NTC_TIME_FORMAT' => '(24:00)',
-  'LBL_LIST_TEAM' => 'Csoport',
-  'LBL_TEAM' => 'Csoport:',
-  'LBL_TEAM_ID' => 'Csoport azonosító:',
-  'ERR_CREATING_FIELDS' => 'Hiba a mezők létrehozásakor:',
-  'ERR_CREATING_TABLE' => 'Hiba a tábla létrehozásakor:',
-  'ERR_DELETE_RECORD' => 'Adjon meg egy azonosítót a kapcsolat törléséhez!',
-  'ERR_EXPORT_DISABLED' => 'Exportok Letiltva.',
-  'ERR_EXPORT_TYPE' => 'Hiba az exportnál',
-  'ERR_INVALID_AMOUNT' => 'Kérem, adjon meg egy érvényes összeget.',
-  'ERR_INVALID_DATE_FORMAT' => 'Kérem, használjon érvényes dátum formátumot!',
-  'ERR_INVALID_DATE' => 'Kérem, adjon meg egy érvényes dátumot!',
-  'ERR_INVALID_DAY' => 'Kérem, adjon meg egy valós napot!',
-  'ERR_INVALID_EMAIL_ADDRESS' => 'Hibás e-mail cím.',
-  'ERR_INVALID_HOUR' => 'Kérjük, adjon meg egy időpontot 0 és 24 között!',
-  'ERR_INVALID_MONTH' => 'Kérem, adjon meg egy valós hónapot!',
-  'ERR_INVALID_TIME' => 'Adjon meg egy valós időt!',
-  'ERR_INVALID_YEAR' => 'Kérem adjon meg egy érvényes évet 4 számjeggyel!',
-  'ERR_NEED_ACTIVE_SESSION' => 'Egy aktív munkamenet szükséges a tartalom konvertálásához.',
-  'ERR_MISSING_REQUIRED_FIELDS' => 'Kötelező mezők hiányoznak:',
-  'ERR_INVALID_REQUIRED_FIELDS' => 'Érvénytelen kötelező mező:',
-  'ERR_INVALID_VALUE' => 'Érvénytelen érték:',
-  'ERR_NOTHING_SELECTED' => 'Kérjük válasszon mielőtt tovább lépne!',
-  'ERR_OPPORTUNITY_NAME_DUPE' => 'Egy lehetőségként megadott név % már létezik. Adjon meg egy másik nevet!',
-  'ERR_OPPORTUNITY_NAME_MISSING' => 'Egy Lehetőség név nem lett megadva. Kérjük, adja meg a lehetőség nevét!',
-  'ERR_SELF_REPORTING' => 'A felhasználó nem tudja megjeleniteni a kért információt.',
-  'ERR_SQS_NO_MATCH_FIELD' => 'Nincs találat az alábbi mezők között:',
-  'ERR_SQS_NO_MATCH' => 'Nincs találat',
-  'ERR_PORTAL_LOGIN_FAILED' => 'Nem sikerült létrehozni a portál bejelentkezést.',
-  'ERR_RESOURCE_MANAGEMENT_INFO' => 'Vissza a Főoldalra',
-  'LBL_ACCOUNT' => 'Kliens',
-  'LBL_ACCOUNTS' => 'Kliensek',
-  'LBL_ACCUMULATED_HISTORY_BUTTON_LABEL' => 'Összefoglaló megtekintése',
-  'LBL_ACCUMULATED_HISTORY_BUTTON_TITLE' => 'Összefoglaló megtekintése [Alt + H]',
-  'LBL_ADD_BUTTON_TITLE' => 'Hozzáad [Alt + A]',
-  'LBL_ADD_BUTTON' => 'Hozzáad',
-  'LBL_ADD_DOCUMENT' => 'Dokumentum hozzáadása',
-  'LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL' => 'Hozzáadás a Cél listához',
-  'LBL_ADD_TO_PROSPECT_LIST_BUTTON_TITLE' => 'Hozzáadás a Cél listához',
-  'LBL_ADDITIONAL_DETAILS_CLOSE_TITLE' => 'Kattintson a Bezárásra',
-  'LBL_ADDITIONAL_DETAILS_CLOSE' => 'Bezárás',
-  'LBL_ADDITIONAL_DETAILS' => 'További részletek',
-  'LBL_ADMIN' => 'Adminisztrátor',
-  'LBL_ARCHIVE' => 'Archívum',
-  'LBL_ASSIGNED_TO_USER' => 'Felhasználóként hozzáadni',
-  'LBL_ASSIGNED_TO' => 'Hozzáadva a(z):',
-  'LBL_BACK' => 'Vissza',
-  'LBL_BILL_TO_ACCOUNT' => 'Számla a kliensnek',
-  'LBL_BILL_TO_CONTACT' => 'Számla a Kapcsolatnak',
-  'LBL_BROWSER_TITLE' => 'SugarCRM - Kereskedelmi nyílt forráskódú CRM',
-  'LBL_BUGS' => 'Hibák',
-  'LBL_BY' => 'által',
-  'LBL_CALLS' => 'Hívások',
-  'LBL_CAMPAIGNS_SEND_QUEUED' => 'Várakozó kampány email-ek elküldése',
-  'LBL_CANCEL_BUTTON_LABEL' => 'Mégsem',
-  'LBL_CANCEL_BUTTON_TITLE' => 'Mégsem [Alt + X]',
-  'LBL_CASE' => 'Eset',
-  'LBL_CASES' => 'Esetek',
-  'LBL_CHANGE_BUTTON_LABEL' => 'Módosítás',
-  'LBL_CHANGE_BUTTON_TITLE' => 'Módosítás [Alt + G]',
-  'LBL_CHECKALL' => 'Összes ellenőrzése',
-  'LBL_CLEAR_BUTTON_LABEL' => 'Töröl',
-  'LBL_CLEAR_BUTTON_TITLE' => 'Töröl [Alt + C]',
-  'LBL_CLEARALL' => 'Az összes törlése',
-  'LBL_CLOSE_WINDOW' => 'Ablak bezárása',
-  'LBL_CLOSEALL_BUTTON_LABEL' => 'Minden bezárása',
-  'LBL_CLOSEALL_BUTTON_TITLE' => 'Close All [Alt + I]',
-  'LBL_COMPOSE_EMAIL_BUTTON_LABEL' => 'Email írása',
-  'LBL_COMPOSE_EMAIL_BUTTON_TITLE' => 'E-mail írása [Alt + L]',
-  'LBL_CONTACT_LIST' => 'Kapcsolat lista',
-  'LBL_CONTACT' => 'Kapcsolat',
-  'LBL_CONTACTS' => 'Kapcsolatok',
-  'LBL_CREATE_BUTTON_LABEL' => 'Létrehozás',
-  'LBL_CREATED_BY_USER' => 'Felhasználó által létrehozva',
-  'LBL_CREATED' => 'Létrehozta',
-  'LBL_CURRENT_USER_FILTER' => 'Csak saját tételeim:',
-  'LBL_DATE_ENTERED' => 'Dátum létrehozva:',
-  'LBL_DATE_MODIFIED' => 'Utolsó módosítás:',
-  'LBL_DELETE_BUTTON_LABEL' => 'Törlés',
-  'LBL_DELETE_BUTTON_TITLE' => 'Törlés [Alt + D]',
-  'LBL_DELETE_BUTTON' => 'Törlés',
-  'LBL_DELETE' => 'Törlés',
-  'LBL_DELETED' => 'Törölve',
-  'LBL_DIRECT_REPORTS' => 'Közvetlen jelentések',
-  'LBL_DONE_BUTTON_LABEL' => 'Kész',
-  'LBL_DONE_BUTTON_TITLE' => 'Kész [Alt+X]',
-  'LBL_DST_NEEDS_FIXIN' => 'Az alkalmazásnak szüksége van a Nyári időszámítás meghatározására. Kérem, lépjen az Admin konzol/Javítás menübe és végezze el a nyári időszámítás beállítását.',
-  'LBL_DUPLICATE_BUTTON_LABEL' => 'Duplikálás',
-  'LBL_DUPLICATE_BUTTON_TITLE' => 'Duplikálás [Alt + U]',
-  'LBL_DUPLICATE_BUTTON' => 'Duplikálás',
-  'LBL_EDIT_BUTTON_LABEL' => 'Szerkesztés',
-  'LBL_EDIT_BUTTON_TITLE' => 'Jelentés szerkesztés [Alt + E]',
-  'LBL_EDIT_BUTTON' => 'Szerkesztés',
-  'LBL_VIEW_BUTTON_LABEL' => 'Nézet',
-  'LBL_VIEW_BUTTON_TITLE' => 'Nézet [Alt + V]',
-  'LBL_VIEW_BUTTON' => 'Nézet',
-  'LBL_EMAIL_PDF_BUTTON_LABEL' => 'E-mail PDF-ként',
-  'LBL_EMAIL_PDF_BUTTON_TITLE' => 'Email PDF-ként [Alt + M]
-',
-  'LBL_EMAILS' => 'E-mailek',
-  'LBL_EMPLOYEES' => 'Munkatársak',
-  'LBL_ENTER_DATE' => 'Írja be a dátumot',
-  'LBL_EXPORT_ALL' => 'Minden exportálása',
-  'LBL_HIDE' => 'Elrejt',
-  'LBL_ID' => 'Azonosító',
-  'LBL_IMPORT_PROSPECTS' => 'Célok importálása',
-  'LBL_IMPORT' => 'Betöltés',
-  'LBL_LAST_VIEWED' => 'Utoljára megtekintett',
-  'LBL_LEADS' => 'Ajánlások',
-  'LBL_LIST_ACCOUNT_NAME' => 'Kliens neve',
-  'LBL_LIST_ASSIGNED_USER' => 'Felhasználó',
-  'LBL_LIST_CONTACT_NAME' => 'Kapcsolat neve:',
-  'LBL_LIST_CONTACT_ROLE' => 'Kapcsolat szerepe',
-  'LBL_LIST_EMAIL' => 'E-mail',
-  'LBL_LIST_NAME' => 'Név',
-  'LBL_LIST_OF' => 'a(z)',
-  'LBL_LIST_PHONE' => 'Telefon',
-  'LBL_LIST_USER_NAME' => 'Felhasználó név',
-  'LBL_LISTVIEW_MASS_UPDATE_CONFIRM' => 'Biztos benne, hogy szeretné frissíteni a teljes listát?',
-  'LBL_LISTVIEW_NO_SELECTED' => 'Kérjük, válasszon legalább 1 rekordot a folytatáshoz!',
-  'LBL_LISTVIEW_OPTION_CURRENT' => 'Aktuális oldal',
-  'LBL_LISTVIEW_OPTION_ENTIRE' => 'A teljes lista',
-  'LBL_LISTVIEW_OPTION_SELECTED' => 'Kiválasztott rekordok',
-  'LBL_LISTVIEW_SELECTED_OBJECTS' => 'Kiválasztva:',
-  'LBL_LOGOUT' => 'Kilépés',
-  'LBL_MAILMERGE' => 'Körlevél',
-  'LBL_MASS_UPDATE' => 'Tömeges frissítés',
-  'LBL_MEETINGS' => 'Találkozók',
-  'LBL_MEMBERS' => 'Tagok',
-  'LBL_MODIFIED_BY_USER' => 'Felhasználó által módosítva',
-  'LBL_MODIFIED' => 'Módosította a(z)',
-  'LBL_MY_ACCOUNT' => 'Kliensem',
-  'LBL_NAME' => 'Név',
-  'LBL_NEW_BUTTON_LABEL' => 'Új létrehozás',
-  'LBL_NEW_BUTTON_TITLE' => 'Létrehozás [ALT+N]',
-  'LBL_NEXT_BUTTON_LABEL' => 'Következő',
-  'LBL_NONE' => '-- nincs adat --',
-  'LBL_NOTES' => 'Megjegyzés:',
-  'LBL_OPENALL_BUTTON_LABEL' => 'Mindent megnyit',
-  'LBL_OPENALL_BUTTON_TITLE' => 'Mindent megnyit [Alt + O]',
-  'LBL_OPENTO_BUTTON_LABEL' => 'Megnyitás:',
-  'LBL_OPENTO_BUTTON_TITLE' => 'Megnyitás: [Alt+T]',
-  'LBL_OPPORTUNITIES' => 'Lehetőségek',
-  'LBL_OPPORTUNITY_NAME' => 'Lehetőség neve:',
-  'LBL_OPPORTUNITY' => 'Lehetőség',
-  'LBL_OR' => 'VAGY',
-  'LBL_PRODUCT_BUNDLES' => 'Termékcsomagok',
-  'LBL_PRODUCTS' => 'Termékek',
-  'LBL_PROJECT_TASKS' => 'Projekt feladatok',
-  'LBL_PROJECTS' => 'Projektek',
-  'LBL_QUOTE_TO_OPPORTUNITY_LABEL' => 'Lehetőség létrehozása árajánlatból',
-  'LBL_QUOTE_TO_OPPORTUNITY_TITLE' => 'Lehetőség létrehozása árajánlatból [Alt + O]',
-  'LBL_QUOTES_SHIP_TO' => 'Árajánlatokat küldeni a(z)',
-  'LBL_QUOTES' => 'Árajánlatok',
-  'LBL_RELATED_RECORDS' => 'Kapcsolódó rekordok',
-  'LBL_REMOVE' => 'Eltávolítás',
-  'LBL_SAVE_BUTTON_LABEL' => 'Mentés',
-  'LBL_SAVE_BUTTON_TITLE' => 'Mentés',
-  'LBL_FULL_FORM_BUTTON_LABEL' => 'Teljes űrlap',
-  'LBL_FULL_FORM_BUTTON_TITLE' => 'Teljes űrlap [Alt+F]',
-  'LBL_SAVE_NEW_BUTTON_LABEL' => 'Mentés és Új létrhozása',
-  'LBL_SAVE_NEW_BUTTON_TITLE' => 'Mentés és Új létrehozása [Alt + V]',
-  'LBL_SEARCH_BUTTON_LABEL' => 'Keresés',
-  'LBL_SEARCH_BUTTON_TITLE' => 'Keresés [Alt + Q]',
-  'LBL_SEARCH' => 'Keresés',
-  'LBL_SELECT_BUTTON_LABEL' => 'Kiválaszt',
-  'LBL_SELECT_BUTTON_TITLE' => 'Kiválaszt [Alt + T]',
-  'LBL_SELECT_CONTACT_BUTTON_LABEL' => 'Válasszon kapcsolatot',
-  'LBL_SELECT_CONTACT_BUTTON_TITLE' => 'Válasszon kapcsolatot [Alt + T]
-
-',
-  'LBL_SELECT_REPORTS_BUTTON_LABEL' => 'Válasszon a jelentések közül',
-  'LBL_SELECT_REPORTS_BUTTON_TITLE' => 'Jelentés kiválasztása',
-  'LBL_SELECT_USER_BUTTON_LABEL' => 'Válasszon felhasználót',
-  'LBL_SELECT_USER_BUTTON_TITLE' => 'Felhasználó kiválasztása [Alt + U]',
-  'LBL_SERVER_RESPONSE_RESOURCES' => 'Erőforrások felhasználása ennek az oldalnak a felépítésére (lekérdezések, fájlok)',
-  'LBL_SERVER_RESPONSE_TIME_SECONDS' => 'másodperc.',
-  'LBL_SERVER_RESPONSE_TIME' => 'Szerver válaszidő:',
-  'LBL_SHIP_TO_ACCOUNT' => 'Szállítás a kliensnek',
-  'LBL_SHIP_TO_CONTACT' => 'Szállítás kapcsolatnak',
-  'LBL_SHORTCUTS' => 'Parancsikonok',
-  'LBL_SHOW' => 'Mutat',
-  'LBL_STATUS_UPDATED' => 'Ön státusza erre az eseményre frissítésre került!',
-  'LBL_STATUS' => 'Állapot',
-  'LBL_SUBJECT' => 'Tárgy',
-  'LBL_SYNC' => 'Szinkronizálás',
-  'LBL_TASKS' => 'Feladatok',
-  'LBL_TEAMS_LINK' => 'Csoport',
-  'LBL_TRACK_EMAIL_BUTTON_LABEL' => 'Email archiválása',
-  'LBL_TRACK_EMAIL_BUTTON_TITLE' => 'E-mail archiválása [Alt + K]',
-  'LBL_UNAUTH_ADMIN' => 'Jogosulatlan hozzáférés az adminisztrációhoz',
-  'LBL_UNDELETE_BUTTON_LABEL' => 'Törlés visszavonása',
-  'LBL_UNDELETE_BUTTON_TITLE' => 'Törlés visszavonása [Alt+D]',
-  'LBL_UNDELETE_BUTTON' => 'Törlés visszavonása',
-  'LBL_UNDELETE' => 'Törlés visszavonása',
-  'LBL_UNSYNC' => 'Szinkronizálás megszüntetése',
-  'LBL_UPDATE' => 'Frissítés',
-  'LBL_USER_LIST' => 'Felhasználó lista',
-  'LBL_USERS_SYNC' => 'Felhasználók szinkronizálása',
-  'LBL_USERS' => 'Felhasználók',
-  'LBL_VIEW_PDF_BUTTON_LABEL' => 'Nyomtatás PDF formátumban',
-  'LBL_VIEW_PDF_BUTTON_TITLE' => 'Nyomtatás PDF formátumban [Alt + P]
-',
-  'LNK_ABOUT' => 'Rólunk',
-  'LNK_ADVANCED_SEARCH' => 'Részletesen',
-  'LNK_BASIC_SEARCH' => 'Alap',
-  'LNK_DELETE_ALL' => 'Összeset töröl',
-  'LNK_DELETE' => 'Töröl',
-  'LNK_EDIT' => 'szerkesztés',
-  'LNK_GET_LATEST' => 'Legfrissebb',
-  'LNK_GET_LATEST_TOOLTIP' => 'Legfrissebb verzióra cserél',
-  'LNK_HELP' => 'Segítség',
-  'LNK_LIST_END' => 'Vége',
-  'LNK_LIST_NEXT' => 'Következő',
-  'LNK_LIST_PREVIOUS' => 'Előző',
-  'LNK_LIST_RETURN' => 'Vissza a listához',
-  'LNK_LIST_START' => 'Kezdés',
-  'LNK_LOAD_SIGNED' => 'Bejelentkezés',
-  'LNK_LOAD_SIGNED_TOOLTIP' => 'Megjelölt dokumentumra cserélés',
-  'LNK_PRINT' => 'Nyomtatás',
-  'LNK_REMOVE' => 'Eltávolítás',
-  'LNK_RESUME' => 'Folytatás',
-  'LNK_VIEW_CHANGE_LOG' => 'Nézze meg a Változásnapló',
-  'NTC_CLICK_BACK' => 'Kérjük, kattintson a böngésző Vissza gombjára, és javítsa ki a hibát!',
-  'NTC_DATE_FORMAT' => '(ééé-hh-nn)',
-  'NTC_DATE_TIME_FORMAT' => '(éééé-hh-nn 24:00)',
-  'NTC_DELETE_CONFIRMATION_MULTIPLE' => 'Biztos benne, hogy törli a kiválasztott bejegyzés(eke)t?',
-  'NTC_DELETE_CONFIRMATION' => 'Biztos benne, hogy törölni kívánja ezt rekordot?',
-  'NTC_LOGIN_MESSAGE' => 'Kérjük, adja meg felhasználónevét és jelszavát:',
-  'NTC_NO_ITEMS_DISPLAY' => 'nincs adat',
-  'NTC_REMOVE_CONFIRMATION' => 'Biztosan el akarja távolítani ezt a kapcsolatot?',
-  'NTC_REQUIRED' => 'Kötelező mező jelölése',
-  'NTC_SUPPORT_SUGARCRM' => 'Támogassa a SugarCRM nyílt forráskódú projektet adomány révénPayPal-on keresztül! PayPal - gyors, ingyenes és biztonságos!',
-  'NTC_WELCOME' => 'Üdvözöljük',
-  'NTC_YEAR_FORMAT' => '(éééé)',
-  'LOGIN_LOGO_ERROR' => 'Kérjük, cserélje le a SugarCRM logót.',
-  'ERROR_FULLY_EXPIRED' => 'Az Ön cégének SugarCRM licence lejárt több mint 30 napja és a további működés érdekében naprakésszé kell tenni. Ezt csak az adminisztrátorok tehetik meg.',
-  'ERROR_LICENSE_EXPIRED' => 'Az Ön cégének SugarCRM licencét frissíteni kell. Ezt csak az adminisztrátorok tehetik meg.',
-  'ERROR_NO_RECORD' => 'Nem sikerült letölteni a rekordot. Ez a rekord lehet, ha le lett törölve, vagy nincs engedélyezve  megtekintésre.
-',
-  'LBL_DUP_MERGE' => 'Dupla tételek keresése',
-  'LBL_LOADING' => 'Betöltés ...',
-  'LBL_SAVING_LAYOUT' => 'Elrendezés mentése ...',
-  'LBL_SAVED_LAYOUT' => 'Elrendezés mentése megtörtént.',
-  'LBL_SAVED' => 'Mentve',
-  'LBL_SAVING' => 'Mentés',
-  'LBL_DISPLAY_COLUMNS' => 'Oszlopok megjelenítése',
-  'LBL_HIDE_COLUMNS' => 'Oszlopok elrejtése',
-  'LBL_SEARCH_CRITERIA' => 'Keresési feltétel',
-  'LBL_SAVED_VIEWS' => 'Mentett megtekintések',
-  'LBL_NO_RECORDS_FOUND' => '- Nincs találat -',
-  'LBL_LOGIN_SESSION_EXCEEDED' => 'A szerver túl foglalt. Kérjük, próbálkozzon később!',
-  'LBL_CHANGE_PASSWORD' => 'Változtassa meg a jelszót',
-  'LBL_LOGIN_TO_ACCESS' => 'Kérjük, jelentkezzen be!',
-);
 
 $app_list_strings = array (
-  
-  
-  
-  
+  'account_type_dom' => 
+  array (
+    '' => '',
+    'Analyst' => 'Elemző',
+    'Competitor' => 'Versenytárs',
+    'Customer' => 'Vevő',
+    'Integrator' => 'Integrátor',
+    'Investor' => 'Befektető',
+    'Other' => 'Egyéb',
+    'Partner' => 'Partner',
+    'Press' => 'Sajtó',
+    'Prospect' => 'Kilátás',
+    'Reseller' => 'Viszonteladó',
+  ),
+  'activity_dom' => 
+  array (
+    'Call' => 'Hívás',
+    'Email' => 'Email',
+    'Meeting' => 'Találkozó',
+    'Note' => 'Jegyzet',
+    'Task' => 'Feladat',
+  ),
+  'bopselect_type_dom' => 
+  array (
+    'Equals' => 'Megegyezik',
+  ),
+  'bselect_type_dom' => 
+  array (
+    'bool_false' => 'Nem',
+    'bool_true' => 'Igen',
+  ),
+  'bug_priority_dom' => 
+  array (
+    'High' => 'Magas',
+    'Low' => 'Alacsony',
+    'Medium' => 'Közepes',
+    'Urgent' => 'Sürgős',
+  ),
+  'bug_resolution_dom' => 
+  array (
+    '' => '',
+    'Accepted' => 'Elfogadott',
+    'Duplicate' => 'Másolat',
+    'Fixed' => 'Rögzített',
+    'Invalid' => 'Érvénytelen',
+    'Later' => 'Később',
+    'Out of Date' => 'Elavult',
+  ),
+  'bug_status_dom' => 
+  array (
+    'Assigned' => 'Hozzárendelt',
+    'Closed' => 'Lezárt',
+    'New' => 'Új',
+    'Pending' => 'Függőben levő',
+    'Rejected' => 'Elutasítva',
+  ),
+  'bug_type_dom' => 
+  array (
+    'Defect' => 'Hiány',
+    'Feature' => 'Tulajdonság',
+  ),
+  'call_direction_dom' => 
+  array (
+    'Inbound' => 'Bejövő',
+    'Outbound' => 'Kimenő',
+  ),
+  'call_status_dom' => 
+  array (
+    'Held' => 'Megtartott',
+    'Not Held' => 'Visszamondott',
+    'Planned' => 'Tervezett',
+  ),
+  'campaign_status_dom' => 
+  array (
+    '' => '',
+    'Active' => 'Aktív',
+    'Complete' => 'Kész',
+    'In Queue' => 'Várólistán',
+    'Inactive' => 'Inaktív',
+    'Planning' => 'Tervezés',
+    'Sending' => 'Küldés',
+  ),
+  'campaign_type_dom' => 
+  array (
+    '' => '',
+    'Email' => 'Email',
+    'Mail' => 'Mail',
+    'Print' => 'Nyomtatás',
+    'Radio' => 'Rádió',
+    'Telesales' => 'Telefonos értékesítés',
+    'Television' => 'Televizió',
+    'Web' => 'Web',
+  ),
+  'campainglog_activity_type_dom' => 
+  array (
+    '' => '',
+    'contact' => 'Kapcsolat létrehozva',
+    'invalid email' => 'Visszapattant üzenetek, érvénytelen email',
+    'lead' => 'Ajánlás létrehozva',
+    'link' => 'Továbbító link',
+    'removed' => 'Elutasítva',
+    'send error' => 'Visszapattant üzenetek, egyéb',
+    'targeted' => 'Üzenet elküldve / küldés megkísérelve',
+    'viewed' => 'Megtekintett üzenet',
+  ),
+  'campainglog_target_type_dom' => 
+  array (
+    'Contacts' => 'Kapcsolatok',
+    'Leads' => 'Ajánlások',
+    'Prospects' => 'Célok',
+    'Users' => 'Felhasználók',
+  ),
+  'case_priority_dom' => 
+  array (
+    'P1' => 'Magas',
+    'P2' => 'Közepes',
+    'P3' => 'Alacsony',
+  ),
+  'case_relationship_type_dom' => 
+  array (
+    '' => '',
+    'Alternate Contact' => 'Másodlagos kapcsolat',
+    'Primary Contact' => 'Elsődleges kapcsolat',
+  ),
+  'case_status_dom' => 
+  array (
+    'Assigned' => 'Hozzárendelt',
+    'Closed' => 'Lezárt',
+    'Duplicate' => 'Másolat',
+    'New' => 'Új',
+    'Pending Input' => 'Függőben lévő bevitel',
+    'Rejected' => 'Elutasítva',
+  ),
   'checkbox_dom' => 
   array (
     '' => '',
     1 => 'Igen',
     2 => 'Nem',
   ),
-  'account_type_dom' => 
+  'contract_expiration_notice_dom' => 
+  array (
+    1 => '1 nap',
+    3 => '3 nap',
+    5 => '5 nap',
+    7 => '1 hét',
+    14 => '2 hét',
+    21 => '3 hét',
+    31 => '1 hónap',
+  ),
+  'contract_payment_frequency_dom' => 
+  array (
+    'halfyearly' => 'Féléves',
+    'monthly' => 'Havi',
+    'quarterly' => 'Negyedéves',
+    'yearly' => 'Éves',
+  ),
+  'contract_status_dom' => 
+  array (
+    'inprogress' => 'Folyamatban',
+    'notstarted' => 'Nem indult',
+    'signed' => 'Aláírt',
+  ),
+  'cselect_type_dom' => 
+  array (
+    'Does not Equal' => 'Nem egyezik',
+    'Equals' => 'Megegyezik',
+  ),
+  'document_category_dom' => 
   array (
     '' => '',
-    'Partner' => 'Partner',
-    'Analyst' => 'Elemző',
-    'Competitor' => 'Versenytárs',
-    'Customer' => 'Vevő',
-    'Integrator' => 'Integrátor',
-    'Investor' => 'Befektető',
-    'Press' => 'Sajtó',
-    'Prospect' => 'Kilátás',
-    'Reseller' => 'Viszonteladó',
-    'Other' => 'Egyéb',
+    'Knowledege Base' => 'Tudásbázis',
+    'Marketing' => 'Marketing',
+    'Sales' => 'Értékesítés',
   ),
-  'industry_dom' => 
+  'document_status_dom' => 
   array (
-    '' => '',
-    'Apparel' => 'Ruházat',
-    'Banking' => 'Bank',
-    'Biotechnology' => 'Biotechnológia',
-    'Chemicals' => 'Vegyszerek',
-    'Communications' => 'Kommunikáció',
-    'Construction' => 'Építőipari',
-    'Consulting' => 'Konzultáció',
-    'Education' => 'Oktatás',
-    'Electronics' => 'Elektronika',
-    'Energy' => 'Energia',
-    'Engineering' => 'Mérnök',
-    'Entertainment' => 'Szórakozás',
-    'Environmental' => 'Környezetvédelem',
-    'Finance' => 'Pénzügy',
-    'Government' => 'Kormányzat',
-    'Healthcare' => 'Egészségügy',
-    'Hospitality' => 'Vendéglátás',
-    'Insurance' => 'Biztosítás',
-    'Machinery' => 'Gépek',
-    'Manufacturing' => 'Gyártás',
-    'Media' => 'Média',
-    'Not For Profit' => 'Non-profit',
-    'Recreation' => 'Szórakoztatás',
-    'Retail' => 'Kiskereskedelmi',
-    'Shipping' => 'Hajózás',
-    'Technology' => 'Technológia',
-    'Telecommunications' => 'Távközlés',
-    'Transportation' => 'Szállítás',
-    'Utilities' => 'Segédprogramok',
-    'Other' => 'Egyéb',
-  ),
-  'lead_source_dom' => 
-  array (
-    '' => '',
-    'Partner' => 'Partner',
-    'Direct Mail' => 'Direct Mail',
-    'Cold Call' => 'Hideghívás',
-    'Existing Customer' => 'Meglévő vevő',
-    'Self Generated' => 'Saját generált',
-    'Employee' => 'Munkatárs',
-    'Public Relations' => 'Nyilvános',
-    'Conference' => 'Konferencia',
-    'Trade Show' => 'Konferencia',
-    'Web Site' => 'Weblap',
-    'Word of mouth' => 'Szóbeszéd',
-    'Email' => 'E-mail',
-    'Other' => 'Egyéb',
-  ),
-  'opportunity_type_dom' => 
-  array (
-    '' => '',
-    'Existing Business' => 'Meglévő üzlet',
-    'New Business' => 'Új üzlet',
-  ),
-  'opportunity_relationship_type_dom' => 
-  array (
-    '' => '',
-    'Primary Decision Maker' => 'Elsődleges döntéshozó',
-    'Business Decision Maker' => 'Üzleti döntéshozó',
-    'Business Evaluator' => 'Üzleti értékelő',
-    'Technical Decision Maker' => 'Műszaki döntéshozó',
-    'Technical Evaluator' => 'Műszaki értékelő',
-    'Executive Sponsor' => 'Vezető támogató',
-    'Influencer' => 'Befolyásoló',
-    'Other' => 'Egyéb',
-  ),
-  'case_relationship_type_dom' => 
-  array (
-    '' => '',
-    'Primary Contact' => 'Elsődleges kapcsolat',
-    'Alternate Contact' => 'Alternatív kapcsolat',
-  ),
-  'payment_terms' => 
-  array (
-    '' => '',
-    'Net 15' => 'Net 15',
-    'Net 30' => 'Net 30',
-  ),
-  'sales_probability_dom' => 
-  array (
-    'Prospecting' => '10',
-    'Qualification' => '20',
-    'Needs Analysis' => '25',
-    'Value Proposition' => '30',
-    'Id. Decision Makers' => '40',
-    'Perception Analysis' => '50',
-    'Proposal/Price Quote' => '65',
-    'Negotiation/Review' => '80',
-    'Closed Won' => '100',
-    'Closed Lost' => '',
-  ),
-  'salutation_dom' => 
-  array (
-    '' => '',
-    'Mr.' => 'Úr',
-    'Ms.' => 'Hölgy',
-    'Mrs.' => 'Asszony',
-    'Dr.' => 'Dr.',
-    'Prof.' => 'Prof.',
-  ),
-  'lead_status_dom' => 
-  array (
-    '' => '',
-    'New' => 'Új',
-    'Assigned' => 'Hozzárendelt',
-    'In Process' => 'Folyamatban',
-    'Converted' => 'Konvertált',
-    'Recycled' => 'Újrahasznosított',
-    'Dead' => 'Meddő',
-  ),
-  'messenger_type_dom' => 
-  array (
-    '' => '',
-    'Yahoo!' => 'Yahoo!',
-    'AOL' => 'AOL',
-    'MSN' => 'MSN
-',
-  ),
-  'project_task_utilization_options' => 
-  array (
-    50 => '50',
-    75 => '75',
-    100 => '100',
-    0 => '- üres -',
-    25 => 'November',
-  ),
-  'quote_relationship_type_dom' => 
-  array (
-    '' => '',
-    'Primary Decision Maker' => 'Elsődleges döntéshozó',
-    'Business Decision Maker' => 'Üzleti döntéshozó',
-    'Business Evaluator' => 'Üzleti értékelő',
-    'Technical Decision Maker' => 'Műszaki döntéshozó',
-    'Technical Evaluator' => 'Műszaki értékelő',
-    'Executive Sponsor' => 'Vezető támogató',
-    'Influencer' => 'Befolyásoló',
-    'Other' => 'Egyéb',
-  ),
-  'bug_resolution_dom' => 
-  array (
-    '' => '',
-    'Accepted' => 'Elfogadott
-',
-    'Duplicate' => 'Másolat',
-    'Fixed' => 'Rögzített',
-    'Out of Date' => 'Elavult',
-    'Invalid' => 'Érvénytelen',
-    'Later' => 'Később
-',
-  ),
-  'source_dom' => 
-  array (
-    '' => '',
-    'Web' => 'Web',
-    'Internal' => 'Belső',
-    'Forum' => 'Fórum',
-    'InboundEmail' => 'E-mail',
-  ),
-  'product_category_dom' => 
-  array (
-    '' => '',
-    'Outlook Plugin' => 'Outlook Plugin',
-    'RSS' => 'RSS',
-    'Accounts' => 'Kliensek',
-    'Activities' => 'Tevékenységek',
-    'Bug Tracker' => 'Hiba követő',
-    'Calendar' => 'Naptár',
-    'Calls' => 'Hívások',
-    'Campaigns' => 'Kampányok',
-    'Cases' => 'Esetek',
-    'Contacts' => 'Kapcsolatok
-',
-    'Currencies' => 'Pénznemek',
-    'Dashboard' => 'Műszerfal',
-    'Documents' => 'Dokumentumok',
-    'Emails' => 'Emailek',
-    'Feeds' => 'Hírcsatornák',
-    'Forecasts' => 'Előrejelzések',
-    'Help' => 'Segítség',
-    'Home' => 'Főoldal',
-    'Leads' => 'Ajánlások',
-    'Meetings' => 'Találkozók',
-    'Notes' => 'Megjegyzés',
-    'Opportunities' => 'Lehetőségek',
-    'Product Catalog' => 'Termékkatalógus',
-    'Products' => 'Termékek',
-    'Projects' => 'Projektek',
-    'Quotes' => 'Ajánlatok',
-    'Releases' => 'Kiadások',
-    'Studio' => 'Stúdió',
-    'Upgrade' => 'Frissítés',
-    'Users' => 'Felhasználók',
-  ),
-  'campaign_status_dom' => 
-  array (
-    '' => '',
-    'Planning' => 'Tervezés',
     'Active' => 'Aktív',
-    'Inactive' => 'Inaktív',
-    'Complete' => 'Kész',
-    'In Queue' => 'Várólistán',
-    'Sending' => 'Küldés',
+    'Draft' => 'Piszkozat',
+    'Expired' => 'Lejárt',
+    'FAQ' => 'GYIK',
+    'Pending' => 'Függőben lévő',
+    'Under Review' => 'Felülvizsgálat alatt',
   ),
-  'campaign_type_dom' => 
+  'document_subcategory_dom' => 
   array (
     '' => '',
-    'Mail' => 'Mail',
-    'Web' => 'Web',
-    'Telesales' => 'Telefonos értékesítés',
-    'Email' => 'Email',
-    'Print' => 'Nyomtatás',
-    'Radio' => 'Rádió',
-    'Television' => 'Televizió',
+    'FAQ' => 'GYIK',
+    'Marketing Collateral' => 'Marketinganyagok',
+    'Product Brochures' => 'Termékismertetők',
   ),
-  'notifymail_sendtype' => 
+  'document_template_type_dom' => 
   array (
-    'SMTP' => 'SMTP',
-  ),
-  'dom_timezones' => 
-  array (
-    -10 => '(GMT - 10) Hawaii',
-    -8 => '(GMT - 8) San Francisco',
-    -7 => '(GMT - 7) Phoenix',
-    -6 => '(GMT - 6) Saskatchewan',
-    -5 => '(GMT - 5) New York',
-    -4 => '(GMT - 4) Santiago',
-    -3 => '(GMT - 3) Buenos Aires',
-    0 => '(GMT)',
-    1 => '(GMT + 1) Madrid',
-    5 => '(GMT + 5) Ekaterinburg',
-    6 => '(GMT + 6) Astana',
-    7 => '(GMT + 7) Bangkok',
-    8 => '(GMT + 8) Perth',
-    9 => '(GMT + 9) Seol',
-    10 => '(GMT + 10) Brisbane',
-    11 => '(GMT + 11) Solomone Is.',
-    12 => '(GMT + 12) Auckland',
-    -12 => '(GMT - 12) ',
-    -11 => '(GMT - 11) Midway-sziget, Szamoa',
-    -9 => '(GMT - 9) Alaszka',
-    -2 => '(GMT - 2) közép-atlanti',
-    -1 => '(GMT - 1) Azori-szigetek',
-    2 => '(GMT + 2) Athén',
-    3 => '(GMT + 3) Moszkva',
-    4 => 'v',
+    '' => '',
+    'eula' => 'EULA',
+    'license' => 'Licencszerződés',
+    'mailmerge' => 'Körlevél',
+    'nda' => 'NDA',
   ),
   'dom_cal_month_long' => 
   array (
-    0 => '',
-    11 => 'November',
-    12 => 'December',
     1 => 'Január',
     2 => 'Február',
     3 => 'Március',
@@ -627,79 +228,169 @@ $app_list_strings = array (
     8 => 'Augusztus',
     9 => 'Szeptember',
     10 => 'Október',
+    11 => 'November',
+    12 => 'December',
+  ),
+  'dom_email_bool' => 
+  array (
+    'bool_false' => 'Nem',
+    'bool_true' => 'Igen',
+  ),
+  'dom_email_distribution' => 
+  array (
+    '' => '--üres--',
+    'direct' => 'Közvetlen hozzárendelés',
+    'leastBusy' => 'Legkevésbé foglalt',
+    'roundRobin' => 'Párhuzamos',
+  ),
+  'dom_email_editor_option' => 
+  array (
+    '' => 'Alapértelmezett email formátum',
+    'html' => 'HTML email',
+    'plain' => 'Egyszerű szöveg email',
+  ),
+  'dom_email_errors' => 
+  array (
+    1 => 'A tételek hozzárendelésekor csak egy felhasználót választhat.',
+    2 => 'Csak ellenőrzött tételt választhat a tételek hozzárendelésekor.',
+  ),
+  'dom_email_link_type' => 
+  array (
+    '' => 'Alapértelmezett levelezőprogram',
+    'mailto' => 'Külső mail-kliens',
+    'sugar' => 'SugarCRM mail-kliens',
   ),
   'dom_email_server_type' => 
   array (
+    '' => '--egyik sem--',
     'imap' => 'IMAP',
     'pop3' => 'POP3',
+  ),
+  'dom_email_status' => 
+  array (
+    'archived' => 'Archiválva',
+    'closed' => 'Lezárt',
+    'draft' => 'Piszkozatban',
+    'read' => 'Olvasott',
+    'replied' => 'Megválaszolt',
+    'send_error' => 'Hiba a küldés során',
+    'sent' => 'Elküldött',
+    'unread' => 'Olvasatlan',
+  ),
+  'dom_email_types' => 
+  array (
+    'archived' => 'Archiválva',
+    'draft' => 'Piszkozat',
+    'inbound' => 'Bejövő',
+    'out' => 'Elküldve',
+  ),
+  'dom_int_bool' => 
+  array (
+    1 => 'Igen',
+  ),
+  'dom_mailbox_type' => 
+  array (
+    'bounce' => 'Visszapattanó kezelés',
+    'bug' => 'Hiba létrehozása',
+    'contact' => 'Kapcsolat létrehozása',
+    'pick' => 'Létrehoz',
+    'sales' => 'Ajánlás létrehozása',
+    'support' => 'Eset létrehozása',
+    'task' => 'Feladat létrehozása',
+  ),
+  'dom_meeting_accept_options' => 
+  array (
+    'accept' => 'Elfogad',
+    'decline' => 'Elutasít',
+    'tentative' => 'Várakozó álláspont',
+  ),
+  'dom_meeting_accept_status' => 
+  array (
+    'accept' => 'Elfogadott',
+    'decline' => 'Elutasított',
+    'none' => 'Egyik sem',
+    'tentative' => 'Várakozó álláspont',
+  ),
+  'dom_report_types' => 
+  array (
+    'detailed_summary' => 'Összegzés részletesen',
+    'summary' => 'Összegzés',
+    'tabular' => 'Sorok és oszlopok',
+  ),
+  'dom_switch_bool' => 
+  array (
     '' => 'Nem',
+    'off' => 'Nem',
+    'on' => 'Igen',
   ),
-  'document_category_dom' => 
+  'dom_timezones' => 
   array (
-    '' => '',
-    'Marketing' => 'Marketing',
-    'Knowledege Base' => 'Tudásbázis',
-    'Sales' => 'Értékesítések',
-  ),
-  'document_subcategory_dom' => 
-  array (
-    '' => '',
-    'Marketing Collateral' => 'Marketinganyagok',
-    'Product Brochures' => 'Termékismertetők',
-    'FAQ' => 'GYIK',
-  ),
-  'document_template_type_dom' => 
-  array (
-    '' => '',
-    'eula' => 'EULA',
-    'mailmerge' => 'Körlevél',
-    'nda' => 'NFÜ',
-    'license' => 'Licencszerződés',
-  ),
-  'wflow_address_type_dom' => 
-  array (
-    'cc' => 'CC:',
-    'bcc' => 'BCC:',
-    'to' => 'Címzett:',
-  ),
-  'wflow_address_type_invite_dom' => 
-  array (
-    'cc' => 'CC:',
-    'bcc' => 'BCC:',
-    'to' => 'Címzett:',
-    'invite_only' => '(csak meghívásra)',
+    -12 => '(GMT - 12) Nemzetközi nyugati dátumválasztó vonal',
+    -11 => '(GMT - 11) Midway-sziget, Szamoa',
+    -10 => '(GMT - 10) Hawaii',
+    -9 => '(GMT - 9) Alaszka',
+    -8 => '(GMT - 8) San Francisco',
+    -7 => '(GMT - 7) Phoenix',
+    -6 => '(GMT - 6) Saskatchewan',
+    -5 => '(GMT - 5) New York',
+    -4 => '(GMT - 4) Santiago',
+    -3 => '(GMT - 3) Buenos Aires',
+    -2 => '(GMT - 2) Közép-atlanti',
+    -1 => '(GMT - 1) Azori-szigetek',
+    1 => '(GMT + 1) Madrid',
+    2 => '(GMT + 2) Athén',
+    3 => '(GMT + 3) Moszkva',
+    4 => '(GMT + 4) Kabul',
+    5 => '(GMT + 5) Jekatyerinburg',
+    6 => '(GMT + 6) Astana',
+    7 => '(GMT + 7) Bangkok',
+    8 => '(GMT + 8) Perth',
+    9 => '(GMT + 9) Szöul',
+    10 => '(GMT + 10) Brisbane',
+    11 => '(GMT + 11) Salamon-szigetek',
+    12 => '(GMT + 12) Auckland',
   ),
   'dom_timezones_extra' => 
   array (
-    -12 => '(GMT-12) International Date Line West',
-    -11 => '(GMT-11) Midway Island, Samoa',
+    -12 => '(GMT-12) Nemzetközi nyugati dátumválasztó vonal',
+    -11 => '(GMT-11) Midway-sziget, Szamoa',
     -10 => '(GMT-10) Hawaii',
-    -9 => '(GMT-9) Alaska',
+    -9 => '(GMT-9) Alaszka',
     -8 => '(GMT-8) (PST)',
     -7 => '(GMT-7) (MST)',
     -6 => '(GMT-6) (CST)',
     -5 => '(GMT-5) (EST)',
     -4 => '(GMT-4) Santiago',
     -3 => '(GMT-3) Buenos Aires',
-    -2 => '(GMT-2) Mid-Atlantic',
-    -1 => '(GMT-1) Azores',
-    0 => '(GMT)',
+    -2 => '(GMT-2) Közép-atlanti',
+    -1 => '(GMT-1) Azori-szigetek',
     1 => '(GMT+1) Madrid',
-    2 => '(GMT+2) Athens',
-    3 => '(GMT+3) Moscow',
+    2 => '(GMT+2) Athén',
+    3 => '(GMT+3) Moszkva',
     4 => '1 perccel előtte',
     5 => '(GMT +5) Jekatyerinburg',
     6 => '(GMT +6) Asztana',
     7 => '(GMT +7) Bangkok',
     8 => '(GMT +8) Perth',
-    9 => '(GMT +9) Seol',
+    9 => '(GMT +9) Szöul',
     10 => '(GMT +10) Brisbane',
-    11 => '(GMT +11) Solomone',
+    11 => '(GMT +11) Salamon-szigetek',
     12 => '(GMT +12) Auckland',
+  ),
+  'dselect_type_dom' => 
+  array (
+    'Does not Equal' => 'Nem egyezik',
+    'Equals' => 'Megegyezik',
+    'Less Than' => 'Kevesebb, mint',
+    'More Than' => 'Több, mint',
+  ),
+  'dtselect_type_dom' => 
+  array (
+    'Less Than' => 'kevesebb, mint',
+    'More Than' => 'több, mint',
   ),
   'duration_intervals' => 
   array (
-    0 => '00',
     15 => '15',
     30 => '30',
     45 => '45',
@@ -710,367 +401,11 @@ $app_list_strings = array (
     'active' => 'Aktív',
     'inactive' => 'Inaktív',
   ),
-  'campainglog_activity_type_dom' => 
-  array (
-    '' => '',
-    'targeted' => 'Üzenet elküldve / kísérlet',
-    'send error' => 'Visszapattant üzenetek, Egyéb',
-    'invalid email' => 'Visszapattant üzenetek, Érvénytelen Email',
-    'link' => 'Kllikk a következő linkre',
-    'viewed' => 'Megtekintett üzenet',
-    'removed' => 'Elutasítva',
-    'lead' => 'Ajánlás létrehozva',
-    'contact' => 'Kapcsolat Létrehozva',
-  ),
-  'language_pack_name' => 'Amerikai angol',
-  
-  
-  
-  
-  'reminder_max_time' => '3600',
-  
-  
-  
-  
-  
-  
-  
-  
-  'product_status_quote_key' => 'Árajánlatok',
-  
-  
-  
-  
-  
-  
-  
-  'moduleList' => 
-  array (
-    'Home' => 'Főoldal',
-    'Bugs' => 'Hiba kezelő',
-    'Cases' => 'Esetek',
-    'Notes' => 'Megjegyzés:',
-    'Newsletters' => 'Hírlevelek',
-    'Teams' => 'Csoportok',
-    'Users' => 'Felhasználók',
-    'KBDocuments' => 'Tudásbázis',
-    'FAQ' => 'GYIK',
-  ),
-  'moduleListSingular' => 
-  array (
-    'Home' => 'Főoldal',
-    'Bugs' => 'Hiba',
-    'Cases' => 'Esetek',
-    'Notes' => 'Feljegyzés',
-    'Teams' => 'Csoport',
-    'Users' => 'Felhasználó',
-  ),
-  'sales_stage_dom' => 
-  array (
-    'Prospecting' => 'Lehetőségek felmérése',
-    'Qualification' => 'Minősítés',
-    'Needs Analysis' => 'Igényfelmérés',
-    'Value Proposition' => 'Értékjavaslat',
-    'Id. Decision Makers' => 'Döntéshozók azonosítása',
-    'Perception Analysis' => 'Észrevételek elemzése',
-    'Proposal/Price Quote' => 'Javaslat / árajánlat',
-    'Negotiation/Review' => 'Tárgyalás / felülvizsgálat',
-    'Closed Won' => 'Lezárt, megnyert',
-    'Closed Lost' => 'Lezárt, elvesztett',
-  ),
-  'activity_dom' => 
-  array (
-    'Call' => 'Hívás',
-    'Meeting' => 'Találkozó',
-    'Task' => 'Feladat',
-    'Email' => 'E-mail',
-    'Note' => 'Megjegyzés',
-  ),
-  'reminder_time_options' => 
-  array (
-    60 => '1 perccel előtte',
-    300 => '5 perccel előtte',
-    600 => '10 perccel előtte',
-    900 => '15 perccel előtte',
-    1800 => '30 perccel előtte',
-    3600 => '1 órával előtte',
-  ),
-  'task_priority_dom' => 
-  array (
-    'High' => 'Magas',
-    'Medium' => 'Közepes',
-    'Low' => 'Alacsony',
-  ),
-  'task_status_dom' => 
-  array (
-    'Not Started' => 'Nincs elindítva',
-    'In Progress' => 'Folyamatban',
-    'Completed' => 'Befejezett',
-    'Pending Input' => 'Függőben lévő ',
-    'Deferred' => 'Elhalasztott',
-  ),
-  'meeting_status_dom' => 
-  array (
-    'Planned' => 'Tervezett',
-    'Held' => 'Tartott',
-    'Not Held' => 'Nem tartott',
-  ),
-  'call_status_dom' => 
-  array (
-    'Planned' => 'Tervezett',
-    'Held' => 'Tartott',
-    'Not Held' => 'Nem tartott',
-  ),
-  'call_direction_dom' => 
-  array (
-    'Inbound' => 'Bejövő',
-    'Outbound' => 'Kimenő',
-  ),
-  'lead_status_noblank_dom' => 
-  array (
-    'New' => 'Új',
-    'Assigned' => 'Hozzárendelt',
-    'In Process' => 'Folyamatban',
-    'Converted' => 'Konvertált',
-    'Recycled' => 'Újrahasznosított',
-    'Dead' => 'Meddő',
-  ),
-  'case_status_dom' => 
-  array (
-    'New' => 'Új',
-    'Assigned' => 'Hozzárendelt',
-    'Closed' => 'Lezárt',
-    'Pending Input' => 'Függőben lévő',
-    'Rejected' => 'Elutasítva',
-    'Duplicate' => 'Másolat',
-  ),
-  'case_priority_dom' => 
-  array (
-    'P1' => 'Magas',
-    'P2' => 'Közepes',
-    'P3' => 'Alacsony',
-  ),
-  'user_status_dom' => 
-  array (
-    'Active' => 'Aktív',
-    'Inactive' => 'Inaktív',
-  ),
   'employee_status_dom' => 
   array (
     'Active' => 'Aktív',
-    'Terminated' => 'Kilépett',
     'Leave of Absence' => 'Szabadságon',
-  ),
-  'project_task_priority_options' => 
-  array (
-    'High' => 'Magas',
-    'Medium' => 'Közepes',
-    'Low' => 'Alacsony',
-  ),
-  'project_task_status_options' => 
-  array (
-    'Not Started' => 'Nincs elindítva',
-    'In Progress' => 'Folyamatban',
-    'Completed' => 'Befejezett',
-    'Pending Input' => 'Függőben lévő ',
-    'Deferred' => 'Elhalasztott',
-  ),
-  'record_type_display' => 
-  array (
-    'Accounts' => 'Kliens',
-    'Opportunities' => 'Lehetőség',
-    'Cases' => 'Eset',
-    'Leads' => 'Ajánlás',
-    'Contacts' => 'Kapcsolatok',
-    'ProductTemplates' => 'Termék',
-    'Quotes' => 'Árajánlat',
-    'Bugs' => 'Hiba',
-    'Project' => 'Projekt',
-    'ProjectTask' => 'Projekt-feladat',
-    'Tasks' => 'Feladat',
-  ),
-  'record_type_display_notes' => 
-  array (
-    'Accounts' => 'Kliens',
-    'Contacts' => 'Kapcsolat',
-    'Opportunities' => 'Lehetőség',
-    'Cases' => 'Esetek',
-    'Leads' => 'Ajánlás',
-    'ProductTemplates' => 'Termék',
-    'Quotes' => 'Árajánlat',
-    'Products' => 'Termék',
-    'Contracts' => 'Szerződés',
-    'Bugs' => 'Hiba',
-    'Emails' => 'E-mail',
-    'Project' => 'Projekt',
-    'ProjectTask' => 'Projekt-feladat',
-    'Meetings' => 'Találkozók',
-    'Calls' => 'Hívások',
-  ),
-  'product_status_dom' => 
-  array (
-    'Quotes' => 'Kiajánlva',
-    'Orders' => 'Rendezett',
-    'Ship' => 'Szállított',
-  ),
-  'pricing_formula_dom' => 
-  array (
-    'Fixed' => 'Véglegesített ár',
-    'ProfitMargin' => 'Haszonkulcs',
-    'PercentageMarkup' => 'Nyereség a költség felett',
-    'PercentageDiscount' => 'Árkedvezmény listából',
-    'IsList' => 'Mint a lista',
-  ),
-  'product_template_status_dom' => 
-  array (
-    'Available' => 'Raktáron',
-    'Unavailable' => 'Nincs raktáron',
-  ),
-  'tax_class_dom' => 
-  array (
-    'Taxable' => 'Adóköteles',
-    'Non-Taxable' => 'Nem adóalany',
-  ),
-  'support_term_dom' => 
-  array (
-    '+6 months' => 'Hat hónap',
-    '+1 year' => 'Egy év',
-    '+2 years' => 'Két évvel',
-  ),
-  'quote_type_dom' => 
-  array (
-    'Quotes' => 'Árajánlat',
-    'Orders' => 'Sorrend',
-  ),
-  'quote_stage_dom' => 
-  array (
-    'Draft' => 'Tervezet',
-    'Negotiation' => 'Tárgyalás',
-    'Delivered' => 'Kézbesített',
-    'On Hold' => 'Függőben',
-    'Confirmed' => 'Megerősítette',
-    'Closed Accepted' => 'Lezárt, elfogadott',
-    'Closed Lost' => 'Lezárt, elvesztett',
-    'Closed Dead' => 'Lezárva, zsákutca',
-  ),
-  'order_stage_dom' => 
-  array (
-    'Pending' => 'Függőben lévő',
-    'Confirmed' => 'Megerősített',
-    'On Hold' => 'Függőben',
-    'Shipped' => 'Szállított',
-    'Cancelled' => 'Törölt',
-  ),
-  'layouts_dom' => 
-  array (
-    'Standard' => 'Javaslat',
-    'Invoice' => 'Számla',
-    'Terms' => 'Fizetési feltételek',
-  ),
-  'bug_priority_dom' => 
-  array (
-    'Urgent' => 'Sürgős',
-    'High' => 'Magas',
-    'Medium' => 'Közepes',
-    'Low' => 'Alacsony',
-  ),
-  'bug_status_dom' => 
-  array (
-    'New' => 'Új',
-    'Assigned' => 'Hozzárendelt',
-    'Closed' => 'Lezárt',
-    'Pending' => 'Függőben levő',
-    'Rejected' => 'Elutasítva',
-  ),
-  'bug_type_dom' => 
-  array (
-    'Defect' => 'Hiány',
-    'Feature' => 'Tulajdonság',
-  ),
-  'dom_report_types' => 
-  array (
-    'tabular' => 'Sorok és oszlopok',
-    'summary' => 'Összegzés',
-    'detailed_summary' => 'Összegzés részletesen',
-  ),
-  'dom_email_types' => 
-  array (
-    'out' => 'Elküldve',
-    'archived' => 'Archiválva',
-    'draft' => 'Tervezet',
-    'inbound' => 'Bejövő',
-  ),
-  'dom_email_status' => 
-  array (
-    'archived' => 'Archiválva',
-    'closed' => 'Lezárt',
-    'draft' => 'Tervezet',
-    'read' => 'Olvasott',
-    'replied' => 'Megválaszolt',
-    'sent' => 'Elküldve',
-    'send_error' => 'Hiba küldés',
-    'unread' => 'Olvasatlan',
-  ),
-  'dom_mailbox_type' => 
-  array (
-    'pick' => 'Létrehoz (valamit)',
-    'bug' => 'Hiba létrehozása',
-    'support' => 'Új eset létrehozása',
-    'contact' => 'Kapcsolatot létrehoz
-',
-    'sales' => 'Ajánlás létrehozása',
-    'task' => 'Feladat létrehozása',
-    'bounce' => 'Visszapattanás kezelés',
-  ),
-  'dom_email_distribution' => 
-  array (
-    '' => '-- üres --',
-    'direct' => 'Közvetlen hozzárendelés',
-    'roundRobin' => 'párhuzamos',
-    'leastBusy' => 'Legkevésbé foglalt',
-  ),
-  'dom_email_errors' => 
-  array (
-    1 => 'A tételek hozzárendelésekor csak egy felhasználót választhat.',
-    2 => 'Csak ellenőrzött tételt választhat a tételek hozzárendelésekor.',
-  ),
-  'dom_email_bool' => 
-  array (
-    'bool_true' => 'Igen',
-    'bool_false' => 'Nem',
-  ),
-  'dom_int_bool' => 
-  array (
-    1 => 'Igen',
-    0 => 'Nem',
-  ),
-  'dom_switch_bool' => 
-  array (
-    'on' => 'Igen',
-    'off' => 'Nem',
-    '' => 'Nem',
-  ),
-  'dom_email_link_type' => 
-  array (
-    '' => 'Alapértelmezett levelezőprogram',
-    'sugar' => 'SugarCRM-mail-kliens
-',
-    'mailto' => 'Külső-mail-kliens',
-  ),
-  'dom_email_editor_option' => 
-  array (
-    '' => 'Alapértelmezett Email formátum',
-    'html' => 'HTML Email',
-    'plain' => 'Egyszerű szöveg Email',
-  ),
-  'schedulers_times_dom' => 
-  array (
-    'not run' => 'Past Run Time, nincs végrehajtva',
-    'ready' => 'Kész',
-    'in progress' => 'Folyamatban',
-    'failed' => 'Sikertelen',
-    'completed' => 'Befejezett',
-    'no curl' => 'Nem fut: Nincs elérhető cURL',
+    'Terminated' => 'Lejárt',
   ),
   'forecast_schedule_status_dom' => 
   array (
@@ -1080,73 +415,402 @@ $app_list_strings = array (
   'forecast_type_dom' => 
   array (
     'Direct' => 'Közvetlen',
-    'Rollup' => 'Felgöngyölít',
+    'Rollup' => 'Összegzett',
   ),
-  'document_status_dom' => 
+  'industry_dom' => 
   array (
-    'Active' => 'Aktív',
-    'Draft' => 'Tervezet',
+    '' => '',
+    'Apparel' => 'Ruházat',
+    'Banking' => 'Bankszektor',
+    'Biotechnology' => 'Biotechnológia',
+    'Chemicals' => 'Vegyipar',
+    'Communications' => 'Kommunikáció',
+    'Construction' => 'Építőipar',
+    'Consulting' => 'Tanácsadás',
+    'Education' => 'Oktatás',
+    'Electronics' => 'Elektronika',
+    'Energy' => 'Energiaszektor',
+    'Engineering' => 'Műszaki tudományok',
+    'Entertainment' => 'Szórakoztatás',
+    'Environmental' => 'Környezetvédelem',
+    'Finance' => 'Pénzügy',
+    'Government' => 'Kormányzat',
+    'Healthcare' => 'Egészségügy',
+    'Hospitality' => 'Vendéglátás',
+    'Insurance' => 'Biztosítás',
+    'Machinery' => 'Gépipar',
+    'Manufacturing' => 'Gyártás',
+    'Media' => 'Média',
+    'Not For Profit' => 'Non-profit',
+    'Other' => 'Egyéb',
+    'Recreation' => 'Rekreáció',
+    'Retail' => 'Kiskereskedelm',
+    'Shipping' => 'Szállítás',
+    'Technology' => 'Technológia',
+    'Telecommunications' => 'Távközlés',
+    'Transportation' => 'Közúti szállítás',
+    'Utilities' => 'Hasznosítás',
+  ),
+  'language_pack_name' => 'Amerikai angol',
+  'layouts_dom' => 
+  array (
+    'Invoice' => 'Számla',
+    'Standard' => 'Javaslat',
+    'Terms' => 'Fizetési feltételek',
+  ),
+  'lead_source_dom' => 
+  array (
+    '' => '',
+    'Cold Call' => 'Hideghívás',
+    'Conference' => 'Konferencia',
+    'Direct Mail' => 'Közvetlen email',
+    'Email' => 'Email',
+    'Employee' => 'Munkatárs',
+    'Existing Customer' => 'Meglévő vevő',
+    'Other' => 'Egyéb',
+    'Partner' => 'Partner',
+    'Public Relations' => 'Public Relations',
+    'Self Generated' => 'Önkezűleg generált',
+    'Trade Show' => 'Kiállítás',
+    'Web Site' => 'Weblap',
+    'Word of mouth' => 'Szóbeszéd',
+  ),
+  'lead_status_dom' => 
+  array (
+    '' => '',
+    'Assigned' => 'Hozzárendelt',
+    'Converted' => 'Konvertált',
+    'Dead' => 'Meddő',
+    'In Process' => 'Folyamatban',
+    'New' => 'Új',
+    'Recycled' => 'Újrahasznosított',
+  ),
+  'lead_status_noblank_dom' => 
+  array (
+    'Assigned' => 'Hozzárendelt',
+    'Converted' => 'Konvertált',
+    'Dead' => 'Meddő',
+    'In Process' => 'Folyamatban',
+    'New' => 'Új',
+    'Recycled' => 'Újrahasznosított',
+  ),
+  'meeting_status_dom' => 
+  array (
+    'Held' => 'Megtartott',
+    'Not Held' => 'Visszamondott',
+    'Planned' => 'Tervezett',
+  ),
+  'messenger_type_dom' => 
+  array (
+    '' => '',
+    'AOL' => 'AOL',
+    'MSN' => 'MSN',
+    'Yahoo!' => 'Yahoo!',
+  ),
+  'moduleList' => 
+  array (
+    'Bugs' => 'Hibakövető',
+    'Cases' => 'Esetek',
     'FAQ' => 'GYIK',
-    'Expired' => 'Lejárt',
-    'Under Review' => 'Felülvizsgálat alatt',
-    'Pending' => 'Függőben lévő',
+    'Home' => 'Főoldal',
+    'KBDocuments' => 'Tudásbázis',
+    'Newsletters' => 'Hírlevelek',
+    'Notes' => 'Jegyzetek',
+    'Teams' => 'Csoportok',
+    'Users' => 'Felhasználók',
   ),
-  'dom_meeting_accept_options' => 
+  'moduleListSingular' => 
   array (
-    'accept' => 'Elfogadott',
-    'decline' => 'Elutasított',
-    'tentative' => 'Kisérlet',
-  ),
-  'dom_meeting_accept_status' => 
-  array (
-    'accept' => 'Elfogadott',
-    'decline' => 'Elutasított',
-    'tentative' => 'Kisérlet',
-    'none' => 'Egyik sem',
-  ),
-  'query_calc_oper_dom' => 
-  array (
-    '+' => '(+) Plusz',
-    '-' => '(-) Mínusz',
-    '*' => '(X) szorozva',
-    '/' => '(/) Osztva',
-  ),
-  'wflow_type_dom' => 
-  array (
-    'Normal' => 'Ha a rekord mentve',
-    'Time' => 'Az idő letelte után',
+    'Bugs' => 'Hiba',
+    'Cases' => 'Eset',
+    'Home' => 'Főoldal',
+    'Notes' => 'Jegyzet',
+    'Teams' => 'Csoport',
+    'Users' => 'Felhasználó',
   ),
   'mselect_type_dom' => 
   array (
     'Equals' => 'Egyenlõ',
     'in' => 'Az egyik',
   ),
-  'cselect_type_dom' => 
+  'notifymail_sendtype' => 
   array (
-    'Equals' => 'Egyenlõ',
-    'Does not Equal' => 'Nem egyenlő',
+    'SMTP' => 'SMTP',
   ),
-  'dselect_type_dom' => 
+  'opportunity_relationship_type_dom' => 
   array (
-    'Equals' => 'Egyenlõ',
-    'Less Than' => 'Kevesebb mint ',
-    'More Than' => 'Több mint ',
-    'Does not Equal' => 'Nem egyenlő',
+    '' => '',
+    'Business Decision Maker' => 'Üzleti döntéshozó',
+    'Business Evaluator' => 'Üzleti értékelő',
+    'Executive Sponsor' => 'Szponzor',
+    'Influencer' => 'Befolyásoló',
+    'Other' => 'Egyéb',
+    'Primary Decision Maker' => 'Elsődleges döntéshozó',
+    'Technical Decision Maker' => 'Műszaki döntéshozó',
+    'Technical Evaluator' => 'Műszaki értékelő',
   ),
-  'bselect_type_dom' => 
+  'opportunity_type_dom' => 
   array (
-    'bool_true' => 'Igen',
-    'bool_false' => 'Nem',
+    '' => '',
+    'Existing Business' => 'Meglévő üzlet',
+    'New Business' => 'Új üzlet',
   ),
-  'bopselect_type_dom' => 
+  'order_stage_dom' => 
   array (
-    'Equals' => 'Egyenlõ',
+    'Cancelled' => 'Törölve',
+    'Confirmed' => 'Megerősített',
+    'On Hold' => 'Függőben',
+    'Pending' => 'Függőben lévő',
+    'Shipped' => 'Szállítva',
+  ),
+  'payment_terms' => 
+  array (
+    '' => '',
+    'Net 15' => 'Net 15',
+    'Net 30' => 'Net 30',
+  ),
+  'pricing_formula_dom' => 
+  array (
+    'Fixed' => 'Kötött ár',
+    'IsList' => 'Listával azonos',
+    'PercentageDiscount' => 'Árkedvezmény listából',
+    'PercentageMarkup' => 'Nyereség a költség felett',
+    'ProfitMargin' => 'Haszonkulcs',
+  ),
+  'product_category_dom' => 
+  array (
+    '' => '',
+    'Accounts' => 'Kliensek',
+    'Activities' => 'Tevékenységek',
+    'Bug Tracker' => 'Hibakövető',
+    'Calendar' => 'Naptár',
+    'Calls' => 'Hívások',
+    'Campaigns' => 'Kampányok',
+    'Cases' => 'Esetek',
+    'Contacts' => 'Kapcsolatok',
+    'Currencies' => 'Pénznemek',
+    'Dashboard' => 'Műszerfal',
+    'Documents' => 'Dokumentumok',
+    'Emails' => 'Emailek',
+    'Feeds' => 'Hírcsatornák',
+    'Forecasts' => 'Előrejelzések',
+    'Help' => 'Segítség',
+    'Home' => 'Főoldal',
+    'Leads' => 'Ajánlások',
+    'Meetings' => 'Találkozók',
+    'Notes' => 'Jegyzetek',
+    'Opportunities' => 'Lehetőségek',
+    'Outlook Plugin' => 'Outlook plug-in',
+    'Product Catalog' => 'Termékkatalógus',
+    'Products' => 'Termékek',
+    'Projects' => 'Projektek',
+    'Quotes' => 'Árajánlatok',
+    'RSS' => 'RSS',
+    'Releases' => 'Kiadások',
+    'Studio' => 'Stúdió',
+    'Upgrade' => 'Frissítés',
+    'Users' => 'Felhasználók',
+  ),
+  'product_status_dom' => 
+  array (
+    'Orders' => 'Megrendelve',
+    'Quotes' => 'Kiajánlva',
+    'Ship' => 'Szállítva',
+  ),
+  'product_status_quote_key' => 'Árajánlatok',
+  'product_template_status_dom' => 
+  array (
+    'Available' => 'Raktáron',
+    'Unavailable' => 'Nincs raktáron',
+  ),
+  'project_task_priority_options' => 
+  array (
+    'High' => 'Magas',
+    'Low' => 'Alacsony',
+    'Medium' => 'Közepes',
+  ),
+  'project_task_status_options' => 
+  array (
+    'Completed' => 'Befejezett',
+    'Deferred' => 'Elhalasztott',
+    'In Progress' => 'Folyamatban',
+    'Not Started' => 'Nincs elindítva',
+    'Pending Input' => 'Függőben lévő bevitel',
+  ),
+  'project_task_utilization_options' => 
+  array (
+    25 => '25',
+    50 => '50',
+    75 => '75',
+    100 => '100',
+  ),
+  'prospect_list_type_dom' => 
+  array (
+    'default' => 'Alapértelmezett',
+    'exempt' => 'Elfojtási lista - azonosító alapján',
+    'exempt_address' => 'Elfojtási lista - email cím alapján',
+    'exempt_domain' => 'Elfojtási lista - domain alapján',
+    'seed' => 'Kezdemény',
+    'test' => 'Teszt',
+  ),
+  'query_calc_oper_dom' => 
+  array (
+    '*' => '(X) Szorozva',
+    '+' => '(+) Plusz',
+    '-' => '(-) Mínusz',
+    '/' => '(/) Osztva',
+  ),
+  'quote_relationship_type_dom' => 
+  array (
+    '' => '',
+    'Business Decision Maker' => 'Üzleti döntéshozó',
+    'Business Evaluator' => 'Üzleti értékelő',
+    'Executive Sponsor' => 'Szponzor',
+    'Influencer' => 'Befolyásoló',
+    'Other' => 'Egyéb',
+    'Primary Decision Maker' => 'Elsődleges döntéshozó',
+    'Technical Decision Maker' => 'Műszaki döntéshozó',
+    'Technical Evaluator' => 'Műszaki értékelő',
+  ),
+  'quote_stage_dom' => 
+  array (
+    'Closed Accepted' => 'Lezárt, elfogadott',
+    'Closed Dead' => 'Lezárva, zsákutca',
+    'Closed Lost' => 'Lezárt, elvesztett',
+    'Confirmed' => 'Megerősítve',
+    'Delivered' => 'Kézbesítve',
+    'Draft' => 'Piszkozat',
+    'Negotiation' => 'Tárgyalás',
+    'On Hold' => 'Függőben',
+  ),
+  'quote_type_dom' => 
+  array (
+    'Orders' => 'Megrendelés',
+    'Quotes' => 'Árajánlat',
+  ),
+  'record_type_display' => 
+  array (
+    'Accounts' => 'Kliens',
+    'Bugs' => 'Hiba',
+    'Cases' => 'Eset',
+    'Contacts' => 'Kapcsolatok',
+    'Leads' => 'Ajánlás',
+    'Opportunities' => 'Lehetőség',
+    'ProductTemplates' => 'Termék',
+    'Project' => 'Projekt',
+    'ProjectTask' => 'Projektfeladat',
+    'Quotes' => 'Árajánlat',
+    'Tasks' => 'Feladat',
+  ),
+  'record_type_display_notes' => 
+  array (
+    'Accounts' => 'Kliens',
+    'Bugs' => 'Hiba',
+    'Calls' => 'Hívás',
+    'Cases' => 'Eset',
+    'Contacts' => 'Kapcsolat',
+    'Contracts' => 'Szerződés',
+    'Emails' => 'Email',
+    'Leads' => 'Ajánlás',
+    'Meetings' => 'Találkozó',
+    'Opportunities' => 'Lehetőség',
+    'ProductTemplates' => 'Termék',
+    'Products' => 'Termék',
+    'Project' => 'Projekt',
+    'ProjectTask' => 'Projektfeladat',
+    'Quotes' => 'Árajánlat',
+  ),
+  'reminder_max_time' => '3600',
+  'reminder_time_options' => 
+  array (
+    60 => '1 perccel előtte',
+    300 => '5 perccel előtte',
+    600 => '10 perccel előtte',
+    900 => '15 perccel előtte',
+    1800 => '30 perccel előtte',
+    3600 => '1 órával előtte',
+  ),
+  'sales_probability_dom' => 
+  array (
+    'Closed Lost' => '',
+    'Closed Won' => '100',
+    'Id. Decision Makers' => '40',
+    'Needs Analysis' => '25',
+    'Negotiation/Review' => '80',
+    'Perception Analysis' => '50',
+    'Proposal/Price Quote' => '65',
+    'Prospecting' => '10',
+    'Qualification' => '20',
+    'Value Proposition' => '30',
+  ),
+  'sales_stage_dom' => 
+  array (
+    'Closed Lost' => 'Lezárt, elvesztett',
+    'Closed Won' => 'Lezárt, megnyert',
+    'Id. Decision Makers' => 'Döntéshozók azonosítása',
+    'Needs Analysis' => 'Igényfelmérés',
+    'Negotiation/Review' => 'Tárgyalás / felülvizsgálat',
+    'Perception Analysis' => 'Észrevételek elemzése',
+    'Proposal/Price Quote' => 'Javaslat / árajánlat',
+    'Prospecting' => 'Lehetőségek felmérése',
+    'Qualification' => 'Minősítés',
+    'Value Proposition' => 'Értékjavaslat',
+  ),
+  'salutation_dom' => 
+  array (
+    '' => '',
+    'Dr.' => 'Dr.',
+    'Mr.' => 'Úr',
+    'Mrs.' => 'Asszony',
+    'Ms.' => 'Hölgy',
+    'Prof.' => 'Prof.',
+  ),
+  'schedulers_times_dom' => 
+  array (
+    'completed' => 'Befejezett',
+    'failed' => 'Sikertelen',
+    'in progress' => 'Folyamatban',
+    'no curl' => 'Nem fut: nincs elérhető cURL',
+    'not run' => 'Past Run Time, nincs végrehajtva',
+    'ready' => 'Kész',
+  ),
+  'source_dom' => 
+  array (
+    '' => '',
+    'Forum' => 'Fórum',
+    'InboundEmail' => 'Email',
+    'Internal' => 'Belső',
+    'Web' => 'Web',
+  ),
+  'support_term_dom' => 
+  array (
+    '+1 year' => 'Egy év',
+    '+2 years' => 'Két év',
+    '+6 months' => 'Hat hónap',
+  ),
+  'task_priority_dom' => 
+  array (
+    'High' => 'Magas',
+    'Low' => 'Alacsony',
+    'Medium' => 'Közepes',
+  ),
+  'task_status_dom' => 
+  array (
+    'Completed' => 'Befejezett',
+    'Deferred' => 'Elhalasztott',
+    'In Progress' => 'Folyamatban',
+    'Not Started' => 'Nincs elindítva',
+    'Pending Input' => 'Függőben lévő bevitel',
+  ),
+  'tax_class_dom' => 
+  array (
+    'Non-Taxable' => 'Nem adóköteles',
+    'Taxable' => 'Adóköteles',
   ),
   'tselect_type_dom' => 
   array (
-    0 => '0 óra',
     14440 => '4 óra',
-    28800 => '6 óra',
+    28800 => '8 óra',
     43200 => '12 óra',
     86400 => '1 nap',
     172800 => '2 nap',
@@ -1163,138 +827,406 @@ $app_list_strings = array (
     12960000 => '150 nap',
     15552000 => '180 nap',
   ),
-  'dtselect_type_dom' => 
+  'user_status_dom' => 
   array (
-    'More Than' => 'Több mint ',
-    'Less Than' => 'kevesebb mint',
+    'Active' => 'Aktív',
+    'Inactive' => 'Inaktív',
+  ),
+  'wflow_action_datetime_type_dom' => 
+  array (
+    'Existing Value' => 'Létező érték',
+    'Triggered Date' => 'Indítás dátuma',
+  ),
+  'wflow_action_type_dom' => 
+  array (
+    'new' => 'Új rekord',
+    'update' => 'Rekord felülírása',
+    'update_rel' => 'Kapcsolódó rekord felülírása',
+  ),
+  'wflow_address_type_dom' => 
+  array (
+    'bcc' => 'BCC:',
+    'cc' => 'CC:',
+    'to' => 'Címzett:',
+  ),
+  'wflow_address_type_invite_dom' => 
+  array (
+    'bcc' => 'BCC:',
+    'cc' => 'CC:',
+    'invite_only' => '(csak meghívásra)',
+    'to' => 'Címzett:',
+  ),
+  'wflow_address_type_to_only_dom' => 
+  array (
+    'to' => 'Címzett:',
+  ),
+  'wflow_adv_enum_type_dom' => 
+  array (
+    'advance' => 'Görgetés előre',
+    'retreat' => 'Görgetés vissza',
+  ),
+  'wflow_adv_team_type_dom' => 
+  array (
+    'current_team' => 'A bejelentkezett felhasználók csoportja',
+    'team_id' => 'A rekord csoportja',
+  ),
+  'wflow_adv_user_type_dom' => 
+  array (
+    'assigned_user_id' => 'A rekordhoz kijelölt felhasználó',
+    'created_by' => 'A felhasználó, aki létrehozta a rekordot',
+    'current_user' => 'Bejelentkezett felhasználó',
+    'modified_user_id' => 'A felhasználó, aki utoljára módosította a rekordot',
   ),
   'wflow_alert_type_dom' => 
   array (
     'Email' => 'Email',
     'Invite' => 'Meghív',
   ),
-  'wflow_source_type_dom' => 
-  array (
-    'Normal Message' => 'Normál Üzenet',
-    'Custom Template' => 'Egyéni sablon',
-    'System Default' => 'Rendszer alapbeállítás',
-  ),
-  'wflow_user_type_dom' => 
-  array (
-    'current_user' => 'Bejelentkezett felhasználó',
-    'rel_user' => 'Kapcsolódó felhasználók',
-    'rel_user_custom' => 'Kapcsolódó egyéni felhasználó',
-    'specific_team' => 'Meghatározott csoport',
-    'specific_role' => 'Meghatározott szerep',
-    'specific_user' => 'Meghatározott felhasználó',
-  ),
   'wflow_array_type_dom' => 
   array (
     'future' => 'Új érték',
     'past' => 'Régi érték',
   ),
-  'wflow_relate_type_dom' => 
+  'wflow_fire_order_dom' => 
   array (
-    'Self' => 'Felhasználó',
-    'Manager' => 'Felhasználó Manager
-',
-  ),
-  'wflow_address_type_to_only_dom' => 
-  array (
-    'to' => 'Címzett:',
-  ),
-  'wflow_action_type_dom' => 
-  array (
-    'update' => 'Rekord felülírása',
-    'update_rel' => 'Kapcsolódó rekord felülírása',
-    'new' => 'Új rekord',
-  ),
-  'wflow_action_datetime_type_dom' => 
-  array (
-    'Triggered Date' => 'Indítás dátuma',
-    'Existing Value' => 'Létező érték',
-  ),
-  'wflow_set_type_dom' => 
-  array (
-    'Basic' => 'Alap beállítások',
-    'Advanced' => 'Speciális beállítások',
-  ),
-  'wflow_adv_user_type_dom' => 
-  array (
-    'assigned_user_id' => 'Felhasználóhoz rendelt elindított tételek',
-    'modified_user_id' => 'Felhasználó aki utoljára módosította az indító tételt',
-    'created_by' => 'Indító tételt létrehozó felhasználó',
-    'current_user' => 'Bejelentkezett felhasználó',
-  ),
-  'wflow_adv_team_type_dom' => 
-  array (
-    'team_id' => 'Jelenlegi csoport indító tételei',
-    'current_team' => 'Bejelentkezett felhasználók csoportja',
-  ),
-  'wflow_adv_enum_type_dom' => 
-  array (
-    'retreat' => 'Görgetés hátra ',
-    'advance' => 'Görgetés előre',
+    'actions_alerts' => 'Műveletek, majd figyelmeztetések',
+    'alerts_actions' => 'Figyelmeztetések, majd műveletek',
   ),
   'wflow_record_type_dom' => 
   array (
-    'All' => 'Új és meglévő rekordok',
-    'New' => 'Új rekordok',
-    'Update' => 'Meglévő rekordok',
+    'All' => 'Új és frissített rekordok',
+    'New' => 'Kizárólag új rekordok',
+    'Update' => 'Kizárólag frissített rekordok',
   ),
   'wflow_rel_type_dom' => 
   array (
     'all' => 'Minden kapcsolódó',
-    'filter' => 'Kapcsolódó szűrés',
+    'filter' => 'Szűrőhöz kapcsolódó',
+  ),
+  'wflow_relate_type_dom' => 
+  array (
+    'Manager' => 'Felhasználó felettese',
+    'Self' => 'Felhasználó',
   ),
   'wflow_relfilter_type_dom' => 
   array (
     'all' => 'minden kapcsolódó',
-    'any' => 'Kapcsolódó',
+    'any' => 'bármely kapcsolódó',
   ),
-  'wflow_fire_order_dom' => 
+  'wflow_set_type_dom' => 
   array (
-    'alerts_actions' => 'Figyelmeztetések, majd műveletek',
-    'actions_alerts' => 'Műveletek, majd figyelmeztetések',
+    'Advanced' => 'Speciális beállítások',
+    'Basic' => 'Alapbeállítások',
   ),
-  'prospect_list_type_dom' => 
+  'wflow_source_type_dom' => 
   array (
-    'default' => 'Alapértelmezett',
-    'seed' => 'Elvet',
-    'exempt_domain' => 'Szűrés lista - Domain alapján',
-    'exempt_address' => 'Szűrés lista - Email-cím alapján',
-    'exempt' => 'Szűrés lista - Azonosító alapján',
-    'test' => 'Teszt',
+    'Custom Template' => 'Egyéni sablon',
+    'Normal Message' => 'Normál üzenet',
+    'System Default' => 'Rendszer alapbeállítás',
   ),
-  'campainglog_target_type_dom' => 
+  'wflow_type_dom' => 
   array (
-    'Contacts' => 'Kapcsolatok',
-    'Users' => 'Felhasználók',
-    'Prospects' => 'Célok',
-    'Leads' => 'Ajánlások',
+    'Normal' => 'Ha a rekord mentve',
+    'Time' => 'Az idő letelte után',
   ),
-  'contract_status_dom' => 
+  'wflow_user_type_dom' => 
   array (
-    'notstarted' => 'Nem indult',
-    'inprogress' => 'Folyamatban',
-    'signed' => 'Aláírták',
+    'current_user' => 'Bejelentkezett felhasználók',
+    'rel_user' => 'Kapcsolódó felhasználók',
+    'rel_user_custom' => 'Kapcsolódó egyéni felhasználó',
+    'specific_role' => 'Meghatározott szerep',
+    'specific_team' => 'Meghatározott csoport',
+    'specific_user' => 'Meghatározott felhasználó',
   ),
-  'contract_payment_frequency_dom' => 
-  array (
-    'monthly' => 'Havi',
-    'quarterly' => 'Negyedéves',
-    'halfyearly' => 'Féléves',
-    'yearly' => 'Éves',
-  ),
-  'contract_expiration_notice_dom' => 
-  array (
-    1 => '1 nap',
-    3 => '3 nap',
-    5 => '5 nap',
-    7 => '1 hét',
-    14 => '2 hét',
-    21 => '3 hét',
-    31 => '1 hónap',
-  ),
+);
+
+$app_strings = array (
+  'ERROR_FULLY_EXPIRED' => 'Az Ön cégének SugarCRM licence több mint 30 napja lejárt, így a további működés érdekében azt frissíteni kell. Csak az adminisztrátoroknak lehetséges a belépés.',
+  'ERROR_LICENSE_EXPIRED' => 'Az Ön cégének SugarCRM licencét frissíteni kell. Csak az adminisztrátoroknak lehetséges a belépés.',
+  'ERROR_NO_RECORD' => 'Hiba a rekord lekérése során. A rekordot vagy törölték, vagy nem jogosult annak megtekintésére.',
+  'ERR_CREATING_FIELDS' => 'Hiba a további adatok megadása során:',
+  'ERR_CREATING_TABLE' => 'Hiba a tábla létrehozása során:',
+  'ERR_DELETE_RECORD' => 'Adjon meg egy azonosítót a kapcsolat törléséhez!',
+  'ERR_EXPORT_DISABLED' => 'Exportálás letiltva.',
+  'ERR_EXPORT_TYPE' => 'Hiba az exportálás során:',
+  'ERR_INVALID_AMOUNT' => 'Kérem, adjon meg egy érvényes összeget!',
+  'ERR_INVALID_DATE' => 'Kérem, adjon meg egy érvényes dátumot!',
+  'ERR_INVALID_DATE_FORMAT' => 'A dátumformátumnak a következőnek kell lennie:',
+  'ERR_INVALID_DAY' => 'Kérem, adjon meg egy valós napot!',
+  'ERR_INVALID_EMAIL_ADDRESS' => 'érvénytelen email cím',
+  'ERR_INVALID_HOUR' => 'Kérem, adjon meg egy időpontot 0 és 24 között!',
+  'ERR_INVALID_MONTH' => 'Kérem, adjon meg egy valós hónapot!',
+  'ERR_INVALID_REQUIRED_FIELDS' => 'Érvénytelen kötelezően kitöltendő mező:',
+  'ERR_INVALID_TIME' => 'Adjon meg egy valós időt!',
+  'ERR_INVALID_VALUE' => 'Érvénytelen érték:',
+  'ERR_INVALID_YEAR' => 'Kérem, adjon meg egy érvényes évet négy számjeggyel!',
+  'ERR_MISSING_REQUIRED_FIELDS' => 'Kötelezően kitöltendő mezők hiányoznak:',
+  'ERR_NEED_ACTIVE_SESSION' => 'A tartalmak exportálásához aktív munkamenet szükséges.',
+  'ERR_NOTHING_SELECTED' => 'Kérem, válasszon mielőtt tovább lépne!',
+  'ERR_OPPORTUNITY_NAME_DUPE' => 'A megadott névvel (%s) már létezik egy Lehetőség. Kérem, adjon meg egy új nevet!',
+  'ERR_OPPORTUNITY_NAME_MISSING' => 'Egy Lehetőség név nem lett megadva. Kérem, adja meg a nevet alább!',
+  'ERR_PORTAL_LOGIN_FAILED' => 'Nem sikerült létrehozni a portál bejelentkezést. Kérem, lépjen kapcsolatba az adminisztrátorral!',
+  'ERR_RESOURCE_MANAGEMENT_INFO' => 'Vissza a Főoldalra',
+  'ERR_SELF_REPORTING' => 'A felhasználó nem jelenthet önmagának.',
+  'ERR_SQS_NO_MATCH' => 'Nincs találat',
+  'ERR_SQS_NO_MATCH_FIELD' => 'Nincs találat az alábbi mezők között:',
+  'LBL_ACCOUNT' => 'Kliens',
+  'LBL_ACCOUNTS' => 'Kliensek',
+  'LBL_ACCUMULATED_HISTORY_BUTTON_KEY' => 'H',
+  'LBL_ACCUMULATED_HISTORY_BUTTON_LABEL' => 'Összefoglaló megtekintése',
+  'LBL_ACCUMULATED_HISTORY_BUTTON_TITLE' => 'Összefoglaló megtekintése',
+  'LBL_ADDITIONAL_DETAILS' => 'További részletek',
+  'LBL_ADDITIONAL_DETAILS_CLOSE' => 'Bezárás',
+  'LBL_ADDITIONAL_DETAILS_CLOSE_TITLE' => 'Kattintson a Bezárásra',
+  'LBL_ADD_BUTTON' => 'Hozzáadás',
+  'LBL_ADD_BUTTON_KEY' => 'A',
+  'LBL_ADD_BUTTON_TITLE' => 'Hozzáadás',
+  'LBL_ADD_DOCUMENT' => 'Dokumentum hozzáadása',
+  'LBL_ADD_TO_PROSPECT_LIST_BUTTON_KEY' => 'L',
+  'LBL_ADD_TO_PROSPECT_LIST_BUTTON_LABEL' => 'Hozzáadás a Cél listához',
+  'LBL_ADD_TO_PROSPECT_LIST_BUTTON_TITLE' => 'Hozzáadás a Cél listához',
+  'LBL_ADMIN' => 'Adminisztrátor',
+  'LBL_ALT_HOT_KEY' => '',
+  'LBL_ARCHIVE' => 'Archívum',
+  'LBL_ASSIGNED_TO' => 'Felelős:',
+  'LBL_ASSIGNED_TO_USER' => 'Hozzárendelt felhasználó',
+  'LBL_BACK' => 'Vissza',
+  'LBL_BILL_TO_ACCOUNT' => 'Számla a kliensnek',
+  'LBL_BILL_TO_CONTACT' => 'Számla a Kapcsolatnak',
+  'LBL_BROWSER_TITLE' => 'SugarCRM - Kereskedelmi nyílt forráskódú CRM',
+  'LBL_BUGS' => 'Hibák',
+  'LBL_BY' => 'által',
+  'LBL_CALLS' => 'Hívások',
+  'LBL_CAMPAIGNS_SEND_QUEUED' => 'Várakozó kampány emailek elküldése',
+  'LBL_CANCEL_BUTTON_KEY' => 'X',
+  'LBL_CANCEL_BUTTON_LABEL' => 'Mégsem',
+  'LBL_CANCEL_BUTTON_TITLE' => 'Mégsem',
+  'LBL_CASE' => 'Eset',
+  'LBL_CASES' => 'Esetek',
+  'LBL_CHANGE_BUTTON_KEY' => 'G',
+  'LBL_CHANGE_BUTTON_LABEL' => 'Módosítás',
+  'LBL_CHANGE_BUTTON_TITLE' => 'Módosítás',
+  'LBL_CHANGE_PASSWORD' => 'Jelszó megváltoztatása',
+  'LBL_CHARSET' => 'UTF-8',
+  'LBL_CHECKALL' => 'Összes kijelölése',
+  'LBL_CLEARALL' => 'Az összes törlése',
+  'LBL_CLEAR_BUTTON_KEY' => 'C',
+  'LBL_CLEAR_BUTTON_LABEL' => 'Töröl',
+  'LBL_CLEAR_BUTTON_TITLE' => 'Töröl',
+  'LBL_CLOSEALL_BUTTON_KEY' => 'Q',
+  'LBL_CLOSEALL_BUTTON_LABEL' => 'Összes bezárása',
+  'LBL_CLOSEALL_BUTTON_TITLE' => 'Összes bezárása',
+  'LBL_CLOSE_WINDOW' => 'Ablak bezárása',
+  'LBL_COMPOSE_EMAIL_BUTTON_KEY' => 'L',
+  'LBL_COMPOSE_EMAIL_BUTTON_LABEL' => 'Email írása',
+  'LBL_COMPOSE_EMAIL_BUTTON_TITLE' => 'Email írása',
+  'LBL_CONTACT' => 'Kapcsolat',
+  'LBL_CONTACTS' => 'Kapcsolatok',
+  'LBL_CONTACT_LIST' => 'Kapcsolatlista',
+  'LBL_CREATED' => 'Létrehozta',
+  'LBL_CREATED_BY_USER' => 'Felhasználó által létrehozva',
+  'LBL_CREATE_BUTTON_LABEL' => 'Létrehozás',
+  'LBL_CURRENT_USER_FILTER' => 'Csak a saját tételeim:',
+  'LBL_DATE_ENTERED' => 'Létrehozás dátuma:',
+  'LBL_DATE_MODIFIED' => 'Utolsó módosítás:',
+  'LBL_DELETE' => 'Törlés',
+  'LBL_DELETED' => 'Törölve',
+  'LBL_DELETE_BUTTON' => 'Törlés',
+  'LBL_DELETE_BUTTON_KEY' => 'D',
+  'LBL_DELETE_BUTTON_LABEL' => 'Törlés',
+  'LBL_DELETE_BUTTON_TITLE' => 'Törlés',
+  'LBL_DIRECT_REPORTS' => 'Közvetlen jelentések',
+  'LBL_DISPLAY_COLUMNS' => 'Oszlopok megjelenítése',
+  'LBL_DONE_BUTTON_KEY' => 'X',
+  'LBL_DONE_BUTTON_LABEL' => 'Kész',
+  'LBL_DONE_BUTTON_TITLE' => 'Kész',
+  'LBL_DST_NEEDS_FIXIN' => 'Az alkalmazás igényli a nyári időszámítás használatát. Kérem, az admin felület Javítás pontjában végezze el a szükséges beállításokat!',
+  'LBL_DUPLICATE_BUTTON' => 'Kettőz',
+  'LBL_DUPLICATE_BUTTON_KEY' => 'U',
+  'LBL_DUPLICATE_BUTTON_LABEL' => 'Kettőz',
+  'LBL_DUPLICATE_BUTTON_TITLE' => 'Kettőz',
+  'LBL_DUP_MERGE' => 'Többszörös előfordulások keresése',
+  'LBL_EDIT_BUTTON' => 'Szerkesztés',
+  'LBL_EDIT_BUTTON_KEY' => 'E',
+  'LBL_EDIT_BUTTON_LABEL' => 'Szerkesztés',
+  'LBL_EDIT_BUTTON_TITLE' => 'Szerkesztés',
+  'LBL_EMAILS' => 'Emailek',
+  'LBL_EMAIL_PDF_BUTTON_KEY' => 'M',
+  'LBL_EMAIL_PDF_BUTTON_LABEL' => 'Email PDF-ként',
+  'LBL_EMAIL_PDF_BUTTON_TITLE' => 'Email PDF-ként',
+  'LBL_EMPLOYEES' => 'Munkatársak',
+  'LBL_ENTER_DATE' => 'Írja be a dátumot',
+  'LBL_EXPORT' => 'Export',
+  'LBL_EXPORT_ALL' => 'Összes exportálása',
+  'LBL_FULL_FORM_BUTTON_KEY' => 'F',
+  'LBL_FULL_FORM_BUTTON_LABEL' => 'Teljes űrlap',
+  'LBL_FULL_FORM_BUTTON_TITLE' => 'Teljes űrlap',
+  'LBL_HIDE' => 'Elrejt',
+  'LBL_HIDE_COLUMNS' => 'Oszlopok elrejtése',
+  'LBL_ID' => 'Azonosító',
+  'LBL_IMPORT' => 'Importálás',
+  'LBL_IMPORT_PROSPECTS' => 'Célok importálása',
+  'LBL_LAST_VIEWED' => 'Utoljára megtekintett',
+  'LBL_LEADS' => 'Ajánlások',
+  'LBL_LISTVIEW_MASS_UPDATE_CONFIRM' => 'Biztos benne, hogy szeretné frissíteni a teljes listát?',
+  'LBL_LISTVIEW_NO_SELECTED' => 'Kérjük, válasszon ki legalább egy rekordot a folytatáshoz!',
+  'LBL_LISTVIEW_OPTION_CURRENT' => 'Aktuális oldal',
+  'LBL_LISTVIEW_OPTION_ENTIRE' => 'A teljes lista',
+  'LBL_LISTVIEW_OPTION_SELECTED' => 'Kiválasztott rekordok',
+  'LBL_LISTVIEW_SELECTED_OBJECTS' => 'Kiválasztva:',
+  'LBL_LIST_ACCOUNT_NAME' => 'Kliens neve',
+  'LBL_LIST_ASSIGNED_USER' => 'Felhasználó',
+  'LBL_LIST_CONTACT_NAME' => 'Kapcsolat neve',
+  'LBL_LIST_CONTACT_ROLE' => 'Kapcsolat szerepe',
+  'LBL_LIST_EMAIL' => 'Email',
+  'LBL_LIST_NAME' => 'Név',
+  'LBL_LIST_OF' => 'a(z)',
+  'LBL_LIST_PHONE' => 'Telefon',
+  'LBL_LIST_TEAM' => 'Csoport',
+  'LBL_LIST_USER_NAME' => 'Felhasználónév',
+  'LBL_LOADING' => 'Betöltés...',
+  'LBL_LOCALE_NAME_EXAMPLE_FIRST' => 'John',
+  'LBL_LOCALE_NAME_EXAMPLE_LAST' => 'Doe',
+  'LBL_LOCALE_NAME_EXAMPLE_SALUTATION' => 'Mr.',
+  'LBL_LOGIN_SESSION_EXCEEDED' => 'A szerver foglalt. Kérem, próbálkozzon később!',
+  'LBL_LOGIN_TO_ACCESS' => 'Kérem, a hozzáférés érdekében jelentkezzen be!',
+  'LBL_LOGOUT' => 'Kilépés',
+  'LBL_MAILMERGE' => 'Körlevél',
+  'LBL_MAILMERGE_KEY' => 'M',
+  'LBL_MASS_UPDATE' => 'Tömeges frissítés',
+  'LBL_MEETINGS' => 'Találkozók',
+  'LBL_MEMBERS' => 'Tagok',
+  'LBL_MODIFIED' => 'Módosította a(z)',
+  'LBL_MODIFIED_BY_USER' => 'Felhasználó által módosítva',
+  'LBL_MY_ACCOUNT' => 'Kliensem',
+  'LBL_NAME' => 'Név',
+  'LBL_NEW_BUTTON_KEY' => 'N',
+  'LBL_NEW_BUTTON_LABEL' => 'Létrehozás',
+  'LBL_NEW_BUTTON_TITLE' => 'Létrehozás',
+  'LBL_NEXT_BUTTON_LABEL' => 'Tovább',
+  'LBL_NONE' => '-- nincs adat --',
+  'LBL_NOTES' => 'Jegyzetek',
+  'LBL_NO_RECORDS_FOUND' => '- Nincs találat -',
+  'LBL_OPENALL_BUTTON_KEY' => 'O',
+  'LBL_OPENALL_BUTTON_LABEL' => 'Mindent megnyit',
+  'LBL_OPENALL_BUTTON_TITLE' => 'Mindent megnyit',
+  'LBL_OPENTO_BUTTON_KEY' => 'T',
+  'LBL_OPENTO_BUTTON_LABEL' => 'Megnyitás:',
+  'LBL_OPENTO_BUTTON_TITLE' => 'Megnyitás:',
+  'LBL_OPPORTUNITIES' => 'Lehetőségek',
+  'LBL_OPPORTUNITY' => 'Lehetőség',
+  'LBL_OPPORTUNITY_NAME' => 'Lehetőség neve:',
+  'LBL_OR' => 'VAGY',
+  'LBL_PERCENTAGE_SYMBOL' => '%',
+  'LBL_PRODUCTS' => 'Termékek',
+  'LBL_PRODUCT_BUNDLES' => 'Termékcsomagok',
+  'LBL_PROJECTS' => 'Projektek',
+  'LBL_PROJECT_TASKS' => 'Projektfeladatok',
+  'LBL_QUOTES' => 'Árajánlatok',
+  'LBL_QUOTES_SHIP_TO' => 'Árajánlatok küldése a(z)',
+  'LBL_QUOTE_TO_OPPORTUNITY_KEY' => 'O',
+  'LBL_QUOTE_TO_OPPORTUNITY_LABEL' => 'Lehetőség létrehozása árajánlatból',
+  'LBL_QUOTE_TO_OPPORTUNITY_TITLE' => 'Lehetőség létrehozása árajánlatból',
+  'LBL_RELATED_RECORDS' => 'Kapcsolódó rekordok',
+  'LBL_REMOVE' => 'Eltávolítás',
+  'LBL_REQUIRED_SYMBOL' => '*',
+  'LBL_SAVED' => 'Mentve',
+  'LBL_SAVED_LAYOUT' => 'Elrendezés mentése megtörtént.',
+  'LBL_SAVED_VIEWS' => 'Mentett megtekintések',
+  'LBL_SAVE_BUTTON_KEY' => 'S',
+  'LBL_SAVE_BUTTON_LABEL' => 'Mentés',
+  'LBL_SAVE_BUTTON_TITLE' => 'Mentés',
+  'LBL_SAVE_NEW_BUTTON_KEY' => 'V',
+  'LBL_SAVE_NEW_BUTTON_LABEL' => 'Mentés & új létrehozása',
+  'LBL_SAVE_NEW_BUTTON_TITLE' => 'Mentés & új létrehozása',
+  'LBL_SAVING' => 'Mentés',
+  'LBL_SAVING_LAYOUT' => 'Elrendezés mentése...',
+  'LBL_SEARCH' => 'Keresés',
+  'LBL_SEARCH_BUTTON_KEY' => 'Q',
+  'LBL_SEARCH_BUTTON_LABEL' => 'Keresés',
+  'LBL_SEARCH_BUTTON_TITLE' => 'Keresés',
+  'LBL_SEARCH_CRITERIA' => 'Keresési feltételek',
+  'LBL_SELECT_BUTTON_KEY' => 'T',
+  'LBL_SELECT_BUTTON_LABEL' => 'Kiválaszt',
+  'LBL_SELECT_BUTTON_TITLE' => 'Kiválaszt',
+  'LBL_SELECT_CONTACT_BUTTON_KEY' => 'T',
+  'LBL_SELECT_CONTACT_BUTTON_LABEL' => 'Válasszon kapcsolatot',
+  'LBL_SELECT_CONTACT_BUTTON_TITLE' => 'Válasszon kapcsolatot',
+  'LBL_SELECT_REPORTS_BUTTON_LABEL' => 'Válasszon a jelentések közül',
+  'LBL_SELECT_REPORTS_BUTTON_TITLE' => 'Jelentés kiválasztása',
+  'LBL_SELECT_USER_BUTTON_KEY' => 'U',
+  'LBL_SELECT_USER_BUTTON_LABEL' => 'Válasszon felhasználót',
+  'LBL_SELECT_USER_BUTTON_TITLE' => 'Felhasználó kiválasztása',
+  'LBL_SERVER_RESPONSE_RESOURCES' => 'Az oldal létrehozása az alábbiak alapján történt (lekérések, fájlok)',
+  'LBL_SERVER_RESPONSE_TIME' => 'Szerver válaszidő:',
+  'LBL_SERVER_RESPONSE_TIME_SECONDS' => 'másodperc.',
+  'LBL_SHIP_TO_ACCOUNT' => 'Szállítás a kliensnek',
+  'LBL_SHIP_TO_CONTACT' => 'Szállítás a kapcsolatnak',
+  'LBL_SHORTCUTS' => 'Parancsikonok',
+  'LBL_SHOW' => 'Mutat',
+  'LBL_SQS_INDICATOR' => '',
+  'LBL_STATUS' => 'Állapot:',
+  'LBL_STATUS_UPDATED' => 'Az Ön státusza erre az eseményre vonatkozóan frissítésre került!',
+  'LBL_SUBJECT' => 'Tárgy',
+  'LBL_SYNC' => 'Szinkronizálás',
+  'LBL_TASKS' => 'Feladatok',
+  'LBL_TEAM' => 'Csoport:',
+  'LBL_TEAMS_LINK' => 'Csoport',
+  'LBL_TEAM_ID' => 'Csoport azonosító:',
+  'LBL_THOUSANDS_SYMBOL' => 'K',
+  'LBL_TRACK_EMAIL_BUTTON_KEY' => 'K',
+  'LBL_TRACK_EMAIL_BUTTON_LABEL' => 'Emailek archiválása',
+  'LBL_TRACK_EMAIL_BUTTON_TITLE' => 'Emailek archiválása',
+  'LBL_UNAUTH_ADMIN' => 'Jogosulatlan hozzáférés az adminisztrációhoz',
+  'LBL_UNDELETE' => 'Törlés visszavonása',
+  'LBL_UNDELETE_BUTTON' => 'Törlés visszavonása',
+  'LBL_UNDELETE_BUTTON_LABEL' => 'Törlés visszavonása',
+  'LBL_UNDELETE_BUTTON_TITLE' => 'Törlés visszavonása',
+  'LBL_UNSYNC' => 'Szinkronizálás megszüntetése',
+  'LBL_UPDATE' => 'Frissítés',
+  'LBL_USERS' => 'Felhasználók',
+  'LBL_USERS_SYNC' => 'Felhasználók szinkronizálása',
+  'LBL_USER_LIST' => 'Felhasználólista',
+  'LBL_VIEW_BUTTON' => 'Nézet',
+  'LBL_VIEW_BUTTON_KEY' => 'V',
+  'LBL_VIEW_BUTTON_LABEL' => 'Nézet',
+  'LBL_VIEW_BUTTON_TITLE' => 'Nézet',
+  'LBL_VIEW_PDF_BUTTON_KEY' => 'P',
+  'LBL_VIEW_PDF_BUTTON_LABEL' => 'Nyomtatás PDF formátumban',
+  'LBL_VIEW_PDF_BUTTON_TITLE' => 'Nyomtatás PDF formátumban',
+  'LNK_ABOUT' => 'Rólunk',
+  'LNK_ADVANCED_SEARCH' => 'Összetett',
+  'LNK_BASIC_SEARCH' => 'Egyszerű',
+  'LNK_DELETE' => 'Töröl',
+  'LNK_DELETE_ALL' => 'Összeset töröl',
+  'LNK_EDIT' => 'szerkeszt',
+  'LNK_GET_LATEST' => 'Legfrissebb',
+  'LNK_GET_LATEST_TOOLTIP' => 'Cserélje a legfrissebb verzióra',
+  'LNK_HELP' => 'Segítség',
+  'LNK_LIST_END' => 'Vége',
+  'LNK_LIST_NEXT' => 'Következő',
+  'LNK_LIST_PREVIOUS' => 'Előző',
+  'LNK_LIST_RETURN' => 'Vissza a listához',
+  'LNK_LIST_START' => 'Kezdés',
+  'LNK_LOAD_SIGNED' => 'Megjelöl',
+  'LNK_LOAD_SIGNED_TOOLTIP' => 'Cserélje megjelölt dokumentumra',
+  'LNK_PRINT' => 'Nyomtatás',
+  'LNK_REMOVE' => 'Eltávolítás',
+  'LNK_RESUME' => 'Folytatás',
+  'LNK_VIEW_CHANGE_LOG' => 'Változásnapló megtekintése',
+  'LOGIN_LOGO_ERROR' => 'Kérem, cserélje le a SugarCRM logókat!',
+  'NTC_CLICK_BACK' => 'Kérem, kattintson a böngésző Vissza gombjára, és javítsa ki a hibát!',
+  'NTC_DATE_FORMAT' => '(ééé-hh-nn)',
+  'NTC_DATE_TIME_FORMAT' => '(éééé-hh-nn 24:00)',
+  'NTC_DELETE_CONFIRMATION' => 'Biztos benne, hogy törölni kívánja ezt rekordot?',
+  'NTC_DELETE_CONFIRMATION_MULTIPLE' => 'Biztos benne, hogy törli a kiválasztott bejegyzés(eke)t?',
+  'NTC_LOGIN_MESSAGE' => 'Kérem, adja meg felhasználónevét és jelszavát:',
+  'NTC_NO_ITEMS_DISPLAY' => 'nincs adat',
+  'NTC_REMOVE_CONFIRMATION' => 'Biztosan el kívánja távolítani ezt a kapcsolatot?',
+  'NTC_REQUIRED' => 'Mező kitöltése kötelező',
+  'NTC_SUPPORT_SUGARCRM' => 'Támogassa a SugarCRM nyílt forráskódú projektet adományok révén, PayPal-on keresztül! PayPal - gyors, ingyenes és biztonságos!',
+  'NTC_TIME_FORMAT' => '(24:00)',
+  'NTC_WELCOME' => 'Üdvözöljük',
+  'NTC_YEAR_FORMAT' => '(éééé)',
 );
 

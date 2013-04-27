@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -379,6 +365,7 @@ function format_number($amount, $round = null, $decimals = null, $params = array
 
 		if($checkAmount >= 1000 || $checkAmount <= -1000) {
 			$amount = round(($amount / 1000), 0);
+			$amount = number_format($amount, 0, $dec_sep, $num_grp_sep); // add for SI bug 52498
 			$amount = $amount . 'k';
 			$amount = format_place_symbol($amount, $symbol,(empty($params['symbol_space']) ? false : true));
 		} else {
@@ -521,7 +508,7 @@ function toString($echo = true) {
 
 function getCurrencyDropDown($focus, $field='currency_id', $value='', $view='DetailView'){
     $view = ucfirst($view);
-	if($view == 'EditView' || $view == 'MassUpdate' || $view == 'QuickCreate'){
+	if($view == 'EditView' || $view == 'MassUpdate' || $view == 'QuickCreate' || $view == 'ConvertLead'){
         if ( isset($_REQUEST[$field]) && !empty($_REQUEST[$field]) ) {
             $value = $_REQUEST[$field];
 	    } elseif ( empty($focus->id) ) {
@@ -545,7 +532,12 @@ function getCurrencyDropDown($focus, $field='currency_id', $value='', $view='Det
         $selectCurrency = $currency->getSelectOptions($value);
 
 		$currency->setCurrencyFields($currency_fields);
-		$html = '<select name="'. $field. '" id="' . $field  . '_select" ';
+		$html = '<select name="';
+		// If it's a lead conversion (ConvertLead view), add the module_name before the $field
+		if ($view == "ConvertLead") {
+			$html .= $focus->module_name;
+		}
+		$html .= $field. '" id="' . $field  . '_select" ';
 		if($view != 'MassUpdate')
 			$html .= 'onchange="CurrencyConvertAll(this.form);"';
 		$html .= '>'. $selectCurrency . '</select>';

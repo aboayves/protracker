@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -88,25 +74,32 @@ $mod_strings = array (
   'LBL_FAILED_TO_SAVE' => 'Greška pri snimanju',
   'LBL_GROUP_TAB_WELCOME' => 'Grupe ispod će biti prikazane u delu za navigaciju za korisnike koji su odabrali da vide grupne module. Prevuci i spusti module u i iz grupa da bi ste konfigurisali koji moduli će da se pojavljuju pod grupama. Napomena: Prazne grupe se neće prikazivati u delu za navigaciju.',
   'LBL_HISTORY' => 'Istorija',
+  'LBL_INLINE' => 'Inline',
   'LBL_LABEL' => 'Labela',
+  'LBL_LANGUAGE_TOOLTIP' => 'Odaberite jezik za uređivanje',
   'LBL_LISTVIEWP_DESCRIPTION' => 'Ispod postoje dve kolone: Podrazumevana sa poljima koji će biti prikazani i Dostupna sa poljima koji nisu prikazani, ali su dostupni da mogu da se prikažu. Samo prevucite polja između kolona. Možete da menjate raspored elemenata u koloni prevlačenjem i spuštanjem.',
   'LBL_LISTVIEW_DESCRIPTION' => 'Ispod su prikazane tri kolone. Podrazumevana kolona sadrži polja koja su prikazana u listi pregleda kao podrazumevana, dodatna kolona sadrži polja koja korisnik može da izabere da koristi za kreiranje prilagođenog izgleda i dostupne kolone sadrže kolone koje su na raspolaganju da ih koristi administrator da ih doda u podrazumevanu ili dodatnu kolonu za korišćenje korisnicima ali se te kolone trenutno ne koriste.',
   'LBL_LISTVIEW_EDIT' => 'Editor pregleda u vidu liste',
   'LBL_MASS_UPDATE' => 'Masovno ažuriranje',
+  'LBL_MAXIMIZE' => 'Maksimizuj',
   'LBL_MB_COMPARE' => 'Uporedi',
   'LBL_MB_DELETE' => 'Obriši',
   'LBL_MB_PREVIEW' => 'Pregled',
   'LBL_MB_RESTORE' => 'Obnovi',
   'LBL_MB_WELCOME' => '<h2>Istorija</h2><br>Istorija Vam omogućava da pregledate prethodno raspoređenja izdanja fajla na kome trenutno radite. Možete da uporedite i obnovite prethodne verzije. Ako obnovite fajl on će postati fajl na kome radite. Morate ga rasporediti ga pre nego što postane vidljiv za ostale. <br> Šta želite danas da radite?<br><b> Molim da izaberete jednu od ponuđenih opcija.</b>',
+  'LBL_MINIMIZE' => 'Minimizuj',
   'LBL_MODULES' => 'Moduli',
   'LBL_MODULE_NAME' => 'Administracija',
+  'LBL_MODULE_NAME_SINGULAR' => 'Administracija',
   'LBL_MODULE_TITLE' => 'Studio',
   'LBL_NAME' => 'Naziv',
   'LBL_NEW_GROUP' => 'Nova grupa',
+  'LBL_PLURAL' => 'Množina',
   'LBL_PUBLISH' => 'Objavi',
   'LBL_PUBLISHED' => 'Objavljen',
   'LBL_PUBLISHING' => 'Objavljivanje...',
   'LBL_REDO' => 'Vrati poništeno',
+  'LBL_RENAME_MOD_SAVE_HELP' => 'Kliknite na <b>Sačuvaj</b> to primenite izmene',
   'LBL_RENAME_TABS' => 'Promeni ime kartice',
   'LBL_RENAME_TAB_WELCOME' => 'U tabeli ispod kliknite na bilo koju prikazanu vrednost kartice da bi promenili naziv kartice.',
   'LBL_REQUIRED' => 'Obavezno',
@@ -115,6 +108,7 @@ $mod_strings = array (
   'LBL_SELECT_A_SUBPANEL' => 'Izaberi podpanel',
   'LBL_SELECT_FILE' => 'Izaberi fajl',
   'LBL_SELECT_SUBPANEL' => 'Izaberi podpanel',
+  'LBL_SINGULAR' => 'Jednina',
   'LBL_SMA_EDIT_CUSTOMFIELDS' => 'Izmeni prolagođena polja',
   'LBL_SMA_EDIT_LABELS' => 'Izmeni labele',
   'LBL_SMA_EDIT_LAYOUT' => 'Izmeni izgled',

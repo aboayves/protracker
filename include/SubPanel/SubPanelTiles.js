@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 var request_id=0;var current_child_field='';var current_subpanel_url='';var child_field_loaded=new Object();var request_map=new Object();function get_module_name()
 {if(typeof(window.document.forms['DetailView'])=='undefined'){return'';}else{if(typeof(window.document.forms['DetailView'].elements['subpanel_parent_module'])!='undefined'&&window.document.forms['DetailView'].elements['subpanel_parent_module'].value!=''){return window.document.forms['DetailView'].elements['subpanel_parent_module'].value;}
@@ -61,11 +47,12 @@ else
 var selection_list=popup_reply_data.selection_list;if(selection_list!='undefined'){for(var the_key in selection_list)
 {query_array.push('subpanel_id[]='+selection_list[the_key])}}
 var module=get_module_name();var id=get_record_id();query_array.push('value=DetailView');query_array.push('module='+module);query_array.push('http_method=get');query_array.push('return_module='+module);query_array.push('return_id='+id);query_array.push('record='+id);query_array.push('isDuplicate=false');query_array.push('action=Save2');query_array.push('inline=1');query_array.push('select_entire_list='+select_entire_list);if(select_entire_list==1){query_array.push('current_query_by_page='+current_query_by_page);}
-var refresh_page=escape(passthru_data['refresh_page']);for(prop in passthru_data){if(prop=='link_field_name'){query_array.push('subpanel_field_name='+escape(passthru_data[prop]));}else{if(prop=='module_name'){query_array.push('subpanel_module_name='+escape(passthru_data[prop]));}else{query_array.push(prop+'='+escape(passthru_data[prop]));}}}
-var query_string=query_array.join('&');request_map[request_id]=passthru_data['child_field'];var returnstuff=http_fetch_sync('index.php',query_string);request_id++;got_data(returnstuff,true);if(refresh_page==1){document.location.reload(true);}}
+var refresh_page=escape(passthru_data['refresh_page']);for(prop in passthru_data){if(prop=='link_field_name'){query_array.push('subpanel_field_name='+escape(passthru_data[prop]));}else{if(prop=='module_name'){query_array.push('subpanel_module_name='+escape(passthru_data[prop]));}else if(prop=='prospect_ids'){for(var i=0;i<passthru_data[prop].length;i++){query_array.push(prop+'[]='+escape(passthru_data[prop][i]));}}else{query_array.push(prop+'='+escape(passthru_data[prop]));}}}
+var query_string=query_array.join('&');request_map[request_id]=passthru_data['child_field'];var returnstuff=http_fetch_sync('index.php',query_string);request_id++;if(typeof returnstuff!='undefined'&&typeof returnstuff.responseText!='undefined'&&returnstuff.responseText.length!=0){got_data(returnstuff,true);}
+if(refresh_page==1){document.location.reload(true);}}
 function got_data(args,inline)
 {var list_subpanel=document.getElementById('list_subpanel_'+request_map[args.request_id].toLowerCase());if(list_subpanel!=null){var subpanel=document.getElementById('subpanel_'+request_map[args.request_id].toLowerCase());var child_field=request_map[args.request_id].toLowerCase();if(inline){child_field_loaded[child_field]=2;list_subpanel.innerHTML='';list_subpanel.innerHTML=args.responseText;}else{child_field_loaded[child_field]=1;subpanel.innerHTML='';subpanel.innerHTML=args.responseText;var inlineTable=subpanel.getElementsByTagName('table');inlineTable=inlineTable[1];inlineTable=subpanel.removeChild(inlineTable);var listDiv=document.createElement('div');listDiv.id='list_subpanel_'+request_map[args.request_id].toLowerCase();subpanel.appendChild(listDiv);listDiv.appendChild(inlineTable);}
-subpanel.style.display='';set_div_cookie(subpanel.cookie_name,'');if(current_child_field!=''&&child_field!=current_child_field)
+SUGAR.util.evalScript(args.responseText);subpanel.style.display='';set_div_cookie(subpanel.cookie_name,'');if(current_child_field!=''&&child_field!=current_child_field)
 {}
 current_child_field=child_field;$("ul.clickMenu").each(function(index,node){$(node).sugarActionMenu();});}}
 function showSubPanel(child_field,url,force_load,layout_def_key)
@@ -98,7 +85,7 @@ var cObj=YAHOO.util.Connect.asyncRequest('GET',url,{success:success,failure:succ
 if(typeof(result)!='undefined'&&result!=null&&result['status']=='dupe'){document.location.href="index.php?"+result['get'].replace(/&amp;/gi,'&').replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/&#039;/gi,'\'').replace(/&quot;/gi,'"').replace(/\r\n/gi,'\n');return;}else{SUGAR.subpanelUtils.cancelCreate(buttonName);showSubPanel(subpanel,null,true);ajaxStatus.showStatus(SUGAR.language.get('app_strings','LBL_SAVED'));window.setTimeout('ajaxStatus.hideStatus()',1000);if(reloadpage)window.location.reload(false);}}}
 var reloadpage=false;reloadpage=reloadpage||((buttonName=='Meetings_subpanel_save_button'||buttonName=='Calls_subpanel_save_button')&&typeof(theForm)!='undefined'&&typeof(document.getElementById(theForm))!='undefined'&&typeof(document.getElementById(theForm).status)!='undefined'&&document.getElementById(theForm).status[document.getElementById(theForm).status.selectedIndex].value=='Held');reloadpage=reloadpage||(buttonName=='Tasks_subpanel_save_button'&&typeof(theForm)!='undefined'&&typeof(document.getElementById(theForm))!='undefined'&&typeof(document.getElementById(theForm).status)!='undefined'&&document.getElementById(theForm).status[document.getElementById(theForm).status.selectedIndex].value=='Completed');YAHOO.util.Connect.setForm(theForm,true,true);var cObj=YAHOO.util.Connect.asyncRequest('POST','index.php',{success:success,failure:success,upload:success});return false;},sendAndRetrieve:function(theForm,theDiv,loadingStr){var quickCreateDiv=YAHOO.util.Selector.query("div.quickcreate",null,true);if(quickCreateDiv)
 {var form=YAHOO.util.Selector.query("form",quickCreateDiv,true);if(form)
-{var moduleName=form.id.replace(/.*?_([^_]+)$/,"$1");var buttonName=moduleName+"_subpanel_cancel_button";var cancelled=false;SUGAR.subpanelUtils.cancelCreate(buttonName,function()
+{var moduleName=YAHOO.util.Selector.query('input[name=module]',form,true).value;var buttonName=moduleName+"_subpanel_cancel_button";var cancelled=false;SUGAR.subpanelUtils.cancelCreate(buttonName,function()
 {cancelled=true;});if(cancelled)
 {return false;}}}
 function success(data){var theDivObj=document.getElementById(theDiv),divName=theDiv+'_newDiv',form_el;SUGAR.subpanelUtils.dataToDOMAvail=false;if(typeof currentPanelDiv!='undefined'&&currentPanelDiv!=null){var button_elements=YAHOO.util.Selector.query('td.buttons',currentPanelDiv,false);YAHOO.util.Dom.setStyle(button_elements,'display','');}

@@ -1,70 +1,80 @@
 <?php
+
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-
-
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-	
+/*********************************************************************************
+
+* Description:  Defines the English language pack for the base application.
+* Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
+* All Rights Reserved.
+* Contributor(s): ______________________________________..
+********************************************************************************/
+
+/*********************************************************************************
+ * pl_pl.lang.php for SugarCRM 6.5.0
+ * Translator: eVolpe
+ * All Rights Reserved.
+ * Any bugs report welcome: support@evolpe.pl
+ * Contributor(s): ______________________________________..
+ ********************************************************************************/
 
 $connector_strings = array (
-  'LBL_AFFILIATION_TITLE' => 'Przynależny tytuł stanowiska',
-  'LBL_AFFILIATION_COMPANY_PHONE' => 'Przynależny numer tel. firmy',
-  'LBL_AFFILIATION_COMPANY_NAME' => 'Przynależna nazwa firmy',
-  'LBL_AFFILIATION_COMPANY_WEBSITE' => 'Przynależna strona www firmy',
-  'person_search_url' => 'URL zapytania wyszukania osoby',
-  'person_detail_url' => 'URL zapytania szczegółu osoby',
-  'LBL_ID' => 'ID',
-  'LBL_FAX' => 'Fax',
-  'LBL_LICENSING_INFO' => 'ZoomInfo© dostarcza wartościowe informacje na temat ponad 45 milionów ludzi biznesu w ponad 5 milionach firm. Dowiedz się więcej. http://www.zoominfo.com/about',
-  'LBL_SEARCH_FIELDS_INFO' => 'Następujące pola są obsługiwane przez Zoominfo© Person; API: Imię, nazwisko i adres e-mail.',
-  'LBL_EMAIL' => 'Adres e-mail',
-  'LBL_FIRST_NAME' => 'Imię',
-  'LBL_LAST_NAME' => 'Nazwisko',
-  'LBL_JOB_TITLE' => 'Tytuł stanowiska',
-  'LBL_IMAGE_URL' => 'Obraz URL',
-  'LBL_SUMMARY_URL' => 'Podsumowanie URL',
-  'LBL_COMPANY_NAME' => 'Nazwa firmy',
-  'LBL_ZOOMPERSON_URL' => 'Adres URL pracownika Zoominfo',
-  'LBL_DIRECT_PHONE' => 'Bezpośredni telefon',
-  'LBL_COMPANY_PHONE' => 'Telefony firmy',
-  'LBL_CURRENT_JOB_TITLE' => 'Obecny tytuł stanowiska',
-  'LBL_CURRENT_JOB_START_DATE' => 'Data rozpoczęcia obecnej pracy',
-  'LBL_CURRENT_JOB_COMPANY_NAME' => 'Nazwa firmy obecnej pracy',
-  'LBL_CURRENT_JOB_COMPANY_STREET' => 'Ulica obecnej firmy',
-  'LBL_CURRENT_JOB_COMPANY_CITY' => 'Miasto obecnej firmy',
-  'LBL_CURRENT_JOB_COMPANY_STATE' => 'Województwo obecnej firmy',
-  'LBL_CURRENT_JOB_COMPANY_ZIP' => 'Kod pocztowy obecnej firmy',
-  'LBL_CURRENT_JOB_COMPANY_COUNTRY_CODE' => 'Kod kraju obecnej firmy',
-  'LBL_CURRENT_INDUSTRY' => 'Branża obecnej firmy',
-  'LBL_BIOGRAPHY' => 'Biografia',
-  'LBL_EDUCATION_SCHOOL' => 'Uczelnia',
-  'partner_code' => 'Kod API partnera',
-  'api_key' => 'Klucz API',
-  'ERROR_LBL_CONNECTION_PROBLEM' => 'Błąd: Nie można się połączyć z serwerem dla Zoominfo.',
+    //licensing information shown in config screen
+    'LBL_LICENSING_INFO' => '<table border="0" cellspacing="1"><tr><td valign="top" width="35%" class="dataLabel"><image src="' . getWebPath('modules/Connectors/connectors/sources/ext/rest/zoominfoperson/images/zoominfo.gif') . '" border="0"></td><td width="65%" valign="top" class="dataLabel">' .
+                            'ZoomInfo&#169; dostarcza informacji o ponad 45 milionach przedsiębiorcach w ponad 5 milionach firm. Zobacz więcej na  <a target="_blank" href="http://www.zoominfo.com/about">http://www.zoominfo.com/about</a></td></tr></table>',
+
+    'LBL_SEARCH_FIELDS_INFO' => 'Następujące pola są wspierane przez  Zoominfo&#169 Person; API: Imię, Nazwisko i adres e-mail.',
+
+    //vardef labels
+        'LBL_ID' => 'ID',
+        'LBL_EMAIL' => 'Adres e-mail',
+        'LBL_FIRST_NAME' => 'Imię',
+        'LBL_LAST_NAME' => 'Nazwisko',
+        'LBL_JOB_TITLE' => 'Stanowisko',
+        'LBL_IMAGE_URL' => 'Adres URL zdjęcia',
+        'LBL_SUMMARY_URL' => 'Adres URL podsumowania',
+        'LBL_COMPANY_NAME' => 'Nazwa kontrahenta',
+		'LBL_ZOOMPERSON_URL' => 'Adres URL Zoominfo Person',
+	'LBL_DIRECT_PHONE' => 'Bezpośredni telefon',
+	'LBL_COMPANY_PHONE' => 'Telefon firmowy',
+	'LBL_FAX' => 'Faks',
+
+    'LBL_CURRENT_JOB_TITLE' => 'Aktualne stanowisko',
+    'LBL_CURRENT_JOB_START_DATE' => 'Data rozpoczęcia pracy',
+	'LBL_CURRENT_JOB_COMPANY_NAME' => 'Nazwa firmy',
+	'LBL_CURRENT_JOB_COMPANY_STREET' => 'Adres firmy - ulica',
+	'LBL_CURRENT_JOB_COMPANY_CITY' => 'Adres firmy - miejscowość',
+	'LBL_CURRENT_JOB_COMPANY_STATE' => 'Adres firmy - województwo',
+	'LBL_CURRENT_JOB_COMPANY_ZIP' => 'Adres firmy - kod pocztowy',
+	'LBL_CURRENT_JOB_COMPANY_COUNTRY_CODE' => 'Adres firmy - państwo',
+	'LBL_CURRENT_INDUSTRY' => 'Branża',
+	'LBL_BIOGRAPHY' => 'Biografia',
+	'LBL_EDUCATION_SCHOOL' => 'Uczelnia wyższa',                       	
+    'LBL_AFFILIATION_TITLE' => 'Powiązane stanowisko',
+    'LBL_AFFILIATION_COMPANY_PHONE' => 'Powiązany numer telefonu',
+    'LBL_AFFILIATION_COMPANY_NAME' => 'Powiązana nazwa firmy',
+    'LBL_AFFILIATION_COMPANY_WEBSITE' => 'Powiązana strona WWW',
+
+    //Configuration labels
+    'person_search_url' => 'URL zapytania wyszukiwania osoby',
+    'person_detail_url' => 'URL zapytania informacji szczegółowych o osobie',
+	'partner_code' => 'Kod partnerski API',
+        'api_key' => 'Klucz API',
+
+        //Other labels
+        'ERROR_LBL_CONNECTION_PROBLEM' => 'Błąd: Nie można połączyć się z serwerem Zoominfo - Person connector.',
 );
 
+?>

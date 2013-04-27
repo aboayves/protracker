@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -44,6 +30,7 @@ else {
     $app_strings = return_application_language($GLOBALS['current_language']);
     $mod_strings = return_module_language($GLOBALS['current_language'], 'ACL');
 	$file_type = strtolower($_REQUEST['type']);
+    $check_image = false;
     if(!isset($_REQUEST['isTempFile'])) {
 	    //Custom modules may have capitalizations anywhere in their names. We should check the passed in format first.
 		require('include/modules.php');
@@ -85,12 +72,12 @@ else {
         // See if it is a remote file, if so, send them that direction
         if ( isset($focus->doc_url) && !empty($focus->doc_url) ) {
             header('Location: '.$focus->doc_url);
-            sugar_die();
+            sugar_die("Remote file detected, location header sent.");
         }
 
         if ( isset($focusRevision) && isset($focusRevision->doc_url) && !empty($focusRevision->doc_url) ) {
             header('Location: '.$focusRevision->doc_url);
-            sugar_die();
+            sugar_die("Remote file detected, location header sent.");
         }
 
     } // if
@@ -136,6 +123,7 @@ else {
                 $focus->add_team_security_where_clause($query);
             }
 			$query .= "WHERE notes.id = '" . $db->quote($_REQUEST['id']) ."'";
+            $check_image = true;
 		} elseif( !isset($_REQUEST['isTempFile']) && !isset($_REQUEST['tempName'] ) && isset($_REQUEST['type']) && $file_type!='temp' ){ //make sure not email temp file.
 			$query = "SELECT filename name FROM ". $file_type ." ";
             if(!$focus->disable_row_level_security){
@@ -180,18 +168,16 @@ else {
 		        header("Content-Type: image/png");
 		    }
 		} else {
-						
-			if(preg_match("/\.jpg|\.gif|\.png|\.jpeg/i", $name)){
-				$mime = getimagesize($download_location);
-				if(!empty($mime)) {
-			   		header("Content-Type: {$mime['mime']}");
-				}
-			}
-			else{
-				header("Content-Type: application/force-download");
-            	header("Content-type: application/octet-stream");
-            	header("Content-Disposition: attachment; filename=\"".$name."\";");
-			}
+
+            if ($check_image && ($mime = getimagesize($download_location)) !== false)
+            {
+                header("Content-Type: " . $mime['mime']);
+            }
+            else
+            {
+                header("Content-type: application/octet-stream");
+            }
+               header("Content-Disposition: attachment; filename=\"".$name."\";");
             
 		}
 		// disable content type sniffing in MSIE

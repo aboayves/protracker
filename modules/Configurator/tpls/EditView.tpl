@@ -1,30 +1,16 @@
 {*
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -145,7 +131,7 @@
     </tr>
     <tr>
         <td  scope="row" width='12%' nowrap>
-            {$MOD.NEW_LOGO}&nbsp;{sugar_help text=$MOD.NEW_LOGO_HELP}
+            {$MOD.NEW_LOGO}&nbsp;{sugar_help text=$MOD.NEW_LOGO_HELP_NO_SPACE}
         </td>
         <td  width='35%'>
             <div id="container_upload"></div>
@@ -168,6 +154,20 @@
         <td>
             <input type='hidden' name='disable_convert_lead' value='false'>
             <input name='disable_convert_lead'  type="checkbox" value="true" {$disable_convert_lead}>
+        </td>
+        <td colspan="2">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td  scope="row" nowrap>{$MOD.LBL_ENABLE_ACTION_MENU}: &nbsp;{sugar_help text=$MOD.LBL_ENABLE_ACTION_MENU_DESC}</td>
+    {if isset($config.enable_action_menu) && $config.enable_action_menu != "true" }
+        {assign var='enable_action_menu' value=''}
+        {else}
+        {assign var='enable_action_menu' value='CHECKED'}
+    {/if}
+        <td>
+            <input type='hidden' name='enable_action_menu' value='false'>
+            <input name='enable_action_menu'  type="checkbox" value="true" {$enable_action_menu}>
         </td>
         <td colspan="2">&nbsp;</td>
     </tr>
@@ -251,7 +251,7 @@
 	{else}
 		{assign var='system_mailmerge_on_checked' value=''}
 	{/if}
-	<td width="75%" align="left"  valign='middle'><input type='hidden' name='system_mailmerge_on' value='0'><input name="system_mailmerge_on" value="1" class="checkbox" type="checkbox" {$system_mailmerge_on_checked}></td>
+	<td width="75%" align="left"  valign='middle'><input type='hidden' name='system_mailmerge_on' value='0'><input name="system_mailmerge_on" id="system_mailmerge" value="1" class="checkbox" type="checkbox" {$system_mailmerge_on_checked}></td>
 	</tr>
 </table>
 
@@ -334,8 +334,8 @@
 
 </table>
 
-
 <table  width="100%" border="0" cellspacing="1" cellpadding="0" class="edit view">
+{if $logger_visible}
 <tr>
 <th align="left" scope="row" colspan="6"><h4>{$MOD.LBL_LOGGER}</h4></th>
 </tr>
@@ -359,11 +359,11 @@
 		<td scope="row">{$MOD.LBL_LOGGER_MAX_LOGS} </td>
 		<td > <input name="logger_file_maxLogs" value="{$config.logger.file.maxLogs}"></td>
 	</tr>
+{/if}
 	<tr>
 	    <td><a href="index.php?module=Configurator&action=LogView" target="_blank">{$MOD.LBL_LOGVIEW}</a></td>
 	</tr>
 </table>
-
 
 
 <div style="padding-top: 2px;">
@@ -373,12 +373,6 @@
 </div>
 {$JAVASCRIPT}
 
-
-<script>
-addToValidate('ConfigureSettings', 'system_name', 'varchar', true,'System Name' );
-addToValidateMoreThan('ConfigureSettings', 'list_max_entries_per_page', 'int', true, '', 1);
-addToValidateMoreThan('ConfigureSettings', 'list_max_entries_per_subpanel', 'int', true, '', 1);
-</script>
 </form>
 <div id='upload_panel' style="display:none">
     <form id="upload_form" name="upload_form" method="POST" action='index.php' enctype="multipart/form-data">

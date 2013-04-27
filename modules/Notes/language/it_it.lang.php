@@ -3,100 +3,88 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_DATE_ENTERED' => 'Data Creazione',
-  'LBL_COLON' => ':',
-  'LBL_DESCRIPTION' => 'Note',
-  'LBL_LIST_STATUS' => 'Status',
-  'LBL_STATUS' => 'Status',
   'ERR_DELETE_RECORD' => 'Per eliminare l´azienda deve essere specificato il numero del record.',
+  'ERR_REMOVING_ATTACHMENT' => 'Rimozione allegato fallita...',
   'LBL_ACCOUNT_ID' => 'ID Azienda:',
+  'LBL_ACTIVITIES_REPORTS' => 'Report Attività',
   'LBL_CASE_ID' => 'ID Reclamo:',
   'LBL_CLOSE' => 'Chiudi:',
+  'LBL_COLON' => ':',
   'LBL_CONTACT_ID' => 'ID Contatto:',
   'LBL_CONTACT_NAME' => 'Contatto:',
+  'LBL_CREATED_BY' => 'Creato Da',
+  'LBL_DATE_ENTERED' => 'Data Creazione',
+  'LBL_DATE_MODIFIED' => 'Data Modifica',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Note',
+  'LBL_DELETED' => 'Cancellato',
+  'LBL_DESCRIPTION' => 'Note',
+  'LBL_EDITLAYOUT' => 'Modifica Layout',
   'LBL_EMAIL_ADDRESS' => 'Indirizzo Email:',
   'LBL_EMAIL_ATTACHMENT' => 'Allegato Email',
+  'LBL_EMBED_FLAG' => 'Inserisci nell´email?',
+  'LBL_EXPORT_PARENT_ID' => 'Riferito a',
+  'LBL_EXPORT_PARENT_TYPE' => 'Riferito al Modulo',
+  'LBL_FILENAME' => 'Allegato:',
   'LBL_FILE_MIME_TYPE' => 'Tipo Mime',
   'LBL_FILE_URL' => 'URL File',
-  'LBL_FILENAME' => 'Allegato:',
+  'LBL_FIRST_NAME' => 'Nome',
+  'LBL_LAST_NAME' => 'Cognome',
   'LBL_LEAD_ID' => 'ID Lead:',
+  'LBL_LIST_ASSIGNED_TO_NAME' => 'Utente Assegnato',
+  'LBL_LIST_CONTACT' => 'Contatto',
   'LBL_LIST_CONTACT_NAME' => 'Contatto',
   'LBL_LIST_DATE_MODIFIED' => 'Ultima Modifica',
+  'LBL_LIST_EDIT_BUTTON' => 'Modifica',
   'LBL_LIST_FILENAME' => 'Allegato',
   'LBL_LIST_FORM_TITLE' => 'Elenco Note',
   'LBL_LIST_RELATED_TO' => 'Relativo A',
+  'LBL_LIST_STATUS' => 'Status',
   'LBL_LIST_SUBJECT' => 'Oggetto',
-  'LBL_LIST_CONTACT' => 'Contatto',
+  'LBL_MEMBER_OF' => 'Membro di:',
+  'LBL_MODIFIED_BY' => 'Modificato Da',
   'LBL_MODULE_NAME' => 'Note',
+  'LBL_MODULE_NAME_SINGULAR' => 'Nota',
   'LBL_MODULE_TITLE' => 'Note: Home',
+  'LBL_MY_NOTES_DASHLETNAME' => 'Le mie note',
+  'LBL_NEW_FORM_BTN' => 'Aggiungi una Nota',
   'LBL_NEW_FORM_TITLE' => 'Nuova Nota o Aggiungi Allegato',
+  'LBL_NOTE' => 'Nota:',
+  'LBL_NOTES_SUBPANEL_TITLE' => 'Allegati',
+  'LBL_NOTE_INFORMATION' => 'Informazioni Nota',
   'LBL_NOTE_STATUS' => 'Nota',
   'LBL_NOTE_SUBJECT' => 'Oggetto della Nota:',
-  'LBL_NOTES_SUBPANEL_TITLE' => 'Allegati',
-  'LBL_NOTE' => 'Nota:',
+  'LBL_OC_FILE_NOTICE' => 'Per visualizzare i file si prega di connettersi al server.',
   'LBL_OPPORTUNITY_ID' => 'ID Opportunità:',
+  'LBL_PANEL_DETAILS' => 'Dettagli',
   'LBL_PARENT_ID' => 'ID Padre:',
   'LBL_PARENT_TYPE' => 'Tipo Padre',
   'LBL_PHONE' => 'Telefono:',
   'LBL_PORTAL_FLAG' => 'Mostra nel Portale?',
-  'LBL_EMBED_FLAG' => 'Inserisci nell´email?',
   'LBL_PRODUCT_ID' => 'ID Prodotto:',
   'LBL_QUOTE_ID' => 'ID Offerta:',
   'LBL_RELATED_TO' => 'Riferito A:',
+  'LBL_REMOVING_ATTACHMENT' => 'Rimozione allegato...',
   'LBL_SEARCH_FORM_TITLE' => 'Cerca Nota',
+  'LBL_SEND_ANYWAYS' => 'Questa email non ha un oggetto. Inviare/Salvare ugualmente?',
+  'LBL_STATUS' => 'Status',
   'LBL_SUBJECT' => 'Oggetto:',
   'LNK_IMPORT_NOTES' => 'Importa Note',
   'LNK_NEW_NOTE' => 'Nuova Nota o Allegato',
   'LNK_NOTE_LIST' => 'Visualizza Note',
-  'LBL_MEMBER_OF' => 'Membro di:',
-  'LBL_LIST_ASSIGNED_TO_NAME' => 'Utente Assegnato',
-  'LBL_OC_FILE_NOTICE' => 'Per visualizzare i file si prega di connettersi al server.',
-  'LBL_REMOVING_ATTACHMENT' => 'Rimozione allegato...',
-  'ERR_REMOVING_ATTACHMENT' => 'Rimozione allegato fallita...',
-  'LBL_CREATED_BY' => 'Creato Da',
-  'LBL_MODIFIED_BY' => 'Modificato Da',
-  'LBL_SEND_ANYWAYS' => 'Questa email non ha un oggetto. Inviare/Salvare ugualmente?',
-  'LBL_LIST_EDIT_BUTTON' => 'Modifica',
-  'LBL_ACTIVITIES_REPORTS' => 'Report Attività',
-  'LBL_PANEL_DETAILS' => 'Dettagli',
-  'LBL_NOTE_INFORMATION' => 'Informazioni Nota',
-  'LBL_MY_NOTES_DASHLETNAME' => 'Le mie note',
-  'LBL_EDITLAYOUT' => 'Modifica Layout',
-  'LBL_FIRST_NAME' => 'Nome',
-  'LBL_LAST_NAME' => 'Cognome',
-  'LBL_EXPORT_PARENT_TYPE' => 'Riferito al Modulo',
-  'LBL_EXPORT_PARENT_ID' => 'Riferito a',
-  'LBL_DATE_MODIFIED' => 'Data Modifica',
-  'LBL_DELETED' => 'Cancellato',
 );
 

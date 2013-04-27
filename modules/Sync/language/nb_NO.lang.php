@@ -1,66 +1,38 @@
 <?php
-
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
-																					
-$mod_strings= array (
-'LBL_MODULE_NAME'                                  => 'Sync',
-'LBL_MODULE_TITLE'                                 => 'Sync: Hjem',
-'LBL_GO_ONLINE'                                    => 'Koble til nett',
-'LBL_SYNC_AVAILABLE'                               => 'Sjekk servertilgjengelighet',
-'LBL_CHECKING_SYNC_AVAILABLE'                      => 'Sjekker servertilgjengelighet...',
-'LBL_SERVER_AVAILABLE'                             => 'Server er tilgjengelig',
-'LBL_SERVER_UNAVAILABLE'                           => 'Serveren er ikke tilgjengelig - Vennligst forsikre deg om at du er koblet til nettet',
-'LBL_START_SYNC'                                   => 'Start sync',
-'LBL_SYNC_SETUP'                                   => 'Syncoppsett',
-'LBL_PROMPT'                                       => 'Raskt',
-'LBL_ACCEPT_SERVER'                                => 'Server-wins',
-'LBL_ACCEPT_CLIENT'                                => 'Klient-wins',
-'LBL_CLEAN_SYNC'                                   => 'Rens sync',
-'LBL_CLEAN_ALERT'                                  => 'Ved å gjennomføre Rens sync sletter du alle registreringene på denne datamaskinen',
-'LBL_INITIAL_SYNC_MESSAGE'                         => 'Du har nå installert en Offline-klient. Vennligst klikk på knappen nedenfor for å starte sync-prosessen.',
-);?>
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+	
+
+$mod_strings = array (
+  'LBL_ACCEPT_CLIENT' => 'Klienten vinner',
+  'LBL_ACCEPT_SERVER' => 'Tjener vinner',
+  'LBL_CHECKING_SYNC_AVAILABLE' => 'Sjekker Tjener-tilgjengelighet...',
+  'LBL_CLEAN_ALERT' => 'Ved å gjennomføre Ren Synkronisering sletter du alle registreringene på denne datamaskinen',
+  'LBL_CLEAN_SYNC' => 'Ren Synkronisering:',
+  'LBL_GO_ONLINE' => 'Koble til nett',
+  'LBL_INITIAL_SYNC_MESSAGE' => 'Du har nå installert en Offline-klient. Vennligst klikk på knappen nedenfor for å starte synkroniseringsprosessen.',
+  'LBL_MODULE_NAME' => 'Synkronisér',
+  'LBL_MODULE_TITLE' => 'Synkronisér: Hjem',
+  'LBL_POWERED_BY_SUGAR' => 'Utviklet av SugarCRM',
+  'LBL_PROMPT' => 'Raskt',
+  'LBL_SERVER_AVAILABLE' => 'Tjener er tilgjengelig',
+  'LBL_SERVER_UNAVAILABLE' => 'Tjener er utilgjengelig - Vennligst forsikre deg om at du er koblet til nettet',
+  'LBL_START_SYNC' => 'Start synkroniséring',
+  'LBL_SYNC_AVAILABLE' => 'Sjekk tjener-tilgjengelighet',
+  'LBL_SYNC_SETUP' => 'Synkroniseringsoppsett',
+);
+

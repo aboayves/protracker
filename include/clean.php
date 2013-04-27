@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -80,7 +66,7 @@ class SugarCleaner
         $config = HTMLPurifier_Config::createDefault();
 
         if(!is_dir(sugar_cached("htmlclean"))) {
-            create_cache_directory("htmlclean");
+            create_cache_directory("htmlclean/");
         }
         $config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
         $config->set('Core.Encoding', 'UTF-8');
@@ -92,20 +78,23 @@ class SugarCleaner
         $config->set('HTML.TidyLevel', 'light');
         $config->set('HTML.ForbiddenElements', array('body' => true, 'html' => true));
         $config->set('AutoFormat.RemoveEmpty', false);
+        $config->set('Cache.SerializerPermissions', 0775);
         // for style
         //$config->set('Filter.ExtractStyleBlocks', true);
         $config->set('Filter.ExtractStyleBlocks.TidyImpl', false); // can't use csstidy, GPL
-        // for object
-        $config->set('HTML.SafeObject', true);
-        // for embed
-        $config->set('HTML.SafeEmbed', true);
+        if(!empty($GLOBALS['sugar_config']['html_allow_objects'])) {
+            // for object
+            $config->set('HTML.SafeObject', true);
+            // for embed
+            $config->set('HTML.SafeEmbed', true);
+        }
         $config->set('Output.FlashCompat', true);
         // for iframe and xmp
         $config->set('Filter.Custom',  array(new HTMLPurifier_Filter_Xmp()));
         // for link
         $config->set('HTML.DefinitionID', 'Sugar HTML Def');
         $config->set('HTML.DefinitionRev', 2);
-        $config->set('Cache.DefinitionImpl', null); // TODO: remove this later!
+        $config->set('Cache.SerializerPath', sugar_cached('htmlclean/'));
         // IDs are namespaced
         $config->set('Attr.EnableID', true);
         $config->set('Attr.IDPrefix', 'sugar_text_');
@@ -254,8 +243,11 @@ class SugarURIFilter extends HTMLPurifier_URIFilter
         // Here we try to block URLs that may be used for nasty XSRF stuff by
         // referring back to Sugar URLs
         // allow URLs that don't start with /? or /index.php?
-		if(!empty($uri->path) && $uri->path != '/' && strtolower(substr($uri->path, -10)) != '/index.php') {
-			return true;
+		if(!empty($uri->path) && $uri->path != '/') {
+		    $lpath = strtolower($uri->path);
+		    if(substr($lpath, -10) != '/index.php' && $lpath != 'index.php') {
+    			return true;
+	    	}
 		}
 
         $query_items = array();

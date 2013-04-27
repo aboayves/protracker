@@ -3,66 +3,53 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_DOC_ID' => 'ID du document orignal',
-  'LBL_DOC_TYPE' => 'Origine',
-  'LBL_DOC_URL' => 'URL du document orignal',
-  'LBL_MODULE_NAME' => 'Version du document',
-  'LNK_NEW_DOCUMENT' => 'Créer Document',
-  'LNK_DOCUMENT_LIST' => 'Liste des documents',
-  'LBL_REVISION_NAME' => 'Numéro de version',
-  'LBL_FILENAME' => 'Nom de fichier',
-  'LBL_MIME' => 'Type Mime',
-  'LBL_REVISION' => 'Version',
-  'LBL_DOCUMENT' => 'Document relatif',
-  'LBL_LATEST_REVISION' => 'Derniére version',
-  'LBL_CHANGE_LOG' => 'Description des modifs:',
-  'LBL_ACTIVE_DATE' => 'Date de mise à disposition',
-  'LBL_EXPIRATION_DATE' => 'Date expiration',
-  'LBL_FILE_EXTENSION' => 'Extension du fichier',
-  'LBL_DET_CREATED_BY' => 'Créé par:',
-  'LBL_DET_DATE_CREATED' => 'Date de création:',
-  'LBL_DOC_NAME' => 'Nom du Document:',
-  'LBL_DOC_VERSION' => 'Version:',
-  'LBL_REV_LIST_REVISION' => 'Version',
-  'LBL_REV_LIST_ENTERED' => 'Date de création',
-  'LBL_REV_LIST_CREATED' => 'Créé par',
-  'LBL_REV_LIST_LOG' => 'Desc. modifs:',
-  'LBL_REV_LIST_FILENAME' => 'Nom de fichier',
-  'LBL_CURRENT_DOC_VERSION' => 'Derniére version:',
-  'LBL_SEARCH_FORM_TITLE' => 'Recherche de document',
-  'ERR_FILENAME' => 'Nom Fichier',
-  'ERR_DOC_VERSION' => 'Version du document',
   'ERR_DELETE_CONFIRM' => 'Voulez vous effacer cette version du document?',
   'ERR_DELETE_LATEST_VERSION' => 'Vous n&#39;êtes pas autorisé à effacer la dernière version d&#39;un document.',
+  'ERR_DOC_VERSION' => 'Version du document',
+  'ERR_FILENAME' => 'Nom Fichier',
+  'LBL_ACTIVE_DATE' => 'Date de mise à disposition',
+  'LBL_CHANGE_LOG' => 'Description des modifs:',
+  'LBL_CURRENT_DOC_VERSION' => 'Derniére version:',
+  'LBL_DET_CREATED_BY' => 'Créé par:',
+  'LBL_DET_DATE_CREATED' => 'Date de création:',
+  'LBL_DOCUMENT' => 'Document relatif',
+  'LBL_DOC_ID' => 'ID du document orignal',
+  'LBL_DOC_NAME' => 'Nom du Document:',
+  'LBL_DOC_TYPE' => 'Origine',
+  'LBL_DOC_URL' => 'URL du document original',
+  'LBL_DOC_VERSION' => 'Version:',
+  'LBL_EXPIRATION_DATE' => 'Date expiration',
+  'LBL_FILENAME' => 'Nom de fichier',
+  'LBL_FILE_EXTENSION' => 'Extension du fichier',
+  'LBL_LATEST_REVISION' => 'Derniére version',
+  'LBL_MIME' => 'Type Mime',
+  'LBL_MODULE_NAME' => 'Version de Document',
+  'LBL_MODULE_NAME_SINGULAR' => 'Version de Document',
+  'LBL_REVISION' => 'Version',
+  'LBL_REVISION_NAME' => 'Numéro de version',
+  'LBL_REV_LIST_CREATED' => 'Créé par',
+  'LBL_REV_LIST_ENTERED' => 'Date de création',
+  'LBL_REV_LIST_FILENAME' => 'Nom de fichier',
+  'LBL_REV_LIST_LOG' => 'Desc. modifs:',
+  'LBL_REV_LIST_REVISION' => 'Version',
+  'LBL_SEARCH_FORM_TITLE' => 'Recherche de document',
+  'LNK_DOCUMENT_LIST' => 'Liste des documents',
+  'LNK_NEW_DOCUMENT' => 'Créer Document',
   'LNK_NEW_MAIL_MERGE' => 'Fusion d&#39;emails',
 );
 

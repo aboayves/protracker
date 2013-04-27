@@ -3,74 +3,62 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_TEAM_NOTICE_MODULE_BUILDER' => 'Kreator modułów pozwala poszerzać nowymi i innowacyjnymi sposobami zakres SugarCRM. Usprawnienia: * Nowe związki pozwalają na powiązanie nowymi sposobami nowych i istniejących modułów. * Audytowanie oferuje kompletną historię tworzenia modułów i modyfikacji, aby śledzić indywidualizacje. * Wsparcie narzędzi pozwala na wyświetlanie niestandardowych obiektów i funkcjonalności modułów w kontenerach AJAX na stronie głównej. * Nowe szablony oferują możliwość łatwego znajdywania plików i informacji okazji.',
-  'LBL_TEAM_NOTICE_TRACKER' => 'Tropiciel oferuje teraz rozszerzony widok na użytkowanie i wydajność SugarCRM. Właściwości: * Raporty tropiciela dostarczają migawkę użytkowania systemu w celu zwiększenia adaptacji użytkownika i widoczności utylizacji CRM. Użytkownicy mogą zobaczyć raporty o tygodniowych działaniach CRM, rekordach i oglądanych modułach, łącznym czasie logowania i statusach online członków innych zespołów. * Monitoring systemu dostarcza administratorom informacji w jaki sposób system jest używany i odnośnie potencjalnych potrzeb dla aplikacji.',
-  'LBL_URL' => 'URL',
-  'LBL_STATUS' => 'Status',
-  'LBL_MODULE_NAME' => 'Powiadomienia dla zespołów',
-  'LBL_MODULE_TITLE' => 'Powiadomienia dla zespołów: Strona główna',
-  'LBL_SEARCH_FORM_TITLE' => 'Wyszukiwanie powiadomień dla zespołów',
-  'LBL_LIST_FORM_TITLE' => 'Lista powiadomień dla zespołów',
-  'LBL_PRODUCTTYPE' => 'Powiadomienie dla zespołu',
-  'LBL_NOTICES' => 'Powiadomienia dla zespołów',
-  'LBL_LIST_NAME' => 'Tytuł',
-  'LBL_URL_TITLE' => 'Tytuł URL',
-  'LBL_LIST_DESCRIPTION' => 'Opis',
-  'LBL_NAME' => 'Tytuł',
-  'LBL_DESCRIPTION' => 'Opis',
-  'LBL_LIST_LIST_ORDER' => 'Kolejność',
-  'LBL_LIST_ORDER' => 'Kolejność',
-  'LBL_DATE_START' => 'Data rozpoczęcia',
+  'ERR_DELETE_RECORD' => 'Musisz podać numer rekordu, aby usunąć ten produkt.',
   'LBL_DATE_END' => 'Data zakończenia',
-  'LNK_NEW_TEAM' => 'Utwórz zespół',
-  'LNK_NEW_TEAM_NOTICE' => 'Utwórz powiadomienie dla zespołu',
+  'LBL_DATE_START' => 'Data rozpoczęcia',
+  'LBL_DESCRIPTION' => 'Opis',
+  'LBL_LIST_DESCRIPTION' => 'Opis',
+  'LBL_LIST_FORM_TITLE' => 'Lista powiadomień zespołów',
+  'LBL_LIST_LIST_ORDER' => 'Zamówienie',
+  'LBL_LIST_NAME' => 'Tytuł',
+  'LBL_LIST_ORDER' => 'Zamówienie',
+  'LBL_MODULE_NAME' => 'Powiadomienia zespołów',
+  'LBL_MODULE_NAME_SINGULAR' => 'Powiadomienie zespołu',
+  'LBL_MODULE_TITLE' => 'Powiadomienia zespołów: Strona główna',
+  'LBL_MORE_DETAIL' => 'Więcej szczegółów',
+  'LBL_NAME' => 'Tytuł',
+  'LBL_NOTICES' => 'Powiadomienia zespołu',
+  'LBL_PRODUCTTYPE' => 'Powiadomienia zespołu',
+  'LBL_SEARCH_FORM_TITLE' => 'Wyszukiwanie powiadomień zespołów',
+  'LBL_STATUS' => 'Status',
+  'LBL_TEAM_NOTICE_DATA_IMPORT' => 'Rozszerzone importowanie danych ułatwia przenoszenie informacji z aplikacji takich jak Excel, Act!, Microsoft Outlook, i Salesforce.com.<br />Rozszerzenia:<br />* Poprawiony interfejs użytkownika, zapewniający więcej opcji do szybszego i dokładnego importowania danych do SugarCRM.<br />* Kontrola jakości danych pozwala administratorom na określenie podczas importu jakie dane mają tworzyć nowe rekordy, a jakie uaktualiniać istniejące. Zmniejsza to ilość duplikowania informacji.<br />* Import do wszystkich modułów umożliwia przenoszenie danych z innych aplikacji klasy CRM do dowolnego modułu, zmniejszając ilość przepisywanych w obrębie SugarCRM danych.',
+  'LBL_TEAM_NOTICE_FEATURES' => 'Cechy:<br />* Rozszerzone możliwości Interfejsu użytkownika z nowym Kreatorem , łatwym do zmian, intuicyjny design z instrukcjami dla użytkowników, tworzenia raportów krok po kroku.<br />* Kompleksowy zestaw zdefiniowanych raportów, pozwalający tworzyć użytkownikom z wykorzystaniem różnych modułów i operatorów logicznych.<br />* Raporty Macierzowe - oferują możliwość grupowania różnych atrybutów w łatwej do edycji siatki. Użytkownicy mogą tworzyć przestawne tabele z możliwością wyświetlania operacji takich jak Suma, Średnia, prezentacje danych w liczbach i procentach.<br />* Wykonywane w czasie rzeczywistym filtry pozwalają zmieniać atrybuty na bieżąco.',
+  'LBL_TEAM_NOTICE_MODULE_BUILDER' => 'Kreator modułów pozwala rozszerzyć możliwości SugarCRM na wiele sposobów.<br />Rozszerzenia:<br />* Nowe zależności pozwalają łączyć nowe i istniejące moduły na wiele sposobów.<br />* Kontrola wersji przechowuje kompletną historię tworzenia modułu i modyfikacji, aby można było odtworzyć ścieżkę tworzenia indywidualnej funkcjonalności.<br />* Wsparcie dla belek umożliwia wyświetlanie własnych obiektów i funkcjonalności modułów w kontenerze AJAX na stronie głównej.<br />* Nowe wzory umożliwiają łatwiejszą obróbkę plików i informacji z tematów.',
+  'LBL_TEAM_NOTICE_TRACKER' => 'Śledzenie zapewnia teraz poszerzony wgląd w wykorzystanie i osiągi SugarCRM.<br />Cechy:<br />* Śledzenie raportów zapewnia wgląd w chwilowe użycie w celu podwyższenia wykorzystania funkcji aplikacji przez użytkowników i widok użycia narzędzi SugarCRM. Użytkownicy mogą oglądać raporty z tygodniowej aktywności w CRM, wyświetlane rekodry i moduły, skumulowany czas zalogowania siebie oraz innych użytkowników swojego zespołu.<br />* Monitorowanie systemu dostarcza administratoromo informacji jak używany jest system i wyznacza potencjalne punkty stresowe w aplikacji.',
+  'LBL_TEAM_NOTICE_WIRELESS' => 'Nowy mobilny widok aplikacji SugarCRM jest kompromisem pomiędzy użytecznością a mobilnością.<br />Cechy:<br />* Rozszerzony interfejs użytkownika zapewnia lepszy widok szczegółów, edycję,  widok listy i połączonych rekordów, jak również dostępność do katalogów zatrudnionych, preferencji przechowywania i ostatnio oglądanych elementów.<br />* Niezależność aplikacji od urządzeń pozwala na korzystanie z systemu na dowolnym PDA lub smartfonie, również Blackberry i iPhone.<br />* Bogaty w funkcje klient HTML dostarcza przejrzyste prezentacje danych apliakcji SugarCRM przez standardową przeglądarkę www.<br />* Nowe możliwości wyszukiwania pozwalają użytkownikom szybciej odnajdywać informacje.',
+  'LBL_URL' => 'URL',
+  'LBL_URL_TITLE' => 'Tytuł URL',
   'LNK_LIST_TEAM' => 'Zespoły',
-  'LNK_LIST_TEAMNOTICE' => 'Powiadomienia dla zespołów',
-  'LNK_PRODUCT_LIST' => 'Produkty z cennika',
-  'LNK_NEW_PRODUCT' => 'Utwórz produkt',
+  'LNK_LIST_TEAMNOTICE' => 'Powiadomienia zespołów',
   'LNK_NEW_MANUFACTURER' => 'Producenci',
-  'LNK_NEW_SHIPPER' => 'Dostawcy transportu',
+  'LNK_NEW_PRODUCT' => 'Utwórz produkt',
   'LNK_NEW_PRODUCT_CATEGORY' => 'Kategorie produktów',
-  'LNK_NEW_PRODUCT_TYPE' => 'Lista typów produktów',
+  'LNK_NEW_PRODUCT_TYPE' => 'Typy produktów',
+  'LNK_NEW_SHIPPER' => 'Dostawcy',
+  'LNK_NEW_TEAM' => 'Utwórz zespół',
+  'LNK_NEW_TEAM_NOTICE' => 'Utwórz powiadomienie zespołu',
+  'LNK_PRODUCT_LIST' => 'Lista cen produktów',
   'NTC_DELETE_CONFIRMATION' => 'Czy na pewno chcesz usunąć ten rekord?',
-  'ERR_DELETE_RECORD' => 'Musisz określić numer rekordu, aby usunąć ten typ produktu.',
-  'NTC_LIST_ORDER' => 'Ustaw kolejność, w której ten typ pojawi się w rozwijanej liście typów produktów',
-  'LBL_TEAM_NOTICE_FEATURES' => 'Właściwości:* Udoskonalony interfejs użytkownika i nowy kreator łączą prostą, intuicyjną konstrukcję razem z przewodnikiem mającym na celu przeprowadzenie użytkownika przez proces tworzenia raportów.* Kompleksowe zestawy raportowania pozwalają użytkownikom, używając kompleksowej logiki, tworzyć raporty z wielu modułów.* Raporty matrycowe oferują możliwość grupowania według kilku atrybutów w elastycznym układzie siatki. Użytkownicy mogą utworzyć złożone tabele przestawne z możliwością wyświetlenia operacji, takich jak: suma, średnia, ilość i procenty.* Filtry w czasie wykonywania procesu pozwalają użytkownikom zmieniać atrybuty  raportu w czasie rzeczywistym',
-  'LBL_TEAM_NOTICE_WIRELESS' => 'Nowy mobilny widok dla aplikacji SugarCRM łamie kompromis między użytecznością i mobilnością. Cechy: * Ulepszony interfejs użytkownika zapewnia użytkownikom wgląd w edycję, szczegóły, widoki list, i powiązane rekordy, a także możliwość dostępu do katalogu pracowników, przechowywania preferencji i przeglądania ostatnich pozycji. * Device Independence pozwala użytkownikom przeglądać danych  SugarCRM z dowolnego PDA lub smartphona, w tym BlackBerry i iPhone. * Bogaty HTML Client zapewnia przejrzystą prezentację danych SugarCRM poprzez standardową przeglądarkę internetową. * Nowe możliwości wyszukiwania pozwalają użytkownikom na szybkie znajdowanie informacji.',
-  'LBL_TEAM_NOTICE_DATA_IMPORT' => 'Usprawnienia importowania danych ułatwiają przenoszenie danych z takich aplikacji jak Excel, Act!, Microsoft Outlook i Salesforce.com do aplikacji SugarCRM. Usprawnienia: * Udoskonalony interfejs użytkownika do mapowania oferuje więcej opcji do zapewnienia, że transfer danych do SugarCRM jest wykonany płynnie i precyzyjnie. * Kontrola jakości danych pozwala administratorom określać czy importowanie danych powinno prowadzić do utworzenia nowych rekordów czy aktualizacji już istniejących rekordów, redukując tym samym duplikację informacji. * Importowanie do wszystkich modułów oferuje możliwość to przeniesienia informacji z innej aplikacji CRM do jakiegokolwiek modułu, redukując tym samym ponowne wprowadzania danych.',
+  'NTC_LIST_ORDER' => 'Ustaw kolejność, w jakiej ten typ będzie się wyświetlał na listach rozwijalnych typów produktów',
   'dom_status' => 
   array (
-    'Visible' => 'Widoczne',
     'Hidden' => 'Ukryte',
+    'Visible' => 'Widoczne',
   ),
 );
 

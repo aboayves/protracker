@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -43,10 +29,11 @@ global $mod_strings;
 global $app_strings;
 
 
-$rawsource = false;
 //-----------begin replacing text input tags that have been marked with text area tags
 //get array of text areas strings to process
 $bodyHTML = html_entity_decode($_REQUEST['body_html'],ENT_QUOTES);
+//Bug53791
+$bodyHTML = str_replace(chr(160), " ", $bodyHTML);
 
 while (strpos($bodyHTML, "ta_replace") !== false){
 
@@ -69,47 +56,28 @@ while (strpos($bodyHTML, "ta_replace") !== false){
 	//merge the processed string back into bodyhtml string
 	$bodyHTML = str_replace($working_str , $new_str, $bodyHTML);
 }
-
-//replace the request html value with the processed bodyHTML
-$bodyHTML = htmlentities($bodyHTML,ENT_QUOTES);
-$_REQUEST['body_html'] = $bodyHTML;
 //<<<----------end replacing marked text inputs with text area tags
-$form_name = 'WebToLeadForm_'.time().'.html';
-if(!empty($_REQUEST['body_html'])){
-  $dir_path = sugar_cached("generated_forms/");
-  if(!file_exists($dir_path)){
-  	sugar_mkdir($dir_path,0777);
-  }
-  //Check to ensure we have <html> tags in the form. Without them, IE8 will attempt to display the page as XML.
-  $rawsource = $_REQUEST['body_html'];
 
-  $SugarTiny =  new SugarTinyMCE();
-  $rawsource = $SugarTiny->cleanEncodedMCEHtml($rawsource);
-  $html = from_html($rawsource);
+$guid = create_guid();
+$form_file = "upload://$guid";
 
-  if (stripos($html, "<html") === false)
-  {
+$SugarTiny =  new SugarTinyMCE();
+$html = $SugarTiny->cleanEncodedMCEHtml($bodyHTML);
+
+//Check to ensure we have <html> tags in the form. Without them, IE8 will attempt to display the page as XML.
+if (stripos($html, "<html") === false) {
     $langHeader = get_language_header();
-  	$html = "<html {$langHeader}><body>" . $html . "</body></html>";
-  }
-  $file = $dir_path.$form_name;
-  $fp = sugar_fopen($file,'wb');
-  fwrite($fp, $html);
-  fclose($fp);
+    $html = "<html {$langHeader}><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body>" . $html . "</body></html>";
 }
+file_put_contents($form_file, $html);
+
 $xtpl=new XTemplate ('modules/Campaigns/WebToLeadDownloadForm.html');
 $xtpl->assign("MOD", $mod_strings);
 $xtpl->assign("APP", $app_strings);
-
 $webformlink = "<b>$mod_strings[LBL_DOWNLOAD_TEXT_WEB_TO_LEAD_FORM]</b><br/>";
-$webformlink .= "<a href=\"cache/generated_forms/$form_name\">$mod_strings[LBL_DOWNLOAD_WEB_TO_LEAD_FORM]</a>";
+$webformlink .= "<a href=\"index.php?entryPoint=download&id={$guid}&isTempFile=1&tempName=WebToLeadForm.html&type=temp\">$mod_strings[LBL_DOWNLOAD_WEB_TO_LEAD_FORM]</a>";
 $xtpl->assign("LINK_TO_WEB_FORM",$webformlink);
-if ($rawsource !== false)
-{
-	$xtpl->assign("RAW_SOURCE", $rawsource);
-	$xtpl->parse("main.copy_source");
-}
-	$xtpl->parse("main");
+$xtpl->assign("RAW_SOURCE", htmlspecialchars($html)); 
+$xtpl->parse("main.copy_source");
+$xtpl->parse("main");
 $xtpl->out("main");
-
-?>

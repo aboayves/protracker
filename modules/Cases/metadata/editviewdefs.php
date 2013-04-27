@@ -1,92 +1,103 @@
 <?php
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-$viewdefs['Cases']['EditView'] = array(
-    'templateMeta' => array('maxColumns' => '2',
-                            'widths' => array(
-                                            array('label' => '10', 'field' => '30'),
-                                            array('label' => '10', 'field' => '30')
-                                            ),
-                           ),
-    'panels' => array (
-
-  'lbl_case_information' =>
-  array(
-	  array (
-	    array('name'=>'case_number', 'type'=>'readonly') ,
-	  ),
-
-	  array (
-	    'priority',
-	  ),
-
-	  array (
-	    'status',
-	    'account_name',
-	  ),
-
-	  array (
-	      'type',
-	  ),
-	  array (
-	    array (
-	      'name' => 'name',
-	      'displayParams' => array ('size'=>75)
-	    ),
-	  ),
-
-	  array (
-
-	    array (
-	      'name' => 'description',
-	      'nl2br' => true,
-	    ),
-	  ),
-
-	  array (
-
-	    array (
-	      'name' => 'resolution',
-	      'nl2br' => true,
-	    ),
-	  ),
-
-	),
-
-	'LBL_PANEL_ASSIGNMENT' =>
-	array(
-	   array (
-		    'assigned_user_name',
-		    array('name'=>'team_name', 'displayParams'=>array('required'=>true)),
-	   ),
-	),
-),
-
-
+// created: 2013-04-10 13:54:26
+$viewdefs['Cases']['EditView'] = array (
+  'templateMeta' => 
+  array (
+    'maxColumns' => '2',
+    'widths' => 
+    array (
+      0 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+      1 => 
+      array (
+        'label' => '10',
+        'field' => '30',
+      ),
+    ),
+    'tabDefs' => 
+    array (
+      'LBL_CASE_INFORMATION' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+      'LBL_PANEL_ASSIGNMENT' => 
+      array (
+        'newTab' => false,
+        'panelDefault' => 'expanded',
+      ),
+    ),
+  ),
+  'panels' => 
+  array (
+    'lbl_case_information' => 
+    array (
+      0 => 
+      array (
+        0 => 
+        array (
+          'name' => 'case_number',
+          'type' => 'readonly',
+        ),
+      ),
+      1 => 
+      array (
+        0 => 'priority',
+      ),
+      2 => 
+      array (
+        0 => 'status',
+        1 => 'account_name',
+      ),
+      3 => 
+      array (
+        0 => 'type',
+      ),
+      4 => 
+      array (
+        0 => 
+        array (
+          'name' => 'name',
+          'displayParams' => 
+          array (
+            'size' => 75,
+          ),
+        ),
+      ),
+      5 => 
+      array (
+        0 => 
+        array (
+          'name' => 'description',
+          'nl2br' => true,
+        ),
+      ),
+      6 => 
+      array (
+        0 => 
+        array (
+          'name' => 'resolution',
+          'nl2br' => true,
+        ),
+      ),
+    ),
+    'LBL_PANEL_ASSIGNMENT' => 
+    array (
+      0 => 
+      array (
+        0 => 'assigned_user_name',
+        1 => 
+        array (
+          'name' => 'team_name',
+          'displayParams' => 
+          array (
+            'required' => true,
+          ),
+        ),
+      ),
+    ),
+  ),
 );
-?>

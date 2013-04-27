@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -42,33 +28,36 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 // FG - No more need to change local file. Added inclusion of custom/modules/ProductTemplates/formulas/*.php 
 //global $price_formulas;
 
-$GLOBALS['price_formulas'] = array(
-	//$discount_price manually entered by admin
-	'Fixed'=>'modules/ProductTemplates/formulas/price_fixed.php'
-
-	//Profit Margin: $discount_price = $cost_price * 100 /(100 - $factor) 
-	,'ProfitMargin'=>'modules/ProductTemplates/formulas/price_profit_margin.php'
-
-	//Percentage Markup: $discount_price = $cost_price x (1 + $percentage) 
-	,'PercentageMarkup'=>'modules/ProductTemplates/formulas/price_cost_markup.php'
-
-	//Percentage Discount: $discount_price = $list_price x (1 - $percentage) 
-	,'PercentageDiscount'=>'modules/ProductTemplates/formulas/price_list_discount.php'
-
-	//List: $discount_price = $list_price  
-	,'IsList'=>'modules/ProductTemplates/formulas/price_list.php'
-	);
-
-// FG - Bug 44515 - Added inclusion of all .php formula files in custom/modules/ProductTemplates/formulas (if exists).
-//                  Every file must contain a class whose name must equals the file name (without extension) all lowercase except the first letter, uppercase.
-//                  Here devs can add classes for custom formulas - The Upgrade Safe Way
-if (sugar_is_dir("custom/modules/ProductTemplates/formulas"))
+function refresh_price_formulas()
 {
-    $_files = glob("custom/modules/ProductTemplates/formulas/*.php");
-    foreach ($_files as $filename) 
+    $GLOBALS['price_formulas'] = array(
+        //$discount_price manually entered by admin
+        'Fixed'=>'modules/ProductTemplates/formulas/price_fixed.php'
+
+        //Profit Margin: $discount_price = $cost_price * 100 /(100 - $factor)
+    ,'ProfitMargin'=>'modules/ProductTemplates/formulas/price_profit_margin.php'
+
+        //Percentage Markup: $discount_price = $cost_price x (1 + $percentage)
+    ,'PercentageMarkup'=>'modules/ProductTemplates/formulas/price_cost_markup.php'
+
+        //Percentage Discount: $discount_price = $list_price x (1 - $percentage)
+    ,'PercentageDiscount'=>'modules/ProductTemplates/formulas/price_list_discount.php'
+
+        //List: $discount_price = $list_price
+    ,'IsList'=>'modules/ProductTemplates/formulas/price_list.php'
+    );
+
+    // FG - Bug 44515 - Added inclusion of all .php formula files in custom/modules/ProductTemplates/formulas (if exists).
+    //                  Every file must contain a class whose name must equals the file name (without extension) all lowercase except the first letter, uppercase.
+    //                  Here devs can add classes for custom formulas - The Upgrade Safe Way
+    if (sugar_is_dir("custom/modules/ProductTemplates/formulas"))
     {
-        $_formulaId = ucfirst(basename(strtolower($filename), ".php"));
-        $GLOBALS['price_formulas'][$_formulaId] = $filename;
+        $_files = glob("custom/modules/ProductTemplates/formulas/*.php");
+        foreach ($_files as $filename)
+        {
+            $_formulaId = ucfirst(basename(strtolower($filename), ".php"));
+            $GLOBALS['price_formulas'][$_formulaId] = $filename;
+        }
     }
 }
 
@@ -144,5 +133,3 @@ function get_detail($formula, $factor) {
 		return '';
 	}
 }
-
-?>

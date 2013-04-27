@@ -223,7 +223,7 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 		  {html_options name="workflow_parent_type" id="workflow_parent_type" 
 			onchange="document.EditView.workflow_related_to.value=&quot;&quot;;document.EditView.workflow_parent_id.value=&quot;&quot;; changeParentQS(&quot;workflow_related_to&quot;); checkParentType(document.EditView.workflow_parent_type.value, document.EditView.btn_workflow_related_to);"
 			options=$workFlow_related_to_options selected=$fields.workflow_parent_type.value}
-			<input type="text" autocomplete="off" value="{$fields.workflow_related_to.value}" size="" tabindex="0" class="sqsEnabled yui-ac-input" id="workflow_related_to" name="workflow_related_to"/>
+			<input type="text" autocomplete="off" value="{$fields.workflow_related_to.value}" size="" tabindex="0" class="sqsEnabled sqsEnabledFlex yui-ac-input" id="workflow_related_to" name="workflow_related_to"/>
 			<div id="EditView_workflow_related_to_results" class="yui-ac-container">
 				<div class="yui-ac-content" style="display: none;">
 					<div class="yui-ac-hd" style="display: none;"></div>

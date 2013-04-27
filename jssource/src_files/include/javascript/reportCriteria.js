@@ -1,29 +1,15 @@
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -643,7 +629,7 @@ function addFilterInput(cell,filter) {
 			addFilterInputSelectSingle(row,users_array,filter);
 		}
 	} 
-	else if (field_type == 'enum' || field_type == 'multienum' || field_type == 'parent_type') {
+	else if (field_type == 'enum' || field_type == 'multienum' || field_type == 'parent_type' || field_type == 'currency_id') {
 		if (qualifier_name == 'one_of' || qualifier_name == 'not_one_of') {
 			addFilterInputSelectMultiple(row,field.options,filter);
 		}
@@ -704,11 +690,9 @@ function addFilterInputDate(row,filter) {
 
 	if ( typeof (filter.input_name0) != 'undefined' && filter.input_name0.length > 0) {
 		if (isRuntimeFilter(filter)) {
-			filter.input_name0 = to_display_date(filter.input_name0);
+            new_input.value = to_display_date(filter.input_name0);
 		} 
  	}
-
-	new_input.value=filter.input_name0;
 	new_input.name="text_input";
 	new_input.size="30";
 	new_input.maxsize="255";
@@ -767,7 +751,7 @@ function newSelectSpanElement(name, inputTime){
 			}
 			var selectSpan = document.createElement("span");
 			var timevalue = "01:00am";
-			if( inputTime &&inputTime.match(time_reg_format) != null){
+			if( inputTime &&inputTime.match(/([0-9]{1,2})\:([0-9]{1,2})([ap]m)/) != null){
 				timevalue = inputTime;
 			}
 			hrs = parseInt(timevalue.substring(0,2));
@@ -803,10 +787,8 @@ function addFilterInputDatetimecombo(row, filter) {
 		new_input.type="text";
 	
 		if ( typeof (filter.input_name0) != 'undefined' && filter.input_name0.length > 0) {
-			filter.input_name0 = to_display_date(filter.input_name0);
+            new_input.value = to_display_date(filter.input_name0);
 	 	}
-	
-		new_input.value=filter.input_name0;
 		new_input.name="text_input1";
 		new_input.size="13";
 		new_input.maxsize="255";
@@ -1010,9 +992,8 @@ function addFilterInputDateBetween(row,filter) {
 	}
 	
 	if (isRuntimeFilter(filter)) {
-		filter.input_name0 = to_display_date(filter.input_name0);
+        new_input.value = to_display_date(filter.input_name0);
 	}
-	new_input.value=filter.input_name0;
 	new_input.name="text_input";
 	new_input.size="12";
 	new_input.maxsize="255";
@@ -1053,9 +1034,8 @@ function addFilterInputDateBetween(row,filter) {
 		filter.input_name1 = '';
 	}
 	if (isRuntimeFilter(filter)) {
-		filter.input_name1 = to_display_date(filter.input_name1);
+        new_input.value = to_display_date(filter.input_name1);
 	}
-	new_input.value=filter.input_name1;
 	new_input.name="text_input";
 	new_input.size="12";
 	new_input.maxsize="255";
@@ -1092,9 +1072,8 @@ function addFilterInputDatetimesBetween(row,filter) {
 		if (typeof(filter.input_name0) == 'undefined') {
 			filter.input_name0 = '';
 		}
-		
-		filter.input_name0 = to_display_date(filter.input_name0);
-		new_input.value=filter.input_name0;
+
+        new_input.value = to_display_date(filter.input_name0);
 		new_input.name="text_input";
 		new_input.size="12";
 		new_input.maxsize="255";
@@ -1131,8 +1110,8 @@ function addFilterInputDatetimesBetween(row,filter) {
 		if (typeof(filter.input_name2) == 'undefined') {
 			filter.input_name2 = '';
 		}
-		filter.input_name2 = to_display_date(filter.input_name2);
-		new_input.value=filter.input_name2;
+
+        new_input.value = to_display_date(filter.input_name2);
 		new_input.name="text_input";
 		new_input.size="12";
 		new_input.maxsize="255";
@@ -1485,19 +1464,17 @@ function validateFilterRow(filter, returnObject) {
 		} // if	
 		else if ( field.type == 'datetimecombo') {
 			if ( (typeof(filter.input_name0) != 'undefined' && typeof(filter.input_name0) != 'array') && (typeof(filter.input_name1) != 'undefined' && typeof(filter.input_name1) != 'array')) {
-				var date_match = filter.input_name0.match(date_reg_format);
-				var time_match = filter.input_name1.match(time_reg_format);
-				if ( date_match != null && time_match != null) {
-					filter.input_name0 = date_match[date_reg_positions['Y']] + "-"+date_match[date_reg_positions['m']] + "-"+date_match[date_reg_positions['d']] + ' '+ filter.input_name1;
-				}
+                var dbValue = convertReportDateTimeToDB(filter.input_name0, filter.input_name1);
+                if (dbValue != '') {
+                    filter.input_name0 = dbValue;
+                }
 			}			
 			if ( typeof(filter.input_name2) != 'undefined' && typeof(filter.input_name2) != 'array' && typeof(filter.input_name3) != 'undefined' && typeof(filter.input_name3) != 'array') {
-				var date_match = filter.input_name2.match(date_reg_format);
-				var time_match = filter.input_name3.match(time_reg_format);
-				if ( date_match != null && time_match != null) {
-					filter.input_name2 = date_match[date_reg_positions['Y']] + "-"+date_match[date_reg_positions['m']] + "-"+date_match[date_reg_positions['d']] + ' '+ filter.input_name3;
-				}
-			}			
+                var dbValue = convertReportDateTimeToDB(filter.input_name2, filter.input_name3);
+                if (dbValue != '') {
+                    filter.input_name2 = dbValue;
+                }
+			}
 		}			
 	} // if
 } // fn

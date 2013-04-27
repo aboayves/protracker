@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 if(typeof(SUGAR)=='undefined')SUGAR={};if(typeof(SUGAR.util)=='undefined')SUGAR.util={};if(typeof(SUGAR.expressions)=='undefined')SUGAR.expressions={};SUGAR.expressions.Expression=function(){};SUGAR.expressions.Expression.INFINITY=-1;SUGAR.expressions.Expression.STRING_TYPE="string";SUGAR.expressions.Expression.NUMERIC_TYPE="number";SUGAR.expressions.Expression.DATE_TYPE="date";SUGAR.expressions.Expression.TIME_TYPE="time";SUGAR.expressions.Expression.BOOLEAN_TYPE="boolean";SUGAR.expressions.Expression.ENUM_TYPE="enum";SUGAR.expressions.Expression.RELATE_TYPE="relate";SUGAR.expressions.Expression.GENERIC_TYPE="generic";SUGAR.expressions.Expression.TRUE="true";SUGAR.expressions.Expression.FALSE="false";SUGAR.expressions.NumericConstants={pi:3.14159265,e:2.718281828459045}
 SUGAR.expressions.Expression.prototype.init=function(params){if(params instanceof Array&&params.length==1){this.params=params[0];}
@@ -133,7 +119,9 @@ SUGAR.expressions.ExpressionContext.prototype.addListener=function(varname,callb
 SUGAR.expressions.ExpressionContext.prototype.getRelatedValue=function(linkField,relField)
 {return new SUGAR.RelatedFieldExpression([new SUGAR.StringLiteralExpression(linkField),new SUGAR.StringLiteralExpression(relField)]);}
 SUGAR.expressions.isNumeric=function(str){if(typeof(str)!='number'&&typeof(str)!='string')
-return false;var SE=SUGAR.expressions;var numRegex=new RegExp("^(\\-)?[0-9\\,]+(\\.[0-9]+)?$");str=SE.unFormatNumber(str);return numRegex.exec(str)!=null;};SUGAR.expressions.unFormatNumber=function(num){var SE=SUGAR.expressions;var ts=",",ds=".";if(SE.userPrefs){ts=SE.userPrefs.num_grp_sep;ds=SE.userPrefs.dec_sep;};num=SE.replaceAll(num,ts,"");num=SE.replaceAll(num,ds,".");return num;};SUGAR.expressions.replaceAll=function(haystack,needle,rpl){if(needle==rpl||haystack==""||needle=="")return haystack;var str=haystack;while(str.indexOf(needle)>-1){str=str.replace(needle,rpl);}
+return false;var SE=SUGAR.expressions;var numRegex=new RegExp("^(\\-)?[0-9\\,]+(\\.[0-9]+)?$");str=SE.unFormatNumber(str);return numRegex.exec(str)!=null;};SUGAR.expressions.unFormatNumber=function(num){if(typeof num=='string')
+{var SE=SUGAR.expressions;var ts=",",ds=".";if(SE.userPrefs){ts=SE.userPrefs.num_grp_sep;ds=SE.userPrefs.dec_sep;};num=SE.replaceAll(num,ts,"");num=SE.replaceAll(num,ds,".");}
+return num;};SUGAR.expressions.replaceAll=function(haystack,needle,rpl){if(needle==rpl||haystack==""||needle=="")return haystack;var str=haystack;while(str.indexOf(needle)>-1){str=str.replace(needle,rpl);}
 return str;};SUGAR.util.DateUtils={parse:function(date,oldFormat){if(date instanceof Date)
 return date;if(oldFormat=="user")
 {if(SUGAR.expressions.userPrefs&&SUGAR.expressions.userPrefs.datef){oldFormat=SUGAR.expressions.userPrefs.datef+" "+SUGAR.expressions.userPrefs.timef;}else{oldFormat=SUGAR.util.DateUtils.guessFormat(date);}}

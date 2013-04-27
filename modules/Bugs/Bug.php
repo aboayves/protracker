@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -138,7 +124,7 @@ class Bug extends SugarBean {
 		// Fill in the assigned_user_name
 //		$this->assigned_user_name = get_assigned_user_name($this->assigned_user_id);
 
-		$custom_join = $this->custom_fields->getJOIN();
+        $custom_join = $this->getCustomJoin();
 		
                 $query = "SELECT ";
                 
@@ -147,9 +133,7 @@ class Bug extends SugarBean {
 
                                 ,users.user_name as assigned_user_name, releases.id release_id, releases.name release_name";
                                 $query .= ", teams.name AS team_name";
-                                 if($custom_join){
-                               		 $query .= $custom_join['select'];
-                                }
+        $query .= $custom_join['select'];
                                 $query .= " FROM bugs ";
                                
 
@@ -160,9 +144,7 @@ class Bug extends SugarBean {
                                 ON bugs.assigned_user_id=users.id";
                                 $query .= " LEFT JOIN teams ON bugs.team_id=teams.id";
                                 $query .= "  ";
-								if($custom_join){
-                               		 $query .= $custom_join['join'];
-                                }
+        $query .= $custom_join['join'];
             $where_auto = '1=1';
 			if($show_deleted == 0){
             	$where_auto = " $this->table_name.deleted=0 ";
@@ -187,18 +169,15 @@ class Bug extends SugarBean {
 
         function create_export_query(&$order_by, &$where, $relate_link_join='')
         {
-        	$custom_join = $this->custom_fields->getJOIN(true, true,$where);
-			if($custom_join)
-				$custom_join['join'] .= $relate_link_join;
+            $custom_join = $this->getCustomJoin(true, true, $where);
+            $custom_join['join'] .= $relate_link_join;
                 $query = "SELECT
                                 bugs.*,
                                 r1.name found_in_release_name,
                                 r2.name fixed_in_release_name,
                                 users.user_name assigned_user_name";
 						 $query .= ", teams.name AS team_name ";
-                                 if($custom_join){
-									$query .=  $custom_join['select'];
-								}
+            $query .=  $custom_join['select'];
                                 $query .= " FROM bugs ";
 		// We need to confirm that the user is a member of the team of the item.
 		$this->add_team_security_where_clause($query);
@@ -207,9 +186,7 @@ class Bug extends SugarBean {
 								LEFT JOIN users
                                 ON bugs.assigned_user_id=users.id";
 						 $query .= getTeamSetNameJoin('bugs');
-                                 if($custom_join){
-									$query .=  $custom_join['join'];
-								}
+            $query .=  $custom_join['join'];
                                 $query .= "";
                 $where_auto = "  bugs.deleted=0
                 ";
@@ -329,13 +306,11 @@ class Bug extends SugarBean {
         // The new listview code only fetches columns that we're displaying and not all
         // the columns so we need these checks. 
 	   $the_array['NAME'] = (($this->name == "") ? "<em>blank</em>" : $this->name);
-        if (!empty($this->priority))
-    	   $the_array['PRIORITY'] = $app_list_strings['bug_priority_dom'][$this->priority];
-        if (!empty($this->status))           
-    	   $the_array['STATUS'] =$app_list_strings['bug_status_dom'][$this->status];
+        $the_array['PRIORITY'] = empty($this->priority)? "" : (!isset($app_list_strings[$this->field_name_map['priority']['options']][$this->priority]) ? $this->priority : $app_list_strings[$this->field_name_map['priority']['options']][$this->priority]);
+        $the_array['STATUS'] = empty($this->status)? "" : (!isset($app_list_strings[$this->field_name_map['status']['options']][$this->status]) ? $this->status : $app_list_strings[$this->field_name_map['status']['options']][$this->status]);
+        $the_array['TYPE'] = empty($this->type)? "" : (!isset($app_list_strings[$this->field_name_map['type']['options']][$this->type]) ? $this->type : $app_list_strings[$this->field_name_map['type']['options']][$this->type]);
+       
 	   $the_array['RELEASE']= $this->release_name;
-        if (!empty($this->type))           
-        	$the_array['TYPE']=  $app_list_strings['bug_type_dom'][$this->type];
 	   $the_array['BUG_NUMBER'] = $this->bug_number;
 	   $the_array['ENCODED_NAME']=$this->name;
     	$the_array['BUG_NUMBER'] = format_number_display($this->bug_number,$this->system_id);

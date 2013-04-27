@@ -1,29 +1,16 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
+
 
 
 (function() {
@@ -160,9 +147,10 @@ AH.registerForm = function(f, formEl) {
 			AH.VARIABLE_MAP[f][el.id] = el;
             AH.updateListeners(el.id, f, el);
         }
-		else if ( el != null && el.value && el.type=="hidden")
+		else if ( el != null && el.value && el.type=="hidden"){
 			AH.VARIABLE_MAP[f][el.name] = el;
-            AH.updateListeners(el.name, f, el);
+			AH.updateListeners(el.name, f, el);
+		}
 	}
 }
 
@@ -227,6 +215,19 @@ AH.getValue = function(variable, view, ignoreLinks) {
 		return field.checked ? SUGAR.expressions.Expression.TRUE : SUGAR.expressions.Expression.FALSE;
 	}
 
+    if(field.tagName.toLowerCase() == 'input' && field.type.toLowerCase() == 'radio') {
+        var form = field.form;
+        var radioButtons = form[field.name];
+
+        for(var rbi=0; rbi < radioButtons.length; rbi++) {
+            var button = radioButtons[rbi];
+
+            if(button.checked) {
+                return button.value;
+            }
+        }
+     }
+
 	//Special case for dates
 	if (field.className && (field.className == "DateTimeCombo" || field.className == "Date")){
 		return SUGAR.util.DateUtils.parse(field.value, "user");
@@ -235,6 +236,11 @@ AH.getValue = function(variable, view, ignoreLinks) {
 	//For DetailViews where value is enclosed in a span tag
     if (field.tagName.toLowerCase() == "span")
     {
+        if (field.hasAttribute("data-id-value"))
+        {
+            return field.getAttribute("data-id-value");
+        }
+
         return document.all ? trim(field.innerText) : trim(field.textContent);
     }
 
@@ -242,7 +248,7 @@ AH.getValue = function(variable, view, ignoreLinks) {
 	{
 		var asNum = SUGAR.expressions.unFormatNumber(field.value);
 		if ( (/^(\-)?[0-9]+(\.[0-9]+)?$/).exec(asNum) != null ) {
-			return asNum;
+			return parseFloat(asNum);
 		}
 		return field.value;
 	}
@@ -317,7 +323,7 @@ AH.getElement = function(variable, view) {
 	// retrieve the variable
 	var field = AH.VARIABLE_MAP[view][variable];
 
-	if ( field == null )	
+	if ( field == null )
 		field = YAHOO.util.Dom.get(variable);
 
 	return field;
@@ -353,6 +359,19 @@ AH.assign = function(variable, value, flash)
 	else if (field.type == "checkbox") {
 		field.checked = value == SUGAR.expressions.Expression.TRUE || value === true;
 	}
+    else if(field.type == "radio") {//52997 - select radio button
+        var radioButtons = field.form[field.id];
+
+        for(var rbi=0; rbi < radiobuttons.length; rbi++) {
+            var button = radioButtons[rbi];
+
+            if(button.value == value) {
+                button.checked = true;
+            } else {
+                button.checked = false;
+            }
+        }
+    }
     else if(value instanceof Date)
     {
         if (Dom.hasClass(field, "date_input"))
@@ -388,7 +407,7 @@ AH.assign = function(variable, value, flash)
                     localPrecision = precision;
                 }
             }
-            
+
             if ( value != '' ) {
                 value = formatNumber(value,num_grp_sep,dec_sep,localPrecision,localPrecision);
             }
@@ -429,6 +448,14 @@ var attachListener = function(el, callback, scope, view)
     if (el.type && el.type.toUpperCase() == "CHECKBOX")
     {
         return YAHOO.util.Event.addListener(el, "click", callback, scope, true);
+    }
+    else if (el.type && el.type.toUpperCase() == "RADIO"){//52997 - add event listners on Radio button elements
+        var radioButtons = el.form[el.id];
+
+        for(var radioButtonIndex = 0; radioButtonIndex < radioButtons.length; radioButtonIndex++) {
+            var button = radioButtons[radioButtonIndex];
+            YAHOO.util.Event.addListener(button, "click", callback, scope, true);
+        }
     }
     else {
         return YAHOO.util.Event.addListener(el, "change", callback, scope, true);
@@ -536,7 +563,7 @@ AH.showError = function(variable, error)
 	// retrieve the variable
 	var field = AH.getElement(variable);
 
-	if ( field == null )	
+	if ( field == null )
 		return null;
 
 	add_error_style(field.form.name, field, error, false);
@@ -619,7 +646,9 @@ AH.getRelatedFieldValues = function(fields, module, record)
     if (fields.length > 0){
         module = module || SUGAR.forms.AssignmentHandler.getValue("module") || DCMenu.module;
         record = record || SUGAR.forms.AssignmentHandler.getValue("record") || DCMenu.record;
-        for (var i = 0; i < fields.length; i++)
+
+        // Go from the back, because of the possible deletion of related type fields
+        for (var i = fields.length - 1; i >= 0; i--)
         {
             //Related fields require a current related id
             if (fields[i].type == "related")
@@ -627,28 +656,41 @@ AH.getRelatedFieldValues = function(fields, module, record)
                 var linkDef = SUGAR.forms.AssignmentHandler.getLink(fields[i].link);
                 if (linkDef && linkDef.id_name && linkDef.module) {
                     var idField = document.getElementById(linkDef.id_name);
-                    if (idField && idField.tagName == "INPUT")
+                    if (idField && (idField.tagName == "INPUT" || idField.hasAttribute("data-id-value")))
                     {
-                        fields[i].relId = SUGAR.forms.AssignmentHandler.getValue(linkDef.id_name, false, true);
                         fields[i].relModule = linkDef.module;
+                        fields[i].relId = SUGAR.forms.AssignmentHandler.getValue(linkDef.id_name, false, true);
+
+                        // If there is no relId, there is no point in querying for this field
+                        if (fields[i].relId.length == 0)
+                        {
+                            // So we remove it
+                            fields.splice(i, 1);
+                        }
                     }
                 }
             }
         }
-        var r = http_fetch_sync("index.php", SUGAR.util.paramsToUrl({
-            module:"ExpressionEngine",
-            action:"getRelatedValues",
-            record_id: record,
-            tmodule: module,
-            fields: YAHOO.lang.JSON.stringify(fields),
-            to_pdf: 1
-        }));
-        try {
-            var ret = YAHOO.lang.JSON.parse(r.responseText);
-            AH.setRelatedFields(ret);
-            return ret;
-        } catch(e){}
+
+        // If we removed all fields (related) no point in sending a request
+        if (fields.length > 0)
+        {
+            var r = http_fetch_sync("index.php", SUGAR.util.paramsToUrl({
+                module:"ExpressionEngine",
+                action:"getRelatedValues",
+                record_id: record,
+                tmodule: module,
+                fields: YAHOO.lang.JSON.stringify(fields),
+                to_pdf: 1
+            }));
+            try {
+                var ret = YAHOO.lang.JSON.parse(r.responseText);
+                AH.setRelatedFields(ret);
+                return ret;
+            } catch(e){}
+        }
     }
+
     return null;
 }
 
@@ -670,11 +712,19 @@ AH.getRelatedField = function(link, ftype, field, view){
         return null;
 
     var linkDef = SUGAR.forms.AssignmentHandler.getLink(link);
-    var currId = linkDef.id_name ? SUGAR.forms.AssignmentHandler.getValue(linkDef.id_name, false, true) : false;
+    var currId;
+    if (linkDef.id_name)
+     {
+         currId = SUGAR.forms.AssignmentHandler.getValue(linkDef.id_name, false, true);
+     }
 
     if (typeof(linkDef[ftype]) == "undefined"
         || (field && typeof(linkDef[ftype][field]) == "undefined")
-        || (ftype == "related" && linkDef.relId != currId)
+
+        // make sure that at least one of old and new value of the relate field is not empty.
+        // otherwise the cache considered invalid in case when both values are empty but have
+        // different types (null, false, undefined or empty string)
+        || (ftype == "related" && (linkDef.relId || currId) && linkDef.relId != currId)
     ){
         var params = {link: link, type: ftype};
         if (field)
@@ -762,7 +812,11 @@ SUGAR.util.extend(SUGAR.forms.FormExpressionContext, SUGAR.expressions.Expressio
 		else
 			value = AH.getValue(varname, this.formName);
 
-		if (typeof(value) == "string")
+        if(typeof(value) == 'number')
+        {
+            return toConst(value);
+        }
+		else if (typeof(value) == "string")
 		{
 			value = value.replace(/\n/g, "");
 			if ((/^(\s*)$/).exec(value) != null || value === "")

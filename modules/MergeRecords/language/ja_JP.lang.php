@@ -3,64 +3,51 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_NEXT_STEP_BUTTON_KEY' => 'N',
-  'LBL_PERFORM_MERGE_BUTTON_KEY' => 'P',
-  'LBL_SAVE_MERGED_RECORD_BUTTON_KEY' => 'S',
-  'LBL_MODULE_NAME' => 'レコードマージ',
-  'LBL_MODULE_TITLE' => 'レコードマージ: ホーム',
-  'LBL_SEARCH_FORM_TITLE' => 'マージ検索',
-  'LBL_LIST_FORM_TITLE' => 'マージ一覧',
-  'LBL_LBL_MERGE_RECORDS_STEP_1' => 'ステップ 1: マージするレコードを選択してください',
+  'ERR_EXCEEDS_MAX' => 'マージできるレコードは最大５つまでです。最大値を超えたレコードは無視されます。',
   'LBL_AVAIL_FIELDS' => '使用可能なフィールド',
+  'LBL_CHANGE_PARENT' => '主レコードに設定',
+  'LBL_DELETE_MESSAGE' => '実行すると以下のレコードを削除します。:',
+  'LBL_DIFF_COL_VALUES' => '最初の行とマージする行で異なる値を持つカラム:',
   'LBL_FILTER_COND' => '絞込み条件',
-  'LBL_SELECTED_FIELDS' => '選択されたフィールド',
+  'LBL_LBL_MERGE_RECORDS_STEP_1' => 'ステップ 1: マージするレコードを選択してください',
+  'LBL_LIST_FORM_TITLE' => 'マージ一覧',
   'LBL_MERGE_RECORDS_WITH' => 'マージ先レコード',
   'LBL_MERGE_VALUE_OVER' => '上書きする値',
-  'LBL_NEXT_STEP_TITLE' => '次のステップに進む[Ctrl+N]',
+  'LBL_MODULE_NAME' => 'レコードマージ',
+  'LBL_MODULE_NAME_SINGULAR' => '統合記録',
+  'LBL_MODULE_TITLE' => 'レコードマージ: ホーム',
+  'LBL_NEXT_STEP_BUTTON_KEY' => 'N',
   'LBL_NEXT_STEP_BUTTON_LABEL' => '次のステップ >',
-  'LBL_PERFORM_MERGE_BUTTON_TITLE' => 'マージの実行[Ctrl+P]',
+  'LBL_NEXT_STEP_TITLE' => '次のステップに進む[Ctrl+N]',
+  'LBL_PERFORM_MERGE_BUTTON_KEY' => 'P',
   'LBL_PERFORM_MERGE_BUTTON_LABEL' => 'マージの実行',
-  'LBL_SAVE_MERGED_RECORD_BUTTON_TITLE' => 'マージの保存[Ctrl+S]',
+  'LBL_PERFORM_MERGE_BUTTON_TITLE' => 'マージの実行[Ctrl+P]',
+  'LBL_PROCEED' => '実行しますか？',
+  'LBL_REMOVE_FROM_MERGE' => 'はずす',
+  'LBL_SAME_COL_VALUES' => 'すべての行に渡って同一の値を持つカラム:',
+  'LBL_SAVE_MERGED_RECORD_BUTTON_KEY' => 'S',
   'LBL_SAVE_MERGED_RECORD_BUTTON_LABEL' => 'マージの保存',
-  'LBL_STEP2_FORM_TITLE' => 'マージするレコードを検出:',
+  'LBL_SAVE_MERGED_RECORD_BUTTON_TITLE' => 'マージの保存[Ctrl+S]',
+  'LBL_SEARCH_FORM_TITLE' => 'マージ検索',
+  'LBL_SELECTED_FIELDS' => '選択されたフィールド',
   'LBL_SELECT_ERROR' => '進む前に選択をしてください。',
   'LBL_SELECT_PRIMARY' => 'マージする主レコードを選択してください。',
-  'LBL_CHANGE_PARENT' => '主レコードに設定',
-  'LBL_REMOVE_FROM_MERGE' => 'はずす',
-  'LBL_DIFF_COL_VALUES' => '最初の行とマージする行で異なる値を持つカラム:',
-  'LBL_SAME_COL_VALUES' => 'すべての行に渡って同一の値を持つカラム:',
-  'ERR_EXCEEDS_MAX' => 'マージできるレコードは最大５つまでです。最大値を超えたレコードは無視されます。',
-  'LBL_DELETE_MESSAGE' => '実行すると以下のレコードを削除します。:',
-  'LBL_PROCEED' => '実行しますか？',
-  'LBL_STEP1_DIRECTIONS' => '重複している可能性があるレコードを検出。レコードが見つかった場合、どのレコードを現在のレコードにマージするか指定できます。',
+  'LBL_STEP1_DIRECTIONS' => '重複の可能性があるレコードを検出します。重複を検出した場合、このレコードとマージするレコードを選択できます。',
+  'LBL_STEP2_FORM_TITLE' => 'マージするレコードを検出:',
 );
 

@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('include/SugarFields/Fields/Teamset/SugarFieldTeamset.php');
@@ -102,6 +88,8 @@ if(!isset($_POST['fromuser']) && !isset($_GET['execute'])){
 <select name="fromuser" id='fromuser'>
 <?php
 $all_users = User::getAllUsers();
+//Bug 48697 - We need to display only active users as possible reassign targets
+$active_users = User::getActiveUsers();
 echo get_select_options_with_id($all_users, isset($_SESSION['reassignRecords']['fromuser']) ? $_SESSION['reassignRecords']['fromuser'] : '');
 ?>
 </select>
@@ -116,7 +104,7 @@ if(isset($_SESSION['reassignRecords']['fromuser']) && isset($all_users[$_SESSION
 	unset($all_users[$_SESSION['reassignRecords']['fromuser']]);
 }
 
-echo get_select_options_with_id($all_users, isset($_SESSION['reassignRecords']['touser']) ? $_SESSION['reassignRecords']['touser'] : '');
+echo get_select_options_with_id($active_users, isset($_SESSION['reassignRecords']['touser']) ? $_SESSION['reassignRecords']['touser'] : '');
 ?>
 </select>
 <?php
@@ -170,7 +158,10 @@ if(!isset($_SESSION['reassignRecords']['assignedModuleListCache'])){
 	//Leon bug 20739
 	$beanListDupDisp=array() ;
 	foreach($beanListDup as $m => $p){
-		$beanListDupDisp[$app_list_strings['moduleList'][$m]]=$p;
+		if (isset($app_list_strings['moduleList'][$m]))
+		{
+		    $beanListDupDisp[$app_list_strings['moduleList'][$m]]=$p;
+		}
 	}
 	$_SESSION['reassignRecords']['assignedModuleListCache'] = $beanListDup;
 	$_SESSION['reassignRecords']['assignedModuleListCacheDisp'] = $beanListDupDisp;
@@ -263,7 +254,7 @@ else if(!isset($_GET['execute'])){
 	$tousername = $_POST['touser'];
 
 	$query = "select user_name, id from users where id in ('{$_POST['fromuser']}', '{$_POST['touser']}')";
-	$res = $GLOBALS['db']->query($query);
+	$res = $GLOBALS['db']->query($query, true);
 	while($row = $GLOBALS['db']->fetchByAssoc($res)){
 		if($row['id'] == $_POST['fromuser'])
 			$fromusername = $row['user_name'];
@@ -320,7 +311,11 @@ else if(!isset($_GET['execute'])){
 			      "date_modified = '".TimeDate::getInstance()->nowDb()."', ".
 			      "modified_user_id = '{$current_user->id}' ";
 
-		if(!empty($team_id)){
+        if (!empty($team_id) &&
+            !empty($team_set_id) &&
+            isset($object->field_defs['team_id']) &&
+            isset($object->field_defs['team_set_id'])
+        ) {
 			$q_set .= ", team_id = '{$team_id}', team_set_id = '{$team_set_id}' ";
 		}
 		$q_tables   = " {$object->table_name} ";
@@ -378,7 +373,7 @@ else if(!isset($_GET['execute'])){
 		$_SESSION['reassignRecords']['modules'][$module]['query'] = $query;
 		$_SESSION['reassignRecords']['modules'][$module]['update'] = $updatequery;
 
-		$res = $GLOBALS['db']->query($countquery);
+		$res = $GLOBALS['db']->query($countquery, true);
 		$row = $GLOBALS['db']->fetchByAssoc($res);
 
 		echo "{$row['count']} {$mod_strings_users['LBL_REASS_RECORDS_FROM']} {$app_list_strings['moduleList'][$p_module]} {$mod_strings_users['LBL_REASS_WILL_BE_UPDATED']}\n<BR>\n";

@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -175,17 +161,12 @@ class Product extends SugarBean {
 
     function create_export_query(&$order_by, &$where, $relate_link_join='')
     {
-        $custom_join = $this->custom_fields->getJOIN(true, true,$where);
-		if($custom_join)
-				$custom_join['join'] .= $relate_link_join;
+        $custom_join = $this->getCustomJoin(true, true, $where);
+        $custom_join['join'] .= $relate_link_join;
 		$query = "SELECT $this->table_name.* ";
-		if($custom_join){
-   								$query .= $custom_join['select'];
- 		}
+        $query .= $custom_join['select'];
  		$query .= " FROM $this->table_name ";
- 		if($custom_join){
-  				$query .= $custom_join['join'];
-		}
+        $query .= $custom_join['join'];
 		$where_auto = "$this->table_name.deleted=0";
 
 /*
@@ -430,6 +411,34 @@ class Product extends SugarBean {
 		$expired = $timedate->asDbDate($timedate->getNow()->get($support_expired));
 		$coming_due = $timedate->asDbDate($timedate->getNow()->get($support_coming_due));
 
+		/**
+		 * Convert price related data into users preferred currency
+		 * for display in subpanels 
+		 */
+		// See if a user has a preferred currency
+		if ($current_user->getPreference('currency')) {
+			// Retrieve the product currency
+			$currency = new Currency();
+			$currency->retrieve($this->currency_id);
+			// Retrieve the users currency
+			$userCurrency = new Currency();
+			$userCurrency->retrieve($current_user->getPreference('currency'));
+			// If the product currency and the user default currency are different, convert to users currency
+			if ($userCurrency->id != $currency->id) {
+				$this->cost_price = $userCurrency->convertFromDollar($currency->convertToDollar($this->cost_price));
+				$this->discount_price = $userCurrency->convertFromDollar($currency->convertToDollar($this->discount_price));
+				$this->list_price = $userCurrency->convertFromDollar($currency->convertToDollar($this->list_price));
+				$this->deal_calc = $userCurrency->convertFromDollar($currency->convertToDollar($this->deal_calc));
+				
+				if (!(isset($this->discount_select) && $this->discount_select)) {
+					$this->discount_amount = $userCurrency->convertFromDollar($currency->convertToDollar($this->discount_amount));
+				}
+				
+				$this->currency_symbol = $userCurrency->symbol;
+				$this->currency_name = $userCurrency->name;
+				$this->currency_id = $userCurrency->id;
+			}
+		}
 
 		if (!empty($the_date_support_expires) && $db_date_support_expires < $expired) {
 			$the_date_support_expires="<strong><font color='$support_expired_color'>$the_date_support_expires</font></strong>";
@@ -564,11 +573,11 @@ class Product extends SugarBean {
 					    $product->retrieve();
 					    $subtotal_usdollar += $product->discount_usdollar * $product->quantity;
 
-					     if (isset($this->discount_select) && $this->discount_select){
+					     if (isset($product->discount_select) && $product->discount_select){
 					       $deal_tot_usdollar += ($product->discount_amount / 100) * $product->discount_usdollar * $product->quantity;
 					    }
 					    else{
-					       $deal_tot_usdollar += $product->discount_amount;
+					       $deal_tot_usdollar += $product->discount_amount * $product->quantity;
 					    }
 					    $new_sub_usdollar = $subtotal_usdollar - $deal_tot_usdollar;
 					    if ($product->tax_class == 'Taxable') {

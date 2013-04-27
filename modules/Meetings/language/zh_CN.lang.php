@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -36,12 +22,15 @@ $mod_strings = array (
   'LBL_ACCEPT_LINK' => '接受链接',
   'LBL_ACCEPT_STATUS' => '接收状态',
   'LBL_ACCEPT_THIS' => '接受?',
+  'LBL_ACCOUNT_NAME' => '客户',
   'LBL_ACTIVITIES_REPORTS' => '活动报告',
   'LBL_ADD_BUTTON' => '增加',
   'LBL_ADD_INVITEE' => '增加受邀者',
+  'LBL_ADD_PARENT_INVITEE' => '添加相关用户给邀请者',
   'LBL_ASSIGNED_TO_NAME' => '指派给:',
   'LBL_CANCEL_CREATE_INVITEE' => '取消',
   'LBL_COLON' => ':',
+  'LBL_CONFIRM_REMOVE_ALL_RECURRENCES' => '您确定要移除所有的重复记录吗?',
   'LBL_CONTACTS_SUBPANEL_TITLE' => '联系人',
   'LBL_CONTACT_NAME' => '联系人:',
   'LBL_CREATED_BY' => '创建者',
@@ -53,6 +42,7 @@ $mod_strings = array (
   'LBL_CREATOR' => '会议创建者',
   'LBL_DATE' => '开始日期:',
   'LBL_DATE_END' => '截止日期',
+  'LBL_DATE_END_ERROR' => '结束日期前于开始日期',
   'LBL_DATE_TIME' => '开始日期 &时间:',
   'LBL_DEFAULT_SUBPANEL_TITLE' => '会议',
   'LBL_DEL' => '删除',
@@ -63,6 +53,7 @@ $mod_strings = array (
   'LBL_DURATION' => '持续时间:',
   'LBL_DURATION_HOURS' => '持续时数:',
   'LBL_DURATION_MINUTES' => '持续分钟数:',
+  'LBL_EDIT_ALL_RECURRENCES' => '编辑所有事件',
   'LBL_EMAIL' => '电子邮件',
   'LBL_EMAIL_REMINDER' => '邮件提醒',
   'LBL_EMAIL_REMINDER_SENT' => '已发送的邮件提醒',
@@ -128,15 +119,24 @@ $mod_strings = array (
   'LBL_PARENT_TYPE' => '主类型',
   'LBL_PASSWORD' => '会议密码',
   'LBL_PHONE' => '客户电话:',
+  'LBL_RECURRENCE' => '事件',
+  'LBL_RECURRING_LIMIT_ERROR' => '这种定期召开的会议不能安排因为它超出了允许的最大复发数$limit.',
   'LBL_RECURRING_SOURCE' => '重复资源',
+  'LBL_RELATED_TO' => '关联到:',
   'LBL_REMINDER' => '提醒:',
   'LBL_REMINDER_EMAIL' => '邮件',
+  'LBL_REMINDER_EMAIL_ALL_INVITEES' => '所有被邀请者邮件',
   'LBL_REMINDER_POPUP' => '弹出',
   'LBL_REMINDER_TIME' => '提醒时间',
   'LBL_REMOVE' => '移除',
+  'LBL_REMOVE_ALL_RECURRENCES' => '删除所有事件',
   'LBL_REPEAT_COUNT' => '重复总数',
   'LBL_REPEAT_DOW' => '重复Dow',
+  'LBL_REPEAT_END' => '结束',
+  'LBL_REPEAT_END_AFTER' => '之后',
+  'LBL_REPEAT_END_BY' => '通过',
   'LBL_REPEAT_INTERVAL' => '重复间段',
+  'LBL_REPEAT_OCCURRENCES' => '事件',
   'LBL_REPEAT_PARENT_ID' => '重复源ID',
   'LBL_REPEAT_TYPE' => '重复类型',
   'LBL_REPEAT_UNTIL' => '重复直到',

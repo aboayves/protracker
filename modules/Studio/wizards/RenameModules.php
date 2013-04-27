@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -65,6 +51,7 @@ class RenameModules
             array('name' => 'LBL_CAMPAIGN_ID', 'type' => 'singular', 'source' => 'Campaigns'),
             array('name' => 'LBL_PARENT_ACCOUNT_ID', 'type' => 'singular', 'source' => 'Accounts'),
             array('name' => 'LBL_PROSPECT_LIST', 'type' => 'singular', 'source' => 'Prospects'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Accounts'),
         ),
         'Bugs' => array(
             array('name' => 'LBL_LIST_FORM_TITLE', 'type' => 'singular', 'source' => 'Bugs'),
@@ -74,9 +61,11 @@ class RenameModules
             array('name' => 'LNK_BUG_REPORTS', 'type' => 'singular', 'source' => 'Bugs'),
             array('name' => 'LNK_IMPORT_BUGS', 'type' => 'plural', 'source' => 'Bugs'),
             array('name' => 'LNK_NEW_BUG', 'type' => 'singular', 'source' => 'Bugs'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Bugs'),
         ),
         'Calls' => array(
             array('name' => 'LBL_LIST_CONTACT', 'type' => 'singular', 'source' => 'Contacts'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Calls'),
         ),
         'Campaigns' => array(
             array('name' => 'LBL_ACCOUNTS', 'type' => 'plural', 'source' => 'Accounts'),
@@ -86,10 +75,12 @@ class RenameModules
             array('name' => 'LBL_LOG_ENTRIES_LEAD_TITLE', 'type' => 'plural', 'source' => 'Leads'),
             array('name' => 'LBL_OPPORTUNITIES', 'type' => 'plural', 'source' => 'Opportunities'),
             array('name' => 'LBL_PROSPECT_LIST_SUBPANEL_TITLE', 'type' => 'singular', 'source' => 'Targets'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Campaigns'),
         ),
         'Cases' => array(
             array('name' => 'LBL_BUGS_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Bugs'),
             array('name' => 'LBL_LIST_ACCOUNT_NAME', 'type' => 'singular', 'source' => 'Accounts'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Cases'),
         ),
         'Contacts' => array(
             array('name' => 'LBL_BUGS_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Bugs'),
@@ -102,6 +93,7 @@ class RenameModules
             array('name' => 'LBL_OPPORTUNITY_ROLE_ID', 'type' => 'singular', 'source' => 'Opportunities'),
             array('name' => 'LBL_PRODUCTS_TITLE', 'type' => 'plural', 'source' => 'Products'),
             array('name' => 'LBL_PROSPECT_LIST', 'type' => 'singular', 'source' => 'Prospects'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Contacts'),
         ),
         'Contracts' => array(
             array('name' => 'LBL_CONTRACT_NAME', 'type' => 'singular', 'source' => 'Contracts'),
@@ -110,10 +102,12 @@ class RenameModules
             array('name' => 'LBL_LIST_ACCOUNT_NAME', 'type' => 'singular', 'source' => 'Accounts'),
             array('name' => 'LBL_LIST_CONTRACT_NAME', 'type' => 'singular', 'source' => 'Contracts'),
             array('name' => 'LBL_OPPORTUNITY', 'type' => 'singular', 'source' => 'Opportunities'),
+            array('name' => 'LBL_OPPORTUNITY_NAME', 'type' => 'singular', 'source' => 'Opportunities'),
             array('name' => 'LBL_SEARCH_FORM_TITLE', 'type' => 'singular', 'source' => 'Contracts'),
             array('name' => 'LBL_TOTAL_CONTRACT_VALUE', 'type' => 'singular', 'source' => 'Contracts'),
             array('name' => 'LBL_TOTAL_CONTRACT_VALUE_USDOLLAR', 'type' => 'singular', 'source' => 'Contracts'),
             array('name' => 'LNK_NEW_CONTRACT', 'type' => 'singular', 'source' => 'Contracts'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Contracts'),
         ),
         'Documents' => array(
             array('name' => 'LBL_BUGS_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Bugs'),
@@ -128,11 +122,13 @@ class RenameModules
             array('name' => 'LBL_DOC_URL', 'type' => 'singular', 'source' => 'Documents'),
             array('name' => 'LBL_NAME', 'type' => 'singular', 'source' => 'Documents'),
             array('name' => 'LBL_TEMPLATE_TYPE', 'type' => 'singular', 'source' => 'Documents'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Documents'),
         ),
         'KBDocuments' => array(
             array('name' => 'LBL_CASES', 'type' => 'plural', 'source' => 'Cases'),
             array('name' => 'LBL_CONTRACTS', 'type' => 'plural', 'source' => 'Contracts'),
             array('name' => 'LBL_CONTRACT_NAME', 'type' => 'plural', 'source' => 'Contracts'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'KBDocuments'),
         ),
         'Leads' => array(
             array('name' => 'LNK_SELECT_###MODULE_PLURAL###', 'type' => 'singular', 'source' => 'Leads'),
@@ -155,7 +151,7 @@ class RenameModules
             array('name' => 'LNK_NEW_ACCOUNT', 'type' => 'singular', 'source' => 'Accounts'),
             array('name' => 'LBL_CONVERTED_CONTACT', 'type' => 'singular', 'source' => 'Contacts'),
             array('name' => 'LBL_CONVERTED_OPP', 'type' => 'singular', 'source' => 'Opportunities'),
-
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Leads'),
         ),
         'Meetings' => array(
             array('name' => 'LBL_LIST_CONTACT', 'type' => 'singular', 'source' => 'Contacts'),
@@ -163,6 +159,7 @@ class RenameModules
             array('name' => 'LBL_PASSWORD', 'type' => 'singular', 'source' => 'Meetings'),
             array('name' => 'LBL_TYPE', 'type' => 'singular', 'source' => 'Meetings'),
             array('name' => 'LBL_URL', 'type' => 'singular', 'source' => 'Meetings'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Meetings'),
         ),
         'Notes' => array(
             array('name' => 'LBL_ACCOUNT_ID', 'type' => 'singular', 'source' => 'Accounts'),
@@ -174,6 +171,7 @@ class RenameModules
             array('name' => 'LBL_OPPORTUNITY_ID', 'type' => 'singular', 'source' => 'Opportunities'),
             array('name' => 'LBL_PRODUCT_ID', 'type' => 'singular', 'source' => 'Products'),
             array('name' => 'LBL_QUOTE_ID', 'type' => 'singular', 'source' => 'Quotes'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Notes'),
         ),
         'Opportunities' => array(
             array('name' => 'LBL_ACCOUNT_ID', 'type' => 'singular', 'source' => 'Accounts'),
@@ -183,9 +181,11 @@ class RenameModules
             array('name' => 'LBL_LEAD_SOURCE', 'type' => 'singular', 'source' => 'Leads'),
             array('name' => 'LBL_LIST_ACCOUNT_NAME', 'type' => 'singular', 'source' => 'Accounts'),
             array('name' => 'LBL_OPPORTUNITY_NAME', 'type' => 'singular', 'source' => 'Opportunities'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Opportunities'),
         ),
         'ProductTemplates' => array(
             array('name' => 'LBL_PRODUCT_ID', 'type' => 'singular', 'source' => 'Products'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'ProductTemplates'),
         ),
         'Products' => array(
             array('name' => 'LBL_ACCOUNT_ID', 'type' => 'singular', 'source' => 'Accounts'),
@@ -198,12 +198,14 @@ class RenameModules
             array('name' => 'LBL_QUOTE_ID', 'type' => 'singular', 'source' => 'Quotes'),
             array('name' => 'LBL_RELATED_PRODUCTS', 'type' => 'plural', 'source' => 'Products'),
             array('name' => 'LBL_URL', 'type' => 'singular', 'source' => 'Products'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Products'),
         ),
         'ProjectTask' => array(
             array('name' => 'LBL_PARENT_NAME', 'type' => 'singular', 'source' => 'Projects'),
             array('name' => 'LBL_PROJECT_ID', 'type' => 'singular', 'source' => 'Projects'),
             array('name' => 'LBL_PROJECT_NAME', 'type' => 'singular', 'source' => 'Projects'),
             array('name' => 'LBL_PROJECT_TASK_ID', 'type' => 'singular', 'source' => 'Projects'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'ProjectTask'),
         ),
         'Project' => array(
             array('name' => 'LBL_BUGS_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Bugs'),
@@ -215,23 +217,27 @@ class RenameModules
             array('name' => 'LBL_SEARCH_FORM_TITLE', 'type' => 'singular', 'source' => 'Projects'),
             array('name' => 'LNK_NEW_PROJECT', 'type' => 'singular', 'source' => 'Projects'),
             array('name' => 'LNK_PROJECT_LIST', 'type' => 'singular', 'source' => 'Projects'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Projects'),
         ),
         'Quotes' => array(
             array('name' => 'LBL_ACCOUNT_ID', 'type' => 'singular', 'source' => 'Accounts'),
             array('name' => 'LBL_CONTRACTS', 'type' => 'plural', 'source' => 'Contracts'),
             array('name' => 'LBL_LIST_ACCOUNT_NAME', 'type' => 'singular', 'source' => 'Accounts'),
             array('name' => 'LBL_QUOTE_NUM', 'type' => 'singular', 'source' => 'Quotes'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Quotes'),
         ),
         'Targets' => array(
             array('name' => 'LBL_ACCOUNT_NAME', 'type' => 'singular', 'source' => 'Accounts'),
             array('name' => 'LBL_CAMPAIGN_ID', 'type' => 'plural', 'source' => 'Campaigns'),
             array('name' => 'LBL_CAMPAIGN_LIST_SUBPANEL_TITLE', 'type' => 'singular', 'source' => 'Campaigns'),
             array('name' => 'LBL_PROSPECT_LIST', 'type' => 'singular', 'source' => 'Prospects'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Targets'),
         ),
         'Tasks' => array(
             array('name' => 'LBL_CONTACT', 'type' => 'singular', 'source' => 'Contacts'),
             array('name' => 'LBL_CONTACT_ID', 'type' => 'singular', 'source' => 'Contacts'),
             array('name' => 'LBL_CONTACT_PHONE', 'type' => 'singular', 'source' => 'Contacts'),
+            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Tasks'),
         ),
     );
 
@@ -493,43 +499,58 @@ class RenameModules
      */
     private function renameModuleRelatedLinks($moduleName, $moduleClass)
     {
+        global $app_strings;
         $GLOBALS['log']->info("Begining to renameModuleRelatedLinks for $moduleClass\n");
-        $tmp = new $moduleClass;
-        if( ! method_exists($tmp, 'get_related_fields') )
-        {
-            $GLOBALS['log']->info("Unable to resolve linked fields for module $moduleClass ");
+        $bean = BeanFactory::getBean($moduleName);
+        if (!$bean instanceof SugarBean){
+            $GLOBALS['log']->info("Unable to get linked fields for module $moduleClass\n");
             return;
         }
 
-        $linkedFields = $tmp->get_related_fields();
-        $mod_strings = return_module_language($this->selectedLanguage, $moduleName);
+        $arrayToRename = array();
         $replacementStrings = array();
+        $mod_strings = return_module_language($this->selectedLanguage, $moduleName);
+        $changedModules = array_keys($this->changedModules);
 
-        foreach($linkedFields as $link => $linkEntry)
+        $relatedFields = $bean->get_related_fields();
+        foreach($relatedFields as $field => $defs)
         {
-            //For each linked field check if the module referenced to is in our changed module list.
-            foreach($this->changedModules as $changedModuleName => $renameFields)
-            {
-                if( isset($linkEntry['module']) && $linkEntry['module'] ==  $changedModuleName)
-                {
-                    $GLOBALS['log']->debug("Begining to rename for link field {$link}");
-                    if( !isset($mod_strings[$linkEntry['vname']]) )
-                    {
-                        $GLOBALS['log']->debug("No label attribute for link $link, continuing.");
-                        continue;
-                    }
-
-                    $replaceKey = $linkEntry['vname'];
-                    $oldStringValue = $mod_strings[$replaceKey];
-                    //At this point we don't know if we should replace the string with the plural or singular version of the new
-                    //strings so we'll try both but with the plural version first since it should be longer than the singular.
-                    $replacedString = str_replace(html_entity_decode_utf8($renameFields['prev_plural'], ENT_QUOTES), $renameFields['plural'], $oldStringValue);
-                    if ($replacedString == $oldStringValue) {
-                        $replacedString = str_replace(html_entity_decode_utf8($renameFields['prev_singular'], ENT_QUOTES), $renameFields['singular'], $replacedString);
-                    }
-                    $replacementStrings[$replaceKey] = $replacedString;
+            if (isset($defs['module']) && in_array($defs['module'], $changedModules)){
+                $arrayToRename[$field] = $defs;
+            }
+        }
+        $linkedFields = $bean->get_linked_fields();
+        foreach($linkedFields as $field => $defs)
+        {
+            if ($bean->load_relationship($defs['name'])){
+                $relModule = $bean->$defs['name']->getRelatedModuleName();
+                if (in_array($relModule, $changedModules)) {
+                    $defs['module'] = $relModule;
+                    $arrayToRename[$field] = $defs;
                 }
             }
+        }
+
+        foreach($arrayToRename as $link => $linkEntry)
+        {
+            $GLOBALS['log']->debug("Begining to rename for link field {$link}");
+            if( !isset($linkEntry['vname'])
+                || (!isset($mod_strings[$linkEntry['vname']]) && !isset($app_strings[$linkEntry['vname']]))) {
+                $GLOBALS['log']->debug("No label attribute for link $link, continuing.");
+                continue;
+            }
+
+            $replaceKey = $linkEntry['vname'];
+            $oldStringValue = translate($replaceKey, $moduleName);
+            $renameFields = $this->changedModules[$linkEntry['module']];
+
+            if (strlen($renameFields['prev_plural']) > strlen($renameFields['prev_singular']) && strpos($oldStringValue, $renameFields['prev_plural']) !== false) {
+                $key = 'plural';
+            } else {
+                $key = 'singular';
+            }
+            $replacedString = str_replace(html_entity_decode_utf8($renameFields['prev_' . $key], ENT_QUOTES), $renameFields[$key], $oldStringValue);
+            $replacementStrings[$replaceKey] = $replacedString;
         }
 
         //Now we can write out the replaced language strings for each module
@@ -804,21 +825,20 @@ class RenameModules
         $newParams['use_push'] = true;
         DropDownHelper::saveDropDown($this->createModuleListSingularPackage($newParams, $this->changedModules));
 
-        //Save changes to the parent_type_display app_list_strings entry
+        //Save changes to the "*type_display*" app_list_strings entry.
         global $app_list_strings;
-        $cur_app_list_strings = $app_list_strings;
-        foreach ($this->changedModules as $moduleName => $package) {
-            $found = false;
-            // only change if it exists
-            foreach ($cur_app_list_strings['parent_type_display'] as $moduleName2 => $parentDispName) {
-                if ($moduleName == $moduleName2) {
-                    $found = true;
-                    break;
-                }
-            }
-            if ($found) {
-                $newParams['dropdown_name'] = 'parent_type_display';
-                DropDownHelper::saveDropDown($this->createModuleListSingularPackage($newParams, array($moduleName => $this->changedModules[$moduleName])));
+        
+        $typeDisplayList = getTypeDisplayList();
+        
+        foreach (array_keys($this->changedModules)as $moduleName) 
+        {
+            foreach($typeDisplayList as $typeDisplay)
+            {
+                if(isset($app_list_strings[$typeDisplay]) && isset($app_list_strings[$typeDisplay][$moduleName]))
+                {
+                    $newParams['dropdown_name'] = $typeDisplay;
+                    DropDownHelper::saveDropDown($this->createModuleListSingularPackage($newParams, array($moduleName => $this->changedModules[$moduleName])));
+                 }
             }
         }
         return $this;

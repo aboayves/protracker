@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -323,11 +309,12 @@ class Quota extends SugarBean {
 		if ($id == NULL)
 			$id = $current_user->id;
 		
-		$query = "SELECT SUM(quotas.amount_base_currency) as group_amount" .
+	    $query = "SELECT {$this->db->convert('SUM(quotas.amount_base_currency)', 'ifnull', array(0))} as group_amount" .
 				" FROM users, quotas " .
 				" WHERE quotas.timeperiod_id = '" . $timeperiod_id . "'" .
 				" AND quotas.deleted = 0" .
 				" AND users.id = quotas.user_id" .
+                " AND users.deleted = 0" .
 				" AND quotas.created_by = '" .$id . "'" .
 				" AND (users.reports_to_id = '" . $id . "' " .
 				" OR (users.id = '" . $id . "'" .
@@ -361,25 +348,9 @@ class Quota extends SugarBean {
  */		
 	function getUserManagedSelectList($timeperiod_id, $id = ''){
 		global $mod_strings;
-		global $current_user;
 		global $locale;
 		
-		$qry = "SELECT U.id as user_id, Q.id as quota_id, Q.timeperiod_id as timeperiod_id, user_name, first_name, last_name " .
-			   "FROM users U " .
-			   "LEFT OUTER JOIN (SELECT quotas.id, quotas.user_id, quotas.timeperiod_id, quotas.quota_type " .
-			   					"FROM quotas, users " .
-			   					"WHERE quotas.timeperiod_id = '" . $timeperiod_id . "' " .
-			   					"AND quotas.user_id = users.id " .
-			   					"AND quotas.created_by = '" . $current_user->id . "' " .
-			   					"AND (users.reports_to_id = '" . $current_user->id . "' " .
-			   						"OR (quotas.quota_type = 'Direct' AND users.id = '" . $current_user->id . "') ) ) Q " .
-			   					"ON Q.user_id = U.id  " .
-			   "WHERE U.reports_to_id = '" . $current_user->id . "' " .
-			   " OR U.id = '" . $current_user->id . "' " .
-			   "ORDER BY first_name";
-
-		$result = $this->db->query($qry, true, 'Error retrieving quotas for managed users for current user: ');
-
+        $data = $this->getUserManagedSelectData($timeperiod_id);
 		$options = '';
 
 		if ($id == NULL)
@@ -387,7 +358,8 @@ class Quota extends SugarBean {
 						 . $mod_strings['LBL_SELECT_USER']  
 						 . '</option>' ;
 						 		
-		while ($row = $this->db->fetchByAssoc($result)){
+        foreach($data as $row)
+        {
 			
 			if ($row['user_id'] == $id)
 				$options .= '<option value="?edit=true&action=index&module=Quotas&record=' 
@@ -421,6 +393,35 @@ class Quota extends SugarBean {
 		return $options;
 	}
 
+    /**
+     * Return data for building options in Quota::getUserManagedSelectList
+     * @param string $timeperiod_id
+     * @return array
+     */
+    protected function getUserManagedSelectData($timeperiod_id)
+    {
+        $result = array();
+        global $current_user;
+        $query = "SELECT U.id as user_id, Q.id as quota_id, Q.timeperiod_id as timeperiod_id, user_name, first_name, last_name " .
+                "FROM users U " .
+                "LEFT OUTER JOIN (SELECT quotas.id, quotas.user_id, quotas.timeperiod_id, quotas.quota_type " .
+                "FROM quotas, users " .
+                "WHERE quotas.timeperiod_id = {$this->db->quoted($timeperiod_id)}" .
+                "AND quotas.user_id = users.id " .
+                "AND quotas.created_by = {$this->db->quoted($current_user->id)}" .
+                "AND (users.reports_to_id = {$this->db->quoted($current_user->id)}" .
+                "OR (quotas.quota_type = 'Direct' AND users.id = {$this->db->quoted($current_user->id)}) ) ) Q " .
+                "ON Q.user_id = U.id  " .
+                "WHERE (U.reports_to_id = {$this->db->quoted($current_user->id)}" .
+                " OR U.id = {$this->db->quoted($current_user->id)}) AND U.deleted = 0  " .
+                "ORDER BY first_name";
+        $resource = $this->db->query($query, true, 'Error retrieving quotas for managed users for current user: ');
+        while($row = $this->db->fetchByAssoc($resource))
+        {
+            array_push($result, $row);
+        }
+        return $result;
+    }
 /**
  * function isManager. The purpose of this function is to determine whether
  * the given user is a manager  

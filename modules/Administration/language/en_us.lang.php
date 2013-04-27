@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -353,6 +339,7 @@ $mod_strings = array (
     'LBL_LICENSE_VALIDATION_KEY'           => 'Validation Key',
     'LBL_LICENSE_VALIDATION'           => 'License Validation',
     'LBL_LICENSE'               => 'License',
+    'LBL_LICENSE_UNAUTHORIZED_ACCESS'               => 'Unauthorized access to license settings.',
     'LBL_LIST_FIRST_CONNECT_DATE' => 'First Connect Date',
     'LBL_LIST_LAST_CONNECT_DATE' => 'Last Connect Date',
     'LBL_LIST_NUM_SYNCS' => 'Num. of Syncs',
@@ -382,6 +369,8 @@ $mod_strings = array (
 	'LBL_LDAP_GROUP_USER_ATTR_DESC'=>'The unique identifier of the person that will be used to check if they are a member of the group Example: <em>uid</em>',
 	'LBL_LDAP_GROUP_ATTR_DESC'=>'The attribute of the Group that will be used to filter against the User Attribute Example: <em>memberUid</em>',
 	'LBL_LDAP_GROUP_ATTR'=>'Group Attribute:',
+	'LBL_LDAP_GROUP_ATTR_REQ_DN' => 'With User DN:',
+	'LBL_LDAP_GROUP_ATTR_REQ_DN_DESC' => 'Include the User DN with the User Attribute when checking group membership',
 	'LBL_LDAP_USER_FILTER_DESC'=>'Any additional filter params to apply when authenticating users e.g.\nis_sugar_user=1 or (is_sugar_user=1)(is_sales=1)',
     'LBL_LDAP_LOGIN_ATTRIBUTE'=>'Login Attribute:',
     'LBL_LDAP_BIND_ATTRIBUTE'=>'Bind Attribute:',
@@ -922,7 +911,7 @@ $mod_strings = array (
  	'WARN_LICENSE_EXPIRED'=> "Notice: Your license expires in ",
     'WARN_LICENSE_EXPIRED2' =>" day(s). Please go to the <a href='index.php?action=LicenseSettings&module=Administration'>'\"License Management\"</a>  in the Admin screen.",
     'WARN_LICENSE_SEATS'=>  "Warning: User licenses exceeded by ",
-    'WARN_LICENSE_SEATS2' => ".  Please contact your sales representative or email <a href='mailto:cagroup@sugarcrm.com'>cagroup@sugarcrm.com</a>.",
+    'WARN_LICENSE_SEATS2' => ".  Please contact your sales representative or email <a href='mailto:sales@sugarcrm.com'>sales@sugarcrm.com</a>.",
     'WARN_LICENSE_SEATS_MAXED'=>  "Warning: The number of active users is already the maximum number of licenses allowed: ",
     'WARN_LICENSE_SEATS_EDIT_USER'=>  "Warning: The number of active users is already the maximum number of licenses allowed",
     'WARN_LICENSE_SEATS_USER_CREATE'=>"Warning: The number of active users allowed by your license matches the number of active users in the system. You will not be able to create additional active users.",
@@ -1013,9 +1002,11 @@ $mod_strings = array (
 'ML_INVALID_ACTION_IN_MANIFEST'=>'Invalid action in your manifest:',
 'ML_NO_MANIFEST'=>'This package does not contain a manifest',
 'ML_INVALID_FUNCTION'=>'Invalid usage of a function ',
+'ML_INVALID_METHOD'=>'Invalid usage of a reserved method name ',
 'ML_INVALID_EXT'=>'Invalid file extension ',
 'ML_ISSUES'=>'Issues',
 'ML_MANIFEST_ISSUE'=>'Issue with the manifest',
+'ML_CONFIG_OVERRIDE'=>'Config modification is not allowed',
 
 	'LBL_CONFIGURE_SHORTCUT_BAR' => 'Configure Navigation Bar Quick Create',
 	'LBL_CONFIGURE_SHORTCUT_BAR_DESC' => 'Select which modules are available in the navigation bar quick create',
@@ -1161,7 +1152,13 @@ $mod_strings = array (
     'LBL_FTS_CONN_SUCCESS' => 'The connection was successfully made. You will need to perform a system index for full-text searching to work for the enabled modules and module fields.',
 	'LBL_FTS_CONN_SUCCESS_SHORT' => 'A system index operation has been scheduled to run within the next several minutes.',
     'LBL_FTS_CONN_FAILURE_SHORT' => 'Unable to schedule an index operation.',
-    'LBL_FTS_PAGE_DESC' => 'To enable full text searching, select the search engine that will be used and enter the host and port of the search engine. To complete the setup, connect to the engine and perform a full system index.',
-    'LBL_FTS_CONNECTION_INVALID' => 'The Full Text Search Settings you have entered are invalid and may slow down system performance.  Please change or clear your settings.'
+    'LBL_FTS_PAGE_DESC' => 'To enable full text searching:<br>
+1) Select the search engine that will be used<br>
+2) Enter the host and port of the search engine<br>
+3) Click Test to make sure Sugar can connect to the search engine<br>
+4) Click Schedule System Index. Make sure that crontab is set up to run cron.php. This will handle indexing as well as the fallback mechanism when the connection to the search engine is interrupted.',
+    'LBL_FTS_DISABLED' => 'Full Text Search has been disabled because the system is not able to connect to the search engine.',
+    'LBL_FTS_CONNECTION_INVALID' => 'The Full Text Search Settings you have entered are invalid and may slow down system performance.  Please change or clear your settings.',
+    'MSG_RECONNECT_LOTUSLIVE' => 'You are currently not connected to IBM SmartCloud. Connect to IBM SmartCloud within your Profile to be able to access IBM SmartCloud meetings and files.'
 );
 

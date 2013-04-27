@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -89,6 +75,7 @@ $mod_strings = array (
   'LBL_MODIFIED_USER_NAME_MOD' => '更改过的用户模组名称',
   'LBL_MODIFIED_USER_NAME_OWNER' => '更改过的用户名所有者',
   'LBL_MODULE_NAME' => '客户反馈',
+  'LBL_MODULE_NAME_SINGULAR' => '客户反馈',
   'LBL_MODULE_TITLE' => '客户反馈: 首页',
   'LBL_NEW_FORM_TITLE' => '新增客户反馈',
   'LBL_NUMBER' => '编号:',
@@ -99,6 +86,7 @@ $mod_strings = array (
   'LBL_RESOLUTION' => '分析:',
   'LBL_SEARCH_FORM_TITLE' => '查找客户反馈',
   'LBL_SHOW_IN_PORTAL' => '显示在门户中',
+  'LBL_SHOW_MORE' => '显示更多反馈',
   'LBL_STATUS' => '状态:',
   'LBL_SUBJECT' => '主题:',
   'LBL_SYSTEM_ID' => '系统编号',
@@ -110,6 +98,8 @@ $mod_strings = array (
   'LBL_WORK_LOG' => '工作日志',
   'LNK_CASE_LIST' => '客户反馈',
   'LNK_CASE_REPORTS' => '客户反馈报表',
+  'LNK_CREATE' => '创建客户反馈',
+  'LNK_CREATE_WHEN_EMPTY' => '现在创建一条客户反馈',
   'LNK_IMPORT_CASES' => '导入用例',
   'LNK_NEW_CASE' => '新增客户反馈',
   'NTC_REMOVE_FROM_BUG_CONFIRMATION' => '您确定要从缺陷中移除这个客户反馈？',

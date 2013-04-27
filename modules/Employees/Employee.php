@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -120,7 +106,6 @@ class Employee extends Person {
 		$result =$this->db->query($query, true, "Error filling in additional detail fields") ;
 
 		$row = $this->db->fetchByAssoc($result);
-		$GLOBALS['log']->debug("additional detail query results: $row");
 
 		if($row != null)
 		{
@@ -155,20 +140,16 @@ class Employee extends Person {
 
 	function get_list_view_data(){
 
-        global $current_user;
-		$this->_create_proper_name_field(); // create proper NAME (by combining first + last)
-		$user_fields = $this->get_list_view_array();
+        $user_fields = parent::get_list_view_data();
+
 		// Copy over the reports_to_name
 		if ( isset($GLOBALS['app_list_strings']['messenger_type_dom'][$this->messenger_type]) )
             $user_fields['MESSENGER_TYPE'] = $GLOBALS['app_list_strings']['messenger_type_dom'][$this->messenger_type];
 		if ( isset($GLOBALS['app_list_strings']['employee_status_dom'][$this->employee_status]) )
             $user_fields['EMPLOYEE_STATUS'] = $GLOBALS['app_list_strings']['employee_status_dom'][$this->employee_status];
 		$user_fields['REPORTS_TO_NAME'] = $this->reports_to_name;
-		$user_fields['NAME'] = empty($this->name) ? '' : $this->name;
-		$user_fields['EMAIL1'] = $this->emailAddress->getPrimaryAddress($this,$this->id,'Users');
-		$this->email1 = $user_fields['EMAIL1'];
-        $user_fields['EMAIL1_LINK'] = $current_user->getEmailLink('email1', $this, '', '', 'ListView');
-		return $user_fields;
+
+        return $user_fields;
 	}
 
 	function list_view_parse_additional_sections(&$list_form, $xTemplateSection){
@@ -286,6 +267,30 @@ class Employee extends Person {
 
         //return parent method, specifying for array to be returned
         return parent::create_new_list_query($order_by, $where, $filter,$params, $show_deleted, $join_type, $return_array, $parentbean, $singleSelect);
+    }
+
+    /*
+     * Overwrite Sugar bean which returns the current objects custom fields.  Lets return User custom fields instead
+     */
+    function hasCustomFields()
+    {
+
+        //Check to see if there are custom user fields that we should report on, first check the custom_fields array
+        $userCustomfields = !empty($GLOBALS['dictionary']['Employee']['custom_fields']);
+        if(!$userCustomfields){
+            //custom Fields not set, so traverse employee fields to see if any custom fields exist
+            foreach ($GLOBALS['dictionary']['Employee']['fields'] as $k=>$v){
+                if(!empty($v['source']) && $v['source'] == 'custom_fields'){
+                    //custom field has been found, set flag to true and break
+                    $userCustomfields = true;
+                    break;
+                }
+
+            }
+        }
+
+        //return result of search for custom fields
+        return $userCustomfields;
     }
 }
 

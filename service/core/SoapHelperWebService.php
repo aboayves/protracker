@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -562,6 +548,7 @@ function validate_user($user_name, $password){
 		if($module == 'Users' && $value->id != $current_user->id){
 			$value->user_hash = '';
 		}
+		$value = clean_sensitive_data($value->field_defs, $value);
 		$GLOBALS['log']->info('End: SoapHelperWebServices->get_return_value_for_fields');
 		return Array('id'=>$value->id,
 					'module_name'=> $module,
@@ -622,6 +609,7 @@ function validate_user($user_name, $password){
                 if(is_a($bean, 'User') && $current_user->id != $bean->id && isset($row['user_hash'])) {
                     $row['user_hash'] = "";
                 }
+                $row = clean_sensitive_data($bean->field_defs, $row);
                 $list[] = $row;
             }
 			$GLOBALS['log']->info('End: SoapHelperWebServices->getRelationshipResults');
@@ -640,6 +628,7 @@ function validate_user($user_name, $password){
 		if($module == 'Users' && $bean->id != $current_user->id){
 			$bean->user_hash = '';
 		}
+		$bean = clean_sensitive_data($bean->field_defs, $bean);
 
 		if (empty($link_name_to_value_fields_array) || !is_array($link_name_to_value_fields_array)) {
 			$GLOBALS['log']->debug('End: SoapHelperWebServices->get_return_value_for_link_fields - Invalid link information passed ');
@@ -778,7 +767,9 @@ function validate_user($user_name, $password){
 				if($module_name == 'Users' && !empty($seed->id) && ($seed->id != $current_user->id) && $value['name'] == 'user_hash'){
 					continue;
 				}
-
+                if(!empty($seed->field_name_map[$value['name']]['sensitive'])) {
+                    continue;
+                }
 				$seed->$value['name'] = $val;
 			}
 
@@ -896,6 +887,7 @@ function validate_user($user_name, $password){
 		if($module == 'Users' && $value->id != $current_user->id){
 			$value->user_hash = '';
 		}
+		$value = clean_sensitive_data($value->field_defs, $value);
 		$GLOBALS['log']->info('End: SoapHelperWebServices->new_handle_set_entries');
 		return Array('id'=>$value->id,
 					'module_name'=> $module,

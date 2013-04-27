@@ -1,92 +1,78 @@
 <!--
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 -->
 
 
 <!-- BEGIN: Quote_Subject -->
-SugarCRM Quote - {QUOTE_SUBJECT}
+SugarCRM Nabídka - {QUOTE_SUBJECT}
 <!-- END: Quote_Subject -->
 <!-- BEGIN: Quote -->
-{ASSIGNER} has assigned a Quote to {ASSIGNED_USER}.
+{ASSIGNER} přiřadil nabídku {ASSIGNED_USER}.
 
-Subject: {QUOTE_SUBJECT}
-Status: {QUOTE_STATUS}
-Expected Close Date: {QUOTE_CLOSEDATE}
-Description: {QUOTE_DESCRIPTION}
+Předmět: {QUOTE_SUBJECT}
+Stav: {QUOTE_STATUS}
+Očekávaný datum uzavření: {QUOTE_CLOSEDATE}
+Popis: {QUOTE_DESCRIPTION}
 
-You may review this Quote at:
+Detaily nabídky:
 <{URL}>
 <!-- END: Quote -->
 
 
 <!-- BEGIN: Account_Subject -->
-SugarCRM Account - {ACCOUNT_NAME}
+SugarCRM Společnost - {ACCOUNT_NAME}
 <!-- END: Account_Subject -->
 <!-- BEGIN: Account -->
-{ASSIGNER} has assigned an Account to {ASSIGNED_USER}.
+{ASSIGNER} přiřadil společnost {ASSIGNED_USER}.
 
-Name: {ACCOUNT_NAME}
-Type: {ACCOUNT_TYPE}
-Description: {ACCOUNT_DESCRIPTION}
+Společnost: {ACCOUNT_NAME}
+Typ: {ACCOUNT_TYPE}
+Popis: {ACCOUNT_DESCRIPTION}
 
-You may review this Account at:
+Více na:
 <{URL}>
 <!-- END: Account -->
 
 
 <!-- BEGIN: Case_Subject -->
-SugarCRM Case - {CASE_SUBJECT}
+SugarCRM Případ - {CASE_SUBJECT}
 <!-- END: Case_Subject -->
 <!-- BEGIN: Case -->
-{ASSIGNER} has assigned a Case to {ASSIGNED_USER}.
+{ASSIGNER} přiřadil případ {ASSIGNED_USER}.
 
-Subject: {CASE_SUBJECT}
-Priority: {CASE_PRIORITY}
-Status: {CASE_STATUS}
-Description: {CASE_DESCRIPTION}
+Případ: {CASE_SUBJECT}
+Priorita: {CASE_PRIORITY}
+Stav: {CASE_STATUS}
+Popis: {CASE_DESCRIPTION}
 
-You may review this Case at:
+Více na:
 <{URL}>
 <!-- END: Case -->
 
 
 <!-- BEGIN: Task_Subject -->
-SugarCRM Task - {TASK_SUBJECT}
+SugarCRM Úkol - {TASK_SUBJECT}
 <!-- END: Task_Subject -->
 <!-- BEGIN: Task -->
-{ASSIGNER} has assigned a Task to {ASSIGNED_USER}.
+{ASSIGNER} přiřadil/a úkol {ASSIGNED_USER}.
 
-Subject: {TASK_SUBJECT}
-Priority: {TASK_PRIORITY}
-Due Date: {TASK_DUEDATE}
-Status: {TASK_STATUS}
-Description: {TASK_DESCRIPTION}
+Úkol: {TASK_SUBJECT}
+Priorita: {TASK_PRIORITY}
+Datum dokončení: {TASK_DUEDATE}
+Stav: {TASK_STATUS}
+Popis: {TASK_DESCRIPTION}
 
 You may review this Task at:
 <{URL}>
@@ -94,32 +80,32 @@ You may review this Task at:
 
 
 <!-- BEGIN: Meeting_Subject -->
-SugarCRM Meeting - {MEETING_SUBJECT}
+SugarCRM Schůzka - {MEETING_SUBJECT}
 <!-- END: Meeting_Subject -->
 <!-- BEGIN: Meeting -->
-To: {MEETING_TO},
+Pro: {MEETING_TO},
 
-{ASSIGNER} has invited you to a Meeting
+{ASSIGNER} Vás pozval na schůzku
 
-Subject: {MEETING_SUBJECT}
-Status: {MEETING_STATUS}
-Start Date: {MEETING_STARTDATE}
-Duration: {MEETING_HOURS}h, {MEETING_MINUTES}m
-Description: {MEETING_DESCRIPTION}
+Předmět: {MEETING_SUBJECT}
+Stav: {MEETING_STATUS}
+Datum: {MEETING_STARTDATE}
+Trvání: {MEETING_HOURS}h, {MEETING_MINUTES}m
+Popis: {MEETING_DESCRIPTION}
 
-Accept this meeting:
+Akceptujte tuto schůzku:
 <{ACCEPT_URL}&accept_status=accept>
 
-Tentatively Accept this meeting
+Předbězně akceptujte tuto schůzku:
 <{ACCEPT_URL}&accept_status=tentative>
 
-Decline this meeting
+Odmítněte tuto schůzku:
 <{ACCEPT_URL}&accept_status=decline>
 
 <!-- END: Meeting -->
 
 <!-- BEGIN: MeetingSpecial_Subject -->
-SugarCRM Meeting - {MEETING_SUBJECT}
+SugarCRM Schůzka - {MEETING_SUBJECT}
 <!-- END: MeetingSpecial_Subject -->
 <!-- BEGIN: MeetingSpecial -->
 {ASSIGNER} has assigned a Meeting to {ASSIGNED_USER}.

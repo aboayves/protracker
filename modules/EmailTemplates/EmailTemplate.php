@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -106,6 +92,11 @@ class EmailTemplate extends SugarBean {
 		'accept_status_id',
 		'accept_status_name',
 	);
+
+    /**
+     * @var array temp storage for template variables while cleanBean
+     */
+    protected $storedVariables = array();
 
 	function EmailTemplate() {
 		parent::SugarBean();
@@ -232,59 +223,91 @@ class EmailTemplate extends SugarBean {
 		return $fields;
 	}
 
-	//function all string that match the pattern {.} , also catches the list of found strings.
-	//the cache will get refreshed when the template bean instance changes.
-	//The found url key patterns are replaced with name value pairs provided as function parameter. $tracked_urls.
-	//$url_template is used to construct the url for the email message. the template should have place holder for 1 variable parameter, represented by %1
-	//$template_text_array is a list of text strings that need to be searched. usually the subject, html body and text body of the email message.
-	//$removeme_url_template, if the url has is_optout property checked then use this template.
-	function parse_tracker_urls($template_text_array,$url_template,$tracked_urls,$removeme_url_template) {
-		global $beanFiles,$beanList, $app_list_strings,$sugar_config;
-		if (!isset($this->parsed_urls))
-			$this->parsed_urls=array();
+//function all string that match the pattern {.} , also catches the list of found strings.
+    //the cache will get refreshed when the template bean instance changes.
+    //The found url key patterns are replaced with name value pairs provided as function parameter. $tracked_urls.
+    //$url_template is used to construct the url for the email message. the template should have place holder for 1 variable parameter, represented by %1
+    //$template_text_array is a list of text strings that need to be searched. usually the subject, html body and text body of the email message.
+    //$removeme_url_template, if the url has is_optout property checked then use this template.
+    function parse_tracker_urls($template_text_array,$url_template,$tracked_urls,$removeme_url_template) {
+        global $beanFiles,$beanList, $app_list_strings,$sugar_config;
+        if (!isset($this->parsed_urls))
+            $this->parsed_urls=array();
 
-		//parse the template and find all the dynamic strings that need replacement.
-		$pattern = '/\{*[^\{\}]*\}/'; // cn: bug 6638, find multibyte strings
-		foreach ($template_text_array as $key=>$template_text) {
-			if (!empty($template_text)) {
-            	if(!isset($this->parsed_urls[$key]) || $this->parsed_urls[$key]['text'] != $template_text) {
-                    // Fix for bug52014.
-                    $template_text = urldecode($template_text);
+        $return_array = $template_text_array;
+        if(count($tracked_urls) > 0)
+        {
+            //parse the template and find all the dynamic strings that need replacement.
+            foreach ($template_text_array as $key=>$template_text) {
+                if (!empty($template_text)) {
 
-					$matches=array();
-					$count=preg_match_all($pattern,$template_text,$matches,PREG_OFFSET_CAPTURE);
-					$this->parsed_urls[$key]=array('matches' => $matches, 'text' => $template_text);
-				} else {
-					$matches=$this->parsed_urls[$key]['matches'];
-					if(!empty($matches[0])) {
-						$count=count($matches[0]);
-					} else {
-						$count=0;
-					}
-				}
-
-				//navigate thru all the matched keys and replace the keys with actual strings.
-				for ($i=($count -1); $i>=0; $i--) {
-					$url_key_name=$matches[0][$i][0];
-
-					if (!empty($tracked_urls[$url_key_name])) {
-						if ($tracked_urls[$url_key_name]['is_optout']==1){
-							$tracker_url = $removeme_url_template;
-						} else {
-							$tracker_url = sprintf($url_template,$tracked_urls[$url_key_name]['id']);
-						}
-					}
-					if(!empty($tracker_url) && !empty($template_text) && !empty($matches[0][$i][0]) && !empty($tracked_urls[$matches[0][$i][0]])){
-                        $template_text=substr_replace($template_text,$tracker_url,$matches[0][$i][1], strlen($matches[0][$i][0]));
-                        $template_text=str_replace($sugar_config['site_url'].'/'.$sugar_config['site_url'],$sugar_config['site_url'],$template_text);
+                    if(!isset($this->parsed_urls[$key]) || $this->parsed_urls[$key]['text'] != $template_text) {
+                        // Fix for bug52014.
+                        $template_text = urldecode($template_text);
+                        $matches = $this->_preg_match_tracker_url($template_text);
+                        $count = count($matches[0]);
+                        $this->parsed_urls[$key]=array('matches' => $matches, 'text' => $template_text);
+                    } else {
+                        $matches=$this->parsed_urls[$key]['matches'];
+                        if(!empty($matches[0])) {
+                            $count=count($matches[0]);
+                        } else {
+                            $count=0;
+                        }
                     }
-				}
-			}
-			$return_array[$key]=$template_text;
-		}
 
-		return $return_array;
-	}
+                    //navigate thru all the matched keys and replace the keys with actual strings.
+
+                    if($count > 0)
+                    {
+                        for ($i=($count -1); $i>=0; $i--) {
+                            $url_key_name=$matches[0][$i][0];
+                            if (!empty($tracked_urls[$url_key_name])) {
+                                if ($tracked_urls[$url_key_name]['is_optout']==1){
+                                    $tracker_url = $removeme_url_template;
+                                } else {
+                                    $tracker_url = sprintf($url_template,$tracked_urls[$url_key_name]['id']);
+                                }
+                            }
+                            if(!empty($tracker_url) && !empty($template_text) && !empty($matches[0][$i][0]) && !empty($tracked_urls[$matches[0][$i][0]])){
+                                $template_text=substr_replace($template_text,$tracker_url,$matches[0][$i][1], strlen($matches[0][$i][0]));
+                                $template_text=str_replace($sugar_config['site_url'].'/'.$sugar_config['site_url'],$sugar_config['site_url'],$template_text);
+                            }
+                        }
+                    }
+                }
+                $return_array[$key]=$template_text;
+            }
+        }
+        return $return_array;
+    }
+
+    /**
+     *
+     * Method for replace "preg_match_all" in method "parse_tracker_urls"
+     * @param $text string String in which we need to search all string that match the pattern {.}
+     * @return array result of search
+     */
+    private function _preg_match_tracker_url($text)
+    {
+        $result = array();
+        $ind = 0;
+        $switch = false;
+        for($i = 0; $i < strlen($text); $i++)
+        {
+            if($text[$i] == '{')
+            {
+                $ind = $i;
+                $switch = true;
+            }
+            elseif($text[$i] == '}' && $switch === true)
+            {
+                $switch = false;
+                array_push($result, array(substr($text, $ind, $i - $ind + 1), $ind));
+            }
+        }
+        return array($result);
+    }
 
 	function parse_email_template($template_text_array, $focus_name, $focus, &$macro_nv) {
 
@@ -436,29 +459,37 @@ class EmailTemplate extends SugarBean {
 			if(($field_def['type'] == 'relate' && empty($field_def['custom_type'])) || $field_def['type'] == 'assigned_user_name') {
          		continue;
 			}
-			$repl_arr["contact_".$field_def['name']] = '';
-			$repl_arr["contact_account_".$field_def['name']] = '';
+            $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                'contact_'         . $field_def['name'] => '',
+                'contact_account_' . $field_def['name'] => '',
+            ));
 		}
 		foreach($prospect->field_defs as $field_def) {
 			if(($field_def['type'] == 'relate' && empty($field_def['custom_type'])) || $field_def['type'] == 'assigned_user_name') {
          		continue;
 			}
-			$repl_arr["contact_".$field_def['name']] = '';
-			$repl_arr["contact_account_".$field_def['name']] = '';
+            $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                'contact_'         . $field_def['name'] => '',
+                'contact_account_' . $field_def['name'] => '',
+            ));
 		}
 		foreach($contact->field_defs as $field_def) {
 			if(($field_def['type'] == 'relate' && empty($field_def['custom_type'])) || $field_def['type'] == 'assigned_user_name') {
          		continue;
 			}
-			$repl_arr["contact_".$field_def['name']] = '';
-			$repl_arr["contact_account_".$field_def['name']] = '';
+            $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                'contact_'         . $field_def['name'] => '',
+                'contact_account_' . $field_def['name'] => '',
+            ));
 		}
 		foreach($acct->field_defs as $field_def) {
 			if(($field_def['type'] == 'relate' && empty($field_def['custom_type'])) || $field_def['type'] == 'assigned_user_name') {
          		continue;
 			}
-			$repl_arr["account_".$field_def['name']] = '';
-			$repl_arr["account_contact_".$field_def['name']] = '';
+            $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                'account_'         . $field_def['name'] => '',
+                'account_contact_' . $field_def['name'] => '',
+            ));
 		}
 		// cn: end bug 9277 fix
 
@@ -480,17 +511,23 @@ class EmailTemplate extends SugarBean {
 						$translated = translate($field_def['options'], 'Accounts' ,$acct->$field_def['name']);
 
 						if(isset($translated) && ! is_array($translated)) {
-							$repl_arr["account_".$field_def['name']] = $translated;
-							$repl_arr["contact_account_".$field_def['name']] = $translated;
+                            $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                                'account_'         . $field_def['name'] => $translated,
+                                'contact_account_' . $field_def['name'] => $translated,
+                            ));
 						} else { // unset enum field, make sure we have a match string to replace with ""
-							$repl_arr["account_".$field_def['name']] = '';
-							$repl_arr["contact_account_".$field_def['name']] = '';
+                            $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                                'account_'         . $field_def['name'] => '',
+                                'contact_account_' . $field_def['name'] => '',
+                            ));
 						}
 					} else {
                         // bug 47647 - allow for fields to translate before adding to template
                         $translated = self::_convertToType($field_def['type'],$acct->$field_def['name']);
-						$repl_arr["account_".$field_def['name']] = $translated;
-						$repl_arr["contact_account_".$field_def['name']] = $translated;
+                        $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                            'account_'         . $field_def['name'] => $translated,
+                            'contact_account_' . $field_def['name'] => $translated,
+                        ));
 					}
 				}
 			}
@@ -518,18 +555,24 @@ class EmailTemplate extends SugarBean {
 					$translated = translate($field_def['options'], 'Accounts' ,$contact->$field_def['name']);
 
 					if(isset($translated) && ! is_array($translated)) {
-						$repl_arr["contact_".$field_def['name']] = $translated;
-						$repl_arr["contact_account_".$field_def['name']] = $translated;
+                        $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                            'contact_'         . $field_def['name'] => $translated,
+                            'contact_account_' . $field_def['name'] => $translated,
+                        ));
 					} else { // unset enum field, make sure we have a match string to replace with ""
-						$repl_arr["contact_".$field_def['name']] = '';
-						$repl_arr["contact_account_".$field_def['name']] = '';
+                        $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                            'contact_'         . $field_def['name'] => '',
+                            'contact_account_' . $field_def['name'] => '',
+                        ));
 					}
 				} else {
 					if (isset($contact->$field_def['name'])) {
                         // bug 47647 - allow for fields to translate before adding to template
                         $translated = self::_convertToType($field_def['type'],$contact->$field_def['name']);
-						$repl_arr["contact_".$field_def['name']] = $translated;
-						$repl_arr["contact_account_".$field_def['name']] = $translated;
+                        $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                            'contact_'         . $field_def['name'] => $translated,
+                            'contact_account_' . $field_def['name'] => $translated,
+                        ));
 					} // if
 				}
 			}
@@ -547,19 +590,29 @@ class EmailTemplate extends SugarBean {
 					$translated = translate($field_def['options'],$bean_name,$focus->$field_def['name']);
 
 					if(isset($translated) && ! is_array($translated)) {
-						$repl_arr[strtolower($beanList[$bean_name])."_".$field_def['name']] = $translated;
+                        $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                            strtolower($beanList[$bean_name])."_".$field_def['name'] => $translated,
+                        ));
 					} else { // unset enum field, make sure we have a match string to replace with ""
-						$repl_arr[strtolower($beanList[$bean_name])."_".$field_def['name']] = '';
+                        $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                            strtolower($beanList[$bean_name])."_".$field_def['name'] => '',
+                        ));
 					}
 				} else {
                     // bug 47647 - translate currencies to appropriate values
-					$repl_arr[strtolower($beanList[$bean_name])."_".$field_def['name']] = self::_convertToType($field_def['type'],$focus->$field_def['name']);
+                    $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                        strtolower($beanList[$bean_name])."_".$field_def['name'] => self::_convertToType($field_def['type'],$focus->$field_def['name']),
+                    ));
 				}
 			} else {
 				if($field_def['name'] == 'full_name') {
-					$repl_arr[strtolower($beanList[$bean_name]).'_full_name'] = $focus->get_summary_text();
+                    $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                        strtolower($beanList[$bean_name]).'_full_name' => $focus->get_summary_text(),
+                    ));
 				} else {
-					$repl_arr[strtolower($beanList[$bean_name])."_".$field_def['name']] = '';
+                    $repl_arr = EmailTemplate::add_replacement($repl_arr, $field_def, array(
+                        strtolower($beanList[$bean_name])."_".$field_def['name'] => '',
+                    ));
 				}
 			}
 		} // end foreach()
@@ -584,6 +637,27 @@ class EmailTemplate extends SugarBean {
 
 		return $string;
 	}
+
+    /**
+     * Add replacement(s) to the collection based on field definition
+     *
+     * @param array $data
+     * @param array $field_def
+     * @param array $replacement
+     * @return array
+     */
+    protected static function add_replacement($data, $field_def, $replacement)
+    {
+        foreach ($replacement as $key => $value)
+        {
+            // @see defect #48641
+            if ('multienum' == $field_def['type']) {
+                $value = implode(', ', unencodeMultienum($value));
+            }
+            $data[$key] = $value;
+        }
+        return $data;
+    }
 
 	function parse_template($string, &$bean_arr) {
 		global $beanFiles, $beanList;
@@ -632,5 +706,30 @@ class EmailTemplate extends SugarBean {
 		}
 		return false;
 	}
+
+    /**
+     * Allows us to save variables of template as they are
+     */
+    public function cleanBean()
+    {
+        $this->storedVariables = array();
+        $this->body_html = preg_replace_callback('/\{::[^}]+::\}/', array($this, 'storeVariables'), $this->body_html);
+        parent::cleanBean();
+        $this->body_html = str_replace(array_values($this->storedVariables), array_keys($this->storedVariables), $this->body_html);
+    }
+
+    /**
+     * Replacing variables of templates by their md5 hash
+     *
+     * @param array $text result of preg_replace_callback
+     * @return string md5 hash of result
+     */
+    protected function storeVariables($text)
+    {
+        if (isset($this->storedVariables[$text[0]]) == false) {
+            $this->storedVariables[$text[0]] = md5($text[0]);
+        }
+        return $this->storedVariables[$text[0]];
+    }
 }
 ?>

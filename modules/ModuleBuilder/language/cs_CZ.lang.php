@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -108,6 +94,7 @@ $mod_strings = array (
   'LBL_CLEAR_EXTENSIONS' => 'Vyčistit rozšíření',
   'LBL_CLEAR_RELATIONSHIPS' => 'Vymazat vztahy',
   'LBL_COMPANY' => 'Společnost',
+  'LBL_CONFIG_PORTAL_URL' => 'URL pro vlastní obrázek loga. Doporučené rozměry jsou 163 × 18 pixelů.',
   'LBL_CONFIRM_DONT_SAVE' => 'Byly provedeny změny od posledního uložení, chcete je uložit?',
   'LBL_CONFIRM_DONT_SAVE_TITLE' => 'Uložit změny?',
   'LBL_CONFIRM_FIELD_DELETE' => 'Deleting this custom field will delete both the custom field and all the data related to the custom field from the database. The field will be no longer appear in any module layouts. Do you wish to continue?',
@@ -134,6 +121,7 @@ $mod_strings = array (
   'LBL_DELETE' => 'Odstranit',
   'LBL_DEPENDANT' => 'V závislosti',
   'LBL_DEPENDENCY' => 'Vazba',
+  'LBL_DEPENDENT_DROPDOWN_HELP' => 'Přetáhněte možnosti ze seznamu na levé straně dostupných možností, které chcete zobrazit v závislém číselníku, když je zvolena rodičovská hodnota. Pokud není vybrána ani jedna hodnota, bude závislý číselník skryt.',
   'LBL_DEPLOYE_COMPLETE' => 'Nasadit kompletní',
   'LBL_DEPLOY_FAILED' => 'Došlo k chybě při nasazování procesu, může váš balíček není správně nainstalován',
   'LBL_DEPLOY_IN_PROGRESS' => 'Nasazuji balík',
@@ -268,6 +256,7 @@ $mod_strings = array (
   'LBL_POPHELP_IMAGE_HEIGHT' => 'Zadejte výšku v pixelech.<br><br />Nahraný obrázek bude změněn do tohoto rozměru.',
   'LBL_POPHELP_IMAGE_WIDTH' => 'Zadejte šířku v pixelech.<br><br />Nahraný obrázek bude změněn do tohoto rozměru.',
   'LBL_POPHELP_IMPORTABLE' => 'Ano: Pole bude zahrnuto do operace importu.<br><br />Ne.: Pole nebudou zahrnuta do operace importu.<br><br />Požadováno: Hodnota pole musí být v každé operaci importu.',
+  'LBL_POPHELP_SEARCHABLE' => 'Vyberte prioritu pro toto pole. <br /> Pole s vyšší prioritou má větší váhu při vyhledávání. <br /> Pokud se provádí vyhledávání, záznamy, které obsahují pole s vyšší prioritou budu ve výsledku na vyšších pozicích. <br /> Změníte-li prioritu pro pole z jedné úrovně do druhé, systémová indexace zapíše změny. <br/> Nezapomeňte vybrat data ke smazání v době, kdy se provádí indexace.',
   'LBL_POPHELP_VALIDATE_US_PHONE' => 'Vyber pro validaci tohoto pole pro vstup telefonního čísla s 10-ti číslicemi s ohledem na předvolbu 1 a  použije se U.S. formát telefonního čísla při uložení. Následující formát bude použit: (xxx) xxx-xxxx.',
   'LBL_POPUP' => 'Překryvné zobrazení',
   'LBL_POPUPLIST' => 'Překryvný seznam',
@@ -275,8 +264,21 @@ $mod_strings = array (
   'LBL_POPUPSEARCH' => 'Překryvné vyhledávání',
   'LBL_PORTAL' => 'Portál',
   'LBL_PORTALSITE' => 'URL Sugar portálu:',
+  'LBL_PORTAL_APP_NAME' => 'Jméno aplikace',
+  'LBL_PORTAL_CONFIGURE' => 'Konfigurovat portál',
+  'LBL_PORTAL_DEFAULT_ASSIGN_USER' => 'Výchozí přiřazení pro nové portálové registrace',
+  'LBL_PORTAL_DETAIL_NUMBER' => 'Počet polí pro detailního zobrazení',
+  'LBL_PORTAL_DISABLED_MODULES' => 'Následující moduly jsou vypnuté:',
+  'LBL_PORTAL_ENABLE' => 'povoleno',
+  'LBL_PORTAL_ENABLE_MODULES' => 'Pokud byste chtěliaktivaci v rámci portálu povolte ji zde.',
   'LBL_PORTAL_GO' => 'Spustit',
   'LBL_PORTAL_LAYOUTS' => 'Rozložení pro portál',
+  'LBL_PORTAL_LIST_NUMBER' => 'Počet záznamů pro zobrazení na seznamu',
+  'LBL_PORTAL_LOGO_URL' => 'Logo URL',
+  'LBL_PORTAL_ROLE_DESC' => 'Neodstraňujte tuto roli. Customer Self-Service Portálu Role je generovaná systémem v průběhu aktivace Sugar Portálu . Neupravujte žádné jiné řízení přístupy pro tuto roli, aby se zabránilo neznámému a nepředvídatelnému chování systému. V případě náhodného vymazání této role, ji znovuvytvořte vypnutím a zapnutím Sugar Portálu.',
+  'LBL_PORTAL_SEARCH_RESULT_NUMBER' => 'Počet výsledků pro Global Search',
+  'LBL_PORTAL_SITE_URL' => 'Váš portál je k dispozici na adrese:',
+  'LBL_PORTAL_THEME' => 'Motiv portálu',
   'LBL_POWERED_BY_SUGAR' => 'Vytvořeno společností SugarCRM',
   'LBL_PRIORITY' => 'Priorita:',
   'LBL_PUBLISHED' => 'Publikováno',
@@ -363,6 +365,13 @@ $mod_strings = array (
   'LBL_SYNC_TO_DETAILVIEW' => 'Synchronizovat do detailního pohledu',
   'LBL_SYNC_TO_DETAILVIEW_HELP' => 'Zvolte tuto možnost pro synchronizaci rozvržení EditView (změnovém pohledu) na odpovídající rozvržení DetailView (detailního pohledu). Rozvržení Polí a Položek v EditView bude synchronizováno a uloženo automaticky do DetailView po kliknutí na tlačítko Uložit nebo Uložit & Rozmístni v EditView.<br />Změny v rozvržení nebudou moci být provedeny v DetailView (detailním pohledu).',
   'LBL_SYNC_TO_DETAILVIEW_NOTICE' => 'Tento DetailView (detailní pohled) je synchronizován s odpovídající rozvržení EditView (změnovém pohledu). <br />Rozvržení Polí a Položek v rozvržení DetailView (detailního pohledu) reflektuje rozvržení Polí a Položek v rozvržení EditView (změnovém pohledu).<br />Změny v rozvržení DetailView (detailního pohledu) nemohou být uloženy',
+  'LBL_TABDEF_COLLAPSE' => 'Svinout',
+  'LBL_TABDEF_COLLAPSE_HELP' => 'Vyberte pro výhozí stav pro tento panel.',
+  'LBL_TABDEF_TYPE' => 'Typ zobrazení:',
+  'LBL_TABDEF_TYPE_HELP' => 'Vyberte prosím jek má být tato sekce zobrazena. Toto nastavení je možné pouze tehdy když jsou aktivní záložky.',
+  'LBL_TABDEF_TYPE_OPTION_HELP' => 'Vyberte Panel z rozvržení. Vyberte Záložku.',
+  'LBL_TABDEF_TYPE_OPTION_PANEL' => 'Panel',
+  'LBL_TABDEF_TYPE_OPTION_TAB' => 'Záložka',
   'LBL_TAB_ORDER' => 'Pořadí záložek',
   'LBL_TAB_PANELS' => 'Zobrazit panely jako tabulky záložky',
   'LBL_TAB_PANELS_HELP' => 'Zobrazit každý panel jako jeho vlastní kartu místo toho, mít je všechny na jedné obrazovce',
@@ -377,6 +386,7 @@ $mod_strings = array (
   'LBL_TYPE_SALE' => 'sleva',
   'LBL_UNDEFINED' => 'nedefinován',
   'LBL_UP_STYLE_SHEET' => 'Nahrát soubor stylu',
+  'LBL_USER_SELECT' => 'Vybrat uživatele',
   'LBL_VE_HIDDEN' => 'schovaný',
   'LBL_VE_VISIBLE' => 'viditelný',
   'LBL_VIEW' => 'Zobrazit',
@@ -450,13 +460,18 @@ $mod_strings = array (
     'module' => 
     array (
       'deletebtn' => 'Klepněte na tlačítko Odstranit pro odstranění modul.',
+      'modify' => 'Můžete změnit vlastnosti modulu nebo upravit pole, vztahy a rozvržení vztahující se k modulu.',
+      'name' => 'Určit jméno tohoto balíčku začínající písmenem a bez mezer (HR_Management)',
       'savebtn' => 'Klepnutím na tlačítko Uložit uložíte všechny zadané údaje vztahující se k modulu.',
       'type_basic' => 'Šablona Základní typ poskytuje základní pole, jako je Název, Přiděleno týmu, Datum vytvoření a Popis polí.',
     ),
     'package' => 
     array (
+      'create' => 'Můžete poskytnout Tvůrce a Popis balíčku.',
       'deletebtn' => 'Klepněte na tlačítko Odstranit pro odstraníte tohoto balíčku a všech souborů, které se k němu vztahují.',
       'description' => 'Toto je popis balíčku, který se zobrazí během instalace.',
+      'modify' => 'Vlastnosti a možné akce pro balíček objeví zde.<br /><br />Můžete upravit název, autor a popis balíčku, stejně jako prohlížet a upravovat všechny moduly obsažené v balíčku.<br /><br />Klepněte na tlačítko Nový modul pro vytvoření modulu pro balíček.<br /><br />Pokud balíček obsahuje alespoň jeden modul, můžete Publikovat a nasadit balíček, stejně jako Exportovat přizpůsobení provedené v balíčku.',
+      'name' => 'Určit jméno tohoto balíčku začínající písmenem a bez mezer (HR_Management)',
       'new_module' => 'Klepněte na tlačítko Nový modul pro vytvoření nového modulu tohoto balíčku.',
       'savebtn' => 'Klepnutím na tlačítko Uložit uložíte všechny zadané údaje vztahující se k balíčku.',
     ),
@@ -464,11 +479,17 @@ $mod_strings = array (
     array (
       'Default' => 'Výchozí pole se zobrazí v ListViews, která nejsou přizpůsobena uživateli.',
       'Hidden' => 'Skrytá pole nejsou v současné době k dispozici pro uživatele v ListViews.',
+      'savebtn' => 'Klepnutím na tlačítko Uložit uložíte všechny zadané údaje vztahující se k modulu.',
+    ),
+    'portalConfig' => 
+    array (
+      'default' => '',
     ),
     'searchViewEditor' => 
     array (
       'Default' => 'Výchozí pole se zobrazí v poli Hledat.',
       'Hidden' => 'Skryté položky se neukází v Hledání.',
+      'savebtn' => 'Klepnutím na tlačítko Uložit uložíte všechny zadané údaje vztahující se k modulu.',
     ),
     'studioWizard' => 
     array (

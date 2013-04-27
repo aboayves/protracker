@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -40,6 +26,7 @@ $mod_strings = array (
 	'LBL_ASSIGN_TEAM'					=> 'Assign To Team',
 	'LBL_DEFAULT_TEAM_TEXT'				=> 'Teams available to appear by default in records are those of which you are a member.',
 	'LBL_DEFAULT_TEAM'					=> 'Default Teams',
+    'LBL_DEFAULT_PRIMARY_TEAM'          => 'Default Primary Team',
 	'LBL_LIST_DESCRIPTION'				=> 'Description',
 	'LBL_MY_TEAMS'						=> 'My Teams',
 	'LBL_PRIVATE_TEAM_FOR'				=> 'Private team for',
@@ -48,6 +35,8 @@ $mod_strings = array (
 	'LBL_TEAMS'							=> 'Teams',
 	'LBL_TEAM_UPLINE'					=> 'Member Reports-to',
 	'LBL_TEAM_UPLINE_EXPLICIT'			=> 'Member',
+    'LBL_TEAM_MEMBERSHIP'               => 'Team Membership',
+    'LBL_TEAM_SET'                      => 'Team Set',
 
     'LBL_DELETE_USER_CONFIRM'           => 'When the User record is deleted, the corresponding Employee record will also be deleted. After the user is deleted, any workflow definitions and reports involving the user might need to be updated.<br/><br/>'.
                                                 'Deleting a User record cannot be undone.',
@@ -118,6 +107,7 @@ $mod_strings = array (
 	'LBL_CHANGE_SYSTEM_PASSWORD'		=> 'Please provide a new password.',
 	'LBL_CHANGE_PASSWORD_TITLE'         => 'Password',
     'LBL_CHOOSE_A_KEY'					=> 'Choose a key to prevent unauthorized publishing of your calendar',
+    'LBL_NO_KEY'                        => 'Key is not set. Please set key to enable publishing.',
 	'LBL_CHOOSE_WHICH'					=> 'Select which modules are accessible within the top navigation bar. Designate the order in which you would like the modules to appear.',
 	'LBL_CITY'							=> 'City',
 
@@ -236,6 +226,9 @@ $mod_strings = array (
    	'LBL_LOGIN_LOGIN_TIME_SECONDS'      => 'sec.',
     'LBL_LOGIN_ADMIN_CALL'              => 'Please contact the system administrator.',
 	// END LOGIN PAGE STRINGS
+    'LBL_LOGGED_OUT_1' => 'You have been logged out. To login again please click ',
+    'LBL_LOGGED_OUT_2' => 'here',
+    'LBL_LOGGED_OUT_3' => '.',
 	'LBL_MAIL_FROMADDRESS'				=> 'Reply-to address',
 	'LBL_MAIL_FROMNAME'					=> 'Reply-to name',
 	'LBL_MAIL_OPTIONS_TITLE'			=> 'Email Settings',
@@ -315,6 +308,7 @@ $mod_strings = array (
 	'LBL_REMINDER'						=> 'Reminders',
 	'LBL_REMINDER_POPUP' => 'Popup',
 	'LBL_REMINDER_EMAIL' => 'Email',
+    'LBL_REMINDER_EMAIL_ALL_INVITEES'   => 'Email all invitees',
 	'LBL_REMOVED_TABS'					=> 'Admin Remove Tabs',
 	'LBL_REPORTS_TO_NAME'				=> 'Reports to',
 	'LBL_REPORTS_TO'					=> 'Reports to',

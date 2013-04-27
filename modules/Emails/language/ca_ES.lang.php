@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -58,6 +44,7 @@ $mod_strings = array (
   'LBL_ARCHIVED_EMAIL' => 'Correu Arxivat',
   'LBL_ARCHIVED_EMAILS_CREATE' => 'Crear',
   'LBL_ARCHIVED_MODULE_NAME' => 'Crear Correu Arxivats',
+  'LBL_ARCHIVED_MODULE_NAME_SINGULAR' => 'Creat Correu electrònic arxivats',
   'LBL_ASSIGNED_TO' => 'Assignat A:',
   'LBL_ASSIGN_SELECTED_RESULTS_TO' => 'Assignar Resultats Seleccionats a:',
   'LBL_ASSIGN_WARN' => 'Asseguri´s que les dues opcions estan seleccionades.',
@@ -86,6 +73,7 @@ $mod_strings = array (
   'LBL_BUTTON_RAW_LABEL_HIDE' => 'Amagar Còdig Font',
   'LBL_BUTTON_RAW_TITLE' => 'Mostrar Còdig Font del Missatge [Alt+E]',
   'LBL_BUTTON_REPLY' => 'Contestar',
+  'LBL_BUTTON_REPLY_ALL' => 'Contestar a Tots',
   'LBL_BUTTON_REPLY_KEY' => 'r',
   'LBL_BUTTON_REPLY_TITLE' => 'Contestar [Alt+R]',
   'LBL_CASES_SUBPANEL_TITLE' => 'Casos',
@@ -99,6 +87,7 @@ $mod_strings = array (
   'LBL_COLON' => ':',
   'LBL_COMPOSEEMAIL' => 'Redactar correu',
   'LBL_COMPOSE_MODULE_NAME' => 'Redactar Correu',
+  'LBL_COMPOSE_MODULE_NAME_SINGULAR' => 'Redactar Correu',
   'LBL_CONFIRM_DELETE' => 'Està segur de que vol eliminar aquesta carpeta?',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Contactes',
   'LBL_CONTACTS_SUBPANEL_TITLE_SNIP' => 'Correu electrònic de contactes',
@@ -245,6 +234,8 @@ $mod_strings = array (
   'LBL_MODIFIED_BY' => 'Modificat Per',
   'LBL_MODULE_NAME' => 'Tots els Emails',
   'LBL_MODULE_NAME_NEW' => 'Arxivar Correu',
+  'LBL_MODULE_NAME_SINGULAR' => 'Correu',
+  'LBL_MODULE_NAME_SINGULAR_NEW' => 'Arxivar Correu',
   'LBL_MODULE_TITLE' => 'Correus: Inici',
   'LBL_MORE_OPTIONS' => 'Més',
   'LBL_MY_EMAILS' => 'Els meus Emails',
@@ -293,6 +284,7 @@ $mod_strings = array (
   'LBL_SEND_EMAIL_FAIL_TITLE' => 'Error enviant correu',
   'LBL_SEND_IN_PLAIN_TEXT' => 'Enviar en Text Pla',
   'LBL_SENT_MODULE_NAME' => 'Correus Enviats',
+  'LBL_SENT_MODULE_NAME_SINGULAR' => 'Email enviat',
   'LBL_SHOW_ALT_TEXT' => 'Mostrar Text Plà',
   'LBL_SIGNATURE' => 'Firma',
   'LBL_SIGNATURE_PREPEND' => 'Firmar damunt en contestar?',

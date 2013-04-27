@@ -1,34 +1,51 @@
 {*
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 *}
 {literal}
 <script type="text/javascript">
+
+/**
+  *  Start Bug#50590 
+  *  mod_array global array that contains required modules
+  *  addDropdownElements fills lead_conv_ac_op_sel with all required modules except Contacts 
+  *  as this module is in the list by default
+  */
+
+ var mod_array = new Array; 
+ function addDropdownElements(){
+   var i;
+   for(i=0; i<=mod_array.length-1; i++){
+     if(mod_array[i] != 'Contacts'){
+       var dropdown = document.getElementById('lead_conv_ac_op_sel');
+       //if dropdown does not exist, then return and exit function
+       if (!dropdown) {
+          return;
+       }
+       var opt = document.createElement("option");
+       opt.text = SUGAR.language.get('app_list_strings', "moduleListSingular")[mod_array[i]];
+       opt.value = mod_array[i];
+       opt.label = opt.text;
+       dropdown.options.add(opt);
+     }
+   }
+ }
+ /**
+  *   End Bug#50590
+  */    
+
+
 function addRemoveDropdownElement(module) {
     var accountText = document.getElementById('account_name');
     var checkbox = document.getElementById('new'+module);
@@ -75,8 +92,8 @@ function addRemoveDropdownElement(module) {
 <input type="hidden" name="return_id" value="{$smarty.request.return_id}">
 <input type="hidden" name="module_tab"> 
 <input type="hidden" name="contact_role">
-{if !empty($smarty.request.return_module)}
-<input type="hidden" name="relate_to" value="{if $smarty.request.return_relationship}{$smarty.request.return_relationship}{else}{$smarty.request.return_module}{/if}">
+{if !empty($smarty.request.return_module) || !empty($smarty.request.relate_to)}
+<input type="hidden" name="relate_to" value="{if $smarty.request.return_relationship}{$smarty.request.return_relationship}{elseif $smarty.request.relate_to && empty($smarty.request.from_dcmenu)}{$smarty.request.relate_to}{elseif empty($isDCForm) && empty($smarty.request.from_dcmenu)}{$smarty.request.return_module}{/if}">
 <input type="hidden" name="relate_id" value="{$smarty.request.return_id}">
 {/if}
 <input type="hidden" name="offset" value="{$offset}">

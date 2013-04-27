@@ -1,29 +1,15 @@
 <?php
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -293,6 +279,14 @@ class TemplateHandler {
      */
     function deleteTemplate($module, $view) {
         if(is_file($this->cacheDir . $this->templateDir . $module . '/' .$view . '.tpl')) {
+            // Bug #54634 : RTC 18144 : Cannot add more than 1 user to role but popup is multi-selectable
+            if ( !isset($this->ss) )
+            {
+                $this->loadSmarty();
+            }
+            $cache_file_name = $this->ss->_get_compile_path($this->cacheDir . $this->templateDir . $module . '/' .$view . '.tpl');
+            SugarCache::cleanFile($cache_file_name);
+
             return unlink($this->cacheDir . $this->templateDir . $module . '/' .$view . '.tpl');
         }
         return false;
@@ -397,8 +391,19 @@ class TemplateHandler {
                 if ($view == "ConvertLead")
                 {
                     $field['name'] = $module . $field['name'];
-					if (!empty($field['id_name']))
-					   $field['id_name'] = $field['name'] . "_" . $field['id_name'];
+                    if (isset($field['module']) && isset($field['id_name']) && substr($field['id_name'], -4) == "_ida") {
+                        $lc_module = strtolower($field['module']);
+                        $ida_suffix = "_".$lc_module.$lc_module."_ida";
+                        if (preg_match('/'.$ida_suffix.'$/', $field['id_name']) > 0) {
+                            $field['id_name'] = $module . $field['id_name'];
+                        }
+                        else
+                            $field['id_name'] = $field['name'] . "_" . $field['id_name'];
+                    }
+                    else {
+                        if (!empty($field['id_name']))
+                            $field['id_name'] = $module.$field['id_name'];
+                    }
                 }
 				$name = $qsd->form_name . '_' . $field['name'];
 
@@ -414,13 +419,16 @@ class TemplateHandler {
                         } else if($matches[0] == 'Teams') {
                             $sqs_objects[$name] = $qsd->loadQSObject('Teams', 'Team', $field['name'], $field['name'], $field['id_name']);
                         } else if($matches[0] == 'Users'){
-                            if($field['name'] == 'reports_to_name')
+                            if($field['name'] == 'reports_to_name'){
                                 $sqs_objects[$name] = $qsd->getQSUser('reports_to_name','reports_to_id');
-                            else {
-                                if($view == "ConvertLead" || $field['name'] == 'created_by_name' || $field['name'] == 'modified_by_name')
-								    $sqs_objects[$name] = $qsd->getQSUser($field['name'], $field['id_name']);
-								else
-								    $sqs_objects[$name] = $qsd->getQSUser();
+                             // Bug #52994 : QuickSearch for a 1-M User relationship changes assigned to user
+                            }elseif($field['name'] == 'assigned_user_name'){
+                                 $sqs_objects[$name] = $qsd->getQSUser('assigned_user_name','assigned_user_id');
+                             }
+                             else
+                             {
+                                 $sqs_objects[$name] = $qsd->getQSUser($field['name'], $field['id_name']);
+
 							}
                         } else if($matches[0] == 'Campaigns') {
                             $sqs_objects[$name] = $qsd->loadQSObject('Campaigns', 'Campaign', $field['name'], $field['id_name'], $field['id_name']);
@@ -466,6 +474,33 @@ class TemplateHandler {
                 } else if($field['type'] == 'parent') {
                     $sqs_objects[$name] = $qsd->getQSParent();
                 } //if-else
+
+                // Bug 53949 - Captivea (sve) - Partial fix : Append metadata fields that are not already included in $sqs_objects array
+                // (for example with hardcoded modules before, metadata arrays are not taken into account in 6.4.x 6.5.x)
+                // As QuickSearchDefault methods are called at other places, this will not fix the SQS problem for everywhere, but it fixes it on Editview
+
+                //merge populate_list && field_list with vardef
+                if (!empty($field['field_list']) && !empty($field['populate_list'])) {
+                    for ($j=0; $j<count($field['field_list']); $j++) {
+                		//search for the same couple (field_list_item,populate_field_item)
+               			$field_list_item = $field['field_list'][$j];
+               			$field_list_item_alternate = $qsd->form_name . '_' . $field['field_list'][$j];
+               			$populate_list_item = $field['populate_list'][$j];
+                		$found = false;
+                		for ($k=0; $k<count($sqs_objects[$name]['field_list']); $k++) {
+                			if (($field_list_item == $sqs_objects[$name]['populate_list'][$k] || $field_list_item_alternate == $sqs_objects[$name]['populate_list'][$k]) && //il faut inverser field_list et populate_list (cf lignes 465,466 ci-dessus)
+                				$populate_list_item == $sqs_objects[$name]['field_list'][$k]) {
+                				$found = true;
+                				break;
+                			}
+                		}
+                		if (!$found) {
+                			$sqs_objects[$name]['field_list'][] = $field['populate_list'][$j]; // as in lines 462 and 463
+                			$sqs_objects[$name]['populate_list'][] = $field['field_list'][$j];
+                		}
+                	}
+                }
+
             } //foreach
         }
 
@@ -483,6 +518,35 @@ class TemplateHandler {
     }
 
     /**
+     * prepare Calculation Fields for creation formula
+     *
+     * @param array $fieldDefs The fields defs for the current module.
+     * @param string $module current module.
+     */
+    protected function prepareCalculationFields($fieldDefs, $module)
+    {
+        $fields = array();
+        foreach ($fieldDefs as $field => $def)
+        {
+            if (isset($def['calculated']) && $def['calculated'] && !empty($def['formula']))
+            {
+                $triggerFields = Parser::getFieldsFromExpression($def['formula'], $fields);
+                foreach ($triggerFields as $field_c)
+                {
+                    if(isset($fieldDefs[$field_c]))
+                    {
+                        $fieldDefs[$field]['formula'] = str_replace($field_c, $fieldDefs[$field_c]['id'], $fieldDefs[$field]['formula']);
+                    }
+                }
+                $temp_field = $fieldDefs[$field];
+                $fieldDefs[$module.$field] = $temp_field;
+                unset($fieldDefs[$field]);
+            }
+        }
+        return $fieldDefs;
+    }
+
+    /**
      * createDependencyJavascript
      * Builds the javascript required to execute calculated/dependent fields
      * and module-view dependences.
@@ -493,9 +557,14 @@ class TemplateHandler {
      */
     function createDependencyJavascript($fieldDefs, $viewDefs, $view, $module = null) {
         //Use a doWhen to wait for the page to be fulled loaded (!SUGAR.util.ajaxCallInProgress())
-        $js = "<script type=text/javascript>SUGAR.util.doWhen('!SUGAR.util.ajaxCallInProgress() && (typeof DCMenu != \"undefined\") && DCMenu.module', function(){\n"
+        $js = "<script type=text/javascript>\n"
+            . "SUGAR.util.doWhen('!SUGAR.util.ajaxCallInProgress() && ((typeof action_sugar_grp1 != \"undefined\" && action_sugar_grp1 == \"Popup\") || (typeof DCMenu != \"undefined\" && DCMenu.module))', function(){\n"
             . "SUGAR.forms.AssignmentHandler.registerView('$view');\n";
 
+        if ($view == 'ConvertLead')
+        {
+            $fieldDefs = $this->prepareCalculationFields($fieldDefs, $module);
+        }
         $js .= DependencyManager::getLinkFields($fieldDefs, $view);
 
         $dependencies = array_merge(

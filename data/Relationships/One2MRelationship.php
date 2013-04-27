@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -113,19 +99,50 @@ class One2MRelationship extends M2MRelationship
     public function add($lhs, $rhs, $additionalFields = array())
     {
         $dataToInsert = $this->getRowToInsert($lhs, $rhs, $additionalFields);
+        
         //If the current data matches the existing data, don't do anything
         if (!$this->checkExisting($dataToInsert))
         {
-            $rhsLinkName = $this->rhsLink;
-            //In a one to many, any existing links from the many (right) side must be removed first
-            $rhs->load_relationship($rhsLinkName);
-            $this->removeAll($rhs->$rhsLinkName);
+			// Pre-load the RHS relationship, which is used later in the add() function and expects a Bean
+			// and we also use it for clearing relationships in case of non self-referencing O2M relations
+			// (should be preloaded because when using the relate_to field for updating/saving relationships,
+			// only the bean id is loaded into $rhs->$rhsLinkName)
+			$rhsLinkName = $this->rhsLink;
+			$rhs->load_relationship($rhsLinkName);
+        	
+			// If it's a One2Many self-referencing relationship
+        	// the positions of the default One (LHS) and Many (RHS) are swaped
+        	// so we should clear the links from the many (left) side
+        	if ($this->selfReferencing) {
+        		// Load right hand side relationship name
+	            $linkName = $this->rhsLink;
+	            // Load the relationship into the left hand side bean
+	            $lhs->load_relationship($linkName);
+	            
+	            // Pick the loaded link
+	            $link = $lhs->$linkName;
+	            // Get many (LHS) side bean
+	            $focus = $link->getFocus();
+	            // Get relations
+	        	$related = $link->getBeans();
+	        	
+        		// Clear the relations from many side bean
+	        	foreach($related as $relBean) {
+	        		$this->remove($focus, $relBean);
+	        	}
+            } else { // For non self-referencing, remove all the relationships from the many (RHS) side
+            	$this->removeAll($rhs->$rhsLinkName);
+            }
+            
+            // Add relationship
             parent::add($lhs, $rhs, $additionalFields);
         }
     }
 
     /**
      * Just overriding the function from M2M to prevent it from occuring
+     * 
+     * The logic for dealing with adding self-referencing one-to-many relations is in the add() method
      */
     protected function addSelfReferencing($lhs, $rhs, $additionalFields = array())
     {

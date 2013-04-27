@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 $dictionary['User'] = array(
@@ -51,14 +37,12 @@ $dictionary['User'] = array(
                'quickcreate' => false,
                'basic_search' => false,
                'advanced_search' => false,
-               //BEGIN SUGARCRM flav=pro
                'wirelesseditview' => false,
                'wirelessdetailview' => true,
                'wirelesslistview' => false,
                'wireless_basic_search' => false,
                'wireless_advanced_search' => false,
                'rollup' => false,
-               //END SUGARCRM flav=pro
                ),
         ) ,
         'user_hash' => array(
@@ -68,6 +52,7 @@ $dictionary['User'] = array(
             'len' => '255',
             'reportable' => false,
             'importable' => 'false',
+            'sensitive' => true,
             'studio' => array(
                 'no_duplicate'=>true,
                 'listview' => false,
@@ -222,15 +207,23 @@ $dictionary['User'] = array(
             'vname' => 'LBL_DATE_ENTERED',
             'type' => 'datetime',
             'required' => true,
-            'studio' => array('editview' => false, 'quickcreate' => false, 'wirelesseditview' => false),
+            'studio' => array(
+                'editview' => false,
+                'quickcreate' => false,
+                'wirelesseditview' => false,
+            ),
         ) ,
         'date_modified' => array(
             'name' => 'date_modified',
             'vname' => 'LBL_DATE_MODIFIED',
             'type' => 'datetime',
             'required' => true,
-            'studio' => array('editview' => false, 'quickcreate' => false, 'wirelesseditview' => false),
-        ) ,
+            'studio' => array(
+                'editview' => false,
+                'quickcreate' => false,
+                'wirelesseditview' => false,
+            ),
+        ),
         'modified_user_id' => array(
             'name' => 'modified_user_id',
             'rname' => 'user_name',
@@ -436,7 +429,13 @@ $dictionary['User'] = array(
 				'source' => 'non-db',
 				'len' => 36,
 				'custom_type' => 'teamset',
-                'studio' => array('listview' => false, 'searchview'=>false, 'editview'=>false, 'quickcreate'=>false, 'wirelesseditview' => false),
+                'studio' => array(
+                    'listview'    => false,
+                    'searchview'  =>false,
+                    'editview'    =>false,
+                    'quickcreate' =>false,
+                    'wirelesseditview' => false,
+                ),
 			),
 			'team_link' =>
 		    array (
@@ -450,7 +449,20 @@ $dictionary['User'] = array(
 		      'source' => 'non-db',
 		      'duplicate_merge' => 'disabled',
 		      'studio' => 'false',
+                'reportable'=>false,
 		    ),
+            'default_primary_team' => array (
+                'name' => 'default_primary_team',
+                'type' => 'link',
+                'relationship' => 'users_team',
+                'vname' => 'LBL_DEFAULT_PRIMARY_TEAM',
+                'link_type' => 'one',
+                'module' => 'Teams',
+                'bean_name' => 'Team',
+                'source' => 'non-db',
+                'duplicate_merge' => 'disabled',
+                'studio' => 'false',
+            ),
 		    'team_count_link' =>
 	  			array (
 	  			'name' => 'team_count_link',
@@ -483,8 +495,15 @@ $dictionary['User'] = array(
 	            'type' => 'link',
 	            'relationship' => 'team_memberships',
 	            'source' => 'non-db',
-	            'vname' => 'LBL_TEAMS'
+	            'vname' => 'LBL_TEAM_MEMBERSHIP'
         	) ,
+            'team_sets' => array(
+                'name' => 'team_sets',
+                'type' => 'link',
+                'relationship' => 'users_team_sets',
+                'source' => 'non-db',
+                'vname' => 'LBL_TEAM_SET'
+            ),
 			'users_signatures' => array(
 			    'name' => 'users_signatures',
 			    'type' => 'link',
@@ -648,7 +667,7 @@ $dictionary['User'] = array(
             'source' => 'non-db',
             'studio' => false,
         ),
-        
+
         'aclroles' => array(
             'name' => 'aclroles',
             'type' => 'link',
@@ -843,10 +862,27 @@ $dictionary['User'] = array(
 	            'join_key_lhs'      => 'team_set_id',
 	            'join_key_rhs'      => 'team_id',
 			),
-	   'users_team' =>
-	   array('lhs_module'=> 'Teams', 'lhs_table'=> 'teams', 'lhs_key' => 'id',
-	    'rhs_module'=> 'Users', 'rhs_table'=> 'users', 'rhs_key' => 'default_team',
-	   'relationship_type'=>'one-to-many'),
+        'users_team_sets' => array (
+            'lhs_module'        => 'Teams',
+            'lhs_table'         => 'teams',
+            'lhs_key'           => 'id',
+            'rhs_module'        => 'Users',
+            'rhs_table'         => 'users',
+            'rhs_key'           => 'team_set_id',
+            'relationship_type' => 'many-to-many',
+            'join_table'        => 'team_sets_teams',
+            'join_key_lhs'      => 'team_id',
+            'join_key_rhs'      => 'team_set_id',
+        ),
+        'users_team' => array(
+            'lhs_module'=> 'Teams',
+            'lhs_table'=> 'teams',
+            'lhs_key' => 'id',
+            'rhs_module'=> 'Users',
+            'rhs_table'=> 'users',
+            'rhs_key' => 'default_team',
+            'relationship_type'=>'one-to-many'
+        ),
     ),
 
 

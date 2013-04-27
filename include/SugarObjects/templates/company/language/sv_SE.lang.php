@@ -1,81 +1,62 @@
 <?php
-
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
- *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
- *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
- ********************************************************************************/
-
-
-
-
-
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
 	
+
 $mod_strings = array (
-  'LBL_EMAIL_ADDRESS' => 'Epost Adress(er)',
-  'ERR_DELETE_RECORD' => 'A record number must be specified to delete the account.',
-  'LBL_FAX' => 'Fax:',
-  'LBL_PARENT_ACCOUNT_ID' => 'Parent Account ID',
-  'LBL_TEAMS_LINK' => 'Teams',
-  'LBL_TICKER_SYMBOL' => 'Ticker Symbol:',
   'ACCOUNT_REMOVE_PROJECT_CONFIRM' => 'Är du säker på att du vill ta bort den här organisationen från detta projekt?',
-  'LBL_ACCOUNT_NAME' => 'Företagsnamn:',
+  'ERR_DELETE_RECORD' => 'A record number must be specified to delete the account.',
   'LBL_ACCOUNT' => 'Företag:',
+  'LBL_ACCOUNT_INFORMATION' => 'Företagsinformation',
+  'LBL_ACCOUNT_NAME' => 'Företagsnamn:',
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Aktiviteter',
   'LBL_ADDRESS_INFORMATION' => 'Adressinformation',
   'LBL_ANNUAL_REVENUE' => 'Årlig inkomst:',
   'LBL_ANY_ADDRESS' => 'Någon Adress:',
   'LBL_ANY_EMAIL' => 'Någon Epost:',
   'LBL_ANY_PHONE' => 'Något Telefonnummer:',
-  'LBL_ASSIGNED_TO_NAME' => 'Tilldelad Användare:',
-  'LBL_RATING' => 'Klassificering',
-  'LBL_ASSIGNED_USER' => 'Tilldelad Användare:',
+  'LBL_ASSIGNED_TO' => 'Tilldelad till:',
   'LBL_ASSIGNED_TO_ID' => 'Tilldelad Användare:',
+  'LBL_ASSIGNED_TO_NAME' => 'Tilldelad Användare:',
+  'LBL_ASSIGNED_USER' => 'Tilldelad Användare:',
+  'LBL_BILLING_ADDRESS' => 'Primär Adress:',
   'LBL_BILLING_ADDRESS_CITY' => 'Primär Stad:',
   'LBL_BILLING_ADDRESS_COUNTRY' => 'Primärt Land:',
   'LBL_BILLING_ADDRESS_POSTALCODE' => 'Primärt Postnummer:',
   'LBL_BILLING_ADDRESS_STATE' => 'Primär Stat:',
+  'LBL_BILLING_ADDRESS_STREET' => 'Primär Adress:',
   'LBL_BILLING_ADDRESS_STREET_2' => 'Primär Adress 2',
   'LBL_BILLING_ADDRESS_STREET_3' => 'Primär Adress 3',
   'LBL_BILLING_ADDRESS_STREET_4' => 'Primär Adress 4',
-  'LBL_BILLING_ADDRESS_STREET' => 'Primär Adress:',
-  'LBL_BILLING_ADDRESS' => 'Primär Adress:',
-  'LBL_ACCOUNT_INFORMATION' => 'Företagsinformation',
   'LBL_CITY' => 'Stad:',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakter',
   'LBL_COUNTRY' => 'Land:',
   'LBL_DATE_ENTERED' => 'Skapad datum:',
   'LBL_DATE_MODIFIED' => 'Modifierad datum:',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Organisationer',
-  'LBL_DESCRIPTION_INFORMATION' => 'Beskrivande Information',
   'LBL_DESCRIPTION' => 'Beskrivning:',
+  'LBL_DESCRIPTION_INFORMATION' => 'Beskrivande Information',
   'LBL_DUPLICATE' => 'Möjligen Duplicerade Organisationer',
+  'LBL_EDIT_BUTTON' => 'Redigera',
   'LBL_EMAIL' => 'Epost:',
+  'LBL_EMAIL_ADDRESS' => 'Epost Adress(er)',
+  'LBL_EMAIL_ADDRESSES' => 'Epost Adress(er)',
   'LBL_EMPLOYEES' => 'Anställda:',
+  'LBL_FAX' => 'Fax:',
   'LBL_INDUSTRY' => 'Industri:',
   'LBL_LIST_ACCOUNT_NAME' => 'Organisationsnamn',
   'LBL_LIST_CITY' => 'Stad',
@@ -90,24 +71,29 @@ $mod_strings = array (
   'LBL_OTHER_EMAIL_ADDRESS' => 'Sekundär Epost:',
   'LBL_OTHER_PHONE' => 'Sekundär Telefon:',
   'LBL_OWNERSHIP' => 'Ägare:',
+  'LBL_PARENT_ACCOUNT_ID' => 'Parent Account ID',
+  'LBL_PHONE' => 'Telefon:',
   'LBL_PHONE_ALT' => 'Sekundär Telefon:',
   'LBL_PHONE_FAX' => 'Fax:',
   'LBL_PHONE_OFFICE' => 'Telefon Kontor:',
-  'LBL_PHONE' => 'Telefon:',
   'LBL_POSTAL_CODE' => 'Postnummer:',
   'LBL_PUSH_BILLING' => 'Kopiera Primär',
   'LBL_PUSH_SHIPPING' => 'Kopiera Sekundär',
+  'LBL_RATING' => 'Klassificering',
+  'LBL_REMOVE' => 'Radera',
   'LBL_SAVE_ACCOUNT' => 'Spara Organisation',
+  'LBL_SHIPPING_ADDRESS' => 'Sekundär Adress:',
   'LBL_SHIPPING_ADDRESS_CITY' => 'Sekundär Stad:',
   'LBL_SHIPPING_ADDRESS_COUNTRY' => 'Sekundärt Land:',
   'LBL_SHIPPING_ADDRESS_POSTALCODE' => 'Sekundärt Postnummer:',
   'LBL_SHIPPING_ADDRESS_STATE' => 'Sekondär Stat:',
+  'LBL_SHIPPING_ADDRESS_STREET' => 'Sekundär Adress:',
   'LBL_SHIPPING_ADDRESS_STREET_2' => 'Sekundär Adress 2',
   'LBL_SHIPPING_ADDRESS_STREET_3' => 'Sekundär Adress 3',
   'LBL_SHIPPING_ADDRESS_STREET_4' => 'Sekundär Adress 4',
-  'LBL_SHIPPING_ADDRESS_STREET' => 'Sekundär Adress:',
-  'LBL_SHIPPING_ADDRESS' => 'Sekundär Adress:',
   'LBL_STATE' => 'Stat:',
+  'LBL_TEAMS_LINK' => 'Teams',
+  'LBL_TICKER_SYMBOL' => 'Ticker Symbol:',
   'LBL_TYPE' => 'Typ:',
   'LBL_USERS_ASSIGNED_LINK' => 'Tilldelad Användare',
   'LBL_USERS_CREATED_LINK' => 'Skapad Av Användare',

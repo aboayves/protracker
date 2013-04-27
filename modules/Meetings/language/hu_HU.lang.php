@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -36,12 +22,14 @@ $mod_strings = array (
   'LBL_ACCEPT_LINK' => 'Link elfogadása',
   'LBL_ACCEPT_STATUS' => 'Státusz elfogadás',
   'LBL_ACCEPT_THIS' => 'Elfogadja?',
+  'LBL_ACCOUNT_NAME' => 'Kliens',
   'LBL_ACTIVITIES_REPORTS' => 'Jelentés a tevékenységekről',
   'LBL_ADD_BUTTON' => 'Hozzáadás',
   'LBL_ADD_INVITEE' => 'Meghívottak hozzáadása',
   'LBL_ASSIGNED_TO_NAME' => 'Felelős:',
   'LBL_CANCEL_CREATE_INVITEE' => 'Mégsem',
   'LBL_COLON' => ':',
+  'LBL_CONFIRM_REMOVE_ALL_RECURRENCES' => 'Biztos benne, hogy eltávolítja az ismétlődő rekordokat?',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kapcsolatok',
   'LBL_CONTACT_NAME' => 'Kapcsolat:',
   'LBL_CREATED_BY' => 'Létrehozta',
@@ -50,9 +38,11 @@ $mod_strings = array (
   'LBL_CREATE_CONTACT' => 'Kapcsolatként',
   'LBL_CREATE_INVITEE' => 'Meghívott létrehozása',
   'LBL_CREATE_LEAD' => 'Ajánlásként',
+  'LBL_CREATE_MODULE' => 'Találkozó ütemezése',
   'LBL_CREATOR' => 'Találkozó létrehozása',
   'LBL_DATE' => 'Kezdés dátuma:',
   'LBL_DATE_END' => 'Befejezés dátuma',
+  'LBL_DATE_END_ERROR' => 'A befejezés dátuma megelőzi a kezdés dátumát',
   'LBL_DATE_TIME' => 'Kezdési dátum és idő:',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Találkozók',
   'LBL_DEL' => 'Törlés',
@@ -63,6 +53,7 @@ $mod_strings = array (
   'LBL_DURATION' => 'Időtartam:',
   'LBL_DURATION_HOURS' => 'Időtartam (óra):',
   'LBL_DURATION_MINUTES' => 'Időtartam (perc):',
+  'LBL_EDIT_ALL_RECURRENCES' => 'Minden ismétlődés szerkesztése',
   'LBL_EMAIL' => 'E-mail',
   'LBL_EMAIL_REMINDER' => 'E-mail emlékeztető',
   'LBL_EMAIL_REMINDER_SENT' => 'E-mail emlékeztető kiküldve',
@@ -119,6 +110,7 @@ $mod_strings = array (
   'LBL_MODIFIED_BY' => 'Módosította',
   'LBL_MODIFIED_USER' => 'Módosított felhasználó',
   'LBL_MODULE_NAME' => 'Találkozók',
+  'LBL_MODULE_NAME_SINGULAR' => 'Találkozó',
   'LBL_MODULE_TITLE' => 'Találkozók: Főoldal',
   'LBL_NAME' => 'Név',
   'LBL_NEW_FORM_TITLE' => 'Időpont létrehozása',
@@ -128,14 +120,25 @@ $mod_strings = array (
   'LBL_PARENT_TYPE' => 'Szülő típusa',
   'LBL_PASSWORD' => 'Találkozó jelszava',
   'LBL_PHONE' => 'Irodai telefon:',
+  'LBL_RECURRENCE' => 'Többszörös előfordulás',
+  'LBL_RECURRING_LIMIT_ERROR' => 'Az ismétlődő találkozó nem rögzíthető, mert a találkozók száma meghaladja a megengedett mennyiséget ($limit).',
   'LBL_RECURRING_SOURCE' => 'Visszatérő forrás',
+  'LBL_RELATED_RECORD_DEFAULT_NAME' => 'Találkozó vele: {{{this}}}',
+  'LBL_RELATED_TO' => 'Kapcsolódik:',
   'LBL_REMINDER' => 'Emlékeztető:',
   'LBL_REMINDER_EMAIL' => 'E-mail',
+  'LBL_REMINDER_EMAIL_ALL_INVITEES' => 'Email minden meghívottnak',
   'LBL_REMINDER_POPUP' => 'Felugró',
   'LBL_REMINDER_TIME' => 'Emlékeztető időpontja',
   'LBL_REMOVE' => 'Eltávolítás',
+  'LBL_REMOVE_ALL_RECURRENCES' => 'Minden ismétlődés törlése',
   'LBL_REPEAT_COUNT' => 'Többszörös előfordulások száma',
+  'LBL_REPEAT_DOW' => 'Ismétlés napja',
+  'LBL_REPEAT_END' => 'Vége',
+  'LBL_REPEAT_END_AFTER' => 'Után',
+  'LBL_REPEAT_END_BY' => 'Eszerint',
   'LBL_REPEAT_INTERVAL' => 'Ismétlés intervalluma',
+  'LBL_REPEAT_OCCURRENCES' => 'többszörös előfordulások',
   'LBL_REPEAT_PARENT_ID' => 'Szülő azonosító megismétlése',
   'LBL_REPEAT_TYPE' => 'Ismétlés típusa',
   'LBL_REPEAT_UNTIL' => 'Ismétel míg',
@@ -145,9 +148,11 @@ $mod_strings = array (
   'LBL_SEND_BUTTON_KEY' => 'I',
   'LBL_SEND_BUTTON_LABEL' => 'Mentés & meghívók küldése',
   'LBL_SEND_BUTTON_TITLE' => 'Mentés & meghívók küldése',
+  'LBL_SEND_INVITES' => 'Meghívók küldése',
   'LBL_SEQUENCE' => 'Találkozók frissítésének sorrendje',
   'LBL_STATUS' => 'Állapot:',
   'LBL_SUBJECT' => 'Tárgy:',
+  'LBL_SYNCED_RECURRING_MSG' => 'A hívás külső rendszerből származik, s csak később lett a Sugar-hez szinkronizálva. Változtatások végrehajtásához menjen a rögzítés eredeti helyére. Az újabb változások bármikor megjelentethetők lesznek a rekordban.',
   'LBL_TIME' => 'Kezdés időpontja:',
   'LBL_TYPE' => 'Találkozó típusa',
   'LBL_URL' => 'Találkozó indítása/csatlakozás',

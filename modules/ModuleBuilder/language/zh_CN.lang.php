@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -108,6 +94,7 @@ $mod_strings = array (
   'LBL_CLEAR_EXTENSIONS' => '消除扩展',
   'LBL_CLEAR_RELATIONSHIPS' => '消除关系',
   'LBL_COMPANY' => '公司',
+  'LBL_CONFIG_PORTAL_URL' => '自定义Logo图像的URL。推荐的Logo尺寸为163 × 18像素。',
   'LBL_CONFIRM_DONT_SAVE' => '自上次保存已变化,您真要保存吗？',
   'LBL_CONFIRM_DONT_SAVE_TITLE' => '保存更改?',
   'LBL_CONFIRM_FIELD_DELETE' => '删除一条客户字段将会删除所有与客户相关的数据。您将在所有添加过此字段的界面中删除它。 如果字段中包含了一个计算任何字段值的公式，那么该公式则不再有效。\\n\\n这个字段将不再用于报告中，这个更改将在退出登录和再次登录到应用程序的时候生效。任何含有字段的报告都将会被更新以便系统运行。\\n\\n你确定要继续么?',
@@ -277,8 +264,21 @@ $mod_strings = array (
   'LBL_POPUPSEARCH' => '弹窗查询',
   'LBL_PORTAL' => '门户',
   'LBL_PORTALSITE' => 'Sugar门户的URL:',
+  'LBL_PORTAL_APP_NAME' => '应用名称',
+  'LBL_PORTAL_CONFIGURE' => '配置门户',
+  'LBL_PORTAL_DEFAULT_ASSIGN_USER' => '默认门户注册分配',
+  'LBL_PORTAL_DETAIL_NUMBER' => '细节视图中显示的字段数量',
+  'LBL_PORTAL_DISABLED_MODULES' => '以下模块已被禁用：',
+  'LBL_PORTAL_ENABLE' => '启用',
+  'LBL_PORTAL_ENABLE_MODULES' => '如果您希望在门户内启用他们，请在这里启用。',
   'LBL_PORTAL_GO' => 'Go',
   'LBL_PORTAL_LAYOUTS' => '门户布局',
+  'LBL_PORTAL_LIST_NUMBER' => '列表中显示的纪录条数',
+  'LBL_PORTAL_LOGO_URL' => 'Logo URL',
+  'LBL_PORTAL_ROLE_DESC' => '不要删除此角色。客户自助服务门户网站角色是一个系统生成的角色，在Sugar门户网站激活过程中创建的。用这个角色来访问控制、启用/禁用Sugar门户网站中的错误、案例或知识库模块。请不要修改这个角色的任何其他访问控制，以避免未知的与不可预测的系统行为。在这个角色被意外删除的情况下，通过禁用和启用Sugar门户网站来重新创建它。',
+  'LBL_PORTAL_SEARCH_RESULT_NUMBER' => '全局搜索时显示的结果数量',
+  'LBL_PORTAL_SITE_URL' => '您的门户站点已可访问：',
+  'LBL_PORTAL_THEME' => '门户主题',
   'LBL_POWERED_BY_SUGAR' => 'Powered By SugarCRM',
   'LBL_PRIORITY' => '优先级:',
   'LBL_PUBLISHED' => '已发布',
@@ -365,6 +365,13 @@ $mod_strings = array (
   'LBL_SYNC_TO_DETAILVIEW' => '同步到细节视图',
   'LBL_SYNC_TO_DETAILVIEW_HELP' => '选择这个选项来同步这个编辑视图到相应的细节视图布局。编辑视图中字段和字段的位置<br>将会被同步&#39;d 并且自动保存到细节视图中，在点击保存或保存和部署的时候。<br>细节视图中将不可以进行布局更改。',
   'LBL_SYNC_TO_DETAILVIEW_NOTICE' => '这个细节视图是同步的&#39;d 与相应的编辑视图。<br> 细节视图中字段和字段位置反映了编辑视图中字段和字段的位置。<br> 在此页中对细节视图的更改不能被保存或显示。做更改或不同步布局在编辑视图中。',
+  'LBL_TABDEF_COLLAPSE' => '收起',
+  'LBL_TABDEF_COLLAPSE_HELP' => '选择来设置这个面板默认为收起。',
+  'LBL_TABDEF_TYPE' => '显示类型',
+  'LBL_TABDEF_TYPE_HELP' => '选择这个区域如何被显示。这个选项只有在这个视图有标签时才受影响。',
+  'LBL_TABDEF_TYPE_OPTION_HELP' => '选择面板来让这个面板是视图中显示。选择标签来让面板在视图内以标签形式显示。当标签启动时，附属面板将作为标签显示。每一个附属面板都将作为一个标签。如果标签模式被启用，第一个面板也将变为标签。',
+  'LBL_TABDEF_TYPE_OPTION_PANEL' => '面板',
+  'LBL_TABDEF_TYPE_OPTION_TAB' => '标签',
   'LBL_TAB_ORDER' => '标签顺序',
   'LBL_TAB_PANELS' => '将面板显示为标签',
   'LBL_TAB_PANELS_HELP' => '显示标签下的所有面板，而不是在一个屏幕显示所有标签下的面板。',
@@ -379,6 +386,7 @@ $mod_strings = array (
   'LBL_TYPE_SALE' => '销售',
   'LBL_UNDEFINED' => '未定义',
   'LBL_UP_STYLE_SHEET' => '上传风格表单',
+  'LBL_USER_SELECT' => '-- 选择 --',
   'LBL_VE_HIDDEN' => '隐藏',
   'LBL_VE_VISIBLE' => '可见',
   'LBL_VIEW' => '查看',
@@ -608,6 +616,10 @@ $mod_strings = array (
       'historyDefault' => '点击 <b>恢复默认</b>来恢复对原始布局的查看。',
       'modify' => '所有可以显示在 <b>列表视图</b>中的字段出现在这。<br><br> <b>默认</b> 列包含通过默认显示在是列表视图中的字段。<br/><br/> <b>隐藏</b> 列包含可以被添加到默认列中的字段。<br/><br/><!--not_in_theme!--><img src="themes/default/images/SugarLogic/icon_dependent.png"/>在方程式价值的基础上显示可能可见或不可见的独立的字段。<br/>在方程式的基础上自动决定价值的计算字段。',
       'savebtn' => '点击 <b>保存和部署</b>来保存您所做的更改并使他们在模块内启用。',
+    ),
+    'portalConfig' => 
+    array (
+      'default' => '默认',
     ),
     'portalStyle' => 
     array (

@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 require_once('include/EditView/SugarVCR.php');
@@ -274,7 +260,7 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
         $this->xTemplate->assign("COL_COUNT", count($thepanel->get_list_fields()));
         $this->xTemplate->parse($xtemplateSection.".nodata");
     }
-
+	$module_name = '';
     while(list($aVal, $aItem) = each($data))
     {
         $subpanel_item_count++;
@@ -298,7 +284,21 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
             $aItem->parent_name_owner =  $parent_data[$aItem->id]['parent_name_owner'];
             $aItem->parent_name_mod =  $parent_data[$aItem->id]['parent_name_mod'];
         }}
-
+		if (isset($subpanel_list[strtolower($aItem->module_name)]))
+        {
+            if ($module_name != $aItem->module_name)
+            {
+                $subpanel_list_fields = $subpanel_list[strtolower($aItem->module_name)]->get_list_fields();
+                if (($keyindex = array_search('edit_button', array_keys($subpanel_list_fields))) !== FALSE)
+                {
+                    $subpanel_list_fields = array_slice($subpanel_list_fields, 0, $keyindex, true);
+                }
+            }
+            $aItem->updateDependentFieldForListView($subpanel_list_fields);
+        } else
+        {
+            $aItem->updateDependentField();
+        }
         $fields = $aItem->get_list_view_data();
         if($aItem->bean_implements('ACL')){
             ACLField::listFilter($fields,$aItem->module_dir,$GLOBALS['current_user']->id, $aItem->isOwner($GLOBALS['current_user']->id));
@@ -366,6 +366,10 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
         static $count;
         if(!isset($count))$count = 0;
 
+        $field_acl['DetailView'] = $aItem->ACLAccess('DetailView');
+        $field_acl['ListView'] = $aItem->ACLAccess('ListView');
+        $field_acl['EditView'] = $aItem->ACLAccess('EditView');
+        $field_acl['Delete'] = $aItem->ACLAccess('Delete');
         foreach($thepanel->get_list_fields() as $field_name=>$list_field)
         {
             //add linked field attribute to the array.
@@ -373,7 +377,17 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
             $list_field['linked_field_set']=$linked_field_set;
 
             $usage = empty($list_field['usage']) ? '' : $list_field['usage'];
-            if($usage != 'query_only')
+            if($usage == 'query_only' && !empty($list_field['force_query_only_display'])){
+                //if you are here you have column that is query only but needs to be displayed as blank.  This is helpful
+                //for collections such as Activities where you have a field in only one object and wish to show it in the subpanel list
+                $count++;
+                $widget_contents = '&nbsp;';
+                $this->xTemplate->assign('CLASS', "");
+                $this->xTemplate->assign('CELL_COUNT', $count);
+                $this->xTemplate->assign('CELL', $widget_contents);
+                $this->xTemplate->parse($xtemplateSection.".row.cell");
+
+            }else if($usage != 'query_only')
             {
                 $list_field['name']=$field_name;
 
@@ -395,10 +409,7 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
                 $list_field['start_link_wrapper'] = $this->start_link_wrapper;
                 $list_field['end_link_wrapper'] = $this->end_link_wrapper;
                 $list_field['subpanel_id'] = $this->subpanel_id;
-                $list_field['DetailView'] = $aItem->ACLAccess('DetailView');
-                $list_field['ListView'] = $aItem->ACLAccess('ListView');
-                $list_field['EditView'] = $aItem->ACLAccess('EditView');
-                $list_field['Delete'] = $aItem->ACLAccess('Delete');
+                $list_field += $field_acl;
                 if ( isset($aItem->field_defs[strtolower($list_field['name'])])) {
                     require_once('include/SugarFields/SugarFieldHandler.php');
                     // We need to see if a sugar field exists for this field type first,
@@ -427,15 +438,19 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
                         if('full_name' == $field_name){//bug #32465
                            $list_field['fields'][strtoupper($field_name)] = $widget_contents;
                         }
+
+                        //vardef source is non db, assign the field name to varname for processing of column.
+                        if(!empty($vardef['source']) && $vardef['source']=='non-db'){
+                            $list_field['varname'] = $field_name;
+
+                        }
                         $widget_contents = $layout_manager->widgetDisplay($list_field);
                     } else if(isset($list_field['widget_class']) && $list_field['widget_class'] == 'SubPanelEmailLink' ) {
                         $widget_contents = $layout_manager->widgetDisplay($list_field);
                     }
 
-                $count++;
-				$cell_align = empty($list_field['align']) ? '' : $list_field['align']; //PROTRACKER ADD
+                 $count++;
                 $this->xTemplate->assign('CELL_COUNT', $count);
-				$this->xTemplate->assign('CELL_ALIGN', $cell_align); //PROTRACKER ADD
                 $this->xTemplate->assign('CLASS', "");
                 if ( empty($widget_contents) ) $widget_contents = '&nbsp;';
                 $this->xTemplate->assign('CELL', $widget_contents);
@@ -451,8 +466,11 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
 		                $this->xTemplate->assign('CELL', $widget_contents);
 		                $this->xTemplate->parse($xtemplateSection.".row.cell");
                 	} elseif (preg_match("/button/i", $list_field['name'])) {
-                		if($layout_manager->widgetDisplay($list_field) != "")
-                		$button_contents[] = $layout_manager->widgetDisplay($list_field);
+                        if ((($list_field['name'] === 'edit_button' && $field_acl['EditView']) || ($list_field['name'] === 'close_button' && $field_acl['EditView']) || ($list_field['name'] === 'remove_button' && $field_acl['Delete'])) && '' != ($_content = $layout_manager->widgetDisplay($list_field)) )
+                        {
+                            $button_contents[] = $_content;
+                            unset($_content);
+                        }
                 	} else {
                			$count++;
                			$this->xTemplate->assign('CLASS', "");
@@ -480,7 +498,7 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
                 'id' => $tempid,
                 'buttons' => $button_contents,
                 'class' => 'clickMenu subpanel records fancymenu button',
-                'theme' => 'Sugar' //assign theme value to display dropdown menu on class theme
+                'flat' => false //assign flat value as false to display dropdown menu at any other preferences.
             ), $this->xTemplate);
             $this->xTemplate->assign('CLASS', "inlineButtons");
             $this->xTemplate->assign('CELL_COUNT', ++$count);
@@ -585,12 +603,6 @@ function getOrderBy($varName, $defaultOrderBy='', $force_sortorder='') {
         $sortBy = $defaultOrderBy;
     } else {
         $this->setUserVariable($varName, "ORDER_BY", $sortBy);
-    }
-    if($sortBy == 'amount') {
-        $sortBy = 'amount*1';
-    }
-    if($sortBy == 'amount_usdollar') {
-        $sortBy = 'amount_usdollar*1';
     }
 
     $desc = $this->getSessionVariable($varName, $sortBy."S");
@@ -1040,7 +1052,7 @@ function getUserVariable($localVarName, $varName) {
             $response =& $this->response;
             echo 'cached';
         }else{
-            $response = SugarBean::get_union_related_list($sugarbean,$this->sortby, $this->sort_order, $this->query_where, $current_offset, -1,-1,$this->query_limit,$subpanel_def);
+            $response = SugarBean::get_union_related_list($sugarbean,$this->sortby, $this->sort_order, $this->query_where, $current_offset, -1, $this->records_per_page,$this->query_limit,$subpanel_def);
             $this->response =& $response;
         }
         $list = $response['list'];
@@ -1305,7 +1317,8 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
                 $select_link = smarty_function_sugar_action_menu(array(
                     'class' => 'clickMenu selectmenu',
                     'id' => 'selectLink',
-                    'buttons' => $menuItems
+                    'buttons' => $menuItems,
+                    'flat' => false,
                 ),$this->xTemplate);
 
             } else {
@@ -1393,7 +1406,7 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
                     if(!empty($this->response)){
                         $response =& $this->response;
                     }else{
-                        $response = SugarBean::get_union_related_list($sugarbean,$this->sortby, $this->sort_order, $this->query_where, $current_offset, -1,-1,$this->query_limit,$subpanel_def);
+                        $response = SugarBean::get_union_related_list($sugarbean,$this->sortby, $this->sort_order, $this->query_where, $current_offset, -1, $this->records_per_page,$this->query_limit,$subpanel_def);
                         $this->response = $response;
                     }
                     //if query is present, then pass it in as parameter
@@ -1698,7 +1711,7 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
         foreach($subpanel_def->get_list_fields() as $column_name=>$widget_args)
         {
             $usage = empty($widget_args['usage']) ? '' : $widget_args['usage'];
-            if($usage != 'query_only')
+            if($usage != 'query_only' || !empty($widget_args['force_query_only_display']))
             {
                 $imgArrow = '';
 
@@ -1725,7 +1738,6 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
 	            if(!isset($count))$count = 0; else $count++;
 	                $this->xTemplate->assign('CELL_COUNT', $count);
 	                $this->xTemplate->assign('CELL_WIDTH', $cell_width);
-					$cell_align = empty($widget_args['align']) ? 'left' : $widget_args['align']; 
 					$this->xTemplate->assign('CELL_ALIGN', $cell_align);
 	                $this->xTemplate->parse('dyn_list_view.header_cell');
                 } else {
@@ -1738,8 +1750,6 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
         			$this->xTemplate->assign('HEADER_CELL', "&nbsp;");
         			$this->xTemplate->assign('CELL_COUNT', $count);
 	                $this->xTemplate->assign('CELL_WIDTH', $cell_width);
-					$cell_align = empty($widget_args['align']) ? 'left' : $widget_args['align']; 
-					$this->xTemplate->assign('CELL_ALIGN', $cell_align);
 	                $this->xTemplate->parse('dyn_list_view.header_cell');
         }
 
@@ -1918,11 +1928,11 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
 		/**
 		 * @deprecated only used by legacy opportunites listview, nothing current. Leaving for BC
 		 */
-		if($orderBy == 'amount*1')
+		if($orderBy == 'amount')
 		{
 			$this->xTemplateAssign('amount_arrow', $imgArrow);
 		}
-		else if($orderBy == 'amount_usdollar*1')
+		else if($orderBy == 'amount_usdollar')
 		{
 			$this->xTemplateAssign('amount_usdollar_arrow', $imgArrow);
 		}

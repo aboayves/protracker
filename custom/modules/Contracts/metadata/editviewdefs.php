@@ -6,6 +6,10 @@ array (
     'templateMeta' => 
     array (
       'maxColumns' => '2',
+	  'form' => 
+      array (
+		'enctype' => 'multipart/form-data',
+	  ),
       'widths' => 
       array (
         0 => 
@@ -115,12 +119,6 @@ array (
         3 => 
         array (
           0 => 'opportunity_name',
-          1 => 
-          array (
-            'name' => 'parent_name',
-            'comment' => 'parent_name of contract, added to prevent ability to add flex relate field to module because of relationship in linked_documentsMetaData.php',
-            'label' => 'LBL_MEMBER_OF',
-          ),
         ),
         4 => 
         array (
@@ -189,7 +187,7 @@ array (
             'comment' => '',
             'label' => 'LBL_BILLING_TYPE',
           ),
-          1 => '',
+          1 => 'filename',
         ),
         9 => 
         array (

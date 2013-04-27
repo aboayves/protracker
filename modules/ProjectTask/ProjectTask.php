@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -80,7 +66,10 @@ class ProjectTask extends SugarBean {
 	var $relationship_fields = array(
 		'email_id' => 'emails',
 	);
-
+    /**
+     * @var bool skip updating parent percent complete
+     */
+    protected $_skipParentUpdate = false;
 	
 	//////////////////////////////////////////////////////////////////
 	// METHODS
@@ -118,7 +107,13 @@ class ProjectTask extends SugarBean {
 			}
 		}
 	}
-
+    /**
+     * @param bool $skip updating parent percent complete
+     */
+    public function skipParentUpdate($skip = true)
+    {
+        $this->_skipParentUpdate = $skip;
+    }
 	function save($check_notify = FALSE)
 	{
 		//Bug 46012.  When saving new Project Tasks instance in a workflow, make sure we set a project_task_id value
@@ -129,7 +124,10 @@ class ProjectTask extends SugarBean {
         }
         
         $id = parent::save($check_notify);
-        $this->updateParentProjectTaskPercentage();
+        if($this->_skipParentUpdate == false)
+        {
+            $this->updateStatistic();
+        }
         return $id;
 	}
 
@@ -329,24 +327,19 @@ class ProjectTask extends SugarBean {
 
     function create_export_query(&$order_by, &$where, $relate_link_join='')
     {
-        $custom_join = $this->custom_fields->getJOIN(true, true,$where);
-		if($custom_join)
-				$custom_join['join'] .= $relate_link_join;
+        $custom_join = $this->getCustomJoin(true, true, $where);
+        $custom_join['join'] .= $relate_link_join;
 		$query = "SELECT
 				project_task.*,
                 users.user_name as assigned_user_name ";
         $query .= ", teams.name AS team_name ";
-        if($custom_join){
-			$query .=  $custom_join['select'];
-		}
+        $query .=  $custom_join['select'];
 
         $query .= " FROM project_task LEFT JOIN project ON project_task.project_id=project.id AND project.deleted=0 ";
 
 		// We need to confirm that the user is a member of the team of the item.
 		$this->add_team_security_where_clause($query);
-		if($custom_join){
-			$query .=  $custom_join['join'];
-		}
+        $query .=  $custom_join['join'];
         $query .= " LEFT JOIN users
                    	ON project_task.assigned_user_id=users.id ";
         $query .= getTeamSetNameJoin('project_task');
@@ -431,46 +424,59 @@ class ProjectTask extends SugarBean {
             if ($parentProjectTask)
             {
                 $subProjectTasks = $parentProjectTask->getAllSubProjectTasks();
-
-                $totalHours = 0;
-                $cumulativeDone = 0;
-
-                //update cumulative calculation - mimics gantt calculation
-                foreach ($subProjectTasks as $key => $value)
+                $tasks = array();
+                foreach($subProjectTasks as &$task)
                 {
-                    if ($value->duration == "")
-                    {
-                        $value->duration = 0;
-                    }
-
-                    if ($value->percent_complete == "")
-                    {
-                        $value->percent_complete = 0;
-                    }
-
-                    if ($value->duration_unit == "Hours")
-                    {
-                        $totalHours += $value->duration;
-                        $cumulativeDone += $value->duration * ($value->percent_complete / 100);
-                    }
-                    else
-                    {
-                        $totalHours += ($value->duration * 8);
-                        $cumulativeDone += ($value->duration * 8) * ($value->percent_complete / 100);
-                    }
+                    array_push($tasks, $task->toArray(true));
                 }
-
-                $cumulativePercentage = 0;
-				if ($totalHours != 0)
-                {
-					$cumulativePercentage = ($cumulativeDone/$totalHours) * 100;
-                }
-
-                $parentProjectTask->percent_complete = round($cumulativePercentage);
+                $parentProjectTask->percent_complete = $this->_calculateCompletePercent($tasks);
+                unset($tasks);
                 $parentProjectTask->save(isset($GLOBALS['check_notify']) ? $GLOBALS['check_notify'] : '');
             }
 		}
 	}
+
+    /**
+     * Calculate percent complete for parent task based on it's children tasks
+     * @param $subProjectTasks mixed Array of children tasks
+     * @return int percent complete
+     */
+    private function _calculateCompletePercent(&$subProjectTasks)
+    {
+        $totalHours = 0;
+        $cumulativeDone = 0;
+        //update cumulative calculation - mimics gantt calculation
+        foreach ($subProjectTasks as $key => &$value)
+        {
+            if ($value['duration'] == "")
+            {
+                $value['duration'] = 0;
+            }
+
+            if ($value['percent_complete'] == "")
+            {
+                $value['percent_complete'] = 0;
+            }
+
+            if ($value['duration_unit'] == "Hours")
+            {
+                $totalHours += $value['duration'];
+                $cumulativeDone += $value['duration'] * ($value['percent_complete'] / 100);
+            }
+            else
+            {
+                $totalHours += ($value['duration'] * 8);
+                $cumulativeDone += ($value['duration'] * 8) * ($value['percent_complete'] / 100);
+            }
+        }
+
+        $cumulativePercentage = 0;
+        if ($totalHours != 0)
+        {
+            $cumulativePercentage = round(($cumulativeDone/$totalHours) * 100);
+        }
+        return $cumulativePercentage;
+    }
 
     /**
     * Retrieves the parent project task of a project task
@@ -596,6 +602,129 @@ class ProjectTask extends SugarBean {
     	}
         return 0;
     }	
+
+    /**
+     * Update percent complete for project tasks with children tasks based on children's values
+     */
+    public function updateStatistic()
+    {
+        /**
+         * @var array Array of tasks for current project
+         */
+        $list = array();
+        /**
+         * @var array Key-value array of project_task_id => parent_task_id
+         */
+        $tree = array();
+        /**
+         * @var array Array with nodes which have childrens
+         */
+        $nodes = array();
+        /**
+         * @var array Array with IDs of list which have been changed
+         */
+        $changed = array();
+
+        $db = DBManagerFactory::getInstance();
+        $this->disable_row_level_security = true;
+        $query = $this->create_new_list_query('', "project_id = {$db->quoted($this->project_id)}");
+        $this->disable_row_level_security = false;
+        $res = $db->query($query);
+        while($row = $db->fetchByAssoc($res))
+        {
+            array_push($list, $row);
+        }
+        // fill in $tree
+        foreach($list as $k => &$v)
+        {
+            if(isset($v['project_task_id']) && $v['project_task_id'] != '')
+            {
+                $tree[$v['project_task_id']] = $v['parent_task_id'];
+                if(isset($v['parent_task_id']) && $v['parent_task_id'])
+                {
+                    if(!isset($nodes[$v['parent_task_id']]))
+                    {
+                        $nodes[$v['parent_task_id']] = 1;
+                    }
+                }
+            }
+        }
+        unset($v);
+        // fill in $nodes array
+        foreach($nodes as $k => &$v)
+        {
+            $run = true;
+            $i = $k;
+            while($run)
+            {
+                if(isset($tree[$i]) &&  $tree[$i]!= '')
+                {
+                    $i = $tree[$i];
+                    $v++;
+                }
+                else
+                {
+                    $run = false;
+                }
+            }
+        }
+        arsort($nodes);
+        unset($v);
+        // calculating of percentages and comparing calculated value with database one
+        foreach($nodes as $k => &$v)
+        {
+            $currRow = null;
+            $currChildren = array();
+            $run = true;
+            $tmp = array();
+            $i = $k;
+            while($run)
+            {
+                foreach($list as $id => &$taskRow)
+                {
+                    if($taskRow['project_task_id'] == $i && $currRow === null)
+                    {
+                        $currRow = $id;
+                    }
+                    if($taskRow['parent_task_id'] == $i)
+                    {
+                        if(!in_array($taskRow['project_task_id'], array_keys($nodes)))
+                        {
+                            array_push($currChildren, $taskRow);
+                        }
+                        else
+                        {
+                            array_push($tmp, $taskRow['project_task_id']);
+                        }
+                    }
+                }
+                unset($taskRow);
+                if(count($tmp) == 0)
+                {
+                    $run = false;
+                }
+                else
+                {
+                    $i = array_shift($tmp);
+                }
+            }
+            $subres = $this->_calculateCompletePercent($currChildren);
+            if($subres != $list[$currRow]['percent_complete'])
+            {
+                $list[$currRow]['percent_complete'] = $subres;
+                array_push($changed, $currRow);
+            }
+        }
+        unset($v);
+        // updating data in database for changed tasks
+        foreach($changed as $k => &$v)
+        {
+            $task = BeanFactory::getBean('ProjectTask');
+            $task->populateFromRow($list[$v]);
+            $task->skipParentUpdate();
+            $task->save(false);
+        }
+    }
 }
 
 function getUtilizationDropdown($focus, $field, $value, $view) {

@@ -1,98 +1,76 @@
 <?php
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
+
 $mod_strings = array (
-  'LBL_LIST_MARKETING_NAME' => 'ID Marketing',
-  'LBL_ID' => 'ID',
-  'LBL_LIST_ID' => 'ID Lista Prospect',
-  'LBL_TARGET_TRACKER_KEY' => 'Tinta Urmaritor Cheie',
-  'LBL_TARGET_ID' => 'ID Tinta',
-  'LBL_TARGET_TYPE' => 'Tip Tinta',
-  'LBL_ACTIVITY_TYPE' => 'Tip Activitate',
   'LBL_ACTIVITY_DATE' => 'Data Activitate',
-  'LBL_RELATED_ID' => 'ID Asociere',
-  'LBL_RELATED_TYPE' => 'Tip Asociere',
-  'LBL_DELETED' => 'Sters',
-  'LBL_MODULE_NAME' => 'Log Campanii',
-  'LBL_LIST_RECIPIENT_EMAIL' => 'Emailul destinatarului',
-  'LBL_LIST_RECIPIENT_NAME' => 'Nume Recipient',
+  'LBL_ACTIVITY_TYPE' => 'Tip Activitate',
   'LBL_ARCHIVED' => 'Arhivat',
-  'LBL_HITS' => 'Incarcari',
-  'LBL_CAMPAIGN_NAME' => 'Nume',
+  'LBL_ASSIGNED_TO' => 'Atribuit Lui:',
   'LBL_CAMPAIGN' => 'Campanie',
-  'LBL_NAME' => 'Nume:',
-  'LBL_INVITEE' => 'Contact',
-  'LBL_LIST_CAMPAIGN_NAME' => 'Campanie',
-  'LBL_LIST_STATUS' => 'Statut',
-  'LBL_LIST_TYPE' => 'Tip',
-  'LBL_LIST_END_DATE' => 'Data Sfarsit',
+  'LBL_CAMPAIGNS' => 'Campanii',
+  'LBL_CAMPAIGN_ACTUAL_COST' => 'Cost Actual:',
+  'LBL_CAMPAIGN_BUDGET' => 'Buget:',
+  'LBL_CAMPAIGN_CONTENT' => 'Descriere:',
+  'LBL_CAMPAIGN_END_DATE' => 'Data Sfarsit:',
+  'LBL_CAMPAIGN_EXPECTED_COST' => 'Cost Estimat:',
+  'LBL_CAMPAIGN_EXPECTED_REVENUE' => 'Venituri Estimate:',
+  'LBL_CAMPAIGN_NAME' => 'Nume',
+  'LBL_CAMPAIGN_OBJECTIVE' => 'Obiectiv:',
+  'LBL_CAMPAIGN_START_DATE' => 'Data Inceput:',
+  'LBL_CAMPAIGN_STATUS' => 'Statut:',
+  'LBL_CAMPAIGN_TYPE' => 'Tip:',
+  'LBL_CLICKED_URL_KEY' => 'Cheie URL pe care s-a dat click',
+  'LBL_CREATED' => 'Creeat de',
+  'LBL_CREATED_CONTACT' => 'Contact Creeat',
+  'LBL_CREATED_LEAD' => 'Lead Creeat',
+  'LBL_CREATED_OPPORTUNITY' => 'Creata o noua oportunitate',
   'LBL_DATE_ENTERED' => 'Data Intrare',
   'LBL_DATE_MODIFIED' => 'Data Modificare',
-  'LBL_MODIFIED' => 'Modificat de',
-  'LBL_CREATED' => 'Creeat de',
-  'LBL_TEAM' => 'Echipa:',
-  'LBL_ASSIGNED_TO' => 'Atribuit Lui:',
-  'LBL_CAMPAIGN_START_DATE' => 'Data Inceput:',
-  'LBL_CAMPAIGN_END_DATE' => 'Data Sfarsit:',
-  'LBL_CAMPAIGN_STATUS' => 'Statut:',
-  'LBL_CAMPAIGN_BUDGET' => 'Buget:',
-  'LBL_CAMPAIGN_EXPECTED_COST' => 'Cost Estimat:',
-  'LBL_CAMPAIGN_ACTUAL_COST' => 'Cost Actual:',
-  'LBL_CAMPAIGN_EXPECTED_REVENUE' => 'Venituri Estimate:',
-  'LBL_CAMPAIGN_TYPE' => 'Tip:',
-  'LBL_CAMPAIGN_OBJECTIVE' => 'Obiectiv:',
-  'LBL_CAMPAIGN_CONTENT' => 'Descriere:',
-  'LBL_CREATED_LEAD' => 'Lead Creeat',
-  'LBL_CREATED_CONTACT' => 'Contact Creeat',
-  'LBL_LIST_FORM_TITLE' => 'Tinta Campanii',
+  'LBL_DELETED' => 'Sters',
+  'LBL_HITS' => 'Incarcari',
+  'LBL_ID' => 'ID',
+  'LBL_INVITEE' => 'Contact',
   'LBL_LIST_ACTIVITY_DATE' => 'Data Activitatii',
+  'LBL_LIST_CAMPAIGN_NAME' => 'Campanie',
   'LBL_LIST_CAMPAIGN_OBJECTIVE' => 'Obiectiv Campanie',
-  'LBL_RELATED' => 'Asociat',
-  'LBL_CLICKED_URL_KEY' => 'Cheie URL pe care s-a dat click',
-  'LBL_URL_CLICKED' => 'URL Accesat',
+  'LBL_LIST_END_DATE' => 'Data Sfarsit',
+  'LBL_LIST_FORM_TITLE' => 'Tinta Campanii',
+  'LBL_LIST_ID' => 'ID Lista Prospect',
+  'LBL_LIST_MARKETING_NAME' => 'ID Marketing',
+  'LBL_LIST_RECIPIENT_EMAIL' => 'Emailul destinatarului',
+  'LBL_LIST_RECIPIENT_NAME' => 'Nume Recipient',
+  'LBL_LIST_STATUS' => 'Statut',
+  'LBL_LIST_TYPE' => 'Tip',
+  'LBL_MODIFIED' => 'Modificat de',
+  'LBL_MODULE_NAME' => 'Log Campanii',
+  'LBL_MODULE_NAME_SINGULAR' => 'Log Campanii',
   'LBL_MORE_INFO' => 'Mai multe infomratii',
-  'LBL_CAMPAIGNS' => 'Campanii',
+  'LBL_NAME' => 'Nume:',
+  'LBL_RELATED' => 'Asociat',
+  'LBL_RELATED_ID' => 'ID Asociere',
+  'LBL_RELATED_TYPE' => 'Tip Asociere',
+  'LBL_SENT_EMAIL' => 'Email trimis',
+  'LBL_TARGETED_USER' => 'Utilizatori tinta',
+  'LBL_TARGET_ID' => 'ID Tinta',
+  'LBL_TARGET_TRACKER_KEY' => 'Tinta Urmaritor Cheie',
+  'LBL_TARGET_TYPE' => 'Tip Tinta',
+  'LBL_TEAM' => 'Echipa:',
+  'LBL_URL_CLICKED' => 'URL Accesat',
 );
 

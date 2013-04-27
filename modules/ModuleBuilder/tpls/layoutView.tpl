@@ -1,30 +1,16 @@
 {*
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 *}
@@ -38,11 +24,6 @@
 <table id='layoutEditorButtons' cellspacing='2'>
     <tr>
     {$buttons}
-	{if empty($disable_tabs)}
-	<td><input type="checkbox" {if $displayAsTabs}checked="true"{/if} id="tabsCheckbox" onclick="document.forms.prepareForSave.panels_as_tabs.value=this.checked">
-	   {sugar_translate label="LBL_TAB_PANELS" module="ModuleBuilder"}&nbsp;{sugar_help text=$mod.LBL_TAB_PANELS_HELP}
-	</input></td>
-	{/if}
 	{if $view == 'editview'}
 	<td><input type="checkbox" {if $syncDetailEditViews}checked="true"{/if} id="syncCheckbox" onclick="document.forms.prepareForSave.sync_detail_and_edit.value=this.checked">
 	   {sugar_translate label="LBL_SYNC_TO_DETAILVIEW" module="ModuleBuilder"}&nbsp;{sugar_help text=$mod.LBL_SYNC_TO_DETAILVIEW_HELP}
@@ -118,6 +99,7 @@
 <div id='panels' style='float:left; overflow-y:auto; overflow-x:hidden'>
 
 <h3>{$layouttitle}</h3>
+{counter name='idCounter' assign='idCounter' start='1'}
 {foreach from=$layout item='panel' key='panelid'}
 
     <div class='le_panel' id='{$idCount}'>
@@ -137,9 +119,28 @@
           <span class='panel_id' id='le_panelid_{$idCount}'>{$panelid}</span>
         </div>
         {if $panelid ne 'default'}
-            {capture assign="otherAttributes"}class="le_edit" style="float:right; cursor:pointer;" onclick="editPanelProperties('{$idCount}');"{/capture}
+            {capture assign="otherAttributes"}class="le_edit" style="float:left; cursor:pointer;" onclick="editPanelProperties('{$idCount}');"{/capture}
             {sugar_getimage name="edit_inline" ext=".gif" other_attributes=$otherAttributes}
         {/if}
+        <span id="le_paneltype_{$idCount}" style="float:left;">
+        &nbsp;&nbsp;{sugar_translate label="LBL_TABDEF_TYPE" module="ModuleBuilder"}&nbsp;{sugar_help text=$mod.LBL_TABDEF_TYPE_OPTION_HELP}:
+        {if $idCounter == 1}
+            {assign var="firstpanelid" value=$panelid}
+            {assign var="firstpanelidcount" value=$idCount}
+        {/if}
+        <select id="le_paneltype_select_{$idCount}" onchange="document.forms.prepareForSave.tabDefs_{$panelid}_newTab.value=this.value; showHideBox(this.value, {$idCount}, '{$panelid}', '{$firstpanelid}', {$firstpanelidcount});"
+                title="{sugar_translate label="LBL_TABDEF_TYPE_HELP" module="ModuleBuilder"}">
+          <option value="0" {if $tabDefs[$panel_upper].newTab == false}selected="selected"{/if}>{sugar_translate label="LBL_TABDEF_TYPE_OPTION_PANEL" module="ModuleBuilder"}</option>
+          {if $disable_tabs != true}
+          <option value="1" {if $tabDefs[$panel_upper].newTab == true}selected="selected"{/if}>{sugar_translate label="LBL_TABDEF_TYPE_OPTION_TAB" module="ModuleBuilder"}</option>
+          {/if}
+        </select>
+        </span>
+        <span id="le_panelcollapse_{$idCount}" style="float:right;{if isset($tabDefs[$panel_upper].newTab) && $tabDefs[$panel_upper].newTab == true}display:none;{/if}">
+        &nbsp;{sugar_translate label="LBL_TABDEF_COLLAPSE" module="ModuleBuilder"}?
+        <input type="checkbox" title="{sugar_translate label="LBL_TABDEF_COLLAPSE_HELP" module="ModuleBuilder"}" {if $tabDefs[$panel_upper].panelDefault == "collapsed"}checked="checked"{/if}
+          onclick="{literal}if(this.checked) { document.forms.prepareForSave.tabDefs_{/literal}{$panelid}{literal}_panelDefault.value='collapsed'; } else { document.forms.prepareForSave.tabDefs_{/literal}{$panelid}{literal}_panelDefault.value='expanded';}{/literal}" />
+        </span>
         {counter name='idCount' assign='idCount' print=false}
 
         {foreach from=$panel item='row' key='rid'}
@@ -192,6 +193,7 @@
     {/foreach}
 
     </div>
+    {counter name='idCounter' assign='idCounter' print=false}
 {/foreach}
 
 </div>
@@ -203,6 +205,11 @@
 <input type='hidden' name='view_module' value='{$view_module}'>
 <input type='hidden' name='view' value='{$view}'>
 <input type='hidden' name="panels_as_tabs" value='{$displayAsTabs}'>
+{foreach from=$layout item='panel' key='panelid'}
+{capture name=panel_upper assign=panel_upper}{$panelid|upper}{/capture}
+<input type="hidden" name="tabDefs_{$panelid}_newTab" value="{if $tabDefs[$panel_upper].newTab == true}1{else}0{/if}" />
+<input type="hidden" name="tabDefs_{$panelid}_panelDefault" value="{$tabDefs[$panel_upper].panelDefault}" />
+{/foreach}
 <input type='hidden' name="sync_detail_and_edit" value='{$syncDetailEditViews}'>
 <!-- BEGIN SUGARCRM flav=ent ONLY -->
 {if $fromPortal}
@@ -230,7 +237,35 @@ var editPanelProperties = function (panelId, view) {
                 + "&view=" + encodeURIComponent(view) + "&id_label=le_panelname_" + encodeURIComponent(panelId) + "&name_label=label_" + encodeURIComponent(key_label.toUpperCase())
                 + "&title_label=" + encodeURIComponent(SUGAR.language.get("ModuleBuilder", "LBL_LABEL_TITLE")) + "&value_label=" + encodeURIComponent(value_label);
     ModuleBuilder.getContent(params);
-}; 
+};
+
+var showHideBox = function (newTab, idCount, panelId, firstPanelId, firstPanelIdCount) {
+    var collapseBox = document.getElementById('le_panelcollapse_' + idCount);
+    if (newTab == "1") {
+        collapseBox.style.display = 'none';
+        if (idCount != firstPanelIdCount) {
+            document.getElementById('le_paneltype_select_' + firstPanelIdCount).options[1].selected = true;
+            document.getElementById('le_panelcollapse_' + firstPanelIdCount).style.display = 'none';
+            document.forms.prepareForSave['tabDefs_' + firstPanelId + '_newTab'].value = '1';
+            document.getElementById('le_paneltype_select_' + firstPanelIdCount).disabled = true;
+        }
+    }
+    else {
+        var elem = document.getElementById('prepareForSave').elements;
+        var has_tab = false;
+        collapseBox.style.display = 'block';
+        for (var i = 0; i < elem.length; i++) {
+            if (elem[i].name.match(/^tabDefs_.*_newTab$/)) {
+                if (elem[i].value == '1' && elem[i].name != panelId && elem[i].name != 'tabDefs_'+firstPanelId+'_newTab')
+                    has_tab = true;
+            }
+        }
+        if (has_tab == false) {
+            document.getElementById('le_paneltype_select_' + firstPanelIdCount).disabled = false;
+        }
+    }
+};
+
 {/literal}
 var editFieldProperties = function (idCount, label) {ldelim}
 	var value_label = document.getElementById('le_label_' + idCount).innerHTML.replace(/^\s+|\s+$/g,''); 
@@ -249,6 +284,8 @@ var editFieldProperties = function (idCount, label) {ldelim}
 	
 {rdelim}
 
+Studio2.firstPanelId = "{$firstpanelid}";
+Studio2.firstPanelIdCount = {$firstpanelidcount};
 Studio2.init();
 if('{$view}'.toLowerCase() != 'editview')
     ModuleBuilder.helpSetup('layoutEditor','default'+'{$view}'.toLowerCase());

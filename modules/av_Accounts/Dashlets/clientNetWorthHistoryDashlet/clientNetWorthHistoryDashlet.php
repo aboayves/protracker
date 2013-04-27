@@ -145,6 +145,7 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 		$ss->assign('selected_value', $selected_value);
 		$ss->assign('select_option', $select_option);
 		$ss->assign('users_options', $users_array_opt);
+		ob_clean();
 		return $ss->fetch('modules/av_Accounts/Dashlets/clientNetWorthHistoryDashlet/clientNetWorthHistoryDashletConfigure.tpl');        
     }
 	//query on demand

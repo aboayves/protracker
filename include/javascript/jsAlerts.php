@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -36,10 +22,8 @@ class jsAlerts{
 	function jsAlerts(){
 		global $app_strings;
 		$this->script .= <<<EOQ
-		if(window.addEventListener){
-			window.addEventListener("load", checkAlerts, false);
-		}else{
-			window.attachEvent("onload", checkAlerts);
+		if (!alertsTimeoutId) {
+		    checkAlerts();
 		}
 
 EOQ;
@@ -53,11 +37,28 @@ EOQ;
 		$this->script .= 'addAlert("' . addslashes($type) .'", "' . addslashes($name). '","' . addslashes($subtitle). '", "'. addslashes(str_replace(array("\r", "\n"), array('','<br>'),$description)) . '",' . $countdown . ',"'.addslashes($redirect).'")' . "\n";
 	}
 
-	function getScript(){
-		return "<script>" . $this->script . "</script>";
-	}
+    function getScript()
+    {
+        return "<script>secondsSinceLoad = 0; alertList = [];" . $this->script . "</script>";
+    }
 
-	function addActivities(){
+    /*
+     * To return the name of parent bean.
+     * @param $parentType string parent type
+     * @param $parentId string parent id
+     */
+    function getRelatedName($parentType, $parentId)
+    {
+        if (!empty($parentType) && !empty($parentId)) {
+            $parentBean = BeanFactory::getBean($parentType, $parentId);
+            if (($parentBean instanceof SugarBean) && isset($parentBean->name)) {
+                return $parentBean->name;
+            }
+        }
+        return '';
+    }
+
+    function addActivities(){
 		global $app_list_strings, $timedate, $current_user, $app_strings;
 		global $sugar_config;
 
@@ -81,13 +82,13 @@ EOQ;
 		}
 
 		// Prep Meetings Query
-    	$selectMeetings = "SELECT meetings.id, name,reminder_time, $desc,location, date_start, assigned_user_id
+        $selectMeetings = "SELECT meetings.id, name,reminder_time, $desc,location, status, parent_type, parent_id, date_start, assigned_user_id
 			FROM meetings LEFT JOIN meetings_users ON meetings.id = meetings_users.meeting_id
 			WHERE meetings_users.user_id ='".$current_user->id."'
 				AND meetings_users.accept_status != 'decline'
 				AND meetings.reminder_time != -1
 				AND meetings_users.deleted != 1
-				AND meetings.status != 'Held'
+				AND meetings.status = 'Planned'
 			    AND date_start >= $dateTimeNow
 			    AND date_start <= $dateTimeMax";
 		$result = $db->query($selectMeetings);
@@ -138,7 +139,10 @@ EOQ;
 				//$desc = str_replace('"', '\"', $desc);
 			}
 
+            $relatedToMeeting = $this->getRelatedName($row['parent_type'], $row['parent_id']);
+
 			$description = empty($desc1) ? '' : $app_strings['MSG_JS_ALERT_MTG_REMINDER_AGENDA'].$desc1."\n";
+            $description = $description  ."\n" .$app_strings['MSG_JS_ALERT_MTG_REMINDER_STATUS'] . $row['status'] ."\n". $app_strings['MSG_JS_ALERT_MTG_REMINDER_RELATED_TO']. $relatedToMeeting;
 
 
 			// standard functionality
@@ -154,13 +158,13 @@ EOQ;
 
 		// Prep Calls Query
 		$selectCalls = "
-				SELECT calls.id, name, reminder_time, $desc, date_start
+				SELECT calls.id, name, reminder_time, $desc, date_start, status, parent_type, parent_id
 				FROM calls LEFT JOIN calls_users ON calls.id = calls_users.call_id
 				WHERE calls_users.user_id ='".$current_user->id."'
 				    AND calls_users.accept_status != 'decline'
 				    AND calls.reminder_time != -1
 					AND calls_users.deleted != 1
-					AND calls.status != 'Held'
+					AND calls.status = 'Planned'
 				    AND date_start >= $dateTimeNow
 				    AND date_start <= $dateTimeMax";
 
@@ -173,8 +177,12 @@ EOQ;
 			$timeStart -= $timeRemind;
 			$row['description'] = (isset($row['description'])) ? $row['description'] : '';
 
+            $relatedToCall = $this->getRelatedName($row['parent_type'], $row['parent_id']);
 
-			$this->addAlert($app_strings['MSG_JS_ALERT_MTG_REMINDER_CALL'], $row['name'], $app_strings['MSG_JS_ALERT_MTG_REMINDER_TIME'].$timedate->to_display_date_time($db->fromConvert($row['date_start'], 'datetime')) , $app_strings['MSG_JS_ALERT_MTG_REMINDER_DESC'].$row['description']. $app_strings['MSG_JS_ALERT_MTG_REMINDER_CALL_MSG'] , $timeStart - strtotime($alertDateTimeNow), 'index.php?action=DetailView&module=Calls&record=' . $row['id']);
+            $callDescription = $row['description'] ."\n" .$app_strings['MSG_JS_ALERT_MTG_REMINDER_STATUS'] . $row['status'] ."\n". $app_strings['MSG_JS_ALERT_MTG_REMINDER_RELATED_TO']. $relatedToCall;
+
+
+            $this->addAlert($app_strings['MSG_JS_ALERT_MTG_REMINDER_CALL'], $row['name'], $app_strings['MSG_JS_ALERT_MTG_REMINDER_TIME'].$timedate->to_display_date_time($db->fromConvert($row['date_start'], 'datetime')) , $app_strings['MSG_JS_ALERT_MTG_REMINDER_DESC'].$callDescription. $app_strings['MSG_JS_ALERT_MTG_REMINDER_CALL_MSG'] , $timeStart - strtotime($alertDateTimeNow), 'index.php?action=DetailView&module=Calls&record=' . $row['id']);
 		}
 	}
 

@@ -1,33 +1,24 @@
 {*
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 *}
 <!-- END METADATA GENERATED CONTENT -->
+
+{{if $useTabs}}
+    <!-- include a closing div if the useTabs variable is set to true -->
+    </div>
+{{/if}}
             <div id="email_options">
             <table width="100%" border="0" cellspacing="1" cellpadding="0" class="edit view">
                             <tr>
@@ -408,15 +399,15 @@
                         </tr>
                         <tr>
                             <td width="15%" scope="row"><slot><nobr>{$MOD.LBL_YOUR_PUBLISH_URL|strip_semicolon}:</nobr></slot></td>
-                            <td colspan=2><slot>{$CALENDAR_PUBLISH_URL}</slot></td>
+                            <td colspan=2><span class="calendar_publish_ok">{$CALENDAR_PUBLISH_URL}</span><span class="calendar_publish_none" style="display: none">{$MOD.LBL_NO_KEY}</span></td>
                         </tr>
                         <tr>
                             <td width="17%" scope="row"><slot>{$MOD.LBL_SEARCH_URL|strip_semicolon}:</slot></td>
-                            <td colspan=2><slot>{$CALENDAR_SEARCH_URL}</slot></td>
+                            <td colspan=2><span class="calendar_publish_ok">{$CALENDAR_SEARCH_URL}</span><span class="calendar_publish_none" style="display: none">{$MOD.LBL_NO_KEY}</span></td>
                         </tr>
                         <tr>
                             <td width="15%" scope="row"><slot>{$MOD.LBL_ICAL_PUB_URL|strip_semicolon}: {sugar_help text=$MOD.LBL_ICAL_PUB_URL_HELP}</slot></td>
-                            <td colspan=2><slot>{$CALENDAR_ICAL_URL}</slot></td>
+                            <td colspan=2><span class="calendar_publish_ok">{$CALENDAR_ICAL_URL}</span><span class="calendar_publish_none" style="display: none">{$MOD.LBL_NO_KEY}</span></td>
                         </tr>
                         <tr>
                             <td width="17%" scope="row"><slot>{$MOD.LBL_FDOW}:</slot>&nbsp;{sugar_help text=$MOD.LBL_FDOW_TEXT}</td>
@@ -450,13 +441,27 @@ function Admin_check(){
 		return true;
 }
 
+
 $(document).ready(function() {
-    $('#calendar_publish_key').keypress(function(){
-        $('#cal_pub_key_span').html( $(this).val());
+	var checkKey = function(key) {
+		if(key != '') {
+			$(".calendar_publish_ok").css('display', 'inline');
+			$(".calendar_publish_none").css('display', 'none');
+	        $('#cal_pub_key_span').html( key );
+	        $('#ical_pub_key_span').html( key );
+	        $('#search_pub_key_span').html( key );
+		} else {
+			$(".calendar_publish_ok").css('display', 'none');
+			$(".calendar_publish_none").css('display', 'inline');
+		}
+	};
+    $('#calendar_publish_key').keyup(function(){
+    	checkKey($(this).val());
     });
     $('#calendar_publish_key').change(function(){
-            $('#cal_pub_key_span').html( $(this).val());
+    	checkKey($(this).val());
     });
+    checkKey($('#calendar_publish_key').val());
 });
 {/literal}
 </script>

@@ -1,30 +1,17 @@
 {*
 /*********************************************************************************
- * Conţinutul acestui fişier sunt supuse la subscrierea de vizitare SugarCRM
- * Acord ("licenţă"), care pot fi vizualizate la
- * http://www.sugarcrm.com/crm/products/sugar-enterprise-eula.html
- * Prin instalarea sau folosirea acestui fişier, Tu ai fost de acord să necondiţionat
- * Termenii şi condiţiile de licenţă, si nu puteti folosi acest dosar, cu excepţia cazurilor
- * In care este in conformitate cu licenţa. Potrivit termenilor licenţei, Tu nu vei,
- * : 1) sublicenţia, revinde, chirie, leasing, redistribui, atribuiţi
- * Sau altfel transfera drepturile dvs. de a Software-ului, şi 2) utiliza Software-ul
- * Pentru timesharing sau în scopuri de birou de servicii, cum ar fi ce gazduieste Software pentru
- * Câştig comercial şi / sau în beneficiul unui terţ. Utilizarea Software-ului
- * Pot fi supuse taxelor aplicabile şi orice utilizare a Software-ului fără a
- * Plata taxelor aplicabile este strict interzisă. Nu aveţi dreptul de a
- * Elimina drepturile de autor SugarCRM de codul sursă sau interfaţa cu utilizatorul.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * Toate exemplarele din Codul Acoperit trebuie să fie inclus pe fiecare ecran de interfaţă a utilizatorului:
- * (I) Realizat "de SugarCRM" şi logo-ul
- * (Ii) dreptul de autor SugarCRM
- * În aceeaşi formă în care apar în distribuţie. A se vedea licenţa completă pentru
- * Cerinţe.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Garantia, limitele de răspundere şi despăgubirile sunt declarate în mod expres
- * În licenţă. Vă rugăm să consultaţi licenţa pentru limba specifica
- * Care guvernează aceste drepturi şi limitările sub licenţă. Portiuni create
- * De SugarCRM sunt Copyright (C) 2004-2011 SugarCRM, Inc; Toate drepturile rezervate.
-  ********************************************************************************/
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
 *}
 <script type="text/javascript" src='{sugar_getjspath file="include/SugarFields/Fields/Address/SugarFieldAddress.js"}'></script>
 {{assign var="key" value=$displayParams.key|upper}}

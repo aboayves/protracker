@@ -14,7 +14,6 @@ array (
         ),
       ),
       'maxColumns' => '2',
-      'useTabs' => true,
       'widths' => 
       array (
         0 => 
@@ -44,6 +43,35 @@ array (
         ),
       ),
       'syncDetailEditViews' => false,
+	  'useTabs' => true,
+	 'tabDefs' => 
+      array (
+        'lbl_account_information' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel2' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel1' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel4' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel5' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (

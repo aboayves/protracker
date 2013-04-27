@@ -109,29 +109,14 @@ array (
             'comment' => '',
             'label' => 'LBL_INCOME_PER_MONTH',
           ),
-          1 => 
-          array (
-            'name' => 'income_per_year',
-            'comment' => '',
-            'label' => 'LBL_INCOME_PER_YEAR',
-          ),
-        ),
-        1 => 
-        array (
-          0 => 
+		  1 => 
           array (
             'name' => 'savings_per_month',
             'comment' => '',
             'label' => 'LBL_SAVINGS_PER_MONTH',
           ),
-          1 => 
-          array (
-            'name' => 'savings_per_year',
-            'comment' => '',
-            'label' => 'LBL_SAVINGS_PER_YEAR',
-          ),
         ),
-        2 => 
+        1 => 
         array (
           0 => 
           array (
@@ -139,26 +124,11 @@ array (
             'comment' => '',
             'label' => 'LBL_FIXED_EXPENSES_PER_MONTH',
           ),
-          1 => 
-          array (
-            'name' => 'fixed_expenses_per_year',
-            'comment' => '',
-            'label' => 'LBL_FIXED_EXPENSES_PER_YEAR',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
+		 1 => 
           array (
             'name' => 'variable_expenses_per_month',
             'comment' => '',
             'label' => 'LBL_VARIABLE_EXPENSES_PER_MONTH',
-          ),
-          1 => 
-          array (
-            'name' => 'variable_expenses_per_year',
-            'comment' => '',
-            'label' => 'LBL_VARIABLE_EXPENSES_PER_YEAR',
           ),
         ),
       ),

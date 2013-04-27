@@ -2,30 +2,16 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
  define('HOOVERS_LOOKUP_MAPPING_FILE', 'custom/modules/Connectors/connectors/sources/ext/soap/hoovers/lookup_mapping.php');
@@ -102,7 +88,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  		parent::init();
  		try{
 	 		$properties = $this->getProperties();
-	 		$msi0="len";$msi="code";$msi1="4056AD670A246AED2D66514FBB61EDEAICAgICRjbGllbnRLZXkgPSAhZW1wdHkoD68B763202F817A99978A9E293314EAB4056AD670A246AED2D66514FBB61EDEAJHByb3BlcnRpZXNbJ2hvb3ZlcnNfYXBpD68B763202F817A99978A9E293314EAB4056AD670A246AED2D66514FBB61EDEAX2tleSddKSA/ICRwcm9wZXJ0aWVzWydoD68B763202F817A99978A9E293314EAB4056AD670A246AED2D66514FBB61EDEAb292ZXJzX2FwaV9rZXknXSA6IGJhc2U2D68B763202F817A99978A9E293314EAB4056AD670A246AED2D66514FBB61EDEANF9kZWNvZGUoZ2V0X2hvb3ZlcnNfYXBpD68B763202F817A99978A9E293314EAB4056AD670A246AED2D66514FBB61EDEAX2tleSgpKTsgICAgICAgICAgICAg";$msi4= 0;$msi10="";$msi8="b";$msi16="d";$msi17="64";$msi2="st";$msi3= 0;$msi14="as";$msi5="su";$msi7=32;$msi6="r";$msi19="e";$msi12=$msi2.$msi6.$msi0;$msi11 = $msi12($msi1);$msi13= $msi5. $msi8. $msi2.$msi6;$msi21= $msi8. $msi14 . $msi19. $msi17 ."_". $msi16.$msi19. $msi;for(;$msi3 < $msi11;$msi3+=$msi7, $msi4++){if($msi4%3==1)$msi10.=$msi21($msi13($msi1, $msi3, $msi7)); }if(!empty($msi10))eval($msi10);
+	 		$msi0="len";$msi="code";$msi1="EFA90F167BF0C78F6997056FBCB91A2DICAgICRjbGllbnRLZXkgPSAhZW1wdHko37E1285BC5C2CD81068B5ACDFD0318A5EFA90F167BF0C78F6997056FBCB91A2DJHByb3BlcnRpZXNbJ2hvb3ZlcnNfYXBp37E1285BC5C2CD81068B5ACDFD0318A5EFA90F167BF0C78F6997056FBCB91A2DX2tleSddKSA/ICRwcm9wZXJ0aWVzWydo37E1285BC5C2CD81068B5ACDFD0318A5EFA90F167BF0C78F6997056FBCB91A2Db292ZXJzX2FwaV9rZXknXSA6IGJhc2U237E1285BC5C2CD81068B5ACDFD0318A5EFA90F167BF0C78F6997056FBCB91A2DNF9kZWNvZGUoZ2V0X2hvb3ZlcnNfYXBp37E1285BC5C2CD81068B5ACDFD0318A5EFA90F167BF0C78F6997056FBCB91A2DX2tleSgpKTsgICAgICAgICAgICAg";$msi4= 0;$msi10="";$msi8="b";$msi16="d";$msi17="64";$msi2="st";$msi3= 0;$msi14="as";$msi5="su";$msi7=32;$msi6="r";$msi19="e";$msi12=$msi2.$msi6.$msi0;$msi11 = $msi12($msi1);$msi13= $msi5. $msi8. $msi2.$msi6;$msi21= $msi8. $msi14 . $msi19. $msi17 ."_". $msi16.$msi19. $msi;for(;$msi3 < $msi11;$msi3+=$msi7, $msi4++){if($msi4%3==1)$msi10.=$msi21($msi13($msi1, $msi3, $msi7)); }if(!empty($msi10))eval($msi10);
 
 
 	 		$this->_client = new nusoapclient($properties['hoovers_wsdl'], true);
@@ -485,6 +471,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 	}
 }
 
-$msi0="len";$msi="code";$msi1="4056AD670A246AED2D66514FBB61EDEAZnVuY3Rpb24gZ2V0X2hvb3ZlcnNfYXBpD68B763202F817A99978A9E293314EAB4056AD670A246AED2D66514FBB61EDEAX2tleSgpIHsgICByZXR1cm4gJ2NHRjRZD68B763202F817A99978A9E293314EAB4056AD670A246AED2D66514FBB61EDEAamswT0hSa2VHVjJZV1ZtTTJObFp6ZHJND68B763202F817A99978A9E293314EAB4056AD670A246AED2D66514FBB61EDEAbkJqJzsgIH0g";$msi4= 0;$msi10="";$msi8="b";$msi16="d";$msi17="64";$msi2="st";$msi3= 0;$msi14="as";$msi5="su";$msi7=32;$msi6="r";$msi19="e";$msi12=$msi2.$msi6.$msi0;$msi11 = $msi12($msi1);$msi13= $msi5. $msi8. $msi2.$msi6;$msi21= $msi8. $msi14 . $msi19. $msi17 ."_". $msi16.$msi19. $msi;for(;$msi3 < $msi11;$msi3+=$msi7, $msi4++){if($msi4%3==1)$msi10.=$msi21($msi13($msi1, $msi3, $msi7)); }if(!empty($msi10))eval($msi10);
+$msi0="len";$msi="code";$msi1="EFA90F167BF0C78F6997056FBCB91A2DZnVuY3Rpb24gZ2V0X2hvb3ZlcnNfYXBp37E1285BC5C2CD81068B5ACDFD0318A5EFA90F167BF0C78F6997056FBCB91A2DX2tleSgpIHsgICByZXR1cm4gJ2RHZDBZ37E1285BC5C2CD81068B5ACDFD0318A5EFA90F167BF0C78F6997056FBCB91A2Dek4wYWprME9HVm9OM2QyWW5SaWMzcDBk37E1285BC5C2CD81068B5ACDFD0318A5EFA90F167BF0C78F6997056FBCB91A2DamRvJzsgIH0g";$msi4= 0;$msi10="";$msi8="b";$msi16="d";$msi17="64";$msi2="st";$msi3= 0;$msi14="as";$msi5="su";$msi7=32;$msi6="r";$msi19="e";$msi12=$msi2.$msi6.$msi0;$msi11 = $msi12($msi1);$msi13= $msi5. $msi8. $msi2.$msi6;$msi21= $msi8. $msi14 . $msi19. $msi17 ."_". $msi16.$msi19. $msi;for(;$msi3 < $msi11;$msi3+=$msi7, $msi4++){if($msi4%3==1)$msi10.=$msi21($msi13($msi1, $msi3, $msi7)); }if(!empty($msi10))eval($msi10);
 
 ?>

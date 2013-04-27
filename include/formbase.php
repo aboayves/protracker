@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -119,10 +105,38 @@ function populateFromPost($prefix, &$focus, $skipRetrieve=false) {
 			$focus->$field = $value;
 		}
 	}
-
+    populateFromPostACL($focus);
 	return $focus;
 }
+/**
+ * If current user have not permit to change field function replace default value
+ *
+ * @param SugarBean $focus
+ */
+function populateFromPostACL(SugarBean $focus)
+{
+    $insert = !isset($focus->id) || $focus->new_with_id;
+    $isOwner = $focus->isOwner($GLOBALS['current_user']->id);
 
+    // set up a default bean as per bug 46448, without bringing EditView into the mix
+    // bug 58730
+    require_once 'data/BeanFactory.php';
+
+    $defaultBean = BeanFactory::getBean($focus->module_name);
+    $defaultBean->fill_in_additional_detail_fields();
+    $defaultBean->assigned_user_id = $GLOBALS['current_user']->id;
+
+    foreach (array_keys($focus->field_defs) as $field) {
+        $fieldAccess = ACLField::hasAccess($field, $focus->module_dir, $GLOBALS['current_user']->id, $isOwner);
+        if (!in_array($fieldAccess, array(2, 4))) {
+            if ($insert) {
+                $focus->$field = $defaultBean->$field;
+            } else {
+                unset($focus->$field);
+            }
+        }
+    }
+}
 
 function add_hidden_elements($key, $value) {
 
@@ -402,6 +416,143 @@ function get_teams_hidden_inputs($module='') {
 	   }
 	}
 	return $input;    
+}
+
+/**
+ * Functions from Save2.php
+ * @see include/generic/Save2.php
+ */
+
+function add_prospects_to_prospect_list($parent_id,$child_id)
+{
+    $focus=BeanFactory::getBean('Prospects');
+    if(is_array($child_id)){
+        $uids = $child_id;
+    }
+    else{
+        $uids = array($child_id);
+    }
+
+    $relationship = '';
+    foreach($focus->get_linked_fields() as $field => $def) {
+        if ($focus->load_relationship($field)) {
+            if ( $focus->$field->getRelatedModuleName() == 'ProspectLists' ) {
+                $relationship = $field;
+                break;
+            }
+        }
+    }
+
+    if ( $relationship != '' ) {
+        foreach ( $uids as $id) {
+            $focus->retrieve($id);
+            $focus->load_relationship($relationship);
+            $focus->prospect_lists->add( $parent_id );
+        }
+    }
+}
+
+function add_to_prospect_list($query_panel,$parent_module,$parent_type,$parent_id,$child_id,$link_attribute,$link_type,$parent)
+{
+    $GLOBALS['log']->debug('add_prospects_to_prospect_list:parameters:'.$query_panel);
+    $GLOBALS['log']->debug('add_prospects_to_prospect_list:parameters:'.$parent_module);
+    $GLOBALS['log']->debug('add_prospects_to_prospect_list:parameters:'.$parent_type);
+    $GLOBALS['log']->debug('add_prospects_to_prospect_list:parameters:'.$parent_id);
+    $GLOBALS['log']->debug('add_prospects_to_prospect_list:parameters:'.$child_id);
+    $GLOBALS['log']->debug('add_prospects_to_prospect_list:parameters:'.$link_attribute);
+    $GLOBALS['log']->debug('add_prospects_to_prospect_list:parameters:'.$link_type);
+    require_once('include/SubPanel/SubPanelTiles.php');
+
+
+    if (!class_exists($parent_type)) {
+        require_once('modules/'.cleanDirName($parent_module).'/'.cleanDirName($parent_type).'.php');
+    }
+    $focus = new $parent_type();
+    $focus->retrieve($parent_id);
+    if(empty($focus->id)) {
+        return false;
+    }
+    if(empty($parent)) {
+        return false;
+    }
+
+    //if link_type is default then load relationship once and add all the child ids.
+    $relationship_attribute=$link_attribute;
+
+    //find all prospects based on the query
+
+    $subpanel = new SubPanelTiles($parent, $parent->module_dir);
+    $thisPanel=$subpanel->subpanel_definitions->load_subpanel($query_panel);
+    if(empty($thisPanel)) {
+        return false;
+    }
+
+    // bugfix #57850  filter prospect list based on marketing_id (if it's present)
+    if (isset($_REQUEST['marketing_id']) && $_REQUEST['marketing_id'] != 'all')
+    {
+        $thisPanel->_instance_properties['function_parameters']['EMAIL_MARKETING_ID_VALUE'] = $_REQUEST['marketing_id'];
+    }
+
+    $result = SugarBean::get_union_related_list($parent, '', '', '', 0, -99,-99,'', $thisPanel);
+
+    if(!empty($result['list'])) {
+        foreach($result['list'] as $object) {
+            if ($link_type != 'default') {
+                $relationship_attribute=strtolower($object->$link_attribute);
+            }
+            $GLOBALS['log']->debug('add_prospects_to_prospect_list:relationship_attribute:'.$relationship_attribute);
+            // load relationship for the first time or on change of relationship atribute.
+            if (empty($focus->$relationship_attribute)) {
+                $focus->load_relationship($relationship_attribute);
+            }
+            //add
+            $focus->$relationship_attribute->add($object->$child_id);
+        }
+    }
+}
+
+//Link rows returned by a report to parent record.
+function save_from_report($report_id,$parent_id, $module_name, $relationship_attr_name) {
+    global $beanFiles;
+    global $beanList;
+
+    $GLOBALS['log']->debug("Save2: Linking with report output");
+    $GLOBALS['log']->debug("Save2:Report ID=".$report_id);
+    $GLOBALS['log']->debug("Save2:Parent ID=".$parent_id);
+    $GLOBALS['log']->debug("Save2:Module Name=".$module_name);
+    $GLOBALS['log']->debug("Save2:Relationship Attribute Name=".$relationship_attr_name);
+
+    $GLOBALS['log']->debug("Save2:Bean Name=" . $module_name);
+    $focus = BeanFactory::newBean($module_name);
+
+    $focus->retrieve($parent_id);
+    $focus->load_relationship($relationship_attr_name);
+
+    //fetch report definition.
+    global $current_language, $report_modules, $modules_report;
+
+    $mod_strings = return_module_language($current_language,"Reports");
+
+
+    $saved = new SavedReport();
+    $saved->disable_row_level_security = true;
+    $saved->retrieve($report_id, false);
+
+    //initiailize reports engine with the report definition.
+    require_once('modules/Reports/SubpanelFromReports.php');
+    $report = new SubpanelFromReports($saved);
+    $report->run_query();
+
+    $sql = $report->query_list[0];
+    $GLOBALS['log']->debug("Save2:Report Query=".$sql);
+    $result = $report->db->query($sql);
+
+    $reportBean = BeanFactory::newBean($saved->module);
+    while($row = $report->db->fetchByAssoc($result))
+    {
+        $reportBean->id = $row['primaryid'];
+        $focus->$relationship_attr_name->add($reportBean);
+    }
 }
 
 ?>

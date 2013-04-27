@@ -30,7 +30,6 @@ array (
         ),
       ),
       'maxColumns' => '2',
-      'useTabs' => true,
       'widths' => 
       array (
         0 => 
@@ -60,6 +59,35 @@ array (
         ),
       ),
       'syncDetailEditViews' => true,
+	  'useTabs' => true,
+	  'tabDefs' => 
+      array (
+        'lbl_account_information' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel2' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel1' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel4' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel5' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -84,19 +112,6 @@ array (
         ),
         1 => 
         array (
-		  0 => 
-          array (
-            'name' => 'report_name',
-            'label' => 'LBL_REPORT_NAME',
-          ),
-          1 => 
-          array (
-            'name' => 'av_offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
-          ),
-        ),
-        2 => 
-        array (
           0 => 
           array (
             'name' => 'primary_contact_name',
@@ -107,8 +122,13 @@ array (
             'name' => 'secondary_contact_name',
             'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
           ),
+		  1 => 
+          array (
+            'name' => 'secondary_contact_name',
+            'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
+          ),
         ),
-        3 => 
+	    2 => 
         array (
           0 => 
           array (
@@ -134,7 +154,7 @@ array (
 			
 			<span>
 				{if $fields.primary_contact_salutation.value}<b>{$fields.primary_contact_salutation.value}</b>{/if}
-				{if $fields.primary_contact_birthdate.value}</br>DOB: {$fields.primary_contact_birthdate.value|date_format:"%m/%d/%Y"}{/if}
+				{if $fields.primary_contact_birthdate.value}</br>DOB: {$fields.primary_contact_birthdate.value}{/if}
 				{if $fields.primary_contact_age.value}</br>Age: {$fields.primary_contact_age.value}{/if}
 				{if $fields.primary_contact_ssn.value}</br>SSN: {$fields.primary_contact_ssn.value}{/if}
 				{if $fields.primary_contact_employer.value}</br>Employer: {$fields.primary_contact_employer.value}{/if}
@@ -164,7 +184,7 @@ array (
 
 				<span>
 				{if $fields.secondary_contact_salutation.value}<b>{$fields.secondary_contact_salutation.value}</b>{/if}
-				{if $fields.secondary_contact_birthdate.value}</br>DOB: {$fields.secondary_contact_birthdate.value|date_format:"%m/%d/%Y"}{/if}
+				{if $fields.secondary_contact_birthdate.value}</br>DOB: {$fields.secondary_contact_birthdate.value}{/if}
 				{if $fields.secondary_contact_age.value}</br>Age: {$fields.secondary_contact_age.value}{/if}
 				{if $fields.secondary_contact_ssn.value}</br>SSN: {$fields.secondary_contact_ssn.value}{/if}
 				{if $fields.secondary_contact_employer.value}</br>Employer: {$fields.secondary_contact_employer.value}{/if}
@@ -172,7 +192,16 @@ array (
 				',
           ),
         ),
-        4 => 
+		3 => 
+        array (
+
+          1 => 
+          array (
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
+          ),
+        ),
+        5 => 
         array (
           0 => 
           array (
@@ -187,7 +216,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -202,7 +231,7 @@ array (
             'label' => 'LBL_PRIORITY',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -216,7 +245,7 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 
           array (
@@ -231,7 +260,7 @@ array (
             'label' => 'LBL_PHASE',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -242,7 +271,7 @@ array (
           ),
           1 => 'campaign_name',
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -256,7 +285,7 @@ array (
             'label' => 'LBL_TAX_YEAR_END_DATE',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => '',
           1 => 
@@ -266,7 +295,7 @@ array (
             'label' => 'LBL_DOCUMENT_PATH',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -276,7 +305,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (

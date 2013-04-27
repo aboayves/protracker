@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 $_REQUEST['edit']='true';
@@ -188,7 +174,9 @@ $javascript->setFormName('EditView');
 
 //If we are creating a duplicate, remove the email_password from being required since this
 //can be derived from the InboundEmail we are duplicating from
-if($isDuplicate && isset($focus->required_fields['email_password']))
+// Bug 47863 - email_password shouldn't be required on a modified Inbound Email account
+// either.
+if(($isDuplicate || !$validatePass) && isset($focus->required_fields['email_password']))
 {
    unset($focus->required_fields['email_password']);
 }
@@ -399,6 +387,32 @@ $xtpl->assign("TEAM_SET_FIELD", $code);
 
 //$javascript = get_set_focus_js(). $javascript->getScript() . $quicksearch_js;
 $xtpl->assign('JAVASCRIPT', get_set_focus_js(). $javascript->getScript() . $quicksearch_js);
+
+require_once('include/Smarty/plugins/function.sugar_help.php');
+$tipsStrings = array(
+    'LBL_SSL_DESC',
+    'LBL_ASSIGN_TO_TEAM_DESC',
+    'LBL_ASSIGN_TO_GROUP_FOLDER_DESC',
+    'LBL_FROM_ADDR_DESC',
+    'LBL_CREATE_CASE_HELP',
+    'LBL_CREATE_CASE_REPLY_TEMPLATE_HELP',
+    'LBL_ALLOW_OUTBOUND_GROUP_USAGE_DESC',
+    'LBL_AUTOREPLY_HELP',
+    'LBL_FILTER_DOMAIN_DESC',
+    'LBL_MAX_AUTO_REPLIES_DESC',
+);
+$smarty = null;
+$tips = array();
+foreach ($tipsStrings as $string)
+{
+    if (!empty($mod_strings[$string]))
+    {
+        $tips[$string] = smarty_function_sugar_help(array(
+            'text' => $mod_strings[$string]
+        ), $smarty);
+    }
+}
+$xtpl->assign('TIPS', $tips);
 
 // WINDOWS work arounds
 //if(is_windows()) {

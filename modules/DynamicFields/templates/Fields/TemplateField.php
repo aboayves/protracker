@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 $GLOBALS['studioReadOnlyFields'] = array('date_entered'=>1, 'date_modified'=>1, 'created_by'=>1, 'id'=>1, 'modified_user_id'=>1);
@@ -39,6 +25,7 @@ class TemplateField{
 	var $view = 'edit';
 	var $name = '';
 	var $vname = '';
+    public $label = '';
 	var $id = '';
 	var $size = '20';
 	var $len = '255';
@@ -85,11 +72,8 @@ class TemplateField{
 		'duplicate_merge_dom_value'=>'duplicate_merge_dom_value', //bug #14897
 		'merge_filter'=>'merge_filter',
 		'reportable' => 'reportable',
-		'min'=>'ext1',
-		'max'=>'ext2',
 		'ext2'=>'ext2',
 		'ext4'=>'ext4',
-	//'disable_num_format'=>'ext3',
 	    'ext3'=>'ext3',
 		'label_value'=>'label_value',
 		'unified_search'=>'unified_search',
@@ -331,6 +315,7 @@ class TemplateField{
 			'type'=>$this->type,
 			'massupdate'=>$this->massupdate,
 			'default'=>$this->default,
+            'no_default'=> !empty($this->no_default),
 			'comments'=> (isset($this->comments)) ? $this->comments : '',
 		    'help'=> (isset($this->help)) ?  $this->help : '',
 		    'importable'=>$this->importable,
@@ -486,15 +471,13 @@ class TemplateField{
 			if(isset($_REQUEST[$vardef])){		    
                 $this->$vardef = $_REQUEST[$vardef];
 
-			    //  Bug #48826. Some fields are allowed to have special characters and must be decoded from the request
+                //  Bug #48826. Some fields are allowed to have special characters and must be decoded from the request
+                // Bug 49774, 49775: Strip html tags from 'formula' and 'dependency'.
                 if (is_string($this->$vardef) && in_array($vardef, $this->decode_from_request_fields_map))
-                  $this->$vardef = html_entity_decode($this->$vardef);
+                {
+                    $this->$vardef = html_entity_decode(strip_tags(from_html($this->$vardef)));
+                }
 
-				// Bug 49774, 49775: Strip html tags from 'formula' and 'dependency'.
-				// Add to the list below if we need to do the same for other fields.
-				if (!empty($this->$vardef) && in_array($vardef, array('formula', 'dependency'))){
-				    $this->$vardef = to_html(strip_tags(from_html($this->$vardef)));
-				}
 
                 //Remove potential xss code from help field
                 if($field == 'help' && !empty($this->$vardef))

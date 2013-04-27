@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -126,9 +112,18 @@ class SugarWidgetReportField extends SugarWidgetField
 				return $alias;
     	}
 
-    	// Removed ISNULL check as per bug 49452
-		$alias = "{$layout_def['group_function']}($alias)";
-		//$this->reporter->db->convert($alias, "IFNULL", array(0)));
+        $alias = $this->reporter->db->convert($alias, 'IFNULL', array(0));
+
+        // for a field with type='currency' conversion of values into a user-preferred currency
+        if ($layout_def['type'] == 'currency' && strpos($layout_def['name'], '_usdoll') === false) {
+            $currency = $this->reporter->currency_obj;
+            $currency_alias = isset($layout_def['currency_alias'])
+                ? $layout_def['currency_alias'] : $currency->table_name;
+            $query = $this->reporter->db->convert($currency_alias.".conversion_rate", "IFNULL", array(1));
+            $alias = "{$layout_def['group_function']}($alias/{$query})*{$currency->conversion_rate}";
+        } else {
+            $alias = "{$layout_def['group_function']}($alias)";
+        }
 	}
 
 	$reportAlias[$alias] = $layout_def;
@@ -150,7 +145,11 @@ class SugarWidgetReportField extends SugarWidgetField
  {
 	if(!empty($this->reporter->all_fields[$layout_def['column_key']])) $field_def = $this->reporter->all_fields[$layout_def['column_key']];
 
-	if ( ! empty( $field_def['sort_on']))
+    if (!empty($layout_def['group_function']))
+    {
+        $order_by = $this->_get_column_alias($layout_def);
+    }
+    elseif (!empty($field_def['sort_on']))
 	{
 			$order_by = $layout_def['table_alias'].".".$field_def['sort_on'];
             if(!empty($field_def['sort_on2']))
@@ -192,7 +191,7 @@ class SugarWidgetReportField extends SugarWidgetField
                 $sort_by ='';
                 if ( ! empty($layout_def['table_key']) && ! empty($layout_def['name']) ) {
                 	if (! empty($layout_def['group_function']) && $layout_def['group_function'] == 'count') {
-                    	$sort_by = 'count';
+                        $sort_by = $layout_def['table_key'].":".'count';
                 	} else {
                     	$sort_by = $layout_def['table_key'].":".$layout_def['name'];
                         if ( ! empty($layout_def['column_function'])) {
@@ -242,14 +241,16 @@ class SugarWidgetReportField extends SugarWidgetField
  {
         $alias_arr = array();
 
-				if ($layout_def['table_key'] == 'self' && !empty($layout_def['name']) && $layout_def['name'] == 'id')
-				{
-					return 'primaryid';
-				}
+	if (!empty($layout_def['table_key']) && $layout_def['table_key'] == 'self' && !empty($layout_def['name']) && $layout_def['name'] == 'id')
+	{
+		return 'primaryid';
+	}
 
+     // Bug: 44605
+     // this comment is being added to trigger the upgrade package
         if ( ! empty($layout_def['group_function']) && $layout_def['group_function']=='count')
         {
-                return 'count';
+                return $layout_def['table_alias'] . '__count';
         }
 
         if ( ! empty($layout_def['table_alias']))

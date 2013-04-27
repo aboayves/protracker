@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -57,17 +43,23 @@ class CalendarActivity {
 		$this->sugar_bean = $sugar_bean;
 
 
-		if ($sugar_bean->object_name == 'Task'){
-			$this->start_time = $timedate->fromUser($this->sugar_bean->date_due);
-			if ( empty($this->start_time)){
-				return null;
-			}
-			$this->end_time = $timedate->fromUser($this->sugar_bean->date_due);
-		}else{
-			$this->start_time = $timedate->fromUser($this->sugar_bean->date_start);
-			if ( empty($this->start_time)){
-			    return null;
-			}
+        if ($sugar_bean->object_name == 'Task'){
+            if (!empty($this->sugar_bean->date_start))
+            {
+                $this->start_time = $timedate->fromUser($this->sugar_bean->date_start);
+            }
+            else {
+                $this->start_time = $timedate->fromUser($this->sugar_bean->date_due);
+            }
+            if ( empty($this->start_time)){
+                return;
+            }
+            $this->end_time = $timedate->fromUser($this->sugar_bean->date_due);
+        }else{
+            $this->start_time = $timedate->fromUser($this->sugar_bean->date_start);
+            if ( empty($this->start_time)){
+                return;
+            }
 			$hours = $this->sugar_bean->duration_hours;
 			if(empty($hours)){
 			    $hours = 0;
@@ -95,7 +87,7 @@ class CalendarActivity {
 	 */
 	function get_occurs_within_where_clause($table_name, $rel_table, $start_ts_obj, $end_ts_obj, $field_name='date_start', $view){
 		global $timedate;
-	
+
 		$start = clone $start_ts_obj;
 		$end = clone $end_ts_obj;
 
@@ -137,14 +129,25 @@ class CalendarActivity {
 	 * @param SugarDateTime $view_end_time end date
 	 * @param string $view view; not used for now, left for compatibility
 	 * @param boolean $show_calls
+	 * @param boolean $show_completed use to allow filtering completed events 
 	 * @return array
 	 */
- 	function get_activities($user_id, $show_tasks, $view_start_time, $view_end_time, $view, $show_calls = true){
+ 	function get_activities($user_id, $show_tasks, $view_start_time, $view_end_time, $view, $show_calls = true, $show_completed = true)
+ 	{
 		global $current_user;
 		$act_list = array();
 		$seen_ids = array();
-
-
+		
+		$completedCalls = '';
+		$completedMeetings = '';
+		$completedTasks = '';
+		if (!$show_completed)
+		{
+		    $completedCalls = " AND calls.status = 'Planned' ";
+		    $completedMeetings = " AND meetings.status = 'Planned' ";
+		    $completedTasks = " AND tasks.status != 'Completed' ";
+		}
+		
 		// get all upcoming meetings, tasks due, and calls for a user
 		if(ACLController::checkAccess('Meetings', 'list', $current_user->id == $user_id)) {
 			$meeting = new Meeting();
@@ -154,7 +157,8 @@ class CalendarActivity {
 			}
 
 			$where = CalendarActivity::get_occurs_within_where_clause($meeting->table_name, $meeting->rel_users_table, $view_start_time, $view_end_time, 'date_start', $view);
-			$focus_meetings_list = build_related_list_by_user_id($meeting,$user_id,$where);
+			$where .= $completedMeetings;
+			$focus_meetings_list = build_related_list_by_user_id($meeting, $user_id, $where);
 			foreach($focus_meetings_list as $meeting) {
 				if(isset($seen_ids[$meeting->id])) {
 					continue;
@@ -178,7 +182,8 @@ class CalendarActivity {
 				}
 
 				$where = CalendarActivity::get_occurs_within_where_clause($call->table_name, $call->rel_users_table, $view_start_time, $view_end_time, 'date_start', $view);
-				$focus_calls_list = build_related_list_by_user_id($call,$user_id,$where);
+				$where .= $completedCalls;
+				$focus_calls_list = build_related_list_by_user_id($call, $user_id, $where);
 
 				foreach($focus_calls_list as $call) {
 					if(isset($seen_ids[$call->id])) {
@@ -201,8 +206,9 @@ class CalendarActivity {
 
 				$where = CalendarActivity::get_occurs_within_where_clause('tasks', '', $view_start_time, $view_end_time, 'date_due', $view);
 				$where .= " AND tasks.assigned_user_id='$user_id' ";
+				$where .= $completedTasks;
 
-				$focus_tasks_list = $task->get_full_list("", $where,true);
+				$focus_tasks_list = $task->get_full_list("", $where, true);
 
 				if(!isset($focus_tasks_list)) {
 					$focus_tasks_list = array();

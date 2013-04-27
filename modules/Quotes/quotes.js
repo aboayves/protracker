@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 table_array=new Array();function QuotesEditManager(Y){this.count=0;this.openPopup=function(value,count){var popup_request_data={"call_back_function":"set_product_return","form_name":"EditView","field_to_name_array":{"id":"id","name":"name","cost_usdollar":"cost_usdollar","list_usdollar":"list_usdollar","discount_usdollar":"discount_usdollar","mft_part_num":"mft_part_num","pricing_factor":"pricing_factor","type_id":"type_id","tax_class":"tax_class","tax_class_name":"tax_class_name","description":"description"},"passthru_data":{"row_id":count}};open_popup('ProductTemplates',600,400,'&tree=ProductsProd&name='+value,true,false,popup_request_data);}
 this.toReadOnly=function(doc,count){if(doc.getElementById('product_template_id_'+count).value!='')
@@ -91,7 +77,7 @@ this.deleteCommentRow=function(id,table_id)
 this.toggleDisplay=function(id){if(this.document.getElementById(id).style.display=='none'){this.document.getElementById(id).style.display='inline'
 if(this.document.getElementById(id+"link")!=undefined){this.document.getElementById(id+"link").style.display='none';}}else{this.document.getElementById(id).style.display='none'
 if(this.document.getElementById(id+"link")!=undefined){this.document.getElementById(id+"link").style.display='inline';}}}
-this.calculate=function(doc){var gt=Array();warned=false;gt['tax']=0;gt['subtotal']=0;gt['total']=0;gt['shipping']=0;gt['discount']=0;gt['new_sub']=0;for(var table_count=0;table_count<this.table_list.length;table_count++){cur_table_id=this.table_list[table_count];var table=doc.getElementById(cur_table_id);if(table!=null&&typeof(table)!='undefined'){var bundle_stage=doc.getElementById("bundle_stage_"+cur_table_id).value;var is_custom_group_stage=this.isCustomGroupStage(bundle_stage);if(!is_custom_group_stage){var retval=this.calculate_table(doc,cur_table_id);gt['tax']+=retval['tax'];gt['subtotal']+=retval['subtotal'];gt['discount']+=retval['discount'];gt['total']+=retval['total'];gt['new_sub']+=retval['new_sub'];if(retval['shipping']!='')gt['shipping']+=parseFloat(retval['shipping']);}}}
+this.calculate=function(doc){var gt=Array();warned=false;gt['tax']=0;gt['subtotal']=0;gt['total']=0;gt['shipping']=0;gt['discount']=0;gt['new_sub']=0;for(var table_count=0;table_count<this.table_list.length;table_count++){cur_table_id=this.table_list[table_count];var table=doc.getElementById(cur_table_id);if(table!=null&&typeof(table)!='undefined'){var bundle_stage=doc.getElementById("bundle_stage_"+cur_table_id).value;var retval=this.calculate_table(doc,cur_table_id);gt['tax']+=retval['tax'];gt['subtotal']+=retval['subtotal'];gt['discount']+=retval['discount'];gt['total']+=retval['total'];gt['new_sub']+=retval['new_sub'];if(retval['shipping']!='')gt['shipping']+=parseFloat(retval['shipping']);}}
 this.lookup_item('grand_total',document).innerHTML=formatNumber(toDecimal(gt['total'],precision),num_grp_sep,dec_sep,precision,precision);this.lookup_item('grand_ship',document).innerHTML=formatNumber(toDecimal(gt['shipping'],precision),num_grp_sep,dec_sep,precision,precision);this.lookup_item('grand_tax',document).innerHTML=formatNumber(toDecimal(gt['tax'],precision),num_grp_sep,dec_sep,precision,precision);this.lookup_item('grand_new_sub',document).innerHTML=formatNumber(toDecimal(gt['new_sub'],precision),num_grp_sep,dec_sep,precision,precision);this.lookup_item('grand_discount',document).innerHTML=formatNumber(toDecimal(gt['discount'],precision),num_grp_sep,dec_sep,precision,precision);this.lookup_item('grand_sub',document).innerHTML=formatNumber(toDecimal(gt['subtotal'],precision),num_grp_sep,dec_sep,precision,precision);}
 this.calculate_table=function(doc,table_id){var retval=Array();retval['subtotal']=this.calculate_subtotal(doc,table_id);retval['discount']=this.calculate_discount(doc,table_id);retval['new_sub']=this.calculate_new_sub(doc,table_id);retval['tax']=this.calculate_tax(doc,table_id);retval['total']=this.calculate_total(doc,table_id);retval['shipping']=unformatNumber(this.lookup_item('shipping_'+table_id).value,num_grp_sep,dec_sep);return retval;}
 this.walk_the_kids=function(doc,children,variables,variable_values){for(k=0;k<children.length;k++){child=children[k];if(child.nodeType==1&&this.hasAttribute(child,'id')&&child.getAttribute('id')!=child.getAttribute('name')&&child.tagName!='LI'&&(child.tagName!='DIV'||child.style.display!='NONE')){var id=child.getAttribute('id');for(n=0;n<variables.length;n++){var reg=new RegExp('^'+variables[n]+'[0-9]+$');if(reg.test(id)){if(child.tagName=='SELECT'){var select=this.lookup_item(id,document);variable_values[variables[n]]=select.options[select.selectedIndex].value;}else{variable_values[variables[n]]=this.lookup_item(id,document).value;}}

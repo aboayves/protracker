@@ -3,85 +3,74 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
 
 $mod_strings = array (
-  'LBL_CONTRACTS' => 'Ugovori',
-  'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Ugovori',
-  'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Proizvodi',
-  'LBL_QUOTES_SUBPANEL_TITLE' => 'Ponude',
-  'LNK_ACCOUNT_REPORTS' => 'Prikaži izveštaje kompanije',
-  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Dokumenta',
-  'LBL_CHARTS' => 'Dijagrami',
-  'LBL_DEFAULT' => 'Pregledi',
-  'LBL_MISC' => 'Ostalo',
-  'LBL_UTILS' => 'Servis',
   'ACCOUNT_REMOVE_PROJECT_CONFIRM' => 'Da li ste sigurni da želite da obrišete ovu kompaniju iz projekta?',
   'ERR_DELETE_RECORD' => 'Morate navesti broj zapisa kako bi obrisali kompaniju.',
+  'LBL_ACCOUNT' => 'Kompanija:',
+  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Kompanije',
   'LBL_ACCOUNT_INFORMATION' => 'Pregled kompanije',
   'LBL_ACCOUNT_NAME' => 'Naziv kompanije:',
-  'LBL_ACCOUNT' => 'Kompanija:',
+  'LBL_ACCOUNT_TYPE' => 'Tip kompanije',
   'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Aktivnosti',
   'LBL_ADDRESS_INFORMATION' => 'Informacija o adresi',
   'LBL_ANNUAL_REVENUE' => 'Godišnji prihod:',
   'LBL_ANY_ADDRESS' => 'Bilo koja adresa:',
   'LBL_ANY_EMAIL' => 'Bilo koji Email:',
   'LBL_ANY_PHONE' => 'Bilo koji telefon:',
-  'LBL_ASSIGNED_TO_NAME' => 'Dodeljeno',
   'LBL_ASSIGNED_TO_ID' => 'Dodeljeni korisnik:',
+  'LBL_ASSIGNED_TO_NAME' => 'Dodeljeno',
+  'LBL_ASSIGNED_USER_NAME' => 'Dodeljeno:',
+  'LBL_BILLING_ADDRESS' => 'Adresa naplate:',
   'LBL_BILLING_ADDRESS_CITY' => 'Grad naplate:',
   'LBL_BILLING_ADDRESS_COUNTRY' => 'Država naplate:',
   'LBL_BILLING_ADDRESS_POSTALCODE' => 'Postanski broj naplate:',
   'LBL_BILLING_ADDRESS_STATE' => 'Opština naplate:',
+  'LBL_BILLING_ADDRESS_STREET' => 'Ulica naplate:',
   'LBL_BILLING_ADDRESS_STREET_2' => 'Ulica naplate br.2:',
   'LBL_BILLING_ADDRESS_STREET_3' => 'Ulica naplate br.3:',
   'LBL_BILLING_ADDRESS_STREET_4' => 'Ulica naplate br.4:',
-  'LBL_BILLING_ADDRESS_STREET' => 'Ulica naplate:',
-  'LBL_BILLING_ADDRESS' => 'Adresa naplate:',
-  'LBL_BUG_FORM_TITLE' => 'Kompanije',
   'LBL_BUGS_SUBPANEL_TITLE' => 'Defekti',
+  'LBL_BUG_FORM_TITLE' => 'Kompanije',
   'LBL_CALLS_SUBPANEL_TITLE' => 'Pozivi',
+  'LBL_CAMPAIGNS' => 'Kampanje',
   'LBL_CAMPAIGN_ID' => 'ID kampanje',
   'LBL_CASES_SUBPANEL_TITLE' => 'Slučajevi',
+  'LBL_CHARTS' => 'Dijagrami',
   'LBL_CITY' => 'Grad:',
   'LBL_CONTACTS_SUBPANEL_TITLE' => 'Kontakti',
+  'LBL_CONTACT_HISTORY_SUBPANEL_TITLE' => 'Email adrese srodnih kontakata',
+  'LBL_CONTRACTS' => 'Ugovori',
+  'LBL_CONTRACTS_SUBPANEL_TITLE' => 'Ugovori',
+  'LBL_COPY' => 'Kopiraj',
   'LBL_COUNTRY' => 'Država:',
+  'LBL_CREATED_ID' => 'ID broj autora',
   'LBL_DATE_ENTERED' => 'Datum kreiranja:',
   'LBL_DATE_MODIFIED' => 'Datum izmene:',
-  'LBL_MODIFIED_ID' => 'ID broj korisnika koji je izmenio',
+  'LBL_DEFAULT' => 'Pregledi',
   'LBL_DEFAULT_SUBPANEL_TITLE' => 'Kompanije',
-  'LBL_DESCRIPTION_INFORMATION' => 'Opisne informacije',
   'LBL_DESCRIPTION' => 'Opis:',
+  'LBL_DESCRIPTION_INFORMATION' => 'Opisne informacije',
+  'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Dokumenta',
   'LBL_DUPLICATE' => 'Moguća duplirana kompanija',
   'LBL_EMAIL' => 'Email adresa:',
+  'LBL_EMAIL_ADDRESSES' => 'Email adrese',
   'LBL_EMAIL_OPT_OUT' => 'Email odjava:',
   'LBL_EMPLOYEES' => 'Zaposlenih:',
+  'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Ime dodeljenog korisnika',
   'LBL_FAX' => 'Faks:',
   'LBL_HISTORY_SUBPANEL_TITLE' => 'Istorija',
   'LBL_HOMEPAGE_TITLE' => 'Moje kompanije',
@@ -101,9 +90,12 @@ $mod_strings = array (
   'LBL_MEMBER_OF' => 'Član:',
   'LBL_MEMBER_ORG_FORM_TITLE' => 'Pripadajuće kompanije',
   'LBL_MEMBER_ORG_SUBPANEL_TITLE' => 'Pripadajuće kompanije',
-  'LBL_MODULE_NAME' => 'Kompanije',
-  'LBL_MODULE_TITLE' => 'Kompanije: Početna strana',
+  'LBL_MISC' => 'Ostalo',
+  'LBL_MODIFIED_ID' => 'ID broj korisnika koji je izmenio',
   'LBL_MODULE_ID' => 'Kompanije',
+  'LBL_MODULE_NAME' => 'Kompanije',
+  'LBL_MODULE_NAME_SINGULAR' => 'Nalog',
+  'LBL_MODULE_TITLE' => 'Kompanije: Početna strana',
   'LBL_NAME' => 'Naziv:',
   'LBL_NEW_FORM_TITLE' => 'Nova kompanija',
   'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Prodajne prilike',
@@ -111,29 +103,35 @@ $mod_strings = array (
   'LBL_OTHER_PHONE' => 'Drugi telefon:',
   'LBL_OWNERSHIP' => 'Vlasništvo:',
   'LBL_PARENT_ACCOUNT_ID' => 'ID broj matične kompanije',
+  'LBL_PARENT_ID' => 'Matični ID broj:',
+  'LBL_PHONE' => 'Telefon:',
   'LBL_PHONE_ALT' => 'Drugi telefon:',
+  'LBL_PHONE_ALTERNATE' => 'Alternativni telefon',
   'LBL_PHONE_FAX' => 'Telefax:',
   'LBL_PHONE_OFFICE' => 'Kancelarijski telefon:',
-  'LBL_PHONE' => 'Telefon:',
   'LBL_POSTAL_CODE' => 'Poštanski broj:',
+  'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Proizvodi',
   'LBL_PRODUCTS_TITLE' => 'Proizvodi',
   'LBL_PROJECTS_SUBPANEL_TITLE' => 'Projekti',
+  'LBL_PROJECT_SUBPANEL_TITLE' => 'Projekti',
+  'LBL_PROSPECT_LIST' => 'Lista ciljeva',
   'LBL_PUSH_BILLING' => 'Prosledi račun',
   'LBL_PUSH_CONTACTS_BUTTON_LABEL' => 'Kopiraj u kontakte',
   'LBL_PUSH_CONTACTS_BUTTON_TITLE' => 'Kopiraj ...',
   'LBL_PUSH_SHIPPING' => 'Prosledi',
+  'LBL_QUOTES_SUBPANEL_TITLE' => 'Ponude',
   'LBL_RATING' => 'Rang:',
   'LBL_SAVE_ACCOUNT' => 'Sačuvaj kompaniju',
   'LBL_SEARCH_FORM_TITLE' => 'Pretraga kompanije',
+  'LBL_SHIPPING_ADDRESS' => 'Adresa dostave:',
   'LBL_SHIPPING_ADDRESS_CITY' => 'Grad dostave:',
   'LBL_SHIPPING_ADDRESS_COUNTRY' => 'Država dostave:',
   'LBL_SHIPPING_ADDRESS_POSTALCODE' => 'Poštanski broj dostave:',
   'LBL_SHIPPING_ADDRESS_STATE' => 'Opština dostave:',
+  'LBL_SHIPPING_ADDRESS_STREET' => 'Ulica dostave:',
   'LBL_SHIPPING_ADDRESS_STREET_2' => 'Ulica dostave 2',
   'LBL_SHIPPING_ADDRESS_STREET_3' => 'Ulica dostave 3',
   'LBL_SHIPPING_ADDRESS_STREET_4' => 'Ulica dostave 4',
-  'LBL_SHIPPING_ADDRESS_STREET' => 'Ulica dostave:',
-  'LBL_SHIPPING_ADDRESS' => 'Adresa dostave:',
   'LBL_SIC_CODE' => 'SIC kod:',
   'LBL_STATE' => 'Opština:',
   'LBL_TASKS_SUBPANEL_TITLE' => 'Zadaci',
@@ -143,13 +141,13 @@ $mod_strings = array (
   'LBL_USERS_ASSIGNED_LINK' => 'Dodeljeni korisnici',
   'LBL_USERS_CREATED_LINK' => 'Kreirali su korisnici',
   'LBL_USERS_MODIFIED_LINK' => 'Izmenjeni korisnici',
+  'LBL_UTILS' => 'Servis',
   'LBL_VIEW_FORM_TITLE' => 'Pregled kompanije',
   'LBL_WEBSITE' => 'Web stranica:',
-  'LBL_CREATED_ID' => 'ID broj autora',
-  'LBL_CAMPAIGNS' => 'Kampanje',
   'LNK_ACCOUNT_LIST' => 'Prikaži kompanije',
-  'LNK_NEW_ACCOUNT' => 'Kreiraj kompaniju',
+  'LNK_ACCOUNT_REPORTS' => 'Prikaži izveštaje kompanije',
   'LNK_IMPORT_ACCOUNTS' => 'Uvezi kompanije',
+  'LNK_NEW_ACCOUNT' => 'Kreiraj kompaniju',
   'MSG_DUPLICATE' => 'Zapis kompanije koju kreirate možda je duplikat zapisa kompanije koji već postoji. Zapisi kompanije koji sadrže slična imena izlistani su ispod.<br>Kliknite Kreiraj kompaniju da bi nastavili sa kreiranjem ovog nove kompanije, ili odaberite postojeću kompaniju sa liste ispod.',
   'MSG_SHOW_DUPLICATES' => 'Zapis kompanije koju kreirate je verovatno duplikat zapisa kompanije koja već postoji. Zapisi kompanija koje imaju slična imena su izlistani ispod. <br>Kliknite na Snimi da bi nastavili sa kreiranjem nove kompanije, ili Odustani da bi se vratili na modul bez kreiranja kompanije.',
   'NTC_COPY_BILLING_ADDRESS' => 'Kopiraj adresu plaćanja u adresu dostave',
@@ -159,9 +157,5 @@ $mod_strings = array (
   'NTC_DELETE_CONFIRMATION' => 'Da li ste sigurni da želite da obrišete ovaj zapis?',
   'NTC_REMOVE_ACCOUNT_CONFIRMATION' => 'Da li ste sigurni da želite da uklonite ovaj zapis?',
   'NTC_REMOVE_MEMBER_ORG_CONFIRMATION' => 'Da li ste sigurni da želite da obrišete ovu pripadajuću kompaniju?',
-  'LBL_ASSIGNED_USER_NAME' => 'Dodeljeno:',
-  'LBL_PROSPECT_LIST' => 'Lista ciljeva',
-  'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Kompanije',
-  'LBL_PROJECT_SUBPANEL_TITLE' => 'Projekti',
 );
 

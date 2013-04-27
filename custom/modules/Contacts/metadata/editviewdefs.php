@@ -39,6 +39,54 @@ array (
         ),
       ),
       'syncDetailEditViews' => false,
+      'tabDefs' => 
+      array (
+        'lbl_contact_information' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel5' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel2' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel4' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel7' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_panel_advanced' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel6' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel8' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'lbl_editview_panel1' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -569,9 +617,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'employer',
+            'name' => 'av_companies_name',
             'comment' => '',
-            'label' => 'LBL_EMPLOYER',
+            'label' => 'LBL_AV_COMPANIES_NAME',
           ),
           1 => 
           array (

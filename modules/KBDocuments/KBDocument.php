@@ -2,30 +2,16 @@
 if(!defined('sugarEntry') || !sugarEntry)
 	die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 // User is used to store Forecast information.
@@ -225,18 +211,13 @@ class KBDocument extends SugarBean {
 
     function create_export_query(&$order_by, &$where, $relate_link_join='')
     {
-        $custom_join = $this->custom_fields->getJOIN(true, true,$where);
-		if($custom_join)
-				$custom_join['join'] .= $relate_link_join;
+        $custom_join = $this->getCustomJoin(true, true, $where);
+        $custom_join['join'] .= $relate_link_join;
 		$query = "SELECT
 						kbdocuments.*";
-		if($custom_join){
-			$query .=  $custom_join['select'];
-		}
+        $query .=  $custom_join['select'];
 		$query .= " FROM kbdocuments ";
-		if($custom_join){
-			$query .=  $custom_join['join'];
-		}
+        $query .=  $custom_join['join'];
 		$where_auto = " kbdocuments.deleted = 0";
 
 		if ($where != "")
@@ -257,24 +238,16 @@ class KBDocument extends SugarBean {
         $ret_array=array();
         $ret_array['select'] = "SELECT jt0.id assigned_user_id, jt0.user_name assigned_user_name, jt1.id kbdoc_approver_id, jt1.user_name kbdoc_approver_name, kvr.views_number views_number";
         $ret_array['select'] .= ", kbdocuments.id, kbdocuments.kbdocument_name, kbdocuments.active_date, kbdocuments.exp_date, kbdocuments.status_id, kbdocuments.date_entered date_entered, kbdocuments.date_modified, kbdocuments.deleted, kbdocuments.is_external_article, kbdocuments.modified_user_id";
-         $custom_join = false;
-        if((!isset($params['include_custom_fields']) || $params['include_custom_fields']) &&  isset($this->custom_fields))
+        $custom_join = $this->getCustomJoin(empty($filter) ? true : $filter);
+        if((!isset($params['include_custom_fields']) || $params['include_custom_fields']))
         {
-
-            $custom_join = $this->custom_fields->getJOIN( empty($filter)? true: $filter );
-            if($custom_join)
-            {
-                $ret_array['select'] .= ' ' .$custom_join['select'];
-            }
+            $ret_array['select'] .= $custom_join['select'];
         }
         if (!is_admin($current_user) && !$this->disable_row_level_security){
             $ret_array['select'] .= ", kbdocuments.team_id ";
         }
         $ret_array['from'] = " FROM kbdocuments left join kbdocuments_views_ratings kvr ON kbdocuments.id = kvr.kbdocument_id  LEFT JOIN  users jt0 ON jt0.id= kbdocuments.assigned_user_id AND jt0.deleted=0  LEFT JOIN  users jt1 ON jt1.id= kbdocuments.kbdoc_approver_id AND jt1.deleted=0 ";
-        if($custom_join)
-        {
-            $ret_array['from'] .= ' ' . $custom_join['join'];
-        }
+        $ret_array['from'] .= $custom_join['join'];
         if (!is_admin($current_user) && !$this->disable_row_level_security){
             $this->add_team_security_where_clause($ret_array['from']);
         }

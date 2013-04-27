@@ -2,30 +2,16 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -89,8 +75,16 @@ class ProjectTaskViewList extends ViewList{
                 $current_query_by_page = unserialize(base64_decode($_REQUEST['current_query_by_page']));
                 foreach($current_query_by_page as $search_key=>$search_value) {
                     if($search_key != $module.'2_'.strtoupper($this->bean->object_name).'_offset' && !in_array($search_key, $blockVariables)) {
-						$_REQUEST[$search_key] = $GLOBALS['db']->quote($search_value);
-					}
+                        if (!is_array($search_value)) {
+                            $_REQUEST[$search_key] = $GLOBALS['db']->quote($search_value);
+                        }
+                        else {
+                            foreach ($search_value as $key=>&$val) {
+                                $val = $GLOBALS['db']->quote($val);
+                            }
+                            $_REQUEST[$search_key] = $search_value;
+                        }
+                    }
                 }
             }
         }
@@ -123,16 +117,7 @@ class ProjectTaskViewList extends ViewList{
 		    }
 		}
 
-		global $current_user;
-
-		if (!is_admin($current_user)){
-			$params = array( 'massupdate' => false );
-			$lv->export = false;
-            $lv->multiSelect = false;
-		}
-		else{
-			$params = array( 'massupdate' => true, 'export' => true);
-		}
+        $params = array( 'massupdate' => true, 'export' => true);
 
 		if(!empty($_REQUEST['orderBy'])) {
 		    $params['orderBy'] = $_REQUEST['orderBy'];
@@ -192,9 +177,9 @@ class ProjectTaskViewList extends ViewList{
 
 
 			if(!empty($metafiles[$this->module]['searchfields']))
-				require_once($metafiles[$this->module]['searchfields']);
+                require($metafiles[$this->module]['searchfields']);
 			elseif(file_exists('modules/'.$this->module.'/metadata/SearchFields.php'))
-				require_once('modules/'.$this->module.'/metadata/SearchFields.php');
+                require('modules/'.$this->module.'/metadata/SearchFields.php');
 
 
 			$searchForm = new SearchForm($this->seed, $this->module, $this->action);
@@ -240,15 +225,22 @@ class ProjectTaskViewList extends ViewList{
 		}
 		if(!$headers)
 			return;
+         /*
+         * Bug 50575 - related search columns not inluded in query in a proper way
+         */
+         $lv->searchColumns = $searchForm->searchColumns;
 
 		if(empty($_REQUEST['search_form_only']) || $_REQUEST['search_form_only'] == false){
-			if (!is_admin($current_user)){
-				$lv->setup($seed, 'include/ListView/ListViewNoMassUpdate.tpl', $where, $params);
-			}
-			else {
-				$lv->setup($seed, 'include/ListView/ListViewGeneric.tpl', $where, $params);
-			}
-			$savedSearchName = empty($_REQUEST['saved_search_select_name']) ? '' : (' - ' . $_REQUEST['saved_search_select_name']);
+            //Bug 58841 - mass update form was not displayed for non-admin users that should have access
+            if(ACLController::checkAccess($module, 'massupdate') || ACLController::checkAccess($module, 'export'))
+            {
+                $lv->setup($seed, 'include/ListView/ListViewGeneric.tpl', $where, $params);
+            }
+            else
+            {
+                $lv->setup($seed, 'include/ListView/ListViewNoMassUpdate.tpl', $where, $params);
+            }
+
 			echo $lv->display();
 		}
  	}

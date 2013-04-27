@@ -3,30 +3,16 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 	
@@ -82,9 +68,11 @@ $mod_strings = array (
   'ERR_ENABLE_CURL' => 'Prosím ujistěte, že máte povolenou knihovnu curl',
   'ERR_EXPAND_DATABASE_COMPLETED' => 'error: the presence of the restoreexpand.sql file indicates that you have already expanded the database columns.',
   'ERR_INCORRECT_REGEX' => 'Špatná syntaxe regulárního výrazu v poli Regex. Zkontrolujte prosím výraz.',
+  'ERR_INVALID_LOCALE_NAME_FORMAT_UPGRADE' => '"Formát jména", který byl nastaven před aktualizací, již není podporován a byl automaticky nastaven na základní. Pokud nechcete zobrazovat tuto zprávu, nastavte prosím nový formát a klikněte na "Uložit".',
   'ERR_NOT_FOR_MSSQL' => 'Tato funkce ještě není implementována',
   'ERR_NOT_FOR_MYSQL' => 'Tato funkce ještě není implementována',
   'ERR_NOT_FOR_ORACLE' => 'Tato funkce ještě není implementována',
+  'ERR_NOT_IMPLEMENTED' => 'Tato funkce pro tuto konfiguraci ještě není implementována.',
   'ERR_NO_COLUMNS_TO_EXPAND' => 'error: database does not contain any varchar, char or text columns to expand.',
   'ERR_NUM_OFFLINE_CLIENTS_MET' => 'you have already met the number of offline clients for your license key.  you must either disable an existing offline client or update your license.',
   'ERR_OC_USER_ALREADY_EXISTS' => 'the user you have selected already exists in the system.',
@@ -205,6 +193,10 @@ $mod_strings = array (
   'LBL_CHECK_REPORTS' => 'kontrola reportů',
   'LBL_CHECK_REPORTS_DESC' => 'kontroluje, zda reporty jsou stále v platnosti i po upgrade a obsahuje seznam všech neplatných reportů, které se nacházejí při kontrole',
   'LBL_CHECK_REPORTS_TEXT' => 'Tento nástroj vám umožní zkontrolovat, zda jsou všechny vaše reporty platné.',
+  'LBL_CLEAR_ADDITIONAL_CACHE_DELETING' => 'Odstranění dalších souborů v mezipaměti ...',
+  'LBL_CLEAR_ADDITIONAL_CACHE_DESC' => 'Odstraní mezipamět dalších zdrojů (API, ..)',
+  'LBL_CLEAR_ADDITIONAL_CACHE_FINDING' => 'hledám souboury...',
+  'LBL_CLEAR_ADDITIONAL_CACHE_TITLE' => 'Čistím mezipamět.',
   'LBL_CLEAR_CHART_DATA_CACHE_DELETING1' => 'Mažu cachované soubory...',
   'LBL_CLEAR_CHART_DATA_CACHE_DELETING2' => 'Mažu:',
   'LBL_CLEAR_CHART_DATA_CACHE_DESC' => 'Vymaže nacachovaná data, která používají grafy.',
@@ -233,19 +225,24 @@ $mod_strings = array (
   'LBL_CONFIGURE_SETTINGS_TITLE' => 'Systémové nastavení',
   'LBL_CONFIGURE_SHORTCUT_BAR' => 'Shortcut Bar',
   'LBL_CONFIGURE_SHORTCUT_BAR_DESC' => 'Výběr modulů pro Shortcut Bar',
+  'LBL_CONFIGURE_SHORTCUT_BAR_HELP' => 'Zvolte, pro které moduly mohou uživatelé rychle vytvářet záznamy pomocí ikony Plus v horní liště. Přetáhněte mezi povolenými a zakazanými moduly.',
   'LBL_CONFIGURE_SNIP' => 'Archivování mailů',
   'LBL_CONFIGURE_SNIP_DESC' => 'Zapnutí/vypnutí služby pro archivaci E-mailů',
   'LBL_CONFIGURE_TABS_AND_SUBPANELS' => 'Zobrazit záložky modulů a subpanelů',
   'LBL_CONFIGURE_TABS_AND_SUBPANELS_DESC' => 'Vybrte která záložky modulů a subpanelů budou zobrazeny v rámci celého systému',
   'LBL_CONFIGURE_UPDATER' => 'Nastavit SugarCRM updaty',
   'LBL_CONFIG_AJAX' => 'Konfigurace AJAX User Interface',
+  'LBL_CONFIG_AJAX_DESC' => 'Výkon a čas vykreslení stránky jsou vylepšené v modulech s povoleným AJAX UI , protože v těchto modulech není vyžadováno obnovení celé stránky. Pokud jste se setkali s problémy v zobrazení modulů, které nejsou kompatibilní s AJAXem, lze pro ně AJAX UI zakázat.',
+  'LBL_CONFIG_AJAX_HELP' => 'Přetáhněte názvy modulů, ve kterých má být AJAX UI povolen nebo zakázán.',
   'LBL_CONFIG_CHECK' => 'Kontrola konfiguračního souboru',
+  'LBL_CONFIG_FTS' => 'Konfigurovat Full-Textové vyhledávání',
   'LBL_CONFIG_LANGS_DESC' => 'Drag & Drop jména jazyku pro aktivaci či deaktivaci.',
   'LBL_CONFIG_TABS' => 'Uchopte myší  a pustte záložky dole a nastavte zda jsou viditelné či nikoli. Pokud chcete zabránit uživatelům, kteří nejsou správci, aby konfigurovali záložky, odstraňte zaškrtnutí políčka \\"Dovolit uživatelům aby si upravovali záložky\\"',
   'LBL_CONFIG_TABS_ALLOW_USERS_HIDE_TABS_HELP' => 'Vybertu toto možnost pro povolení uživatelům, samostatně nastavit viditelnost modulů. Pokud je vybrán, uživatelů budou moci vybrat, které moduly pro ně budou viditelné pomocí svého nastavení v Nastavní uživatel.',
   'LBL_CONFIG_TABS_DESC' => 'Jména modulů přesuňte níže  pro nastevní zobrazení nebo skrytí záložek a subpanelů.',
   'LBL_CONNECTOR_SETTINGS' => 'Konektory',
   'LBL_CONNECTOR_SETTINGS_DESC' => 'Nastavení konektoru',
+  'LBL_CONNECT_STATUS' => 'Stav připojení',
   'LBL_CONTRACT_DESC' => 'Definovat typy smluv v modulu smlouvy. Když uživatelé vytvářejí smlouvy, drop-down menu se zobrazí s typy smluv pro výběr.',
   'LBL_CONTRACT_TITLE' => 'Kontrakty',
   'LBL_CONTRACT_TYPES' => 'Nastavit typy kontraktů',
@@ -256,6 +253,7 @@ $mod_strings = array (
   'LBL_DAYS' => 'dní',
   'LBL_DEFAULT_LANGUAGE_CHANGE' => 'Výchozí jazyk je změněn na',
   'LBL_DEFAULT_THEME_IS_DISABLED' => 'Výchozí motiv jste si vybrali, je zakázáno. Klepnutím na tlačítko "OK" pro pokračování ukládání změny motivu nebo "Storno" a vyberte jiný výchozí motiv.',
+  'LBL_DELETE_FTS_DATA' => 'Vymazat stávající data, kdy je indexování spouštěno. Pouze údaje ve vybraných modulech budou indexovány.',
   'LBL_DENY' => 'Nesouhlasím',
   'LBL_DIAGNOSTIC_ACCESS' => 'Musíte být adminem, aby jste mohli spustit diagnostické nástroje.',
   'LBL_DIAGNOSTIC_BEANLIST_DESC' => 'Tato informace nám říká, zda je či není beanFiles uvedené v beanList skutečně existuje. To může být problém s nesprávně nadefinovaným modulovým rozšířením.',
@@ -352,6 +350,28 @@ $mod_strings = array (
   'LBL_FOR' => 'pro',
   'LBL_FORECAST_DESC' => 'vymezení časového horizontu pro Forecast modul. tyto lhůty se zobrazí v drop-downu ve Forecast modulu.',
   'LBL_FORECAST_TITLE' => 'Předpověď',
+  'LBL_FTS_ADVANCED_LINK' => 'Povolené moduly',
+  'LBL_FTS_ADVANCED_LINK_HELP' => 'Zvolte moduly, ve kterých může uživatel vyhledávat pomocí full-textového vyhledávání.',
+  'LBL_FTS_CONNECTION_INVALID' => 'Nastavení full-textového vyhledávání, které jste zadali, je neplatné a může zpomalit výkon systému. Prosím, změňte nebo zrušte nastavení.',
+  'LBL_FTS_CONN_FAILURE_SHORT' => 'Nelze naplánovat indexování.',
+  'LBL_FTS_CONN_SUCCESS' => 'Připojení bylo navázáno. Nyní je třeba nastavit systémový index full-textového vyhledávání pro povolené moduly a jejich políčka.',
+  'LBL_FTS_CONN_SUCCESS_SHORT' => 'Systémové indexování bylo naplánováno na následující minuty.',
+  'LBL_FTS_DISABLED' => 'Full-textové vyhledávání je zakázáno, protože systém není připojen k vyhledávači.',
+  'LBL_FTS_HOST' => 'Hostitel',
+  'LBL_FTS_HOST_HELP' => 'Vložte jméno hostitele, kde se nachází stroj pro full-textové vyhledávání.',
+  'LBL_FTS_INDEXING_DONE' => 'Fulltextové indexování dokončeno.',
+  'LBL_FTS_INDEX_BUTTON' => 'Index',
+  'LBL_FTS_NO_MODULES' => 'Zvolte alespoň jeden modul k vyhledávání.',
+  'LBL_FTS_NO_MODULES_FOR_SCHED' => 'Zvolte alespoň jeden modul k naplánování.',
+  'LBL_FTS_PAGE_DESC' => 'Chcete-li povolit full-textové vyhledávání:<br><br />1) Vyberte vyhledávač, který bude použit<br><br />2) Zadejte hostitele a port vyhledávače<br><br />3) Klikněte na Test pro kontrolu, že je Sugar připojen k vyhledávači<br><br />4) Klikněte na Naplánovat systémové indexování. Ujistěte se, že crontab je nastaven pro spuštění cron.php. Toto se bude starat o indexování, stejně tak jako nouzový mechanismus, když je přerušeno spojení s vyhledávačem.',
+  'LBL_FTS_PORT' => 'Port',
+  'LBL_FTS_PORT_HELP' => 'Vložte číslo portu, kde se nachází stroj pro full-textové vyhledávání',
+  'LBL_FTS_SETTINGS' => 'Full-Textové vyhledávání',
+  'LBL_FTS_SETTINGS_DESC' => 'Konfigurovat systém full-textového vyhledávání',
+  'LBL_FTS_SETTINGS_TITLE' => 'Nastavení full-textového vyhledávání',
+  'LBL_FTS_TEST' => 'Test',
+  'LBL_FTS_TYPE' => 'Systémový typ',
+  'LBL_FTS_TYPE_HELP' => 'Vyberte metodu pro full-textové vyhledávání. Systém načte metody, které jsou podporovány a zobrazí je v seznamu. Sugar má již obsaženou podporu vyhledávací metody elasticsearch.',
   'LBL_GLOBAL_SEARCH_SETTINGS' => 'Globální vyhledávání',
   'LBL_GLOBAL_SEARCH_SETTINGS_DESC' => 'Konfogurace možností globálního vyhledá pro tento systém.',
   'LBL_GLOBAL_SEARCH_SETTINGS_TITLE' => 'Vyberte modul (y) kterými uživatelé budou moci vyhledávat při použítí globálního vyhledávání.',
@@ -380,8 +400,11 @@ $mod_strings = array (
   'LBL_IMPORT_CUSTOM_FIELDS_STRUCT' => 'Struktura příslušného pole (CustomFieldStruct.sugar)',
   'LBL_IMPORT_CUSTOM_FIELDS_TITLE' => 'Přenést strukturu příslušných polí',
   'LBL_IMPORT_VALIDATION_KEY' => 'Importovat ověřovací klíč',
+  'LBL_IMPORT_WIZARD' => 'Import Wizard',
+  'LBL_IMPORT_WIZARD_DESC' => 'Použijte Import Wizard ke snadnému importu záznamů do systému',
   'LBL_INBOUND_EMAIL_TITLE' => 'Příchozí email',
   'LBL_LANGUAGES' => 'Správa jazyků dostupných pro uživatele',
+  'LBL_LANGUAGE_PACKS' => 'Jazykové balíčky',
   'LBL_LAYOUT' => 'Přidat, vyjmout, změnit pole a vzhled polí a panelů aplikace',
   'LBL_LDAP_ADMIN_PASSWORD' => 'Heslo:',
   'LBL_LDAP_ADMIN_USER' => 'Uživatelské jméno:',
@@ -421,6 +444,7 @@ $mod_strings = array (
   'LBL_LICENSE_KEY' => 'klíč ke stažení',
   'LBL_LICENSE_NUM_LIC_OC' => 'počet licencí k offline klientovi',
   'LBL_LICENSE_NUM_PORTAL_USERS' => 'počet portálovývh uživatelů',
+  'LBL_LICENSE_UNAUTHORIZED_ACCESS' => 'Nedovolený přístup k licenčním nastavením.',
   'LBL_LICENSE_USERS' => 'počet uživatelů',
   'LBL_LICENSE_VALIDATION' => 'validace licence',
   'LBL_LICENSE_VALIDATION_END' => 'platnost validačního klíče',
@@ -498,30 +522,38 @@ $mod_strings = array (
   'LBL_MISSING_PRIVATE' => 'Zjistil jsem (chytrý jsem), že někteří uživatelé nejsou v soukromých týmech. Pokud byste chtěli, aby všichni uživatelé měli vlastní týmy, doporučujeme opravit níže..',
   'LBL_MISSING_TEAMS' => 'Zaznamenal jsem rozdíly mezi Vaší strukturou a strukturou Vašich týmů. Pokud byste chtěli napravit toto, podívejte se prosím do níže uvedených možností.',
   'LBL_MI_COMPLETE' => 'Kompletní',
+  'LBL_MI_IN_ACTIONVIEWMAP' => 'Instalace Action View Map',
   'LBL_MI_IN_ADMIN' => 'instaluji administration section',
   'LBL_MI_IN_BEAN' => 'instaluji bean :',
   'LBL_MI_IN_CONNECTORS' => 'Instalace konektorů',
   'LBL_MI_IN_CUSTOMFIELD' => 'instaluji nastavitelná pole...',
   'LBL_MI_IN_DASHLETS' => 'instaluji dashlet',
+  'LBL_MI_IN_EXT' => 'Instalace %s rozšíření',
+  'LBL_MI_IN_HOOKS' => 'Instalace Logic Hooků',
   'LBL_MI_IN_IMAGES' => 'instaluji images',
   'LBL_MI_IN_LANG' => 'instaluji jazykový balíček',
   'LBL_MI_IN_MENUS' => 'instaluji  menus',
   'LBL_MI_IN_RELATIONSHIPS' => 'instaluji vztahy',
+  'LBL_MI_IN_SCHEDULEDTASKS' => 'Instalace Naplánovaných úkolů',
   'LBL_MI_IN_SUBPANEL' => 'instaluji subpanel vzhled',
   'LBL_MI_IN_USER' => 'instaluji  user page section',
   'LBL_MI_IN_VAR' => 'instaluji  variable definitions',
   'LBL_MI_REBUILDING' => 'přepracovávám',
   'LBL_MI_REPAIR_INDICES' => 'opravuji indexy',
   'LBL_MI_SECTION' => 'sekce...',
+  'LBL_MI_UN_ACTIONVIEWMAP' => 'Odinstalace Action View Map',
   'LBL_MI_UN_ADMIN' => 'odinstaluji  administration section',
   'LBL_MI_UN_BEAN' => 'odinstaluji bean:',
   'LBL_MI_UN_CONNECTORS' => 'Odinstalace konektorů',
   'LBL_MI_UN_CUSTOMFIELD' => 'odinstaluji nastavitelná pole...',
   'LBL_MI_UN_DASHLETS' => 'odisntaluji dashlet',
+  'LBL_MI_UN_EXT' => 'Odinstalace %s rozšíření',
+  'LBL_MI_UN_HOOKS' => 'Odinstalace Logic Hooků',
   'LBL_MI_UN_LANG' => 'odinstaluji jazykový balíček',
   'LBL_MI_UN_MENUS' => 'odinstaluji  menus',
   'LBL_MI_UN_RELATIONSHIPS' => 'odinstaluji vztahy',
   'LBL_MI_UN_RELATIONSHIPS_DROP' => 'postupná tabulka',
+  'LBL_MI_UN_SCHEDULEDTASKS' => 'Odinstalace Naplánovaných úkolů',
   'LBL_MI_UN_SUBPANEL' => 'odinstaluji  subpanel vzhled',
   'LBL_MI_UN_USER' => 'odinstaluji  user page section',
   'LBL_MI_UN_VAR' => 'odinstaluji  variable definitions',
@@ -552,6 +584,8 @@ $mod_strings = array (
   'LBL_NEVER' => 'Nikdy',
   'LBL_NEW_FORM_TITLE' => 'Přidat společnost',
   'LBL_NOTIFY_SUBJECT' => 'Předmět emailu:',
+  'LBL_OAUTH' => 'Správa OAuth klíčů',
+  'LBL_OAUTH_TITLE' => 'OAuth Klíče',
   'LBL_OC_SEARCH_FORM_TITLE' => 'Vyhledání offline klienta',
   'LBL_OFFLINE_CLIENT' => 'prohlížet offline klienty napojené na tento systém',
   'LBL_OOTB_BOUNCE' => 'Spouštět noční zpracování vrácených emailů z kampaní',
@@ -611,6 +645,9 @@ $mod_strings = array (
   'LBL_PASSWORD_TEMPLATE' => 'vzhled emailu',
   'LBL_PASSWORD_USER_EXPIRATION' => 'Heslo vygenerované uživatelem vypršelo',
   'LBL_PASSWORD_USER_RESET' => 'Znovuobnoveí hesla uživatele',
+  'LBL_PATCH_UPGRADES' => 'Aktualizace opravných balíčků',
+  'LBL_PDFMANAGER_SETTINGS' => 'PDF Manager',
+  'LBL_PDFMANAGER_SETTINGS_DESC' => 'Správa šablon pro generované PDF soubory',
   'LBL_PERFORM_UPDATE' => 'Vykonat update',
   'LBL_PLUGINS' => 'Get plug-ins and other Sugar Suite extensions.',
   'LBL_PLUGINS_TITLE' => 'Sugar Forge',
@@ -618,6 +655,7 @@ $mod_strings = array (
   'LBL_PRICE_LIST_TITLE' => 'produkty a nabídky',
   'LBL_PRIVATE_KEY' => 'Osobní klíč',
   'LBL_PRIVATE_TEAM' => 'obnovit přístup k soukromému týmu. Každý uživatel aplikace musí mít jeden, a všichni manažeři v upline musí mít přístup k němu.',
+  'LBL_PROCESSING' => 'Zpracovávám',
   'LBL_PRODUCTS' => 'vložit položku do produktového katalogu',
   'LBL_PRODUCTS_TITLE' => 'Katalog výrobků',
   'LBL_PRODUCT_CATEGORIES' => 'updatovat list produktových kategorii',
@@ -657,6 +695,7 @@ $mod_strings = array (
   'LBL_QR_CLEARTEMPLATE' => 'vymazání souborů vzhledu z cache...dokončeno',
   'LBL_QR_CLEARTHEMECACHE' => 'Vymazání témat z cache...hotovo',
   'LBL_QR_CLEARVADEFS' => 'vymazání vardefs z cache...dokončeno',
+  'LBL_QR_CLEAR_ADD_CACHE' => 'Vymazání mezipaměti souborů ... provedeno',
   'LBL_QR_CLEAR_EXT_API' => 'Čištění externího dočasného prostoru pro API .. dokončeno.',
   'LBL_QR_CREATING_TABLE' => 'vytvoření tabulky',
   'LBL_QR_NOT_AUDIT_ENABLED' => 'audit nepovolen...<br/>',
@@ -705,6 +744,8 @@ $mod_strings = array (
   'LBL_REBUILD_SCHEDULERS_DESC_SHORT' => 'Opraví out-of-the-box Plány.',
   'LBL_REBUILD_SCHEDULERS_DESC_SUCCESS' => 'Obnova plánů kompletní.',
   'LBL_REBUILD_SCHEDULERS_TITLE' => 'Opravit plány',
+  'LBL_REBUILD_SPRITES_DESC_SHORT' => 'Znovupostavení obrázků a konfiguračních souborů',
+  'LBL_REBUILD_SPRITES_TITLE' => 'Znovupostavení obrázků',
   'LBL_REBUILD_WEBCONFIG' => 'rebilduj soubor web.config',
   'LBL_REBUILD_WEBCONFIG_DESC' => 'Rebilduj web.config pro omezení přímého přístupu k některým souborům',
   'LBL_REBUILD_WORKFLOW' => 'předělávám workflow',
@@ -796,9 +837,12 @@ $mod_strings = array (
   'LBL_SAML_LOGIN_URL_DESC' => 'Vložte Login URL',
   'LBL_SAML_TITLE' => 'Autentizace SAML',
   'LBL_SAVE_FAILED' => 'Uložení se nezdařilo <br /> Zkontrolujte prosím oprávnění přístupu k souborům',
+  'LBL_SAVE_SCHED_BUTTON' => 'Naplánovat systémovou indexaci',
+  'LBL_SAVE_SCHED_WARNING' => 'Jste si jist, že chcete spustit systémový index zrovna teď? Výkon systému může být ovlivněn, zatímco je prováděno indexování.',
   'LBL_SAVE_SUCCESS' => '<h4>Změny byly úspěšně uloženy</h4><br/>Nyní bude zpět přesměrování na stránku administrace.',
   'LBL_SAVING' => 'Ukládám...',
   'LBL_SEARCH_MODULE_NAME' => 'Zadejte celé nebo část jména modulu:',
+  'LBL_SELECT_FTS_MODULES_TITLE' => 'Vyberte přetažením moduly, které budou povoleny v Globálním vyhledávání. Pro uložení klikněte na "Uložit".',
   'LBL_SELECT_MODULES' => 'Pokročilé',
   'LBL_SELECT_MODULES_TITLE' => 'Drag and drop modulů pro výběr a pro změnu pořadí zobrazení. Proveďte vyhledávání aby se změny použily.',
   'LBL_SELECT_USER' => 'Vybrat uživatele:',
@@ -806,6 +850,13 @@ $mod_strings = array (
   'LBL_SHIPPERS' => 'nastavit seznam dostupných metod dodání',
   'LBL_SHIPPERS_TITLE' => 'dodání poskytovatele',
   'LBL_SHOW_ADVANCED_OPTIONS' => 'Zobrazení rozšířeného nastavení',
+  'LBL_SNIP_DESC' => 'Konfigurace offline archivace (Emailová archivace)',
+  'LBL_SNIP_TITLE' => 'Archivování emailů',
+  'LBL_SPRITES_ADDED' => 'Přidán obrázek',
+  'LBL_SPRITES_CREATING_NAMESPACE' => 'Vytvoření jmenného prostoru pro obrázek',
+  'LBL_SPRITES_EXCLUDING_FILE' => 'Vyřazení souboru',
+  'LBL_SPRITES_NOT_SUPPORTED' => 'Chyba: Nelze vytvořit obrázky, protože funkce imagecreatetruecolor nemohla být načtena',
+  'LBL_SPRITES_PROCESSING_DIR' => 'Zpracovávání složky',
   'LBL_STATUS' => 'Stav',
   'LBL_STUDIO' => 'Studio',
   'LBL_STUDIO_DESC' => 'Upravit rozbalovací pole, vlastní pole, zobrazení a názvy/nadpisy',
@@ -943,6 +994,7 @@ $mod_strings = array (
   'LBL_WEEKS' => 'týdnů',
   'LBL_WIRELESS_MODULES_ENABLE' => 'Mobil',
   'LBL_WIRELESS_MODULES_ENABLE_DESC' => 'výběr modulů, které budou zobrazeny v mobilních zařízeních',
+  'LBL_WIRELESS_URL_HELP' => 'Klikněte ke konfiguraci Sugar Mobile Plus aplikací',
   'LBL_WORKBENCH' => 'workbench',
   'LBL_WORKBENCH_DESC' => 'customizace aplikace a tvorba nových modulů.',
   'LBL_WORKFLOW_DESC' => 'správa workflow podmínek, upozornění a akcí',
@@ -962,6 +1014,7 @@ $mod_strings = array (
   'MI_LBL_DISABLE_DEPEDENCIES' => 'tento modul nemůže být vypnut, pokud jsou na něm závislé jiné existující moduly.',
   'MI_REDIRECT_TO_UPGRADE_WIZARD' => 'zvolením této opravy, budete přesměrování na upgrade průvodce po provedení nezbytné kontroly systému. Přejete si pokračovat?',
   'ML_AVAIL_RESTRICTION' => 'Omezení a výjimky jsou podrobně uvedeny v',
+  'ML_CONFIG_OVERRIDE' => 'úprava není povolena',
   'ML_DESC_DOCUMENTATION' => 'Klikněte na stromovou strukturu a prohlédněte si související detaily a dokumentaci.',
   'ML_INSTALLATION_FAILED' => 'Instalace se nezdařila!',
   'ML_INVALID_ACTION_IN_MANIFEST' => 'Neplatná akce ve Vašem manifest souboru:',
@@ -996,6 +1049,7 @@ $mod_strings = array (
   'MSG_MAKE_CONFIG_FILE_WRITABLE' => 'Prosím nastavte práva pro zápis u konfiguračního souboru, aby mohl být aktualizován na nejnovější formát.',
   'MSG_REBUILD_EXTENSIONS' => 'Jděte prosím do stránky <a href=\\"index.php?module=Administration&action=Upgrade\\">Opravy</a> a klikněte Oprava rozšíření.',
   'MSG_REBUILD_RELATIONSHIPS' => 'Jděte prosím do stránky  <a href=\\"index.php?module=Administration&action=Upgrade\\">Opravy</a> a klikněte na tlačítko Oprava Vztahů',
+  'MSG_RECONNECT_LOTUSLIVE' => 'Nyní nejste připojen k IBM SmartCloud. Připojte se k němu pomocí svého účtu, aby jste mohl přistupovat ke schůzkám a souborům.',
   'Manufacturers' => 'Zboží',
   'NO_ENABLED_OFFLINE_CLIENTS' => 'právě zde nejsou povoleni žádní offline klienti.',
   'NTC_DISABLE_OFFLINE_CLIENT_ALERT' => 'jste si jisti, že chcete zakázat tohoto offline klienta?',
@@ -1036,7 +1090,7 @@ $mod_strings = array (
   'WARN_LICENSE_SEATS_EDIT_USER' => 'Upozornění: počet aktivních uživatelů překročil maximální počet uživatelů povolených licencí',
   'WARN_LICENSE_SEATS_MAXED' => 'Upozornění: počet aktivních uživatelů překročil maximální počet uživatelů povolených licencí:',
   'WARN_LICENSE_SEATS_USER_CREATE' => 'Upozornění: počet aktivních uživatelů překročil maximální počet uživatelů povolených licencí. Nebudete moci vytvářet další aktivní uživatele.',
-  'WARN_NO_SMTP_SERVER_AVAILABLE_ERROR' => 'Poznámka: chcete-li odeslat upozornění, SMTP server musí být správně nastaven v <a href=&#39;index.php?module=EmailMan&action=config&#39;>Nastavení Emailu</a>.',
+  'WARN_NO_SMTP_SERVER_AVAILABLE_ERROR' => 'Poznámka: chcete-li odeslat upozornění, SMTP server musí být správně nastaven v <a href="index.php?module=EmailMan&action=config">Nastavení Emailu</a>.',
   'WARN_POSSIBLE_JS_OVERWRITE' => 'Upozornění: budou přepsány všechny změny, které kdy byly nad js soubory vytvořeny, chcete pokračovat?',
   'WARN_REPAIR_CONFIG' => 'Upozornění: soubor config.php potřebuje být opraven. Prosím použijte odkaz Oprava v adminstrátorském menu.',
   'WARN_UPGRADE' => 'Varování: Prosím o upgrade a hned:-)',

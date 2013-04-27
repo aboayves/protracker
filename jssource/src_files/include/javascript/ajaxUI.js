@@ -1,28 +1,14 @@
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -36,7 +22,6 @@ SUGAR.ajaxUI = {
         if (typeof window.onbeforeunload == "function")
             window.onbeforeunload = null;
         scroll(0,0);
-        SUGAR.ajaxUI.hideLoadingPanel();
         SUGAR.forms.AssignmentHandler.reset();
         try{
             var r = YAHOO.lang.JSON.parse(o.responseText);
@@ -56,8 +41,14 @@ SUGAR.ajaxUI = {
             }
 
             var c = document.getElementById("content");
+            // Bug #49205 : Subpanels fail to load when selecting subpanel tab
+            // hide content of placeholder before apply new one
+            // @see SUGAR.util.evalScript
+            c.style.visibility = 'hidden';
             c.innerHTML = cont;
             SUGAR.util.evalScript(cont);
+            // all javascripts have been processed - show content of placeholder
+            c.style.visibility = 'visible';
 
             if ( r.moduleList)
             {
@@ -66,12 +57,7 @@ SUGAR.ajaxUI = {
 
             if (r.menu)
             {
-				if(Get_Cookie("sugar_theme_menu_load") == 'true') {
-					SUGAR.themes.setModuleTabs(r.moduleList);
-					Set_Cookie('sugar_theme_menu_load','false',30,'/','','');
-				} else {
-	               SUGAR.themes.setCurrentTab(r.menu);
-				}
+                SUGAR.themes.setCurrentTab(r.menu);
             }
             if (r.record)
             {
@@ -83,9 +69,17 @@ SUGAR.ajaxUI = {
 
                 // Fix the help link
                 // Bug50676 - This can only be run when we have the module around
-                var hl = document.getElementById("help_link");
-                if(hl)
-                    hl.href = hl.href.replace(new RegExp("help_action=([^\&]*?)"), 'help_action=' + action_sugar_grp1).replace(new RegExp("help_module=([^\&]*?)"), 'help_module=' + r.menu.module);
+                var hl = $("#help");
+                if (hl.length > 0) {
+                    hl.find('a').each(function()
+                        {
+                            this.href = this.href.replace(new RegExp("help_action=([^\&]*)"), 'help_action=' + action_sugar_grp1)
+                                .replace(new RegExp("help_module=([^\&]*)"), 'help_module=' + r.menu.module);
+                        }
+                    );
+                    var label = (r.menu.label) ? r.menu.label: r.menu.module;
+                    hl.find('span.title').text(label + ' ' + SUGAR.language.get('app_strings','LNK_HELP'));
+                }
             }
 
             // set response time from ajax response
@@ -98,9 +92,16 @@ SUGAR.ajaxUI = {
                 	$("#logo").attr("title", logoStats.replace(/[\d]+\.[\d]+/, r.responseTime)).tipTip({maxWidth: "auto", edgeOffset: 10});
                 }
             }
+            // Bug #49205 : Subpanels fail to load when selecting subpanel tab
+            // hide ajax loading message after all scripts are processed
+            SUGAR.ajaxUI.hideLoadingPanel();
         } catch (e){
+            // Bug #49205 : Subpanels fail to load when selecting subpanel tab
+            // hide ajax loading message after all scripts are processed
+            SUGAR.ajaxUI.hideLoadingPanel();
             SUGAR.ajaxUI.showErrorMessage(o.responseText);
         }
+        SUGAR_callsInProgress--;
     },
     showErrorMessage : function(errorMessage)
     {
@@ -179,6 +180,7 @@ SUGAR.ajaxUI = {
 
     go : function(url)
     {
+
         if(YAHOO.lang.trim(url) != "")
         {
             var con = YAHOO.util.Connect, ui = SUGAR.ajaxUI;
@@ -231,10 +233,12 @@ SUGAR.ajaxUI = {
                 }
             }
             else {
+                SUGAR_callsInProgress++;
                 SUGAR.ajaxUI.showLoadingPanel();
                 ui.lastCall = YAHOO.util.Connect.asyncRequest('GET', url + '&ajax_load=1' + loadLanguageJS, {
                     success: SUGAR.ajaxUI.callback,
                     failure: function(){
+                        SUGAR_callsInProgress--;
                         SUGAR.ajaxUI.hideLoadingPanel();
                         SUGAR.ajaxUI.showErrorMessage(SUGAR.language.get('app_strings','ERR_AJAX_LOAD_FAILURE'));
                     }
@@ -274,6 +278,13 @@ SUGAR.ajaxUI = {
             }
             return true;
         } else {
+
+            if( typeof(YAHOO.util.Selector.query("input[type=submit]", form)[0]) != "undefined"
+                    && YAHOO.util.Selector.query("input[type=submit]", form)[0].value == "Save")
+            {
+                ajaxStatus.showStatus(SUGAR.language.get('app_strings', 'LBL_SAVING'));
+            }
+
             form.submit();
             return false;
         }

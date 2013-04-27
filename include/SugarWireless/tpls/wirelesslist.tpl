@@ -1,30 +1,16 @@
 
 {*
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 *}
@@ -63,18 +49,36 @@
 		{foreach from=$displayColumns key=col item=params}				
 		<td class="{if $smarty.foreach.recordlist.index % 2 == 0}odd{else}even{/if}">
 				{if $params.link && !$params.customCode}
-					<a href="index.php?module={$MODULE}&action=wirelessdetail&record={$rowData.ID}">{$rowData.$col}</a>
+                    {capture assign=linkModule}{if $params.dynamic_module}{$rowData[$params.dynamic_module]}{else}{$MODULE}{/if}{/capture}
+                    {capture assign=linkRecord}{$rowData[$params.id]|default:$rowData.ID}{/capture}
+                    <a href="index.php?module={$linkModule}&action=wirelessdetail&record={$linkRecord}">{$rowData.$col}</a>
                 {elseif $params.customCode} 
 					{sugar_evalcolumn_old var=$params.customCode rowData=$rowData}
-				{elseif $params.currency_format} 
-					{sugar_currency_format 
-                        var=$rowData.$col 
-                        round=$params.currency_format.round 
-                        decimals=$params.currency_format.decimals 
-                        symbol=$params.currency_format.symbol
-                        convert=$params.currency_format.convert
-                        currency_symbol=$params.currency_format.currency_symbol
-					}
+				{elseif $params.currency_format}
+                    {**
+                     * Need to refactor this wireless list fields to use the
+                     * SugarFields enabling customization levels per field.
+                     * Currency fields shouldn't be defined using name fields
+                     * like "_USD", but rather a parameter telling what is the
+                     * related currency for that field.
+                     *
+                     * @see SugarFieldCurrency::getListViewSmarty
+                     * @see include/SugarFields/Fields/Currency/ListView.tpl
+                     *}
+                    {if stripos(strtoupper($col), '_USD')}
+                        {sugar_currency_format var=$rowData.$col}
+                    {elseif !empty($rowData.CURRENCY_ID)}
+                        {sugar_currency_format var=$rowData.$col
+                        currency_id=$rowData.CURRENCY_ID
+                        }
+                    {elseif !empty($rowData.currency_id)}
+                        {sugar_currency_format var=$rowData.$col
+                        currency_id=$rowData.currency_id
+                        }
+                    {else}
+                        {* empty currency id *}
+                        {sugar_currency_format var=$rowData.$col}
+                    {/if}
 				{elseif $params.type == 'bool'}
 						<input type='checkbox' disabled=disabled class='checkbox'
 						{if !empty($rowData[$col])}

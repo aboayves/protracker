@@ -164,6 +164,21 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
         array (
           0 => 
           array (
+            'name' => 'on_financial_plan',
+            'comment' => '',
+            'label' => 'LBL_ON_FINANCIAL_PLAN',
+          ),
+          1 => 
+          array (
+            'name' => 'report_sort',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SORT',
+          ),
+        ),
+        3 => 
+        array (
+          0 => 
+          array (
             'name' => 'av_group_name',
             'studio' => 'visible',
             'label' => 'LBL_AV_GROUPS_TITLE',
@@ -174,16 +189,6 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
             'comment' => 'Note Attach To Group',
             'label' => 'LBL_ATTACH_TO_GROUP_ID_NOTES',
           ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
-            'name' => 'report_sort',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SORT',
-          ),
-          1 => '',
         ),
       ),
     ),

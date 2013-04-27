@@ -23,26 +23,6 @@ array (
           'customCode' => '<input title="{$SAVE_AS}" class="button" type="submit" name="SaveAsTemplate" value="{$SAVE_AS}"{if $IS_TEMPLATE}onclick="prep_save_as_project(this.form)"{else}onclick="prep_save_as_template(this.form)" {/if}/>',
         ),
       ),
-    ),
-    'useTabs' => true,
-    'syncDetailEditViews' => true,
-  ),
-  'panels' => 
-  array (
-    'lbl_project_information' => 
-    array (
-      0 => 
-      array (
-        0 => 'name',
-        1 => 'status',
-      ),
-      'includes' => 
-      array (
-        0 => 
-        array (
-          'file' => 'modules/Project/Project.js',
-        ),
-      ),
       'form' => 
       array (
         'buttons' => 
@@ -69,9 +49,24 @@ array (
           ),
         ),
       ),
-      'useTabs' => true,
-      'syncDetailEditViews' => true,
-    ),
+    'useTabs' => false,
+    'syncDetailEditViews' => true,
+	'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/modules/Project/tree.js',
+        ),
+		1 => 
+        array (
+          'file' => 'custom/modules/Project/treeview-min.js',
+        ),
+		2 => 
+        array (
+          'file' => 'custom/modules/Project/delete.js',
+        ),
+     ),
+	),
     'panels' => 
     array (
       'lbl_project_information' => 
@@ -138,7 +133,19 @@ array (
           ),
         ),
       ),
+	'LBL_TREE_VIEW' => 
+    array( 
+		0=>
+        array (
+          0 => 
+          array (
+            'name' => 'tree',
+			'hideLabel' => true,
+            'customCode' => '<div id="tree_panel3"></div>',
+          ),
+        ),
+      ),
     ),
-  ),
+	),
 );
 ?>

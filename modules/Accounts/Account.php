@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -154,12 +140,9 @@ class Account extends Company {
 			$this->team_id = 1; // make the item globally accessible
 		}
 
-        //Combine the email logic original here with bug #26450.
-		if( (!empty($_REQUEST['parent_id']) && !empty($_REQUEST['parent_type']) && $_REQUEST['parent_type'] == 'Emails'
-        	&& !empty($_REQUEST['return_module']) && $_REQUEST['return_module'] == 'Emails' )
-        	||
-        	(!empty($_REQUEST['parent_type']) && $_REQUEST['parent_type'] != 'Accounts' &&
-        	!empty($_REQUEST['return_module']) && $_REQUEST['return_module'] != 'Accounts') ){
+        //Email logic
+		if (!empty($_REQUEST['parent_id']) && !empty($_REQUEST['parent_type']) && $_REQUEST['parent_type'] == 'Emails'
+        	&& !empty($_REQUEST['return_module']) && $_REQUEST['return_module'] == 'Emails') {
 			$_REQUEST['parent_name'] = '';
 			$_REQUEST['parent_id'] = '';
 		}
@@ -168,45 +151,6 @@ class Account extends Company {
 	function get_summary_text()
 	{
 		return $this->name;
-	}
-
-	/** Returns a list of the associated products
-	 * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc..
-	 * All Rights Reserved..
-	 * Contributor(s): ______________________________________..
-	*/
-	function get_products()
-	{
-
-
-		$product = new Product();
-
-		// First, get the list of IDs.
-		$query = $this->get_products_query();
-		return $this->build_related_list($query, new Product());
-	}
-
-	/**
-	 * Returns the SELECT query that will get the list of associated Products.
-	 */
-	function get_products_query()
-	{
-
-		$product = new Product();
-
-		if($GLOBALS['db']->tableExists($product->table_name . "_cstm")){
-		    return "SELECT 'Products' module, products.*, products_cstm.*"
-                . " FROM $product->table_name "
-                . " LEFT JOIN quotes ON products.quote_id = quotes.id"
-                . " LEFT JOIN $product->table_name"."_cstm ON products_cstm.id_c = products.id"
-                . " WHERE products.account_id='$this->id' AND products.deleted=0 AND (quotes.quote_stage IS NULL OR quotes.quote_stage NOT IN ('Closed Lost', 'Closed Dead'))";
-		} else {
-		    return "SELECT 'Products' module, products.*"
-                . " FROM $product->table_name "
-                . " LEFT JOIN quotes ON products.quote_id = quotes.id"
-                . " WHERE products.account_id='$this->id' AND products.deleted=0 AND (quotes.quote_stage IS NULL OR quotes.quote_stage NOT IN ('Closed Lost', 'Closed Dead'))";
-		}
-
 	}
 
 	function get_contacts() {
@@ -283,10 +227,11 @@ class Account extends Company {
 	}
 
 	function get_list_view_data(){
-		global $system_config,$current_user;
-		$temp_array = $this->get_list_view_array();
-		$temp_array["ENCODED_NAME"]=$this->name;
-//		$temp_array["ENCODED_NAME"]=htmlspecialchars($this->name, ENT_QUOTES);
+
+		$temp_array = parent::get_list_view_data();
+
+		$temp_array["ENCODED_NAME"] = $this->name;
+
 		if(!empty($this->billing_address_state))
 		{
 			$temp_array["CITY"] = $this->billing_address_city . ', '. $this->billing_address_state;
@@ -298,9 +243,6 @@ class Account extends Company {
 		$temp_array["BILLING_ADDRESS_STREET"]  = $this->billing_address_street;
 		$temp_array["SHIPPING_ADDRESS_STREET"] = $this->shipping_address_street;
     	
-    		$temp_array["EMAIL1"] = $this->emailAddress->getPrimaryAddress($this);
-		$this->email1 = $temp_array['EMAIL1'];
-		$temp_array["EMAIL1_LINK"] = $current_user->getEmailLink('email1', $this, '', '', 'ListView');
 		
 //Marking dates ----------------------------------------- PROTRACK-152 ---- Abdul
 		if(isset($temp_array['EXPIRATION_DATE']) && !empty($temp_array['EXPIRATION_DATE'])){
@@ -350,17 +292,14 @@ class Account extends Company {
 
         function create_export_query(&$order_by, &$where, $relate_link_join='')
         {
-        	$custom_join = $this->custom_fields->getJOIN(true, true,$where);
-			if($custom_join)
-				$custom_join['join'] .= $relate_link_join;
+            $custom_join = $this->getCustomJoin(true, true, $where);
+            $custom_join['join'] .= $relate_link_join;
                          $query = "SELECT
                                 accounts.*,email_addresses.email_address email_address,
                                 accounts.name as account_name,
                                 users.user_name as assigned_user_name ";
 						 $query .= ", teams.name AS team_name ";
-						if($custom_join){
-   							$query .= $custom_join['select'];
- 						}
+            $query .= $custom_join['select'];
 						 $query .= " FROM accounts ";
 								// We need to confirm that the user is a member of the team of the item.
 								$this->add_team_security_where_clause($query);
@@ -372,9 +311,7 @@ class Account extends Company {
 						$query .=  ' LEFT JOIN  email_addr_bean_rel on accounts.id = email_addr_bean_rel.bean_id and email_addr_bean_rel.bean_module=\'Accounts\' and email_addr_bean_rel.deleted=0 and email_addr_bean_rel.primary_address=1 ';
 						$query .=  ' LEFT JOIN email_addresses on email_addresses.id = email_addr_bean_rel.email_address_id ' ;
 
-						if($custom_join){
-  							$query .= $custom_join['join'];
-						}
+            $query .= $custom_join['join'];
 
 		        $where_auto = "( accounts.deleted IS NULL OR accounts.deleted=0 )";
 

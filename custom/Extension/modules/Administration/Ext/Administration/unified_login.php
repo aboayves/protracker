@@ -5,12 +5,15 @@ global $db, $current_user;
 $admin_option_defs = array();
 $admin_option_defs['UnifiedLogin'] = array(
 'themes/default/images/WorkFlow.gif', 'LBL_UNIFIED_LOGIN', 'LBL_REG_UNIFIED_LOGIN', 'javascript:dialogForURL();');
+$admin_option_defs['UpdateAccountHistory'] = array(
+'custom/themes/default/images/av_Account_Histories.gif', 'LBL_UPDATE_ACCOUNT_HISTORY', 'LBL_REG_UPDATE_ACCOUNT_HISTORY', './index.php?module=av_Account_Histories&action=create_account_history_record');
 // Loop through the menus and add to the Users group
 foreach ($admin_group_header as $key => $values)
 {
 	if ($values[0] == 'LBL_ADMINISTRATION_HOME_TITLE')
 	{
 		$admin_group_header[$key][3]['Administration']['UnifiedLogin'] = $admin_option_defs['UnifiedLogin'];
+		$admin_group_header[$key][3]['Administration']['UpdateAccountHistory'] = $admin_option_defs['UpdateAccountHistory'];
 	}
 }
 echo '<div id="dialogForURL" title="Register for unified login" style="display:none"><br/><br/>
@@ -126,6 +129,12 @@ $admin_role_options = array(
 				'Import Orion AdvisorLynx Portfolio Values',
 				'./index.php?module=Import&action=step1&import_module=av_Account_Histories&source=reserved_orion_import_pv'
 			),
+			"av_Account_Histories"=>array(
+				'av_Account_Histories',
+				'Record Account Status For All Clients',
+				'Record Account History For Each Client\'s Account',
+				'./index.php?module=av_Account_Histories&action=create_account_history_record'
+			),
 		),
 		"reserved_professional"=>array(
 			"av_Account_Types"=>array(
@@ -236,6 +245,12 @@ $admin_role_options = array(
 				translate('Teams', 'LBL_MODULE_NAME'),
 				'Teams',
 				'./index.php?module=Teams&action=index'
+			),
+			"av_Account_Histories"=>array(
+				'av_Account_Histories',
+				'Create Account History Records',
+				'Create Account History Records For All Clients',
+				'./index.php?module=av_Account_Histories&action=create_account_history_record'
 			),
 		),
 		"reserved_enterprise"=>array(
@@ -401,6 +416,12 @@ $admin_role_options = array(
 				'LBL_PRODUCT_CATEGORIES_TITLE',
 				'LBL_PRODUCT_CATEGORIES',
 				'./index.php?module=ProductCategories&action=index'
+			),
+			"av_Account_Histories"=>array(
+				'av_Account_Histories',
+				'Create Account History Records',
+				'Create Account History Records For All Clients',
+				'./index.php?module=av_Account_Histories&action=create_account_history_record'
 			),
 		),
 ) ;

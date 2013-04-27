@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 
@@ -55,7 +41,7 @@ class One2MBeanRelationship extends One2MRelationship
         // test to see if the relationship exist if the relationship between the two beans
         // exist then we just fail out with false as we don't want to re-trigger this
         // the save and such as it causes problems with the related() in sugarlogic
-        if($this->relationship_exists($lhs, $rhs)) return false;
+        if($this->relationship_exists($lhs, $rhs) && !empty($GLOBALS['resavingRelatedBeans'])) return false;
 
         $lhsLinkName = $this->lhsLink;
         $rhsLinkName = $this->rhsLink;
@@ -77,8 +63,13 @@ class One2MBeanRelationship extends One2MRelationship
             $lhs->$lhsLinkName->load();
         }
 
-        $this->updateFields($lhs, $rhs, $additionalFields);
+        if (empty($_SESSION['disable_workflow']) || $_SESSION['disable_workflow'] != "Yes")
+        {
+            $this->callBeforeAdd($lhs, $rhs);
+            $this->callBeforeAdd($rhs, $lhs);
+        }
 
+        $this->updateFields($lhs, $rhs, $additionalFields);
 
         if (empty($_SESSION['disable_workflow']) || $_SESSION['disable_workflow'] != "Yes")
         {
@@ -91,6 +82,13 @@ class One2MBeanRelationship extends One2MRelationship
             $this->callAfterAdd($lhs, $rhs);
             $this->callAfterAdd($rhs, $lhs);
         }
+
+        //One2MBean relationships require that the RHS bean be saved or else the relationship will not be saved.
+        //If we aren't already in a relationship save, intitiate a save now.
+        if (empty($GLOBALS['resavingRelatedBeans']))
+            SugarRelationship::resaveRelatedBeans();
+        
+        return true;
     }
 
     protected function updateLinks($lhs, $lhsLinkName, $rhs, $rhsLinkName)
@@ -125,9 +123,15 @@ class One2MBeanRelationship extends One2MRelationship
 
         //If this relationship has already been removed, we can just return
         if ($rhs->$rhsID != $lhs->id)
-            return;
+            return false;
 
         $rhs->$rhsID = '';
+
+        if (empty($_SESSION['disable_workflow']) || $_SESSION['disable_workflow'] != "Yes")
+        {
+            $this->callBeforeDelete($lhs, $rhs);
+            $this->callBeforeDelete($rhs, $lhs);
+        }
 
         if ($save && !$rhs->deleted)
         {
@@ -140,6 +144,8 @@ class One2MBeanRelationship extends One2MRelationship
             $this->callAfterDelete($lhs, $rhs);
             $this->callAfterDelete($rhs, $lhs);
         }
+
+        return true;
     }
 
     /**
@@ -297,13 +303,39 @@ class One2MBeanRelationship extends One2MRelationship
         $alias = empty($params['join_table_alias']) ? "{$link->name}_rel": $params['join_table_alias'];
         $alias = $GLOBALS['db']->getValidDBName($alias, false, 'alias');
 
+        $tableInRoleFilter = "";
+        if (
+            (
+                $startingTable == "meetings"
+                || $startingTable == "notes"
+                || $startingTable == "tasks"
+                || $startingTable == "calls"
+                || $startingTable == "emails"
+            )
+            &&
+            (
+                $targetTable == "meetings"
+                || $targetTable == "notes"
+                || $targetTable == "tasks"
+                || $targetTable == "calls"
+            )
+            && substr($alias, 0, 12 + strlen($targetTable)) == $targetTable . "_activities_"
+        )
+        {
+            $tableInRoleFilter = $linkIsLHS ? $alias : $startingTable;
+        }
+        
         //Set up any table aliases required
         $targetTableWithAlias = "$targetTable $alias";
         $targetTable = $alias;
 
         $query .= "$join_type $targetTableWithAlias ON $startingTable.$startingKey=$targetTable.$targetKey AND $targetTable.deleted=0\n"
         //Next add any role filters
-               . $this->getRoleWhere() . "\n";
+               . $this->getRoleWhere($tableInRoleFilter) . "\n";
+
+        if (!empty($params['return_as_array'])) {
+            $return_array = true;
+        }
 
         if($return_array){
             return array(

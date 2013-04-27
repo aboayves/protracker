@@ -1,30 +1,16 @@
 <?php
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /*********************************************************************************
- * The contents of this file are subject to the SugarCRM Master Subscription
- * Agreement ("License") which can be viewed at
- * http://www.sugarcrm.com/crm/master-subscription-agreement
- * By installing or using this file, You have unconditionally agreed to the
- * terms and conditions of the License, and You may not use this file except in
- * compliance with the License.  Under the terms of the license, You shall not,
- * among other things: 1) sublicense, resell, rent, lease, redistribute, assign
- * or otherwise transfer Your rights to the Software, and 2) use the Software
- * for timesharing or service bureau purposes such as hosting the Software for
- * commercial gain and/or for the benefit of a third party.  Use of the Software
- * may be subject to applicable fees and any use of the Software without first
- * paying applicable fees is strictly prohibited.  You do not have the right to
- * remove SugarCRM copyrights from the source code or user interface.
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
  *
- * All copies of the Covered Code must include on each user interface screen:
- *  (i) the "Powered by SugarCRM" logo and
- *  (ii) the SugarCRM copyright notice
- * in the same form as they appear in the distribution.  See full license for
- * requirements.
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
  *
- * Your Warranty, Limitations of liability and Indemnity are expressly stated
- * in the License.  Please refer to the License for the specific language
- * governing these rights and limitations under the License.  Portions created
- * by SugarCRM are Copyright (C) 2004-2012 SugarCRM, Inc.; All Rights Reserved.
+ * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
  ********************************************************************************/
 
 /*********************************************************************************
@@ -41,6 +27,7 @@ class UploadFile
 {
 	var $field_name;
 	var $stored_file_name;
+	var $uploaded_file_name;
 	var $original_file_name;
 	var $temp_file_location;
 	var $use_soap = false;
@@ -114,7 +101,7 @@ class UploadFile
 	    }
 	    return "index.php?entryPoint=download&type=$type&id={$document->id}";
 	}
-
+	
 	/**
 	 * Try renaming a file to bean_id name
 	 * @param string $filename
@@ -249,6 +236,7 @@ class UploadFile
 		$this->mime_type = $this->getMime($_FILES[$this->field_name]);
 		$this->stored_file_name = $this->create_stored_filename();
 		$this->temp_file_location = $_FILES[$this->field_name]['tmp_name'];
+		$this->uploaded_file_name = $_FILES[$this->field_name]['name'];
 
 		return true;
 	}
@@ -283,16 +271,16 @@ class UploadFile
         $file_ext = pathinfo($filename, PATHINFO_EXTENSION);
 
         //If no file extension is available and the mime is octet-stream try to determine the mime type.
-        $recheckMime = empty($file_ext) && ($_FILES_element['type']  == 'application/octet-stream');
+        $recheckMime = empty($file_ext) && !empty($_FILES_element['type']) && ($_FILES_element['type']  == 'application/octet-stream');
 
-		if( $_FILES_element['type'] && !$recheckMime) {
+		if (!empty($_FILES_element['type']) && !$recheckMime) {
 			$mime = $_FILES_element['type'];
 		} elseif( function_exists( 'mime_content_type' ) ) {
 			$mime = mime_content_type( $_FILES_element['tmp_name'] );
 		} elseif( function_exists( 'ext2mime' ) ) {
 			$mime = ext2mime( $_FILES_element['name'] );
 		} else {
-			$mime = ' application/octet-stream';
+			$mime = 'application/octet-stream';
 		}
 		return $mime;
 	}
@@ -305,6 +293,40 @@ class UploadFile
 	{
 		return $this->stored_file_name;
 	}
+	
+	function get_temp_file_location()
+	{
+	    return $this->temp_file_location;
+	}
+	
+	function get_uploaded_file_name()
+	{
+	    return $this->uploaded_file_name;
+	}
+	
+	function get_mime_type()
+	{
+	    return $this->mime_type;
+	}
+	
+	/**
+	 * Returns the contents of the uploaded file
+	 */
+	public function get_file_contents() {
+	    
+	    // Need to call
+	    if ( !isset($this->temp_file_location) ) {
+	        $this->confirm_upload();
+	    }
+	    
+	    if (($data = @file_get_contents($this->temp_file_location)) === false) {
+	        return false;
+        }
+           
+        return $data;
+	}
+
+	
 
 	/**
 	 * creates a file's name for preparation for saving
@@ -498,6 +520,74 @@ class UploadStream
 {
     const STREAM_NAME = "upload";
     protected static $upload_dir;
+
+    /**
+     * Method checks Suhosin restrictions to use streams in php
+     *
+     * @static
+     * @return bool is allowed stream or not
+     */
+    public static function getSuhosinStatus()
+    {
+        // looks like suhosin patch doesn't block protocols, only suhosin extension (tested on FreeBSD)
+        // if suhosin is not installed it is okay for us
+        if (extension_loaded('suhosin') == false)
+        {
+            return true;
+        }
+        $configuration = ini_get_all('suhosin', false);
+
+        // suhosin simulation is okay for us
+        if ($configuration['suhosin.simulation'] == true)
+        {
+            return true;
+        }
+
+        // checking that UploadStream::STREAM_NAME is allowed by white list
+        $streams = $configuration['suhosin.executor.include.whitelist'];
+        if ($streams != '')
+        {
+            $streams = explode(',', $streams);
+            foreach($streams as $stream)
+            {
+                $stream = explode('://', $stream, 2);
+                if (count($stream) == 1)
+                {
+                    if ($stream[0] == UploadStream::STREAM_NAME)
+                    {
+                        return true;
+                    }
+                }
+                elseif ($stream[1] == '' && $stream[0] == UploadStream::STREAM_NAME)
+                {
+                    return true;
+                }
+            }
+
+            $GLOBALS['log']->fatal('Stream ' . UploadStream::STREAM_NAME . ' is not listed in suhosin.executor.include.whitelist and blocked because of it');
+            return false;
+        }
+
+        // checking that UploadStream::STREAM_NAME is not blocked by black list
+        $streams = $configuration['suhosin.executor.include.blacklist'];
+        if ($streams != '')
+        {
+            $streams = explode(',', $streams);
+            foreach($streams as $stream)
+            {
+                $stream = explode('://', $stream, 2);
+                if ($stream[0] == UploadStream::STREAM_NAME)
+                {
+                    $GLOBALS['log']->fatal('Stream ' . UploadStream::STREAM_NAME . 'is listed in suhosin.executor.include.blacklist and blocked because of it');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        $GLOBALS['log']->fatal('Suhosin blocks all streams, please define ' . UploadStream::STREAM_NAME . ' stream in suhosin.executor.include.whitelist');
+        return false;
+    }
 
     /**
      * Get upload directory
