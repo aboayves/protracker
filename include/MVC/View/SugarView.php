@@ -682,20 +682,20 @@ class SugarView
 			foreach($quickMenuItems as $data){
 				$pieces = explode(" ", $data['createRecordTitle']);
 				$data['createRecordTitle'] = $pieces[1];
-				$updated_menus[] = $data;
+				$updated_menus[$data['module']] = $data;
 			}
-			array_unshift($updated_menus,$updated_menus[6],$updated_menus[7]);
-			$updated_menus[8] = $updated_menus[10];
-			$updated_menus[9] = $updated_menus[11];
-			unset($updated_menus[10]);
-			unset($updated_menus[11]);
+			ksort($updated_menus);
+			$sorted_quick_menus = array();
+			foreach($updated_menus as $items){
+				$sorted_quick_menus[] = $items;
+			}
 			$notifData = $dcm->getNotifications();
 			$ss->assign('NOTIFCLASS', $notifData['class']);
 			$ss->assign('NOTIFCODE', $notifData['code']);
 			$ss->assign('NOTIFICON', $notifData['icon']);
 			$ss->assign('DCSCRIPT', $dcm->getScript());
 			$ss->assign('ICONSEARCH', $dcm->getSearchIcon());
-			$ss->assign('DCACTIONS',$updated_menus);
+			$ss->assign('DCACTIONS',$sorted_quick_menus);
 			$ss->assign('PICTURE', $current_user->picture);
             $ftsAutocompleteEnable = TRUE;
             $searchEngine = SugarSearchEngineFactory::getInstance();
