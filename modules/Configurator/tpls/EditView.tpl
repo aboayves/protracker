@@ -171,7 +171,26 @@
         </td>
         <td colspan="2">&nbsp;</td>
     </tr>
-
+  <tr>
+        <td  scope="row" nowrap>{$MOD.LBL_PASSWORDS_SAVED_BROWSER}: &nbsp;{sugar_help text=$MOD.LBL_PASSWORDS_SAVED_BROWSER_DESC}</td>
+    {if isset($config.passwords_saved_browser) && $config.passwords_saved_browser != "true" }
+        {assign var='passwords_saved_browser' value=''}
+        {else}
+        {assign var='passwords_saved_browser' value='CHECKED'}
+    {/if}
+        <td>
+            <input type='hidden' name='passwords_saved_browser' value='false'>
+            <input name='passwords_saved_browser'  type="checkbox" value="true" {$passwords_saved_browser}>
+        </td>
+        <td colspan="2">&nbsp;</td>
+    </tr> 
+	<tr>
+        <td  scope="row" nowrap>{$MOD.LBL_INACTIVITY_TIMEOUT_LENGTH}: </td>
+        <td>
+            <input name='inactivity_timeout_length'  type="text" value='{$config.inactivity_timeout_length}'>
+        </td>
+        <td colspan="2">&nbsp;</td>
+    </tr>
 
 
 

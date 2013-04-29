@@ -112,6 +112,13 @@ if((isset($sugar_flavor) && $sugar_flavor != null) &&
 
 $lvars = $GLOBALS['app']->getLoginVars();
 $sugar_smarty->assign("LOGIN_VARS", $lvars);
+// Upgrade-unsafe code for checking if browser have to allow to save passwords or not.
+if($sugar_config['passwords_saved_browser']){
+	$passwords_saved_browser = "on";
+}else{
+	$passwords_saved_browser = "off";
+}
+$sugar_smarty->assign("PASSWORDS_SAVED_BROWSER", $passwords_saved_browser);
 foreach($lvars as $k => $v) {
     $sugar_smarty->assign(strtoupper($k), $v);
 }

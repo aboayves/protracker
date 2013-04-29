@@ -87,7 +87,7 @@ var LBL_HIDEOPTIONS = '{sugar_translate module="Users" label="LBL_HIDEOPTIONS"}'
 									</tr>
 									<tr>
 										<td scope="row"><label for="user_password">{sugar_translate module="Users" label="LBL_PASSWORD"}:</label></td>
-										<td width="30%"><input type="password" size='26' tabindex="2" id="user_password" name="user_password" value='{$LOGIN_PASSWORD}' /></td>
+										<td width="30%"><input type="password" size='26' tabindex="2" id="user_password" name="user_password" value='{$LOGIN_PASSWORD}' autocomplete="{$PASSWORDS_SAVED_BROWSER}"/></td>
 									</tr>
 
 									<tr>
