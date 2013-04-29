@@ -1,6 +1,6 @@
 <?php
 // created: 2012-09-03 07:22:23
-$layout_defs["Contacts"]["subpanel_setup"]["calls_contacts"] = array (
+/*$layout_defs["Contacts"]["subpanel_setup"]["calls_contacts"] = array (
   'order' => 9,
   'module' => 'Calls',
   'subpanel_name' => 'default',
@@ -21,3 +21,4 @@ $layout_defs["Contacts"]["subpanel_setup"]["calls_contacts"] = array (
     ),
   ),
 );
+*/

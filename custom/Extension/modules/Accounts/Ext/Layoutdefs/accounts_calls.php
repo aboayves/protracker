@@ -1,6 +1,6 @@
 <?php
 // created: 2012-09-03 07:22:23
-$layout_defs["Accounts"]["subpanel_setup"]["calls_accounts"] = array (
+/*$layout_defs["Accounts"]["subpanel_setup"]["calls_accounts"] = array (
   'order' => 9,
   'module' => 'Calls',
   'subpanel_name' => 'default',
@@ -20,4 +20,4 @@ $layout_defs["Accounts"]["subpanel_setup"]["calls_accounts"] = array (
       'mode' => 'MultiSelect',
     ),
   ),
-);
+);*/
