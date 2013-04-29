@@ -961,7 +961,7 @@ EOHTML;
 			 $bottomLinkList['print'] = array($app_strings['LNK_PRINT'] => getPrintLink());
 		}
 		$bottomLinkList['backtotop'] = array($app_strings['LNK_BACKTOTOP'] => 'javascript:SUGAR.util.top();');
-		$bottomLinkList['help'] = array('Help' => 'javascript:window.open(\'http://protrackersoftware.net/help/contacts.php?'.$GLOBALS['request_string'].'\');');
+		$bottomLinkList['help'] = array('Help' => 'index.php?module=av_help&action=help&help_module='.$_REQUEST['module'].'&help_action='.$_REQUEST['action']);
 
 		$bottomLinksStr = "";
 		foreach($bottomLinkList as $key => $value) {
@@ -973,9 +973,15 @@ EOHTML;
                    } else {
                    		$onclick = "";
                    	}
+					if(strpos($link, 'av_help')>=0) {
+						$help = " target='_blank' accesskey='h'";
+					} else {
+						$help = "";
+					}
                 $imageURL = SugarThemeRegistry::current()->getImageURL($key.'.gif');
 				$bottomLinksStr .= "<a href=\"{$href}\"";
 				$bottomLinksStr .= (isset($onclick)) ? $onclick : "";
+				$bottomLinksStr .= (isset($help)) ? $help : "";
 				$bottomLinksStr .= "><img src='{$imageURL}' alt=''>"; //keeping alt blank on purpose for 508 (text will be read instead)
 				$bottomLinksStr .= " ".$text."</a>";
 			}

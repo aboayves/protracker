@@ -87,32 +87,37 @@ array (
         ),
         1 => 
         array (
-          0 => 'title',
+          0 => 
+          array (
+            'name' => 'office_id_name',
+            'label' => 'LBL_OFFICE_ID_NAME',
+          ),
           1 => 'phone_work',
         ),
         2 => 
         array (
-          0 => 'department',
+          0 => 'title',
           1 => 'phone_mobile',
         ),
         3 => 
         array (
-          0 => 'reports_to_name',
+          0 => 'department',
           1 => 'phone_other',
         ),
         4 => 
         array (
-          0 => 'phone_home',
+          0 => 'reports_to_name',
           1 => 'phone_fax',
         ),
         5 => 
         array (
-          0 => 'messenger_type',
-          1 => 'messenger_id',
+          0 => 'phone_home',
+          1 => 'messenger_type',
         ),
         6 => 
         array (
           0 => 'address_street',
+          1 => 'messenger_id',
         ),
         7 => 
         array (
@@ -169,17 +174,7 @@ array (
             ),
             'label' => 'LBL_EXT_AUTHENTICATE',
           ),
-          1 => 
-          array (
-            'name' => 'portal_only',
-            'studio' => 
-            array (
-              'listview' => false,
-              'searchview' => false,
-              'formula' => false,
-            ),
-            'label' => 'LBL_PORTAL_ONLY_USER',
-          ),
+          1 => '',
         ),
       ),
     ),

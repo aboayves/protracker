@@ -1,5 +1,5 @@
 <?php
-// created: 2013-03-06 21:45:59
+// created: 2013-04-16 19:10:06
 $subpanel_layout['list_fields'] = array (
   'accounts_name' => 
   array (
@@ -19,7 +19,10 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'vname' => 'LBL_SERVICE_TYPE',
     'width' => '10%',
-	'link' => true,
+    'link' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => NULL,
+    'target_record_key' => NULL,
   ),
   'service_group' => 
   array (
@@ -33,6 +36,13 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'enum',
     'default' => true,
     'vname' => 'LBL_FREQUENCY',
+    'width' => '10%',
+  ),
+  'report_name' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'vname' => 'LBL_REPORT_NAME',
     'width' => '10%',
   ),
   'edit_button' => 

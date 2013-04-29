@@ -29,7 +29,7 @@ array (
     ),
     'panels' => 
     array (
-      'default' => 
+      'lbl_editview_panel3' => 
       array (
         0 => 
         array (
