@@ -21,7 +21,9 @@ ob_start();
 require_once('include/MVC/SugarApplication.php');
 $app = new SugarApplication();
 global $sugar_config;
-ini_set('session.gc_maxlifetime', intval($sugar_config['inactivity_timeout_length'])*60);
+if(isset($sugar_config['inactivity_timeout_length']) && !empty($sugar_config['inactivity_timeout_length'])){
+	ini_set('session.gc_maxlifetime', intval($sugar_config['inactivity_timeout_length'])*60);
+}
 $app->startSession();
 $app->execute();
 
