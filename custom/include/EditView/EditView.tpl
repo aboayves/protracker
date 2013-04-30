@@ -124,10 +124,10 @@ class="yui-navset"
 			   <label for="{{$fields[$colData.field.name].name}}">{{$colData.field.customLabel}}</label>
 			{{elseif isset($colData.field.label)}}
 			   {capture name="label" assign="label"}{sugar_translate label='{{$colData.field.label}}' module='{{$module}}'}{/capture}
-			   <label for="{{$fields[$colData.field.name].name}}">{$label|strip_semicolon}:</label>
+			   <label for="{{$fields[$colData.field.name].name}}">{$label|strip_semicolon}</label>
 			{{elseif isset($fields[$colData.field.name])}}
 			   {capture name="label" assign="label"}{sugar_translate label='{{$fields[$colData.field.name].vname}}' module='{{$module}}'}{/capture}
-			   <label for="{{$fields[$colData.field.name].name}}">{$label|strip_semicolon}:</label>
+			   <label for="{{$fields[$colData.field.name].name}}">{$label|strip_semicolon}</label>
 			{{else}}
 			    &nbsp;
 			{{/if}}
@@ -165,10 +165,10 @@ class="yui-navset"
 			{{if !empty($def.templateMeta.labelsOnTop)}}
 				{{if isset($colData.field.label)}}
 				    {{if !empty($colData.field.label)}}
-			   		    <label for="{{$fields[$colData.field.name].name}}">{sugar_translate label='{{$colData.field.label}}' module='{{$module}}'}:</label>
+			   		    <label for="{{$fields[$colData.field.name].name}}">{sugar_translate label='{{$colData.field.label}}' module='{{$module}}'}</label>
 				    {{/if}}
 				{{elseif isset($fields[$colData.field.name])}}
-			  		<label for="{{$fields[$colData.field.name].name}}">{sugar_translate label='{{$fields[$colData.field.name].vname}}' module='{{$module}}'}:</label>
+			  		<label for="{{$fields[$colData.field.name].name}}">{sugar_translate label='{{$fields[$colData.field.name].vname}}' module='{{$module}}'}</label>
 				{{/if}}
 
 				{{* Show the required symbol if field is required, but override not set.  Or show if override is set *}}
