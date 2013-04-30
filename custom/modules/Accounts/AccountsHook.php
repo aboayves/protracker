@@ -101,6 +101,29 @@ class AccountsHook
 			}
 		}
 	}
+	function delete_child_records($bean, $event, $arguments){
+		global $db;
+		$sql="UPDATE cases SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE tasks SET deleted=1 WHERE parent_id='{$bean->id}' and parent_type='Accounts' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE notes SET deleted=1 WHERE parent_id='{$bean->id}' and parent_type='Accounts' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE meetings SET deleted=1 WHERE parent_id='{$bean->id}' and parent_type='Accounts' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE calls SET deleted=1 WHERE parent_id='{$bean->id}' and parent_type='Accounts' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE leads SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE av_accounts SET deleted=1 WHERE accounts_id='{$bean->id}' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE av_net_worth SET deleted=1 WHERE accounts_id='{$bean->id}' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE contracts SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
+		$db->query($sql, true);
+		$sql="UPDATE products SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
+		$db->query($sql, true);
+	}
 }
 
 
