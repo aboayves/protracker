@@ -117,7 +117,7 @@ class AccountsViewDetail extends CustomViewDetail
 			if(isset($_REQUEST['print']) && $_REQUEST['print'] =='true'){
 				echo "<script type='text/javascript'>";
 			}else{
-				echo "<script type='text/javascript'>Accounts_detailview_tabs.selectTab(5);";
+				echo "<script type='text/javascript'>Accounts_detailview_tabs.selectTab(4);";
 			}
 			echo "$('#divForGraph').jqxChart( {
 						  source: ".json_encode($data4graph).",															  
