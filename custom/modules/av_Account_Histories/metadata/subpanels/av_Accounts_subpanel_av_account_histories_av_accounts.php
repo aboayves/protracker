@@ -1,18 +1,6 @@
 <?php
 // created: 2013-04-10 17:36:47
 $subpanel_layout['list_fields'] = array (
-  'av_accounts_name' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'vname' => 'LBL_AV_ACCOUNTS_NAME',
-    'id' => 'ASSET_ID',
-    'width' => '30%',
-    'default' => true,
-    'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => 'av_Accounts',
-    'target_record_key' => 'asset_id',
-  ),
   'account_number' => 
   array (
     'type' => 'varchar',

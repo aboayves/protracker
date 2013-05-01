@@ -6,7 +6,7 @@ $admin_option_defs = array();
 $admin_option_defs['UnifiedLogin'] = array(
 'themes/default/images/WorkFlow.gif', 'LBL_UNIFIED_LOGIN', 'LBL_REG_UNIFIED_LOGIN', 'javascript:dialogForURL();');
 $admin_option_defs['UpdateAccountHistory'] = array(
-'custom/themes/default/images/av_Account_Histories.gif', 'LBL_UPDATE_ACCOUNT_HISTORY', 'LBL_REG_UPDATE_ACCOUNT_HISTORY', './index.php?module=av_Account_Histories&action=create_account_history_record');
+'custom/themes/default/images/av_Account_Histories.gif', 'LBL_UPDATE_ACCOUNT_HISTORY', 'LBL_REG_UPDATE_ACCOUNT_HISTORY', 'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);');
 // Loop through the menus and add to the Users group
 foreach ($admin_group_header as $key => $values)
 {
@@ -133,7 +133,7 @@ $admin_role_options = array(
 				'av_Account_Histories',
 				'Record Account Status For All Clients',
 				'Record Account History For Each Client\'s Account',
-				'./index.php?module=av_Account_Histories&action=create_account_history_record'
+				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
 			),
 		),
 		"reserved_professional"=>array(
@@ -250,7 +250,7 @@ $admin_role_options = array(
 				'av_Account_Histories',
 				'Create Account History Records',
 				'Create Account History Records For All Clients',
-				'./index.php?module=av_Account_Histories&action=create_account_history_record'
+				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
 			),
 		),
 		"reserved_enterprise"=>array(
@@ -421,7 +421,7 @@ $admin_role_options = array(
 				'av_Account_Histories',
 				'Create Account History Records',
 				'Create Account History Records For All Clients',
-				'./index.php?module=av_Account_Histories&action=create_account_history_record'
+				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
 			),
 		),
 ) ;

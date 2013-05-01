@@ -9,7 +9,7 @@ $dictionary["av_Account_Histories"]["fields"]["av_accounts_id"] = array (
   'len' => 36,
   'size' => '20',
 );
-$dictionary["av_Accounts"]["fields"]["av_accounts_name"] = array (
+$dictionary["av_Account_Histories"]["fields"]["av_accounts_name"] = array (
   'name' => 'av_accounts_name',
   'type' => 'relate',
   'source' => 'non-db',

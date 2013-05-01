@@ -1,12 +1,14 @@
 <?php
-	global $db;
+	global $db, $timedate;
 	$sql="SELECT av_accounts.id 
 		  FROM accounts 
 		  RIGHT JOIN av_accounts
 		  ON(av_accounts.deleted=0 AND av_accounts.accounts_id=accounts.id)
 		  WHERE accounts.deleted=0";
 	$result = $db->query($sql);
-	$updated = false;
+	$account_histories_records = array();
+	$now = $timedate->nowDB();
+	$nowDate = $timedate->nowDbDate();
 	while($row = $db->fetchByAssoc($result)){
 		$av_accounts_bean = BeanFactory::getBean("av_Accounts", $row['id']);
 		$key_fields = array_keys($av_accounts_bean->fetched_row);
@@ -25,21 +27,25 @@
 		}
 		$record['id'] = create_guid();
 		$record['av_accounts_id'] = $av_accounts_bean->id;
-		$keys = implode(',' , array_keys($record));
-		$values = implode("','" , array_values($record));
+		$record['date_entered'] = $now;
+		$record['date_modified'] = $now;
+		$record['value_date'] = $nowDate;
+		$account_histories_records[] = $record;
+	}
+	$keys = implode(',' , array_keys($account_histories_records[0]));
+	$query = "INSERT INTO av_account_histories (" . $keys . ") VALUES";
+	foreach($account_histories_records as $data){
+		$values = implode("','" , array_values($data));
 		if(!empty($values)){
 			$values = "'" . $values . "'";
 		}
-		$sql = "INSERT INTO av_account_histories (" . $keys . ") VALUES (" . $values . ")";
-		if($db->query($sql, true)){
-			$updated = true;
-		}
+		$query .= "(" . $values . "),";
 	}
-	if($updated){
-		SugarApplication::appendErrorMessage('Account history records for all clients are updated.');
+	$query = rtrim($query, ",");
+	if($db->query($query, true)){
+		echo 'Account history records for all clients are updated.';
 	}else{
-		SugarApplication::appendErrorMessage('There is no records to update or there is something wrong.');
+		echo 'There is no records to update or there is something wrong.';
 	}
-	SugarApplication::redirect("index.php?module=Administration&action=index");
-
+	die();
 ?>

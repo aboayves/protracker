@@ -1,4 +1,5 @@
 <?php
+/*
 // created: 2012-12-17 14:29:48
 $dictionary["av_Account_Histories"]["fields"]["asset_id"] = array (
 	'name' => 'asset_id',
@@ -46,5 +47,5 @@ $dictionary["av_Account_Histories"]["relationships"]["av_account_histories_av_ac
 	'rhs_table' => 'av_accounts',
 	'rhs_key' => 'id',
 	'relationship_type' => 'one-to-many',
-);
+);*/
 ?>
