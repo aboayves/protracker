@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-24 14:13:36
+// created: 2013-04-29 18:27:10
 $connectors = array (
   'ext_rest_linkedin' => 
   array (
@@ -120,12 +120,12 @@ $connectors = array (
     array (
     ),
   ),
-  'ext_eapm_lotuslive' => 
+  'ext_eapm_ibmsmartcloud' => 
   array (
-    'id' => 'ext_eapm_lotuslive',
-    'name' => 'LotusLive&#169;',
+    'id' => 'ext_eapm_ibmsmartcloud',
+    'name' => 'IBM SmartCloud&#169;',
     'enabled' => true,
-    'directory' => 'modules/Connectors/connectors/sources/ext/eapm/lotuslive',
+    'directory' => 'modules/Connectors/connectors/sources/ext/eapm/ibmsmartcloud',
     'eapm' => 
     array (
       'enabled' => true,
@@ -141,6 +141,21 @@ $connectors = array (
     'name' => 'WebEx&#169;',
     'enabled' => true,
     'directory' => 'modules/Connectors/connectors/sources/ext/eapm/webex',
+    'eapm' => 
+    array (
+      'enabled' => true,
+      'only' => true,
+    ),
+    'modules' => 
+    array (
+    ),
+  ),
+  'ext_eapm_lotuslive' => 
+  array (
+    'id' => 'ext_eapm_lotuslive',
+    'name' => 'LotusLive&#169;',
+    'enabled' => true,
+    'directory' => 'modules/Connectors/connectors/sources/ext/eapm/lotuslive',
     'eapm' => 
     array (
       'enabled' => true,
