@@ -41,6 +41,6 @@ $sugar_config['logger']['file']['suffix'] = '';
 $sugar_config['stack_trace_errors'] = false;
 $sugar_config['dump_slow_queries'] = true;
 $sugar_config['slow_query_time_msec'] = '500';
-$sugar_config['passwords_saved_browser'] = true;
+$sugar_config['passwords_saved_browser'] = false;
 $sugar_config['inactivity_timeout_length'] = '120';
 /***CONFIGURATOR***/
