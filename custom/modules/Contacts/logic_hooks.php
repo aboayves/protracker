@@ -13,7 +13,6 @@ $hook_array['process_record'][] = Array(2, 'delete multiple record checkbox', 'c
 $hook_array['after_relationship_add'] = Array(); 
 $hook_array['after_relationship_add'][] = Array(1, 'hookName', 'custom/modules/Contacts/ContactsHook.php','ContactsHook', 'relatioshipAdd'); 
 
-$hook_array['before_save'] = Array();
 $hook_array['before_save'][] = Array(1, 'sync communicaton tab', 'custom/modules/Contacts/ContactsHook.php', 'ContactsHook', 'sync_communicaton_tab');
 $hook_array['after_save'] = Array();
 $hook_array['after_save'][] = Array(1, 'sync email address', 'custom/modules/Contacts/ContactsHook.php', 'ContactsHook', 'sync_email_address');

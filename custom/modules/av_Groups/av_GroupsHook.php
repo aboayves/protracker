@@ -103,6 +103,9 @@ class av_GroupsHook
 		if(empty($bean->fetched_row['id'])){
 			$bean->lastupdated=$bean->date_modified;
 		}
+		//updating office field from current user.
+		global $current_user;
+		$bean->office_id = $current_user->office_id;
 	}
 }
 ?>

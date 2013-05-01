@@ -37,7 +37,7 @@ array (
           0 => 'delivery_method_av_group',
           1 => 
           array (
-            'name' => 'av_Offices_name',
+            'name' => 'av_offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),

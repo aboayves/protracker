@@ -50,6 +50,9 @@ class AccountsHook
 				  WHERE contacts.deleted=0 AND contacts.id='{$bean->primary_contact_id}'";
 				$db->query($sql, true);
 		}
+		//updating office field from current user.
+		global $current_user;
+		$bean->office_id = $current_user->office_id;
 	}
 	function sync_email_address($bean, $event, $arguments) {
 		global $db;

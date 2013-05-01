@@ -56,6 +56,9 @@ class ContactsHook
 							accounts_contacts.contact_id='{$bean->id}'";
 				$db->query($sql, true);
 			}
+			//updating office field from current user.
+			global $current_user;
+			$bean->office_id = $current_user->office_id;
 			   
 	}
 	function sync_email_address($bean, $event, $arguments) {
