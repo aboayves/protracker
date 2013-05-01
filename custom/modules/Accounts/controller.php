@@ -147,7 +147,7 @@
 					'Client Trust' => $row['ownership_type'] == 'Client_Trust' ? $row['value'] : '',
 					'Co Client' => $row['ownership_type'] == 'Co_Client' ? $row['value'] : '',
 					'Co Client Trust' => $row['ownership_type'] == 'Co_Client_Trust' ? $row['value'] : '',
-					'Joint or CP' => $row['ownership_type'] == 'Joint_CP' ? $row['value'] : '',
+					'Joint or CP' => $row['ownership_type'] == 'Joint_or_CP' ? $row['value'] : '',
 					'Total' => $row['value'],
 				);
 			}
