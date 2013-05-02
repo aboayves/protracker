@@ -32,3 +32,5 @@
     <img src="{$COMPANY_LOGO_URL}" alt="{sugar_translate label='LBL_COMPANY_LOGO'}" border="0"/>
     </a>
 </div>
+<div class="theBackButton" onclick="showRecentlyViewedRecords()" title="Back to Recent Records"></div>
+<div id="popup_box" ><!-- OUR PopupBox DIV--></div>
