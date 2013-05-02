@@ -682,7 +682,11 @@ class SugarView
 			foreach($quickMenuItems as $data){
 				$pieces = explode(" ", $data['createRecordTitle']);
 				$data['createRecordTitle'] = $pieces[1];
-				$updated_menus[$data['module']] = $data;
+				if($data['module'] == 'Accounts'){
+					$updated_menus['Clients'] = $data;
+				}else{
+					$updated_menus[$data['module']] = $data;
+				}
 			}
 			ksort($updated_menus);
 			$sorted_quick_menus = array();
