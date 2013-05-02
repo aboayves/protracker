@@ -27,7 +27,7 @@ class AccountsViewDetail extends CustomViewDetail
 			WHERE 
 				av_net_worth.deleted=0 
 				AND 
-				av_net_worth.accounts_id = '{$this->bean->id}'
+				av_net_worth.account_id = '{$this->bean->id}'
 			  ORDER BY av_net_worth.net_worth_date DESC
 			) AS a1
 			GROUP BY a1.month, a1.year

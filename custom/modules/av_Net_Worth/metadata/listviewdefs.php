@@ -100,13 +100,5 @@ array (
     'width' => '10%',
     'default' => false,
   ),
-  'MANAGED_ASSETS_C' => 
-  array (
-    'type' => 'currency',
-    'default' => false,
-    'label' => 'LBL_MANAGED_ASSETS',
-    'currency_format' => true,
-    'width' => '10%',
-  ),
 );
 ?>

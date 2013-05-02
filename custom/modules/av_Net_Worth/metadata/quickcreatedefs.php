@@ -55,11 +55,6 @@ array (
             'name' => 'grand_total',
             'label' => 'LBL_GRAND_TOTAL',
           ),
-          1 => 
-          array (
-            'name' => 'managed_assets_c',
-            'label' => 'LBL_MANAGED_ASSETS',
-          ),
         ),
         2 => 
         array (

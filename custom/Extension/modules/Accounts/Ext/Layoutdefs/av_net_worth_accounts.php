@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-19 20:39:48
+// created: 2013-05-02 13:59:41
 $layout_defs["Accounts"]["subpanel_setup"]["av_net_worth_accounts"] = array (
 	'order' => 100,
 	'module' => 'av_Net_Worth',

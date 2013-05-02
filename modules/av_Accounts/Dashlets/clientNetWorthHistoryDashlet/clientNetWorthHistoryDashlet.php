@@ -189,7 +189,7 @@ class clientNetWorthHistoryDashlet extends DashletGenericChart{
 					FROM(
 						SELECT YEAR(av_net_worth.net_worth_date) as year, MONTH(av_net_worth.net_worth_date) AS month, DAY(av_net_worth.net_worth_date) AS day, av_net_worth.grand_total AS worth, av_net_worth.managed_assets 
 						FROM av_net_worth 
-						RIGHT JOIN accounts ON(accounts.deleted=0 ".$custom_and." AND accounts.id=av_net_worth.accounts_id) 
+						RIGHT JOIN accounts ON(accounts.deleted=0 ".$custom_and." AND accounts.id=av_net_worth.account_id) 
 						WHERE av_net_worth.deleted=0 
 						ORDER BY av_net_worth.net_worth_date DESC
 					) AS net_worth_history 

@@ -57,7 +57,7 @@ class av_AccountsHook {
 			SELECT * 
 			FROM av_net_worth
 			WHERE
-			av_net_worth.deleted = 0 AND av_net_worth.accounts_id = '{$bean->accounts_id}'
+			av_net_worth.deleted = 0 AND av_net_worth.account_id = '{$bean->accounts_id}'
 			ORDER BY date_entered DESC
 			LIMIT 1
 		";
