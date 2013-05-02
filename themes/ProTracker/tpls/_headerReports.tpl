@@ -3,6 +3,7 @@
 			if(isset($arr[''])){
 				unset($arr['']);
 			}
+			$arr['Compliance_Report'] = $arr['Compliance_Report'].'s';
 			$this->assign('reportCategories', $arr);
 		{/php}
 		<li class="{$homeClass}"><a href="index.php?module=Reports&action=index" module="Reports" class="sf-with-ul">Reports</a>
