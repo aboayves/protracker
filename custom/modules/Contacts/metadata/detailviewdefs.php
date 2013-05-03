@@ -33,6 +33,10 @@ array (
           array (
             'customCode' => '<input title="Mail Merge" type="button" name="mail_merge_button" id="mail_merge_button" onclick="window.location=\'index.php?module=MailMerge&action=index&mailmerge_module=Contacts&uid={$fields.id.value}&return_module=Contacts&return_action=DetailView&return_id={$fields.id.value}\';" value="Mail Merge">',
           ),
+		  9 => 
+		  array(
+		  	'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=Contacts&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">'
+		  ),
         ),
       ),
       'maxColumns' => '2',

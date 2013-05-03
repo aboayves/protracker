@@ -24,7 +24,11 @@ array (
           array (
             'customCode' => '<input type="button"  title="View Net Worth Statement" value="View Net Worth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
           ),
-		  6 => array(
+		  6 => 
+          array (
+            'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=Accounts&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">',
+          ),
+		  7 => array(
             'customCode' =>  '<input title="Send to LaserApp" type="button" name="laserapp_button" id="laserapp_button" onclick="window.location=\'index.php?entryPoint=LaserApp&module=Accounts&id={$fields.id.value}\';" value="Send to LaserApp">',
           ),
         ),
