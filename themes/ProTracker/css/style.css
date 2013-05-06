@@ -103,6 +103,11 @@ input[type=text].cstm_relate_field_validation{
     width: auto !important;
 }
 
+#create_link_edit{
+	margin-left:128px;
+	margin-top: -49px;
+}
+
 input[type=text],input[type=password],textarea{
     width: 95%;
 }

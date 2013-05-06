@@ -72,7 +72,9 @@ SUGAR.util.doWhen(function(){
 {{/if}}
 </form>
 {{sugar_action_menu id="detail_header_action_menu" buttons=$detail_header_buttons class="fancymenu" }}
-
+<ul class='clickMenu' ><li id='create_link_li'><a id="create_link" href="index.php?module={$module}&action=EditView" class="utilsLink">
+{{$APP.LNK_CREATE_NEW}}
+</a></li></ul>
 </div>
 
 </td>

@@ -139,7 +139,10 @@ if ( empty($_REQUEST['search_form_only']) ) {
 
     //Override the create url
     $createURL = 'index.php?module=Reports&report_module=&action=index&page=report&Create+Custom+Report=Create+Custom+Report';
-    echo getClassicModuleTitle("Reports", $params, true, '', $createURL) . "<div class='clear'></div>";
+	echo "<ul class='clickMenu' ><li id='create_link_li'><a id='create_link' href='{$createURL}' class='utilsLink'>
+{$GLOBALS['app_strings']['LNK_CREATE_NEW']}
+</a></li></ul>";
+    echo "<div class='clear'></div>";
 }
 
 include(get_custom_file_if_exists("modules/Reports/ListView.php"));

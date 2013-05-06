@@ -264,11 +264,9 @@ function getClassicModuleTitle($module, $params, $show_create=false, $index_url_
 
         $the_title .= <<<EOHTML
 &nbsp;
-<a href="{$create_url_override}" class="utilsLink">
-<img src='{$createRecordImage}' alt='{$GLOBALS['app_strings']['LNK_CREATE']}'></a>
-<a href="{$create_url_override}" class="utilsLink">
-{$GLOBALS['app_strings']['LNK_CREATE']}
-</a>
+<ul class='clickMenu' ><li id='create_link_li'><a id="create_link" href="{$create_url_override}" class="utilsLink">
+{$GLOBALS['app_strings']['LNK_CREATE_NEW']}
+</a></li></ul>
 EOHTML;
 
         $the_title .= '</span>';

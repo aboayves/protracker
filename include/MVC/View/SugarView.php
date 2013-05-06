@@ -1416,14 +1416,14 @@ EOHTML;
             $theTitle .= "<span class='utils'>";
             $createImageURL = SugarThemeRegistry::current()->getImageURL('create-record.gif');
             $url = ajaxLink("index.php?module=$module&action=EditView&return_module=$module&return_action=DetailView");
-            $theTitle .= <<<EOHTML
+            if($action!='DetailView' && $action!='EditView' && $action!='assign'){ 
+			$theTitle .= <<<EOHTML
 &nbsp;
-<a id="create_image" href="{$url}" class="utilsLink">
-<img src='{$createImageURL}' alt='{$GLOBALS['app_strings']['LNK_CREATE']}'></a>
-<a id="create_link" href="{$url}" class="utilsLink">
-{$GLOBALS['app_strings']['LNK_CREATE']}
-</a>
+<ul class='clickMenu' ><li id='create_link_li'><a id="create_link" href="{$url}" class="utilsLink">
+{$GLOBALS['app_strings']['LNK_CREATE_NEW']}
+</a></li></ul>
 EOHTML;
+}
             $theTitle .= "</span>";
         }
 

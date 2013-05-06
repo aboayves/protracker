@@ -67,6 +67,7 @@
 {{/if}}
 {{/if}}
 {{sugar_action_menu buttons=$header_buttons class="fancymenu" flat=true}}
+<input type="button" id="create_link_edit" value="{{$APP.LNK_CREATE_NEW}}" name="button" onclick="window.location='index.php?module={$module}&action=EditView'" class="button"/>
 </td>
 <td align='right'>{{$ADMIN_EDIT}}
 {{if $panelCount == 0}}

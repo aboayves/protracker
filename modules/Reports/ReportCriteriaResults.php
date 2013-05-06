@@ -211,7 +211,9 @@ if (!empty($args['reporter']->name))
 
 //Override the create url
 $createURL = 'index.php?module=Reports&report_module=&action=index&page=report&Create+Custom+Report=Create+Custom+Report';
-echo getClassicModuleTitle("Reports", $params, true, '', $createURL);
+	echo "<ul class='clickMenu' ><li id='create_link_li'><a id='create_link' href='{$createURL}' class='utilsLink'>
+{$GLOBALS['app_strings']['LNK_CREATE_NEW']}
+</a></li></ul>";
 
 // show report interface
 if (isset($_REQUEST['page'] ) && $_REQUEST['page'] == 'report') {
