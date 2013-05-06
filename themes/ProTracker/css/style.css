@@ -91,7 +91,10 @@ input[type=text].sqsEnabled{
 	width:80% !important;
 }
 input[type=text].sqsEnabledFlex{
-	width:62% !important;
+	width:59% !important;
+}
+#parent_type{
+	width:20%;
 }
 input[type=text].cstm_relate_field_validation{
 	width:75% !important;
