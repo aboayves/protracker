@@ -23,7 +23,7 @@ onclick='open_popup(
 	"single", 
 	true
 );' {{if isset($displayParams.javascript.btn)}}{{$displayParams.javascript.btn}}{{/if}}><img src="{sugar_getimagepath file="id-ff-select.png"}"></button>{{if empty($displayParams.selectOnly) }}
-<button type="button" name="btn_QuickCreate_{{$idname}}" id="btn_QuickCreate_{{$idname}}" title="Quick Create" style="border-radius:0 0 0 0;display:none;"  onclick="quick_create(this.id, '{{sugarvar key='module'}}', '{{sugarvar key='rname'}}', val_{{$idname}}, '{{sugarvar key='id_name'}}', '{{sugarvar key='name'}}');"><img src="custom/themes/default/images/id-ff-add_cstm.png">
+<button type="button" name="btn_QuickCreate_{{$idname}}" id="btn_QuickCreate_{{$idname}}" title="Quick Create" style="border-radius:0 0 0 0;display:none;"  onclick="quick_create(this.id, '{{sugarvar key='module'}}', '{{sugarvar key='rname'}}', val_{{$idname}}, '{{sugarvar key='id_name'}}', '{{sugarvar key='name'}}');onClickCreate({{$idname}}, btn_QuickCreate_{{$idname}});"><img src="custom/themes/default/images/id-ff-add_cstm.png">
 </button><button type="button" name="btn_clr_{{$idname}}" id="btn_clr_{{$idname}}" tabindex="{{$tabindex}}" title="{sugar_translate label="{{$displayParams.accessKeyClearTitle}}"}"  class="button lastChild"
 onclick="SUGAR.clearRelateField(this.form, '{{$idname}}', '{{if !empty($displayParams.idName)}}{{$displayParams.idName}}_{{/if}}{{sugarvar key='id_name'}}');val_{{$idname}}='';setTimeout('isNewValue();',50);"  value="{sugar_translate label="{{$displayParams.accessKeyClearLabel}}"}" {{if isset($displayParams.javascript.btn_clear)}}{{$displayParams.javascript.btn_clear}}{{/if}}><img src="{sugar_getimagepath file="id-ff-clear.png"}"></button>
 {{/if}}
@@ -64,6 +64,10 @@ function isNewValue()
 	}
 	{/literal}
 {literal}
+}
+function onClickCreate(input_id, button_id){
+	$('#'+input_id.id).css('border-color', '');
+	$('#'+button_id.id).children().first().attr("src", 'themes/default/images/id-ff-add.png');
 }
 </script>
 
