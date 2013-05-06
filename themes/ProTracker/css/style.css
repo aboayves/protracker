@@ -111,7 +111,7 @@ input[type=checkbox],input[type=radio] {
     border: 0px;
     background-color: transparent;
     #margin:0px;
-    vertical-align: bottom;
+    vertical-align: text-top;
 }
 .edit.view.search.basic input[type="checkbox"] {
 	margin: 6px 30px 0 0;
