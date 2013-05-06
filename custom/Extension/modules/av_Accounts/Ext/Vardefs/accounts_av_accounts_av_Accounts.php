@@ -7,6 +7,7 @@ $dictionary["av_Accounts"]["fields"]["accounts_id"] = array (
   'module'=>'av_Accounts',
   'vname' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
   'duplicate_merge' => 'disabled',
+  'reportable' => true,
   'len' => 36,
   'size' => '20',
 );
