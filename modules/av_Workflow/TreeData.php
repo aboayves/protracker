@@ -5,8 +5,24 @@ class TreeData{
 		$tree = array();
 		
 		$tree['id'] = $wfID;
-		$tree['html'] = '<div style="background-color:#fff">'.$wfName.'</div>';
+		$tree['html'] = '<table><tr style="color:#000;"><td width="80px" style="background-color:#fff">'.$wfName.'</td>';
 		$tree['type'] = 'HTML';
+		$tree['html'] .= "".
+					 "<th width='583px' id='name' title='Name'>Name</th>".
+					 "<th width='200px' title='Subject'>Subject</th>".
+					 "<th width='150px' title='Category'>Category</th>".
+		 "<th width='130px' title='Assign To'>Assign To</th>";
+		if(empty($users)){
+			$tree['html'] .= "<th width='80px' title='Days Out'>Days Out</th>";
+		}else{
+			$tree['html'] .= "<th width='80px' title='Due Date'>Due Date</th>";
+		}
+	
+		if(empty($users)){
+			$tree['html'] .= "<th width='1px' colspan='2'>&nbsp;</th>";
+		}
+	
+		$tree['html'] .= "</tr></table>";
 		$tree['label'] = $wfName;
 		$tree['href'] = "index.php?module=av_Workflow&action=DetailView&record={$wfID}";
 		$tree['expanded'] = true;
@@ -84,7 +100,7 @@ class TreeData{
 				$node['id'] = $row['id'];
 				$node['html'] = "<table>";
 				
-				if(count($added_nodes) == 2){
+				/*if(count($added_nodes) == 2){
 					$node['html'] .= "<tr style='color:#000'>".
 										 "<th id='name' title='Name'>Name</th>".
 										 "<th width='200px' title='Subject'>Subject</th>".
@@ -101,7 +117,7 @@ class TreeData{
 					}
 				
 					$node['html'] .= "</tr>";
-				}
+				}*/
 				
 				$node['html'] .=	"<tr>".
 										"<td id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
