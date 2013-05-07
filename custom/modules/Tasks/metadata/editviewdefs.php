@@ -54,6 +54,19 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
+      'tabDefs' => 
+      array (
+        'LBL_TASK_INFORMATION' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -249,7 +262,11 @@ else {    document.getElementById(\'description\').style.width = \'100%\';
 			<button onclick="work_flow_popup()" value="Select" class="button firstChild" title="Select" tabindex="0" id="btn_workflow_related_to" name="btn_workflow_related_to" type="button"><img src="themes/default/images/id-ff-select.png?v=Iqxa6IL77YUAPOoUnkCMwQ"></button><button value="Clear" onclick="this.form.workflow_related_to.value = ""; this.form.workflow_parent_id.value = "";" class="button lastChild" title="Clear" tabindex="0" id="btn_clr_workflow_related_to" name="btn_clr_workflow_related_to" type="button"><img src="themes/default/images/id-ff-clear.png?v=Iqxa6IL77YUAPOoUnkCMwQ"></button>
 			</span>',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'private',
+            'label' => 'LBL_PRIVATE',
+          ),
         ),
         11 => 
         array (

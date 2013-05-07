@@ -33,6 +33,14 @@ array (
           'file' => 'modules/av_Task_Template/custom_javascript.js',
         ),
       ),
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -68,12 +76,19 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
+          ),
+          1 => 
+          array (
+            'name' => 'team_name',
+            'displayParams' => 
+            array (
+              'display' => true,
+            ),
           ),
         ),
         3 => 
@@ -125,14 +140,6 @@ array (
         7 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'team_name',
-            'displayParams' => 
-            array (
-              'display' => true,
-            ),
-          ),
         ),
         8 => 
         array (
