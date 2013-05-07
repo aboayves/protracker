@@ -17,7 +17,7 @@ array (
         ),
       ),
       'maxColumns' => '2',
-      'useTabs' => true,
+      'useTabs' => false,
       'widths' => 
       array (
         0 => 
@@ -41,49 +41,49 @@ array (
       'syncDetailEditViews' => false,
       'tabDefs' => 
       array (
-        'lbl_contact_information' => 
+        'LBL_CONTACT_INFORMATION' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel5' => 
+        'LBL_EDITVIEW_PANEL5' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel2' => 
+        'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel4' => 
+        'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel7' => 
+        'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_panel_advanced' => 
+        'LBL_PANEL_ADVANCED' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel6' => 
+        'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel8' => 
+        'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel1' => 
+        'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -864,19 +864,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'sec_related_party',
-            'studio' => 'visible',
-            'label' => 'LBL_SEC_RELATED_PARTY',
-          ),
-          1 => '',
-        ),
-        5 => 
-        array (
-          0 => 
-          array (
-            'name' => 'send_adv_offer',
+            'name' => 'is_sec_related',
             'comment' => '',
-            'label' => 'LBL_SEND_ADV_OFFER',
+            'label' => 'LBL_IS_SEC_RELATED',
           ),
           1 => 
           array (
@@ -885,22 +875,7 @@ array (
             'label' => 'LBL_ALIAS',
           ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'send_privacy_notice',
-            'comment' => '',
-            'label' => 'LBL_SEND_PRIVACY_NOTICE',
-          ),
-          1 => 
-          array (
-            'name' => 'is_sec_related',
-            'comment' => '',
-            'label' => 'LBL_IS_SEC_RELATED',
-          ),
-        ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
@@ -915,7 +890,7 @@ array (
             'label' => 'LBL_IS_PARTY_TO_PRIVATE_BANK',
           ),
         ),
-        8 => 
+        6 => 
         array (
           0 => 
           array (
@@ -930,7 +905,7 @@ array (
             'label' => 'LBL_PRIVATE_BANK_INFO',
           ),
         ),
-        9 => 
+        7 => 
         array (
           0 => 
           array (
