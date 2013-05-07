@@ -51,6 +51,14 @@ array (
           'file' => 'modules/av_Task_Template/delete.js',
         ),
       ),
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -82,13 +90,13 @@ array (
         ),
         2 => 
         array (
-          0 => '',
-          1 => 
+          0 => 
           array (
             'name' => 'priority',
             'studio' => 'visible',
             'label' => 'LBL_PRIORITY',
           ),
+          1 => 'team_name',
         ),
         3 => 
         array (
@@ -143,7 +151,6 @@ array (
             'name' => 'description',
             'customCode' => '<div> {$fields.description.value} <div>',
           ),
-          1 => 'team_name',
         ),
         8 => 
         array (

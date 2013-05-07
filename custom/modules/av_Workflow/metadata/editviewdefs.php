@@ -22,6 +22,14 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => false,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -41,12 +49,26 @@ array (
           ),
           1 => 
           array (
+            'name' => 'add_to_project',
+            'studio' => 'visible',
+            'label' => 'LBL_ADD_TO_PROJECT',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'category',
+            'label' => 'LBL_CATEGORY',
+          ),
+          1 => 
+          array (
             'name' => 'project_manager',
             'studio' => 'visible',
             'label' => 'LBL_PROJECT_MANAGER',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -61,7 +83,7 @@ array (
             'label' => 'LBL_USER_1',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -76,20 +98,9 @@ array (
             'label' => 'LBL_USER_2',
           ),
         ),
-        4 => 
-        array (
-          0 => '',
-          1 => 
-          array (
-            'name' => 'user_3',
-            'studio' => 'visible',
-            'label' => 'LBL_USER_3',
-          ),
-        ),
         5 => 
         array (
-          0 => 'description',
-          1 => 
+          0 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -97,8 +108,18 @@ array (
               'display' => true,
             ),
           ),
+          1 => 
+          array (
+            'name' => 'user_3',
+            'studio' => 'visible',
+            'label' => 'LBL_USER_3',
+          ),
         ),
         6 => 
+        array (
+          0 => 'description',
+        ),
+        7 => 
         array (
           0 => 
           array (

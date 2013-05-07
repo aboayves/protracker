@@ -56,6 +56,19 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
+      'tabDefs' => 
+      array (
+        'LBL_TASK_INFORMATION' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -170,7 +183,11 @@ array (
         10 => 
         array (
           0 => 'workflow_related_to',
-          1 => '',
+          1 => 
+          array (
+            'name' => 'private',
+            'label' => 'LBL_PRIVATE',
+          ),
         ),
         11 => 
         array (
@@ -231,21 +248,6 @@ array (
           array (
             'name' => 'notify_child_completion',
             'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
-          ),
-        ),
-      ),
-	  'lbl_tree_View' => 
-        array( 
-		0=>
-        array (
-          0 => 
-          array (
-            'name' => 'tree',
-			'hideLabel' => true,
-            'customCode' => '<div> <div>'.
-			                '<input type="checkbox" id="pending_only" {$pending_checked} onclick="disable_ajax=0;generateTree();" /> Hide Pending tasks &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;'.
-							'<input type="checkbox" id="more_then_90" {$90_checked} onclick="disable_ajax=0;generateTree();" /> Hide tasks greater than 90 days out <br /><br /><br />'.
-							'</div><div id="tree_panel3"></div></div>',
           ),
         ),
       ),
