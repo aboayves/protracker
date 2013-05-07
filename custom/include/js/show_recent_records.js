@@ -32,7 +32,7 @@ function unloadPopupBox() {	// TO Unload the Popupbox
 		"opacity": "1"  
 	}); 
 }
-$(function(){
+/*$(function(){
 	$('.modulesdrager').click( function(){	
 		var obj = $(".modulesdrager.hide");
 		if(obj['length'] == "1"){
@@ -41,4 +41,4 @@ $(function(){
 			$(".theBackButton").css("margin-left", "180px");
 		}
 	});
-});
+});*/
