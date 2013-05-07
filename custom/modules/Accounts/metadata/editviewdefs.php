@@ -43,32 +43,27 @@ array (
         ),
       ),
       'syncDetailEditViews' => false,
-	  'useTabs' => true,
-	 'tabDefs' => 
+      'useTabs' => false,
+      'tabDefs' => 
       array (
-        'lbl_account_information' => 
+        'LBL_ACCOUNT_INFORMATION' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel2' => 
+        'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel1' => 
+        'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel4' => 
+        'LBL_EDITVIEW_PANEL5' => 
         array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-        'lbl_editview_panel5' => 
-        array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -349,7 +344,7 @@ array (
             'displayParams' => 
             array (
               'key' => 'billing',
-			  'copy' => 'mailing',
+              'copy' => 'mailing',
               'rows' => 2,
               'cols' => 30,
               'maxlength' => 150,
@@ -509,6 +504,26 @@ array (
             'comment' => '',
             'label' => 'LBL_SUCCESSOR_FEE',
           ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_adv_offer',
+            'comment' => '',
+            'label' => 'LBL_LAST_ADV_OFFER',
+          ),
+          1 => '',
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_privacy_notice',
+            'comment' => '',
+            'label' => 'LBL_LAST_PRIVACY_NOTICE',
+          ),
+          1 => '',
         ),
       ),
     ),
