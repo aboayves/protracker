@@ -29,7 +29,9 @@ function quick_create(relate_name, target_module, rname, rname_value, field_id, 
 						
 						$('#EditView input[name='+field_id+']').val(obj.id);
 						$('#EditView input[name='+field_name+']').val(obj.name);		
-						
+						$('#'+field_name).css('border-color', '');
+						$('#btn_QuickCreate_'+field_name).hide();
+						$(".show_cstm_relate_errors").css("display","none");
 						jQuery('#dialogForURL').dialog('close');
 				});
 			 });
