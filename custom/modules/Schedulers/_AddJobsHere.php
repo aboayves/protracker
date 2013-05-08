@@ -10,9 +10,10 @@ function test_job() {
 	return true;
 }
 function create_net_worth_history_snapshot() {
-	global $db;
+	global $db, $timedate;
 	$sql="SELECT id FROM accounts WHERE accounts.deleted=0";
 	$result = $db->query($sql);
+	$now = $timedate->nowDB();
 	while($row = $db->fetchByAssoc($result)){
 		$sql = "
 				SELECT SUM(if(av_accounts.managed_c='Yes',av_accounts.value,0)) AS managed_assets, SUM(av_accounts.value) AS current_net_worth
@@ -28,7 +29,7 @@ function create_net_worth_history_snapshot() {
 		$id=create_guid();
 		$sql = "INSERT INTO av_net_worth (id, name, grand_total, managed_assets, net_worth_date, accounts_id)
 				VALUES('{$id}', 'Net Worth History', '{$client_assets['current_net_worth']}', 
-					  '{$client_assets['managed_assets']}', '{$bean->date_modified}', '{$bean->accounts_id}')";
+					  '{$client_assets['managed_assets']}', '{$now}', '{$row['id']}')";
 		$db->query($sql, true);
 	}
 	return true;
