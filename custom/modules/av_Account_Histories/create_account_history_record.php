@@ -1,32 +1,21 @@
 <?php
 	global $db, $timedate;
-	$sql="SELECT av_accounts.id 
-		  FROM accounts 
-		  RIGHT JOIN av_accounts
-		  ON(av_accounts.deleted=0 AND av_accounts.accounts_id=accounts.id)
-		  WHERE accounts.deleted=0";
+	$sql = "SELECT av.id, av.name, av.modified_user_id, av.created_by, av.description, av.team_id,
+					av.team_set_id, av.assigned_user_id, av.dependent_varchar, av.dependent_bool,
+					av.dependent_dropdown, av.value, av.account_number, av.is_closed
+		   FROM accounts a
+		   RIGHT JOIN av_accounts av
+		   ON(av.deleted=0 AND av.accounts_id=a.id)
+		   WHERE a.deleted=0";
 	$result = $db->query($sql);
 	$account_histories_records = array();
 	$now = $timedate->nowDB();
 	$nowDate = $timedate->nowDbDate();
 	while($row = $db->fetchByAssoc($result)){
-		$av_accounts_bean = BeanFactory::getBean("av_Accounts", $row['id']);
-		$key_fields = array_keys($av_accounts_bean->fetched_row);
-		$key_fields_skip = array('id_c', );
-		$exempt_fields = array("date_entered");
-		foreach($exempt_fields as $exempt){
-		  $exempt_pos = array_search($exempt, $key_fields);
-		  unset($key_fields[$exempt_pos]);
-		}
-		$history = new av_Account_Histories();
 		$record = array();
-		foreach($key_fields as $key_field){
-			if(isset($history->field_defs[$key_field])){
-				$record[$key_field] = $av_accounts_bean->fetched_row[$key_field];
-			}
-		}
+		$record = $row;
 		$record['id'] = create_guid();
-		$record['av_accounts_id'] = $av_accounts_bean->id;
+		$record['av_accounts_id'] = $row['id'];
 		$record['date_entered'] = $now;
 		$record['date_modified'] = $now;
 		$record['value_date'] = $nowDate;
