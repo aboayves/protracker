@@ -135,6 +135,18 @@ $admin_role_options = array(
 				'Creates a snapshot with today\'s date for all Client Accounts',
 				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
 			),
+			"dash_DashboardManager"=>array(
+				'dash_DashboardManager',
+				'LBL_DASHBOARD_MANAGER',
+				'LBL_DASHBOARD_MANAGER_DESCRIPTION',
+				'./index.php?module=dash_DashboardManager'
+			),
+			"dash_DashboardBackups"=>array(
+				'dash_DashboardBackups',
+				'LBL_DASHBOARD_BACKUPS',
+				'LBL_DASHBOARD_BACKUPS_DESCRIPTION',
+				'./index.php?module=dash_DashboardBackups'
+			),
 		),
 		"reserved_professional"=>array(
 			"av_Account_Types"=>array(
@@ -251,6 +263,18 @@ $admin_role_options = array(
 				'Record Account History for All Clients',
 				'Creates a snapshot with today\'s date for all Client Accounts',
 				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
+			),
+			"dash_DashboardManager"=>array(
+				'dash_DashboardManager',
+				'LBL_DASHBOARD_MANAGER',
+				'LBL_DASHBOARD_MANAGER_DESCRIPTION',
+				'./index.php?module=dash_DashboardManager'
+			),
+			"dash_DashboardBackups"=>array(
+				'dash_DashboardBackups',
+				'LBL_DASHBOARD_BACKUPS',
+				'LBL_DASHBOARD_BACKUPS_DESCRIPTION',
+				'./index.php?module=dash_DashboardBackups'
 			),
 		),
 		"reserved_enterprise"=>array(
@@ -422,6 +446,18 @@ $admin_role_options = array(
 				'Record Account History for All Clients',
 				'Creates a snapshot with today\'s date for all Client Accounts',
 				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
+			),
+			"dash_DashboardManager"=>array(
+				'dash_DashboardManager',
+				'LBL_DASHBOARD_MANAGER',
+				'LBL_DASHBOARD_MANAGER_DESCRIPTION',
+				'./index.php?module=dash_DashboardManager'
+			),
+			"dash_DashboardBackups"=>array(
+				'dash_DashboardBackups',
+				'LBL_DASHBOARD_BACKUPS',
+				'LBL_DASHBOARD_BACKUPS_DESCRIPTION',
+				'./index.php?module=dash_DashboardBackups'
 			),
 		),
 ) ;
