@@ -131,8 +131,8 @@ $admin_role_options = array(
 			),
 			"av_Account_Histories"=>array(
 				'av_Account_Histories',
-				'Record Account Status For All Clients',
-				'Record Account History For Each Client\'s Account',
+				'Record Account History for All Clients',
+				'Creates a snapshot with today\'s date for all Client Accounts',
 				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
 			),
 		),
@@ -248,8 +248,8 @@ $admin_role_options = array(
 			),
 			"av_Account_Histories"=>array(
 				'av_Account_Histories',
-				'Create Account History Records',
-				'Create Account History Records For All Clients',
+				'Record Account History for All Clients',
+				'Creates a snapshot with today\'s date for all Client Accounts',
 				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
 			),
 		),
@@ -419,8 +419,8 @@ $admin_role_options = array(
 			),
 			"av_Account_Histories"=>array(
 				'av_Account_Histories',
-				'Create Account History Records',
-				'Create Account History Records For All Clients',
+				'Record Account History for All Clients',
+				'Creates a snapshot with today\'s date for all Client Accounts',
 				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
 			),
 		),
