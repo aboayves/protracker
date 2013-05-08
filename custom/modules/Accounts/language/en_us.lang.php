@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-17 14:19:01
+// created: 2013-05-08 18:34:45
 $mod_strings = array (
   'LNK_NEW_ACCOUNT' => 'Create Client',
   'LNK_ACCOUNT_LIST' => 'View Clients',
@@ -117,4 +117,5 @@ $mod_strings = array (
   'LBL_ACCOUNT_INFORMATION' => 'Client Profile',
   'LBL_AV_TAX_ESTIMATES' => 'Tax Estimates',
   'LBL_AV_TAX_RETURNS' => 'Tax Returns',
+  'LBL_AV_NET_WORTH' => 'Net Worth',
 );

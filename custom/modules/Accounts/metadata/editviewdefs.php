@@ -205,7 +205,12 @@ array (
         ),
         9 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'state_of_residence',
+            'comment' => '',
+            'label' => 'LBL_STATE_OF_RESIDENCE',
+          ),
           1 => 
           array (
             'name' => 'document_path',
@@ -513,7 +518,12 @@ array (
             'comment' => '',
             'label' => 'LBL_LAST_ADV_OFFER',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'last_contract_date',
+            'comment' => '',
+            'label' => 'LBL_LAST_CONTRACT_DATE',
+          ),
         ),
         5 => 
         array (
@@ -523,7 +533,12 @@ array (
             'comment' => '',
             'label' => 'LBL_LAST_PRIVACY_NOTICE',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'last_suitability_check',
+            'comment' => '',
+            'label' => 'LBL_LAST_SUITABILITY_CHECK',
+          ),
         ),
       ),
     ),
