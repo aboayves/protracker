@@ -12,18 +12,10 @@ array (
   'ACCOUNTS_NAME' => 
   array (
     'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_NAME',
+    'studio' => 'visible',
+    'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
     'id' => 'ACCOUNTS_ID',
-    'width' => '12%',
-    'default' => true,
-  ),
-  'AV_ACCOUNT_TYPES_NAME' => 
-  array (
-    'type' => 'relate',
     'link' => true,
-    'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
-    'id' => 'ACCOUNT_TYPE_ID',
     'width' => '10%',
     'default' => true,
   ),
@@ -33,7 +25,7 @@ array (
     'default' => true,
     'label' => 'LBL_ACCOUNT_NUMBER',
     'width' => '10%',
-	'customCode' => '{$ACCOUNT_NUMBER} <img src=include/iconDisplay.php?name=account.closed&value={$IS_CLOSED}> <img src=include/iconDisplay.php?name=account.billed&value={$IS_BILLED}> ',
+    'customCode' => '{$ACCOUNT_NUMBER} <img src=include/iconDisplay.php?name=account.closed&value={$IS_CLOSED}> <img src=include/iconDisplay.php?name=account.billed&value={$IS_BILLED}> ',
   ),
   'OWNERSHIP_TYPE' => 
   array (
@@ -63,7 +55,7 @@ array (
     'currency_format' => true,
     'width' => '10%',
     'default' => true,
-	'align' => 'right'
+    'align' => 'right',
   ),
   'ASSIGNED_USER_NAME' => 
   array (
@@ -79,6 +71,15 @@ array (
     'default' => false,
     'label' => 'LBL_APY',
     'width' => '10%',
+  ),
+  'AV_ACCOUNT_TYPES_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
+    'id' => 'ACCOUNT_TYPE_ID',
+    'width' => '10%',
+    'default' => false,
   ),
   'CASH_BALANCE_LOW_PERCENT' => 
   array (

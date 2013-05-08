@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-15 19:51:38
+// created: 2013-05-07 20:41:10
 $mod_strings = array (
   'LBL_DEPENDENT_DROPDOWN' => 'Dependent Dropdown',
   'LBL_DEPENDENT_BOOL' => 'Checkbox',
@@ -42,4 +42,6 @@ $mod_strings = array (
   'LBL_CUSTODIAN_ID_NAME' => 'Custodian',
   'LBL_INCLUDE_ON_IPS' => 'Include on IPS',
   'LBL_IS_BILLED' => 'Billed Account',
+  'LBL_CUSTODIAN' => 'Custodian',
+  'LBL_ACCOUNTS_ID_NAME' => 'Client',
 );
