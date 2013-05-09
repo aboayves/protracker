@@ -33,14 +33,14 @@ array (
           array (
             'customCode' => '<input title="Mail Merge" type="button" name="mail_merge_button" id="mail_merge_button" onclick="window.location=\'index.php?module=MailMerge&action=index&mailmerge_module=Contacts&uid={$fields.id.value}&return_module=Contacts&return_action=DetailView&return_id={$fields.id.value}\';" value="Mail Merge">',
           ),
-		  9 => 
-		  array(
-		  	'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=Contacts&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">'
-		  ),
+          9 => 
+          array (
+            'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=Contacts&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">',
+          ),
         ),
       ),
       'maxColumns' => '2',
-      'useTabs' => true,
+      'useTabs' => false,
       'widths' => 
       array (
         0 => 
@@ -64,49 +64,49 @@ array (
       'syncDetailEditViews' => true,
       'tabDefs' => 
       array (
-        'lbl_contact_information' => 
+        'LBL_CONTACT_INFORMATION' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel5' => 
+        'LBL_EDITVIEW_PANEL5' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel2' => 
+        'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel4' => 
+        'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel7' => 
+        'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_panel_advanced' => 
+        'LBL_PANEL_ADVANCED' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel6' => 
+        'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel8' => 
+        'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel1' => 
+        'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -117,7 +117,7 @@ array (
       array (
         0 => 
         array (
-         0 => 
+          0 => 
           array (
             'name' => 'full_name',
             'label' => 'LBL_NAME',
@@ -139,7 +139,7 @@ array (
         ),
         1 => 
         array (
-          1 => 
+          0 => 
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
@@ -866,16 +866,11 @@ array (
         ),
         4 => 
         array (
-          0 => '',
-          1 => '',
-        ),
-        5 => 
-        array (
           0 => 
           array (
-            'name' => 'send_adv_offer',
+            'name' => 'is_sec_related',
             'comment' => '',
-            'label' => 'LBL_SEND_ADV_OFFER',
+            'label' => 'LBL_IS_SEC_RELATED',
           ),
           1 => 
           array (
@@ -884,22 +879,7 @@ array (
             'label' => 'LBL_ALIAS',
           ),
         ),
-        6 => 
-        array (
-          0 => 
-          array (
-            'name' => 'send_privacy_notice',
-            'comment' => '',
-            'label' => 'LBL_SEND_PRIVACY_NOTICE',
-          ),
-          1 => 
-          array (
-            'name' => 'is_sec_related',
-            'comment' => '',
-            'label' => 'LBL_IS_SEC_RELATED',
-          ),
-        ),
-        7 => 
+        5 => 
         array (
           0 => 
           array (
@@ -914,7 +894,7 @@ array (
             'label' => 'LBL_IS_PARTY_TO_PRIVATE_BANK',
           ),
         ),
-        8 => 
+        6 => 
         array (
           0 => 
           array (
@@ -929,7 +909,7 @@ array (
             'label' => 'LBL_PRIVATE_BANK_INFO',
           ),
         ),
-        9 => 
+        7 => 
         array (
           0 => 
           array (

@@ -24,12 +24,13 @@ array (
           array (
             'customCode' => '<input type="button"  title="View Net Worth Statement" value="View Net Worth Statement"name="GenerateNetworthStatement" id="GenerateNetworthStatement" onclick="$(\'#DialogForDatePicker\' ).dialog({ldelim}width:450{rdelim});"/>',
           ),
-		  6 => 
+          6 => 
           array (
             'customCode' => '<input onclick="window.location=\'index.php?module=av_Workflow&action=assign&populate_parent_type=Accounts&populate_parent=true&populate_parent_name={$fields.name.value}&populate_parent_id={$fields.id.value}\';" title="Assign Workflow" type="button" name="assignWorkflow" id="assignWorkflow" value="Assign Workflow">',
           ),
-		  7 => array(
-            'customCode' =>  '<input title="Send to LaserApp" type="button" name="laserapp_button" id="laserapp_button" onclick="window.location=\'index.php?entryPoint=LaserApp&module=Accounts&id={$fields.id.value}\';" value="Send to LaserApp">',
+          7 => 
+          array (
+            'customCode' => '<input title="Send to LaserApp" type="button" name="laserapp_button" id="laserapp_button" onclick="window.location=\'index.php?entryPoint=LaserApp&module=Accounts&id={$fields.id.value}\';" value="Send to LaserApp">',
           ),
         ),
       ),
@@ -63,32 +64,27 @@ array (
         ),
       ),
       'syncDetailEditViews' => true,
-	  'useTabs' => true,
-	  'tabDefs' => 
+      'useTabs' => false,
+      'tabDefs' => 
       array (
-        'lbl_account_information' => 
+        'LBL_ACCOUNT_INFORMATION' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel2' => 
+        'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel1' => 
+        'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'lbl_editview_panel4' => 
+        'LBL_EDITVIEW_PANEL5' => 
         array (
-          'newTab' => true,
-          'panelDefault' => 'expanded',
-        ),
-        'lbl_editview_panel5' => 
-        array (
-          'newTab' => true,
+          'newTab' => false,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -126,13 +122,8 @@ array (
             'name' => 'secondary_contact_name',
             'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
           ),
-		  1 => 
-          array (
-            'name' => 'secondary_contact_name',
-            'label' => 'LBL_CO_CLIENT_CONTACT_NAME',
-          ),
         ),
-	    2 => 
+        2 => 
         array (
           0 => 
           array (
@@ -196,16 +187,15 @@ array (
 				',
           ),
         ),
-		3 => 
+        3 => 
         array (
-
-          1 => 
+          0 => 
           array (
             'name' => 'av_offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -220,7 +210,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -235,7 +225,7 @@ array (
             'label' => 'LBL_PRIORITY',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -249,7 +239,7 @@ array (
             'label' => 'LBL_CLIENT_NUMBER',
           ),
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -264,7 +254,7 @@ array (
             'label' => 'LBL_PHASE',
           ),
         ),
-        9 => 
+        8 => 
         array (
           0 => 
           array (
@@ -275,7 +265,7 @@ array (
           ),
           1 => 'campaign_name',
         ),
-        10 => 
+        9 => 
         array (
           0 => 
           array (
@@ -289,9 +279,14 @@ array (
             'label' => 'LBL_TAX_YEAR_END_DATE',
           ),
         ),
-        11 => 
+        10 => 
         array (
-          0 => '',
+          0 => 
+          array (
+            'name' => 'state_of_residence',
+            'comment' => '',
+            'label' => 'LBL_STATE_OF_RESIDENCE',
+          ),
           1 => 
           array (
             'name' => 'document_path',
@@ -299,7 +294,7 @@ array (
             'label' => 'LBL_DOCUMENT_PATH',
           ),
         ),
-        12 => 
+        11 => 
         array (
           0 => 
           array (
@@ -309,7 +304,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        13 => 
+        12 => 
         array (
           0 => 
           array (
@@ -576,6 +571,36 @@ array (
             'label' => 'LBL_SUCCESSOR_INFO',
           ),
           1 => '',
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_adv_offer',
+            'comment' => '',
+            'label' => 'LBL_LAST_ADV_OFFER',
+          ),
+          1 => 
+          array (
+            'name' => 'last_contract_date',
+            'comment' => '',
+            'label' => 'LBL_LAST_CONTRACT_DATE',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'last_privacy_notice',
+            'comment' => '',
+            'label' => 'LBL_LAST_PRIVACY_NOTICE',
+          ),
+          1 => 
+          array (
+            'name' => 'last_suitability_check',
+            'comment' => '',
+            'label' => 'LBL_LAST_SUITABILITY_CHECK',
+          ),
         ),
       ),
     ),

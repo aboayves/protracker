@@ -1,5 +1,5 @@
 <?php
-// created: 2013-03-13 13:14:25
+// created: 2013-05-09 16:04:53
 $subpanel_layout['list_fields'] = array (
   'account_number' => 
   array (
@@ -26,13 +26,6 @@ $subpanel_layout['list_fields'] = array (
     'widget_class' => 'SubPanelDetailViewLink',
     'target_module' => 'av_Account_Types',
     'target_record_key' => 'account_type_id',
-  ),
-  'category' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'vname' => 'LBL_CATEGORY',
-    'width' => '10%',
   ),
   'custodian' => 
   array (

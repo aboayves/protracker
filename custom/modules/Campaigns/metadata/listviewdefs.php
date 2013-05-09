@@ -42,18 +42,17 @@ array (
     'label' => 'LBL_LIST_STATUS',
     'default' => true,
   ),
+  'STRATEGY' => 
+  array (
+    'type' => 'varchar',
+    'default' => true,
+    'label' => 'LBL_STRATEGY',
+    'width' => '10%',
+  ),
   'FREQUENCY' => 
   array (
     'type' => 'enum',
     'label' => 'LBL_CAMPAIGN_FREQUENCY',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'CONTENT' => 
-  array (
-    'type' => 'text',
-    'label' => 'LBL_CAMPAIGN_CONTENT',
-    'sortable' => false,
     'width' => '10%',
     'default' => true,
   ),
@@ -70,12 +69,28 @@ array (
     'label' => 'LBL_LIST_END_DATE',
     'default' => true,
   ),
+  'ASSIGNED_USER_NAME' => 
+  array (
+    'width' => '12%',
+    'label' => 'LBL_LIST_ASSIGNED_USER',
+    'module' => 'Employees',
+    'id' => 'ASSIGNED_USER_ID',
+    'default' => true,
+  ),
   'RESULTS' => 
   array (
     'type' => 'varchar',
     'default' => false,
     'label' => 'LBL_RESULTS',
     'width' => '10%',
+  ),
+  'CONTENT' => 
+  array (
+    'type' => 'text',
+    'label' => 'LBL_CAMPAIGN_CONTENT',
+    'sortable' => false,
+    'width' => '10%',
+    'default' => false,
   ),
   'DATE_ENTERED' => 
   array (
@@ -90,13 +105,6 @@ array (
     'currency_format' => true,
     'width' => '10%',
     'default' => false,
-  ),
-  'STRATEGY' => 
-  array (
-    'type' => 'varchar',
-    'default' => false,
-    'label' => 'LBL_STRATEGY',
-    'width' => '10%',
   ),
   'DATE_MODIFIED' => 
   array (
@@ -121,14 +129,6 @@ array (
     ),
     'label' => 'LBL_TRACKER_KEY',
     'width' => '10%',
-    'default' => false,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'width' => '8%',
-    'label' => 'LBL_LIST_ASSIGNED_USER',
-    'module' => 'Employees',
-    'id' => 'ASSIGNED_USER_ID',
     'default' => false,
   ),
   'TRACKER_COUNT' => 
