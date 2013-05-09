@@ -417,12 +417,14 @@ array (
             'name' => 'facebook_url',
             'comment' => '',
             'label' => 'LBL_FACEBOOK_URL',
+			'customCode' => '<a href="{$fields.facebook_url.value}">{$fields.facebook_url.value}</a>',
           ),
           1 => 
           array (
             'name' => 'twitter_url',
             'comment' => '',
             'label' => 'LBL_TWITTER_URL',
+			'customCode' => '<a href="{$fields.twitter_url.value}">{$fields.twitter_url.value}</a>',
           ),
         ),
         1 => 
@@ -432,6 +434,7 @@ array (
             'name' => 'linkedin_url',
             'comment' => '',
             'label' => 'LBL_LINKEDIN_URL',
+			'customCode' => '<a href="{$fields.linkedin_url.value}">{$fields.linkedin_url.value}</a>',
           ),
           1 => '',
         ),
