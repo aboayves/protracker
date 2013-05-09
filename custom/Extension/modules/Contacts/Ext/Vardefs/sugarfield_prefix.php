@@ -1,8 +1,8 @@
 <?php
-// created: 2012-12-17 16:58:58
-$dictionary["Contact"]["fields"]["suffix"] = array (
-	'name' => 'suffix',
-	'vname' => 'LBL_SUFFIX',
+// created: 2013-05-09 13:25:45
+$dictionary["Contact"]["fields"]["prefix"] = array (
+	'name' => 'prefix',
+	'vname' => 'LBL_PREFIX',
 	'type' => 'varchar',
 	'len' => '20',
 	'audited' => 0,
