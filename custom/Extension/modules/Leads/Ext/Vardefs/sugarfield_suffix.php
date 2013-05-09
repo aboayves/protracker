@@ -1,6 +1,6 @@
 <?php
 // created: 2012-12-17 16:58:58
-$dictionary["Contact"]["fields"]["suffix"] = array (
+$dictionary["Lead"]["fields"]["suffix"] = array (
 	'name' => 'suffix',
 	'vname' => 'LBL_SUFFIX',
 	'type' => 'varchar',

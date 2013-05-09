@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-19 19:48:04
+// created: 2013-05-09 17:37:41
 $mod_strings = array (
   'LBL_OTHER_ADDRESS_STREET' => 'Other Address Street',
   'LBL_OTHER_ADDRESS_CITY' => 'Other Address City',
@@ -70,7 +70,7 @@ $mod_strings = array (
   'LBL_STATE' => 'State',
   'LBL_SYNC_CONTACT' => 'Sync to Outlook&reg;',
   'LBL_TEAM_ID' => 'Team ID',
-  'LBL_TITLE' => 'Title',
+  'LBL_TITLE' => 'Job Title',
   'LBL_EDITVIEW_PANEL6' => 'Compliance',
   'LBL_CONTACT_CALLS' => 'Calls',
   'LBL_CONTACT_MEETINGS' => 'Meetings',
