@@ -17,7 +17,7 @@ array (
         ),
       ),
       'maxColumns' => '2',
-      'useTabs' => false,
+      'useTabs' => true,
       'widths' => 
       array (
         0 => 
@@ -43,47 +43,52 @@ array (
       array (
         'LBL_CONTACT_INFORMATION' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL5' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL11' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ADVANCED' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -117,19 +122,14 @@ array (
           array (
             'name' => 'last_name',
           ),
-          1 => 
-          array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
-          ),
+          1 => '',
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'nickname',
-            'comment' => '',
-            'label' => 'LBL_NICKNAME',
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
           1 => 
           array (
@@ -410,6 +410,34 @@ array (
           ),
         ),
       ),
+      'lbl_editview_panel11' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'facebook_url',
+            'comment' => '',
+            'label' => 'LBL_FACEBOOK_URL',
+          ),
+          1 => 
+          array (
+            'name' => 'twitter_url',
+            'comment' => '',
+            'label' => 'LBL_TWITTER_URL',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'linkedin_url',
+            'comment' => '',
+            'label' => 'LBL_LINKEDIN_URL',
+          ),
+          1 => '',
+        ),
+      ),
       'lbl_editview_panel2' => 
       array (
         0 => 
@@ -646,7 +674,12 @@ array (
         2 => 
         array (
           0 => 'department',
-          1 => '',
+          1 => 
+          array (
+            'name' => 'title',
+            'comment' => 'The title of the contact',
+            'label' => 'LBL_TITLE',
+          ),
         ),
         3 => 
         array (

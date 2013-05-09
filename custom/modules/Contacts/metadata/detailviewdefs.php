@@ -40,7 +40,7 @@ array (
         ),
       ),
       'maxColumns' => '2',
-      'useTabs' => false,
+      'useTabs' => true,
       'widths' => 
       array (
         0 => 
@@ -66,47 +66,52 @@ array (
       array (
         'LBL_CONTACT_INFORMATION' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL5' => 
+        array (
+          'newTab' => true,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_DETAILVIEW_PANEL9' => 
         array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL2' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL4' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL7' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_PANEL_ADVANCED' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL6' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL8' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
         'LBL_EDITVIEW_PANEL1' => 
         array (
-          'newTab' => false,
+          'newTab' => true,
           'panelDefault' => 'expanded',
         ),
       ),
@@ -144,22 +149,13 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO_NAME',
           ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'nickname',
-            'comment' => '',
-            'label' => 'LBL_NICKNAME',
-          ),
           1 => 
           array (
             'name' => 'av_offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
         ),
-        3 => 
+        2 => 
         array (
           0 => 
           array (
@@ -173,7 +169,7 @@ array (
             'label' => 'LBL_AV_CONTACT_TYPES_NAME',
           ),
         ),
-        4 => 
+        3 => 
         array (
           0 => 
           array (
@@ -188,7 +184,7 @@ array (
             'label' => 'LBL_STATUS',
           ),
         ),
-        5 => 
+        4 => 
         array (
           0 => 
           array (
@@ -204,7 +200,7 @@ array (
             'label' => 'LBL_CONTACT_PRIORITY',
           ),
         ),
-        6 => 
+        5 => 
         array (
           0 => 
           array (
@@ -216,9 +212,10 @@ array (
             'name' => 'document_path',
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
+			'customCode' => '<a href="file://{$fields.document_path.value}">{$fields.document_path.value}</a>',
           ),
         ),
-        7 => 
+        6 => 
         array (
           0 => 
           array (
@@ -228,7 +225,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        8 => 
+        7 => 
         array (
           0 => 
           array (
@@ -409,6 +406,34 @@ array (
             'comment' => '',
             'label' => 'LBL_PRIMARY_ADDRESS_DATE_END',
           ),
+        ),
+      ),
+      'lbl_detailview_panel9' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            'name' => 'facebook_url',
+            'comment' => '',
+            'label' => 'LBL_FACEBOOK_URL',
+          ),
+          1 => 
+          array (
+            'name' => 'twitter_url',
+            'comment' => '',
+            'label' => 'LBL_TWITTER_URL',
+          ),
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            'name' => 'linkedin_url',
+            'comment' => '',
+            'label' => 'LBL_LINKEDIN_URL',
+          ),
+          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 
@@ -646,7 +671,12 @@ array (
             'name' => 'department',
             'label' => 'LBL_DEPARTMENT',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'title',
+            'comment' => 'The title of the contact',
+            'label' => 'LBL_TITLE',
+          ),
         ),
         3 => 
         array (
