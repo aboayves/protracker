@@ -67,7 +67,7 @@ class av_AccountsHook {
 		if($net_worth_history['managed_assets'] != $client_assets['managed_assets'] || $net_worth_history['grand_total'] != $client_assets['current_net_worth'])
 		{   
 			$id=create_guid();
-			$sql = "INSERT INTO av_net_worth (id, name, grand_total, managed_assets, net_worth_date, accounts_id)
+			$sql = "INSERT INTO av_net_worth (id, name, grand_total, managed_assets, net_worth_date, account_id)
 					VALUES('{$id}', 'Net Worth History', '{$client_assets['current_net_worth']}', 
 						  '{$client_assets['managed_assets']}', '{$bean->date_modified}', '{$bean->accounts_id}')";
 			$db->query($sql, true);

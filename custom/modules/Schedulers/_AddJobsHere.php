@@ -27,7 +27,7 @@ function create_net_worth_history_snapshot() {
 		$client_assets = $db->query($sql);
 		$client_assets = $db->fetchByAssoc($client_assets);// current assets of the related client
 		$id=create_guid();
-		$sql = "INSERT INTO av_net_worth (id, name, grand_total, managed_assets, net_worth_date, accounts_id)
+		$sql = "INSERT INTO av_net_worth (id, name, grand_total, managed_assets, net_worth_date, account_id)
 				VALUES('{$id}', 'Net Worth History', '{$client_assets['current_net_worth']}', 
 					  '{$client_assets['managed_assets']}', '{$now}', '{$row['id']}')";
 		$db->query($sql, true);
