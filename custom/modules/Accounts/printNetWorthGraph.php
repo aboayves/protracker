@@ -2,7 +2,7 @@
 require_once('custom/modules/Accounts/lib/DataHelper.php');
 require_once('include/tcpdf/tcpdf.php');
 global $db;
-$data4graph = DataHelper::getData($_REQUEST['accounts_id']);
+$data4graph = DataHelper::getData($_REQUEST['account_id']);
 $html = DataHelper::getHTML($data4graph);
 ob_clean();
 $pdf = new TCPDF('L', PDF_UNIT, 'A4', true, 'UTF-8', false);		 
