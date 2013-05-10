@@ -51,11 +51,6 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
-        'LBL_EDITVIEW_PANEL11' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_EDITVIEW_PANEL2' => 
         array (
           'newTab' => true,
@@ -409,10 +404,22 @@ array (
             'label' => 'LBL_PRIMARY_ADDRESS_DATE_END',
           ),
         ),
-      ),
-      'lbl_editview_panel11' => 
-      array (
-        0 => 
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'website',
+            'comment' => '',
+            'label' => 'LBL_WEBSITE',
+          ),
+          1 => 
+          array (
+            'name' => 'linkedin_url',
+            'comment' => '',
+            'label' => 'LBL_LINKEDIN_URL',
+          ),
+        ),
+        11 => 
         array (
           0 => 
           array (
@@ -426,16 +433,6 @@ array (
             'comment' => '',
             'label' => 'LBL_TWITTER_URL',
           ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'linkedin_url',
-            'comment' => '',
-            'label' => 'LBL_LINKEDIN_URL',
-          ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 

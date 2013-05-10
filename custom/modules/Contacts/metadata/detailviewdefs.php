@@ -74,11 +74,6 @@ array (
           'newTab' => true,
           'panelDefault' => 'expanded',
         ),
-        'LBL_DETAILVIEW_PANEL9' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
         'LBL_EDITVIEW_PANEL2' => 
         array (
           'newTab' => true,
@@ -212,7 +207,7 @@ array (
             'name' => 'document_path',
             'comment' => '',
             'label' => 'LBL_DOCUMENT_PATH',
-			'customCode' => '<a href="file://{$fields.document_path.value}">{$fields.document_path.value}</a>',
+            'customCode' => '<a href="file://{$fields.document_path.value}">{$fields.document_path.value}</a>',
           ),
         ),
         6 => 
@@ -407,36 +402,38 @@ array (
             'label' => 'LBL_PRIMARY_ADDRESS_DATE_END',
           ),
         ),
-      ),
-      'lbl_detailview_panel9' => 
-      array (
-        0 => 
+        10 => 
+        array (
+          0 => 
+          array (
+            'name' => 'website',
+            'comment' => '',
+            'label' => 'LBL_WEBSITE',
+          ),
+          1 => 
+          array (
+            'name' => 'linkedin_url',
+            'comment' => '',
+            'label' => 'LBL_LINKEDIN_URL',
+            'customCode' => '<a href="{$fields.linkedin_url.value}">{$fields.linkedin_url.value}</a>',
+          ),
+        ),
+        11 => 
         array (
           0 => 
           array (
             'name' => 'facebook_url',
             'comment' => '',
             'label' => 'LBL_FACEBOOK_URL',
-			'customCode' => '<a href="{$fields.facebook_url.value}">{$fields.facebook_url.value}</a>',
+            'customCode' => '<a href="{$fields.facebook_url.value}">{$fields.facebook_url.value}</a>',
           ),
           1 => 
           array (
             'name' => 'twitter_url',
             'comment' => '',
             'label' => 'LBL_TWITTER_URL',
-			'customCode' => '<a href="{$fields.twitter_url.value}">{$fields.twitter_url.value}</a>',
+            'customCode' => '<a href="{$fields.twitter_url.value}">{$fields.twitter_url.value}</a>',
           ),
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            'name' => 'linkedin_url',
-            'comment' => '',
-            'label' => 'LBL_LINKEDIN_URL',
-			'customCode' => '<a href="{$fields.linkedin_url.value}">{$fields.linkedin_url.value}</a>',
-          ),
-          1 => '',
         ),
       ),
       'lbl_editview_panel2' => 

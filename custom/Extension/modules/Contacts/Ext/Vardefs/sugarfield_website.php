@@ -1,8 +1,8 @@
 <?php
 // created: 2013-05-09 14:28:00
-$dictionary["Contact"]["fields"]["facebook_url"] = array (
-	'name' => 'facebook_url',
-	'vname' => 'LBL_FACEBOOK_URL',
+$dictionary["Contact"]["fields"]["website"] = array (
+	'name' => 'website',
+	'vname' => 'LBL_WEBSITE',
 	'type' => 'url',
 	'len' => '255',
 	'audited' => 0,

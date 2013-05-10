@@ -3,7 +3,7 @@
 $dictionary["Contact"]["fields"]["twitter_url"] = array (
 	'name' => 'twitter_url',
 	'vname' => 'LBL_TWITTER_URL',
-	'type' => 'varchar',
+	'type' => 'url',
 	'len' => '255',
 	'audited' => 0,
 	'required' => 0,
@@ -16,5 +16,6 @@ $dictionary["Contact"]["fields"]["twitter_url"] = array (
 	'duplicate_merge_dom_value' => True,
 	'help' => '',
 	'group' => '',
+	'link_target' => '_blank',
 );
 ?>
