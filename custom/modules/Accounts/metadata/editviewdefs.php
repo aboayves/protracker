@@ -192,6 +192,16 @@ array (
         array (
           0 => 
           array (
+            'name' => 'is_primary_client',
+            'comment' => '',
+            'label' => 'LBL_IS_PRIMARY_CLIENT',
+          ),
+          1 => '',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
             'name' => 'is_investment_client',
             'comment' => '',
             'label' => 'LBL_IS_INVESTMENT_CLIENT',
@@ -203,7 +213,7 @@ array (
             'label' => 'LBL_TAX_YEAR_END_DATE',
           ),
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -218,7 +228,7 @@ array (
             'label' => 'LBL_DOCUMENT_PATH',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -234,7 +244,7 @@ array (
             ),
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
