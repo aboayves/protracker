@@ -6,7 +6,7 @@ $job_strings[] = 'test_job';
 
 function test_job() {
 	global $log;
-	$log->fatal('This job is runnig so the server crontab is set!');
+	$log->fatal('This job is running so the server crontab is set!');
 	return true;
 }
 function create_net_worth_history_snapshot() {
@@ -16,7 +16,7 @@ function create_net_worth_history_snapshot() {
 	$now = $timedate->nowDB();
 	while($row = $db->fetchByAssoc($result)){
 		$sql = "
-				SELECT SUM(if(av_accounts.managed_c='Yes',av_accounts.value,0)) AS managed_assets, SUM(av_accounts.value) AS current_net_worth
+				SELECT SUM(if(av_accounts.is_aum<>0,av_accounts.value,0)) AS managed_assets, SUM(av_accounts.value) AS current_net_worth
 				FROM av_accounts
 				WHERE 
 					av_accounts.deleted=0 

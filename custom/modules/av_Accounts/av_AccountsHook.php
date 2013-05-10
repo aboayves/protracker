@@ -41,7 +41,7 @@ class av_AccountsHook {
 		global $db;
 		// stamping the net worth history module
 		$sql = "
-			SELECT SUM(if(av_accounts.managed_c='Yes',av_accounts.value,0)) AS managed_assets, SUM(av_accounts.value) AS current_net_worth
+			SELECT SUM(if(av_accounts.is_aum<>0,av_accounts.value,0)) AS managed_assets, SUM(av_accounts.value) AS current_net_worth
 			FROM av_accounts
 			WHERE 
 				av_accounts.deleted=0 
