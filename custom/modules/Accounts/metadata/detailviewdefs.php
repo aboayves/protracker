@@ -128,7 +128,7 @@ array (
           0 => 
           array (
             'name' => 'primary_contact_image',
-            'label' => '',
+            'label' => ' ',
             'displayParams' => 
             array (
               'trimColon' => 1,
