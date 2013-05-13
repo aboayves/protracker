@@ -194,6 +194,7 @@ array (
             'name' => 'av_offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
+          1 => '',
         ),
         4 => 
         array (
@@ -229,8 +230,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'av_offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
+            'name' => 'review_group',
+            'comment' => '',
+            'label' => 'LBL_REVIEW_GROUP',
           ),
           1 => 
           array (
@@ -240,6 +242,16 @@ array (
           ),
         ),
         7 => 
+        array (
+          0 => 
+          array (
+            'name' => 'is_primary_client',
+            'comment' => '',
+            'label' => 'LBL_IS_PRIMARY_CLIENT',
+          ),
+          1 => '',
+        ),
+        8 => 
         array (
           0 => 
           array (
@@ -254,7 +266,7 @@ array (
             'label' => 'LBL_PHASE',
           ),
         ),
-        8 => 
+        9 => 
         array (
           0 => 
           array (
@@ -265,7 +277,7 @@ array (
           ),
           1 => 'campaign_name',
         ),
-        9 => 
+        10 => 
         array (
           0 => 
           array (
@@ -279,7 +291,7 @@ array (
             'label' => 'LBL_TAX_YEAR_END_DATE',
           ),
         ),
-        10 => 
+        11 => 
         array (
           0 => 
           array (
@@ -294,7 +306,7 @@ array (
             'label' => 'LBL_DOCUMENT_PATH',
           ),
         ),
-        11 => 
+        12 => 
         array (
           0 => 
           array (
@@ -304,7 +316,7 @@ array (
           ),
           1 => 'team_name',
         ),
-        12 => 
+        13 => 
         array (
           0 => 
           array (
