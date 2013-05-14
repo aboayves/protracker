@@ -15,10 +15,10 @@ $dictionary["av_Cashflow"]["fields"]["account_id"] = array (
 	'importable' => false,
 	'duplicate_merge' => 'disabled',
 );
-$dictionary["av_Cashflow"]["fields"]["accounts_name"] = array (
+$dictionary["av_Cashflow"]["fields"]["account_name"] = array (
 	'required' => false,
 	'source' => 'non-db',
-	'name' => 'accounts_name',
+	'name' => 'account_name',
 	'vname' => 'LBL_ACCOUNTS_NAME',
 	'type' => 'relate',
 	'rname' => 'name',
@@ -32,19 +32,19 @@ $dictionary["av_Cashflow"]["fields"]["accounts_name"] = array (
 $dictionary["av_Cashflow"]["fields"]["accounts"] = array (
 	'name' => 'accounts',
 	'type' => 'link',
-	'relationship' => 'av_cashflow_accounts',
+	'relationship' => 'accounts_av_cashflow',
 	'module' => 'Accounts',
 	'bean_name' => 'Accounts',
 	'source' => 'non-db',
 	'vname' => 'LBL_ACCOUNTS',
 );
-$dictionary["av_Cashflow"]["relationships"]["av_cashflow_accounts"] = array (
-	'lhs_module' => 'av_Cashflow',
-	'lhs_table' => 'av_cashflow',
-	'lhs_key' => 'account_id',
-	'rhs_module' => 'Accounts',
-	'rhs_table' => 'accounts',
-	'rhs_key' => 'id',
+$dictionary["av_Cashflow"]["relationships"]["accounts_av_cashflow"] = array (
+	'lhs_module' => 'Accounts',
+	'lhs_table' => 'accounts',
+	'lhs_key' => 'id',
+	'rhs_module' => 'av_Cashflow',
+	'rhs_table' => 'av_cashflow',
+	'rhs_key' => 'account_id',
 	'relationship_type' => 'one-to-many',
 );
 ?>

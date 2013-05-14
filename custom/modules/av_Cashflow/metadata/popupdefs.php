@@ -6,12 +6,12 @@ $popupMeta = array (
     'whereClauses' => array (
   'year' => 'av_cashflow.year',
   'document_name' => 'av_cashflow.document_name',
-  'accounts_name' => 'av_cashflow.accounts_name',
+  'account_name' => 'av_cashflow.account_name',
 ),
     'searchInputs' => array (
   4 => 'year',
   5 => 'document_name',
-  6 => 'accounts_name',
+  6 => 'account_name',
 ),
     'searchdefs' => array (
   'year' => 
@@ -26,14 +26,14 @@ $popupMeta = array (
     'name' => 'document_name',
     'width' => '10%',
   ),
-  'accounts_name' => 
+  'account_name' => 
   array (
     'type' => 'relate',
     'link' => true,
     'label' => 'LBL_ACCOUNTS_NAME',
-    'id' => 'ACCOUNT_ID',
+    'id' => 'account_id',
     'width' => '10%',
-    'name' => 'accounts_name',
+    'name' => 'account_name',
   ),
 ),
 );
