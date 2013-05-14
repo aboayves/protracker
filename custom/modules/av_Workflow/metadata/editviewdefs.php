@@ -58,49 +58,56 @@ array (
         array (
           0 => 
           array (
-            'name' => 'category',
-            'label' => 'LBL_CATEGORY',
-          ),
-          1 => 
-          array (
             'name' => 'project_manager',
             'studio' => 'visible',
             'label' => 'LBL_PROJECT_MANAGER',
           ),
+          1 => '',
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'skip_weekends_holidays',
-            'studio' => 'visible',
-            'label' => 'LBL_SKIP_WEEKENDS_HOLIDAYS',
-          ),
-          1 => 
-          array (
             'name' => 'user_1',
             'studio' => 'visible',
             'label' => 'LBL_USER_1',
+          ),
+          1 => 
+          array (
+            'name' => 'skip_weekends_holidays',
+            'studio' => 'visible',
+            'label' => 'LBL_SKIP_WEEKENDS_HOLIDAYS',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'workflow_counts_down_to_target_date',
-            'studio' => 'visible',
-            'label' => 'LBL_WORKFLOW_COUNTS_DOWN_TO_TARGET_DATE',
-          ),
-          1 => 
-          array (
             'name' => 'user_2',
             'studio' => 'visible',
             'label' => 'LBL_USER_2',
+          ),
+          1 => 
+          array (
+            'name' => 'workflow_counts_down_to_target_date',
+            'studio' => 'visible',
+            'label' => 'LBL_WORKFLOW_COUNTS_DOWN_TO_TARGET_DATE',
           ),
         ),
         5 => 
         array (
           0 => 
+          array (
+            'name' => 'user_3',
+            'studio' => 'visible',
+            'label' => 'LBL_USER_3',
+          ),
+          1 => '',
+        ),
+        6 => 
+        array (
+          0 => 'description',
+          1 => 
           array (
             'name' => 'team_name',
             'displayParams' => 
@@ -108,16 +115,6 @@ array (
               'display' => true,
             ),
           ),
-          1 => 
-          array (
-            'name' => 'user_3',
-            'studio' => 'visible',
-            'label' => 'LBL_USER_3',
-          ),
-        ),
-        6 => 
-        array (
-          0 => 'description',
         ),
         7 => 
         array (
