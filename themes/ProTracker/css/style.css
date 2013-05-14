@@ -90,6 +90,12 @@ input[type="submit"] {
 input[type=text].sqsEnabled{
 	width:80% !important;
 }
+span[name="teamset_div"] input.sqsEnabled[type="text"] {
+    width: 95% !important;
+}
+tr#lineLabel_team_name td:first-child {
+    width: 257px;
+}
 input[type=text].sqsEnabledFlex{
 	width:59% !important;
 }
