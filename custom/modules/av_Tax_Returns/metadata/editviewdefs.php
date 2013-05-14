@@ -22,6 +22,29 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL2' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL3' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -56,6 +79,12 @@ array (
           array (
             'name' => 'av_tax_forms_name',
             'label' => 'LBL_AV_TAX_FORMS_NAME',
+          ),
+          1 => 
+          array (
+            'name' => 'filename',
+            'comment' => 'File name associated with the tax return (attachment)',
+            'label' => 'LBL_FILENAME',
           ),
         ),
         3 => 
