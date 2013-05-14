@@ -218,5 +218,23 @@
 			$pdf = new PDFGenerator($data, $client, $coClient, date('l, M d, Y', strtotime($netWorthDate)));
 			$pdf->makePDF();
 		}
+		
+		function action_relate_clients(){
+			
+			$this->view = NULL;
+			//print '<pre>';print_r($focus->primary_contact_name.'  '.$focus->primary_contact_id);
+
+			$clients=array(
+			
+				'primary_contact_name' => $this->bean->primary_contact_name,
+				'primary_contact_id' => $this->bean->primary_contact_id,
+				'secondary_contact_name' => $this->bean->secondary_contact_name,
+				'secondary_contact_id' => $this->bean->secondary_contact_id,
+			);
+
+			echo json_encode($clients);
+		
+		}
+
 	}
 ?>

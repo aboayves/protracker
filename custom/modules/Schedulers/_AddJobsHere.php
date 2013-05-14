@@ -21,8 +21,8 @@ function create_net_worth_history_snapshot() {
 				WHERE 
 					av_accounts.deleted=0 
 					AND 
-					av_accounts.accounts_id='{$row['id']}'
-				GROUP BY av_accounts.accounts_id
+					av_accounts.account_id='{$row['id']}'
+				GROUP BY av_accounts.account_id
 		";
 		$client_assets = $db->query($sql);
 		$client_assets = $db->fetchByAssoc($client_assets);// current assets of the related client

@@ -118,7 +118,7 @@ class AccountsHook
 		$db->query($sql, true);
 		$sql="UPDATE leads SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
 		$db->query($sql, true);
-		$sql="UPDATE av_accounts SET deleted=1 WHERE accounts_id='{$bean->id}' and deleted=0";
+		$sql="UPDATE av_accounts SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
 		$db->query($sql, true);
 		$sql="UPDATE av_net_worth SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
 		$db->query($sql, true);

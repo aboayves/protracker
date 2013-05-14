@@ -5,7 +5,7 @@ $popupMeta = array (
     'orderBy' => 'av_accounts.name',
     'whereClauses' => array (
   'name' => 'av_accounts.name',
-  'accounts_name' => 'av_accounts.accounts_name',
+  'account_name' => 'av_accounts.account_name',
   'favorites_only' => 'av_accounts.favorites_only',
   'account_number' => 'av_accounts.account_number',
   'ownership_type' => 'av_accounts.ownership_type',
@@ -19,7 +19,7 @@ $popupMeta = array (
 ),
     'searchInputs' => array (
   1 => 'name',
-  4 => 'accounts_name',
+  4 => 'account_name',
   5 => 'favorites_only',
   6 => 'account_number',
   7 => 'ownership_type',
@@ -40,14 +40,14 @@ $popupMeta = array (
     'width' => '10%',
     'name' => 'name',
   ),
-  'accounts_name' => 
+  'account_name' => 
   array (
     'type' => 'relate',
     'link' => true,
     'label' => 'LBL_ACCOUNTS_NAME',
-    'id' => 'ACCOUNTS_ID',
+    'id' => 'account_id',
     'width' => '10%',
-    'name' => 'accounts_name',
+    'name' => 'account_name',
   ),
   'favorites_only' => 
   array (

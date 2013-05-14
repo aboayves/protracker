@@ -9,7 +9,7 @@ function getManagedAssets($account_id){
 			WHERE 
 				av_accounts.deleted=0 
 				AND 
-				av_accounts.accounts_id='{$account_id}'
+				av_accounts.account_id='{$account_id}'
 				AND
 				av_accounts.is_aum<>0
 	";
@@ -25,7 +25,7 @@ function getCurrentNetWorth($account_id){
 			WHERE 
 				av_accounts.deleted=0 
 				AND 
-				av_accounts.accounts_id='{$account_id}'
+				av_accounts.account_id='{$account_id}'
 	";
 	$result = $db->query($sql);
 	$result = $db->fetchByAssoc($result);

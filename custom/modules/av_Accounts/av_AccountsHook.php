@@ -46,8 +46,8 @@ class av_AccountsHook {
 			WHERE 
 				av_accounts.deleted=0 
 				AND 
-				av_accounts.accounts_id='{$bean->accounts_id}'
-			GROUP BY av_accounts.accounts_id
+				av_accounts.account_id='{$bean->account_id}'
+			GROUP BY av_accounts.account_id
 		";
 		$client_assets = $db->query($sql);
 		$client_assets = $db->fetchByAssoc($client_assets);// current assets of the related client
@@ -57,7 +57,7 @@ class av_AccountsHook {
 			SELECT * 
 			FROM av_net_worth
 			WHERE
-			av_net_worth.deleted = 0 AND av_net_worth.account_id = '{$bean->accounts_id}'
+			av_net_worth.deleted = 0 AND av_net_worth.account_id = '{$bean->account_id}'
 			ORDER BY date_entered DESC
 			LIMIT 1
 		";
@@ -69,7 +69,7 @@ class av_AccountsHook {
 			$id=create_guid();
 			$sql = "INSERT INTO av_net_worth (id, name, grand_total, managed_assets, net_worth_date, account_id)
 					VALUES('{$id}', 'Net Worth History', '{$client_assets['current_net_worth']}', 
-						  '{$client_assets['managed_assets']}', '{$bean->date_modified}', '{$bean->accounts_id}')";
+						  '{$client_assets['managed_assets']}', '{$bean->date_modified}', '{$bean->account_id}')";
 			$db->query($sql, true);
 		}
 	}

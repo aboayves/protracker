@@ -6,13 +6,13 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'relate',
     'studio' => 'visible',
     'vname' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_ID',
+    'id' => 'account_id',
     'link' => true,
     'width' => '10%',
     'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
     'target_module' => 'Accounts',
-    'target_record_key' => 'accounts_id',
+    'target_record_key' => 'account_id',
   ),
   'name' => 
   array (
