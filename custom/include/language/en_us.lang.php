@@ -12424,16 +12424,15 @@ $app_list_strings['review_group_list'] = array (
 
 
 
-);
-
+);
 $app_list_strings['client_relationship_type_list'] = array (
 	'' => '',
 	'Couple' => 'Couple',
 	'Family' => 'Family',	'Household' => 'Household',
 	'Dependent' => 'Dependent',
-	'Business' => 'Business',
+	'Business' => 'Business',		'Trust' => 'Trust',
 	'Partnership' => 'Partnership',
-	'Professional_Association' => 'Professional Association',
+	'Professional_Association' => 'Professional Association',		'Government' => 'Government',
 	'Other' => 'Other',
 );
 

@@ -5,7 +5,6 @@ $dictionary["Account"]["fields"]["accounts_accounts_id"] = array (
 	'type' => 'link',
 	'relationship' => 'accounts_id_accounts',
 	'source' => 'non-db',
-	'side' => 'right',
 	'vname' => 'LBL_AV_ACCOUNTS',
 );
 ?>

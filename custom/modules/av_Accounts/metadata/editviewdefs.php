@@ -27,6 +27,7 @@ array (
           'field' => '30',
         ),
       ),
+	  
       'useTabs' => true,
       'syncDetailEditViews' => true,
       'includes' => 
@@ -34,6 +35,10 @@ array (
         0 => 
         array (
           'file' => 'custom/include/js/inherit_parent_team.js',
+        ),
+		1 => 
+        array (
+          'file' => 'custom/modules/av_Accounts/get_relate_clients.js',
         ),
       ),
       'tabDefs' => 
@@ -94,7 +99,7 @@ array (
           0 => 'name',
           1 => 
           array (
-            'name' => 'accounts_name',
+            'name' => 'account_name',
             'label' => 'LBL_ACCOUNTS_NAME',
             'displayParams' => 
             array (

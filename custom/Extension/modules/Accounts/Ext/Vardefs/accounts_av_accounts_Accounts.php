@@ -13,6 +13,6 @@ $dictionary['Account']['relationships']['accounts_av_accounts'] = array(
  'lhs_key' => 'id',
  'rhs_module'=> 'av_Accounts',
  'rhs_table'=> 'av_accounts',
- 'rhs_key' => 'accounts_id',
+ 'rhs_key' => 'account_id',
  'relationship_type'=>'one-to-many'
 );
