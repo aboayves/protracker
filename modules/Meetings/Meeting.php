@@ -837,7 +837,43 @@ class Meeting extends SugarBean {
 
 	    parent::afterImportSave();
 	}
+	function deleteAttachment($isduplicate="false"){
+		if($this->ACLAccess('edit')){
+			if($isduplicate=="true"){
+				return true;
+			}
+			$removeFile = "upload://{$this->id}";
+		}
+		if(!empty($this->doc_type) && !empty($this->doc_id)){
+            $document = ExternalAPIFactory::loadAPI($this->doc_type);
 
+	      	$response = $document->deleteDoc($this);
+            $this->doc_type = '';
+            $this->doc_id = '';
+            $this->doc_url = '';
+            $this->filename = '';
+            $this->file_mime_type = '';
+		}
+		if(file_exists($removeFile)) {
+			if(!unlink($removeFile)) {
+				$GLOBALS['log']->error("*** Could not unlink() file: [ {$removeFile} ]");
+			}else{
+				$this->filename = '';
+				$this->file_mime_type = '';
+				$this->file = '';
+				$this->save();
+				return true;
+			}
+		} else {
+			$this->filename = '';
+			$this->file_mime_type = '';
+			$this->file = '';
+			$this->doc_id = '';
+			$this->save();
+			return true;
+		}
+		return false;
+	}
     public function getDefaultStatus()
     {
          $def = $this->field_defs['status'];
