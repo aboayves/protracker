@@ -1,6 +1,11 @@
 <?php
 // created: 2013-03-14 17:59:08
 $subpanel_layout['list_fields'] = array (
+  'name'=>array(
+	'vname' => 'LBL_NAME',
+	'widget_class' => 'SubPanelDetailViewLink',
+	'width' => '45%',
+	),
   'grand_total_formated' => 
   array (
     'vname' => 'LBL_GRAND_TOTAL',
