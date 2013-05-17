@@ -146,17 +146,17 @@ array (
           ),
           1 => 
           array (
-            'name' => 'av_offices_name',
-            'label' => 'LBL_AV_OFFICES_NAME',
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
           ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'report_salutation',
-            'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
+            'name' => 'av_offices_name',
+            'label' => 'LBL_AV_OFFICES_NAME',
           ),
           1 => 
           array (
@@ -501,9 +501,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'date_of_death',
+            'name' => 'children',
             'comment' => '',
-            'label' => 'LBL_DATE_OF_DEATH',
+            'label' => 'LBL_CHILDREN',
           ),
         ),
         5 => 
@@ -516,9 +516,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'children',
+            'name' => 'date_of_death',
             'comment' => '',
-            'label' => 'LBL_CHILDREN',
+            'label' => 'LBL_DATE_OF_DEATH',
           ),
         ),
         6 => 

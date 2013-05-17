@@ -1,13 +1,6 @@
 <?php
-// created: 2013-02-27 14:52:14
+// created: 2013-05-15 16:36:43
 $subpanel_layout['list_fields'] = array (
-  'name' => 
-  array (
-    'vname' => 'LBL_NAME',
-    'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '20%',
-    'default' => true,
-  ),
   'description' => 
   array (
     'type' => 'text',
@@ -35,6 +28,20 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'enum',
     'default' => true,
     'vname' => 'LBL_RISK_TOLERANCE',
+    'width' => '10%',
+  ),
+  'time_horizon' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_TIME_HORIZON',
+    'width' => '10%',
+  ),
+  'suitability_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'vname' => 'LBL_SUITABILITY_DATE',
     'width' => '10%',
   ),
   'date_modified' => 
