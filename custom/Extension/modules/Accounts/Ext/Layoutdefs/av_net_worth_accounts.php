@@ -2,6 +2,8 @@
 // created: 2013-05-02 13:59:41
 $layout_defs["Accounts"]["subpanel_setup"]["av_net_worth_accounts"] = array (
 	'order' => 100,
+	'sort_by' => 'net_worth_date',
+	'sort_order' => 'desc',
 	'module' => 'av_Net_Worth',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_NET_WORTH',
