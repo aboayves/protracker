@@ -50,12 +50,6 @@ array (
         2 => 
         array (
           0 => 'description',
-          1 => 
-          array (
-            'name' => 'task_category',
-            'studio' => 'visible',
-            'label' => 'LBL_TASK_CATEGORY',
-          ),
         ),
         3 => 
         array (

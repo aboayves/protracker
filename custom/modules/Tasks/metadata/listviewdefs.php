@@ -123,14 +123,6 @@ array (
     'label' => 'LBL_NOTIFY_CHILD_COMPLETION',
     'width' => '10%',
   ),
-  'CATEGORY' => 
-  array (
-    'type' => 'enum',
-    'default' => false,
-    'studio' => 'visible',
-    'label' => 'LBL_CATEGORY',
-    'width' => '10%',
-  ),
   'ALOW_ASIGNE_TO_MODIFY' => 
   array (
     'type' => 'bool',

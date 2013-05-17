@@ -11,14 +11,6 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'TASK_CATEGORY' => 
-  array (
-    'type' => 'enum',
-    'studio' => 'visible',
-    'label' => 'LBL_TASK_CATEGORY',
-    'width' => '12%',
-    'default' => true,
-  ),
   'NAME' => 
   array (
     'width' => '20%',

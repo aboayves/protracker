@@ -60,7 +60,6 @@ $mod_strings = array (
   'LBL_NEW_FORM_TITLE' => 'New Task Template',
   'LBL_SUBJECT' => 'Subject',
   'LBL_PRIVATE' => 'Private',
-  'LBL_TASK_CATEGORY' => 'Task Category',
   'LNK_IMPORT_RT_TASK_TEMPLATE' => 'Import Task Template',
   'LBL_RT_TASK_TEMPLATE_SUBPANEL_TITLE' => 'Task Template',
   'LBL_PRIORITY' => 'Priority',
