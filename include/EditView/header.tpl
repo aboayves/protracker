@@ -19,6 +19,8 @@
 	    $("ul.clickMenu").each(function(index, node){
 	        $(node).sugarActionMenu();
 	    });
+		$(".action_buttons").children(".clear").replaceWith("&nbsp;");
+		$("#create_new_button_edit_view").appendTo(".action_buttons");
     });
     {/literal}
 </script>
@@ -67,7 +69,7 @@
 {{/if}}
 {{/if}}
 {{sugar_action_menu buttons=$header_buttons class="fancymenu" flat=true}}
-<input type="button" value="{{$APP.LNK_CREATE_NEW}}" name="button" onclick="window.location='index.php?module={$module}&action=EditView'" class="button"/>
+<input type="button" id="create_new_button_edit_view" value="{{$APP.LNK_CREATE_NEW}}" name="button" onclick="window.location='index.php?module={$module}&action=EditView'" class="button"/>
 </td>
 <td align='right'>{{$ADMIN_EDIT}}
 {{if $panelCount == 0}}
