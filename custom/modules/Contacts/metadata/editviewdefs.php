@@ -96,8 +96,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'first_name',
-            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
+            'name' => 'prefix',
+            'comment' => '',
+            'label' => 'LBL_PREFIX',
           ),
           1 => 'picture',
         ),
@@ -105,26 +106,35 @@ array (
         array (
           0 => 
           array (
-            'name' => 'middle_name',
-            'comment' => '',
-            'label' => 'LBL_MIDDLE_NAME',
+            'name' => 'first_name',
+            'customCode' => '{html_options name="salutation" id="salutation" options=$fields.salutation.options selected=$fields.salutation.value}&nbsp;<input name="first_name"  id="first_name" size="25" maxlength="25" type="text" value="{$fields.first_name.value}">',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'report_salutation',
+            'comment' => '',
+            'label' => 'LBL_REPORT_SALUTATION',
+          ),
         ),
         2 => 
         array (
           0 => 
           array (
-            'name' => 'last_name',
+            'name' => 'middle_name',
+            'comment' => '',
+            'label' => 'LBL_MIDDLE_NAME',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'assigned_user_name',
+            'label' => 'LBL_ASSIGNED_TO_NAME',
+          ),
         ),
         3 => 
         array (
           0 => 
           array (
-            'name' => 'assigned_user_name',
-            'label' => 'LBL_ASSIGNED_TO_NAME',
+            'name' => 'last_name',
           ),
           1 => 
           array (
@@ -136,9 +146,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'report_salutation',
+            'name' => 'suffix',
             'comment' => '',
-            'label' => 'LBL_REPORT_SALUTATION',
+            'label' => 'LBL_SUFFIX',
           ),
           1 => 
           array (
