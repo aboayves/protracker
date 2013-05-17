@@ -360,7 +360,7 @@ class Contact extends Person {
 		
 		//	$this->name = $full_name;
 		//	$this->full_name = $full_name;
-			$this->full_name = $this->title.' '.$this->first_name.' '.$this->middle_name.' '.$this->last_name.' '.$this->suffix; //used by campaigns
+			$this->full_name = $this->prefix.' '.$this->first_name.' '.$this->middle_name.' '.$this->last_name.' '.$this->suffix; //used by campaigns
 	
 	}
 
