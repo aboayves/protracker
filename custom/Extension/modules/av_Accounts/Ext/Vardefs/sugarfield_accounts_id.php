@@ -38,6 +38,7 @@ $dictionary["av_Accounts"]["fields"]["accounts_accounts_id"] = array (
 	'source' => 'non-db',
 	'vname' => 'LBL_ACCOUNTS',
 );
+/*
 $dictionary["av_Accounts"]["relationships"]["accounts_id_accounts"] = array (
 	'lhs_module' => 'av_Accounts',
 	'lhs_table' => 'av_accounts',
@@ -47,4 +48,5 @@ $dictionary["av_Accounts"]["relationships"]["accounts_id_accounts"] = array (
 	'rhs_key' => 'id',
 	'relationship_type' => 'one-to-many',
 );
+*/
 ?>

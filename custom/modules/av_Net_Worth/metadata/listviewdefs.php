@@ -6,7 +6,7 @@ array (
   array (
     'link' => true,
     'label' => 'LBL_ACCOUNTS_NAME',
-    'id' => 'ACCOUNTS_ID',
+    'id' => 'ACCOUNT_ID',
     'width' => '15%',
     'default' => true,
   ),

@@ -89,19 +89,53 @@ class AccountsHook
 			$bean->delete_multiple_check = "<input id='delete_multiple_check' name='delete_multiple_check' value='{$bean->id}' type='checkbox' class='checkbox'>";
 	}
 	function setFirstContactToPrimary($bean, $event, $arguments){
-		if(isset($arguments['related_module']) && $arguments['related_module'] =='Contacts'){
+		if(isset($arguments['related_module']) && $arguments['related_module'] == 'Contacts'){
 			global $db;
-			$sql = "SELECT count(*) as pk_contact_count from accounts_contacts where account_id='{$bean->id}' AND contact_type='primary' AND deleted=0";
+			$sql = "SELECT count(*) as pk_contact_count from accounts_contacts where account_id='{$bean->id}' AND contact_type='Primary' AND deleted=0";
 			$result = $db->query($sql);
 			$row = $db->fetchByAssoc($result);
 			if($row['pk_contact_count'] == '0'){
 				$sql="UPDATE accounts_contacts
-					  SET contact_type='primary'
+					  SET contact_type='Primary'
 					  WHERE contact_id='{$arguments['related_id']}' AND
 							account_id='{$bean->id}' AND
 							deleted=0";
 				$db->query($sql);
 			}
+		}
+	}
+	function clearOldRelationships($bean, $event, $arguments)
+	{
+		global $db;
+		if(isset($arguments['related_module']) && $arguments['related_module'] == 'Contacts')
+		{
+			$sql='';
+			if($arguments['link']=='primary_contact')
+			{
+				$sql="	UPDATE 
+							accounts_contacts
+						SET 
+							contact_type=''
+						WHERE 
+							contact_id!='{$arguments['related_id']}' AND
+							account_id='{$bean->id}' AND
+							deleted=0 AND 
+							contact_type='Primary'";
+			}
+			else if($arguments['link']=='secondary_contact')
+			{
+				$sql="	UPDATE 
+							accounts_contacts
+						SET 
+							contact_type=''
+						WHERE 
+							contact_id!='{$arguments['related_id']}' AND
+							account_id='{$bean->id}' AND
+							deleted=0 AND 
+							contact_type='Secondary'";
+			}
+			
+			if(!empty($sql)) $db->query($sql);
 		}
 	}
 	function delete_child_records($bean, $event, $arguments){
@@ -118,7 +152,7 @@ class AccountsHook
 		$db->query($sql, true);
 		$sql="UPDATE leads SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
 		$db->query($sql, true);
-		$sql="UPDATE av_accounts SET deleted=1 WHERE accounts_id='{$bean->id}' and deleted=0";
+		$sql="UPDATE av_accounts SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
 		$db->query($sql, true);
 		$sql="UPDATE av_net_worth SET deleted=1 WHERE account_id='{$bean->id}' and deleted=0";
 		$db->query($sql, true);

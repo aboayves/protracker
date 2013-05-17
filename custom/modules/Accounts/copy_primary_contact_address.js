@@ -135,3 +135,15 @@ function set_return_and_save_primary_contact(collection, field_id){
 	}
 	set_return_and_save_background(collection, field_id);
 }
+$(function(){
+	var onclick = $("#SAVE_HEADER").attr("onclick");
+	$("#SAVE_HEADER").attr("onclick", "if(validate_ownership())return false; " +onclick);
+});
+function validate_ownership(){
+	if($("#owner_percent").val()>100){
+		$("#owner_percent_errors").css("display","block");
+		return true;
+	}else{
+		return false;
+	}
+}

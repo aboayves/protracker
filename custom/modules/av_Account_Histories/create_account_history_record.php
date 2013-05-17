@@ -5,7 +5,7 @@
 					av.dependent_dropdown, av.value, av.account_number, av.is_closed
 		   FROM accounts a
 		   RIGHT JOIN av_accounts av
-		   ON(av.deleted=0 AND av.accounts_id=a.id)
+		   ON(av.deleted=0 AND av.account_id=a.id)
 		   WHERE a.deleted=0";
 	$result = $db->query($sql);
 	$account_histories_records = array();

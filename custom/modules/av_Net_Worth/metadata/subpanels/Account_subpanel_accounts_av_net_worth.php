@@ -1,10 +1,16 @@
 <?php
 // created: 2013-03-14 17:59:08
 $subpanel_layout['list_fields'] = array (
+  'name'=>array(
+	'vname' => 'LBL_NAME',
+	'widget_class' => 'SubPanelDetailViewLink',
+	'width' => '45%',
+	),
   'grand_total_formated' => 
   array (
     'vname' => 'LBL_GRAND_TOTAL',
     'width' => '15%',
+	'sortable' => false,
     'default' => true,
   ),
   'net_worth_date' => 
@@ -18,6 +24,7 @@ $subpanel_layout['list_fields'] = array (
   array (
     'vname' => 'LBL_MANAGED_ASSETS',
     'width' => '20%',
+	'sortable' => false,
     'default' => true,
   ),
   'description' => 

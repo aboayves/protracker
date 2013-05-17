@@ -35,7 +35,7 @@ array (
         array (
           0 => 
           array (
-            'name' => 'accounts_name',
+            'name' => 'account_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
           1 => 

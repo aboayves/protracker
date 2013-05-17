@@ -1,7 +1,7 @@
 <?php
 // created: 2012-05-21 17:10:30
-$dictionary["av_Accounts"]["fields"]["accounts_id"] = array (
-  'name' => 'accounts_id',
+$dictionary["av_Accounts"]["fields"]["account_id"] = array (
+  'name' => 'account_id',
   'type' => 'id',
   'relationship' => 'accounts_av_accounts',
   'module'=>'av_Accounts',
@@ -11,12 +11,12 @@ $dictionary["av_Accounts"]["fields"]["accounts_id"] = array (
   'len' => 36,
   'size' => '20',
 );
-$dictionary["av_Accounts"]["fields"]["accounts_name"] = array (
-  'name' => 'accounts_name',
+$dictionary["av_Accounts"]["fields"]["account_name"] = array (
+  'name' => 'account_name',
   'type' => 'relate',
   'source' => 'non-db',
   'vname' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
-  'id_name' => 'accounts_id',
+  'id_name' => 'account_id',
   'module' => 'Accounts',
   'studio' => 'visible',
 );

@@ -19,7 +19,7 @@ if ( typeof(SUGAR.field) == 'undefined' ) {
 if ( typeof(SUGAR.field.file) == 'undefined' ) {
     SUGAR.field.file = {
         deleteAttachment: function(elemBaseName,docTypeName,elem) {
-            ajaxStatus.showStatus(SUGAR.language.get("app_strings", "LBL_REMOVING_ATTACHMENT"));
+            ajaxStatus.showStatus("Removing attachment...");
             elem.form.deleteAttachment.value=1;
             elem.form.action.value="deleteattachment";
 
