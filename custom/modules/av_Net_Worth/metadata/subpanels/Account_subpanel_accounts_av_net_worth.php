@@ -10,6 +10,7 @@ $subpanel_layout['list_fields'] = array (
   array (
     'vname' => 'LBL_GRAND_TOTAL',
     'width' => '15%',
+	'sortable' => false,
     'default' => true,
   ),
   'net_worth_date' => 
@@ -23,6 +24,7 @@ $subpanel_layout['list_fields'] = array (
   array (
     'vname' => 'LBL_MANAGED_ASSETS',
     'width' => '20%',
+	'sortable' => false,
     'default' => true,
   ),
   'description' => 
