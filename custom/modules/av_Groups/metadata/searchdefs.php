@@ -130,14 +130,6 @@ array (
         'default' => true,
         'name' => 'date_entered',
       ),
-      'created_by' => 
-      array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_CREATED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'created_by',
-      ),
       'communication_type' => 
       array (
         'type' => 'enum',
@@ -145,6 +137,14 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'communication_type',
+      ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
       ),
       'date_modified' => 
       array (

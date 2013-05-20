@@ -194,7 +194,11 @@ array (
             'name' => 'av_offices_name',
             'label' => 'LBL_AV_OFFICES_NAME',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'av_client_types_name',
+            'label' => 'LBL_AV_CLIENT_TYPES_NAME',
+          ),
         ),
         4 => 
         array (

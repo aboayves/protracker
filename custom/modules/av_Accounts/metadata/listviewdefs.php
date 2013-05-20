@@ -9,12 +9,12 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'ACCOUNTS_NAME' => 
+  'ACCOUNT_NAME' => 
   array (
     'type' => 'relate',
     'studio' => 'visible',
     'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_ID',
+    'id' => 'ACCOUNT_ID',
     'link' => true,
     'width' => '10%',
     'default' => true,
@@ -26,20 +26,6 @@ array (
     'label' => 'LBL_ACCOUNT_NUMBER',
     'width' => '10%',
     'customCode' => '{$ACCOUNT_NUMBER} <img src=include/iconDisplay.php?name=account.closed&value={$IS_CLOSED}> <img src=include/iconDisplay.php?name=account.billed&value={$IS_BILLED}> ',
-  ),
-  'OWNERSHIP_TYPE' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'label' => 'LBL_OWNERSHIP_TYPE',
-    'width' => '10%',
-  ),
-  'CUSTODIAN' => 
-  array (
-    'type' => 'enum',
-    'default' => true,
-    'label' => 'LBL_CUSTODIAN',
-    'width' => '10%',
   ),
   'VALUE_DATE' => 
   array (

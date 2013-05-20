@@ -1,20 +1,7 @@
 <?php
-// created: 2013-05-20 20:28:32
-$searchFields['Meetings'] = array (
+// created: 2013-05-20 20:30:00
+$searchFields['Project'] = array (
   'name' => 
-  array (
-    'query_type' => 'default',
-  ),
-  'contact_name' => 
-  array (
-    'query_type' => 'default',
-    'db_field' => 
-    array (
-      0 => 'contacts.first_name',
-      1 => 'contacts.last_name',
-    ),
-  ),
-  'date_start' => 
   array (
     'query_type' => 'default',
   ),
@@ -29,43 +16,18 @@ $searchFields['Meetings'] = array (
     'vname' => 'LBL_CURRENT_USER_FILTER',
     'type' => 'bool',
   ),
-  'assigned_user_id' => 
-  array (
-    'query_type' => 'default',
-  ),
-  'status' => 
-  array (
-    'query_type' => 'default',
-    'options' => 'meeting_status_dom',
-    'template_var' => 'STATUS_FILTER',
-  ),
   'favorites_only' => 
   array (
     'query_type' => 'format',
     'operator' => 'subquery',
     'subquery' => 'SELECT sugarfavorites.record_id FROM sugarfavorites 
 			                    WHERE sugarfavorites.deleted=0 
-			                        and sugarfavorites.module = \'Meetings\'
+			                        and sugarfavorites.module = \'Project\' 
 			                        and sugarfavorites.assigned_user_id = \'{0}\'',
     'db_field' => 
     array (
       0 => 'id',
     ),
-  ),
-  'open_only' => 
-  array (
-    'query_type' => 'default',
-    'db_field' => 
-    array (
-      0 => 'status',
-    ),
-    'operator' => 'not in',
-    'closed_values' => 
-    array (
-      0 => 'Held',
-      1 => 'Not Held',
-    ),
-    'type' => 'bool',
   ),
   'range_date_entered' => 
   array (
@@ -103,37 +65,37 @@ $searchFields['Meetings'] = array (
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'range_date_start' => 
+  'range_estimated_start_date' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'start_range_date_start' => 
+  'start_range_estimated_start_date' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'end_range_date_start' => 
+  'end_range_estimated_start_date' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'range_date_end' => 
+  'range_estimated_end_date' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'start_range_date_end' => 
+  'start_range_estimated_end_date' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,
     'is_date_field' => true,
   ),
-  'end_range_date_end' => 
+  'end_range_estimated_end_date' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,

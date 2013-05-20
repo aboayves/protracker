@@ -6,39 +6,11 @@ array (
   array (
     'basic_search' => 
     array (
-      'accounts_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_ACCOUNTS_NAME',
-        'width' => '10%',
-        'default' => true,
-        'id' => 'ACCOUNTS_ID',
-        'name' => 'accounts_name',
-      ),
       'name' => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
-      ),
-      'av_account_types_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
-        'id' => 'ACCOUNT_TYPE_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'av_account_types_name',
-      ),
-      'custodian' => 
-      array (
-        'type' => 'enum',
-        'default' => true,
-        'label' => 'LBL_CUSTODIAN',
-        'width' => '10%',
-        'name' => 'custodian',
       ),
       'current_user_only' => 
       array (
@@ -143,6 +115,14 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'date_modified',
+      ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
       ),
       'modified_user_id' => 
       array (
