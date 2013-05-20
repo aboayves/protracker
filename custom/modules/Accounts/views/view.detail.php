@@ -83,11 +83,15 @@ class AccountsViewDetail extends CustomViewDetail
 				}
 			
 			}
+			$printNetworthButton = "";
+			if(!isset($_REQUEST['print']) && $_REQUEST['print'] !='true'){
+				$printNetworthButton = '<input title="Print Net Worth" type="button" name="printNetWorthGraph" id="printNetWorthGraph" onclick="window.location=\'index.php?module=Accounts&action=printNetWorthGraph&account_id='.$this->bean->id.'\'" value="Create PDF">';
+			}
 			$this->dv->defs['panels']['LBL_GRAPH'] = array(
 			  array(
 				array(
 				  'hideLabel' => true,
-				  'customCode' => '<input title="Print Net Worth" type="button" name="printNetWorthGraph" id="printNetWorthGraph" onclick="window.location=\'index.php?module=Accounts&action=printNetWorthGraph&account_id='.$this->bean->id.'\'" value="Create PDF"><div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');alignTextRight();"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
+				  'customCode' => $printNetworthButton.'<div style="float: right;"><img src="themes/ProTracker/images/dashlet-header-refresh.png" onclick="$(\'#divForGraph\').jqxChart(\'refresh\');alignTextRight();"/></div><div id="divForGraph" style="width:100%; height:400px">{$theGraph}</div>',
 				)
 			  )
 			);
