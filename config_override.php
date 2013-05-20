@@ -46,6 +46,6 @@ $sugar_config['inactivity_timeout_length'] = '120';
 $sugar_config['verify_client_ip'] = false;
 $sugar_config['enable_action_menu'] = true;
 $sugar_config['calculate_response_time'] = false;
-$sugar_config['search_wildcard_char'] => '%';
-$sugar_config['search_wildcard_infront'] => true;
+$sugar_config['search_wildcard_char'] = '%';
+$sugar_config['search_wildcard_infront'] = true;
 /***CONFIGURATOR***/
