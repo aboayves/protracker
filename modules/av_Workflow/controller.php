@@ -56,7 +56,7 @@ class av_WorkflowController extends SugarController {
 			}
 			
 			if(date('N', $tmpStamp) > 5 && $dayKeyword == 'weekdays'){
-				$tmpStamp = strtotime("last friday", $tmpStamp);
+				$tmpStamp = strtotime("next monday", $tmpStamp);
 			}
 			
 			$time = $timedate->split_date_time($timedate->now());
