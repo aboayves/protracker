@@ -95,7 +95,8 @@ var treeHelper = {
 }
 
 function generateTree(){
-	var wfID = document.getElementsByName('record')[0].value;
+	//var wfID = document.getElementsByName('record')[0].value; Don't use, it carashes in IE10
+	var wfID = $('[name="record"]').val();
 	treeHelper.loadData(wfID);
 }
 
