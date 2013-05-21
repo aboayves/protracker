@@ -32,6 +32,7 @@ function quick_create(relate_name, target_module, rname, rname_value, field_id, 
 						$('#'+field_name).css('border-color', '');
 						$('#btn_QuickCreate_'+field_name).hide();
 						$(".show_cstm_relate_errors").css("display","none");
+						$('#'+field_name).removeClass("cstm_relate_field");
 						jQuery('#dialogForURL').dialog('close');
 				});
 			 });
@@ -51,5 +52,7 @@ function quick_create(relate_name, target_module, rname, rname_value, field_id, 
 	YAHOO.util.Connect.asyncRequest('POST', url,callback); 
 }
 
-
+function removeCstmClass(id){
+	$("#"+id).removeClass("cstm_relate_field");
+}
 
