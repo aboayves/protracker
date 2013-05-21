@@ -22,6 +22,7 @@
 		$(".action_buttons").children(".clear").replaceWith("&nbsp;");
 		$("#create_new_button_edit_view").appendTo(".action_buttons");
 		$(".action_buttons").append("<div class='clear'></div>");
+		($(".action_buttons").next("#create_new_button_edit_view")).remove();
     });
     {/literal}
 </script>
