@@ -1416,7 +1416,7 @@ EOHTML;
             $theTitle .= "<span class='utils'>";
             $createImageURL = SugarThemeRegistry::current()->getImageURL('create-record.gif');
             $url = ajaxLink("index.php?module=$module&action=EditView&return_module=$module&return_action=DetailView");
-            if($action!='DetailView' && $action!='EditView' && $action!='assign'){ 
+            if($action!='DetailView' && $action!='EditView' && $action!='assign' && $action!='ConvertLead'){ 
 			$theTitle .= <<<EOHTML
 &nbsp;
 <ul class='clickMenu' ><li id='create_link_li'><a id="create_link" href="{$url}" class="utilsLink">
