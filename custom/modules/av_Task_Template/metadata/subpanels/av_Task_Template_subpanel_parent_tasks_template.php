@@ -8,14 +8,6 @@ $subpanel_layout['list_fields'] = array (
     'width' => '20%',
     'default' => true,
   ),
-  'task_category' => 
-  array (
-    'type' => 'enum',
-    'studio' => 'visible',
-    'vname' => 'LBL_TASK_CATEGORY',
-    'width' => '12%',
-    'default' => true,
-  ),
   'assign_to' => 
   array (
     'type' => 'enum',
