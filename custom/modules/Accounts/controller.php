@@ -7,7 +7,7 @@
 			
 			require_once('custom/modules/Accounts/PDFGenerator.php');
 			
-			$netWorthDate = !empty($_REQUEST['net_worth_date']) ? $_REQUEST['net_worth_date'] : $timedate->nowDate();
+			$netWorthDate = !empty($_REQUEST['net_worth_date_for_pdf']) ? $_REQUEST['net_worth_date_for_pdf'] : $timedate->nowDate();
 			$netWorthDate = $timedate->to_db_date($netWorthDate, false);
 			
 //----------------------------------------------------------------------------------

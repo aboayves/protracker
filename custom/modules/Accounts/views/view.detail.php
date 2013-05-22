@@ -213,18 +213,18 @@ class AccountsViewDetail extends CustomViewDetail
 				'<form name="input" target="_blank" action="index.php?module=Accounts&action=PrintNetWorth&record=' . $this->bean->id . '" method="POST">'.
 					'<span class="dateTime">'.
 						'Select Date: '.
-						'<input type="text" maxlength="10" size="11" id="net_worth_date" name="net_worth_date" autocomplete="off" class="date_input"> &nbsp;'.
-						'<img border="0" id="net_worth_date_trigger" style="position:relative; top:6px" alt="Enter Date" src="themes/Sugar/images/jscalendar.png">'.
+						'<input type="text" maxlength="10" size="11" id="net_worth_date_for_pdf" name="net_worth_date_for_pdf" autocomplete="off" class="date_input"> &nbsp;'.
+						'<img border="0" id="net_worth_date_for_pdf_trigger" style="position:relative; top:6px" alt="Enter Date" src="themes/Sugar/images/jscalendar.png">'.
 					'</span> &nbsp; &nbsp; &nbsp;'.
 					'<input type="submit" value="Generate Net Worth"/>'.
 				'</form>'.
 			'</div>'.
 			'<script type="text/javascript">'.
 				'Calendar.setup ({'.
-					'inputField : "net_worth_date",'.
+					'inputField : "net_worth_date_for_pdf",'.
 					'ifFormat : "%m/%d/%Y %I:%M%P",'.
 					'daFormat : "%m/%d/%Y %I:%M%P",'.
-					'button : "net_worth_date_trigger",'.
+					'button : "net_worth_date_for_pdf_trigger",'.
 					'singleClick : true,'.
 					'dateStr : "",'.
 					'startWeekday: 0,'.
