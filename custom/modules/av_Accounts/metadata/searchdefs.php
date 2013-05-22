@@ -6,15 +6,15 @@ array (
   array (
     'basic_search' => 
     array (
-      'accounts_name' => 
+      'account_name' => 
       array (
         'type' => 'relate',
         'link' => true,
         'label' => 'LBL_ACCOUNTS_NAME',
         'width' => '10%',
         'default' => true,
-        'id' => 'ACCOUNTS_ID',
-        'name' => 'accounts_name',
+        'id' => 'ACCOUNT_ID',
+        'name' => 'account_name',
       ),
       'name' => 
       array (
