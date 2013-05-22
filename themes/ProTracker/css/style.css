@@ -5579,6 +5579,7 @@ select{
 	padding: 2px;
 		-webkit-border-radius: 5px;
 	border-radius: 5px; 
+	width:96%;
 	}
 
 /* YUI styles */
