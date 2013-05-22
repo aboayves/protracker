@@ -59,15 +59,15 @@ array (
     ),
     'advanced_search' => 
     array (
-      'accounts_name' => 
+      'account_name' => 
       array (
         'type' => 'relate',
         'link' => true,
         'label' => 'LBL_ACCOUNTS_NAME',
-        'id' => 'ACCOUNTS_ID',
+        'id' => 'ACCOUNT_ID',
         'width' => '10%',
         'default' => true,
-        'name' => 'accounts_name',
+        'name' => 'account_name',
       ),
       'name' => 
       array (

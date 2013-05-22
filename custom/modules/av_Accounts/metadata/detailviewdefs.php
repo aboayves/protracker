@@ -90,7 +90,7 @@ array (
           0 => 'name',
           1 => 
           array (
-            'name' => 'accounts_name',
+            'name' => 'account_name',
             'label' => 'LBL_ACCOUNTS_NAME',
           ),
         ),

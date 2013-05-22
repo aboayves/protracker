@@ -9,12 +9,12 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'ACCOUNTS_NAME' => 
+  'ACCOUNT_NAME' => 
   array (
     'type' => 'relate',
     'studio' => 'visible',
-    'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
-    'id' => 'ACCOUNTS_ID',
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
     'link' => true,
     'width' => '10%',
     'default' => true,
