@@ -27,6 +27,14 @@ array (
         'default' => true,
         'name' => 'parent_name',
       ),
+      'current_user_only' => 
+      array (
+        'name' => 'current_user_only',
+        'label' => 'LBL_CURRENT_USER_FILTER',
+        'type' => 'bool',
+        'default' => true,
+        'width' => '10%',
+      ),
     ),
     'advanced_search' => 
     array (
@@ -74,13 +82,13 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'created_user_id' => 
+      'created_by' => 
       array (
         'type' => 'assigned_user_name',
         'label' => 'LBL_CREATED',
         'width' => '10%',
         'default' => true,
-        'name' => 'created_user_id',
+        'name' => 'created_by',
       ),
       'modified_user_id' => 
       array (

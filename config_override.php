@@ -36,7 +36,7 @@ $sugar_config['http_referer']['actions']['14'] = 'Authenticate';
 $sugar_config['http_referer']['actions']['15'] = 'Login';
 $sugar_config['http_referer']['actions']['16'] = 'SupportPortal';
 $sugar_config['http_referer']['actions']['17'] = 'save_cstm';
-$sugar_config['logger']['level'] = 'error';
+$sugar_config['logger']['level'] = 'debug';
 $sugar_config['logger']['file']['suffix'] = '';
 $sugar_config['stack_trace_errors'] = false;
 $sugar_config['dump_slow_queries'] = false;
@@ -46,4 +46,6 @@ $sugar_config['inactivity_timeout_length'] = '120';
 $sugar_config['verify_client_ip'] = false;
 $sugar_config['enable_action_menu'] = true;
 $sugar_config['calculate_response_time'] = false;
+$sugar_config['search_wildcard_char'] = '%';
+$sugar_config['search_wildcard_infront'] = true;
 /***CONFIGURATOR***/

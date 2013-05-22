@@ -1,5 +1,5 @@
 <?php
-// created: 2012-12-18 18:18:53
+// created: 2013-05-20 20:27:12
 $searchFields['av_Groups'] = array (
   'name' => 
   array (
@@ -64,6 +64,24 @@ $searchFields['av_Groups'] = array (
     'is_date_field' => true,
   ),
   'end_range_date_modified' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'range_lastupdated' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'start_range_lastupdated' => 
+  array (
+    'query_type' => 'default',
+    'enable_range_search' => true,
+    'is_date_field' => true,
+  ),
+  'end_range_lastupdated' => 
   array (
     'query_type' => 'default',
     'enable_range_search' => true,

@@ -10,6 +10,16 @@ array (
       array (
         'name' => 'name',
         'default' => true,
+        'width' => '10%',
+      ),
+      'av_group_types_name' => 
+      array (
+        'type' => 'relate_cstm',
+        'link' => 'av_group_types',
+        'label' => 'LBL_AV_GROUP_TYPES_NAME',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'av_group_types_name',
       ),
       'current_user_only' => 
       array (
@@ -17,6 +27,7 @@ array (
         'label' => 'LBL_CURRENT_USER_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
       'favorites_only' => 
       array (
@@ -24,6 +35,7 @@ array (
         'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
         'default' => true,
+        'width' => '10%',
       ),
     ),
     'advanced_search' => 
@@ -118,14 +130,6 @@ array (
         'default' => true,
         'name' => 'date_entered',
       ),
-      'created_by' => 
-      array (
-        'type' => 'assigned_user_name',
-        'label' => 'LBL_CREATED',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'created_by',
-      ),
       'communication_type' => 
       array (
         'type' => 'enum',
@@ -133,6 +137,14 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'communication_type',
+      ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
       ),
       'date_modified' => 
       array (

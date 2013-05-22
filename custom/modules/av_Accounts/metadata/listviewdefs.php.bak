@@ -13,7 +13,11 @@ array (
   array (
     'type' => 'relate',
     'studio' => 'visible',
+<<<<<<< HEAD
+    'label' => 'LBL_ACCOUNTS_NAME',
+=======
     'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
+>>>>>>> ptdev
     'id' => 'ACCOUNT_ID',
     'link' => true,
     'width' => '10%',

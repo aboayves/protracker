@@ -6,6 +6,19 @@ array (
   array (
     'basic_search' => 
     array (
+<<<<<<< HEAD
+      'account_name' => 
+      array (
+        'type' => 'relate',
+        'link' => true,
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'width' => '10%',
+        'default' => true,
+        'id' => 'ACCOUNT_ID',
+        'name' => 'account_name',
+      ),
+=======
+>>>>>>> ptdev
       'name' => 
       array (
         'name' => 'name',

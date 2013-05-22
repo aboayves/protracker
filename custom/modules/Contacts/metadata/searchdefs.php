@@ -13,6 +13,15 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'av_contact_types_name' => 
+      array (
+        'type' => 'relate_cstm',
+        'link' => 'av_contact_types',
+        'label' => 'LBL_AV_CONTACT_TYPES_NAME',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'av_contact_types_name',
+      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -28,16 +37,6 @@ array (
         'type' => 'bool',
         'default' => true,
         'width' => '10%',
-      ),
-      'team_name' => 
-      array (
-        'type' => 'relate',
-        'link' => true,
-        'label' => 'LBL_TEAM',
-        'id' => 'TEAM_ID',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'team_name',
       ),
     ),
     'advanced_search' => 
@@ -209,6 +208,22 @@ array (
         'label' => 'LBL_SSN',
         'width' => '10%',
         'name' => 'ssn',
+      ),
+      'created_by' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_CREATED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'created_by',
+      ),
+      'modified_user_id' => 
+      array (
+        'type' => 'assigned_user_name',
+        'label' => 'LBL_MODIFIED',
+        'width' => '10%',
+        'default' => true,
+        'name' => 'modified_user_id',
       ),
       'date_modified' => 
       array (

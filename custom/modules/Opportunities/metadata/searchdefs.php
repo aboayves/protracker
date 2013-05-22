@@ -1,43 +1,21 @@
 <?php
-$searchdefs ['Tasks'] = 
+$searchdefs ['Opportunities'] = 
 array (
   'layout' => 
   array (
     'basic_search' => 
     array (
-      'date_due' => 
-      array (
-        'type' => 'datetimecombo',
-        'studio' => 
-        array (
-          'required' => true,
-          'no_duplicate' => true,
-        ),
-        'label' => 'LBL_DUE_DATE',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'date_due',
-      ),
-      'parent_name' => 
-      array (
-        'type' => 'parent',
-        'label' => 'LBL_LIST_RELATED_TO',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'parent_name',
-      ),
       'name' => 
       array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
       ),
-    ),
-    'advanced_search' => 
-    array (
-      'name' => 
+      'open_only' => 
       array (
-        'name' => 'name',
+        'name' => 'open_only',
+        'label' => 'LBL_OPEN_ITEMS',
+        'type' => 'bool',
         'default' => true,
         'width' => '10%',
       ),
@@ -57,25 +35,24 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'open_only' => 
+    ),
+    'advanced_search' => 
+    array (
+      'name' => 
       array (
-        'label' => 'LBL_OPEN_ITEMS',
-        'type' => 'bool',
+        'name' => 'name',
         'default' => true,
         'width' => '10%',
-        'name' => 'open_only',
       ),
-      'parent_name' => 
+      'account_name' => 
       array (
-        'type' => 'parent',
-        'label' => 'LBL_LIST_RELATED_TO',
-        'width' => '10%',
+        'name' => 'account_name',
         'default' => true,
-        'name' => 'parent_name',
+        'width' => '10%',
       ),
-      'status' => 
+      'amount' => 
       array (
-        'name' => 'status',
+        'name' => 'amount',
         'default' => true,
         'width' => '10%',
       ),
@@ -95,42 +72,46 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'date_due' => 
+      'sales_stage' => 
       array (
-        'type' => 'datetimecombo',
-        'studio' => 
-        array (
-          'required' => true,
-          'no_duplicate' => true,
-        ),
-        'label' => 'LBL_DUE_DATE',
+        'name' => 'sales_stage',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'lead_source' => 
+      array (
+        'name' => 'lead_source',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'date_closed' => 
+      array (
+        'name' => 'date_closed',
+        'default' => true,
+        'width' => '10%',
+      ),
+      'next_step' => 
+      array (
+        'type' => 'varchar',
+        'label' => 'LBL_NEXT_STEP',
         'width' => '10%',
         'default' => true,
-        'name' => 'date_due',
+        'name' => 'next_step',
       ),
-      'on_meeting_agenda' => 
+      'team_name' => 
       array (
+        'width' => '10%',
+        'label' => 'LBL_TEAMS',
+        'default' => true,
+        'name' => 'team_name',
+      ),
+      'favorites_only' => 
+      array (
+        'name' => 'favorites_only',
+        'label' => 'LBL_FAVORITES_FILTER',
         'type' => 'bool',
         'default' => true,
-        'label' => 'LBL_ON_MEETING_AGENDA',
         'width' => '10%',
-        'name' => 'on_meeting_agenda',
-      ),
-      'on_client_task_list' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ON_CLIENT_TASK_LIST',
-        'width' => '10%',
-        'name' => 'on_client_task_list',
-      ),
-      'on_report_card' => 
-      array (
-        'type' => 'bool',
-        'default' => true,
-        'label' => 'LBL_ON_REPORT_CARD',
-        'width' => '10%',
-        'name' => 'on_report_card',
       ),
       'date_entered' => 
       array (
