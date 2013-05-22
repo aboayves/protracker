@@ -11,4 +11,6 @@ $mod_strings = array (
   'LBL_LIST_PHONE' => 'Work Phone',
   'LBL_TAGS_LEADS_FROM_TAGS_TITLE' => 'Tags',
   'LBL_CONTACT_INFORMATION' => 'Lead Profile',
+  'LNK_NEW_ACCOUNT' => 'Create Clients',
+  'LNK_SELECT_ACCOUNTS' => ' <b>OR</b> Select Clients',
 );

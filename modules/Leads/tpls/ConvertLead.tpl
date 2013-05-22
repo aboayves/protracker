@@ -79,7 +79,7 @@ mod_array.push('{{$module}}');//Bug#50590 add all required modules to mod_array
     {if $def.required }
         <span class="required">{{$APP.LBL_REQUIRED_SYMBOL}}</span>
     {/if}
-</td><td id ="select{{$module}}" width="60.5%">
+</td><td id ="select{{$module}}" width="65.5%">
 {{sugar_field parentFieldArray='contact_def' vardef=$contact_def[$selectRelation] displayType='EditView' displayParams=$displayParams formName=$form_name call_back_function='set_return_lead_conv'}}
 <script>
 if (typeof(sqs_objects) == "undefined") sqs_objects = [];
