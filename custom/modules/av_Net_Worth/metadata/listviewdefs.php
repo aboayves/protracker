@@ -2,21 +2,12 @@
 $module_name = 'av_Net_Worth';
 $listViewDefs [$module_name] = 
 array (
-  'ACCOUNTS_NAME' => 
-  array (
-    'link' => true,
-    'label' => 'LBL_ACCOUNTS_NAME',
-    'id' => 'ACCOUNT_ID',
-    'width' => '15%',
-    'default' => true,
-  ),
   'GRAND_TOTAL' => 
   array (
     'type' => 'text',
     'label' => 'LBL_GRAND_TOTAL',
     'width' => '15%',
     'default' => true,
-	'customCode' =>format_number('{$GRAND_TOTAL}', NULL, 0),
   ),
   'NET_WORTH_DATE' => 
   array (
@@ -60,6 +51,16 @@ array (
     'label' => 'LBL_NAME',
     'default' => false,
     'link' => true,
+  ),
+  'ACCOUNTS_NAME' => 
+  array (
+    'type' => 'relate',
+    'studio' => 'visible',
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'link' => true,
+    'width' => '10%',
+    'default' => false,
   ),
   'MODIFIED_BY_NAME' => 
   array (
