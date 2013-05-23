@@ -56,7 +56,8 @@ class ProjectViewDetail extends ViewDetail
 
 		$this->ss->assign('SAVE_AS', $mod_strings['LBL_SAVE_AS_TEMPLATE']);
 		$this->ss->assign("IS_TEMPLATE", 0);
-        echo '<link type="text/css" rel="stylesheet" href="include/javascript/yui/build/treeview/assets/skins/sam/treeview.css">';
+        echo '<link type="text/css" rel="stylesheet" href="include/javascript/yui/build/treeview/assets/skins/sam/treeview.css">
+		<link type="text/css" rel="stylesheet" href="custom/modules/Tasks/treeCSS.css">';
 
  		parent::display();
  	}

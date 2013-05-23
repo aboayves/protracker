@@ -76,7 +76,7 @@ function getStart($id, $visited_parent=array()){
 								<td id='name' title='Name' style='cursor:pointer;' onclick=\"window.location='index.php?module=Tasks&action=DetailView&record={$row['id']}';\" ><div class={$tree['contentStyle']}><a >{$row['name']}</a></div></td>
 								<td width='200px' title='Category'>{$row['category']}</td>
 								<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
-								<td width='135px' title='Due Date'>".$row['date_due']."</td>
+								<td width='135px' title='Due Date'><span class='{$tree['contentStyle']}'>".$row['date_due']."</span></td>
 							</tr>
 						 </table>";
 		$tree['type'] = 'HTML';
@@ -166,7 +166,7 @@ function build_child_tree($id, $added_nodes = array()) {
 									<td id='name' title='Name' style='cursor:pointer;' onclick=\"window.location='index.php?module=Tasks&action=DetailView&record={$row['id']}';\" ><div class={$node['contentStyle']}><a >{$row['name']}</a></div></td>
 									<td width='200px' title='Category'>{$row['category']}</td>
 									<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
-									<td width='135px' title='Due Date'>".$row['date_due']."</td>
+									<td width='135px' title='Due Date'><span class='{$node['contentStyle']}'>".$row['date_due']."</td>
 								</tr>
 							</table>";
 			$node['old_task'] = $row['old_task'];
