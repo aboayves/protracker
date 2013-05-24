@@ -16,6 +16,9 @@ function set_sqs_parent_data(collection, field_id){
 	}
 }
 function set_sqs_account_data(collection, field_id){
+	if($('[name="module"]').val() == 'av_Accounts'){ //populating owner field in Accounts module
+		populateOwnerField();
+	}
 	setParentTeam('Accounts', collection['id']);
 }
 function call_back_account_team(collection, field_id){
@@ -27,6 +30,9 @@ function call_back_account_team(collection, field_id){
 		account_id = collection['name_to_value_array']['account_id'];
 	}else if($("#accounts_id").length > 0){
 		account_id = collection['name_to_value_array']['accounts_id'];
+	}
+	if($('[name="module"]').val() == 'av_Accounts'){ //populating owner field in Accounts module
+		populateOwnerField();
 	}
 	setParentTeam('Accounts', account_id);
 }
