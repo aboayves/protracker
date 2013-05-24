@@ -119,7 +119,7 @@ class="yui-navset"
 	{{/if}}
 
 		{{if empty($def.templateMeta.labelsOnTop) && empty($colData.field.hideLabel)}}
-		<td valign="top" id='{{$colData.field.name}}_label' width='{{$def.templateMeta.widths[$smarty.foreach.colIteration.index].label}}%' scope="col">
+		<td valign="top" id='{{$colData.field.name}}_label' width='{{$def.templateMeta.widths[$smarty.foreach.colIteration.index].label}}%' align=right scope="col">
 			{{if isset($colData.field.customLabel)}}
 			   <label for="{{$fields[$colData.field.name].name}}">{{$colData.field.customLabel}}</label>
 			{{elseif isset($colData.field.label)}}
