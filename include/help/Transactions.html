@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+</head>
+
+<body>
+<h1>Transactions</h1>
+<p><a href="#Overview">Overview</a></p>
+<p><a href="#Availability">Availability</a></p>
+<p><a href="#Actions">Actions</a></p>
+<ul>
+<li><a href="#CreateTransactionRecord">Create a Transaction record</a></li>
+<li><a href="#EditTransactionRecord">Edit a Transaction record</a></li>
+<li><a href="#SuppressTransactionRecord">Suppress a Transaction record</a></li>
+</ul>
+<p><a href="#Sub-panelsRelatedInfo">Sub-panels/Related Information</a></p>
+<h2><a name="Overview"></a>Overview</h2>
+<p>Use the Transaction module to document movement of money in and out of accounts such as contributions to retirement plan accounts or required withdrawals. </p>
+<h2><a name="Availability"></a>Availability</h2>
+<p>The Transactions module is available to users of the following editions:</p>
+<ul>
+<li>Standard</li>
+<li>Professional</li>
+<li>Enterprise</li>
+</ul>
+<h2><a name="Actions"></a>Actions</h2>
+<h3><a name="CreateTransactionRecord"></a>Create a Transaction record</h3>
+<p>To create a transaction record follow these instructions.</p>
+<ol>
+<li>Access the Transaction Create form by doing one of the following:
+<ul><li>In the Navigation menu, click <strong>Accounts</strong> &gt; <strong>Transactions</strong>, and then click <strong>Create New</strong> on the Transactions List View.<br /> The Transactions Create form displays.</li>
+<li>In the Navigation menu, click <strong>Accounts </strong> &gt; <strong>Accounts </strong> &gt; <strong>View Accounts </strong>, click the Account, and then click <strong>Create </strong> on the Transactions sub-panel Action dropdown.</li></ul></li>
+<li>Enter information for the fields described below. Fields that have an asterisk (*) are required; you must enter data in the field to save the document.</li>
+<li>Click <strong>Save </strong>to create the record; click <strong>Cancel </strong>to return to the List View without saving the record.</li>
+</ol>
+<table style="background-color: #f5f5f5; width: 890px;">
+<tbody>
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Account </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click the account related to this transaction on the Accounts Popup List View (displays upon clicking the Selection arrow) or the list of Accounts matching the character(s) you enter. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Assigned to</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>By default, the record is assigned to the creator of the Transaction record. To change the assignment, click the user on the Users Popup List View (displays upon clicking the Selection arrow) or the list of users matching the character(s) you enter. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Related Account</strong></p>
+</td>
+<td style="vertical-align: top; ">
+<p>Enter details about the destination account if money was moved from one account to another. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Related Account Number</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Reenter the related account number if money was moved from one account to another. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Transaction Date</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click on the Date Selector the date of the transaction.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Transaction Source</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Reenter the source of the transaction data such as a portfolio management system.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Transaction Type</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click the type of transaction that occurred such as a contribution or withdrawal.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Transaction Status </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Reenter the current status of the transaction such as pending or posted.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Description </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter additional details about the Transaction </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Teams* </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>By default, your private team is assigned as the primary team. To change the primary team assignment, click the team on the Teams Popup List View (displays upon clicking the Selection arrow) or the list of teams matching the character(s) you enter.</p>
+<p>To assign additional teams to the Transaction, click add (+) and click the team as described above. For more information on assigning teams, see <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1165851">Assigning Users and Teams to Records</a>.</p>
+<p>This is a mandatory field.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<p>Transaction Details section</p>
+</td>
+<td style="vertical-align: top;">
+<table style="background-color: #f5f5f5; ">
+<tbody>
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Gross Amount  </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the gross amount of the transaction.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<p>Distribution Type</p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter <strong>Gross</strong>if no withholding will be taken. Enter <strong>Net</strong> if taxes will be withheld. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Federal Withholding Amount </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the amount withheld for federal taxes. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Federal Withholding Percent </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the percent withheld for federal taxes.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>State Withholding Amount </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the amount withheld for state taxes. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>State Withholding Percent </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the percent withheld for state taxes. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Advisor Fee </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the advisor fee if one is associated with this transaction. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>State </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>If state tax is withheld, enter the state abbreviation. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Custodian Fee </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the custodian fee if one is associated with this transaction.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Net Amount</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the net amount of the transaction after taxes and fees.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top;">
+<p>Settings section</p>
+</td>
+<td style="vertical-align: top;">
+<table style="background-color: #f5f5f5; ">
+<tbody>
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Count Toward Withdrawal Rate </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click the checkbox if this transaction is a typical withdrawal that supports normal spending, and is not for an unusual expense.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Count Toward Annual Contributions</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click the checkbox if this transaction is a contribution to a retirement plan that counts toward the client's annual contributions.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Count Toward RMD </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p> Click the checkbox if the transaction is a withdrawal that counts toward the client's required minimum distributions.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong> Sent to Address of Record</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click this checkbox if this transaction is a withdrawal and it was mailed to the address of record by the account's custodian.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<h3><a name="EditTransactionRecord">Edit a Transaction record</a></h3>
+<p>Use the following instructions to update a Transaction record.</p>
+<ol>
+<li>Access the Transaction Edit View by doing one of the following:
+<ul><li>In the Navigation menu, click <strong>Accounts</strong> &gt; <strong>Transactions</strong>, and then in the Transaction List View click the edit (pencil) icon  associated with the record you want to change.<br /> The Transactions Edit View displays.</li>
+<li>In the Navigation menu, click <strong>Accounts </strong> &gt; <strong>Accounts </strong> &gt; <strong>View Accounts </strong>, click the Account, and then click <strong>Edit </strong> on the Transactions sub-panel Action dropdown.</li></ul></li>
+<li>Update information for the fields described in <a href="#CreateTransactionRecord">Create a Transaction record</a>. </li>
+<li>Click <strong>Save </strong>to update the record; click <strong>Cancel </strong>to return to the List View without saving the record.</li>
+</ol>
+<h3><a name="SuppressTransactionRecord">Suppress a Transaction record</a></h3>
+<p>Suppress Transaction record(s) using the Transaction List View. For more information, see <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1094547">Editing and suppressing multiple records</a>.</p>
+<ol>
+<li>In the Navigation menu, click <strong>Accounts</strong> &gt; <strong>Transactions</strong>. <br> The Transaction List View displays.</li>
+<li>In the Transaction List View, click the selection box associated with the records you want to suppress.</li>
+<li>Click <strong>Suppress</strong>.<br /> A confirmation box displays.</li>
+<li>Click <strong>OK</strong>. <br /> The records are suppressed.</li>
+</ol>
+</ol>
+<p>Alternatively, to suppress a single record, you can click <strong>Suppress</strong> on the Transactions Detail View.</p>
+
+<h2><a name="Sub-panelsRelatedInfo"></a>Sub-panels/Related Information</h2>
+<p>See also:</p>
+<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1165851">Assigning Users and Teams to Records</a>.</p>
+<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1094547">Editing and suppressing multiple records</a>.</p>
+
+</body>
+</html>
