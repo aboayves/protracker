@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_disability_insurance_accounts"] =
 	'module' => 'av_Disability_Insurance',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_DISABILITY_INSURANCE',
-	'get_subpanel_data' => 'av_disability_insurance_accounts',
+	'get_subpanel_data' => 'account_av_disability_insurance',
 	'top_buttons' => 
 	array (
 		0 => 

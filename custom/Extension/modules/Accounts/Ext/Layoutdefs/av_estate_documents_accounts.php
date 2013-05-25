@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_estate_documents_accounts"] = arr
 	'module' => 'av_Estate_Documents',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_ESTATE_DOCUMENTS',
-	'get_subpanel_data' => 'av_estate_documents_accounts',
+	'get_subpanel_data' => 'account_av_estate_documents',
 	'top_buttons' => 
 	array (
 		0 => 

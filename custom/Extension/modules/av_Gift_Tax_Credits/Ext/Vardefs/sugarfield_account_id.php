@@ -24,27 +24,9 @@ $dictionary["av_Gift_Tax_Credits"]["fields"]["accounts_name"] = array (
 	'rname' => 'name',
 	'id_name' => 'account_id',
 	'join_name' => 'accounts',
-	'link' => 'accounts',
+	'link' => 'account_av_gift_tax_credits',
 	'table' => 'accounts',
 	'isnull' => 'true',
 	'module' => 'Accounts',
-);
-$dictionary["av_Gift_Tax_Credits"]["fields"]["accounts"] = array (
-	'name' => 'accounts',
-	'type' => 'link',
-	'relationship' => 'av_gift_tax_credits_accounts',
-	'module' => 'Accounts',
-	'bean_name' => 'Accounts',
-	'source' => 'non-db',
-	'vname' => 'LBL_ACCOUNTS',
-);
-$dictionary["av_Gift_Tax_Credits"]["relationships"]["av_gift_tax_credits_accounts"] = array (
-	'lhs_module' => 'av_Gift_Tax_Credits',
-	'lhs_table' => 'av_gift_tax_credits',
-	'lhs_key' => 'account_id',
-	'rhs_module' => 'Accounts',
-	'rhs_table' => 'accounts',
-	'rhs_key' => 'id',
-	'relationship_type' => 'one-to-many',
 );
 ?>

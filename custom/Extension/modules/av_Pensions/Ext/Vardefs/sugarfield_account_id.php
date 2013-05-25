@@ -24,27 +24,9 @@ $dictionary["av_Pensions"]["fields"]["accounts_name"] = array (
 	'rname' => 'name',
 	'id_name' => 'account_id',
 	'join_name' => 'accounts',
-	'link' => 'accounts',
+	'link' => 'account_av_pensions',
 	'table' => 'accounts',
 	'isnull' => 'true',
 	'module' => 'Accounts',
-);
-$dictionary["av_Pensions"]["fields"]["accounts"] = array (
-	'name' => 'accounts',
-	'type' => 'link',
-	'relationship' => 'av_pensions_accounts',
-	'module' => 'Accounts',
-	'bean_name' => 'Accounts',
-	'source' => 'non-db',
-	'vname' => 'LBL_ACCOUNTS',
-);
-$dictionary["av_Pensions"]["relationships"]["av_pensions_accounts"] = array (
-	'lhs_module' => 'av_Pensions',
-	'lhs_table' => 'av_pensions',
-	'lhs_key' => 'account_id',
-	'rhs_module' => 'Accounts',
-	'rhs_table' => 'accounts',
-	'rhs_key' => 'id',
-	'relationship_type' => 'one-to-many',
 );
 ?>

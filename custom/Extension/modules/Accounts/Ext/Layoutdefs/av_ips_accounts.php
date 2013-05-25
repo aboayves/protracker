@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_ips_accounts"] = array (
 	'module' => 'av_IPS',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_IPS',
-	'get_subpanel_data' => 'av_ips_accounts',
+	'get_subpanel_data' => 'account_av_ips',
 	'top_buttons' => 
 	array (
 		0 => 

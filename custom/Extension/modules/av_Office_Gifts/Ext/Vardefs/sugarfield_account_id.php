@@ -24,27 +24,9 @@ $dictionary["av_Office_Gifts"]["fields"]["accounts_name"] = array (
 	'rname' => 'name',
 	'id_name' => 'account_id',
 	'join_name' => 'accounts',
-	'link' => 'accounts',
+	'link' => 'account_av_office_gifts',
 	'table' => 'accounts',
 	'isnull' => 'true',
 	'module' => 'Accounts',
-);
-$dictionary["av_Office_Gifts"]["fields"]["accounts"] = array (
-	'name' => 'accounts',
-	'type' => 'link',
-	'relationship' => 'av_office_gifts_accounts',
-	'module' => 'Accounts',
-	'bean_name' => 'Accounts',
-	'source' => 'non-db',
-	'vname' => 'LBL_ACCOUNTS',
-);
-$dictionary["av_Office_Gifts"]["relationships"]["av_office_gifts_accounts"] = array (
-	'lhs_module' => 'av_Office_Gifts',
-	'lhs_table' => 'av_office_gifts',
-	'lhs_key' => 'account_id',
-	'rhs_module' => 'Accounts',
-	'rhs_table' => 'accounts',
-	'rhs_key' => 'id',
-	'relationship_type' => 'one-to-many',
 );
 ?>

@@ -24,27 +24,9 @@ $dictionary["av_Fact_Finder"]["fields"]["accounts_name"] = array (
 	'rname' => 'name',
 	'id_name' => 'account_id',
 	'join_name' => 'accounts',
-	'link' => 'accounts',
+	'link' => 'account_av_fact_finder',
 	'table' => 'accounts',
 	'isnull' => 'true',
 	'module' => 'Accounts',
-);
-$dictionary["av_Fact_Finder"]["fields"]["accounts"] = array (
-	'name' => 'accounts',
-	'type' => 'link',
-	'relationship' => 'av_fact_finder_accounts',
-	'module' => 'Accounts',
-	'bean_name' => 'Accounts',
-	'source' => 'non-db',
-	'vname' => 'LBL_ACCOUNTS',
-);
-$dictionary["av_Fact_Finder"]["relationships"]["av_fact_finder_accounts"] = array (
-	'lhs_module' => 'av_Fact_Finder',
-	'lhs_table' => 'av_fact_finder',
-	'lhs_key' => 'account_id',
-	'rhs_module' => 'Accounts',
-	'rhs_table' => 'accounts',
-	'rhs_key' => 'id',
-	'relationship_type' => 'one-to-many',
 );
 ?>

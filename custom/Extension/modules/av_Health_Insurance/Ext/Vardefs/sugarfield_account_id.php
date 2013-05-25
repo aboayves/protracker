@@ -24,27 +24,9 @@ $dictionary["av_Health_Insurance"]["fields"]["accounts_name"] = array (
 	'rname' => 'name',
 	'id_name' => 'account_id',
 	'join_name' => 'accounts',
-	'link' => 'accounts',
+	'link' => 'account_av_health_insurance',
 	'table' => 'accounts',
 	'isnull' => 'true',
 	'module' => 'Accounts',
-);
-$dictionary["av_Health_Insurance"]["fields"]["accounts"] = array (
-	'name' => 'accounts',
-	'type' => 'link',
-	'relationship' => 'av_health_insurance_accounts',
-	'module' => 'Accounts',
-	'bean_name' => 'Accounts',
-	'source' => 'non-db',
-	'vname' => 'LBL_ACCOUNTS',
-);
-$dictionary["av_Health_Insurance"]["relationships"]["av_health_insurance_accounts"] = array (
-	'lhs_module' => 'av_Health_Insurance',
-	'lhs_table' => 'av_health_insurance',
-	'lhs_key' => 'account_id',
-	'rhs_module' => 'Accounts',
-	'rhs_table' => 'accounts',
-	'rhs_key' => 'id',
-	'relationship_type' => 'one-to-many',
 );
 ?>

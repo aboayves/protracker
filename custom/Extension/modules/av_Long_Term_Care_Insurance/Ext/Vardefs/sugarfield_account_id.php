@@ -23,28 +23,10 @@ $dictionary["av_Long_Term_Care_Insurance"]["fields"]["accounts_name"] = array (
 	'type' => 'relate',
 	'rname' => 'name',
 	'id_name' => 'account_id',
-	'join_name' => 'accounts',
+	'join_name' => 'account_av_long_term_care_insurance',
 	'link' => 'accounts',
 	'table' => 'accounts',
 	'isnull' => 'true',
 	'module' => 'Accounts',
-);
-$dictionary["av_Long_Term_Care_Insurance"]["fields"]["accounts"] = array (
-	'name' => 'accounts',
-	'type' => 'link',
-	'relationship' => 'av_long_term_care_insurance_accounts',
-	'module' => 'Accounts',
-	'bean_name' => 'Accounts',
-	'source' => 'non-db',
-	'vname' => 'LBL_ACCOUNTS',
-);
-$dictionary["av_Long_Term_Care_Insurance"]["relationships"]["av_long_term_care_insurance_accounts"] = array (
-	'lhs_module' => 'av_Long_Term_Care_Insurance',
-	'lhs_table' => 'av_long_term_care_insurance',
-	'lhs_key' => 'account_id',
-	'rhs_module' => 'Accounts',
-	'rhs_table' => 'accounts',
-	'rhs_key' => 'id',
-	'relationship_type' => 'one-to-many',
 );
 ?>

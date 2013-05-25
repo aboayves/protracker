@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_fact_finder_accounts"] = array (
 	'module' => 'av_Fact_Finder',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_FACT_FINDER',
-	'get_subpanel_data' => 'av_fact_finder_accounts',
+	'get_subpanel_data' => 'account_av_fact_finder',
 	'top_buttons' => 
 	array (
 		0 => 

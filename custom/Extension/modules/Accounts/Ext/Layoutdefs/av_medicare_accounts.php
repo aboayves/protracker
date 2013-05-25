@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_medicare_accounts"] = array (
 	'module' => 'av_Medicare',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_MEDICARE',
-	'get_subpanel_data' => 'av_medicare_accounts',
+	'get_subpanel_data' => 'account_av_medicare',
 	'top_buttons' => 
 	array (
 		0 => 

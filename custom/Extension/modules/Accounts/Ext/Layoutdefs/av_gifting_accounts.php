@@ -5,12 +5,12 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_gifting_accounts"] = array (
 	'module' => 'av_Gifting',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_GIFTING',
-	'get_subpanel_data' => 'av_gifting_accounts',
+	'get_subpanel_data' => 'account_av_gifting',
 	'top_buttons' => 
 	array (
 		0 => 
 		array (
-			'widget_class' => 'SubPanelTopButtonQuickCreate',
+			'widget_class' => 'SubPanelTopButtonQuickCreateCustom',
 		),
 		1 => 
 		array (

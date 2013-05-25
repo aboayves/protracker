@@ -5,12 +5,12 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_pensions_accounts"] = array (
 	'module' => 'av_Pensions',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_PENSIONS',
-	'get_subpanel_data' => 'av_pensions_accounts',
+	'get_subpanel_data' => 'account_av_pensions',
 	'top_buttons' => 
 	array (
 		0 => 
 		array (
-			'widget_class' => 'SubPanelTopButtonQuickCreate',
+			'widget_class' => 'SubPanelTopButtonQuickCreateCustom',
 		),
 		1 => 
 		array (

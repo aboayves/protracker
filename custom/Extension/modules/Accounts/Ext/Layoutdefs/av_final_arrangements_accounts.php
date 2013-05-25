@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_final_arrangements_accounts"] = a
 	'module' => 'av_Final_Arrangements',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_FINAL_ARRANGEMENTS',
-	'get_subpanel_data' => 'av_final_arrangements_accounts',
+	'get_subpanel_data' => 'account_av_final_arrangements',
 	'top_buttons' => 
 	array (
 		0 => 

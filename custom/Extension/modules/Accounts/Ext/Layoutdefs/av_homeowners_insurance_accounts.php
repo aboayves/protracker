@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_homeowners_insurance_accounts"] =
 	'module' => 'av_Homeowners_Insurance',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_HOMEOWNERS_INSURANCE',
-	'get_subpanel_data' => 'av_homeowners_insurance_accounts',
+	'get_subpanel_data' => 'account_av_homeowner_insurance',
 	'top_buttons' => 
 	array (
 		0 => 

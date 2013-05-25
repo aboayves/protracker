@@ -5,12 +5,12 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_gift_tax_credits_accounts"] = arr
 	'module' => 'av_Gift_Tax_Credits',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_GIFT_TAX_CREDITS',
-	'get_subpanel_data' => 'av_gift_tax_credits_accounts',
+	'get_subpanel_data' => 'account_av_gift_tax_credits',
 	'top_buttons' => 
 	array (
 		0 => 
 		array (
-			'widget_class' => 'SubPanelTopButtonQuickCreate',
+			'widget_class' => 'SubPanelTopButtonQuickCreateCustom',
 		),
 		1 => 
 		array (
