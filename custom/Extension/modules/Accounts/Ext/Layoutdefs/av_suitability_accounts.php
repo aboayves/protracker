@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_suitability_accounts"] = array (
 	'module' => 'av_Suitability',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_SUITABILITY',
-	'get_subpanel_data' => 'av_suitability_accounts',
+	'get_subpanel_data' => 'account_av_suitability',
 	'top_buttons' => 
 	array (
 		0 => 

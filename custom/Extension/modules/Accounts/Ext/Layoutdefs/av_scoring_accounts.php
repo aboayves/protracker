@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_scoring_accounts"] = array (
 	'module' => 'av_Scoring',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_SCORING',
-	'get_subpanel_data' => 'av_scoring_accounts',
+	'get_subpanel_data' => 'account_av_scoring',
 	'top_buttons' => 
 	array (
 		0 => 

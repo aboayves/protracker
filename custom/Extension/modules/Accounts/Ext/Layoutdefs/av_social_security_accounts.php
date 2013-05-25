@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_social_security_accounts"] = arra
 	'module' => 'av_Social_Security',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_SOCIAL_SECURITY',
-	'get_subpanel_data' => 'av_social_security_accounts',
+	'get_subpanel_data' => 'account_av_social_security',
 	'top_buttons' => 
 	array (
 		0 => 

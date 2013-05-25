@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_retirement_projections_accounts"]
 	'module' => 'av_Retirement_Projections',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_RETIREMENT_PROJECTIONS',
-	'get_subpanel_data' => 'av_retirement_projections_accounts',
+	'get_subpanel_data' => 'account_av_retirement_projections',
 	'top_buttons' => 
 	array (
 		0 => 

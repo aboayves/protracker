@@ -5,12 +5,12 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_service_team_accounts"] = array (
 	'module' => 'av_Service_Team',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_SERVICE_TEAM',
-	'get_subpanel_data' => 'av_service_team_accounts',
+	'get_subpanel_data' => 'account_av_service_team',
 	'top_buttons' => 
 	array (
 		0 => 
 		array (
-			'widget_class' => 'SubPanelTopButtonQuickCreate',
+			'widget_class' => 'SubPanelTopButtonQuickCreateCustom',
 		),
 		1 => 
 		array (

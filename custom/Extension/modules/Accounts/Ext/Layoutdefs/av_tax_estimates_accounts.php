@@ -5,7 +5,7 @@ $layout_defs["Accounts"]["subpanel_setup"]["av_tax_estimates_accounts"] = array 
 	'module' => 'av_Tax_Estimates',
 	'subpanel_name' => 'default',
 	'title_key' => 'LBL_AV_TAX_ESTIMATES',
-	'get_subpanel_data' => 'av_tax_estimates_accounts',
+	'get_subpanel_data' => 'account_av_tax_estimates',
 	'top_buttons' => 
 	array (
 		0 => 
