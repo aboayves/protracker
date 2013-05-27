@@ -44,7 +44,7 @@ class av_CashflowViewDetail extends CustomViewDetail{
 	function get_total()
 	{
 		if(intval($this->bean->total_per_year)<0){
-			$this->dv->fieldDefs['total_per_year']['value'] = "<span style='color:red'>(".-1*($this->bean->total_per_year).")</span>";
+			$this->dv->fieldDefs['total_per_year']['value'] = "<span style='color:red'>(".currency_format_number(-1*($this->bean->total_per_year)).")</span>";
 			$this->dv->fieldDefs['total_per_year']['vname'] = '<span style="color:red">Deficit</span>';
 		}
 		return true;
