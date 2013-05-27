@@ -20,7 +20,7 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'accounts_name' => 
+      'account_name' => 
       array (
         'type' => 'relate',
         'link' => true,
@@ -28,7 +28,7 @@ array (
         'id' => 'ACCOUNT_ID',
         'width' => '10%',
         'default' => true,
-        'name' => 'accounts_name',
+        'name' => 'account_name',
       ),
     ),
     'advanced_search' => 

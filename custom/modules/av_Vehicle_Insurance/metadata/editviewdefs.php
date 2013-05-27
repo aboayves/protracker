@@ -32,6 +32,13 @@ array (
 	{sugar_getscript file="modules/Documents/documents.js"}',
       'useTabs' => false,
       'syncDetailEditViews' => true,
+	  'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/include/js/inherit_parent_team.js',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -43,6 +50,10 @@ array (
           array (
             'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
+			 'displayParams' => 
+            array (
+              'call_back_function' => 'call_back_account_team',
+            ),
           ),
           1 => 
           array (
