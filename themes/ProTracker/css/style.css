@@ -580,7 +580,7 @@ div.moduleTitle {
     position: fixed;
     top: 6px;
     left: 267px;
-    z-index: 22;
+    z-index: 20;
     text-shadow: 1px 1px 0px #ffffff;
     -webkit-text-shadow: 1px 1px 0px #ffffff;
     -moz-text-shadow: 1px 1px 0px #ffffff;
@@ -7916,6 +7916,9 @@ tr.ygtvrow{
 	width:auto !important;
 }
 #EditView_team_name_input_div_0 > input {
+    width: 262px !important;
+}
+#ReportsWizardForm_team_name_input_div_0 > input {
     width: 262px !important;
 }
 #form_SubpanelQuickCreate_av_Groups_team_name_input_div_0 > input {
