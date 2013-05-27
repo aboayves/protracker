@@ -24,27 +24,9 @@ $dictionary["av_Cashflow"]["fields"]["account_name"] = array (
 	'rname' => 'name',
 	'id_name' => 'account_id',
 	'join_name' => 'accounts',
-	'link' => 'accounts',
+	'link' => 'accounts_av_cashflow',
 	'table' => 'accounts',
 	'isnull' => 'true',
 	'module' => 'Accounts',
-);
-$dictionary["av_Cashflow"]["fields"]["accounts"] = array (
-	'name' => 'accounts',
-	'type' => 'link',
-	'relationship' => 'accounts_av_cashflow',
-	'module' => 'Accounts',
-	'bean_name' => 'Accounts',
-	'source' => 'non-db',
-	'vname' => 'LBL_ACCOUNTS',
-);
-$dictionary["av_Cashflow"]["relationships"]["accounts_av_cashflow"] = array (
-	'lhs_module' => 'Accounts',
-	'lhs_table' => 'accounts',
-	'lhs_key' => 'id',
-	'rhs_module' => 'av_Cashflow',
-	'rhs_table' => 'av_cashflow',
-	'rhs_key' => 'account_id',
-	'relationship_type' => 'one-to-many',
 );
 ?>
