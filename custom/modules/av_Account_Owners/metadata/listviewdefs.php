@@ -15,7 +15,7 @@ array (
     'type' => 'relate',
     'link' => true,
     'label' => 'LBL_AV_ACCOUNTS_NAME',
-    'id' => 'ASSET_ID',
+    'id' => 'AV_ACCOUNTS_ID',
     'width' => '10%',
     'default' => true,
   ),

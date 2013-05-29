@@ -8,7 +8,7 @@ array (
     'link' => true,
     'width' => '10%',
     'label' => 'LBL_AV_ACCOUNTS_NAME',
-    'id' => 'ASSET_ID',
+    'id' => 'AV_ACCOUNTS_ID',
     'default' => true,
   ),
   'CONTACTS_NAME' => 

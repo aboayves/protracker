@@ -20,7 +20,7 @@ $popupMeta = array (
     'link' => true,
     'width' => '10%',
     'label' => 'LBL_AV_ACCOUNTS_NAME',
-    'id' => 'ASSET_ID',
+    'id' => 'AV_ACCOUNTS_ID',
     'name' => 'av_accounts_name',
   ),
   'contacts_name' => 
