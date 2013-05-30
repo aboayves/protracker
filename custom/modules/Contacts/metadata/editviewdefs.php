@@ -37,6 +37,10 @@ array (
         array (
           'file' => 'custom/modules/Contacts/validate_ssn.js',
         ),
+		1 => 
+        array (
+          'file' => 'custom/include/js/inherit_parent_team.js',
+        ),
       ),
       'syncDetailEditViews' => false,
       'tabDefs' => 
@@ -185,6 +189,7 @@ array (
               array (
                 'phone_office' => 'phone_work',
               ),
+			  'call_back_function' => 'call_back_account_team',
             ),
           ),
           1 => 
