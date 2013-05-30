@@ -253,7 +253,7 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_PRIMARY_CLIENT',
           ),
-          1 => 'owner_percent',
+          1 => '',
         ),
         8 => 
         array (

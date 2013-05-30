@@ -196,11 +196,7 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_PRIMARY_CLIENT',
           ),
-          1 => 
-		  array (
-			'name' => 'owner_percent',
-			'customCode' => '<input id="owner_percent" name="owner_percent" type="text" value="{$fields.owner_percent.value}"><span id="owner_percent_errors" style="display:none;color:red;">Ownership can\'t exceed 100%</span>',
-		  ),
+          1 => '',
         ),
         9 => 
         array (
