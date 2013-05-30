@@ -46,3 +46,6 @@ div#content > table tr td.contentPanel .contentPanelData{
 div#content table tr td.contentPanel{
 	border-left:none !importatn;
 }
+.moduleTitle{
+	display:none !important;
+}
