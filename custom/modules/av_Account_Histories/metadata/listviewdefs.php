@@ -9,6 +9,19 @@ array (
     'label' => 'LBL_IS_CLOSED',
     'width' => '7%',
   ),
+  'ACCOUNT_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNT_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '20%',
+    'related_fields' => 
+    array (
+      0 => 'account_id',
+    ),
+    'default' => true,
+  ),
   'ACCOUNT_NUMBER' => 
   array (
     'type' => 'varchar',
