@@ -23,28 +23,10 @@ $dictionary["av_Account_Owners"]["fields"]["av_accounts_name"] = array (
 	'type' => 'relate',
 	'rname' => 'name',
 	'id_name' => 'av_accounts_id',
-	'join_name' => 'av_accounts',
-	'link' => 'av_accounts',
+	'link' => 'av_account_owners_av_accounts',
 	'table' => 'av_accounts',
 	'isnull' => 'true',
 	'module' => 'av_Accounts',
 );
-$dictionary["av_Account_Owners"]["fields"]["av_accounts"] = array (
-	'name' => 'av_accounts',
-	'type' => 'link',
-	'relationship' => 'av_account_owners_av_accounts',
-	'module' => 'av_Accounts',
-	'bean_name' => 'av_Accounts',
-	'source' => 'non-db',
-	'vname' => 'LBL_AV_ACCOUNTS',
-);
-$dictionary["av_Account_Owners"]["relationships"]["av_account_owners_av_accounts"] = array (
-	'lhs_module' => 'av_Account_Owners',
-	'lhs_table' => 'av_account_owners',
-	'lhs_key' => 'av_accounts_id',
-	'rhs_module' => 'av_Accounts',
-	'rhs_table' => 'av_accounts',
-	'rhs_key' => 'id',
-	'relationship_type' => 'one-to-many',
-);
+
 ?>
