@@ -1,7 +1,7 @@
 var _form = document.getElementById('formDetailView');
 function confirmDelete(){
 	
-    var taskID = document.getElementsByName('record')[0].value;
+	var taskID = $('[name="record"]').val();
     //var parentID = document.getElementsByName('parent_tasks_id')[0].value;
     if(taskID)
         del('Confirmation Delete','This task has dependent tasks.', taskID);

@@ -62,7 +62,8 @@ var treeHelper = {
 	
 	createNode : function (){
 		var href = treeHelper.oCurrentTextNode.data.href.replace(/DetailView/g, "EditView");
-		var wfID = document.getElementsByName('record')[0].value;
+		//var wfID = document.getElementsByName('record')[0].value;
+		var wfID = $('[name="record"]').val();
 		if(href.indexOf('av_Task_Template') > 0){
 			href = href.replace(/record/g, "parent_tasks_id");
 			href += '&parent_tasks_name=';
@@ -82,7 +83,8 @@ var treeHelper = {
 }
 
 function generateTree(){
-	var wfID = document.getElementsByName('av_Workflow_id')[0].value;
+	//var wfID = document.getElementsByName('av_Workflow_id')[0].value;Don't use, it carashes in IE10
+	var wfID = $('[name="av_Workflow_id"]').val();
 	treeHelper.loadData(wfID);
 }
 
