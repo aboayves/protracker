@@ -1,5 +1,5 @@
 <?php
-// created: 2013-05-16 16:24:52
+// created: 2013-06-03 15:43:53
 $subpanel_layout['list_fields'] = array (
   'net_worth_date' => 
   array (
@@ -16,11 +16,19 @@ $subpanel_layout['list_fields'] = array (
     'width' => '20%',
     'default' => true,
   ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '30%',
+    'default' => true,
+  ),
   'edit_button' => 
   array (
     'widget_class' => 'SubPanelEditButton',
     'module' => 'av_Net_Worth',
-    'width' => '60%',
+    'width' => '6%',
     'default' => true,
   ),
   'remove_button' => 
