@@ -55,4 +55,8 @@ function quick_create(relate_name, target_module, rname, rname_value, field_id, 
 function removeCstmClass(id){
 	$("#"+id).removeClass("cstm_relate_field");
 }
-
+function clear_relate_ID(event, id){
+	if((event.keyCode||event.which) !=9){
+		$("#"+id).val('');
+	}
+}
