@@ -40,6 +40,7 @@ class av_Account_OwnersViewEdit extends ViewEdit {
      * @see SugarView::display()
      */
     public function display() {
+		echo '<script src="custom/modules/av_Account_Owners/calculate_ownership_percent.js" ></script>';
 		global $db;
 		$custom_where = "";
 		if(isset($_REQUEST['record']) && !empty($_REQUEST['record'])){

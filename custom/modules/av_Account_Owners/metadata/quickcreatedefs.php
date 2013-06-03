@@ -27,13 +27,6 @@ array (
         ),
       ),
       'useTabs' => false,
-	  'includes' => 
-      array (
-		0 => 
-        array (
-          'file' => 'custom/modules/av_Account_Owners/calculate_ownership_percent.js',
-        ),
-      ),
     ),
     'panels' => 
     array (
