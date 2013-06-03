@@ -1,0 +1,391 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Untitled</TITLE>
+</HEAD>
+<BODY>
+<H2>Forecasts </H2>
+<P><A href="#Overview">Overview</A></P>
+<P><A href="#Availability">Availability</A></P>
+<P><A href="#Actions">Actions</A></P>
+	<UL>
+		<LI><A href="#EditForecastsWorksheet">Edit the Forecasts Worksheet</A></LI>
+		<LI><A href="#SetQuota">Set a Quota </A></LI>
+		<li><a href="#ViewForecastHistory">View Forecast History</a></li>
+		<li><a href="#CreateTimePeriods">Create Time Periods</a></li>
+		<li><a href="#ManageTimePeriods">Manage Time Periods</a></li>
+		<li><a href="#CreateForecastSchedule">Create a Forecast Schedule</a></li>	</UL>
+<P><A href="#Sub-panelsRelatedInfo">Sub-panels/Related Information</A></P><H2><A name="Overview"></A>Overview</H2>
+<P>Use the Forecasts module to view quotas and committed sales amounts based on sales opportunities for customer accounts. Only users who are assigned opportunities and their managers can view forecast information in ProTracker.</P>
+<P>A forecast is an estimate of the revenue you can generate in a quarter and is comprised of the following:</P>
+	<TABLE>
+		<TBODY>
+			<TR>
+				<TD style="vertical-align: top; width: 100px;"><STRONG>Time periods</STRONG>
+				</TD>
+				<TD>	Typically, forecasts are based on month, quarter, or year. Organizations can define any time period depending on how they want to measure sales forecasts; for example, weekly or daily forecasts. Based on this decision, administrators define the sales forecast time periods in ProTracker. Administrators can also define the fiscal year for your organization and associate it with the forecast time periods. The Forecasts module displays time periods after the administrator has defined them.
+				</TD>
+			</TR>
+			<TR>
+				<TD style="vertical-align: top;"><STRONG>Forecast schedules</STRONG>
+				</TD>
+				<TD>	Based on the defined forecast periods, the administrator can create different forecast schedules for each team. For example, one team’s forecast schedule can be based on monthly time periods and another team’s on quarterly time periods.
+				</TD>
+			</TR>
+			<TR>
+				<TD style="vertical-align: top;"><STRONG>Forecast worksheets</STRONG>
+				</TD>
+				<TD>	A Forecast worksheet reflects what sales people and their managers estimate they can generate in sales. Displayed information in Forecasts Worksheet depend on your role in the Sales organization.
+<P>Regardless of what is entered in the worksheet, the performance of sales representatives is, typically, measured against their sales quotas. The worksheet enables Sales Managers to make more accurate sales predications for a specific time period because it displays a tree view of the reporting hierarchy of the sales organization. Managers can drill down to the opportunities they want to view or edit. They can also view the best case, likely case, and worst case sales estimates, view the committed amounts, and change these amounts.</P>
+<P>The worksheet chart enables you to view the general sales forecasting trend. The chart displays a 3-point comparison between the actual sales amount, the committed amount, and quotas. View your final committed amount as a stacked group-by chart on the View Chart tab to gauge your performance during the past few quarters.</P>
+<P>You can add the My Forecasts ProTracker Dashlet on your home page for easy access to your worksheet. For more information on adding ProTracker Dashlets, see Dashlets.</P>
+<P>Teams are based on the reporting hierarchy in the Forecasts module. You can be one of the following roles:</P>
+					<UL>
+						<LI><A href="#SalesReps">Sales representatives</A> who are only responsible for managing their own opportunities</LI>
+						<LI><A href="#TeamLeads">Team leads</A> or lower level managers who are responsible for managing their own opportunities as well as their direct reports</LI>
+						<LI><A href="#SalesManagers">Sales managers</A> who manage their direct reports but are not responsible for managing any opportunities</LI>
+					</UL>
+			</TR>
+			<TR>
+				<TD style="vertical-align: top;"><STRONG>Sales quotas</STRONG>
+				</TD>
+				<TD>	After the administrator creates the forecast schedule, managers can set sales quotas for each team member for each time period. This is the sales amount that the individual is expected to meet for the time period. When team members log into ProTracker, they can view their quotas in the Forecasts module. If they have enabled email notifications for themselves, ProTracker sends them an email when their manager sets their sales quota.
+<P>If you have direct reports, ProTracker displays a quota worksheet listing the quota amounts, if any, along with the commit status for the specified time period. If you do not have direct reports, ProTracker displays your assigned quota amount, if any, for the specified time period, without the worksheet.</P>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE><H3><A name="SalesReps">Sales Representatives</A></H3>
+<P>When you log into ProTracker as a Sales Representative, the Forecast worksheet displays a list of your opportunities along with the estimated sales amount, probability of a sale, and the weighted amount. Closed Opportunities within the specified time period are displayed.</P>
+<P>ProTracker automatically extracts details from the opportunities to calculate the Amount, Probability, and Weighted Amount. Any change that you make to an opportunity is immediately reflected in the worksheet.</P>
+<P>The amount displayed in the worksheet is the opportunity’s estimated sales amount.</P>
+<P>The probability percentage displayed in the worksheet is of the opportunity’s sales stage.</P>
+<P>The weighted amount is the amount that may be realized from the sale. ProTracker calculates the weighted amount as the Opportunity Amount divided by the Probability Amount. For example, an opportunity worth $10,000 with a 10% probability will have a weighted amount of $1,000.00.</P>
+<P>You can commit the totals of the above amounts as the numbers that you will generate in sales. ProTracker enables you to use the worksheet to commit different values for your best case, likely case, and worst case forecasts. Your manager can override your input and enter a new committed amount on their worksheet. This will not impact the amounts entered on your worksheet.</P>
+<P>You can view your quota for the selected time period at the top of the Forecasts worksheet.</P><H3><A name="TeamLeads">Team Leads</A></H3>
+<P>Team leads can view the estimated best case, likely case, and worst case forecasts for each of their direct reports as well as for themselves. As a team lead, you can view the opportunities of your direct reports. You can also override the committed amount that your direct reports enter on the worksheet. Your worksheet has two levels of committed values, one when you make changes for yourself (Direct) and another when you make changes for your team (Rollup). Commit at the Rollup level to notify your manager about your changes and modifications.</P><H3><A name="SalesManagers">Sales Managers</A></H3>
+<P>Sales managers can view the quotas, estimated best case, likely case and worst case forecasts for each of the team leads and their direct reports. This enables them to make more accurate forecasts. As a Sales Manager, you can drill down to the opportunities of any sale representative. You can also override the committed amount for any member of your sales team.</P>
+<P>Note: Any changes that a Team Lead or a Sales Manager makes to a sales team member’s estimate is independent of that member’s estimate on their worksheet. The team member’s worksheet does not display changes made by the Team Lead or Sales Manager on the same.</P>
+<P>The forecast worksheet also displays a Create Opportunity quick form to create a new opportunity. Any new opportunity that you create displays in the Forecast Opportunities sub-panel. For more information on the Opportunities module, see Opportunities Module.</P><H2><A name="Availability"></A>Availability</H2>
+<P>The Documents module is available to users of the following editions:</P>
+	<UL>
+		<LI>Standard</LI>
+		<LI>Professional</LI>
+		<LI>Enterprise</LI>
+	</UL><H2><A name="Actions"></A>Actions</H2>
+<H3><A name="EditForecastsWorksheet"></A>Edit the Forecasts Worksheet</H3>
+Follow the steps listed below to edit the Forecasts Worksheet:
+	<OL>
+		<LI>Select the time period from the Time Periods drop-down list on the (Forecasts) Worksheet page.<BR>
+<P>Use the following instructions perform tasks depending on your role.</P>
+		<TABLE style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; width: 850px; padding: 3px; ">
+			<TBODY>
+				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 187px;">
+<P><EM>If you log in as…</EM></P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P><EM>Then…</EM></P>
+					</TD>
+				</TR>
+				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>A Sales Representative</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>The worksheet displays your quota at the top of the page. It also lists the amount, probability, and weighted amount for each of your closed opportunities for the time period.</P>
+<ol>
+<li>Adjust the worksheet using the following instructions.
+						<TABLE style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+							<TBODY>
+								<TR>
+									<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 187px;">
+<P><EM>To…</EM></P>
+									</TD>
+									<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P><EM>Then…</EM></P>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>View or edit the details of an opportunity</P>
+									</TD>
+									<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+										<OL>
+											<LI><p>Point the cursor at the down arrow next to the opportunity name.<BR>The Additional Details popup displays the account name, probability percentage, and type.</p></LI>
+											<LI>Click the Edit icon in the popup box to edit the opportunity.</LI>
+										</OL>
+									</TD>
+								</TR>
+								<TR>
+									<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>Enter an estimate for best case, likely case, and worst case forecasts</P>
+									</TD>
+									<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>Enter the amounts in the respective fields.<BR>ProTracker updates the Totals row with the specified amounts.</P>
+									</TD>
+								</TR>
+							</TBODY>
+						</TABLE></li>
+<li>To commit the amounts, click <strong>Copy Values </strong> and select Total Estimated Amounts.<br>The estimated amount is now reflected in the Enter amounts that your would like to commit field.</li>
+<li>Click <strong>Commit</strong> and then click <strong>OK </strong> to confirm the action.</li></ol>
+<p>Note: Any changes to make to the estimated amount for a direct report or a sales representative does not change their committed values that display on your worksheet. Hence, the totals of the estimated amounts that you commit differs from their committed values. </p>
+<p>To revert to the committed values, click <strong>Copy Values</strong>, and select Sum of Committed Values.</p>				</td>
+</tr>			<TR>
+							<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>A Team Lead or Sales Manager</P>
+							</TD>
+							<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>The worksheet displays the best case, likely case, and worst case forecasts for your direct reports and yourself, if applicable.</p>
+<ol>
+<li>Adjust the worksheet using the following instructions.
+								<TABLE style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+									<TBODY>
+										<TR>
+											<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 187px;">
+<P><EM>To…</EM></P>
+											</TD>
+											<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P><EM>Then…</EM></P>
+											</TD>
+										</TR>
+										<TR>
+											<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>View a team member's opportunity</P>
+											</TD>
+											<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+												<OL>
+													<LI>Drill down the tree view of the reporting hierarchy that display on the left.</LI>
+													<LI>Click the person’s name. <br>
+The person’s opportunities for the time period display on the right.</LI>
+												</OL>
+											</TD>
+										</TR>
+										<TR>
+											<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>View or edit the details of an opportunity</P>
+											</TD>
+											<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<OL>
+											<LI>Point the cursor at the down arrow next to the opportunity name.<BR>The Additional Details popup displays the account name, probability percentage, and type.</LI>
+											<LI>Click the Edit icon in the popup box to edit the opportunity.</LI>
+										</OL>
+											</TD>
+										</TR>
+<TR>
+											<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<P>Change the estimated best case, likely case, and worst case forecast for yourself or a direct report</P>
+											</TD>
+											<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>Enter the amounts in the respective fields.<br>ProTracker updates the Totals row accordingly</p>
+											</TD>
+										</TR>
+									</TBODY>
+								</TABLE>
+</li>
+<li>Click <strong>Commit</strong>, and click <strong>OK </strong> to confirm the changes.</li> 
+<li>To enter an amount that is different from the Totals row, enter the numbers in the appropriate fields below the Last Commit Date row and click <strong>Commit</strong>.
+To revert to the committed amounts that reflect your direct reports’ estimates, click <strong>Copy Values</strong>, and select Total Estimated Amounts.</li>
+	<LI>To save your changes, click <STRONG>Save Worksheet</STRONG>.</LI>	
+	<LI>To restore the previous values, click <STRONG>Reset Worksheet</STRONG>.</LI>	
+	<LI>To view a chart of your final committed amounts for the past few quarters, click <STRONG>View Chart</STRONG>.</LI>	
+	</OL>								</TD>
+						</TR>
+			</TBODY>
+		</TABLE>
+<H3><A name="SetQuota">Set a Quota</A></H3>
+<P>Use the following instructions to set a quota.</P>
+<P>Note: The quota amount displayed in the panel reflects the change and the status displays as Assigned. If you do not commit the quota, the status displays as Pending.</P>
+	<OL>
+		<LI>On the Forecasts Worksheet page, click <STRONG>Quotas</STRONG>.</LI>
+		<li>On the Quota Home page, click the time period from the dropdown.<br> Existing quotas for you and any direct reports display on the page along with the Quota form. </li>
+<li>Enter information for the following fields: 
+<table style="background-color: #f5f5f5; width: 850px;">
+<tbody>
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong> Name</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p> Select the team member name from the dropdown.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong> Amount </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter the quota amount. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong> Currency </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click a currency in the dropdown.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Commit  </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click this checkbox to commit the quota.</p>
+</td>
+</tr>
+</tbody></table></li>
+<li>Click <strong>Save</strong>.<br> The quota amount displayed in the panel above reflects the change and the status displays as Assigned. If you do not commit the quota, the status displays as Pending.</li>
+	</OL>
+<h3><a name="ViewForecastHistory">View Forecast History</a></h3>
+<p>The Forecast History page displays a Search sub-panel that allows you to view committed forecasts for a specific period. If you manage a sales team, you can search for the committed amounts for yourself and your team members. If you do not have any direct reports, you can only search for your committed amounts.</p>
+<p>To view the forecast history follow these steps.</p>
+<ol><li>From the Actions list on the Forecasts menu, select the Forecast History option. <br>
+This page displays a summary of committed amounts for all forecast time periods. </li>
+<li>To search for forecasts for a specific time period, select the time period in the dropdown above, click either <strong>My Forecasts</strong> or <strong>My Team’s Forecasts</strong> and click <strong>Search</strong>. </li></ol>
+
+<h3><a name="CreateTimePeriods">Create Time Periods</a></h3>
+<p>This section provides the Time Periods option that enables you to define time periods for the Forecasts module. These time periods display in the Time Periods dropdown in the Forecasts Module.</p>
+<p>You must define at least one time period to represent a fiscal year. Then you can choose to define quarters and months as time periods within a year, as needed. Time periods can overlap and can include times from other periods. </p>
+<p> <em>Administrators only</em>. To create a time period </p> 
+<ol><li>On the Admin Home page, click <strong>Time Periods</strong> in the Forecast sub-panel. </li>
+<li>On the Time Periods Home page, click <strong>Create Time Period</strong>. </li>
+<li>Enter information for the following fields: 
+<table style="background-color: #f5f5f5; width: 850px;">
+<tbody>
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong> Time period</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p> Enter a name for the time period; for example, Q1 2006.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong> Start Date </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>On the Date Selector click the start date of the time period.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong> Is Fiscal Year? </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click this checkbox if the time period represents the fiscal year.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>End Date  </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>In the Date Selector click the end date for the time period.</p>
+</td>
+</tr>
+</tbody></table>
+</li><li>To create the time period, click <strong>Save</strong>; click <strong>Cancel</strong> to exit the page without saving your changes. 
+<br>After you save the time period, the Forecast Schedule sub-panel displays on the time period’s detail page.
+</li></ol>
+<h3><a name="ManageTimePeriods">Manage Time Periods</a></h3>
+<p>To manage time periods choose from the following instructions.</p>
+<table style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; width: 890px; padding: 3px; ">
+<tbody>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 300px;">
+<p><em>To…</em></p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p><em>Then…</em></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>View details of a time period  </p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p> Click its name in the Time Periods List View.</p>
+</td>
+</tr><tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p> Export one or more time periods to a comma delimited file</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p> Select them in the Time Period List View click the Export link, and follow the process described in <A href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/Export#1063832">Exporting Data</a>. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>Update or delete some or all the time periods  </p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p> Use the instructions as described in <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1094547">Editing and suppressing multiple records</a>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>Edit a time period  </p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>On the Time Period Detail View click <strong>Edit</strong>, revise the information, and click <strong>Save</strong>.  </p>
+</td>
+</tr><tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>Duplicate a time period  </p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>On the Time Period Detail View click <strong>Duplicate</strong> and then click <strong>Save</strong>. </p>
+</td>
+</tr><tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>Delete a time period  </p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;">
+<p>On the Time Period Detail View click <strong>Delete</strong>. </p>
+</td>
+</tr></tbody></table>
+<h3><a name="CreateForecastSchedule">Create a Forecast Schedule</a></h3>
+<p><em>Administrators only</em>. After you create a time period, you can create a schedule to run the forecast automatically for a specific user. Some schedules might need to include start dates for a quarter prior to when the quarter officially begins. When you create a forecast schedule for a user, you can select the Cascade check box if you want it to be available for all the user's direct and indirect reports as well as just the specified user.</p>
+<p>To create a forecast schedule </p>
+<ol><li>In the Forecast Schedule sub-panel of the time period’s detail page, click <strong>Create</strong>. </li>
+<li>On the Forecast Schedule page, enter information for the following fields: 
+<table style="background-color: #f5f5f5; width: 850px;">
+<tbody>
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p>On the Date Selector click the date to run the forecast.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong> Schedule For</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>From the dropdown click the user for whom you are creating the forecast.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Status</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click <strong> Active</strong> to run the forecast as scheduled; click <strong> Inactive</strong> to stop running the forecast.</p>
+</td>
+</tr>
+<tr><td style="vertical-align: top; ">
+<p><strong>Cascade?</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click this check box if you want all the user's direct and indirect reports to receive the forecast as well.</p>
+</td></tr></tbody></table>
+</li>
+<li>To save the schedule, click <strong>Save</strong>; click <strong>Cancel</strong> to exit the page without saving your changes.</li> 
+</ol>
+<H2><A name="Sub-panelsRelatedInfo"></A>Sub-panels/Related Information</H2>
+<P>See also:</P>
+<P><A href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1094547">Editing and suppressing multiple records</A>.</P>
+<P><A href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/Export#1063832">Exporting data</A>.</P>
+
+</BODY>
+</HTML>

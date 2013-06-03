@@ -1,0 +1,429 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+</head>
+
+<body>
+<h1>Viewing and managing record information</h1>
+<p><a href="#Overview">Overview</a></p>
+<ul>
+<li><a href="#ViewTypes">View types</a></li>
+<li><a href="#RecordUserTeamAssignment">Record User and Team assignment</a></li>
+</ul>
+<p><a href="#Availability">Availability</a></p>
+<p><a href="#Actions">Actions</a></p>
+<ul>
+<li><a href="#CustomizeListView">Customize and use the List View</a></li>
+<li><a href="#CustomizeDetailView">Customize and use the Detail View</a></li>
+<li><a href="#MakeQuickEdits">Make quick edits to a record</a></li>
+<li><a href="#ViewEditRecord">View and edit a record</a></li>
+<li><a href="#EnterDataType">Enter data types</a></li>
+<li><a href="#TrackUserActivity">Track user activity</a></li>
+<li><a href="#AssignUsersTeams">Assign Users and Teams to records</a></li>
+<li><a href="#TrackManageRecordHistory">Track and manage record history</a></li>
+<li><a href="#EditSuppressMultipleRecords">Edit and suppress multiple records</a></li>
+<li><a href="#MergeDuplicateRecords">Merge duplicate records</a></li>
+</ul>
+<p><a href="#SubpanelsRelatedInfo">Sub-panels/Related Information</a></p>
+<h2><a name="Overview">Overview</a></h2>
+<p>Every module represents a record type such as Clients or Accounts.</p>
+<h3><a name="ViewTypes"></a>View types</h3>
+<p>ProTracker provides three types of views of records for every module.</p>
+<p><strong>List View</strong>: The List View displays links to individual records in table format. By default, ProTracker sorts records in descending order of their creation date. The List View also displays other relevant information such as the name, email address, and phone number for each record. ProTracker paginates long List Views, showing the record count and current page information at the top right of the List View and forward and backward arrows to navigate the pages.</p>
+<p><strong>Detail View</strong>: The Detail View displays available information such as the record name, modification date, and, in sub-panels, related records; e.g., a Contact’s Detail View displays sub-panels for related Activities, History, Documents, Opportunities, and so on. The Detail View enables you to edit, duplicate, find duplicates, manage subscriptions, and view the change log for the record. You can also create, edit, and delete related records in the sub-panels. Each sub-panel consists of rows to list links to records. You can add more records to the list, if necessary, enabling you to quickly associate multiple records; e.g., you can associate more than one contact with an account.</p>
+<p><strong>Edit View</strong>: The Edit View enables you to update existing information and add more details if needed. Quick Edit Form, available in List Views and sub-panels of most modules, enable you to make quick changes to records without navigating away from the list of records displayed in the List View or sub-panel. This is particularly helpful when you need to make changes to multiple records within sub-panels on the same page or the same List View.</p>
+<p>Note: You can access a module only if the administrator grants you permission. Your ability to perform actions within a module, such as creating, editing, and deleting records also depend on the access permissions that the administrator grants you.</p>
+<h3><a name="RecordUserTeamAssignment"></a>Record User and Team assignment</h3>
+<p>When you create a record, by default, you are the User and your default Team is assigned to manage it. ProTracker displays assigned User(s) in the record’s Detail View and Edit View. You can change the User and Team assignment if required. Assigning a record to a Team ensures that data is viewed only by Users who have the authority to do so. The actions that each team member can perform, such as viewing, editing, and deleting records depends on the permissions that the administrator has granted them.</p>
+<p>The following teams are available in ProTracker:</p>
+<p>Private: All users have their own private team. By default, records that you create are assigned to your private team to allow you to access and manage them.</p>
+<p>Global: This is a universal team consisting of all ProTracker users. All users can view any record that is assigned to the Global team.</p>
+<p>Regular: A regular team may reflect a geographical area, a specific task, or other considerations. When a record is assigned to a regular team, only its members can access it. The administrator creates and manages regular teams.</p>
+<p>You can assign multiple teams to the record to enable users who are spread across teams to perform record-related tasks. When you assign a record to more than one team, the first team you select is the primary team by default. You can also select a different primary team.</p>
+<p>The module’s List View displays the primary team<em>. </em>A Down arrow next to the team name indicates that the record has been assigned to more than one team. Mouse over the arrow to view secondary teams assigned to the record.</p>
+<p>You can search for records using team names if the administrator has included Team as one of the search fields.</p>
+<p>Notes:</p>
+<ul>
+<li>Assigning a User to the record is optional; assigning a Team is a requirement.</li>
+<li>The assigned User is not required to be a member of the assigned Team.</li>
+<li>When a record is assigned to a User, ProTracker sends an email notifying the user.</li>
+</ul>
+<h2><a name="Availability">Availability</a></h2>
+<p>Viewing and managing records is available users of the following editions:</p>
+<ul>
+<li>Standard</li>
+<li>Professional</li>
+<li>Enterprise</li>
+</ul>
+<h2><a name="Actions">Actions</a></h2>
+<h3><a name="CustomizeListView"></a>Customize and use the List View</h3>
+<p>From the List View you can do the following.</p>
+<table style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; width: 850px; padding: 3px; ">
+<tbody>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 300px;">
+<p><em>To…</em></p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p><em>Then…</em></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Add or remove columns to the default view, depending on the information that you want to view</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>See <span style="text-decoration: underline;">Searching for information in ProTracker.</span></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Mark records that you frequently access as My Favorites from the List View of most modules, which supports using finding your favorite records quickly with the My Favorites search filter or viewing them in the My Favorite Records Dashlet on your Home page</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>See Dashlets.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Access the Detail View</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click a record name.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Access the Edit View, if you have edit permissions</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click the Edit (pencil) icon located next to the record name.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Suppress, Email, Mass Update, Merge, Add to Target List, and Export one or more records</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Use the Actions dropdown (located above the Name column and in the bottom left corner of the List View).</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Sort the List View</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click any column name that has a double-arrow icon beside it. Click the column name again to reverse the sort order.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3><a name="CustomizeDetailView"></a>Customize and use the Detail View</h3>
+<p>In the Detail View, you can do the following:</p>
+<table style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; width: 850px; padding: 3px; ">
+<tbody>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 300px;">
+<p><em>To…</em></p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p><em>Then…</em></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Minimize a sub-panel</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click the arrow located to the left of a sub-panel’s name. This hides the sub-panel, but still displays its name and the arrow icon. Click the arrow icon to display the sub-panel.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Move a sub-panel to a different location on the page</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Mouse over the sub-panel name, click and drag the panel to the desired location on the page.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Create a new record</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click <strong>Create </strong>below the sub-panel name. This displays the Quick Create form. Input required information and click <strong>Save</strong>. Click <strong>Full Form</strong> to include additional details and click <strong>Save</strong>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Choose a record from an existing list</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click <strong>Select</strong> above the sub-panel. A list of available records for the sub-panel displays in a separate window.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Select one or more records from the list</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click the box adjacent to the record name and then click <strong>Select</strong>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Suppress a related record</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click the rem (-) icon located to the extreme right of the record row, and click <strong>OK</strong>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3><a name="MakeQuickEdits"></a>Make quick edits to a record</h3>
+<p>To make quick edits to a record:</p>
+<ol>
+<li>Go to the List View of a module or a sub-panel.</li>
+<li>Click the Edit (pencil) icon located to the left of any record name in the List View to display the Quick Edit form.</li>
+<li>Update the record and click <strong>Save</strong>.</li>
+</ol>
+<p>Note: If you want to make detailed changes, click <strong>View Full Form</strong> in the Quick Edit form to go to the Edit page.</p>
+<h3><a name="ViewEditRecord"></a>View and edit a record</h3>
+<p>To view and edit a record:</p>
+<ol>
+<li>Click a record name in a module’s List View, to see its Detail View.</li>
+<li>Click <strong>Edit</strong> in the record’s Detail View to edit the record.</li>
+<li>Input the required information and click <strong>Save</strong>. Click <strong>Cancel</strong> to exit the Edit View without saving your changes.</li>
+</ol>
+<h3><a name="EnterDataType"></a>Enter data types</h3>
+<p><strong>Date fields</strong> – click the Date Selector icon to choose a date from a calendar, or enter the date in the field.</p>
+<p><strong>Percentage fields</strong> – enter the value as a number without the percent symbol. For example, a value of 50% should be entered as 50. Percentage fields are displayed with a precision of two decimal places.</p>
+<p><strong>Currency values</strong> – enter the value as a number without your local currency symbol (for example: $, &euro;, or &pound;). On some screens, you may be prompted to select the type of currency that applies to the current record.</p>
+<h3><a name="TrackUserActivity"></a>Track user activity</h3>
+<p>The Last Viewed list displays recently accessed records, as well as calls and meetings you recently scheduled. You can view this list in the module menu, which displays when you point the cursor at a module’s menu. To view a record again, click its link in the Last Viewed list.</p>
+<p>You can also create reports to track information such as how many modules were accessed, how many files were modified and so on. For more information, see <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Ultimate/Sugar_Application_Guide_6.3.0/Reports#2135607">Viewing and Creating Tracker Reports.</a></p>
+<h3><a name="AssignUsersTeams"></a>Assign Users and Teams to records</h3>
+<p>To assign Users and Teams to records, use these instructions.</p>
+<ol>
+<li>Access the record details by creating a new record, or editing an existing record using one of the following:
+<table style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; width: 850px; padding: 3px; ">
+<tbody>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 187px;">
+<p><em>To…</em></p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p><em>Then…</em></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Create a new record</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Either click the option to create a record in the Navigation menu; e.g., Create Client</p>
+<p>Or, click <strong>Create New</strong> in the List View, Detail View, or Edit View</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Edit an existing record</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click <strong>Edit</strong> in the Detail View</p>
+<p>Or, click Edit (pencil) next to the record name in the List View or Detail View sub-panel.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>By default, the record is assigned to the creator of the record. To change the assignment, in the Assigned to field, click the User on the Users Popup List View (displays upon clicking the Selection arrow) or the list of users matching the character(s) you enter.</li>
+<li>By default, your private team is assigned as the primary team. To change the primary team assignment, in the Teams field, click the Team on the Teams Popup List View (displays upon clicking the Selection arrow) or the list of teams matching the character(s) you enter.</li>
+<li>To assign additional teams, click add (+) and click the team as described above.</li>
+<li>To change the primary team to a different team, click the radio button to the right of the team that you want to specify as the primary team.</li>
+<li>To remove a team from the Teams list, click minus (-)located next to the Team.</li>
+<li>Click <strong>Save</strong> to save the record.</li>
+</ol>
+<h3><a name="TrackManageRecordHistory"></a>Track and manage record history</h3>
+<p>The Detail View page of every record displays a History sub-panel that enables you to track record- related activities such as meetings, notes, attachments, and archived emails. Each row in the panel displays icons to edit or remove a record. You can also use this sub-panel to create and record new activities.</p>
+<p>To track and manage record history, do the following:</p>
+<table style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; width: 850px; padding: 3px; ">
+<tbody>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 300px;">
+<p><em>To…</em></p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p><em>Then…</em></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>View the details of a listed note, meeting, attachment, or email</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click its title.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Edit the item</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click <strong>Edit</strong>.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Sort records</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click any column name that has a double-arrow icon beside it. Click the column name again to reverse the sort order.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Add a note or to attach a file</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click <strong>Create Note</strong>. For more information, see <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Ultimate/Sugar_Application_Guide_6.3.0/Notes#1275699">Creating Notes and Attachments.</a></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>View a summary of all the listed records, such as subject, status, and date, in a separate window</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click <strong>View Summary</strong> in the Actions dropdown.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Archive an email</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click <strong>Archive Email</strong> in the Actions dropdown.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Remove the history record</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click <strong>Remove</strong> in the edit dropdown.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3><a name="EditSuppressMultipleRecords"></a>Edit and suppress multiple records</h3>
+<p>Most modules provide a Mass Update item on the Actions dropdown that enables you to edit or suppress one or more of the listed records simultaneously. This feature is useful to update information shared by several records such as the assigned User and Teams. The fields that you can edit vary depending on the module. For example, in the Contacts module you can change the related account.</p>
+<ol>
+<li>To edit information, in the module’s List View, click the selection box next to the records that you want to edit.</li>
+<li>From the Actions dropdown click <strong>Mass Update</strong>. <br /> The Mass Update sub- panel displays.</li>
+<li>Make changes. Displayed fields vary depending on the module. See field descriptions in the module’s information. See Assigning Users and Teams to records (above).</li>
+<li>Click <strong>Update</strong>. The selected records are updated.</li>
+</ol>
+<h3><a name="MergeDuplicateRecords"></a>Merge duplicate records</h3>
+<p>When you merge duplicate records into a single record, you can select which fields you want to merge and when the process completes, the system deletes the duplicate records. This ensures that there is no confusion and that your users are accessing information from only one source. Before the duplicate records are deleted, related information such as activities, history, contacts are moved from the duplicate records to the primary record.</p>
+<p>You can merge records in the following modules: Clients, Contacts, Leads, Opportunities, Cases, and Bugs.</p>
+<p>Note:</p>
+<p>ProTracker uses the first record you select as the primary record.</p>
+<ol>
+<li>Display the duplicate record field values form by doing one of the following:
+<table style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; width: 850px; padding: 3px; ">
+<tbody>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 187px;">
+<p><em>If you …</em></p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p><em>Then…</em></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Know the duplicate records that you want to merge</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<ol>
+<li>Access the module’s List View.</li>
+<li>Click the selection box associated with the records you want to merge.</li>
+<li>Click <strong>Merge</strong> in the Actions dropdown.<br /> ProTracker displays primary record field values in the field boxes. Duplicate record field values display in columns to the right.</li>
+</ol></td>
+</tr>
+
+<tr>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Need to search for duplicates of a record and then merge them</p>
+</td>
+<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+	<ol>
+		<li>Click a record in the module’s List View.<br /> The record’s Detail View displays.<strong></strong></li>
+		<li>Click <strong>Find Duplicates</strong>. <br /> The Find possible duplicate records form displays.</li>
+		<li>To filter the list of records click a field from the Available Fields list and click the right arrow.<br /> The field is added to the filter list.<br /> Repeat until all fields used to filter the search results are listed.</li>
+		<li>Click <strong>Next Step&gt;</strong>.<br /> The filtered list displays.</li>
+		<li>Click the selection box associated with the primary and duplicate records.</li>
+		<li>Click <strong>Perform Merge</strong>.<br /> ProTracker displays primary record field values in the field boxes. Duplicate record field values display in columns to the right.</li>
+		<li>Do one or more of the following:
+			<table style="background-color: #d4d4d4; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+			<tbody>
+				<tr>
+					<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 187px;">
+<p><em>To…</em></p>
+					</td>
+					<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p><em>Then…</em></p>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Set one of the duplicate records as the primary record</p>
+					</td>
+					<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click the associated <strong>&lt;&lt; </strong>next to Set as primary (above the duplicate record). The primary field text boxes update, and the record that was previously the primary record displays as a duplicate record.</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Replace a primary field value with a duplicate field value.</p>
+					</td>
+					<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Click the associated <strong>&lt;&lt;</strong>. The primary field text box updates.</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Change the value.</p>
+					</td>
+					<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>Edit the value in the primary record’s field text box.</p>
+					</td>
+				</tr>
+			</tbody>
+			</table></li></ol>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+
+<li>Click <strong>Save Merge</strong>.<br /> The updated primary record is saved, and the duplicate records are deleted/suppressed?</li>
+</ol>
+<h2><a name="SubpanelsRelatedInfo">Sub-panels/Related Information</a></h2>
+<p>See also:</p>
+<p>Calls</p>
+<p>Clients</p>
+<p>Contacts</p>
+<p>Emails</p>
+<p>Employees</p>
+<p>Companies</p>
+<p>Documents</p>
+<p>Tasks</p>
+<p>Notes</p>
+
+
+</body>
+</html>
