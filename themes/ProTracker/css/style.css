@@ -7782,7 +7782,7 @@ div.login{
 	position:absolute;
 	border:1px solid #000;
 	box-shadow:inset -1px 0px 0px #333;
-	z-index:3;
+	z-index:0;
 	margin:10px 0px 0px 180px;
 }
 .modulesdrager.hide{	
