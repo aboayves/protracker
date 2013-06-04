@@ -168,6 +168,19 @@ array (
           ),
         ),
       ),
+	  'LBL_TREE_VIEW' =>
+	  array(
+		0 =>
+		array(
+			0 =>
+			array(
+				'name' => 'tree',
+				'label' => 'LBL_TREE',
+				'customCode' => '<div id="tree_plotting_div"></div>',
+				'hideLabel' => true,
+			),
+		),    
+	  ), 
     ),
   ),
 );
