@@ -10,8 +10,8 @@ $dictionary["av_Net_Worth"]["fields"]["account_id"] = array (
   'len' => 36,
   'size' => '20',
 );
-$dictionary["av_Net_Worth"]["fields"]["accounts_name"] = array (
-  'name' => 'accounts_name',
+$dictionary["av_Net_Worth"]["fields"]["account_name"] = array (
+  'name' => 'account_name',
   'type' => 'relate',
   'source' => 'non-db',
   'vname' => 'LBL_ACCOUNTS_NAME',

@@ -2,32 +2,45 @@
 $module_name = 'av_Net_Worth';
 $listViewDefs [$module_name] = 
 array (
+  'ACCOUNT_NAME' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'label' => 'LBL_ACCOUNTS_NAME',
+    'id' => 'ACCOUNT_ID',
+    'width' => '20%',
+    'related_fields' => 
+    array (
+      0 => 'account_id',
+    ),
+    'default' => true,
+  ),
   'GRAND_TOTAL' => 
   array (
-    'type' => 'text',
     'label' => 'LBL_GRAND_TOTAL',
     'width' => '15%',
     'default' => true,
+	'align' => 'right',
   ),
   'NET_WORTH_DATE' => 
   array (
     'type' => 'date',
     'default' => true,
     'label' => 'LBL_NET_WORTH_DATE',
-    'width' => '10%',
+    'width' => '13%',
   ),
   'MANAGED_ASSETS' => 
   array (
-    'type' => 'text',
     'label' => 'LBL_MANAGED_ASSETS',
     'width' => '15%',
     'default' => true,
+	'align' => 'right',
   ),
   'DATE_MODIFIED' => 
   array (
     'type' => 'datetime',
     'label' => 'LBL_DATE_MODIFIED',
-    'width' => '17%',
+    'width' => '14%',
     'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 
@@ -51,16 +64,6 @@ array (
     'label' => 'LBL_NAME',
     'default' => false,
     'link' => true,
-  ),
-  'ACCOUNTS_NAME' => 
-  array (
-    'type' => 'relate',
-    'studio' => 'visible',
-    'label' => 'LBL_ACCOUNTS_NAME',
-    'id' => 'ACCOUNT_ID',
-    'link' => true,
-    'width' => '10%',
-    'default' => false,
   ),
   'MODIFIED_BY_NAME' => 
   array (
