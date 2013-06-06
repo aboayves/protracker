@@ -68,10 +68,30 @@ while($member = $db->fetchByAssoc($members))
 		$put_names=false;
 	}
 	$row='';
+	//replacing ids with proper name
 	$member['modified_user_id'] = 	get_assigned_user_name($member['modified_user_id']);
 	$member['assigned_user_id'] = 	get_assigned_user_name($member['assigned_user_id']);
 	$member['created_by'] = 	get_assigned_user_name($member['created_by']);
-
+	if(!empty($member['office_id'])){
+		$office_bean = BeanFactory::getBean("av_Offices", $member['office_id']);
+		$member['office_id'] = $office_bean->name;
+	}
+	if(!empty($member['contact_type_id'])){
+		$contact_type_bean = BeanFactory::getBean("av_Contact_Types", $member['contact_type_id']);
+		$member['contact_type_id'] = $contact_type_bean->name;
+	}
+	if(!empty($member['referral_id'])){
+		$ref_bean = BeanFactory::getBean("Contacts", $member['referral_id']);
+		$member['referral_id'] = $ref_bean->name;
+	}
+	if(!empty($member['employer_id'])){
+		$employer_bean = BeanFactory::getBean("av_Companies", $member['employer_id']);
+		$member['employer_id'] = $employer_bean->name;
+	}
+	if(!empty($member['spouse_id'])){
+		$spouse_bean = BeanFactory::getBean("Contacts", $member['spouse_id']);
+		$member['spouse_id'] = $spouse_bean->name;
+	}
 	foreach($member as $field_name=>$field)
 	{	
 		$field = str_replace('&quot;', "'", $field);

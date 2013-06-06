@@ -75,6 +75,10 @@ while($member = $db->fetchByAssoc($members))
 	$member['modified_user_id'] = 	get_assigned_user_name($member['modified_user_id']);
 	$member['assigned_user_id'] = 	get_assigned_user_name($member['assigned_user_id']);
 	$member['created_by'] = 	get_assigned_user_name($member['created_by']);
+	if(!empty($member['office_id'])){
+		$office_bean = BeanFactory::getBean("av_Offices", $member['office_id']);
+		$member['office_id'] = $office_bean->name;
+	}
 	$member['billing_address_postalcode'] = "'".$member['billing_address_postalcode'];
 
 	foreach($member as $field_name=>$field)
