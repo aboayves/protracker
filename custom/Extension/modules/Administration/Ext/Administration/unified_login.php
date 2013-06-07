@@ -6,7 +6,7 @@ $admin_option_defs = array();
 $admin_option_defs['UnifiedLogin'] = array(
 'themes/default/images/WorkFlow.gif', 'LBL_UNIFIED_LOGIN', 'LBL_REG_UNIFIED_LOGIN', 'javascript:dialogForURL();');
 $admin_option_defs['UpdateAccountHistory'] = array(
-'custom/themes/default/images/av_Account_Histories.gif', 'LBL_UPDATE_ACCOUNT_HISTORY', 'LBL_REG_UPDATE_ACCOUNT_HISTORY', 'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);');
+'custom/themes/default/images/av_Account_Histories.gif', 'LBL_UPDATE_ACCOUNT_HISTORY', 'LBL_REG_UPDATE_ACCOUNT_HISTORY', 'javascript:dialogForAccountHistory();');
 // Loop through the menus and add to the Users group
 foreach ($admin_group_header as $key => $values)
 {
@@ -26,6 +26,37 @@ echo '<script type="text/javascript">
 		function dialogForURL()
 		{
 			 $( "#dialogForURL" ).dialog({ width: 430 });
+		}
+		
+      </script>';
+//Date dialog for net worth statement
+echo '<div id="DialogForHistoryDatePicker" title="Date Picker" style="display:none">'.
+		'<form name="input" target="_blank" action="index.php?module=av_Account_Histories&action=create_account_history_record" method="POST">'.
+			'<span class="dateTime">'.
+				'Select Date: '.
+				'<input type="text" maxlength="10" size="11" id="date_for_account_history" name="date_for_account_history" autocomplete="off" class="date_input"> &nbsp;'.
+				'<img border="0" id="date_for_account_history_trigger" style="position:relative; top:6px" alt="Enter Date" src="themes/Sugar/images/jscalendar.png">'.
+			'</span> &nbsp; &nbsp; &nbsp;'.
+			'<input type="submit" value="Create Account Histories" onclick="$( \'#DialogForHistoryDatePicker\' ).dialog(\'close\');"/>'.
+		'</form>'.
+	'</div>'.
+	'<script type="text/javascript">'.
+		'Calendar.setup ({'.
+			'inputField : "date_for_account_history",'.
+			'ifFormat : "%m/%d/%Y %I:%M%P",'.
+			'daFormat : "%m/%d/%Y %I:%M%P",'.
+			'button : "date_for_account_history_trigger",'.
+			'singleClick : true,'.
+			'dateStr : "",'.
+			'startWeekday: 0,'.
+			'step : 1,'.
+			'weekNumbers:false'.
+		'});'.
+	'</script>';
+echo '<script type="text/javascript">
+		function dialogForAccountHistory()
+		{
+			 $( "#DialogForHistoryDatePicker" ).dialog({ width: 530 });
 		}
 		
       </script>';
@@ -133,7 +164,7 @@ $admin_role_options = array(
 				'av_Account_Histories',
 				'Record Account History for All Clients',
 				'Creates a snapshot with today\'s date for all Client Accounts',
-				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
+				'javascript:dialogForAccountHistory();'
 			),
 			"dash_DashboardManager"=>array(
 				'dash_DashboardManager',
@@ -262,7 +293,7 @@ $admin_role_options = array(
 				'av_Account_Histories',
 				'Record Account History for All Clients',
 				'Creates a snapshot with today\'s date for all Client Accounts',
-				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
+				'javascript:dialogForAccountHistory();'
 			),
 			"dash_DashboardManager"=>array(
 				'dash_DashboardManager',
@@ -445,7 +476,7 @@ $admin_role_options = array(
 				'av_Account_Histories',
 				'Record Account History for All Clients',
 				'Creates a snapshot with today\'s date for all Client Accounts',
-				'javascript:window.open("index.php?module=av_Account_Histories&action=create_account_history_record");void(0);'
+				'javascript:dialogForAccountHistory();'
 			),
 			"dash_DashboardManager"=>array(
 				'dash_DashboardManager',

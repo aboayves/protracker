@@ -15,6 +15,7 @@ array (
     'link' => true,
     'label' => 'LBL_ACCOUNT_NAME',
     'id' => 'ACCOUNT_ID',
+	'sortable' => false,
     'width' => '20%',
     'related_fields' => 
     array (
@@ -36,6 +37,7 @@ array (
     'label' => 'LBL_AV_ACCOUNTS_NAME',
     'id' => 'AV_ACCOUNTS_ID',
     'width' => '20%',
+	'sortable' => false,
     'related_fields' => 
     array (
       0 => 'av_accounts_id',

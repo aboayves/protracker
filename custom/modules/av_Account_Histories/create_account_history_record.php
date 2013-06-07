@@ -10,7 +10,8 @@
 	$result = $db->query($sql);
 	$account_histories_records = array();
 	$now = $timedate->nowDB();
-	$nowDate = $timedate->nowDbDate();
+	$netWorthDate = !empty($_REQUEST['date_for_account_history']) ? $_REQUEST['date_for_account_history'] : $timedate->nowDate();
+	$nowDate = $timedate->to_db_date($netWorthDate, false);
 	while($row = $db->fetchByAssoc($result)){
 		$record = array();
 		$record = $row;
