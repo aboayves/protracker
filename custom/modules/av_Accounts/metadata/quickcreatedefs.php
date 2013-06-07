@@ -28,6 +28,13 @@ array (
         ),
       ),
       'useTabs' => false,
+	  'includes' => 
+      array (
+		0 => 
+        array (
+          'file' => 'custom/modules/av_Accounts/get_relate_clients.js',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -40,15 +47,22 @@ array (
             'name' => 'account_name',
             'label' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
           ),
-        ),
-        1 => 
-        array (
-          0 => 'name',
-          1 => 
+		   1 => 
           array (
             'name' => 'av_Account_Types_name',
             'label' => 'LBL_AV_ACCOUNT_TYPES_NAME',
           ),
+        ),
+        1 => 
+        array (
+          0 => 'name',
+		  1 => 
+          array (
+            'name' => 'ownership_type',
+            'comment' => '',
+            'label' => 'LBL_OWNERSHIP_TYPE',
+          ),
+         
         ),
         2 => 
         array (
@@ -58,12 +72,11 @@ array (
             'comment' => '',
             'label' => 'LBL_ACCOUNT_NUMBER',
           ),
-          1 => 
-          array (
-            'name' => 'ownership_type',
-            'comment' => '',
-            'label' => 'LBL_OWNERSHIP_TYPE',
-          ),
+		  1 =>
+		  array (
+			'name' => 'contacts_name',
+			'label' => 'LBL_CONTACTS_NAME',
+		  ),
         ),
         3 => 
         array (

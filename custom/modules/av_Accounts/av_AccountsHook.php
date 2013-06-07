@@ -21,9 +21,10 @@ class av_AccountsHook {
 			$history = new av_Account_Histories();
 			$record = array();
 			foreach($key_fields as $key_field){
-			if(isset($history->field_defs[$key_field])){
-				$record[$key_field] = $bean->fetched_row[$key_field];
-			}
+				if(isset($history->field_defs[$key_field]) && $history->field_defs[$key_field]['source'] != 'non-db')
+				{
+					$record[$key_field] = $bean->fetched_row[$key_field];
+				}
 			}
 			$record['id'] = create_guid();
 			$record['av_accounts_id'] = $bean->id;
