@@ -50,9 +50,11 @@ class AccountsHook
 				  WHERE contacts.deleted=0 AND contacts.id='{$bean->primary_contact_id}'";
 				$db->query($sql, true);
 		}
-		//updating office field from current user.
-		global $current_user;
-		$bean->office_id = $current_user->office_id;
+		//updating office field from Assigned User.
+		if(!isset($bean->fetched_row['id']) && empty($bean->fetched_row['id']) && empty($bean->office_id)){
+			$user_bean = BeanFactory::getBean("Users", $bean->assigned_user_id);
+			$bean->office_id = $user_bean->office_id;
+		}
 	}
 	function sync_email_address($bean, $event, $arguments) {
 		global $db;
