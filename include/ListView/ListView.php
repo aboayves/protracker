@@ -454,6 +454,9 @@ function process_dynamic_listview($source_module, $sugarbean,$subpanel_def)
                 $this->xTemplate->assign('CLASS', "");
                 if ( empty($widget_contents) ) $widget_contents = '&nbsp;';
                 $this->xTemplate->assign('CELL', $widget_contents);
+				//Sugar Bug align is not working for subpanel properly.
+				$cell_align = empty($list_field['align']) ? '' : $list_field['align'];
+				$this->xTemplate->assign('CELL_ALIGN', $cell_align);
                 $this->xTemplate->parse($xtemplateSection.".row.cell");
                 } else {
                     // This handles the edit and remove buttons and icon widget
@@ -1738,7 +1741,7 @@ $close_inline_img = SugarThemeRegistry::current()->getImage('close_inline', 'bor
 	            if(!isset($count))$count = 0; else $count++;
 	                $this->xTemplate->assign('CELL_COUNT', $count);
 	                $this->xTemplate->assign('CELL_WIDTH', $cell_width);
-					$this->xTemplate->assign('CELL_ALIGN', $cell_align);
+					//$this->xTemplate->assign('CELL_ALIGN', $cell_align);
 	                $this->xTemplate->parse('dyn_list_view.header_cell');
                 } else {
                 	$buttons = true;

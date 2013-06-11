@@ -63,6 +63,7 @@ array (
     'type' => 'currency',
     'label' => 'LBL_TOTAL_CONTRACT_VALUE_USDOLLAR',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
     'default' => true,
   ),

@@ -33,6 +33,7 @@ array (
     'default' => true,
     'label' => 'LBL_INCOME_PER_MONTH',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
   ),
   'SAVINGS_PER_MONTH' => 
@@ -41,6 +42,7 @@ array (
     'default' => true,
     'label' => 'LBL_SAVINGS_PER_MONTH',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
   ),
   'FIXED_EXPENSES_PER_MONTH' => 
@@ -49,6 +51,7 @@ array (
     'default' => true,
     'label' => 'LBL_FIXED_EXPENSES_PER_MONTH',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
   ),
   'VARIABLE_EXPENSES_PER_MONTH' => 
@@ -57,6 +60,7 @@ array (
     'default' => true,
     'label' => 'LBL_VARIABLE_EXPENSES_PER_MONTH',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
   ),
   'DATE_ENTERED' => 
@@ -100,6 +104,7 @@ array (
     'default' => false,
     'label' => 'LBL_SAVINGS_PER_YEAR',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
   ),
   'FIXED_EXPENSES_PER_YEAR' => 
@@ -108,6 +113,7 @@ array (
     'default' => false,
     'label' => 'LBL_FIXED_EXPENSES_PER_YEAR',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
   ),
   'VARIABLE_EXPENSES_PER_YEAR' => 
@@ -116,6 +122,7 @@ array (
     'default' => false,
     'label' => 'LBL_VARIABLE_EXPENSES_PER_YEAR',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
   ),
   'CATEGORY_ID' => 

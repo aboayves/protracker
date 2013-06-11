@@ -187,6 +187,7 @@ array (
     'default' => false,
     'label' => 'LBL_ANNUAL_INCOME',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '10%',
   ),
   'EIN' => 

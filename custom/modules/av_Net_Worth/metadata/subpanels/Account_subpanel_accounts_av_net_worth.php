@@ -7,6 +7,7 @@ $subpanel_layout['list_fields'] = array (
     'width' => '15%',
     'sortable' => true,
     'default' => true,
+	'align' => 'right',
   ),
   'net_worth_date' => 
   array (
@@ -21,6 +22,7 @@ $subpanel_layout['list_fields'] = array (
     'width' => '20%',
     'sortable' => true,
     'default' => true,
+	'align' => 'right',
   ),
   'description' => 
   array (

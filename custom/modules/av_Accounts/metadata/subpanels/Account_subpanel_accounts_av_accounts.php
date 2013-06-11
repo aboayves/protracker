@@ -46,6 +46,7 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'currency',
     'vname' => 'LBL_VALUE',
     'currency_format' => true,
+	'align' => 'right',
     'width' => '13%',
     'default' => true,
   ),
