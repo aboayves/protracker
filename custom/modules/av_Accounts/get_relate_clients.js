@@ -27,11 +27,11 @@ function populateOwnerField(){
 		  });
 	  $('#ownership_type').change(function() {
 			own_type = $(this).val();
-			if(own_type == 'Client'){
+			if(own_type == 'Client' || own_type == 'Client_Trust'){
 				$('#contacts_name').val(client_info['primary_contact_name']);
 				$('#owner_id').val(client_info['primary_contact_id']);
 			}
-			else if(own_type == 'Co_Client'){
+			else if(own_type == 'Co_Client' || own_type == 'Co_Client_Trust'){
 				$('#contacts_name').val(client_info['secondary_contact_name']);
 				$('#owner_id').val(client_info['secondary_contact_id']);
 			
