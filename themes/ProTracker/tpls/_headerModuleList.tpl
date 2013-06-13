@@ -153,6 +153,12 @@ Set_Cookie('sugar_theme_gm_current','{$currentGroupTab}',30,'/','','');
 							Compliance Reports</a>
 							</li>
 						{/if}
+						{if $tabGroupName == "Accounts"}
+							<li class="">
+							<a class="sf-with-ul" id="moduleTab_Update_Net_Worth_Histories" href="index.php?module=av_Net_Worth&action=update_net_worth_histories" tabindex="-1">
+							Update Net Worth Histories</a>
+							</li>
+						{/if}
                         {foreach from=$tabGroup.extra item=name key=module name=moduleList}
 				
 							<li {if $smarty.foreach.moduleList.index > 4}class="moreOverflow"{/if}>{sugar_link id="moduleTab_$tabGroupName$module" module="$module" data="$name" class="sf-with-ul"}
