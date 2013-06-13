@@ -56,7 +56,11 @@ function removeCstmClass(id){
 	$("#"+id).removeClass("cstm_relate_field");
 }
 function clear_relate_ID(event, id){
-	if((event.keyCode||event.which) !=9){
+	if(
+		(event.keyCode||event.which) !=9 && (event.keyCode||event.which) !=37 &&
+		(event.keyCode||event.which) !=38 && (event.keyCode||event.which) !=39 &&
+		(event.keyCode||event.which) !=40
+	){
 		$("#"+id).val('');
 	}
 }
