@@ -86,7 +86,9 @@ input[type="reset"],
 input[type="submit"] {
     padding: 0px;
 }
-
+#EditView_team_name_table{
+	padding: 0px !important;
+}
 input[type=text].sqsEnabled{
 	width:85% !important;
 }
@@ -730,7 +732,7 @@ input, select, textarea, button, .button {
 }
 
 .edit tr td[scope=row] {
-    padding: 5px 5px 5px 7px !important;
+    padding: 5px 5px 5px 0px !important;
     text-align: left;
     vertical-align: top;
     /*background-color: #eee;*//*Commented to remove shadow from team field in EditView..*/
