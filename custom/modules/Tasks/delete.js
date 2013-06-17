@@ -4,16 +4,16 @@ function confirmDelete(){
     var taskID = document.getElementsByName('record')[0].value;
     //var parentID = document.getElementsByName('parent_tasks_id')[0].value;
     if(taskID)
-        del('Confirmation Delete','This task has dependent tasks.', taskID);
+        del('Confirmation Suppress','This task has dependent tasks.', taskID);
 }
 function confirmDelete(taskID, hasChild){
    
-    var parentID = document.getElementsByName('parent_tasks_id')[0].value;
+   // var parentID = document.getElementsByName('parent_tasks_id')[0].value;
     if(taskID && hasChild) {
-        del('Confirmation Delete','This task has dependent tasks.', taskID, hasChild);
+        del('Confirmation Suppress','This task has dependent tasks.', taskID, hasChild);
 	}
 	else {
-		del('Confirmation Delete','Are you sure you want to delete.', taskID, hasChild);
+		del('Confirmation Suppress','Are you sure you want to Suppress.', taskID, hasChild);
 	}
 }
 function del(title, body, taskID, hasChild)

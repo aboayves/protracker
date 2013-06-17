@@ -13,7 +13,7 @@ array (
           1 => 'DUPLICATE',
           2 => 
           array (
-            'customCode' => '<input title="Delete"  class="button"  onclick="this.form.action.value=\'Save\'; this.form.return_module.value=\'Tasks\'; this.form.isDuplicate.value=true; this.form.return_action.value=\'EditView\'; this.form.return_id.value=\'{$fields.id.value}\';"  name="button"  value="Delete" onclick="confirmDelete(\'{$fields.id.value}\');"  type="button">',
+            'customCode' => '<input title="Suppress"  class="button"  onclick="this.form.action.value=\'Save\'; this.form.return_module.value=\'Tasks\'; this.form.isDuplicate.value=true; this.form.return_action.value=\'EditView\'; this.form.return_id.value=\'{$fields.id.value}\';"  name="button"  value="Suppress" onclick="confirmDelete(\'{$fields.id.value}\');"  type="button">',
           ),
           3 => 
           array (
