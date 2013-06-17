@@ -40,7 +40,6 @@ class av_Account_OwnersViewEdit extends ViewEdit {
      * @see SugarView::display()
      */
     public function display() {
-		echo '<script src="custom/modules/av_Account_Owners/calculate_ownership_percent.js" ></script>';
 		global $db;
 		$custom_where = "";
 		if(isset($_REQUEST['record']) && !empty($_REQUEST['record'])){
@@ -50,8 +49,28 @@ class av_Account_OwnersViewEdit extends ViewEdit {
 		$sql = "SELECT SUM(ownership_percent) AS total_ownership FROM av_account_owners WHERE av_accounts_id='{$_REQUEST['av_accounts_id']}' ".$custom_where;
 		$result = $db->query($sql, true);
 		$row = $db->fetchByAssoc($result);
-		parent::display();
 		echo "<script>$('#ownership_added').val({$row['total_ownership']})</script>";
+		echo '<script>$(document).ready(function() {
+				var onclick = $("#av_Account_Owners_subpanel_save_button").attr("onclick");
+				$("#av_Account_Owners_subpanel_save_button").attr("onclick", "if(violate_ownership())return false; " +onclick);
+			});
+
+			function violate_ownership(){
+				var total = Number($("#ownership_added").val()) + Number($("#ownership_percent").val());
+				if(Number(total)>100){
+					$("#ownership_percent_errors").css("display","block");
+					return true;
+				}else{
+					return false;
+				}
+			}</script>';
+		if(file_exists("cache/modules/" . $this->bean->module_dir . "/form_SubpanelQuickCreate_av_Account_Owners.tpl")){
+			unlink("cache/modules/" . $this->bean->module_dir . "/form_SubpanelQuickCreate_av_Account_Owners.tpl");
+		}
+		parent::display();
+		if(file_exists("cache/modules/" . $this->bean->module_dir . "/form_SubpanelQuickCreate_av_Account_Owners.tpl")){
+			unlink("cache/modules/" . $this->bean->module_dir . "/form_SubpanelQuickCreate_av_Account_Owners.tpl");
+		}
     }
 
 }
