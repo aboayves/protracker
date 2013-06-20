@@ -54,12 +54,13 @@ $GLOBALS['tabStructure'] = array (
     'modules' => 
     array (
       0 => 'av_Offices',
-      1 => 'av_Reviews',
-      2 => 'av_Scoring',
-      3 => 'av_Service_Team',
-      4 => 'av_Services',
-      5 => 'av_Commissions',
-      6 => 'Tags',
+	  1 => 'Employees',
+      2 => 'av_Reviews',
+      3 => 'av_Scoring',
+      4 => 'av_Service_Team',
+      5 => 'av_Services',
+      6 => 'av_Commissions',
+      7 => 'Tags',
     ),
   ),
   'LBL_TABGROUP_ACCOUNT_MANAGEMENT' => 
