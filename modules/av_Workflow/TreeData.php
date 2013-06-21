@@ -3,23 +3,31 @@ class TreeData{
 	public static function getData($wfID, $wfName = '', $users = array()) {
 		$added_nodes = array($wfID);
 		$tree = array();
-		
+		$assign_to_width="135";
+		$category_width="180";
+		$subject_width="200";
+		if(!empty($users)){
+			$assign_to_width="123";
+			$category_width="168";
+			$subject_width="188";
+		}
 		$tree['id'] = $wfID;
-		$tree['html'] = "<table><tr style='color:#000;'><th width='40%' id='name' title='Name'><span style='float:left;'>{$wfName} |</span>";
+		$tree['html'] = "<table><tr style='color:#000;'><th id='name' title='Name'><span style='float:left;'>{$wfName} |</span>";
 		$tree['type'] = 'HTML';
 		$tree['html'] .= "".
 					 "Name</th>".
-					 "<th width='20%' title='Subject'>Subject</th>".
-					 "<th width='15%' title='Category'>Category</th>".
-		 "<th width='13%' title='Assign To'>Assign To</th>";
+					 "<th width='{$subject_width}px' title='Subject'>Subject</th>".
+					 "<th width='{$category_width}px' title='Category'>Category</th>".
+		 "<th width='{$assign_to_width}px' title='Assign To'>Assign To</th>";
 		if(empty($users)){
-			$tree['html'] .= "<th width='8%' title='Days Out'>Days Out</th>";
+			$tree['html'] .= "<th width='135px' title='Days Out'>Days Out</th>";
 		}else{
-			$tree['html'] .= "<th width='8%' title='Due Date'>Due Date</th>";
+			$tree['html'] .= "<th width='123px' title='Due Date'>Due Date</th>";
 		}
 	
 		if(empty($users)){
-			$tree['html'] .= "<th width='5%' colspan='2'>&nbsp;</th>";
+			$tree['html'] .= "<th width='31px'>&nbsp;</th>";
+			$tree['html'] .= "<th width='31px'>&nbsp;</th>";
 		}
 	
 		$tree['html'] .= "</tr></table>";
@@ -120,11 +128,11 @@ class TreeData{
 				}*/
 				
 				$node['html'] .=	"<tr>".
-										"<td width='40%' id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
-										"<td width='20%' title='Subject'>{$row['subject']}</td>".
-										"<td width='15%' title='Category'>{$row['task_category']}</td>".
-										"<td width='13%' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
-										"<td width='8%' title='Days Out'>";
+										"<td  id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
+										"<td width='200px' title='Subject'>{$row['subject']}</td>".
+										"<td width='180px' title='Category'>{$row['task_category']}</td>".
+										"<td width='135px' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
+										"<td width='135px' title='Days Out'>";
 				if(empty($users)){
 					$node['html'] .=  		"{$row['days_out']}";
 				}else{
@@ -134,12 +142,12 @@ class TreeData{
 				$node['html'] .=  "<input type='hidden' value={$row['id']}</td>";
 				
 				if(empty($users)){
-					$node['html'] .= 	"<td width='2.5%' style='text-align:center;vertical-align:middle' title='Edit Task Template'>".
+					$node['html'] .= 	"<td width='31px' style='text-align:center;vertical-align:middle' title='Edit Task Template'>".
 											"<a href='index.php?module=av_Task_Template&action=EditView&record={$row['id']}&return_module=av_Workflow&return_action=DetailView&return_id={$wfID}'>".
 												"<img src='themes/Sugar/images/edit_inline.png'/>".
 											"</a>".
 										"</td>".
-										"<td width='2.5%' style='text-align:center;vertical-align:middle' title='Add Dependent Task Template'>".
+										"<td width='31px' style='text-align:center;vertical-align:middle' title='Add Dependent Task Template'>".
 											"<a href='index.php?module=av_Task_Template&action=EditView&parent_tasks_id={$row['id']}&parent_tasks_name={$row['name']}&av_Workflow_id={$wfID}&av_Workflow_name={$wfName}&return_module=av_Workflow&return_action=DetailView&return_id={$wfID}'>".
 												"<img src='themes/Sugar/images/create-record.png'/>".
 											"</a>".

@@ -35,7 +35,11 @@ class av_WorkflowViewAssign extends ViewEdit {
 				'<script src="include/javascript/yui/build/calendar/calendar-min.js" ></script>'.
 				'<script src="include/javascript/yui/build/json/json-min.js" ></script>'.
 				'<script src="include/javascript/yui/build/treeview/treeview-min.js" ></script>';
-		
+		echo '<style>
+				.edit tr td table, .edit tr td table tr td {
+					padding: 0px !important;
+				}
+			 </style>';
 		parent::display();
 		
 		//removing tpl to show correct edit view

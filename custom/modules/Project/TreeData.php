@@ -6,7 +6,13 @@ class TreeData{
 		
 		$tree['id'] = $projectID;
 		$tree['type'] = 'HTML';
-		$tree['html'] = '<div style="background-color:#fff">'.$projectName.'</div>';
+		$tree['html'] = "<table><tr style='color:#000;'><th id='name' title='Name'><span style='float:left;'>{$projectName} |</span>";
+		$tree['html'] .= "".
+					 "Name</th>".
+					 "<th width='200px' title='Category'>Category</th>
+									<th width='180px' title='Assignee'>Assignee</th>
+									<th width='135px' title='Due Date'>Due Date</th>
+									</tr></table>";
 		$tree['label'] = $projectName;
 		$tree['href'] = "index.php?module=Project&action=DetailView&record={$projectID}";
 		$tree['expanded'] = true;
@@ -40,14 +46,14 @@ class TreeData{
 				$node['html'] = "<table>";
 				$node['contentStyle'] = "ygtvhtml";
 				
-				if(count($added_nodes) == 2){
+				/*if(count($added_nodes) == 2){
 					$node['html'] .= "<tr style='color:#000'>
 									<th id='name' title='Name'>Name</th>
 									<th width='200px' title='Category'>Category</th>
 									<th width='180px' title='Assignee'>Assignee</th>
 									<th width='135px' title='Due Date'>Due Date</th>
 									</tr>";
-				}
+				}*/
 				if($row['status'] == 'Not Started' || $row['status'] == 'In Progress'){
 					$node['contentStyle'] = " active_task";
 				}else if($row['status'] == 'Completed'){
