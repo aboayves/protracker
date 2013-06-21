@@ -1,5 +1,5 @@
 <?php
-// created: 2013-02-07 17:22:41
+// created: 2013-06-19 14:17:03
 $subpanel_layout['list_fields'] = array (
   'object_image' => 
   array (
@@ -52,13 +52,6 @@ $subpanel_layout['list_fields'] = array (
   array (
     'name' => 'doc_type',
     'vname' => 'LBL_LIST_DOC_TYPE',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'active_date' => 
-  array (
-    'name' => 'active_date',
-    'vname' => 'LBL_LIST_ACTIVE_DATE',
     'width' => '10%',
     'default' => true,
   ),

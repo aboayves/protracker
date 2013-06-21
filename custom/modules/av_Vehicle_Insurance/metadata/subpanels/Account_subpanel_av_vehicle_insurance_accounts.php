@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-07 16:33:29
+// created: 2013-06-19 19:47:50
 $subpanel_layout['list_fields'] = array (
   'object_image' => 
   array (
@@ -16,17 +16,35 @@ $subpanel_layout['list_fields'] = array (
   ),
   'document_name' => 
   array (
-    'name' => 'document_name',
-    'vname' => 'LBL_LIST_DOCUMENT_NAME',
+    'type' => 'name',
+    'link' => true,
+    'vname' => 'LBL_NAME',
+    'width' => '35%',
+    'default' => true,
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
+    'target_module' => NULL,
+    'target_record_key' => NULL,
+  ),
+  'category_id' => 
+  array (
+    'type' => 'enum',
+    'vname' => 'LBL_SF_CATEGORY',
+    'width' => '12%',
     'default' => true,
   ),
-  'active_date' => 
+  'status' => 
   array (
-    'name' => 'active_date',
-    'vname' => 'LBL_DOC_ACTIVE_DATE',
-    'width' => '10%',
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_STATUS',
+    'width' => '12%',
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '20%',
     'default' => true,
   ),
   'date_modified' => 

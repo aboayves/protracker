@@ -1,36 +1,11 @@
 <?php
-// created: 2013-01-07 16:50:51
+// created: 2013-06-21 14:13:05
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
     'vname' => 'LBL_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
-    'default' => true,
-  ),
-  'contacts_name' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'vname' => 'LBL_CONTACTS_NAME',
-    'id' => 'CONTACT_ID',
-    'width' => '15%',
-    'default' => true,
-    'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => 'Contacts',
-    'target_record_key' => 'contact_id',
-  ),
-  'income_date' => 
-  array (
-    'type' => 'date',
-    'default' => true,
-    'vname' => 'LBL_INCOME_DATE',
-    'width' => '10%',
-  ),
-  'date_modified' => 
-  array (
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
+    'width' => '35%',
     'default' => true,
   ),
   'amount' => 
@@ -38,8 +13,35 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'currency',
     'default' => true,
     'vname' => 'LBL_AMOUNT',
-	'align' => 'right',
+    'align' => 'right',
     'currency_format' => true,
+    'width' => '12%',
+  ),
+  'contacts_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_CONTACTS_NAME',
+    'id' => 'CONTACT_ID',
+    'width' => '12%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Contacts',
+    'target_record_key' => 'contact_id',
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '20%',
+    'default' => true,
+  ),
+  'income_date' => 
+  array (
+    'type' => 'date',
+    'default' => true,
+    'vname' => 'LBL_INCOME_DATE',
     'width' => '10%',
   ),
   'edit_button' => 

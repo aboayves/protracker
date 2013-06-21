@@ -32,11 +32,24 @@ array (
 	{sugar_getscript file="modules/Documents/documents.js"}',
       'useTabs' => false,
       'syncDetailEditViews' => true,
-	   'includes' => 
+      'includes' => 
       array (
         0 => 
         array (
           'file' => 'custom/include/js/inherit_parent_team.js',
+        ),
+      ),
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
         ),
       ),
     ),
@@ -50,7 +63,7 @@ array (
           array (
             'name' => 'account_name',
             'label' => 'LBL_ACCOUNTS_NAME',
-			 'displayParams' => 
+            'displayParams' => 
             array (
               'call_back_function' => 'call_back_account_team',
             ),
@@ -120,14 +133,19 @@ array (
             'comment' => '',
             'label' => 'LBL_INCOME_PER_MONTH',
           ),
-		  1 => 
+          1 => '',
+        ),
+        1 => 
+        array (
+          0 => 
           array (
             'name' => 'savings_per_month',
             'comment' => '',
             'label' => 'LBL_SAVINGS_PER_MONTH',
           ),
+          1 => '',
         ),
-        1 => 
+        2 => 
         array (
           0 => 
           array (
@@ -135,12 +153,17 @@ array (
             'comment' => '',
             'label' => 'LBL_FIXED_EXPENSES_PER_MONTH',
           ),
-		 1 => 
+          1 => '',
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'variable_expenses_per_month',
             'comment' => '',
             'label' => 'LBL_VARIABLE_EXPENSES_PER_MONTH',
           ),
+          1 => '',
         ),
       ),
     ),
