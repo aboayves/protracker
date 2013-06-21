@@ -18,7 +18,6 @@ $dictionary["av_Workflow"]["fields"]["add_to_project_id"] = array (
 		'type' => 'id',
 		'required' => false,
 		'reportable' => false,
-		'source' => 'non-db',
 		'audited' => true,
 		);
 ?>
