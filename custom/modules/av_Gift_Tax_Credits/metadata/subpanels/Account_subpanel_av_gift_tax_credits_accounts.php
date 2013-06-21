@@ -1,11 +1,11 @@
 <?php
-// created: 2013-01-07 17:44:31
+// created: 2013-06-21 14:08:18
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
     'vname' => 'LBL_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '15%',
+    'width' => '35%',
     'default' => true,
   ),
   'date_credit_used' => 
@@ -13,15 +13,7 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'date',
     'default' => true,
     'vname' => 'LBL_DATE_CREDIT_USED',
-    'width' => '10%',
-  ),
-  'description' => 
-  array (
-    'type' => 'text',
-    'vname' => 'LBL_DESCRIPTION',
-    'sortable' => false,
-    'width' => '40%',
-    'default' => true,
+    'width' => '12%',
   ),
   'credit_amount' => 
   array (
@@ -29,7 +21,15 @@ $subpanel_layout['list_fields'] = array (
     'default' => true,
     'vname' => 'LBL_CREDIT_AMOUNT',
     'currency_format' => true,
-    'width' => '15%',
+    'width' => '12%',
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '20%',
+    'default' => true,
   ),
   'date_modified' => 
   array (

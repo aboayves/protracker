@@ -26,6 +26,19 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
+      'tabDefs' => 
+      array (
+        'DEFAULT' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -106,13 +119,7 @@ array (
             'comment' => '',
             'label' => 'LBL_INCOME_PER_MONTH',
           ),
-          1 => 
-          array (
-            'name' => 'income_per_year',
-            'comment' => '',
-            'label' => 'LBL_INCOME_PER_YEAR',
-			'type' => 'currency',
-          ),
+          1 => '',
         ),
         1 => 
         array (
@@ -122,13 +129,7 @@ array (
             'comment' => '',
             'label' => 'LBL_SAVINGS_PER_MONTH',
           ),
-          1 => 
-          array (
-            'name' => 'savings_per_year',
-            'comment' => '',
-            'label' => 'LBL_SAVINGS_PER_YEAR',
-			'type' => 'currency',
-          ),
+          1 => '',
         ),
         2 => 
         array (
@@ -138,13 +139,7 @@ array (
             'comment' => '',
             'label' => 'LBL_FIXED_EXPENSES_PER_MONTH',
           ),
-          1 => 
-          array (
-            'name' => 'fixed_expenses_per_year',
-            'comment' => '',
-            'label' => 'LBL_FIXED_EXPENSES_PER_YEAR',
-			'type' => 'currency',
-          ),
+          1 => '',
         ),
         3 => 
         array (
@@ -154,20 +149,7 @@ array (
             'comment' => '',
             'label' => 'LBL_VARIABLE_EXPENSES_PER_MONTH',
           ),
-          1 => 
-          array (
-            'name' => 'variable_expenses_per_year',
-            'comment' => '',
-            'label' => 'LBL_VARIABLE_EXPENSES_PER_YEAR',
-			'type' => 'currency',
-          ),
-        ),
-        4 => 
-        array (
-          0 => 
-          array (
-            'name' => 'total_per_year',
-          ),
+          1 => '',
         ),
       ),
     ),

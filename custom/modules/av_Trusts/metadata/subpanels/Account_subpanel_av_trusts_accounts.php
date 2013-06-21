@@ -1,5 +1,5 @@
 <?php
-// created: 2013-01-07 16:44:27
+// created: 2013-06-21 15:05:24
 $subpanel_layout['list_fields'] = array (
   'object_image' => 
   array (
@@ -19,7 +19,34 @@ $subpanel_layout['list_fields'] = array (
     'name' => 'document_name',
     'vname' => 'LBL_LIST_DOCUMENT_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '45%',
+    'width' => '35%',
+    'default' => true,
+  ),
+  'type' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'vname' => 'LBL_TYPE',
+    'width' => '12%',
+  ),
+  'contacts_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_CONTACTS_NAME',
+    'id' => 'CONTACT_ID',
+    'width' => '12%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Contacts',
+    'target_record_key' => 'contact_id',
+  ),
+  'description' => 
+  array (
+    'type' => 'text',
+    'vname' => 'LBL_DESCRIPTION',
+    'sortable' => false,
+    'width' => '20%',
     'default' => true,
   ),
   'active_date' => 
@@ -28,25 +55,6 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_DOC_ACTIVE_DATE',
     'width' => '10%',
     'default' => true,
-  ),
-  'date_modified' => 
-  array (
-    'type' => 'datetime',
-    'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'assigned_user_name' => 
-  array (
-    'link' => true,
-    'type' => 'relate',
-    'vname' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
-    'width' => '10%',
-    'default' => true,
-    'widget_class' => 'SubPanelDetailViewLink',
-    'target_module' => 'Users',
-    'target_record_key' => 'assigned_user_id',
   ),
   'edit_button' => 
   array (

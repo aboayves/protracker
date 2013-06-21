@@ -1,11 +1,11 @@
 <?php
-// created: 2013-02-07 16:32:15
+// created: 2013-06-21 14:05:09
 $subpanel_layout['list_fields'] = array (
   'name' => 
   array (
     'vname' => 'LBL_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '20%',
+    'width' => '35%',
     'default' => true,
   ),
   'date_of_gift' => 
@@ -20,7 +20,7 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'varchar',
     'default' => true,
     'vname' => 'LBL_RECIPIENT',
-    'width' => '20%',
+    'width' => '12%',
   ),
   'is_709_required' => 
   array (
