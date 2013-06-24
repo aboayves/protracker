@@ -49,6 +49,17 @@ class av_Account_Histories extends av_Account_Histories_sugar {
 			}
 		}
 	}
+	//Making Client(non-db relate field) sortable.
+	function create_new_list_query($order_by, $where,$filter=array(),$params=array(), $show_deleted = 0,$join_type='', $return_array = false,$parentbean=null, $singleSelect = false, $ifListForExport = false)
+	{
+		$return_array = parent::create_new_list_query($order_by, $where,$filter,$params, $show_deleted,$join_type, $return_array,$parentbean, $singleSelect, $ifListForExport);
+		if($order_by == 'account_name ASC' || $order_by == 'account_name DESC'){
+			$return_array['select'] = $return_array['select'].", accounts.name as account_name";
+			$return_array['from'] = $return_array['from']. " LEFT JOIN av_accounts ON(av_account_histories.av_accounts_id = av_accounts.id) LEFT JOIN accounts ON(av_accounts.account_id = accounts.id)";
+			$return_array['order_by'] = " ORDER BY ".$order_by;
+		}
+		return $return_array;
+	}
 
 	
 }
