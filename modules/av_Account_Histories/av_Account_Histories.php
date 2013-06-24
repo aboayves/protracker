@@ -35,6 +35,21 @@ class av_Account_Histories extends av_Account_Histories_sugar {
 	function av_Account_Histories(){	
 		parent::av_Account_Histories_sugar();
 	}
+	//Filling empty relate field in listview.
+	function fill_in_additional_list_fields()
+	{
+		parent::fill_in_additional_list_fields();
+		if(isset($this->av_accounts_id) && !empty($this->av_accounts_id)){
+			$av_accounts_bean = BeanFactory::getBean("av_Accounts", $this->av_accounts_id);
+			$this->av_accounts_name = $av_accounts_bean->name;
+			if(isset($av_accounts_bean->account_id) && !empty($av_accounts_bean->account_id)){
+				$this->account_id = $av_accounts_bean->account_id;
+				$account_bean = BeanFactory::getBean("Accounts", $this->account_id);
+				$this->account_name = $account_bean->name;
+			}
+		}
+	}
+
 	
 }
 ?>
