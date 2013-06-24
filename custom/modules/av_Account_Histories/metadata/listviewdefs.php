@@ -15,7 +15,7 @@ array (
     'link' => true,
     'label' => 'LBL_ACCOUNT_NAME',
     'id' => 'ACCOUNT_ID',
-	'sortable' => false,
+	'sortable' => true,
     'width' => '20%',
     'related_fields' => 
     array (
