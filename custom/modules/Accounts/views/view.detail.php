@@ -34,12 +34,15 @@ class AccountsViewDetail extends CustomViewDetail
 		";
 		
 		$sql_result = $this->bean->db->query($sql);
+		$sql_result1 = $this->bean->db->query($sql);
+		$graph_break_point=array();
 		if($sql_result->num_rows >0)
 		{
 			$graph_data_db = array();
 			$min = INF;
 			$max = -INF;
 			$year = 0;
+			$graph_break_point = $this->bean->db->fetchByAssoc($sql_result1);
 			while($graph_data_row = $this->bean->db->fetchByAssoc($sql_result))
 			{
 				
@@ -81,6 +84,18 @@ class AccountsViewDetail extends CustomViewDetail
 					$last_value_managed = $graph_data_db[$year][$i]['managed_assets'];
 				}
 			
+			}
+			//removing last years with no data from graph.
+			$graph_data_last_index=0;
+			for($j=0; $j<count($data4graph); $j++){
+				if(isset($data4graph[$j]['year']) && ($data4graph[$j]['year'] == $graph_break_point['year'])){
+					$graph_data_last_index = $j;
+				}
+			}
+			$new_count = $graph_data_last_index + $graph_break_point['month'];
+			$actual_count = count($data4graph);
+			for($i=$new_count; $i<$actual_count; $i++){
+				unset($data4graph[$i]);
 			}
 			$printNetworthButton = "";
 			$graph_style ='style="width:875px;height:400px;"';
