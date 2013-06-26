@@ -1,6 +1,7 @@
 <?php require_once('modules/Currencies/Currency.php'); ?>
 <script type='text/javascript'>
-	function new_currency_formater(amount, params = Array()) {
+	function new_currency_formater(amount) {
+		params=new Array();
 		if(typeof(params['round'])!='undefined' && !isNaN(params['round'])){
 			real_round = params['round'];
 		}else{
@@ -21,7 +22,7 @@
 		return format_number(amount, real_round, real_decimals, params);
 
 	}
-	function format_number($amount, $round = null, $decimals = null, $params = Array()) {
+	function format_number($amount, $round, $decimals, $params) {
 		$current_users_currency = null;
 		$last_override_currency = null;
 		$override_currency_id = null;
