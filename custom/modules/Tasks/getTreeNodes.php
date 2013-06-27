@@ -61,14 +61,12 @@ function getStart($id, $visited_parent=array()){
 			}
 		}
 		
-		$row['category'] = $app_list_strings['task_category_list'][$row['category']];
-		
 		$tree['id'] = $row['id'];
 		$tree['label'] = $row['name'];
 		$tree['html'] = "<table>
 							<tr style='color:#000'>
 								<th id='name' title='Name'><span style='float:left;cursor:pointer;' onclick=\"window.location='index.php?module=Tasks&action=DetailView&record={$row['id']}';\"><span class={$tree['contentStyle']}><a >{$row['name']}</a></span> |</span>Name</th>
-								<th width='200px' title='Category'>Category</th>
+								<th width='200px' title='Activity Type'>Activity Type</th>
 								<th width='180px' title='Assignee'>Assignee</th>
 								<th width='135px' title='Due Date'>Due Date</th>
 							</tr>
@@ -120,7 +118,7 @@ function build_child_tree($id, $added_nodes = array()) {
     global $db, $users, $timedate, $app_list_strings;
     
 	$sql = "SELECT ".
-				"id, name, status, category, parent_tasks_id, assigned_user_id, date_due, ".
+				"id, name, status, activity_type_id, parent_tasks_id, assigned_user_id, date_due, ".
 				"IF(date_due IS NOT NULL AND TRIM(date_due) != '' AND date_due != '0000-00-00 00:00:00' AND date_due < now() AND status != 'Completed', 1, 0) as over_due, ".
 				"IF(date_due <= DATE_SUB(NOW(), INTERVAL 90 DAY) OR date_due >= DATE_ADD(NOW(), INTERVAL 90 DAY), 1, 0) as old_task ".
 			"FROM tasks WHERE parent_tasks_id = '{$id}' AND deleted=0 ORDER BY date_due ASC";
@@ -151,14 +149,14 @@ function build_child_tree($id, $added_nodes = array()) {
 				}
 			}
 			
-			$row['category'] = $app_list_strings['task_category_list'][$row['category']];
-			
+			$activity_type_bean = BeanFactory::getBean('av_Activity_Types', $row['activity_type_id']);
+			$row['activity_type_id'] = $activity_type_bean->name;
 			$node['id'] = $row['id'];
 			$node['label'] = $row['name'];
 			$node['html'] = "<table>
 								<tr>
 									<td id='name' title='Name' style='cursor:pointer;' onclick=\"window.location='index.php?module=Tasks&action=DetailView&record={$row['id']}';\" ><div class={$node['contentStyle']}><a >{$row['name']}</a></div></td>
-									<td width='200px' title='Category'>{$row['category']}</td>
+									<td width='200px' title='Activity Type'>{$row['activity_type_id']}</td>
 									<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
 									<td width='135px' title='Due Date'><span class='{$node['contentStyle']}'>".$row['date_due']."</td>
 								</tr>

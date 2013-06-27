@@ -9,7 +9,7 @@ class TreeData{
 		$tree['html'] = "<table><tr style='color:#000;'><th id='name' title='Name'><span style='float:left;'>{$projectName} |</span>";
 		$tree['html'] .= "".
 					 "Name</th>".
-					 "<th width='200px' title='Category'>Category</th>
+					 "<th width='200px' title='Activity Type'>Activity Type</th>
 									<th width='180px' title='Assignee'>Assignee</th>
 									<th width='135px' title='Due Date'>Due Date</th>
 									</tr></table>";
@@ -30,7 +30,7 @@ class TreeData{
 			$addWhere = " AND (tasks.parent_tasks_id IS NULL OR TRIM(tasks.parent_tasks_id)='')";
 		}
 		
-		$sql = "SELECT tasks.id, tasks.name, tasks.status, tasks.category, assigned_user_id, date_due, IF(date_due IS NOT NULL AND TRIM(date_due) != '' AND date_due != '0000-00-00 00:00:00' AND date_due < now() AND status != 'Completed', 1, 0) as over_due
+		$sql = "SELECT tasks.id, tasks.name, tasks.status, tasks.activity_type_id, assigned_user_id, date_due, IF(date_due IS NOT NULL AND TRIM(date_due) != '' AND date_due != '0000-00-00 00:00:00' AND date_due < now() AND status != 'Completed', 1, 0) as over_due
 				FROM tasks
 				WHERE {$field} = '{$id}' AND tasks.deleted=0" . $addWhere. " ORDER BY tasks.date_due ASC";
 		$result = $db->query($sql);
@@ -39,7 +39,8 @@ class TreeData{
 		while ($row = $db->fetchByAssoc($result)){
 			if(!in_array($row['id'], $added_nodes)){
 				$added_nodes[] = $row['id'];
-				$row['category'] = $app_list_strings['task_category_list'][$row['category']];	
+				$activity_type_bean = BeanFactory::getBean('av_Activity_Types', $row['activity_type_id']);
+				$row['activity_type_id'] = $activity_type_bean->name;;	
 				$node = array();
 				$node['id'] = $row['id'];
 				$node['type'] = 'html';
@@ -64,7 +65,7 @@ class TreeData{
 				}
 				$node['html'] .= "<tr>
 								<td id='name' title='Name' style='cursor:pointer;' onclick=\"window.location='index.php?module=Tasks&action=DetailView&record={$row['id']}';\" ><div class={$node['contentStyle']}>{$row['name']}</div></td>
-								<td width='200px' title='Category'>{$row['category']}</td>
+								<td width='200px' title='Activity Type'>{$row['activity_type_id']}</td>
 								<td width='180px' title='Assignee'>".get_assigned_user_name($row['assigned_user_id'])."</td>
 								<td width='135px' title='Due Date'><div class={$node['contentStyle']}>".$timedate->to_display_date_time($row['date_due'])."</div></td>
 							</tr>

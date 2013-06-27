@@ -17,7 +17,7 @@ class TreeData{
 		$tree['html'] .= "".
 					 "Name</th>".
 					 "<th width='{$subject_width}px' title='Subject'>Subject</th>".
-					 "<th width='{$category_width}px' title='Category'>Category</th>".
+					 "<th width='{$category_width}px' title='Activity Type'>Activity Type</th>".
 		 "<th width='{$assign_to_width}px' title='Assign To'>Assign To</th>";
 		if(empty($users)){
 			$tree['html'] .= "<th width='135px' title='Days Out'>Days Out</th>";
@@ -49,7 +49,7 @@ class TreeData{
 		}
 		
 		$sql = "SELECT ".
-					"avt.id, avt.name, avt.subject, avt.task_category, avt.assign_to, avt.relate_to, avt.days_out, ".
+					"avt.id, avt.name, avt.subject, avt.activity_type_id, avt.assign_to, avt.relate_to, avt.days_out, ".
 					"TRIM(CONCAT(IFNULL(u.first_name, ''), ' ', IFNULL(u.last_name, ''))) as 'assigned_user' ".
 				"FROM av_task_template avt ".
 				"LEFT JOIN users u ON avt.assigned_user_id=u.id AND u.deleted='0' ".
@@ -107,7 +107,8 @@ class TreeData{
 				$node = array();
 				$node['id'] = $row['id'];
 				$node['html'] = "<table>";
-				
+				$activity_type_bean = BeanFactory::getBean('av_Activity_Types', $row['activity_type_id']);
+				$row['activity_type_id'] = $activity_type_bean->name;;	
 				/*if(count($added_nodes) == 2){
 					$node['html'] .= "<tr style='color:#000'>".
 										 "<th id='name' title='Name'>Name</th>".
@@ -130,7 +131,7 @@ class TreeData{
 				$node['html'] .=	"<tr>".
 										"<td  id='name' title='Name' ><a href='index.php?module=av_Task_Template&action=DetailView&record={$row['id']}'>{$row['name']}</a></td>".
 										"<td width='200px' title='Subject'>{$row['subject']}</td>".
-										"<td width='180px' title='Category'>{$row['task_category']}</td>".
+										"<td width='180px' title='Activity Type'>{$row['activity_type_id']}</td>".
 										"<td width='135px' name='assign_to' default_value='{$assign_to_default_value}' title='Assign To'>{$row['assign_to']}</td>".
 										"<td width='135px' title='Days Out'>";
 				if(empty($users)){
