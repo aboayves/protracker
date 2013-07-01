@@ -126,6 +126,12 @@ array (
         array (
           0 => 
           array (
+            'name' => 'asset_class',
+            'comment' => '',
+            'label' => 'LBL_ASSET_CLASS',
+          ),
+          1 => 
+          array (
             'name' => 'custodian_id_name',
             'label' => 'LBL_CUSTODIAN_ID_NAME',
           ),

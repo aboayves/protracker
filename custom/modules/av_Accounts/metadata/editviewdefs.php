@@ -27,7 +27,6 @@ array (
           'field' => '30',
         ),
       ),
-	  
       'useTabs' => true,
       'syncDetailEditViews' => true,
       'includes' => 
@@ -36,7 +35,7 @@ array (
         array (
           'file' => 'custom/include/js/inherit_parent_team.js',
         ),
-		1 => 
+        1 => 
         array (
           'file' => 'custom/modules/av_Accounts/get_relate_clients.js',
         ),
@@ -138,6 +137,12 @@ array (
         3 => 
         array (
           0 => 
+          array (
+            'name' => 'asset_class',
+            'comment' => '',
+            'label' => 'LBL_ASSET_CLASS',
+          ),
+          1 => 
           array (
             'name' => 'custodian_id_name',
             'label' => 'LBL_CUSTODIAN_ID_NAME',
