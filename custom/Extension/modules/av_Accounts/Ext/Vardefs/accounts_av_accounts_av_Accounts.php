@@ -18,5 +18,6 @@ $dictionary["av_Accounts"]["fields"]["account_name"] = array (
   'vname' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
   'id_name' => 'account_id',
   'module' => 'Accounts',
+  'ext2' => 'Accounts',
   'studio' => 'visible',
 );
