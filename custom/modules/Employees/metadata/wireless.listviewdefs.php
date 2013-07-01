@@ -1,5 +1,5 @@
 <?php
-$listViewDefs ['Contacts'] = 
+$listViewDefs ['Employees'] = 
 array (
   'NAME' => 
   array (
@@ -15,10 +15,10 @@ array (
       2 => 'salutation',
     ),
   ),
-  'PHONE_HOME' => 
+  'PHONE_WORK' => 
   array (
     'width' => '10%',
-    'label' => 'LBL_HOME_PHONE',
+    'label' => 'LBL_OFFICE_PHONE',
     'default' => true,
   ),
   'PHONE_MOBILE' => 
@@ -27,55 +27,31 @@ array (
     'label' => 'LBL_MOBILE_PHONE',
     'default' => true,
   ),
-  'PHONE_WORK' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_OFFICE_PHONE',
-    'default' => true,
-  ),
   'EMAIL1' => 
   array (
     'width' => '15%',
-    'label' => 'LBL_EMAIL_ADDRESS',
+    'label' => 'LBL_EMAIL',
     'sortable' => false,
     'link' => true,
     'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
     'default' => true,
   ),
-  'DO_NOT_CALL' => 
+  'TEAM_NAME' => 
   array (
     'width' => '10%',
-    'label' => 'LBL_DO_NOT_CALL',
+    'label' => 'LBL_TEAM',
+    'default' => true,
+  ),
+  'PHONE_HOME' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_HOME_PHONE',
     'default' => false,
   ),
   'TITLE' => 
   array (
     'width' => '15%',
     'label' => 'LBL_TITLE',
-    'default' => false,
-  ),
-  'TEAM_NAME' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_TEAM',
-    'default' => false,
-  ),
-  'ASSIGNED_USER_NAME' => 
-  array (
-    'link' => true,
-    'type' => 'relate',
-    'label' => 'LBL_ASSIGNED_TO_NAME',
-    'id' => 'ASSIGNED_USER_ID',
-    'width' => '10%',
-    'default' => false,
-  ),
-  'ACCOUNT_NAME' => 
-  array (
-    'type' => 'relate',
-    'link' => true,
-    'label' => 'LBL_ACCOUNT_NAME',
-    'id' => 'ACCOUNT_ID',
-    'width' => '10%',
     'default' => false,
   ),
   'PHONE_OTHER' => 
@@ -118,12 +94,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_DATE_ENTERED',
-    'default' => false,
-  ),
-  'CREATED_BY_NAME' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_CREATED',
     'default' => false,
   ),
 );
