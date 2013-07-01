@@ -13,7 +13,7 @@ $dictionary["av_Account_Histories"]["fields"]["account_name"] = array (
 );
 $dictionary["av_Account_Histories"]["fields"]["account_id"] = array (
   'name' => 'account_id',
-  'type' => 'link',
+  'type' => 'id',
   'relationship' => 'account_av_account_histories',
   'source' => 'non-db',
   'reportable' => false,

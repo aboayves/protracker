@@ -15,6 +15,7 @@ $dictionary["av_Account_Histories"]["fields"]["av_accounts_name"] = array (
   'source' => 'non-db',
   'vname' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_ACCOUNTS_TITLE',
   'id_name' => 'av_accounts_id',
+  'ext2' => 'av_Accounts',
   'module' => 'av_Accounts',
   'studio' => 'visible',
 );
