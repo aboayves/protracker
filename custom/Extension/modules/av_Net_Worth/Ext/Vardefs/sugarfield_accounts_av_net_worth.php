@@ -17,6 +17,7 @@ $dictionary["av_Net_Worth"]["fields"]["account_name"] = array (
   'vname' => 'LBL_ACCOUNTS_NAME',
   'id_name' => 'account_id',
   'module' => 'Accounts',
+  'ext2' => 'Accounts',
   'studio' => 'visible',
   'rname' => 'name',
 );
