@@ -253,7 +253,12 @@ array (
             'comment' => '',
             'label' => 'LBL_IS_PRIMARY_CLIENT',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'report_name',
+            'comment' => '',
+            'label' => 'LBL_REPORT_NAME',
+          ),
         ),
         8 => 
         array (

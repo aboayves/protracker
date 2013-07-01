@@ -107,9 +107,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'report_name',
+            'name' => 'is_primary_client',
             'comment' => '',
-            'label' => 'LBL_REPORT_NAME',
+            'label' => 'LBL_IS_PRIMARY_CLIENT',
           ),
           1 => 
           array (
@@ -173,9 +173,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'phase',
+            'name' => 'report_name',
             'comment' => '',
-            'label' => 'LBL_PHASE',
+            'label' => 'LBL_REPORT_NAME',
           ),
         ),
         7 => 
@@ -192,9 +192,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'is_primary_client',
+            'name' => 'phase',
             'comment' => '',
-            'label' => 'LBL_IS_PRIMARY_CLIENT',
+            'label' => 'LBL_PHASE',
           ),
           1 => '',
         ),
