@@ -32,11 +32,29 @@ array (
 	{sugar_getscript file="modules/Documents/documents.js"}',
       'useTabs' => false,
       'syncDetailEditViews' => true,
-	  'includes' => 
+      'includes' => 
       array (
         0 => 
         array (
           'file' => 'custom/include/js/inherit_parent_team.js',
+        ),
+      ),
+      'tabDefs' => 
+      array (
+        'LBL_EDITVIEW_PANEL3' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL2' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
         ),
       ),
     ),
@@ -50,7 +68,7 @@ array (
           array (
             'name' => 'accounts_name',
             'label' => 'LBL_ACCOUNTS_NAME',
-			'displayParams' => 
+            'displayParams' => 
             array (
               'call_back_function' => 'call_back_account_team',
             ),
