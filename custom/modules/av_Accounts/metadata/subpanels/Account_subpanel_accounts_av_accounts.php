@@ -1,5 +1,5 @@
 <?php
-// created: 2013-05-09 20:42:43
+// created: 2013-06-26 19:08:01
 $subpanel_layout['list_fields'] = array (
   'account_number' => 
   array (
@@ -12,7 +12,7 @@ $subpanel_layout['list_fields'] = array (
   array (
     'vname' => 'LBL_NAME',
     'widget_class' => 'SubPanelDetailViewLink',
-    'width' => '25%',
+    'width' => '15%',
     'default' => true,
   ),
   'av_account_types_name' => 
@@ -34,6 +34,18 @@ $subpanel_layout['list_fields'] = array (
     'vname' => 'LBL_OWNERSHIP_TYPE',
     'width' => '10%',
   ),
+  'contacts_name' => 
+  array (
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_CONTACTS_NAME',
+    'id' => 'OWNER_ID',
+    'width' => '10%',
+    'default' => true,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'Contacts',
+    'target_record_key' => 'owner_id',
+  ),
   'custodian' => 
   array (
     'type' => 'enum',
@@ -46,14 +58,14 @@ $subpanel_layout['list_fields'] = array (
     'type' => 'currency',
     'vname' => 'LBL_VALUE',
     'currency_format' => true,
-	'align' => 'right',
-    'width' => '13%',
+    'align' => 'right',
+    'width' => '8%',
     'default' => true,
   ),
   'date_modified' => 
   array (
     'vname' => 'LBL_DATE_MODIFIED',
-    'width' => '13%',
+    'width' => '10%',
     'default' => true,
   ),
   'edit_button' => 

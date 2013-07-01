@@ -3,39 +3,31 @@ $listViewDefs ['Accounts'] =
 array (
   'NAME' => 
   array (
-    'width' => '40%',
+    'width' => '20%',
     'label' => 'LBL_ACCOUNT_NAME',
     'link' => true,
     'default' => true,
-  ),
-  'AV_CLIENT_TYPES_NAME' => 
-  array (
-    'type' => 'relate_cstm',
-    'link' => 'av_client_types',
-    'label' => 'LBL_AV_CLIENT_TYPES_NAME',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'PHONE_MOBILE' => 
-  array (
-    'type' => 'phone',
-    'default' => true,
-    'label' => 'LBL_PHONE_MOBILE',
-    'width' => '10%',
   ),
   'PHONE_HOME' => 
   array (
     'type' => 'phone',
     'default' => true,
     'label' => 'LBL_PHONE_HOME',
-    'width' => '10%',
+    'width' => '20%',
+  ),
+  'PHONE_MOBILE' => 
+  array (
+    'type' => 'phone',
+    'default' => true,
+    'label' => 'LBL_PHONE_MOBILE',
+    'width' => '20%',
   ),
   'PHONE_WORK' => 
   array (
     'type' => 'phone',
     'default' => true,
     'label' => 'LBL_PHONE_WORK',
-    'width' => '10%',
+    'width' => '20%',
   ),
   'EMAIL1' => 
   array (
@@ -46,8 +38,16 @@ array (
       'searchview' => false,
     ),
     'label' => 'LBL_EMAIL',
-    'width' => '10%',
+    'width' => '20%',
     'default' => true,
+  ),
+  'AV_CLIENT_TYPES_NAME' => 
+  array (
+    'type' => 'relate_cstm',
+    'link' => 'av_client_types',
+    'label' => 'LBL_AV_CLIENT_TYPES_NAME',
+    'width' => '10%',
+    'default' => false,
   ),
   'ACCOUNT_TYPE' => 
   array (
