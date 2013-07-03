@@ -6,54 +6,82 @@ array (
   array (
     'basic_search' => 
     array (
-      'name' => 
+      'account_name' => 
       array (
-        'name' => 'name',
+        'type' => 'relate',
+        'studio' => 'visible',
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'id' => 'ACCOUNT_ID',
+        'link' => true,
+        'width' => '10%',
         'default' => true,
+        'name' => 'account_name',
       ),
-      'current_user_only' => 
+      'grand_total' => 
       array (
-        'name' => 'current_user_only',
-        'label' => 'LBL_CURRENT_USER_FILTER',
-        'type' => 'bool',
+        'type' => 'currency',
+        'label' => 'LBL_GRAND_TOTAL',
+        'currency_format' => true,
+        'width' => '10%',
         'default' => true,
+        'name' => 'grand_total',
       ),
-      'favorites_only' => 
+      'managed_assets' => 
       array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
+        'type' => 'currency',
+        'label' => 'LBL_MANAGED_ASSETS',
+        'currency_format' => true,
+        'width' => '10%',
         'default' => true,
+        'name' => 'managed_assets',
+      ),
+      'net_worth_date' => 
+      array (
+        'type' => 'date',
+        'default' => true,
+        'label' => 'LBL_NET_WORTH_DATE',
+        'width' => '10%',
+        'name' => 'net_worth_date',
       ),
     ),
     'advanced_search' => 
     array (
-      'name' => 
+      'account_name' => 
       array (
-        'name' => 'name',
+        'type' => 'relate',
+        'studio' => 'visible',
+        'label' => 'LBL_ACCOUNTS_NAME',
+        'link' => true,
+        'width' => '10%',
         'default' => true,
+        'id' => 'ACCOUNT_ID',
+        'name' => 'account_name',
       ),
-      'assigned_user_id' => 
+      'grand_total' => 
       array (
-        'name' => 'assigned_user_id',
-        'label' => 'LBL_ASSIGNED_TO',
-        'type' => 'enum',
-        'function' => 
-        array (
-          'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
-        ),
+        'type' => 'currency',
+        'label' => 'LBL_GRAND_TOTAL',
+        'currency_format' => true,
+        'width' => '10%',
         'default' => true,
+        'name' => 'grand_total',
       ),
-      'favorites_only' => 
+      'managed_assets' => 
       array (
-        'name' => 'favorites_only',
-        'label' => 'LBL_FAVORITES_FILTER',
-        'type' => 'bool',
+        'type' => 'currency',
+        'label' => 'LBL_MANAGED_ASSETS',
+        'currency_format' => true,
+        'width' => '10%',
         'default' => true,
+        'name' => 'managed_assets',
+      ),
+      'net_worth_date' => 
+      array (
+        'type' => 'date',
+        'default' => true,
+        'label' => 'LBL_NET_WORTH_DATE',
+        'width' => '10%',
+        'name' => 'net_worth_date',
       ),
     ),
   ),
