@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+</head>
+
+<body>
+<h2>Trackers</h2>
+<table style="width: 800px;"><tbody><tr><td style="width: 500px; ">
+<P><A href="#Overview">Overview</A></P>
+<P><A href="#Actions">Actions</A></P></td>
+<td style="vertical-align: top; "><strong>Availability</strong><ul><li>Standard</li><li>Professional</li><li>Enterprise</li></ul></td></tr></tbody></table>
+<h2><a name="Overview"></a>Overview</h2>
+<p>A tracker displays recently accessed records in the Last Viewed list below the module tabs. Trackers also enable users to navigate back and forth between previously accessed records.</p>
+<P>Tracker reports provide administrators and supervisors visibility in user actions and system performance. These reports display user actions such as records views and other page views such as records saves.</p>
+<P>For example, you can run a report on the number of modules a specific user accessed on a particular day and the actions performed in those modules. Trackers allow users to keep track of records that they access during their current session.</p>
+<P>The data viewed in a Tracker report depends on team membership. When viewing tracker reports on user activity, you can only view your own data and data for users who report to you. For example, supervisors can view their own activities as well as the activities of their subordinates. Administrators can track activities for everybody.</p>
+<P>The administrator must assign the Tracker role to a user to enable the user to view tracker data and create tracker reports.</p>
+<p>ProTracker provides several pre-defined reports. You cannot edit these reports. Some of the pre-defined reports, based on the most frequently used queries such as module usage, are available through the Tracker tab on your Home page. Other pre-defined reports, listed below, are available through the Reports module. </p>
+<p>Note: You need access permissions from the administrator to view the Tracker tab and to run and create tracker reports.</p>
+<ul><li>My Usage Metrics: This report displays the cumulative sum for the server response time (in seconds), total database round trips and total files opened by the user for a specified time period such as a day, week, or month.</li>
+<li> My Module Usage: This report displays the cumulative sum for each module you accessed for a specified time period such as a day, week, or month.</li>
+<li> Users Usage Metrics: This sessions report lists the cumulative sum for the server response time (in seconds), total database round trips, and total files opened by the user.</li>
+<li>My Records Modified: This report lists the modules that were modified in the past week.</li>
+<li>My Recently Modified Records: This report displays recently modified modules.</li>
+<li>Modules Used by My Direct Reports: This report displays the cumulative sum of each module used during the last 30 days by your direct reports. Modules that each report used are grouped together and presented in a separate horizontal bar.</li>
+<li> Records Modified by My Direct Reports: This report displays the modules in which your direct reports recently modified records.</li>
+<li> Active User Sessions: This report displays active sessions for a specific user during the last seven days.</li>
+<li>User Sessions: This report displays active sessions for all users during the last seven days.</li>
+</ul>
+<h3><a name="TrackerTypes">Types of Tracker reports</a></h3>
+<P>Tracker reports are broadly classified into the following types:</P>
+<ul><li><strong>Trackers:</strong> This report tracks all page requests from users displays the following information:
+<ul><li>Action: Pages viewed and records saved</li>
+<li>Date of Last Action: The date and time when the actions was performed</li>
+<li>Item ID: The record ID</li>
+<li>Item Summary: The record name or description</li>
+<li>Session: The ID assigned to the session</li>
+<li>Team ID: The ID of the private team</li>
+<li>User ID: The ID of the user who performed the act</li>
+<li>Record Visible: If set to True, the records display as breadcrumbs</li>
+<li>Monitor ID: Related Tracker Performance information</li></ul></li>
+<li><strong>Tracker Queries: </strong>This report tracks queries that exceed the slow query time limit and displays the following information:
+<ul><li>Date Last Run: The date when a particular query that was over the threshold was last run</li>
+<li>Query Count: Number of times the query was run</li>
+<li>SQL Text: The pattern of a particular SQL statement</li>
+<li>Average Seconds: The average time taken to run the query</li>
+<li>Total Seconds: The cumulative time taken to run the query. That is, if a query was run more than once, the cumulative time reflects the total of all the query runs.</li></ul></li>
+<li><strong>Tracker Sessions:</strong> This report tracks user access session data and displays the following information:
+<ul><li>Session Active: If set to True, an action has been tracked for the user within the last 20 minutes. </li>
+<li>Date Start: The date that the session started. That is, when the first action was tracked.</li>
+<li>Date of Last Action: The date and time that the last recorded trackable action occurred.</li>
+<li>Action Count: The number of trackable actions.</li>
+<li>Seconds Active: The total number of seconds between the Date Start (login) and Date of Last Action</li>
+<li>Session ID: The ID assigned to the session. If a user starts another session without logging out of an existing session, a new session ID is assigned to the user, and the new session is marked as Active (Active = True).</li>
+<li>Client IP Address: The IP address of the client.</li>
+<li>User ID: The ID of the user who performed the action.</li>
+<li>Record Visible: If set to True, the records display as breadcrumbs.</li>
+<li>Monitor ID: Related Tracker Performance information.</li></ul></li>
+<li><strong>Tracker Performance:</strong> This report tracks performance-related information and displays the following information:
+<ul><li> Date of Last Action: The date and time that an action was performed.</li>
+<li>Database Roundtrips: The number of database calls that the action involved.</li>
+<li>Files Accessed: The number of php files used to perform the action.</li>
+<li>Memory Usage: The amount of memory used, in bytes, to perform the action</li>
+<li>Server Response Time: The time, in seconds, taken by the server to respond.</li></ul></li>            
+</ul>
+<h2><a name="Actions"></a>Actions</h2>
+<h3><a name="ViewCreateTracker">View and create Tracker reports </a></h3>
+<p>To create a Tracker report:</p>
+<ol>
+<li>Click <strong>Reports &gt; View Reports</strong> in the Navigation menu.<br> The Reports List View displays.</li>
+<li>Click <strong>Create New</strong>. <br> The Report Wizard displays.</li>
+<li>Select the report type such as Summation or Matrix on the Report Wizard page.</li>
+<li>Select the Tracker Report type of your choice and follow the process described in
+Creating Standard Reports.</li>
+ </ol>
+<p>Note: Clear the Reports cache to display custom fields in the list of available fields for filters and group-by columns in the Reports Wizard. Log out and log into ProTracker to clear the cache.</p>
+<p>Enter values at every step of the process listed above to proceed to the next step.</p>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+</head>
+
+<body>
+<h1>Team Management</h1>
+<table style="width: 800px;"><tbody><tr><td style="width: 500px; ">
+<P><A href="#Overview">Overview</A></P>
+<P><A href="#Actions">Actions</A></P>
+<p><a href="#FieldDescriptions">Field Descriptions</a>
+<P><A href="#Sub-panelsRelatedInfo">Sub-panels/Related Information</A></P></td>
+<td style="vertical-align: top; "><strong>Availability</strong><ul><li>Standard</li><li>Professional</li><li>Enterprise</li></ul></td></tr></tbody></table>
+<h2><a name="Overview">Overview</a></h2>
+<p>This article describes how to manage teams.</p>
+<P>Use the Team Management option to group users into teams to manage records in a secure manner. Teams provide data security because users can access a record only if they are members of a team that is assigned to manage the record. Teams apply to every record in ProTracker. All records are assigned to at least one team, and can be assigned to more than one team. A user can belong to one or more teams. The following teams are available:
+<ul><li>Private: ProTracker creates a private team for every user. Only the user can access and manage records assigned to the user's own private team. Private teams include the reporting hierarchy. Users can see the records of any user who is below them in the hierarchy, regardless of their team membership.
+</li>
+<li>Global: This is the universal team. When users are created, they are members of the Global team by default. Every user can view records assigned to the Global team. You cannot delete the Global team.</li>
+</ul>
+<p>Users can be both explicitly and implicitly assigned to teams, and will appear as either Member, or Member Reports-to. When a user is manually, or explicitly, assigned to a team, the user's reporting hierarchy is implicitly added to the team as well. This ensures that members of the user's management hierarchy also have visibility into the user's records. For example, if Will and Chris both report to Jim, and Will is a member of the East team, and Chris is a member of the West team, then Jim will be an implicit member of the East and West teams. To delete Jim from the West team, either Chris must be removed from the West team, or he must no longer report to Jim.</p>
+<p>Implicit members appear as Member Reports-to in the Membership column. Implicit team membership has the following characteristics:</p>
+<ul><li>Implicit team members cannot be removed from teams; the Remove icon does not
+appear next to their names.</li>
+<li>Implicit team members can also be explicitly, or manually, assigned to teams; the Remove icon will appear next to their names.</li>
+<li>Due to the implicit membership, clicking the Remove icon will not remove them from the team.</li>
+<li>To remove an implicit member from a team, either a down-level user in the reporting hierarchy must be removed from the team, OR the reporting hierarchy must be broken.</li></ul>
+<p>
+You can create any number of teams, depending on the needs of your organization. For example, based on the reporting hierarchy, you may want to create a team of users who report to the same manager. Based on client service requirements, you may want to create a cross-functional team of users who report to different managers but who manage the same client.</p>
+<p>
+By default, all ProTracker records such as accounts, contracts, and opportunities are assigned to a specific team and can only be accessed by the members of that team. If users spread across teams need to access a record, it can be assigned to multiple teams. In such cases, the user who creates the record can select a primary team and one or more secondary teams.</p>
+<P>Important Note: Users who are assigned to a record can access it regardless of team membership.</P>
+<h2><a name="Actions">Actions</a></h2>
+<h3><a name="CreateTeam">Create a Team</a>
+<p>To create a team:</p>
+<ol><li>Click <strong>Create Team</strong> in the Actions drop-down list in the Teams tab or click the Create button in any Teams page.</li>
+
+
+2.	Enter the team name (required) and a brief description on the Teams page.
+
+Click Save.
+
+This displays the team's Detail View page. Follow the steps listed below to assign users to the team.
+
+4.	Click Select in the Users sub-panel in the team's Detail View page to view the Users list.
+
+
+5.	Choose the users you want to add to the team and click Select; to search for a user, use the Search field on the top of the page.
+
+
+The names of the selected users display in the Users sub-panel on the team's Detail View page. </ol>
+
+
+To manage team information
+
+1.	To view a team's Detail View page, click the team's name in the Teams List View page.
+
+
+2.	To edit team details, click Edit on the Detail View page, change the information as needed, and click Save.
+
+
+3.	To duplicate the team details, on the team's Detail View page, click Duplicate, edit the information as necessary, and click Save.
+
+
+To export team information such as team name and team ID, select the records in
+4.	List View, and click Export. For more information, see the chapter on importing and exporting data.
+
+
+To delete the team, click Delete on the Detail View page; to delete multiple teams,
+5.	select the teams from the Teams home page, and click Delete. If the team has existing record assignments, follow the process described in the section below.
+
+Delete Private Teams
+Administrators can delete private teams associated with deleted users. Deleted private teams no longer appear in the User selection lists.
+
+To delete a private team
+
+1.	Click the Admin link on the top right corner of your page to go to the Administration page.
+
+
+
+2.	Click Team Management in the Users section of the Administration page to view a list of teams in ProTracker.
+
+
+3.	Click the checkbox associated with the team you want to delete.
+
+
+4.	Select Delete from the Actions drop-down menu.
+
+
+Note:	You must first delete the user before you delete the private teams associated with the user.
+
+
+Creating Team Notices
+
+For each team, you can create team notices to broadcast team-specific information to team members. These broadcasts display as a scrolling marquee in the Team Notices Dashlet of the each team member's home page.
+To create a team notice
+
+1.	Click Team Notices on the Teams tab.
+
+2.	Click Create Team Notice on the Team Notice home page. The Team Notices page displays on the page.
+
+3.	Enter information for the following fields:
+
+Date Start. Click the Calendar icon and select the date to begin broadcasting the team notice.
+Date End. Click the Calendar icon and select the date to end the broadcast.
+Team. Click Select to view the team from the team's List View; click a team name to select it.
+Status. Select Visible from the Status drop-down list to make the notice visible to team members; select
+Hidden to hide the notice. Title. Enter the message title. Description. Enter the message text.
+URL Title. Enter a title for the notice URL. This title is a hyperlink to the URL.
+URL. Enter the notice URL. The URL hyperlink is inserted into the Team Notices.
+
+4.	To create the team, click Save; click Cancel to exit the page without saving your changes.
+
+5.	To view the Team Notice list, click Team Notices on the Teams tab. To manage team notices
+
+To update the start date and end date of some or all notices, use the Mass Update
+1.	panel on the Team Notices Home page as described in  Editing and Deleting Multiple
+Records.
+
+
+2.	To edit a notice, click its title in the Team Notices list, revise the details as needed, and click Save.
+
+
+
+3.	To delete one or more notices, on the Team Notices Home page, select the notice you want to delete and click the corresponding Delete icon.
+
+
+</body>
+</html>

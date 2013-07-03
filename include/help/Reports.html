@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+</head>
+
+<body>
+<h2>Reports</h2>
+<table style="width: 800px;"><tbody><tr><td style="width: 500px; ">
+<P><A href="#Overview">Overview</A></P>
+<ul><li><a href="#ReportTypes">Report types</a></li>
+<li><a href="#SettingFilters">Setting filters</a></li></ul>
+<P><A href="#Actions">Actions</A></P></td>
+<td style="vertical-align: top; "><strong>Availability</strong><ul><li>Standard</li><li>Professional</li><li>Enterprise</li></ul></td></tr></tbody></table>
+<h2><a name="Overview"></a>Overview</h2>
+<p>Use the Reports module to create and manage reports on any module such as Clients, Contracts, and Opportunities. You can also create reports to track user activity such as viewed modules, modified records, and other activities.</p>
+<p>The Reports list displays reports in the order that you viewed them, with the most recently viewed report at the top of the list. The date and time when you last viewed the report is displayed in the Accessed On column.</p>
+<p>You can view charts in PDF format generated while viewing reports in an HTML5 browser.</p>
+<p>ProTracker provides several pre-defined reports. These are listed on the Reports List View. You can also create custom reports for your requirements. These include reports on clients, activities, and usage metrics. All existing reports are listed on the Reports Home page. You can click a report name to view its contents.</p>
+<p>You can run a report immediately when you create it or you can schedule it at a later date. You can also schedule it to run at specific time intervals. For more information on scheduling, see <a href="#ScheduleReport">Scheduling Reports</a>.</p>
+<p>You can also create a list of favorite reports that you frequently access. This allows you to group reports that may not share common searchable criteria.</p>
+<p>You can view frequently used reports through ProTracker Dashlets on your Home page. You can view a report with charts as a chart Dashlet. To view reports without charts through a Dashlet, you will need to add them to your list of favorite reports. For more information on Dashlets, see <A href="https://protracker.zendesk.com/entries/2379836">Managing ProTracker Dashlets</a>.</p>
+<p>You can search for an existing report using the Search panel on the Reports home page. The search panel allows you to search for reports by criteria such as a specific module, report type, report title, and so on. </p>
+<p>The Reports module displays options to view existing reports for specific modules.
+</p>
+<h3><a name="ReportTypes">Report types</a></h3>
+<p>The following types of reports are available in ProTracker:</p>
+<ul><li><strong>Summation:</strong> A summation report displays the computed data of records that match the specified criteria.<br>
+A summation report can group the summary data by a date range or by field values such as Type, Lead Source, and Sales Stage and display the total count. You can choose from an additional set of columns which display data values from records within the selected module if the report contains a grouping. These include computed derivatives from numeric-only data values such as SUM, AVG, MAX, MIN, and a weighted average.<br>
+Summation reports can be viewed in a chart format and displayed as a ProTracker Dashlet on your Home page. You can click any segment of the chart to drill-down and view details.
+</li>
+<li><strong>Summation with Details:</strong> In addition to the total count of records, this report enables you to group data and view more details related to the records in the report. The group-by data is visually represented in the report output. For example, you can group records by the assigned user and sort the results in ascending or descending order.
+</li>
+<li><strong>Rows and Columns:</strong> A Rows and Column report displays data in rows and columns that reflect the value of selected fields such as Name and Address.</li>
+<li><strong>Matrix:</strong> Matrix reports are similar to summation reports but unlike summation reports, a matrix report displays results in a grid format. The report displays totals for all summaries. You can use a maximum of three group-by columns to group the data. You can also choose a layout option to view the report results.</li>
+</ul>
+<h3><a name="SettingFilters"></a>Setting filters</h3>
+<p>Filters are fields, operators, and optionally, values (depending on the operator).</p>
+<P>Use the Add Filter Group button to create filter groups. Create nested filter groups with a combination of
+AND and OR operators for complex queries with several filtering levels.</p>
+<P>The choices for operators vary, depending on whether you have selected a text field, numeric field, or date field.</p>
+<ul><li>Operators for text fields can be Is, Is Not, Equals, Does Not Equal, Contains, Does not Contain, Starts With, Ends With, and, Is Not One Of, Is Empty, and Is Not Empty.</li>
+<li>Operators for numeric fields can be any of the following: Equals, Does Not Equal, Less Than, Greater Than, Is Between (requires two numeric values), Is Empty, Is Not Empty.</li>
+<li>Operators for date fields can be any of the following: On, Before, After, Is Between (requires two date values), Not On, Is Empty, Is Not Empty, Yesterday, Today, Tomorrow, Last 7 Days, Next 7 Days, Last Month, This Month, Next Month, Last 30 days, Next 30 days, Last Year, This Year, and Next Year.</li></ul>
+<P>Use the User Name field to run a report on one or more users. For example, you can run a report on all opportunities assigned to Chris, or to Chris and Will. Similarly, you can use the Team ID.</p>
+<P>If the assigned user or a member of your team adds a new filter, the system alerts you of the change when you run the report.</p>
+<P>A dynamic filter called Current User is available in ProTracker. The Current User is any user who is currently logged in and running the report. This filter enables you to create one report for multiple users. For example, you can create one report on all clients assigned to Current User. When a member of your team runs this report, the report results automatically reflect the member's assigned clients because the Current User is the person who is logged in and running the report.</p>
+<P>You can filter by record and/or by user for reports on activities such as calls, meetings, and tasks. For example, you can run a report on meetings held in the last month regarding a specific case number or for all cases assigned to a specific user.</p>
+<P>ProTracker saves the report definition when you create and save a report. Only the assigned user or a member of the assigned team has the permission to change the report definition. If the report definition is modified, the system displays an alert when you try to run the report.
+<h4>Run-time filters</h4>
+<p>A Run-time option enables you to modify report filter values in the Report Viewer when you view the report. The Report Wizard retains the original filter values for the report, regardless of changes you or other users make to the run-time filters while viewing the report. Each user's run-time filter values are preserved for future use when they view the report again. This enables users to modify certain filters in a shared report without altering the original filter values. Users can click the Reset button to restore the original run-time values.</p>
+<h2><a name="Actions"></a>Actions</h2>
+<P>Follow the instructions below to perform tasks such as creating and scheduling reports.</P>
+		<TABLE style="background-color: #f5f5f5; width: 890px; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; ">
+			<TBODY>
+				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px;  width: 200px; ">
+<P><EM>To…</EM></P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P><EM>Then…</EM></P>
+					</TD>
+				</TR>
+				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Create standard reports</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<p>You create a report in the Report Wizard and run it in the Report Viewer.</p>
+<ol>
+<li>Click <strong>Reports &gt; View Reports</strong> in the Navigation menu.<br> The Reports List View displays.</li>
+<li>Click <strong>Create New</strong>. <br> The Report Wizard displays.</li>
+<li>Click a report type.</li>
+<li>Click a module. <br>This displays the Define Filters page.</li>
+<li>Click one or more fields as filters from the listed related modules.</li>
+<li>Click the group-by fields that you would like to use to group records for Summation, Summation with Details, and Matrix reports. You can select fields from more than one module. You can use a maximum of three fields to group records in matrix reports.</li>
+<li>Click a chart type for a Summation, Summation with Details, and Matrix reports (optional).</li>
+<li>Click the display columns for Summation with Details and Row and Columns reports.</li>
+<li>Save the report and run it at a later date, or run it immediately. You can also preview the report before you save it. When you save a report, it is added to the list on the Reports Home page. Users can view, run, edit, schedule, and delete reports.</li>
+</ol>
+<p>Note: Clear the Reports cache to display custom fields in the list of available fields for filters and group-by columns in the Reports Wizard. Log out and log into ProTracker to clear the cache.</p>
+<p>Enter values at every step of the process listed above to proceed to the next step.</p>
+					</TD>
+				</TR>
+
+				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Create a <a name="CreateSummation">Summation </a>report</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<ol><li>Click <strong>Reports &gt; View Reports</strong> in the Navigation menu.<br> The Reports List View displays.</li>
+<li>Click <strong>Create New</strong>. <br> The Report Wizard displays. After you select a report type, the Report
+Wizard guides you through the process of creating the report.</li>
+<li>Click <strong>Summation Report</strong>. <br>This displays a list of modules.</li>
+<li>Click the module of your choice. <br>
+This displays the Define Fields page with a list of Related Modules and Available Fields (in the primary module). You can use one or more fields as filters.
+</li>
+<li> Click a field to select it as a filter in the Field Name pane.<br>
+The field displays in the right pane.
+</li>
+<li>Set all the report filters and select the operator from the dropdown list above.<br>
+To set a level one filter, select the module from the Related Modules list and then select the field from the Available Fields dropdown list. <br>
+To set a level two filter, click Add Filter Group and then select the field from the Available Fields dropdown list. Ensure that you add the field to the correct filter level.<br>
+The tracker bar at the top of the page allows you to navigate back and forth within the Report Wizard and indicates where you are within the Wizard.</li>
+<li>Click the Run-time box to apply the filter values only at the time of running the report.</li>
+<li>Click <strong>Next</strong> to define Group By columns.</li>
+<li>Click the module from the Related Modules column.</li>
+<li>Click one or more fields from the Available Fields dropdown list to group-by columns.<br>
+You must group by day, month, quarter, or year if you select a date field.</li>
+<li>Click <strong>Next</strong>. <br>
+This displays the Display Summaries page. To sort data by a column, click the Sort By radio button that is adjacent to the column name.</li>
+<li>Click <strong>Count</strong> as one of the columns from the Available Fields dropdown list. The Group By columns selected in the previous step is displayed as selected. </li>
+<li>Click the corresponding Sort By radio button, and click either Ascending order or Descending order to display a specific summary column first.</li>
+<li>Click <strong>Next</strong> to view the chart options. <br> For more information on creating a chart, see <a href="#CreateChart">Create report charts</a>.</li>
+<li>Click <strong>Next</strong> to view the Report Details page.</li>
+<li>Enter a name for the report.</li>
+<li>Click <strong>Show Query</strong> if you want to display the SQL query when you run the report.</li>
+<li>Click <strong>Select</strong> in the Assigned to field to choose the user you want to assign to manage the report.</li>
+<li>Enter the name of the new primary team in the Team field to change the primary team assignment. <br>
+To assign additional teams to the record, click the Selection arrow, and choose the team from the Team List, or click + to add team fields and enter the team names. For more information on teams, see  Assigning Records to Users and Teams.</li>
+<li>Click <strong>Optional Related Modules</strong> to display records from the primary module even when there are no records from the related modules. When this option is not selected, primary module records will display only if the module records exist.</li>
+<li>To preview the report results before saving it, click <strong>Preview</strong>.</li>
+<li>To navigate back to a specific step in the report building process to view or edit the criteria, click <strong>Back</strong>.</li>
+<li>To save the report and run it at a later date, click <strong>Save</strong>. <br>
+To save and run the report immediately, click <strong>Save and Run</strong>; to exit the page without saving the report, click <strong>Cancel</strong>.<br>
+The report results display on the page when you run the report. To sort the columns in ascending or descending order, click the column names.
+When you specify a chart, it displays above the tabular data. Place the cursor on a segment to view the associated data.
+</ol>
+					</TD>
+				</TR>	
+        				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Create a Summation with Details report</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<ol><li>
+In the Report Wizard, click <strong>Summation with Details</strong>.</li>
+<li>Follow the process outlined in <a href="#CreateSummation">Create a summation report</a> to define filters, Group
+By columns, and Display Summary columns.</li>
+<li>Click <strong>Next</strong> to choose the Display Columns.</li>
+<li>Click the appropriate Order By button to order the report output by the corresponding column. Order the data in ascending order or descending order based on the columns chosen. <br>
+The report results are grouped according to the specified display columns and order.</li>
+<li>Click <strong>Next</strong> and, optionally, select a chart type.</li>
+<li>Click <strong>Next</strong>. <br>
+This displays the Report Details page and enter details like the report name and the assigned user name.</li>
+<li>click <strong>Save</strong> to generate the report without running it; click <strong>Save &amp; Run</strong> to generate the report and run it.
+</ol>
+					</TD>
+				</TR>
+        				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Create a Matrix report</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<ol><li>In the Report Wizard, click <strong>Matrix</strong>.</li>
+<li>Follow the process outlined in <a href="#CreateSummation">Create a summation report</a>.<br>
+For matrix reports, you can select a maximum of three group-by columns. When you specify three group-by columns, you can select from two layout options to display the results: 1x2 and 2x1. With the 1x2 layout option, the data for the first group-by field displays in a row and the data for the other two group-by fields displays in columns. With the 2x1 layout option, the data for the first two group-by fields display in rows and the data for the third group-by field displays in a column.
+If you have only two group-by columns, you can change the dragging and dropping the group-by fields to a different order in the Define Group By page.
+</ol>
+					</TD>
+				</TR>	
+                				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Create a Rows and Columns report:</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<ol><li>In the Report Wizard, click <strong>Rows and Columns Report</strong>.</li>
+<li>Click the module of your choice.</li>
+<li>Define filters as described in <a href="#CreateSummation">Create a summation report</a>.</li>
+<li>Click <strong>Next</strong> and click the desired fields from the Related Modules list as the Display
+Columns as described in <a href="#CreateSummation">Create a summation report</a>.</li>
+<li>Click <strong>Next</strong> to move to the Report Details page and enter details like the report name and assigned user.</li>
+<li>Click <strong>Save</strong> to generate the report without running it; click <strong>Save &amp; Run</strong> to generate the report and run it.
+</ol>
+					</TD>
+				</TR>	
+                				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Create report <a name="CreateChart">charts</a></P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+ <p>ProTracker enables you to view a summation, summation with details, and matrix report as a chart with the legend and details below. You can create a horizontal bar chart, vertical bar chart, line chart, pie chart, and funnel chart.
+You must specify at least one Group By column and one Summary column to render a chart.</p> <p>To create a chart:</p>
+<ol><li><p>Enter the following information on the Chart Options page of the Report Wizard when creating a summation or a matrix report:</p>
+<table style="background-color: #f5f5f5; width: 850px;">
+<tbody>
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Chart Type </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click a type from this dropdown, such as Horizontal or Vertical. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Data Series  </strong></p>
+</td>
+<td style="vertical-align: top; ">
+<p>Click an available grouping function from the dropdown, such as Count, AVG, MIN, MAX. The values displayed in this dropdown depend on the selected group-by options and display columns options. </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Description</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Enter a brief description of the chart.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Round Numbers Over 100000</strong></p>
+</td>
+<td style="vertical-align: top; ">
+<p>Numbers over 100000 will be rounded in charts. For example, 350000 will be expressed as 350K. By default, this option is enabled.
+To disable this option, uncheck the box.</p>
+</td>
+</tr>
+</tbody></table></li>
+<li>Click <strong>Next</strong> to enter a name for the report and generate it. <br>
+This chart can be added as a ProTracker Dashlet on your Home page. For more information, see  <A href="https://protracker.zendesk.com/entries/2379836">To add ProTracker
+Dashlets</a>.</li>
+<li>To hide the legend, click the down arrow.</li>
+<li>To view a segment amount as a percentage, place the cursor on it; click to drill down to the data.
+</ol><p>
+Note: Line charts and pie charts are not available for reports with multiple groupings.</p>
+					</TD>
+				</TR>	
+
+        <tr><td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; "> 
+        <p><a name="ScheduleReport">Schedule</a> to run a report</p>
+        </td><td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+        <p>You can schedule to run a report at periodic intervals. ProTracker runs the report at the specified intervals and emails it to you as a PDF file.</p>
+<p>To schedule a report:</p>
+<ol><li><li>Click <strong>Reports &gt; View Reports</strong> in the Navigation menu.<br> The Reports List View displays.</li>
+<li>Click <strong>--none--</strong>in the Schedule Report column for any report in the list. <br> This displays the Schedule Report dialog box.</li>
+<li>Enter values for the fields shown below in the Schedule Report dialog box:</li>
+<li>Click <strong>Update Schedule</strong>.<br> ProTracker schedules the report at the specified time and emails the PDF file.</li>
+</ol><table style="background-color: #f5f5f5; width: 700px;">
+<tbody>
+
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Start Date </strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>In the Date Selector click a date to begin scheduling the report. You can specify the time in hours and minutes from the adjacent dropdown fields.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong>Time Interval  </strong></p>
+</td>
+<td style="vertical-align: top; ">
+<p>Click intervals at which the report runs and the output is received from this dropdown.</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p><strong> Active </strong></p>
+</td>
+<td style="vertical-align: top; ">
+<p>Check this box to activate the schedule. The date and time of the next email is now displayed in the Schedule Report column. If you do not check this box, the schedule is not activated and the Schedule Report column displays --none--. </p>
+</td>
+</tr><tr>
+<td style="vertical-align: top; ">
+<p><strong>Next Email  </strong></p>
+</td>
+<td style="vertical-align: top; ">
+<p>The date and time that you specified displays in this field. This is the time when the report is emailed to you. </p>
+</td>
+</tr>
+</tbody></table></td></tr>
+				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Print the report as a PDF</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+						Click <strong>Print as PDF</strong> on the Report Action menu.
+					</TD>               
+				</TR>
+         		<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Suppress a report</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+						<p>Click <strong>Suppress</strong> on the Report View.</p>
+					</TD>
+				</TR>
+				<TR>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Duplicate the report</P>
+					</TD>
+					<TD style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
+<P>Click <STRONG>Duplicate</STRONG> in the Report View. Duplication is a convenient way of creating a similar report. You can change and save the information in the duplicate record to create a new record.</P>
+					</TD>
+				</TR>
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

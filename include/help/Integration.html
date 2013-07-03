@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Untitled</title>
+</head>
+
+<body>
+<h2>Integrating data from external sources </h2>
+<table style="width: 800px;"><tbody><tr><td style="width: 500px; ">
+<P><A href="#Overview">Overview</A></P>
+<P><A href="#Actions">Actions</A></P>
+<ul><li><a href="#IntegrateConnector">Integrate data through a connector</a></li>
+<li><a href="#AccessInsideView">Access InsideView</a></li></ul>
+</td>
+<td style="vertical-align: top; "><strong>Availability</strong><ul><li>Standard</li><li>Professional</li><li>Enterprise</li></ul></td></tr></tbody></table>
+<h2><a name="Overview"></a>Overview</h2>
+<p>You can bring data into ProTracker from external applications using ProTracker Cloud Connectors.</p>
+<p>
+Typically, you use the import functionality to add a large volume of data from an external system. You can also use Connectors to view and add data to a ProTracker record from third party data providers. For example, you can search for additional information about an individual or an organization, and use the data to enhance or replace data in ProTracker.</p>
+<p>
+This section discusses the following Connectors: Hoovers, Zoominfo-Person, Zoominfo-Company, Twitter, LinkedIn and InsideView.</p>
+<p>
+For information on Facebook, see  My Activity Stream.</p>
+<p>
+For information on Google Docs, see <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Ultimate/Sugar_Application_Guide_6.3.0/Documents"> Creating Documents</a>.
+</p>
+<h2><a name="Actions"></a>Actions</h2>
+<h3><a name="IntegrateConnector"></a>Integrate data through a connector  </h3>
+<p>Follow the steps listed below to integrate data through a connector:</p>
+<ol>
+<li>Navigate to the record's Detail View.<br>
+Point the cursor at the down arrow located next to the account name to view Connectors to LinkedIn and Twitter. Select Twitter to view and respond to Twitter feeds. Select LinkedIn to view connections within a company.<br>
+To view data in Hoover's and Zoominfo, click Get Data.<br>
+The Data Merge page displays the first step of the merge process on the screen. The Data List displays separate tabs for all the data sources that your administrator has enabled for the module. The list may not display all the available data to view and merge for the selected data source record. Additional data from the data source record may be available in the popup view and/or in the Data Merge form.<br>
+The table below lists the fields that display in the Data List View, Additional Details Popup window, and the Data Merge Form.
+</li>
+<li>Select the tab of the data source you want to use to find data and enter keywords in one or more search fields.</li>
+<li>Click <strong>Search</strong>. <br> The search results display below. All matches are displayed below the data source
+tabs. If no matches are found in a data source, ProTracker displays a message on the data source's tab.
+</li>
+<li>To view the data source record in a popup window, including additional data that may not display in the
+List View, point the cursor on the down arrow next to the Select button.
+</li>
+<li>To use another data source, click its tab and enter the keywords in its search fields. The Search fields can be different for each data source.
+</li>
+<li>Click a button in the Select column to select a result from the list and click <strong>Merge</strong>. You can select one result from each data source to merge data into the ProTracker record.<br> The Merge form displays data from all the selected results. The left-most column displays existing data in the ProTracker record. The columns on the right display data from the data sources.
+</li>
+<li>To merge data from a data source to a specific field in the ProTracker record, click the corresponding left arrow button. To merge data for all the fields, click <strong>SmartCopy</strong>. <br>When you have data from two or more data sources, SmartCopy will merge data from the fields in the right-most data source first. The merged data displays in the left column containing the ProTracker record fields.
+</li>
+<li>Click <strong>Save</strong> to merge the data into the ProTracker record.<br>ProTracker displays the merged data in the record's Edit View.</li>
+<li>Click <strong>Save</strong> to save the changes in the record.</li>
+</ol>
+
+<table style="background-color: #f5f5f5; width: 890px;">
+<tbody>
+
+<tr>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Data Source </strong></p>
+</td>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Data List View Fields </strong></p>
+</td>
+<td style="vertical-align: top; width: 187px;">
+<p><strong>Additional Details Popup Data </strong></p>
+</td>
+<td style="vertical-align: top; ">
+<p><strong>Merge Form Fields </strong></p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p>Hoover's </p>
+</td>
+<td style="vertical-align: top; ">
+<p>City, Country, Company ID, Annual Sales, Company Name </p>
+</td>
+<td style="vertical-align: top; ">
+<p>Company Name, City, State, Country, Phone Office, Annual Sales, Street Address 1, Street Address 2, Postal Code, Total Employees </p>
+</td>
+<td style="vertical-align: top; ">
+<p> </p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p>Zoominfo-Person </p>
+</td>
+<td style="vertical-align: top; ">
+<p>First Name, Last Name, Current Job Company Name, Job Title, College/University </p>
+</td>
+<td style="vertical-align: top; ">
+<p>First Name, Last Name, Current Job Company Name, Current Job Start Date, Current Job Industry, Current Job Title, Current Job Street Address, Current Job City Address, Current Job State Address, Current Job Zip Address, Current Job Country Code, Biography, Collection/University, Image URL, Zoominfo Person URL, Email Address, Direct Phone, Fax, Affiliation Job Title, Affiliation Company Name, Affiliation </p>
+</td>
+<td style="vertical-align: top; ">
+<p>Company Phone, Affiliation Company Website</p>
+</td>
+</tr>
+<tr>
+<td style="vertical-align: top; ">
+<p>Zoominfo- Company </p>
+</td>
+<td style="vertical-align: top; ">
+<p>Company Name, City, State, Website, Revenue, Employees</p>
+</td>
+<td style="vertical-align: top; ">
+<p>Company Name, City, State, Website, Postal Code, Country, Industry, Phone, Website, Description, Company Ticker, Company Profile URL, Annual Revenue, Employees </p>
+</td>
+<td style="vertical-align: top; ">
+<p> </p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3><a name="AccessInsideView"></a>Access InsideView  </h3>
+<p>You can access InsideView information only for the modules that have been enabled by your administrator. ProTracker allows the following modules to be enabled for InsideView access:</p>
+<ul>
+<li>Clients</li>
+<li>Contacts</li>
+<li>Leads</li>
+<li>Opportunities</li></ul>
+<p>To view InsideView information
+Follow the steps listed below to view InsideView information related to a record:
+</p>
+<ol><li>Go to a module that has been enabled for InsideView access.</li>
+<li>Select a record from the module's List View page. <br>This displays the record's Detail View page.
+</li>
+<li>Scroll down to the InsideView subpanel in the Detail View page to access InsideView information on the record.
+<br>Click the up or down arrows next to the InsideView link to hide or display the InsideView panel within the records in the module.
+</li>
+<li>Read the terms of use and privacy policy and select the checkbox.</li>
+<li>if you are accessing InsideView for the first time. Click <strong>Get Started</strong>.<br>
+When you access the Detail View of Clients, Opportunities, and Leads, InsideView performs a search based on values in the Client Name field and displays the results in the InsideView panel. For the Contacts module, InsideView searches for the Contact name and displays the results in the InsideView panel. You can narrow down search results by adding the Company name in the search field provided in the InsideView panel.<br>
+The extent and depth of information that you can access in InsideView depends on your InsideView subscription. 
+</li>
+</ol>
+
