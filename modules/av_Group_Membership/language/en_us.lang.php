@@ -68,4 +68,6 @@ $mod_strings = array (
   'LBL_EXPIRATION_DATE' => 'Expiration',
   'LBL_GROUP' => 'Group',
   'LBL_DESTINATION_ADDRESS' => 'Destination Address',
+  'LBL_ACCOUNT_ID' => 'Groups ID',
+  'LBL_PARENT_ID' => 'Parent ID',
 );
