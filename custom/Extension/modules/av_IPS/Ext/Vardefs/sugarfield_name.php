@@ -2,7 +2,7 @@
 // created: 2013-01-31 16:26:27
 $dictionary["av_IPS"]["fields"]["name"] = array (
 	'name' => 'name',
-	'vname' => 'LBL_NAME',
+	'vname' => 'LBL_IPS_NAME',
 	'type' => 'varchar',
 	'len' => '255',
 	'audited' => 0,
