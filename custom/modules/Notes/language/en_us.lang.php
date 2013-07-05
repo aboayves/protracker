@@ -6,5 +6,6 @@ $mod_strings = array (
   'LBL_CREATED_BY' => 'Created By',
   'LBL_EDITVIEW_PANEL1' => 'Settings',
   'LBL_AV_GROUPS_TITLE' => 'Group Title',
+  'LBL_AV_GROUPS_ID' => 'Group ID',
   'LBL_NAME' => 'Subject',
 );
