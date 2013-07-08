@@ -37,4 +37,5 @@ $mod_strings = array (
   'LBL_AV_OFFICES_AV_GROUPS_FROM_AV_GROUPS_TITLE' => 'Groups',
   'LBL_AV_OFFICE_GIFTS' => 'Office Gifts',
   'LBL_CONTACT' => 'Contact',
+  'LBL_USER' => 'Users',
 );
