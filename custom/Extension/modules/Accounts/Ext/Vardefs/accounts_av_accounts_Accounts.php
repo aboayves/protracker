@@ -5,7 +5,7 @@ $dictionary["Account"]["fields"]["accounts_av_accounts"] = array (
   'type' => 'link',
   'relationship' => 'accounts_av_accounts',
   'source' => 'non-db',
-  'vname' => 'LBL_ACCOUNTS_AV_ACCOUNTS_FROM_AV_ACCOUNTS_TITLE',
+  'vname' => 'LBL_AV_ACCOUNTS',
 );
 $dictionary['Account']['relationships']['accounts_av_accounts'] = array(
  'lhs_module'=> 'Accounts',
