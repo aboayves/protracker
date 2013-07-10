@@ -4,6 +4,7 @@ $dictionary["av_Groups"]["fields"]["av_groups_notes"] = array (
   'name' => 'av_groups_notes',
   'type' => 'link',
   'relationship' => 'av_groups_notes',
+  'vname' => 'LBL_GROUPS_NOTES_TITLE',
   'module' => 'Notes',
   'source' => 'non-db',
 );
