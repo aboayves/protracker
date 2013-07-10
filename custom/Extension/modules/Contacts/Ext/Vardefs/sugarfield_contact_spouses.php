@@ -6,6 +6,6 @@ $dictionary["Contact"]["fields"]["contact_spouses"] = array (
 	'relationship' => 'contact_spouses',
 	'source' => 'non-db',
 	'side' => 'right',
-	'vname' => 'LBL_CONTACT',
+	'vname' => 'LBL_SPOUSES',
 );
 ?>

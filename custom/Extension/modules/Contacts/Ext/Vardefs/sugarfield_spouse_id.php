@@ -29,15 +29,6 @@ $dictionary["Contact"]["fields"]["spouse_name"] = array (
 	'isnull' => 'true',
 	'module' => 'Contacts',
 );
-$dictionary["Contact"]["fields"]["contacts_spouse_id"] = array (
-	'name' => 'contacts_spouse_id',
-	'type' => 'link',
-	'relationship' => 'contact_spouses',
-	'module' => 'Contacts',
-	'bean_name' => 'Contacts',
-	'source' => 'non-db',
-	'vname' => 'LBL_CONTACTS',
-);
 $dictionary["Contact"]["relationships"]["contact_spouses"] = array (
 	'lhs_module' => 'Contacts',
 	'lhs_table' => 'contacts',

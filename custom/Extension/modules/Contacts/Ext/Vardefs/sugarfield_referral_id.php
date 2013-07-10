@@ -36,7 +36,7 @@ $dictionary["Contact"]["fields"]["contacts_referral_id"] = array (
 	'module' => 'Contacts',
 	'bean_name' => 'Contacts',
 	'source' => 'non-db',
-	'vname' => 'LBL_CONTACTS',
+	'vname' => 'LBL_REFERRALS',
 );
 $dictionary["Contact"]["relationships"]["contact_referrals"] = array (
 	'lhs_module' => 'Contacts',
