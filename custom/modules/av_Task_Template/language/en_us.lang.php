@@ -11,5 +11,5 @@ $mod_strings = array (
   'LBL_PARENT_TASKS' => 'Waiting for',
   'LBL_CHILD_TASKS' => 'Dependent Task Templates',
   'LBL_HOMEPAGE_TITLE' => 'My Task Templates',
-  'LBL_SUBJECT' => 'Name',
+  'LBL_SUBJECT' => 'Subject',
 );
