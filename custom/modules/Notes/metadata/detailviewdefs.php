@@ -19,8 +19,21 @@ array (
           'field' => '30',
         ),
       ),
-      'useTabs' => true,
+      'useTabs' => false,
       'syncDetailEditViews' => true,
+      'tabDefs' => 
+      array (
+        'LBL_NOTE_INFORMATION' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (
@@ -97,9 +110,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'embed_flag',
-            'comment' => 'Embed flag indicator determines if note embedded in email',
-            'label' => 'LBL_EMBED_FLAG',
+            'name' => 'av_group_name',
+            'studio' => 'visible',
+            'label' => 'LBL_AV_GROUPS_TITLE',
           ),
         ),
         1 => 
@@ -112,35 +125,10 @@ array (
           ),
           1 => 
           array (
-            'name' => 'portal_flag',
-            'comment' => 'Portal flag indicator determines if note created via portal',
-            'label' => 'LBL_PORTAL_FLAG',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'av_group_name',
-            'studio' => 'visible',
-            'label' => 'LBL_AV_GROUPS_TITLE',
-          ),
-          1 => 
-          array (
-            'name' => 'attach_to_group_id',
-            'comment' => 'Note Attach To Group',
-            'label' => 'LBL_ATTACH_TO_GROUP_ID_NOTES',
-          ),
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'report_sort',
             'comment' => '',
             'label' => 'LBL_REPORT_SORT',
           ),
-          1 => '',
         ),
       ),
     ),

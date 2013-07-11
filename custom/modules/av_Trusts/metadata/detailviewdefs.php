@@ -26,6 +26,24 @@ array (
       ),
       'useTabs' => false,
       'syncDetailEditViews' => true,
+      'tabDefs' => 
+      array (
+        'LBL_EDITVIEW_PANEL3' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL1' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+        'LBL_EDITVIEW_PANEL2' => 
+        array (
+          'newTab' => false,
+          'panelDefault' => 'expanded',
+        ),
+      ),
     ),
     'panels' => 
     array (

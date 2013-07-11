@@ -8,32 +8,26 @@
 
 <body>
 <h2>Emails</h2>
-<p><a href="#Overview">Overview</a></p>
-<p><a href="#Availability">Availability</a></p>
-<p><a href="#Actions">Actions</a></p>
+<table style="width: 800px;"><tbody><tr><td style="width: 500px; ">
+<P><A href="#Overview">Overview</A></P>
+<P><A href="#Actions">Actions</A><p><a href="#FieldDescriptions">Field Descriptions</a></p>
 <ul>
-<li><a href="#SpecifyGeneralSettings">Specify General settings</a></li>
+<li><a href="#SpecifyGeneralSettings">Specify general settings</a>
 <ul>
-<li><a href="#CreateSignature">Create a Signature</a></li>
-</ul>
-<li><a href="#SetupMailAccount">Set up Mail Accounts</a></li>
-<ul>
-<li><a href="#UseFolders">Use Folders to organize emails</a></li>
-</ul>
-<li><a href="#ViewEmail">View and process emails on external servers</a></li>
-<li><a href="#ComposeEmail">Compose and send an email</a></li>
-<ul>
-<li><a href="#UseAddressBook">Use the Address Book</a></li>
-</ul>
-<li><a href="#ImportEmail">Import emails into ProTracker</a></li>
-<ul>
+<li><a href="#CreateSignature">Create a signature</a></li></ul>       </li>
+<li><a href="#SetUpMailAccount">Set up mail accounts</a> <ul>
+<li><a href="#UseFolders">Use folders to organize emails</a></li> </ul> </li>
+<li><a href="#ViewEmail">View and process emails</a></li>
+<li><a href="#ComposeEmail">Compose and send an email</a><ul>
+<li><a href="#UseAddressBook">Using the Address Book</a></li> </ul>   </li>
+<li><a href="#ImportEmail">Import emails into ProTracker</a><ul>
 <li><a href="#AssignEmail">Assign an email</a></li>
 <li><a href="#SearchImportedEmail">Search for an imported email</a></li>
-<li><a href="#RelateImportedEmailToRecord">Relate an imported email to a record</a></li>
-</ul>
+<li><a href="#RelateImportedEmailToRecord">Relate an imported email to a record</a></li>  </ul>   </li>
 <li><a href="#CreateRecordFromImportedEmail">Create a record from an imported email</a></li>
 </ul>
-<p><a href="#Sub-panelsRelatedInfo">Sub-panels/Related Information</a></p>
+<P><A href="#Sub-panelsRelatedInfo">Sub-panels/Related Information</A></P></td>
+<td style="vertical-align: top; "><strong>Availability</strong><ul><li>Standard</li><li>Professional</li><li>Enterprise</li></ul></td></tr></tbody></table>
 <h2><a name="Overview"></a>Overview</h2>
 <p>The Emails module enables you to send and receive emails from within ProTracker.</p>
 <ul>
@@ -46,21 +40,8 @@
 <li>Use the Mail Accounts settings to configure ProTracker support for the IMAP protocol, which enables you to view emails in your external mail accounts and to send emails composed in ProTracker.</li>
 </ul>
 </ul>
-<h2><a name="Availability"></a>Availability</h2>
-<p>The Emails module is available to users of the following editions:</p>
-<ul>
-<li>Standard</li>
-<li>Professional</li>
-<li>Enterprise</li>
-</ul>
 <h2><a name="Actions"></a>Actions</h2>
-<P>The Navigation menu displays the following Emails actions:</P>
-		<UL>
-			<LI><STRONG>View My Email</STRONG></LI>
-
-			<LI><STRONG>Create Email Template</STRONG></li>
-			<LI><STRONG>View Email Templates</STRONG></LI></ul>
-<h3><a name="SpecifyGeneralSettings"></a> Specify General settings</h3>
+<h3><a name="SpecifyGeneralSettings"></a> Specify general settings</h3>
 <p>The General settings tab displays options that apply to all your mail accounts in ProTracker.</p>
 <p>The following steps explain how to specify general settings.</p>
 <ol>
@@ -72,7 +53,7 @@
 <tbody>
 <tr>
 <td style="vertical-align: top; width: 180px;">
-<p><strong>Check for New Mail:</strong></p>
+<p><strong>Check for New Mail</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>If you want the system to check your external mail accounts automatically for new emails, select a time interval from the dropdown. With the default setting, Manually, ProTracker will not check for emails until you perform the action to check for emails. See <a href="#ViewEmail">View and process emails on external servers</a>.</p>
@@ -80,7 +61,14 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Send Plain Text Emails Only:</strong></p>
+<p><strong>Signatures</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Click an existing signature for your outbound emails from this dropdown. See <a href="#CreateSignature">Create a Signature</a> to add signatures you can use with your emails.</p>
+</td>
+</tr><tr>
+<td style="vertical-align: top;">
+<p><strong>Send Plain Text Emails Only</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Check this box to send emails in plain text format instead of the default HTML format.</p>
@@ -88,26 +76,17 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Character Set:</strong></p>
-</td>
-<td style="vertical-align: top;">
-<p>Specify the default character set for outbound emails from this dropdown list.</p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align: top;">
-<p><strong>Signatures:</strong></p>
-</td>
-<td style="vertical-align: top;">
-<p>Click an existing signature for your outbound emails from this dropdown. See <a href="#CreateSignature">Create a Signature</a> to add signatures you can use with your emails.</p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align: top;">
-<p><strong>Signature above reply:</strong></p>
+<p><strong>Signature above reply</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Click this box to place your signature above the content of the email to which you are responding.</p>
+</td>
+</tr><tr>
+<td style="vertical-align: top;">
+<p><strong>Character Set</strong></p>
+</td>
+<td style="vertical-align: top;">
+<p>Specify the default character set for outbound emails from this dropdown list.</p>
 </td>
 </tr>
 </tbody>
@@ -121,7 +100,7 @@
 <br>The Emails module displays.</li>
 <li>Reload the page to see changes affected by the settings.</li>
 </ol>
-<h4><a name="CreateSignature"></a>Create a Signature</h4>
+<h4><a name="CreateSignature"></a>Create a signature</h4>
 <p>Use the following instructions to create a signature that will appear in the General settings Signatures: dropdown.</p>
 <ol>
 <li>On the General settings tab, click <strong>Create</strong> located next to the Signature field.</li>
@@ -130,7 +109,7 @@
 <li>To use a signature image file located on a hosted website, click the Insert Image icon on the HTML toolbar, and enter the URL.</li>
 <li>Click <strong>Save</strong><br>The Signature will display on the General settings Signatures: dropdown.</li>
 </ol>
-<h3><a name="SetUpMailAccount"></a>Set up Mail Accounts</h3>
+<h3><a name="SetUpMailAccount"></a>Set up mail accounts</h3>
 <p>You can set up one or more Mail Accounts in ProTracker to view emails from your external email accounts. You can import these emails into ProTracker. See <a href="#ImportEmail">Import emails into ProTracker.</a></p>
 <p>For outbound emails, the administrator can setup a default SMTP server that you can use to send mails. You can also specify a SMTP server. The administrator can specify the email address, user name, and password for all users. You can change this information to suit your requirements.</p>
 <p>The following instructions explain how to set up a Mail Account.</p>
@@ -148,7 +127,7 @@
 <tbody>
 <tr>
 <td style="vertical-align: top; width: 180px;" >
-<p><strong>Mail Account Name:</strong></p>
+<p><strong>Mail Account Name*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Enter a name for the Mail Account in ProTracker. This name will display in the list of email Folders. See <a href="#UseFolders">Use Folders to organize emails</a> for more information.</p>
@@ -156,7 +135,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>User Name:</strong></p>
+<p><strong>User Name*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Enter the username of your external mail account.</p>
@@ -164,7 +143,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Password:</strong></p>
+<p><strong>Password*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Enter the password of your external mail account.</p>
@@ -172,7 +151,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Mail Server Address:</strong></p>
+<p><strong>Mail Server Address*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>If you clicked Prefill Gmail&trade; Defaults in step 4, this field was automatically filled; otherwise, enter the address of the external email server.</p>
@@ -180,7 +159,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Mail Server Protocol:</strong></p>
+<p><strong>Mail Server Protocol*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>If you clicked Prefill Gmail&trade; Defaults in step 4, this field was automatically filled; otherwise, click <strong>IMAP</strong> in the dropdown list.</p>
@@ -188,7 +167,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Use SSL:</strong></p>
+<p><strong>Use SSL</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>If you clicked Prefill Gmail&trade; Defaults in step 4, this was automatically selected; otherwise, click this checkbox if your mail server supports secure socket connections. Selecting this box will force SSL connections when importing emails into ProTracker.</p>
@@ -196,7 +175,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Mail Server Port:</strong></p>
+<p><strong>Mail Server Port*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>The system automatically populates this field with the port number for IMAP.</p>
@@ -204,7 +183,7 @@
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Monitored Folders:</strong></p>
+<p><strong>Monitored Folders*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>By default, ProTracker allows you to view the contents of the external email account’s Inbox. To monitor other folders:</p>
@@ -220,7 +199,7 @@ The Select Subscribed Folder(s) popup displays.
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Trash Folder:</strong></p>
+<p><strong>Trash Folder:*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>By default, ProTracker does not allow you to view the external email account’s Trash folder. To view the contents of a Trash Folder:</p>
@@ -237,7 +216,7 @@ The Select Subscribed Folder(s) popup displays.
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Sent Folder:</strong></p>
+<p><strong>Sent Folder</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>By default, ProTracker does not allow you to view a Sent folder of the external email account. To view the contents of a Sent Folder:</p>
@@ -265,7 +244,7 @@ The Select Subscribed Folder(s) popup displays.
 <tbody>
 <tr>
 <td style="vertical-align: top; width: 187px;">
-<p><strong>From Name:</strong></p>
+<p><strong>From Name*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>This field is automatically populated with your first and last names.</p>
@@ -273,7 +252,7 @@ The Select Subscribed Folder(s) popup displays.
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>From Address:</strong></p>
+<p><strong>From Address*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Enter the email address you want to display in the From field of emails you send.</p>
@@ -281,7 +260,7 @@ The Select Subscribed Folder(s) popup displays.
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Reply to Address:</strong></p>
+<p><strong>Reply to Address</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Enter information in this field if you want responses to your emails to be directed to an email address other than the one specified in your incoming email account.</p>
@@ -289,7 +268,7 @@ The Select Subscribed Folder(s) popup displays.
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Outgoing SMTP Mail Server:</strong></p>
+<p><strong>Outgoing SMTP Mail Server*</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>If you clicked Prefill Gmail&trade; Defaults in step 4, this field will be automatically filled. Go to <a href="#Step9">step 9</a>.</p>
@@ -454,7 +433,7 @@ The From name and email address associated with the default Mail Account are use
 </tr>
 </tbody>
 </table>
-<h4><a name="UseFolders"></a>Use Folders to organize emails</h4>
+<h4><a name="UseFolders"></a>Use folders to organize emails</h4>
 <p>A folder can be an INBOX or a local folder. Emails in Mail Account folders reside on the mail server of the associated mail account. All emails in your local folders reside in the ProTracker database.</p>
 <p>ProTracker automatically creates a folder for every Mail Account that you set up. The name of the folder is the name you entered in the Mail Account Name: field on Mail Account Properties popup when you set up the Mail Account. Within each Mail Account folder, ProTracker creates an INBOX sub-folder and sub-folders for each folder you selected for the Monitored Folder field on the Mail Account Properties popup when setting up the Mail Account.</p>
 <p>ProTracker provides a local folder named My Email containing emails that are imported into ProTracker and those that are assigned to you, your teams, and your direct reports reside. The two sub-folders, My Drafts and My Sent Emails, contain your email drafts and emails that you sent out, respectively. To group and store imported emails, you can create additional local folders.</p>
@@ -475,7 +454,8 @@ The From name and email address associated with the default Mail Account are use
 Create a new folder</td>
 <td style="vertical-align: top; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; padding: 3px;" >
 <ol>
-<li>Click <strong>Create </strong>Folder.
+<li>Click <strong>MB1</strong> (for most users this is the right mouse button)<br> The popup menu displays.         </li>
+<li>Click <strong>Create Folder</strong>.
 <br>The Add New Folder popup displays.</li>
 <li>Enter the name of the folder.
 </li>
@@ -489,7 +469,8 @@ Create a new folder</td>
 Rename a folder</td>
 <td style="vertical-align: top; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; padding: 3px;" >
 <ol>
-<li>Click <strong>Rename Folder</strong> in the popup menu.
+<li>Click <strong>MB1</strong> (for most users this is the right mouse button)<br> The popup menu displays.         </li>
+<li>Click <strong>Rename Folder</strong>.
 <br>The Rename Folder popup displays.</li>
 <li>Enter the new name of the folder.
 </li>
@@ -501,6 +482,7 @@ Delete a folder
 </td>
 <td style="vertical-align: top; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; padding: 3px;" >
 <ol>
+<li>Click <strong>MB1</strong> (for most users this is the right mouse button)<br> The popup menu displays.         </li>
 <li>Click <strong>Delete Folder</strong> in the popup menu.
 <br>A confirmation box displays, asking you to verify that you want to delete the folder.</li>
 <li>Click <strong>OK</strong> to delete the folder; otherwise, click <strong>Cancel</strong> to return to the Email module without deleting the folder.
@@ -508,8 +490,9 @@ Delete a folder
 <td style="vertical-align: top; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; padding: 3px;" >
 Check for mail in a Mail Account</td>
 <td style="vertical-align: top; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; padding: 3px;" >
-<p>Click <strong>Check Mail</strong>.<br>
-ProTracker checks for new mail in your external mail account.</p>
+<ol><li>Click <strong>MB1</strong> (for most users this is the right mouse button)<br> The popup menu displays.         </li>
+<li>Click <strong>Check Mail</strong>.<br>
+ProTracker checks for new mail in your external mail account.</li></ol>
 </td>
 </tr>
 <tr>
@@ -517,8 +500,9 @@ ProTracker checks for new mail in your external mail account.</p>
 <p>Synchronize a Mail Account folder</p>
 </td>
 <td style="vertical-align: top; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; padding: 3px;" >
-<p>Click <strong>Synchronize</strong>.<br>
-ProTracker synchronizes the content of the external mail account with the view in ProTracker.</p>
+<ol><li>Click <strong>MB1</strong> (for most users this is the right mouse button)<br> The popup menu displays.         </li>
+<li>Click <strong>Synchronize</strong>.<br>
+ProTracker synchronizes the content of the external mail account with the view in ProTracker.</li></ol>
 </td>
 </tr>
 <tr>
@@ -534,14 +518,16 @@ ProTracker synchronizes the content of the external mail account with the view i
 <p>Empty the trash bin</p>
 </td>
 <td style="vertical-align: top; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; padding: 3px;" >
-<p>Click <strong>Empty Trash</strong>.<br>
-ProTracker removes the emails from the account’s trash bin.</p>
+<ol>
+<li>Click <strong>MB1</strong> (for most users this is the right mouse button)<br> The popup menu displays.         </li>
+<li>Click <strong>Empty Trash</strong>.<br>
+ProTracker removes the emails from the account’s trash bin.</li> </ol>
 </td>
 </tr>
 </tbody>
 </table>
 
-<h3><a name="ViewEmail"></a>View and Process Emails</h3>
+<h3><a name="ViewEmail"></a>View and process emails</h3>
 <p>The following instructions explain how to check for new emails and view your emails when you are in the Emails module.</p>
 <table style="background-color: #f5f5f5; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; width: 890px;">
 <tbody>
@@ -676,7 +662,7 @@ The emails display on separate tabs.</p>
 </tbody>
 </table>
 
-<h3><a name="ComposeEmail"></a>Compose and Send an Email</h3>
+<h3><a name="ComposeEmail"></a>Compose and send an email</h3>
 <p>When you compose an email, if you have configured multiple mail accounts, you can choose the account from which to send the email. By default, the system uses the signature and character set specified on the General tab of the Settings popup, and assigns the email to your default teams as specified in your Profile. When composing an email, you can also assign it to a different team, specify an email template and change the signature. You can associate an email with another record when you compose the email, or after you send it out.</p>
 <p>To compose an Email</p>
 <ol>
@@ -741,7 +727,7 @@ The emails display on separate tabs.</p>
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>To:</strong></p>
+<p><strong>To</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Click to select recipients from the address book, or manually enter the names of the recipients in this field. For more information on the address book, see <a href="#UseAddressBook">Using the Address Book</a>.</p>
@@ -749,7 +735,7 @@ The emails display on separate tabs.</p>
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>CC:</strong></p>
+<p><strong>CC</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>To send a copy of the email, click <strong>Add Cc</strong>. The CC field displays, and you can enter the email address(es) in the CC: field.</p>
@@ -758,7 +744,7 @@ The emails display on separate tabs.</p>
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>BCC:</strong></p>
+<p><strong>BCC</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>To send a blind copy of the email, click <strong>Add Bcc</strong>. The BCC: field displays, and you can and enter the email address(es) in the BCC: field.</p>
@@ -767,7 +753,7 @@ The emails display on separate tabs.</p>
 </tr>
 <tr>
 <td style="vertical-align: top;">
-<p><strong>Subject:</strong></p>
+<p><strong>Subject</strong></p>
 </td>
 <td style="vertical-align: top;">
 <p>Enter the subject of the email.</p>
@@ -809,7 +795,7 @@ The emails display on separate tabs.</p>
 	<td style="vertical-align: top; border-width: 1px; border-style: solid;  border-color: #909090; border-collapse: collapse; padding: 3px;" >
 		<ol>
 			<li>Click <strong>Attach</strong>.
-				<brThe Attach tab displays.</li>
+				<br>The Attach tab displays.</li>
 			<li>Use the following table to determine your next step.
 				<table style="background-color: #e4e4e4; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; ">
 					<tbody>
@@ -971,7 +957,7 @@ The name displays in the Selected: column, and the Address Book listing is highl
 </tr>
 </tbody>
 </table>
-<h3><a name="ImportEmail"></a>Import Emails into ProTracker</h3>
+<h3><a name="ImportEmail"></a>Import emails into ProTracker</h3>
 <p>Importing emails from external mail accounts enables you to manage them in ProTracker. You can assign imported emails to other users for follow-up, and relate them to records. Imported emails display in the My Emails folder. You can also view unread imported emails in the My Emails section, if you can add it to your Home page.</p>
 <p>Use the Import Settings popup assign the email and relate it to records when the email is imported. By default, the email is assigned to your default team (defined in your Profile). You can also assign and relate the email to records after it is imported.</p>
 <ol>
@@ -1114,7 +1100,6 @@ The Quick Create form displays on the screen.</li>
 <br>If you have not already imported the email, it will be imported and associated with the new record when you use Quick Create to create the record.</li></ol>
 <h2><a name="Sub-panelsRelatedInfo"></a>Sub-panels/Related Information</h2>
 <p>See also:</p>
-Create Email templates.
-<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Ultimate/Sugar_Application_Guide_6.3.0/User_Interface#1094547">Editing and suppressing multiple records</a>.</p>
+<p><A href="https://protracker.zendesk.com/entries/23827712">Create email templates</p>
 </body>
 </html>

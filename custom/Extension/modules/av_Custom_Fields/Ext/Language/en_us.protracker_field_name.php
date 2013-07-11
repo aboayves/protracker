@@ -1,3 +1,3 @@
 <?php
-$mod_strings['LBL_FIELD_NAME']='Name';
+$mod_strings['LBL_FIELD_NAME']='Field Name';
 ?>

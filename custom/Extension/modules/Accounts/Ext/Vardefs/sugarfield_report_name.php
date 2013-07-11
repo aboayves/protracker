@@ -2,8 +2,7 @@
  // created: 2013-04-12 19:10:10
 $dictionary['Account']['fields']['report_name']['name']='report_name';
 $dictionary['Account']['fields']['report_name']['vname']='LBL_REPORT_NAME';
-$dictionary['Account']['fields']['report_name']['type']='varchar';
-$dictionary['Account']['fields']['report_name']['len']='255';
+$dictionary['Account']['fields']['report_name']['type']='text';
 $dictionary['Account']['fields']['report_name']['audited']=0;
 $dictionary['Account']['fields']['report_name']['required']=false;
 $dictionary['Account']['fields']['report_name']['comment']='';

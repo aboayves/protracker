@@ -1,5 +1,5 @@
 <?php
-// created: 2013-06-07 15:30:50
+// created: 2013-07-01 17:37:43
 $GLOBALS['tabStructure'] = array (
   'LBL_TABGROUP_ACTIVITIES' => 
   array (
@@ -15,12 +15,12 @@ $GLOBALS['tabStructure'] = array (
     'label' => 'LBL_TABGROUP_SALES_MARKETING',
     'modules' => 
     array (
-      0 => 'Campaigns',
-      1 => 'Opportunities',
-      2 => 'Leads',
-      3 => 'Prospects',
-      4 => 'ProspectLists',
-      5 => 'Products',
+      0 => 'Opportunities',
+      1 => 'Leads',
+      2 => 'Prospects',
+      3 => 'ProspectLists',
+      4 => 'Products',
+      5 => 'Campaigns',
     ),
   ),
   'LBL_TABGROUP_RELATED' => 
@@ -32,10 +32,9 @@ $GLOBALS['tabStructure'] = array (
       1 => 'av_Companies',
       2 => 'Contacts',
       3 => 'av_Groups',
-      4 => 'Leads',
-      5 => 'av_Professionals',
-      6 => 'av_Relatives',
-      7 => 'av_Service_Team',
+      4 => 'av_Professionals',
+      5 => 'av_Relatives',
+      6 => 'av_Service_Team',
     ),
   ),
   'LBL_TABGROUP_COMPLIANCE' => 
@@ -54,7 +53,7 @@ $GLOBALS['tabStructure'] = array (
     'modules' => 
     array (
       0 => 'av_Offices',
-	  1 => 'Employees',
+      1 => 'undefined',
       2 => 'av_Reviews',
       3 => 'av_Scoring',
       4 => 'av_Service_Team',
@@ -111,8 +110,7 @@ $GLOBALS['tabStructure'] = array (
     array (
       0 => 'av_Medicare',
       1 => 'av_Pensions',
-      2 => 'av_Retirement_Projections',
-      3 => 'av_Social_Security',
+      2 => 'av_Social_Security',
     ),
   ),
   'LBL_TABGROUP_INSURANCE' => 

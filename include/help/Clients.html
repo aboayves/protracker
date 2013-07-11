@@ -6,69 +6,39 @@
     </title>
 </head>
    <body>
-   <h2>Clients</h2>
-<p><a href="#Overview">
-Overview
-</a></p>
-<p><a href="#Availability">
-Availability
-</a></p>
-<p><a href="#Actions">
-Actions
-</a></p>
-   	<ul>
-   		<li><a href="#CreateClient">
-Create a Client
-</a></li>
-   		<li><a href="#ManageClients">
-Manage Clients
-</a></li>
-   	</ul>
-<p><a href="#SubpanelsRelatedInfo">
-Sub-panels/Related Information
-</a></p><h2><a name="Overview">
-Overview
-</a></h2>
-<p>Use the Clients module to create and manage client relationships for your organization. Each Client can be associated with other records such as Opportunities and Contacts.</p><h2><a name="Availability">
-Availability
-</a></h2>
-<p>The Clients module is available to users of the following editions:</p>
-   	<ul>
-   		<li>Standard</li>
-   		<li>Professional</li>
-   		<li>Enterprise</li>
-   	</ul><h2><a name="Actions">
-Actions
-</a></h2>
-<P>The Navigation menu displays the following Clients actions:</P>
-		<UL>
-   		<li>
-<strong>Create Client</strong></li>
-   		<li><strong>View Clients</strong></li>
-   		<li><strong>View Client Reports</strong></li>
-   		<li><strong>Import Clients</strong></li>
-   	</ul>
-	
-	<h3><a name="CreateClient">
-Create a Client
-</a></h3>
-<p>Use the Create Clients form to create a client. </p>
-   	<ol>
-   		<li>Access the Create Clients form from one of the following:
-		<ul><li>Click <strong>Create Client</strong> from the Navigation menu.</li>
-		<li>Click <strong>Create New</strong> on the Clients List View.</li></ul></li>
-   		<li>Enter the following information in the Client Profile tab. Fields that have an asterisk (*) are required; you must enter data in the field to save the client record.
+<h2>Clients</h2>
+<table style="width: 800px;"><tbody><tr><td style="width: 500px; ">
+<P><A href="#Overview">Overview</A></P>
+<P><A href="#Actions">Actions</A></P>
+<p><a href="#FieldDescriptions">Field Descriptions</a>
+<P><A href="#SubpanelsRelatedInfo">Sub-panels/Related Information</A></P></td>
+<td style="vertical-align: top; "><strong>Availability</strong><ul><li>Standard</li><li>Professional</li><li>Enterprise</li></ul></td></tr></tbody></table>
+<h2><a name="Overview">Overview</a></h2>
+<p>Use the Clients module to create and manage client relationships for your organization. Each Client can be associated with other records such as Opportunities and Contacts.</p>
+<h2><a name="Actions">Actions</a></h2>
+
+    
+ <h2><a name="FieldDescriptions">Field Descriptions</a></h2>   
+ <p>Fields that have an asterisk (*) are required; you must enter data in the field to save the Client record.</p>
+ <h3><a name="ClientProfile">Client Profile tab</a></h3>
    		<table style="background-color: #f5f5f5; width:850px; ">
    			<tbody>
    				<tr>
    					<td style="vertical-align: top; width: 187px; ">
-<p><strong>Client Name</strong>*</p>
+<p><strong>Client Name</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>Enter the name your organization will use to refer to this client relationship.</p>
    					</td>
    				</tr>
    				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Assigned to</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>By default, the record is assigned to the creator of the Clients record. To change the assignment, click the user on the Users Popup List View (displays upon clicking the Selection arrow) or the list of users matching the character(s) you enter.</p>
+   					</td>
+   				</tr>   				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Client Salutation</strong></p>
    					</td>
@@ -78,10 +48,26 @@ Create a Client
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
+<p><strong>Office</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the physical office location this client is associated with from the Office List (displays upon clicking the selection arrow) or the list of office matching the character(s) you enter in the text entry box.</p>
+   					</td>
+   				</tr>
+              				<tr>
+   					<td style="vertical-align: top; ">
 <p><strong>Report Name</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>Enter the name of the client as it will appear on reports; e.g., “John A. Smith, Jr.”</p>
+   					</td>
+   				</tr>
+             				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Client Type</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the category that describes this client from the Category List (displays upon clicking the selection arrow) or the list of categories matching the character(s) you enter in the text entry box.</p>
    					</td>
    				</tr>
    				<tr>
@@ -92,6 +78,14 @@ Create a Client
 <p>Click the person who your organization will most often communicate with about the client relationship on the Contact List (displays upon clicking the selection arrow) or the list of contacts matching the character(s) you enter in the text entry box. &nbsp;</p>
    					</td>
    				</tr>
+             				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Status</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the current status of this client relationship from the dropdown; e.g., Active, Terminated, or Deceased.</p>
+   					</td>
+   				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Co-Client</strong></p>
@@ -100,12 +94,28 @@ Create a Client
 <p>Click an additional person to represent the client on the Contact List (displays upon clicking the selection arrow) or the list of contacts matching the character(s) you enter in the text entry box. This is usually the spouse of the primary contact.</p>
    					</td>
    				</tr>
+             				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Priority</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the priority level of this client relationship from the dropdown, e.g., High or Low.</p>
+   					</td>
+   				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Client Since</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>On the Date Selector click the date the client relationship began; i.e., the date the first contract was signed.</p>
+   					</td>
+   				</tr>
+             				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Client Reference</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Enter an internal organizational designation used to identify this client; e.g., a file number.</p>
    					</td>
    				</tr>
    				<tr>
@@ -118,90 +128,42 @@ Create a Client
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
+<p><strong>Planning Phase</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the client’s current planning phase on the dropdown; e.g. Accumulation, Distribution, or Preservation.</p>
+   					</td>
+   				</tr>          
+   				<tr>
+   					<td style="vertical-align: top; ">
 <p><strong>Review Group</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>If your organization conducts periodic reviews, click a review group to organize the clients into batches.</p>
    					</td>
    				</tr>
+          <tr>
+   				<tr>
+             					<td style="vertical-align: top; ">
+<p><strong>Primary Client</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the checkbox if this is the primary client.</p>
+   					</td>
+   				</tr>          
+   					<td style="vertical-align: top; ">
+<p><strong>Campaign</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>If the client is associated with a campaign, click the campaign on the Campaign List (displays upon clicking the selection arrow) or the list of campaigns matching the character(s) you enter in the text entry box.</p>
+   					</td>
+   				</tr>          
    				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Investment Client</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>Click this checkbox if this client has assets managed by the firm.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Description</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Enter additional details about the client.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Assigned to</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>By default, the record is assigned to the creator of the Clients record. To change the assignment, click the user on the Users Popup List View (displays upon clicking the Selection arrow) or the list of users matching the character(s) you enter.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Office</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click the physical office location this client is associated with from the Office List (displays upon clicking the selection arrow) or the list of office matching the character(s) you enter in the text entry box.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Client Type</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click the category that describes this client from the Category List (displays upon clicking the selection arrow) or the list of categories matching the character(s) you enter in the text entry box.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Status</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click the current status of this client relationship from the dropdown; e.g., Active, Terminated, or Deceased.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Priority</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click the priority level of this client relationship from the dropdown, e.g., High or Low.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Client Reference</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Enter an internal organizational designation used to identify this client; e.g., a file number.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Planning Phase</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click the client’s current planning phase on the dropdown; e.g. Accumulation, Distribution, or Preservation.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Campaign</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>If the client is associated with a campaign, click the campaign on the Campaign List (displays upon clicking the selection arrow) or the list of campaigns matching the character(s) you enter in the text entry box.</p>
    					</td>
    				</tr>
    				<tr>
@@ -217,24 +179,28 @@ Create a Client
 <p><strong>Document Path</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
-<p>&nbsp;</p>
    					</td>
    				</tr>
    				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Description</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Enter additional details about the client.</p>
+   					</td>
+   				</tr>   				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Teams*</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>By default, your private team is assigned as the primary team.</p>
-<p>To change the primary team assignment, click the team on the Teams List (displays upon clicking the selection arrow) or the list of teams matching the character(s) you enter in the text entry box. To assign additional teams to the client, click add (+) and click the team. For more information on assigning teams, see<a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1165851">
-Assigning Users and Teams to Records.
-</a></p>
+<p>To change the primary team assignment, click the team on the Teams List (displays upon clicking the selection arrow) or the list of teams matching the character(s) you enter in the text entry box. To assign additional teams to the client, click add (+) and click the team. For more information on assigning teams, see <A href="https://protracker.zendesk.com/entries/23779252">Assigning Users and Teams to Records</a>.</p>
    					</td>
    				</tr>
    			</tbody>
    		</table>
-</li>
-   		<li>Click <strong>Address &amp; Phone </strong>and enter the following information in the Address &amp; Phone tab.
+<h3><a name="AddressPhone">Address &amp; Phone tab</a></h3>
+Click <strong>Address &amp; Phone </strong>and enter the following information in the Address &amp; Phone tab.
    		<table style="background-color: #f5f5f5; width: 850px; ">
    			<tbody>
    				<tr>
@@ -247,6 +213,13 @@ Assigning Users and Teams to Records.
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
+<p><strong>Preferred Document Submittal</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the type of document delivery the client prefers from the dropdown.</p>
+   					</td>
+   				</tr>   				<tr>
+   					<td style="vertical-align: top; ">
 <p><strong>Preferred Calling Time</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
@@ -255,12 +228,27 @@ Assigning Users and Teams to Records.
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
+<p><strong>Preferred Meeting Time</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Enter the time the client prefers to meet.</p>
+   					</td>
+   				</tr>   				<tr>
+   					<td style="vertical-align: top; ">
 <p><strong>Mobile Phone</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>Enter the client’s mobile phone number.</p>
    					</td>
    				</tr>
+    				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Work Phone</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Enter the client’s work phone number.</p>
+   					</td>
+   				</tr>         
    				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Home Phone</strong></p>
@@ -269,6 +257,15 @@ Assigning Users and Teams to Records.
 <p>Enter the client’s home phone number.</p>
    					</td>
    				</tr>
+   				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Fax</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Enter the client’s facsimile number.</p>
+   					</td>
+   				</tr>          
+          
    				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Email Address</strong></p>
@@ -292,76 +289,7 @@ Assigning Users and Teams to Records.
 <p><strong>Address:</strong></p>
    									</td>
    									<td style="vertical-align: top; ">
-<p>Enter the primary mailing street address.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>City:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the city in which the primary mailing address is located.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>State:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the state in which the primary mailing address is located.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>Postal Code:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the postal code for the primary mailing address.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>Country:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the country in which the primary mailing address is located.</p>
-   									</td>
-   								</tr>
-   							</tbody>
-   						</table>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Preferred Document Submittal</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click the type of document delivery the client prefers from the dropdown.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Preferred Meeting Time</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Enter the time the client prefers to meet.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Work Phone</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Enter the client’s work phone number.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Fax</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Enter the client’s facsimile number.</p>
-   					</td>
+<p>Enter the primary mailing street address.</p>   					</td>
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
@@ -376,64 +304,14 @@ Assigning Users and Teams to Records.
 <p>Billing Address section</p>
    					</td>
    					<td style="vertical-align: top; ">
-   						<table style="background-color: #f5f5f5;">
-   							<tbody>
-   								<tr>
-   									<td style="vertical-align: top; width: 187px; ">
-<p><strong>Street:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the client’s billing street address.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>City:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the city for the billing address.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>State:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the state for the billing address.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>Postal Code:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the postal code for the billing address.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>Country:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
-<p>Enter the country for the billing address.</p>
-   									</td>
-   								</tr>
-   								<tr>
-   									<td style="vertical-align: top; ">
-<p><strong>Copy address from left:</strong></p>
-   									</td>
-   									<td style="vertical-align: top; ">
+   					<p>	Enter the client's billing address</p>
 <p>Click the checkbox to copy the Mailing Address into this Alternate Address section.</p>
-   									</td>
-   								</tr>
-   							</tbody>
-   						</table>
    					</td>
    				</tr>
    			</tbody>
-   		</table><p>&nbsp;</p></li>
-	
-   		<li>Click <strong>Billing&nbsp;</strong> to display the Billing tab, and enter information for the following fields.
+   		</table>
+<h3><a name="Billing">Billing</a></h3>
+<p>Click <strong>Billing&nbsp;</strong> to display the Billing tab, and enter information for the following fields. </p>
    		<table style="background-color: #f5f5f5; width: 850px; ">
    			<tbody>
    				<tr>
@@ -441,7 +319,15 @@ Assigning Users and Teams to Records.
 <p><strong>Billable Client</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
-<p>Click the checkbox if this Client is billed by the firm. Examples of Clients who may not be billed include non-profit organizations for whom you do work, children of Clients, or Irrevocable Life Insurance Trusts (ILITs) that are part of a larger Client relationship.</p>
+<p>Click the checkbox if this client is billed by the firm. Examples of clients who may not be billed include non-profit organizations for whom you do work, children of clients, or Irrevocable Life Insurance Trusts (ILITs) that are part of a larger client relationship.</p>
+   					</td>
+   				</tr>
+             				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Accounting ID</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Enter the unique identification used by the organization’s billing software to identify this client. For example, a Primary Client who pays a fee generally has an Accounting ID that is the Client’s last name, or a last name and first name combination. You may wish to enter the same Accounting ID for children of Primary Clients who have their own Client profile for investment management purposes, tax purposes or estate planning purposes. By using the same Accounting ID as their parents, other software programs may aggregate various Client accounts together as a household on one invoice. Be aware that if you use the same Accounting ID for the Primary Client and the children of that Primary Client, you should only click the Billable Client checkbox for the Primary Client. If you plan to import billings from billing software, such as Peachtree, QuickBooks, or other billing software, the accounting code for the Client in the Accounting ID field must match the Accounting ID used for the Client in the billing software.</p>
    					</td>
    				</tr>
    				<tr>
@@ -454,6 +340,13 @@ Assigning Users and Teams to Records.
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
+<p><strong>Billed Custodian</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the custodian that processes fee requests from the Companies List (displays upon clicking the selection arrow) or the list of companies that match the character(s) you enter in the text entry box.</p>
+   					</td>
+   				</tr>   				<tr>
+   					<td style="vertical-align: top; ">
 <p><strong>Billing Group</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
@@ -462,13 +355,27 @@ Assigning Users and Teams to Records.
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
+<p><strong>Billing Frequency</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click from the dropdown how often this client is billed</p>
+   					</td>
+   				</tr>   				<tr>
+   					<td style="vertical-align: top; ">
 <p><strong>Billing Type</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>Click the type of contract this client has with your organization such as Retainer, Comprehensive, or Fixed Fee.</p>
    					</td>
    				</tr>
-   				<tr>
+  				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Rate Schedule</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click the specific schedule used to calculate client fees. An example rate schedule is “1% on assets up to $1 million, 0.5% on assets above $1 million."</p>
+   					</td>
+   				</tr>   				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Billing Rate</strong></p>
    					</td>
@@ -477,6 +384,13 @@ Assigning Users and Teams to Records.
    					</td>
    				</tr>
    				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>When Billed</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click Advance or Arrears</p>
+   					</td>
+   				</tr>   				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Annual Revenue</strong></p>
    					</td>
@@ -494,46 +408,6 @@ Assigning Users and Teams to Records.
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
-<p><strong>Accounting ID</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Enter the unique identification used by the organization’s billing software to identify this client. For example, a Primary Client who pays a fee generally has an Accounting ID that is the Client’s last name, or a last name and first name combination. You may wish to enter the same Accounting ID for children of Primary Clients who have their own Client profile for investment management purposes, tax purposes or estate planning purposes. By using the same Accounting ID as their parents, other software programs may aggregate various Client accounts together as a household on one invoice. Be aware that if you use the same Accounting ID for the Primary Client and the children of that Primary Client, you should only click the Billable Client checkbox for the Primary Client. If you plan to import billings from billing software, such as Peachtree, QuickBooks, or other billing software, the accounting code for the Client in the Accounting ID field must match the Accounting ID used for the Client in the billing software.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Billed Custodian</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click the custodian that processes fee requests from the Companies List (displays upon clicking the selection arrow) or the list of companies that match the character(s) you enter in the text entry box.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Billing Frequency</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click from the dropdown how often this client is billed</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Rate Schedule</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click the specific schedule used to calculate client fees. An example rate schedule is “1% on assets up to $1 million, 0.5% on assets above $1 million."</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>When Billed</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>Click Advance or Arrears</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
 <p><strong>Billing Exceptions</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
@@ -541,8 +415,9 @@ Assigning Users and Teams to Records.
    					</td>
    				</tr>
    			</tbody>
-   		</table><p>&nbsp;</p></li>
-   		<li>Click <strong>Firm&nbsp;</strong> to display the Firm tab and enter information in the following fields.
+   		</table><p>&nbsp;</p>
+<h3><a name="Firm">Firm tab</a></h3>       
+<p>Click <strong>Firm&nbsp;</strong> to display the Firm tab and enter information in the following fields.</p>
    		<table style="background-color: #f5f5f5; width: 850px; ">
    			<tbody>
    				<tr>
@@ -554,6 +429,13 @@ Assigning Users and Teams to Records.
    					</td>
    				</tr>
    				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Termination Date</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>On the Date Selector click the date the client relationship was terminated.</p>
+   					</td>
+   				</tr>   				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Termination Reason</strong></p>
    					</td>
@@ -571,29 +453,20 @@ Assigning Users and Teams to Records.
    				</tr>
    				<tr>
    					<td style="vertical-align: top; ">
+<p><strong>Successor Transfer Date</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>On the Date Selector click the date the client was transferred to the successor advisor. This field is useful during the phase-out process of a specific firm employee to identify when a client has been totally transferred to the Successor Advisor.</p>
+   					</td>
+   				</tr>   				<tr>
+   					<td style="vertical-align: top; ">
 <p><strong>Succession Info</strong></p>
    					</td>
    					<td style="vertical-align: top; ">
 <p>Enter notes relative to the planned succession or the completion of the succession transfer.</p>
    					</td>
    				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Termination Date</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>On the Date Selector click the date the client relationship was terminated.</p>
-   					</td>
-   				</tr>
-   				<tr>
-   					<td style="vertical-align: top; ">
-<p><strong>Successor Transfer Date</strong></p>
-   					</td>
-   					<td style="vertical-align: top; ">
-<p>On the Date Selector click the date the client was transferred to the successor advisor. This field is useful during the phase-out process of a specific firm employee to identify when a client has been totally transferred to the Successor Advisor.</p>
-   					</td>
-   				</tr>
-   				<tr>
+    				<tr>
    					<td style="vertical-align: top; ">
 <p><strong>Successor Fee</strong></p>
    					</td>
@@ -601,155 +474,41 @@ Assigning Users and Teams to Records.
 <p>Enter the Fee negotiated between the Successor Advisor and the Firm Contact when a triggering event occurs.</p>
    					</td>
    				</tr>
+    				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Last ADV Offer</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click on the Date Selector the date of the last ADV offer.</p>
+   					</td>
+   				</tr>
+               				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Last Contract Date</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click on the Date Selector the date of the last contract.</p>
+   					</td>
+   				</tr>
+                          				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Last Privacy Notice</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click on the Date Selector the date the last privacy notice was sent.</p>
+   					</td>
+   				</tr>
+                          				<tr>
+   					<td style="vertical-align: top; ">
+<p><strong>Last Suitability Check</strong></p>
+   					</td>
+   					<td style="vertical-align: top; ">
+<p>Click on the Date Selector the date of the last suitability check.</p>
+   					</td>
+   				</tr>          
    			</tbody>
-   		</table></li>
-   		<li>Click <strong>Save&nbsp; </strong>to save the new client information; click <strong>Cancel&nbsp;</strong>to exit the page without saving the information.</li>
-   	</ol>
-	<h3><a name="ManageClients">
-Manage Clients
-</a></h3>
-<p>Follow the instructions below to perform tasks such as editing, importing and exporting client records.</p>
-   	<table style="background-color: #f5f5f5; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; width: 890px; ">
-   		<tbody>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; width: 300px; ">
-<p><em>To…</em></p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p><em>Then…</em></p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Sort the Clients List View</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Click any column title that has the sort icon beside it. To reverse the sort order, click the column title again.</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Suppress multiple clients</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-   					<ol>
-   						<li>In the Clients list, click the selection box associated with the records you want to suppress.</li>
-   						<li>Click <strong>Suppress</strong>.
-<p>A confirmation box displays.</p></li>
-   						<li>Click <strong>OK</strong>.
-<p>The clients are suppressed.</p></li>
-   					</ol>
-<p>Alternatively, you can click <strong>Suppress</strong> on the Clients Detail View.</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Update information related to multiple clients</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-   					<ol>
-   						<li>In the Clients list, click the selection box associated with the records you want to update.</li>
-   						<li>Click <strong>Mass Update</strong> in the dropdown.</li>
-   					</ol>
-<p>For more information, see <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1094547">
-Editing and suppressing multiple records</a>.</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Import client records</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Click <strong>Clients &nbsp;</strong>from the Navigation menu and follow the instructions in <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/Import#1062781">
-Importing data
-</a>.</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Export records</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-   					<ol>
-   						<li>In the Clients list, click the selection box associated with the records you want to export.</li>
-   						<li>Click <strong>Export</strong> in the dropdown and follow the instructions in<a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/Export#1063832">
-Exporting data</a>.</li>
-   					</ol>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Add one or more clients to a campaign target list</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-   					<ol>
-   						<li>In the Clients list, click the selection box associated with the records you want to add.</li>
-   						<li>Click <strong>Add to Target List</strong> in the dropdown.
-<p>The Target Lists displays.</p></li>
-   						<li>Click the list.
-<p>The client is added to the campaign target list.</p></li>
-   					</ol>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>View client information</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Click the record’s name in the Clients List View.</p>
-<p>The Clients Detail View displays, showing client information and sub-panels for related records; e.g., Activities, History, Contacts.</p>
-<p>While viewing the client details, you can create a new record by clicking <strong>Create New</strong>, or click <strong>Edit</strong>, make changes to the record and then click <strong>Save</strong>.</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Pull in data from data sources such as LinkedIn</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Click the data source from the Clients Detail View. For more information on data services, see <a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1140107">
-Integrating data from external sources</a>.</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Merge duplicate records</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-   					<ol>
-   						<li>In the Clients list, click the selection box associated with the records you want to merge.</li>
-   						<li>Click <strong>Merge</strong> in the dropdown and follow the instructions in<a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1321675">
-Merging duplicate records</a>.</li>
-   					</ol>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Duplicate Clients information</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Click <strong>Duplicate</strong> in the Client Detail View. Duplication is a convenient way of creating a similar Client. You can change the information in the duplicate record to create a new Client.</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Archive an email associated with a Client</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>In the Client Detail view History sub-panel, click <strong>Archive Email</strong>.</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>Manage records in a sub-panel</p>
-   				</td>
-   				<td style="vertical-align: top; border-width: 1px; border-style: solid; border-color: #909090; border-collapse: collapse; padding: 3px; ">
-<p>See<a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1318370">
-Manage related information in sub-panels
-</a>.</p>
-   				</td>
-   			</tr>
-   		</tbody>
-   	</table><h2><a name="SubpanelsRelatedInfo">
+   		</table>     
+<h2><a name="SubpanelsRelatedInfo">
 Sub-panels/Related Information
 </a></h2>
 <p>Client sub-panels include:</p>
@@ -757,6 +516,7 @@ Sub-panels/Related Information
 <tbody>
 <tr>
 <td style="width: 200px; vertical-align: top;">
+<p>Account Histories</p>
 <p>Accounts</p>
 <p>Activities</p>
 <p>Business Insurance</p>
@@ -766,9 +526,10 @@ Sub-panels/Related Information
 <p>Documents</p><p>Estate Documents</p>
 <p>Final Arrangements</p>
 <p>Firm Gifts</p>
-<p>Gift Tax Credits</p>
+
 </td>
 <td style="width: 220px; vertical-align: top;"><p>Gifting</p>
+<p>Gift Tax Credits</p>
 <p>Goals</p>
 <p>Groups</p>
 <p>Health Insurance</p>
@@ -788,8 +549,8 @@ Sub-panels/Related Information
 <p>Projects</p>
 <p>Questionnaires</p>
 <p>Relatives</p>
-<p>Retirement Projections</p>
-</td><td style="width: 200px; vertical-align: top;"><p>Reviews</p>
+<p>Retirement Projections</p><p>Reviews</p>
+</td><td style="width: 200px; vertical-align: top;">
 <p>Scoring</p>
 <p>Service Team</p>
 <p>Services</p>
@@ -802,18 +563,6 @@ Sub-panels/Related Information
 <p>Umbrella Insurance</p>
 </td>
 </td></tr></tbody></table>
-<p>See Also:</p>
-<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1094547">
-Editing and suppressing multiple records</a>.</p>
-<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1318370">
-Manage related information in sub-panels</a>.</p>
-<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1140107">
-Integrating data from external sources</a>.</p>
-<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/User_Interface#1321675">
-Merging duplicate records</a>.</p>
-<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/Export#1063832">
-Exporting data</a>.</p>
-<p><a href="http://support.sugarcrm.com/Guides/Application_Guide/Sugar_Enterprise/Sugar_Application_Guide_6.3.0/Import#1062781">
-Importing data</a>.</p>
+
    </body>
 </html>
