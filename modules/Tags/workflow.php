@@ -355,7 +355,7 @@ class Tags_after_save
 	{
 		//$GLOBALS['log']->debug("[CARRENET]Workflow Tags_after_save - Tags_after_save");		
 		$bean->id=merge_tags($bean->id);
-		clean_links();
+		//clean_links();
 		refresh_count_elements_tags();
 		
 		}
@@ -367,7 +367,7 @@ class Tags_before_retrieve
 	function Tags_before_retrieve(&$bean, $event, $arguments)
 	{	
 		//$GLOBALS['log']->debug("[CARRENET]Workflow Tags_before_retrieve - Tags_before_retrieve");		
-		clean_links();
+		//clean_links();
 		refresh_count_elements_tags();		
 	}
 	
