@@ -92,6 +92,12 @@ $(document).ready(function() {
 	$(".modulesdrager").click(function(){
 		$(this).toggleClass("hide");
 		$(".moduleListPanel").toggleClass("hide");
+		var hideMenuDiv = $('.modulesdrager.hide');
+		if(hideMenuDiv.length){
+			hideMenuDiv.attr("title", "Expand Navigation Menu");
+		}else{
+			$(".modulesdrager").attr("title", "Collapse Navigation Menu")
+		}
 	});
    
  });
