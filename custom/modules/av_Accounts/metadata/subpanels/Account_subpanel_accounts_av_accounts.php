@@ -46,12 +46,17 @@ $subpanel_layout['list_fields'] = array (
     'target_module' => 'Contacts',
     'target_record_key' => 'owner_id',
   ),
-  'custodian' => 
+  'custodian_id_name' => 
   array (
-    'type' => 'enum',
-    'default' => true,
-    'vname' => 'LBL_CUSTODIAN',
-    'width' => '12%',
+    'type' => 'relate',
+    'link' => true,
+    'vname' => 'LBL_CUSTODIAN_ID_NAME',
+    'id' => 'CUSTODIAN_ID',
+    'width' => '10%',
+    'default' => false,
+    'widget_class' => 'SubPanelDetailViewLink',
+    'target_module' => 'av_Companies',
+    'target_record_key' => 'custodian_id',
   ),
   'value' => 
   array (
