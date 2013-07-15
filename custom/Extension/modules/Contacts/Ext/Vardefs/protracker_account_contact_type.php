@@ -6,7 +6,7 @@ $dictionary["Contact"]["fields"]["primary_contact"] = array (
 	'relationship' => 'accounts_contacts_primary',
 	'source' => 'non-db',
 	'side' => 'right',
-	'vname' => 'LBL_ACCOUNT',
+	'vname' => 'LBL_PRIMARY_ACCOUNT',
 );
 $dictionary["Contact"]["fields"]["secondary_contact"] = array (
 	'name' => 'secondary_contact',
@@ -14,6 +14,6 @@ $dictionary["Contact"]["fields"]["secondary_contact"] = array (
 	'relationship' => 'accounts_contacts_secondary',
 	'source' => 'non-db',
 	'side' => 'right',
-	'vname' => 'LBL_ACCOUNT',
+	'vname' => 'LBL_SECONDARY_ACCOUNT',
 );
 ?>
