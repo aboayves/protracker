@@ -5,5 +5,5 @@ $dictionary["Account"]["fields"]["meetings_accounts"] = array (
   'type' => 'link',
   'relationship' => 'meetings_accounts',
   'source' => 'non-db',
-  'vname' => 'LBL_ACCOUNTS_MEETINGS_FROM_MEETINGS_TITLE',
+  'vname' => 'LBL_ACCOUNTS_SECONDARY_MEETINGS',
 );

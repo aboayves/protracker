@@ -1,2 +1,2 @@
 <?php
-$mod_strings['LBL_CONTACTS_SUBPANEL_TITLE'] = 'Contacts';
+//$mod_strings['LBL_CONTACTS_SUBPANEL_TITLE'] = 'Contacts';
