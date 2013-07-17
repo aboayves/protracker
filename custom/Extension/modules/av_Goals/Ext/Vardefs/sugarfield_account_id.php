@@ -28,5 +28,6 @@ $dictionary["av_Goals"]["fields"]["accounts_name"] = array (
 	'table' => 'accounts',
 	'isnull' => 'true',
 	'module' => 'Accounts',
+	'ext2' => 'Accounts',
 );
 ?>
