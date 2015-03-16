@@ -11,7 +11,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * certifying that you have authority to bind Company accordingly.
  *
  * Copyright (C) 2004-2013 SugarCRM Inc.  All rights reserved.
- ********************************************************************************/
+ ***********************************************************************************/
 
 
 global $beanList, $beanFiles, $locale;
